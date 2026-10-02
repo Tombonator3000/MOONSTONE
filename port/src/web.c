@@ -138,3 +138,6 @@ EMSCRIPTEN_KEEPALIVE const char *ms_cel_name(int i) { return game_cel_name(i); }
 EMSCRIPTEN_KEEPALIVE void ms_menu_enable(int on) { meny_online = on != 0; }
 EMSCRIPTEN_KEEPALIVE int ms_menu_event(void) { return meny_take_event(); }
 EMSCRIPTEN_KEEPALIVE void ms_menu_cmd(int cmd, int arg, const char *text) { meny_command(cmd, arg, text); }
+EMSCRIPTEN_KEEPALIVE int ms_menu_ready(void) { return meny_title_seen ? 1 : 0; }
+/* introen (program) gaar; den hoppes over med Esc */
+EMSCRIPTEN_KEEPALIVE int ms_in_intro(void) { return whd_mog_loaded ? 0 : 1; }

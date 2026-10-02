@@ -102,12 +102,16 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   «Public  On/Off», «Back». Linjer man kan velge holdes under 158 piksler, ellers går
   teksten inn under pilen (x 50). Navn kuttes ved siste mellomrom.
   Sidene bygges av meny.c og tegnes av tegn_tittelmeny ($81942 = tegn på nytt og tilbake
-  til løkka). Hendelser: 1 Host, 2 Join-side, 3 rom valgt, 4 Enter Code, 5 kopier lenke,
-  6 offentlig, 7 forlot Join, 8 Back. Kommandoer: 1 rom (kode), 2 spillere, 3 offentlig,
-  4 romliste (linjer «navn<tab>1 of 4»), 5 melding, 6 slutt, 7 navn. STATE_VERSION er 5.
+  til løkka). Online-siden: Host Game, Join Game, «Name  Tom» eller «Choose Name», Back.
+  Hendelser: 1 Host, 2 Join-side, 3 rom valgt, 4 Enter Code, 5 kopier lenke,
+  6 offentlig, 7 forlot Join, 8 Back, 9 navn. Kommandoer: 1 rom (kode), 2 spillere,
+  3 offentlig, 4 romliste (linjer «navn<tab>1 of 4», en invitasjon er bare «Room KODE»),
+  5 melding, 6 slutt, 7 navn, 8 mitt navn, 9 side (Join Game for en invitasjon).
+  STATE_VERSION er 6 (myname kom inn i M2; layout_id ser ikke på M2, så versjonen må
+  økes når M2 endres).
 - Pages: repoet er offentlig og Pages bruker GitHub Actions (eieren slo det på
-  2026-10-02). Spillet ligger på https://tombonator3000.github.io/MOONSTONE/ med
-  spill/Moonstonecd32-AMIGA.zip ved siden av. Før det var repoet privat, og deploy ga
+  2026-10-02). Spillet ligger på https://tombonator3000.github.io/MOONSTONE/. Før
+  spillfila ble bygget inn, lå spill/Moonstonecd32-AMIGA.zip ved siden av. Før det var repoet privat, og deploy ga
   404 «Ensure GitHub Pages has been enabled». GITHUB_TOKEN kan ikke slå på Pages.
 - «Run workflow» (workflow_dispatch) publiserte ikke før rettelsen a998217, fordi
   pages-jobben krevde push. Ny kjøring av en push-kjøring på main publiserer.
@@ -122,6 +126,30 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 - `MED_SPILLET ?= ja` i Makefile (CI setter det også). Med `nei` blir tabellen tom.
 - PC: `--game` først, så den innebygde, så `spill/` og mappen programmet startes fra.
 - Nettsiden (4,3 MB) laster kjernen når siden åpnes; `ms_has_embedded()` sier om
-  fila er der, og `ms_open_embedded()` åpner den. Annen spillfil under «Egne filer og
-  annen spillfil». `Kjerne.last()` deler ett løfte, så kjernen lastes bare en gang.
+  fila er der, og `ms_open_embedded()` åpner den. Annen spillfil under «Spillfil og egne
+  filer» i sidemenyen. `Kjerne.last()` deler ett løfte, så kjernen lastes bare en gang.
+
+## Nettsiden uten startside
+- Eieren vil ikke ha en HTML-startside. Siden starter rett i introen, og alt valg skjer i
+  spillets tittelmeny. Sidemenyen (Home, knappen oppe til høyre) har bilde og lyd,
+  HD-grafikk, lagring, spillfil og egne filer, taster og «Start spillet på nytt».
+- Introen ser på den siste tastaturkoden uten slipp-biten, og bare mellom trinnene.
+  Esc huskes, men det kan gå opp mot 200 bilder før mog lastes. En annen tast etter Esc
+  (Return som slippes) gjør at introen ikke slutter. Målt med moonstone-headless
+  `--press F:esc:4`: alltid mog innen +200 bilder, aldri med Return i tillegg.
+- app.js `introTaster`: fire, Enter, mellomrom og trykk på skjermen blir Esc i 4 bilder;
+  Enter og mellomrom sendes ikke til spillet i introen. Det første trykket slår bare på
+  lyden (nettleseren krever det), unntatt med invitasjon. Esc er ikke en brukerhandling
+  for nettleseren, så lyden prøves på nytt ved neste trykk.
+- `ms_in_intro()` = mog er ikke lastet (whd_mog_loaded, nullstilles i whd_boot).
+  `ms_menu_ready()` = tittelmenyens løkke har kjørt (meny_title_seen). amiga_reset kaller
+  patch_reset, som nullstiller tekstlappen og menyen, så en omstart starter rent.
+- Invitasjon (`?rom=KODE`): når tittelmenyen er nådd, sendes kommando 9 (Join Game) og
+  rommet legges først i listen, og `rom` fjernes fra adressen. Lenken beholder `peer`,
+  `mqtt` og `mqttv`.
+- WebRTC merker ikke at verten lukker fanen. Verten sier fra på `pagehide`, og gjesten
+  gir opp etter 20 sekunder uten noe fra verten (ping hvert 2. sekund). `Nett.avslutt()`
+  tømmer hendelsene først, ellers kaller close-hendelsen `frakoblet` en gang til.
+- Verten legger ut rommet på nytt med en gang antallet spillere endres
+  (`stoppAnnonse.oppdater()`), ellers står det «1 of 4» i opptil ett minutt.
 

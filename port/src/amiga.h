@@ -289,14 +289,18 @@ extern int       whd_n_relocs;
 void     game_mog_ready(void);            /* mog er lastet og lappet: tekster.txt og menyen */
 bool     meny_mog_ready(void);            /* true naar menyen er lappet */
 void     patch_register_hooks(void);      /* lappene; de sjekker selv tilstanden */
+void     patch_reset(void);               /* ny maskin: lappene av (kalles fra amiga_reset) */
+void     meny_reset(void);
 void     meny_register_hooks(void);
 extern bool meny_online;                  /* frontenden kan nettspill: "Online Game" i tittelmenyen */
+extern bool meny_title_seen;              /* tittelmenyen er naadd (oppstart rett til menyen) */
 /* hendelser fra menyen til frontenden: kode | argument << 8 */
 enum { MENY_EV_HOST = 1, MENY_EV_JOIN_PAGE, MENY_EV_JOIN_ROOM, MENY_EV_ENTER_CODE, MENY_EV_COPY,
-       MENY_EV_PUBLIC, MENY_EV_LEAVE_JOIN, MENY_EV_BACK };
+       MENY_EV_PUBLIC, MENY_EV_LEAVE_JOIN, MENY_EV_BACK, MENY_EV_NAME };
 /* kommandoer fra frontenden, brukes ved starten av et bilde (i nettspill hos alle) */
 enum { MENY_CMD_HOSTING = 1, MENY_CMD_PLAYERS, MENY_CMD_PUBLIC, MENY_CMD_ROOMS, MENY_CMD_MESSAGE,
-       MENY_CMD_SESSION_END, MENY_CMD_NAMES };
+       MENY_CMD_SESSION_END, MENY_CMD_NAMES, MENY_CMD_MYNAME, MENY_CMD_PAGE };
+enum { MENY_PAGE_ONLINE = 1, MENY_PAGE_JOIN = 3 };   /* for MENY_CMD_PAGE */
 int      meny_take_event(void);           /* 0 = ingen */
 void     meny_command(int cmd, int arg, const char *text);
 

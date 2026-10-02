@@ -10,61 +10,7 @@
 </style>
 </head>
 <body>
-<main id="start" class="panel">
-  <h1>Moonstone</h1>
-  <p class="under">A Hard Days Knight (Mindscape 1991), kjørt fra originalkoden på en emulert Amiga.</p>
-
-  <section class="boks">
-    <label class="felt">Navnet ditt <input id="navn" maxlength="20" autocomplete="nickname"></label>
-    <div class="rad">
-      <button id="spill-alene" class="knapp">Spill</button>
-      <button id="lag-rom" class="knapp">Lag nettspill</button>
-    </div>
-    <div class="rad">
-      <input id="romkode" placeholder="Romkode" maxlength="6" autocomplete="off" spellcheck="false">
-      <button id="bli-med" class="knapp">Bli med</button>
-    </div>
-    <label class="avkryss"><input type="checkbox" id="offentlig"> Vis rommet mitt i listen over offentlige rom</label>
-    <p class="hjelp">Du kan også trykke «Spill» og velge <b>Online Game</b> i spillets egen meny. Der lager du rom, kopierer invitasjonslenken og blir med i offentlige rom.</p>
-    <p id="spillfil-status" class="hjelp" role="status">Laster spillet ...</p>
-  </section>
-
-  <details class="boks" id="filer">
-    <summary>Egne filer og annen spillfil</summary>
-    <p class="hjelp" id="spillfil-hjelp">Spillfilen (Moonstonecd32-AMIGA.zip) er bygget inn i siden. Vil du bruke en annen, f.eks. «Moonstone CD32.iso», velger du den her. Gjester i nettspill trenger ingen spillfil.</p>
-    <label class="knapp liten">Velg spillfil
-      <input type="file" id="velg-fil" accept=".zip,.iso,application/zip">
-    </label>
-    <p class="hjelp">Filer laget med <code>tools/gfx.py build</code> (f.eks. bg1a.PIV) brukes i stedet for originalene i data/, og <code>tekster.txt</code> fra <code>tools/tekst.py</code> endrer tekstene i spillet. I nettspill får gjestene dem fra verten.</p>
-    <div class="rad">
-      <label class="knapp liten">Legg til filer <input type="file" id="velg-mod" multiple></label>
-      <button id="fjern-mod" class="knapp liten">Fjern alle</button>
-    </div>
-    <p class="hjelp" id="mod-liste">Ingen egne filer.</p>
-  </details>
-
-  <details class="boks" id="offentlige">
-    <summary>Offentlige rom</summary>
-    <ul id="romliste"><li class="hjelp">Henter listen ...</li></ul>
-  </details>
-
-  <p id="melding" role="status"></p>
-
-  <details class="boks">
-    <summary>Slik spiller du</summary>
-    <ul class="taster">
-      <li><b>Joystick 1:</b> piltastene, Ctrl er fire. Spillkontroller 1.</li>
-      <li><b>Joystick 2:</b> talltastaturet 8 2 4 6 (7 9 1 3 på skrå), 0 er fire. Spillkontroller 2.</li>
-      <li><b>Mellomrom:</b> inventaret til ridderen. <b>E:</b> avslutt turen. <b>Esc:</b> hopp over introen.</li>
-      <li>I kamp: hold fire og trykk en retning for de åtte angrepene (se manualen).</li>
-      <li><b>Home:</b> menyen. <b>Page Up / Page Down:</b> lagre / laste. <b>End:</b> neste lagringsplass. <b>F10:</b> avslutt.</li>
-      <li>På spillkontroller: A = fire, B = mellomrom, Start = E, Back = Esc.</li>
-    </ul>
-  </details>
-  <p class="smaa">Laget for å lære hvordan spillet er bygget. Kjernen er en Amiga 500-emulator i C (WebAssembly), bildet tegnes med three.js, nettspill går med PeerJS.</p>
-</main>
-
-<div id="spill" hidden>
+<div id="spill">
   <div id="skjerm"><canvas id="lerret"></canvas></div>
   <div id="touch" hidden>
     <div class="kors"></div>
@@ -77,8 +23,19 @@
   </div>
   <button id="meny-knapp" title="Meny (Home)">Meny</button>
   <div id="status"></div>
+  <div id="hint" hidden></div>
   <div id="chatlinjer"></div>
-  <div id="kode-dialog" class="boks" hidden>
+  <div id="lasting" role="status"><h1>Moonstone</h1><p id="lasting-tekst">Laster spillet ...</p></div>
+  <div id="navn-dialog" class="boks dialog" hidden>
+    <h3>Navnet ditt</h3>
+    <p class="hjelp">Vises for de andre i nettspillet.</p>
+    <input id="navn-felt" maxlength="20" autocomplete="nickname" spellcheck="false" aria-label="Navnet ditt">
+    <div class="rad">
+      <button id="navn-ok" class="knapp">OK</button>
+      <button id="navn-avbryt" class="knapp">Avbryt</button>
+    </div>
+  </div>
+  <div id="kode-dialog" class="boks dialog" hidden>
     <h3>Bli med i et rom</h3>
     <p class="hjelp">Skriv romkoden (seks tegn) eller lim inn invitasjonslenken.</p>
     <input id="kode-felt" maxlength="300" autocomplete="off" spellcheck="false" aria-label="Romkode eller lenke">
@@ -133,7 +90,34 @@
       <p class="hjelp" id="port-hjelp">Moonstone har to joystickporter. Joystick 1 (port 2) brukes på kartet, i kamp mellom to riddere brukes begge. Spillere på samme joystick deler den som ved et vanlig bord: den som har turen, styrer.</p>
       <div id="chat"><div id="chatlogg"></div><input id="chatfelt" placeholder="Skriv en melding og trykk Enter" maxlength="300"></div>
     </section>
-    <div class="rad"><button id="avslutt" class="knapp">Avslutt til startsiden</button></div>
+    <section class="boks">
+      <h3>Spillfil og egne filer</h3>
+      <p class="hjelp" id="spillfil-hjelp">Spillfilen (Moonstonecd32-AMIGA.zip) er bygget inn i siden. Vil du bruke en annen, f.eks. «Moonstone CD32.iso», velger du den her. Gjester i nettspill trenger ingen spillfil.</p>
+      <label class="knapp liten">Velg spillfil
+        <input type="file" id="velg-fil" accept=".zip,.iso,application/zip">
+      </label>
+      <p class="hjelp">Filer laget med <code>tools/gfx.py build</code> (f.eks. bg1a.PIV) brukes i stedet for originalene i data/, og <code>tekster.txt</code> fra <code>tools/tekst.py</code> endrer tekstene i spillet. De brukes når spillet startes på nytt. I nettspill får gjestene dem fra verten.</p>
+      <div class="rad">
+        <label class="knapp liten">Legg til filer <input type="file" id="velg-mod" multiple></label>
+        <button id="fjern-mod" class="knapp liten">Fjern alle</button>
+      </div>
+      <p class="hjelp" id="mod-liste">Ingen egne filer.</p>
+    </section>
+    <section class="boks">
+      <h3>Taster</h3>
+      <ul class="taster">
+        <li><b>Introen:</b> Esc, fire, Enter eller et trykk på skjermen hopper over den.</li>
+        <li><b>Nettspill:</b> velg <b>Online Game</b> i spillets meny.</li>
+        <li><b>Joystick 1:</b> piltastene, Ctrl er fire. Spillkontroller 1.</li>
+        <li><b>Joystick 2:</b> talltastaturet 8 2 4 6 (7 9 1 3 på skrå), 0 er fire. Spillkontroller 2.</li>
+        <li><b>Mellomrom:</b> inventaret til ridderen. <b>E:</b> avslutt turen.</li>
+        <li>I kamp: hold fire og trykk en retning for de åtte angrepene (se manualen).</li>
+        <li><b>Home:</b> denne menyen. <b>Page Up / Page Down:</b> lagre / laste. <b>End:</b> neste lagringsplass. <b>F10:</b> start på nytt.</li>
+        <li>På spillkontroller: A = fire, B = mellomrom, Start = E, Back = Esc.</li>
+      </ul>
+    </section>
+    <div class="rad"><button id="omstart" class="knapp">Start spillet på nytt</button></div>
+    <p class="smaa">Moonstone: A Hard Days Knight (Mindscape 1991), kjørt fra originalkoden på en emulert Amiga 500. Kjernen er skrevet i C (WebAssembly), bildet tegnes med three.js, nettspill går med PeerJS.</p>
   </div>
 </div>
 

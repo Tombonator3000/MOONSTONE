@@ -44,6 +44,11 @@ Formatene er beskrevet i `tools/moonfiles.py`. Kort:
    (tastatur, lyd, lasting av filer, pauser), og hopper inn.
 3. Introen viser logoen og historien. Når den er ferdig (eller du trykker Esc), hopper
    den til slaven, som laster `mog` til $80000 på samme måte og starter hovedspillet.
+   Introen ser på den siste koden fra tastaturet, uten biten for sluppet tast, og bare
+   mellom trinnene. Et Esc-trykk huskes derfor, men det kan gå opp mot 200 bilder (fire
+   sekunder) før introen slutter, og en annen tast etter Esc (f.eks. at Return slippes)
+   gjør at den ikke slutter i det hele tatt. Nettsiden sender derfor bare Esc mens
+   introen går (`introTaster` i `web/src/app.js`).
 4. Alle filer spillet laster senere, går gjennom slaven (`resload_LoadFileDecrunch`).
 
 Slaven fjerner også gullgrensen på 150 (blir 999), og den har en juksekode.

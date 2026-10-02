@@ -271,6 +271,13 @@ void patch_state(StateIO *s)
     STATE_VAR(s, texts_patched);
 }
 
+/* ny maskin: ingen lapper foer mog er lastet */
+void patch_reset(void)
+{
+    texts_patched = 0;
+    meny_reset();
+}
+
 void game_mog_ready(void)
 {
     text_next = TEXT_BASE;

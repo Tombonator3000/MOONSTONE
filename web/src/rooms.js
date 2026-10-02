@@ -28,7 +28,8 @@ const Romliste = (() => {
         return klient;
     }
 
-    /* verten legger ut rommet og oppdaterer det hvert minutt; returnerer stopp() */
+    /* verten legger ut rommet og oppdaterer det hvert minutt; returnerer stopp(),
+     * og stopp.oppdater() legger det ut med en gang (f.eks. naar noen kommer inn) */
     function annonser(hentInfo) {
         let c;
         try { c = kobl(); } catch (e) { return () => {}; }
@@ -41,11 +42,13 @@ const Romliste = (() => {
         };
         if (c.connected) legg(); else c.once('connect', legg);
         const t = setInterval(legg, 60000);
-        return () => {
+        const stopp = () => {
             clearInterval(t);
             const info = hentInfo();
             try { c.publish(TEMA + info.kode, '', { retain: true, qos: 1 }); } catch (e) { /* frakoblet */ }
         };
+        stopp.oppdater = () => { if (c.connected) legg(); };
+        return stopp;
     }
 
     /* lytter paa alle rom; cb faar en liste sortert med nyeste forst */

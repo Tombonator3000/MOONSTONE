@@ -41,3 +41,8 @@ Instrukser for AI-agenter og andre som jobber i dette repoet.
   alle maskinene i et nettspill gjør det samme også etter at en tilstand er lastet.
   Det som endrer spillets minne utenfra, går som menykommandoer ved starten av et bilde.
 - Tekstene fra spillet (`tools/tekst.py extract`) sjekkes ikke inn, som grafikken.
+- Nettsiden skal ikke ha en egen startside. Den starter rett i introen, som kan hoppes
+  over, og nettspill og navn velges bare i spillets tittelmeny («Online Game»).
+  Innstillinger, lagring og egne filer ligger i sidemenyen. Eieren vil ha det slik.
+- Endres strukturer som lagres i tilstanden, men som `layout_id()` i state.c ikke ser
+  (f.eks. M2 i meny.c), skal `STATE_VERSION` økes.

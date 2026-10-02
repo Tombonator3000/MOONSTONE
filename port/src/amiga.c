@@ -286,6 +286,7 @@ void amiga_reset(void)
     memset(chip, 0, sizeof chip);
     memset(fast, 0, sizeof fast);
     memset(&M, 0, sizeof M);
+    patch_reset();
     M.lof = true;
     M.kbd_ready = true;
     custom_reset();

@@ -474,6 +474,7 @@ bool whd_boot(void)
     uint32_t loader = (uint32_t)(s[24] << 8 | s[25]);
     uint32_t cdir = (uint32_t)(s[26] << 8 | s[27]);
     whd_keyexit = s[31] ? s[31] : -1;
+    whd_mog_loaded = false;                  /* introen (program) starter forst */
     if (cdir) snprintf(current_dir, sizeof current_dir, "%s", (const char *)s + cdir);
     else current_dir[0] = 0;
     if (slave_version >= 8) {

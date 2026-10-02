@@ -38,13 +38,13 @@ const Kjerne = (() => {
         return p;
     }
 
-    /* spillfilene (zip eller ISO); kjernen tar over bufferet */
     /* spillfila som er bygget inn i kjernen (port/bin2c.py) */
     function harInnebygd() { return !!M._ms_has_embedded(); }
     function aapneInnebygd() {
         if (!M._ms_open_embedded()) throw new Error(M.UTF8ToString(M._ms_error()) || 'Den innebygde spillfilen kan ikke leses.');
     }
 
+    /* andre spillfiler (zip eller ISO); kjernen tar over bufferet */
     function aapne(bytes) {
         const p = kopierInn(bytes);
         if (!M._ms_open_mem(p, bytes.length)) throw new Error(M.UTF8ToString(M._ms_error()));
@@ -142,6 +142,8 @@ const Kjerne = (() => {
     return {
         menyPaa: (on) => M._ms_menu_enable(on ? 1 : 0),
         menyHendelse: () => M._ms_menu_event(),
+        menyKlar: () => !!M._ms_menu_ready(),       /* tittelmenyen er naadd */
+        iIntro: () => !!M._ms_in_intro(),
         menyKommando,
         last, aapne, harInnebygd, aapneInnebygd, start, startSomGjest, inndata, tast, bilde, rammebuffer, vindu, lyd,
         lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil,

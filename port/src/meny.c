@@ -64,6 +64,7 @@ static struct {
     uint8_t select;                         /* velg denne linjen ved neste tegning (0 = ingen) */
     uint8_t n_names;
     char    room[8];
+    char    myname[TEXT_SIZE];              /* navnet til den som spiller her (Online Game) */
     char    names[4][TEXT_SIZE];            /* "1 Tom", i spillerrekkefolge */
     char    rooms[3][TEXT_SIZE];            /* navnet paa verten */
     char    room_counts[3][12];             /* "1 of 4" */
@@ -72,6 +73,7 @@ static struct {
 } M2;
 
 bool meny_online;                           /* frontenden kan nettspill (nettsiden) */
+bool meny_title_seen;                       /* tittelmenyen er naadd siden mog ble lastet (nettsiden spoler dit) */
 
 /* ---------------------------------------------------------------- hendelser */
 static int events[8], n_events;
@@ -138,6 +140,11 @@ static void room_line(char *dst, int i)
 {
     char name[TEXT_SIZE];
     const char *count = M2.room_counts[i];
+    if (!count[0]) {                        /* en invitasjon: "Room ABC123", ellers bare koden */
+        const char *t = M2.rooms[i], *sp = strchr(t, ' ');
+        fit_width(dst, text_width(t) > 158 && sp ? sp + 1 : t, 158);
+        return;
+    }
     fit_width(name, M2.rooms[i], 158 - text_width(count) - 2 * text_width(" "));
     snprintf(dst, TEXT_SIZE, "%s  %s", name, count);
 }
@@ -171,12 +178,18 @@ static void page_rows(Row r[ROWS])
     static char buf[ROWS][TEXT_SIZE];
     for (int i = 0; i < ROWS; i++) { r[i].text = ""; r[i].selectable = false; }
     switch (M2.page) {
-    case PAGE_ONLINE:
+    case PAGE_ONLINE: {
         r[0].text = "Online Game";
         r[1] = (Row){ "Host Game", true };
         r[2] = (Row){ "Join Game", true };
-        r[3] = (Row){ "Back", true };
+        char name[TEXT_SIZE];
+        fit_name(name, M2.myname, 158 - text_width("Name  "));
+        if (name[0]) snprintf(buf[3], TEXT_SIZE, "Name  %s", name);
+        else snprintf(buf[3], TEXT_SIZE, "Choose Name");
+        r[3] = (Row){ buf[3], true };
+        r[4] = (Row){ "Back", true };
         break;
+    }
     case PAGE_HOST:
         snprintf(buf[0], TEXT_SIZE, "Room %s", M2.room);
         r[0].text = buf[0];
@@ -262,6 +275,7 @@ static void show_page(int page)
 bool meny_mog_ready(void)
 {
     M2.enabled = meny_online;
+    meny_title_seen = false;
     M2.page = PAGE_TITLE;
     M2.redraw = M2.wait_release = 0;
     if (!M2.enabled) return false;
@@ -300,7 +314,9 @@ static void goto_redraw(void)
  * saa vi aldri skriver om listen mens skriv_tekst holder paa med den. */
 static bool hook_loop(void)
 {
-    if (!active() || !M2.redraw) return false;
+    if (!active()) return false;
+    meny_title_seen = true;
+    if (!M2.redraw) return false;
     M2.redraw = 0;
     if (M2.select) { wr16(VALG, M2.select); M2.select = 0; }
     build_page();
@@ -346,7 +362,8 @@ static bool hook_fire(void)
             M2.rooms_known = 0; M2.n_rooms = 0; M2.rooms_error[0] = 0;
             show_page(PAGE_JOIN);
             emit(MENY_EV_JOIN_PAGE, 0);
-        } else show_page(PAGE_TITLE);
+        } else if (v == 3) emit(MENY_EV_NAME, 0);
+        else show_page(PAGE_TITLE);
         break;
     case PAGE_HOST:
         if (v == 3) emit(MENY_EV_COPY, 0);
@@ -427,6 +444,7 @@ void meny_command(int cmd, int arg, const char *text)
         M2.public_room = arg != 0;
         break;
     case MENY_CMD_ROOMS: {
+        int before = M2.n_rooms;
         M2.rooms_known = 1;
         M2.n_rooms = 0;
         M2.rooms_error[0] = 0;
@@ -447,6 +465,9 @@ void meny_command(int cmd, int arg, const char *text)
             M2.n_rooms++;
             p = nl ? nl + 1 : p + n;
         }
+        /* siden aapnet uten rom, saa pilen sto paa Enter Code: flytt den til det
+         * forste rommet naar det kommer */
+        if (M2.page == PAGE_JOIN && !before && M2.n_rooms && rd16(VALG) == 4) M2.select = 1;
         break;
     }
     case MENY_CMD_MESSAGE: {
@@ -472,6 +493,15 @@ void meny_command(int cmd, int arg, const char *text)
         }
         break;
     }
+    case MENY_CMD_MYNAME:
+        snprintf(M2.myname, TEXT_SIZE, "%s", text);
+        break;
+    case MENY_CMD_PAGE:                     /* f.eks. Join Game naar siden er aapnet med en invitasjon */
+        if (!M2.enabled || (arg != PAGE_JOIN && arg != PAGE_ONLINE)) return;
+        M2.page = (uint8_t)arg;
+        if (arg == PAGE_JOIN) { M2.rooms_known = 0; M2.n_rooms = 0; M2.rooms_error[0] = 0; }
+        M2.select = 1;
+        break;
     case MENY_CMD_SESSION_END:
         M2.session = SESSION_NONE;
         M2.n_names = 0;
@@ -483,6 +513,14 @@ void meny_command(int cmd, int arg, const char *text)
         return;
     }
     if (M2.enabled && M2.page != PAGE_TITLE) M2.redraw = 1;
+}
+
+/* ny maskin (amiga_reset): ingen side, intet rom. Frontenden sender navnet paa nytt. */
+void meny_reset(void)
+{
+    memset(&M2, 0, sizeof M2);
+    meny_title_seen = false;
+    n_events = 0;
 }
 
 void meny_state(StateIO *s)

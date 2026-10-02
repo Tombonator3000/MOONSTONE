@@ -80,13 +80,14 @@ const Nett = (() => {
         return id ? new Peer(id, o) : new Peer(o);
     }
 
+    /* lenken beholder en egen PeerJS-server og MQTT-megler, saa gjesten bruker de samme */
     function invitasjon(k) {
         const u = new URL(location.href);
-        const p = u.searchParams.get('peer');
+        const behold = ['peer', 'mqtt', 'mqttv'].map((n) => [n, u.searchParams.get(n)]);
         u.search = '';
         u.hash = '';
         u.searchParams.set('rom', k || kode);
-        if (p) u.searchParams.set('peer', p);
+        for (const [n, v] of behold) if (v) u.searchParams.set(n, v);
         return u.toString();
     }
 
@@ -311,7 +312,8 @@ const Nett = (() => {
     let vert = null;
     const rammer = [];
     let deler = null, sistInn = -1, sistSendt = 0;
-    let ping = 0, pingTimer = null;
+    let ping = 0, pingTimer = null, sistFraVert = 0;
+    const STILLE = 20000;                     /* ms uten svar fra verten for gjesten gir opp */
 
     function bliMed(romkode, navn, hendelser) {
         h = hendelser;
@@ -325,11 +327,19 @@ const Nett = (() => {
                 vert = peer.connect(PREFIKS + kode.toLowerCase(), { reliable: true });
                 vert.on('open', () => {
                     aapnet = true;
+                    sistFraVert = performance.now();
                     vert.send({ t: 'hei', navn: mittNavn, v: VERSJON });
-                    pingTimer = setInterval(() => { if (vert.open) vert.send({ t: 'ping', tid: performance.now() }); }, 2000);
+                    /* WebRTC merker ikke alltid at verten er borte (lukket fane, tapt nett),
+                     * saa gjesten gir opp naar verten ikke har svart paa en stund */
+                    pingTimer = setInterval(() => {
+                        if (performance.now() - sistFraVert > STILLE) {
+                            clearInterval(pingTimer);
+                            h.frakoblet && h.frakoblet('Verten svarer ikke lenger.');
+                        } else if (vert && vert.open) vert.send({ t: 'ping', tid: performance.now() });
+                    }, 2000);
                     ok();
                 });
-                vert.on('data', fraVert);
+                vert.on('data', (d) => { sistFraVert = performance.now(); fraVert(d); });
                 vert.on('close', () => { clearInterval(pingTimer); h.frakoblet && h.frakoblet('Forbindelsen til verten ble brutt.'); });
                 vert.on('error', () => {});
             });
@@ -394,7 +404,9 @@ const Nett = (() => {
         else if (vert && vert.open) vert.send({ t: 'chat', tekst });
     }
 
+    /* app.js faar ingen hendelser fra forbindelser som lukkes her */
     function avslutt() {
+        h = {};
         if (rolle === 'vert') { sendAlle({ t: 'slutt' }); for (const g of gjester.values()) g.conn.close(); gjester.clear(); }
         if (vert) { vert.close(); vert = null; }
         clearInterval(pingTimer);
