@@ -56,6 +56,18 @@ med Blitteren som "bobs" av biblioteket *IMAGEXCEL Code Module: SPRITE* (1988), 
 ligger både i introen og i hovedspillet. Kampbakgrunnene settes sammen av biter fra
 delarkene i `Test` etter oppsettet i `.t`-filene.
 
+Alle figurer går gjennom `tegn_figur` ($9DCEC): A0 er CEL-filen i minnet, D0 bildet,
+D1 x og D2 y. Den klipper mot skjermen og blitter med maske. Figurene tegnes i en
+buffer utenfor skjermen ti ganger i sekundet, gjerne fordelt på to bilder på rad, og
+blir synlige to bilder etter.
+
+Figurene finnes bare i én retning i filene. Når en figur skal snu, speilvender
+`sub_09db16` bildet der det ligger i minnet. Den snur rekkefølgen på ordene i hver
+rad og bitene i hvert ord (med en tabell på 256 byte fra `sub_09dbc6`), og skriver om
+byte 8 i bildetabellen: 1 betyr vanlig, og (utfylling << 4) betyr speilet, der
+utfyllingen er bredden rundet opp til 16 minus bredden. `tegn_figur` trekker den øvre
+halvdelen fra x, så den speilede figuren havner på samme sted som den vanlige.
+
 ## Ridderne og turene
 
 Fire strukturer på $84 byte fra $8D5B4:
@@ -87,6 +99,6 @@ to ProTracker-moduler: `introx5` (introen) og `vict0ry6yy` (seier).
 ## Ting å se nærmere på
 
 - `.t`-filene: nøyaktig hvordan kampbakgrunnen bygges.
-- Tegnerutinen i IMAGEXCEL-modulen (for HD-grafikk, se `docs/hd-grafikk.md`).
+- Andre tegnerutiner enn `tegn_figur` (tekst, menyer), for HD-grafikk (se `docs/hd-grafikk.md`).
 - Kampsystemet: de åtte angrepene, treffsonene i `collide.hit`, monstrenes oppførsel.
 - Testmenyen for monstre på $82D82.

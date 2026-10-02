@@ -77,6 +77,7 @@ void ami_instr_hook(unsigned pc)
         whd_call(pc - RESLOAD_BASE);
         return;
     }
+    if (pc - SLAVE_BASE < 0x800) game_slave_pc(pc);
     if (n_open) {
         uint32_t sp = m68k_get_reg(NULL, M68K_REG_SP);
         int k = n_open - 1;

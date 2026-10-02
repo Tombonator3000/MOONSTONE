@@ -91,6 +91,7 @@ På spillkontrollere er A fire, B mellomrom, Start E og Back Esc, som CD32-padde
 | Nettleser | WebAssembly, three.js med filtrene skarp, rene piksler, myk og CRT, lyd, spillkontrollere, berøringsknapper, lagring i IndexedDB. Testet i Chromium. |
 | Nettspill | PeerJS med opptil fire spillere, joystick etter tur, romliste via HiveMQ. Testet med to nettlesere mot en lokal PeerJS-server og MQTT-megler. |
 | Grafikk | Alle bilder og figurer ut som PNG og inn igjen. Rundturen er byte for byte lik. |
+| HD-grafikk | Eksperimentelt i nettleseren: figurer kan byttes med PNG-er i høyere oppløsning. Plassering og speiling er sjekket mot emulatorbildet i kamp og på kartet. Bakgrunner gjenstår. |
 | Lyd | Lydeffektene som WAV, musikken som ProTracker-moduler. |
 | Disassembly | 13 775 instruksjoner og 412 funksjoner i mog, styrt av relokeringer og kodedekning. |
 | Decomp | Hook-system med syklusregnskap. `les_joysticker` og `joydat_til_bits` er i C og gir samme spill som originalen. |
@@ -114,8 +115,15 @@ python3 tools/lyd.py extract Moonstonecd32-AMIGA.zip assets/lyd
 gir lydeffektene som WAV og musikken som `.mod`. Verktøyene trenger Python 3 og Pillow
 (`pip install pillow`), disassembleren også capstone.
 
-Planen for grafikk i høy oppløsning står i `docs/hd-grafikk.md`, og det vi vet om
-hvordan spillet er bygget står i `docs/slik-er-spillet-bygget.md`.
+### HD-grafikk (eksperimentelt)
+
+Nettsiden kan tegne figurene med egne bilder i høyere oppløsning. Lag en mappe med
+samme navn som `tools/gfx.py extract` gir, f.eks. `kn1.ob/012.png`, tegn bildene i
+den størrelsen du vil, og velg mappen i menyen under «HD-grafikk». Spillet selv er
+uendret; HD-bildene legges oppå der spillet tegner figuren. `--tegneliste F[:N]` i
+PC-versjonen viser hvilke figurer som tegnes hvor, og `tools/hd_sjekk.py` sjekker
+plasseringen. Mer i `docs/hd-grafikk.md`, og det vi vet om hvordan spillet er bygget
+står i `docs/slik-er-spillet-bygget.md`.
 
 ## Decomp
 
@@ -164,15 +172,15 @@ port/src/         emulatoren og PC-delen (C)
   blitter.c       Blitteren                             video.c    bitplan, sprites, farger
   paula.c         lyd                                   cia.c      tidtakere, tastatur
   whdload.c       slaven og resload-funksjonene         files.c    zip, ISO og mapper
-  game.c          det vi vet om spillets data (ridderne, turen)
+  game.c          det vi vet om spillets data (ridderne, turen, tegnelisten)
   hooks.c         C-erstatninger og kodedekning         decomp/    funksjonene i C
   frontend.c      SDL2-vinduet                          web.c      grensesnittet til nettsiden
 port/ext/musashi  68000-kjernen (MIT)
 web/src/          nettsiden: core, render (three.js), audio, input, store, net (PeerJS), rooms (MQTT), app
 web/vendor/       three.js, PeerJS og MQTT.js (MIT)
-tools/            gfx.py, lyd.py, disasm.py, check_hooks.py, moonfiles.py
+tools/            gfx.py, lyd.py, disasm.py, check_hooks.py, hd_sjekk.py, moonfiles.py
 disasm/           symbols.txt, functions.txt, coverage.bin
-docs/             hvordan spillet er bygget, plan for HD-grafikk
+docs/             hvordan spillet er bygget, HD-grafikk
 windows/          start.bat og LES_MEG.txt til Windows-pakken
 ```
 

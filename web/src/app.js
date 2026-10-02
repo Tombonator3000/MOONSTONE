@@ -226,6 +226,7 @@
         Kjerne.inndata(j0, j1);
         for (const [k, d] of taster) Kjerne.tast(k, d);
         Kjerne.bilde();
+        Visning.nyttBilde(Kjerne.tegneliste());
         Lyd.push(Kjerne.lyd());
         const filer = Kjerne.brukteFiler();
         if (modus === 'vert' && Nett.harGjester()) {
@@ -243,6 +244,7 @@
         Kjerne.inndata(m.j[0], m.j[1]);
         if (m.k) for (const [k, d] of m.k) Kjerne.tast(k, d);
         Kjerne.bilde();
+        Visning.nyttBilde(Kjerne.tegneliste());
         Lyd.push(Kjerne.lyd());
         Kjerne.brukteFiler();
         if (m.h !== undefined) {
@@ -456,6 +458,13 @@
     $('volum').addEventListener('input', (e) => { innst.volum = +e.target.value; if (modus) Kjerne.volum(innst.volum); lagreInnst(); });
     $('knappevent').addEventListener('change', (e) => { innst.knappevent = e.target.checked; lagreInnst(); status('Gjelder fra neste start'); });
     $('offentlig').addEventListener('change', (e) => { innst.offentlig = e.target.checked; lagreInnst(); });
+    $('rammer').addEventListener('change', (e) => { Visning.settRammer(e.target.checked); });
+    $('velg-hd').addEventListener('change', async (e) => {
+        const n = await Visning.lastHdPakke(e.target.files);
+        $('hd-status').textContent = Visning.hdAntall() + ' bilder i HD-pakken.';
+        status(n + ' HD-bilder lastet');
+    });
+    $('tom-hd').addEventListener('click', () => { Visning.tomHdPakke(); $('hd-status').textContent = 'Ingen HD-pakke.'; });
 
     Inndata.settHurtigtaster((e) => {
         if (e.code === 'Home') { visMeny(!menyApen); return true; }

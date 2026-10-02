@@ -1,4 +1,4 @@
-# Funksjoner i mog: adresse, navn, antall kall i koden, kjort i emulatoren, kommentar
+# Funksjoner i mog: adresse, navn, antall kall i koden, kjort i emulatoren, kommentar og tekster den bruker
 080096  knappevent_1                 kall 0    kjort ja   slaven: ButtonWait (vent paa fire) og hopp til $81880
 080190  sub_080190                   kall 1    kjort ja   
 0801b6  sub_0801b6                   kall 1    kjort ja   
@@ -11,7 +11,7 @@
 08050e  sub_08050e                   kall 3    kjort nei  
 080584  sub_080584                   kall 1    kjort nei  
 0805b8  sub_0805b8                   kall 1    kjort nei  
-08064a  sub_08064a                   kall 1    kjort nei  
+08064a  sub_08064a                   kall 1    kjort nei    tekster: "-./010/."
 080704  sub_080704                   kall 1    kjort nei  
 080776  sub_080776                   kall 5    kjort nei  
 0808a2  sub_0808a2                   kall 1    kjort nei  
@@ -30,18 +30,18 @@
 08116a  sub_08116a                   kall 1    kjort nei  
 0814cc  sub_0814cc                   kall 1    kjort nei  
 08158e  sub_08158e                   kall 1    kjort nei  
-081846  tilbake_til_introen          kall 0    kjort nei  slaven: laster program paa nytt (avslutt spillet)
+081846  tilbake_til_introen          kall 0    kjort nei  slaven: laster program paa nytt (avslutt spillet)  tekster: "program"
 081880  sub_081880                   kall 1    kjort ja   
 081968  sub_081968                   kall 1    kjort ja   
 081a02  sub_081a02                   kall 1    kjort nei  
-081a1a  sub_081a1a                   kall 2    kjort ja   
+081a1a  vis_spillere_tall            kall 2    kjort ja   bruker tallet "1" (antall spillere i menyen)  tekster: "1"
 081ae6  sub_081ae6                   kall 3    kjort ja   
 081b26  sub_081b26                   kall 4    kjort ja   
 081c4c  sub_081c4c                   kall 1    kjort ja   
 081c82  sub_081c82                   kall 1    kjort ja   
 081dcc  sub_081dcc                   kall 1    kjort ja   
 081de2  sub_081de2                   kall 4    kjort ja   
-081e9a  sub_081e9a                   kall 1    kjort ja   
+081e9a  ridder_navn_standard         kall 1    kjort ja   setter standardnavnene SIR_GODBER, SIR_RICHARD, SIR_JEFFREY, SIR_EDWARD  tekster: "SIR_GODBER"; "SIR_RICHARD"; "SIR_JEFFREY"; "SIR_EDWARD"
 081f6a  joystick_for_figur           kall 0    kjort nei  D0 = joysticken til figuren i A0: byte $B = 1 gir port 1, ellers port 2
 081f7c  vent_paa_fire                kall 15   kjort nei  venter til fire trykkes og slippes (port 2)
 081f92  les_joysticker               kall 15   kjort ja   JOY1DAT til $8D9A2 (port 2) og JOY0DAT til $8D9A0 (port 1), bit 4 = fire
@@ -49,9 +49,9 @@
 082040  sub_082040                   kall 1    kjort ja   
 082192  sub_082192                   kall 14   kjort ja   
 08224e  sub_08224e                   kall 1    kjort nei  
-0822ae  sub_0822ae                   kall 3    kjort ja   
-0822d6  sub_0822d6                   kall 1    kjort nei  
-0822fe  sub_0822fe                   kall 4    kjort nei  
+0822ae  last_he1                     kall 3    kjort ja   laster He1.ob  tekster: "He1.ob"
+0822d6  last_bg2                     kall 1    kjort nei  laster bg2.piv  tekster: "bg2.piv"
+0822fe  last_be1                     kall 4    kjort nei  laster be1.c  tekster: "be1.c"
 082326  sub_082326                   kall 1    kjort nei  
 08236c  sub_08236c                   kall 1    kjort nei  
 0823ae  sub_0823ae                   kall 1    kjort nei  
@@ -59,18 +59,18 @@
 082430  sub_082430                   kall 1    kjort nei  
 082436  sub_082436                   kall 1    kjort nei  
 08243c  sub_08243c                   kall 1    kjort ja   
-082444  sub_082444                   kall 1    kjort ja   
-08251c  sub_08251c                   kall 2    kjort nei  
-082844  sub_082844                   kall 1    kjort nei  
-082960  sub_082960                   kall 1    kjort nei  
-082aae  sub_082aae                   kall 1    kjort ja   
+082444  last_ridderfigurer           kall 1    kjort ja   laster kn1.ob til kn4.ob og blo.cel (ridderen i kamp)  tekster: "kn1.ob"; "kn2.ob"; "kn3.ob"; "kn4.ob"
+08251c  last_svart_ridder            kall 2    kjort nei  laster He1.ob til He3.ob  tekster: "He1.ob"; "He2.ob"; "He3.ob"
+082844  kamp_mot_drage               kall 1    kjort nei  laster Dragon1.cel, Dragon2.cel, Kn5.ob, be1.c  tekster: "Dragon1.cel"; "Dragon2.cel"; "Kn5.ob"; "be1.c"
+082960  kamp_mot_vokter              kall 1    kjort nei  laster Demon1-4.cel (vokteren i Valley of the Gods)  tekster: "Demon4.cel"; "Demon1.cel"; "Demon2.cel"; "Demon3.cel"
+082aae  last_ki_mi                   kall 1    kjort ja   laster ki.cel og mi.c  tekster: "ki.cel"; "mi.c"
 082afe  sub_082afe                   kall 3    kjort ja   
 082b46  sub_082b46                   kall 1    kjort nei  
-082ba8  sub_082ba8                   kall 1    kjort ja   
-082d82  monstermeny                  kall 0    kjort nei  testmeny: B - Balok, A - Trogg with Axes osv.
-082e6c  sub_082e6c                   kall 1    kjort nei  
-082ea8  sub_082ea8                   kall 1    kjort nei  
-082f20  sub_082f20                   kall 1    kjort nei  
+082ba8  last_skjermgrafikk           kall 1    kjort ja   laster message.piv, bold.f, Small.font, ch.piv  tekster: "message.piv"; "bold.f"; "Small.font"; "ch.piv"
+082d82  monstermeny                  kall 0    kjort nei  testmeny: B - Balok, A - Trogg with Axes osv.  tekster: "- Wild Beasts"; "Sel.cel"
+082e6c  by_highwood                  kall 1    kjort nei  byen Highwood (HighWood.piv)  tekster: "Highwood"; "HighWood.piv"
+082ea8  by_waterdeep                 kall 1    kjort nei  byen Waterdeep (WaterDeep.piv)  tekster: "Waterdeep"; "WaterDeep.piv"
+082f20  trollmann_math               kall 1    kjort nei  taarnet til Math (wi1.p, wi2.p, wi1.c)  tekster: "wi2.p"; "wi1.p"; "wi1.c"
 082ffe  sub_082ffe                   kall 2    kjort ja   
 083038  sub_083038                   kall 4    kjort nei  
 083092  sub_083092                   kall 4    kjort nei  
@@ -102,10 +102,10 @@
 084b9e  sub_084b9e                   kall 1    kjort nei  
 084bc4  sub_084bc4                   kall 4    kjort nei  
 084bc8  sub_084bc8                   kall 2    kjort nei  
-084c3c  sub_084c3c                   kall 2    kjort ja   
+084c3c  ridder_datamaskin_navn       kall 2    kjort ja   navnene til ridderne datamaskinen spiller (SIR BANNER ...)  tekster: "SIR BANNER"; "SIR DWAIN"; "SIR BALAIN"; "SIR GUNTHER"
 085006  sub_085006                   kall 4    kjort ja   
 08501a  sub_08501a                   kall 1    kjort ja   
-08509a  sub_08509a                   kall 2    kjort ja   
+08509a  ridder_navn_tabell           kall 2    kjort ja   navnetabellen for menneskelige riddere  tekster: "SIR_EDWARD"; "SIR_GODBER"; "SIR_RICHARD"; "SIR_JEFFREY"
 0851a8  sub_0851a8                   kall 1    kjort ja   
 0858f0  sub_0858f0                   kall 2    kjort ja   
 085ae0  sub_085ae0                   kall 1    kjort nei  
@@ -150,7 +150,7 @@
 0886b0  sub_0886b0                   kall 7    kjort ja   
 088758  sub_088758                   kall 2    kjort ja   
 088776  sub_088776                   kall 2    kjort ja   
-08878a  sub_08878a                   kall 1    kjort ja   
+08878a  last_treffsoner              kall 1    kjort ja   laster collide.hit  tekster: "collide.hit"
 0887de  sub_0887de                   kall 1    kjort nei  
 08898c  sub_08898c                   kall 9    kjort ja   
 0889ca  sub_0889ca                   kall 5    kjort ja   
@@ -169,10 +169,10 @@
 088f30  sub_088f30                   kall 6    kjort nei  
 088f42  sub_088f42                   kall 39   kjort ja   
 089038  sub_089038                   kall 15   kjort ja   
-089052  sub_089052                   kall 18   kjort ja   
+089052  skriv_tekst                  kall 18   kjort ja   skriver tekst med fonten (tegntabellen "E>EBCDEF...")  tekster: "E>EBCDEFEEEEAE@G456789:;<=EEEEEEE"
 0891f6  sub_0891f6                   kall 1    kjort ja   
-089214  sub_089214                   kall 2    kjort ja   
-089286  sub_089286                   kall 15   kjort ja   
+089214  skriv_tekst_2                kall 2    kjort ja     tekster: "E>EBCDEFEEEEAE@G456789:;<=EEEEEEE"
+089286  skriv_tall                   kall 15   kjort ja   skriver tall ("0123456789")  tekster: "0123456789"
 08930c  sub_08930c                   kall 1    kjort ja   
 08933c  sub_08933c                   kall 23   kjort ja   
 089356  sub_089356                   kall 1    kjort ja   
@@ -184,23 +184,23 @@
 089894  sub_089894                   kall 4    kjort nei  
 0898d8  sub_0898d8                   kall 4    kjort ja   
 08995a  sub_08995a                   kall 11   kjort ja   
-089a38  sub_089a38                   kall 1    kjort nei  
+089a38  mystikeren                   kall 1    kjort nei  Mythral the Mystic i Waterdeep (MYS.piv)  tekster: "MYS.piv"
 089c5e  sub_089c5e                   kall 1    kjort nei  
-089ca8  sub_089ca8                   kall 2    kjort nei  
+089ca8  healer                       kall 2    kjort nei  healeren (HEA.piv)  tekster: "HEA.piv"
 089e26  sub_089e26                   kall 2    kjort nei  
-089fd8  sub_089fd8                   kall 3    kjort nei  
-08a112  sub_08a112                   kall 2    kjort nei  
+089fd8  donasjon                     kall 3    kjort nei  "Donation", "Your Gold"  tekster: "Donation"; "Your Gold"
+08a112  last_mys_cel                 kall 2    kjort nei  laster mys.cel  tekster: "mys.cel"
 08a126  sub_08a126                   kall 2    kjort nei  
 08a13a  sub_08a13a                   kall 3    kjort nei  
 08a188  sub_08a188                   kall 14   kjort ja   
 08a1ae  sub_08a1ae                   kall 6    kjort ja   
 08a1ca  sub_08a1ca                   kall 1    kjort ja   
-08a1f0  sub_08a1f0                   kall 2    kjort nei  
+08a1f0  taverna_terninger            kall 2    kjort nei  Dragon Dice i tavernaen (tav.piv, dice.piv, dice.cel)  tekster: "tav.piv"; "dice.piv"; "dice.cel"
 08a4e4  sub_08a4e4                   kall 1    kjort nei  
-08a5fa  sub_08a5fa                   kall 1    kjort nei  
-08a6fe  sub_08a6fe                   kall 4    kjort nei  
+08a5fa  vis_gull_vunnet              kall 1    kjort nei  "gold pieces."  tekster: "gold pieces."
+08a6fe  vis_gull                     kall 4    kjort nei  "gold pieces."  tekster: "gold pieces."
 08a7bc  sub_08a7bc                   kall 1    kjort nei  
-08a802  sub_08a802                   kall 1    kjort nei  
+08a802  stonehenge_druider           kall 1    kjort nei  druidene ved Stonehenge (Hen1.p, Hen1.c)  tekster: "Hen1.p"; "Hen1.c"
 08a9b6  sub_08a9b6                   kall 2    kjort nei  
 08aa44  sub_08aa44                   kall 1    kjort nei  
 08aac4  sub_08aac4                   kall 15   kjort ja   
@@ -228,10 +228,10 @@
 08c0c6  gullgrense_1                 kall 0    kjort nei  slaven: 150 er endret til 999
 08c2e8  gullgrense_2                 kall 0    kjort nei  slaven: 150 er endret til 999
 08c2f0  gullgrense_3                 kall 0    kjort nei  slaven: 150 er endret til 999
-08c312  sub_08c312                   kall 1    kjort ja   
+08c312  last_po_cel                  kall 1    kjort ja   laster po.cel (pekeren)  tekster: "po.cel"
 08c34e  sub_08c34e                   kall 6    kjort ja   
 08c3c2  sub_08c3c2                   kall 15   kjort nei  
-08c4ba  sub_08c4ba                   kall 1    kjort ja   
+08c4ba  statusskjerm                 kall 1    kjort ja   ridderens status: Strength, Endurance, Constitution, Life points left  tekster: "Strength"; "Endurance"; "Constitution"; "Life points left"
 08ca1c  sub_08ca1c                   kall 1    kjort ja   
 08cc64  sub_08cc64                   kall 3    kjort nei  
 08cc8a  sub_08cc8a                   kall 9    kjort nei  
@@ -253,15 +253,15 @@
 09a19c  sub_09a19c                   kall 1    kjort ja   
 09a1ae  sub_09a1ae                   kall 1    kjort ja   
 09a1c0  sub_09a1c0                   kall 11   kjort ja   
-09a1fc  sub_09a1fc                   kall 1    kjort ja   
+09a1fc  last_lyd_re                  kall 1    kjort ja   laster Re.a  tekster: "Re.a"
 09a252  sub_09a252                   kall 2    kjort ja   
-09a26c  sub_09a26c                   kall 1    kjort ja   
-09a298  sub_09a298                   kall 1    kjort nei  
-09a2c4  sub_09a2c4                   kall 1    kjort nei  
-09a306  sub_09a306                   kall 1    kjort nei  
-09a35e  sub_09a35e                   kall 1    kjort nei  
+09a26c  last_lyd_kn                  kall 1    kjort ja   laster kn.a (ridderens lyder)  tekster: "kn.a"
+09a298  last_lyd_dr_be               kall 1    kjort nei  laster Dr.a og Be.a  tekster: "Dr.a"; "Be.a"
+09a2c4  last_lyd_gu                  kall 1    kjort nei  laster Gu.a  tekster: "Gu.a"
+09a306  last_lyd_he                  kall 1    kjort nei  laster He.a  tekster: "He.a"
+09a35e  last_lyd_wz                  kall 1    kjort nei  laster Wz.a  tekster: "Wz.a"
 09a374  last_fil_buffer              kall 1    kjort ja   slaven: laster en fil via resload
-09a3ee  sub_09a3ee                   kall 7    kjort nei  
+09a3ee  sub_09a3ee                   kall 7    kjort nei    tekster: "Checksum Error.."
 09a558  sub_09a558                   kall 1    kjort nei  
 09a562  sub_09a562                   kall 2    kjort nei  
 09a576  sub_09a576                   kall 1    kjort nei  
@@ -323,21 +323,22 @@
 09dac0  sub_09dac0                   kall 2    kjort ja   
 09dad8  sub_09dad8                   kall 1    kjort ja   
 09daf8  sub_09daf8                   kall 1    kjort ja   
-09db16  sub_09db16                   kall 2    kjort ja   
-09dbc6  sub_09dbc6                   kall 1    kjort ja   
-09dcec  sub_09dcec                   kall 34   kjort ja   
-09e0bc  sub_09e0bc                   kall 1    kjort ja   
+09db16  speil_figur                  kall 2    kjort ja   A0 = CEL, D0 = bilde: speilvender bildet der det ligger, byte 8 i tabellen: 1 vanlig, utfylling << 4 speilet
+09dbc6  lag_speiltabell              kall 1    kjort ja   tabellen paa $9DBEC som snur bitene i en byte
+09dbec  speiltabell                  kall 0    kjort nei  256 byte, byte med bitene i omvendt rekkefolge
+09dcec  tegn_figur                   kall 34   kjort ja   A0 = CEL i minnet, D0 = bildenummer, D1 = x, D2 = y. Klipper og blitter med maske
+09e0bc  blit_plan                    kall 1    kjort ja   kopierer ett plan (BLTCON0 $09F0)
 09e138  sub_09e138                   kall 1    kjort ja   
-09e1b0  sub_09e1b0                   kall 5    kjort ja   
+09e1b0  vent_paa_blitter             kall 5    kjort ja   
 09e21c  sub_09e21c                   kall 2    kjort ja   
 09e252  sub_09e252                   kall 4    kjort ja   
-09e3aa  sub_09e3aa                   kall 1    kjort ja   
+09e3aa  sett_tegnebuffere            kall 1    kjort ja   D0 = start: setter $9E876, $9E872, $9E87A, $9E87E og $9E882
 09e3ee  sub_09e3ee                   kall 1    kjort ja   
 09e4c6  sub_09e4c6                   kall 1    kjort ja   
 09e4e8  sub_09e4e8                   kall 1    kjort ja   
 09e636  sub_09e636                   kall 8    kjort ja   
 0aa158  sub_0aa158                   kall 1    kjort ja   
-0aa2e2  sub_0aa2e2                   kall 1    kjort nei  
+0aa2e2  sub_0aa2e2                   kall 1    kjort nei    tekster: "0123456789ABCDEF"
 0aa4a8  sub_0aa4a8                   kall 3    kjort nei  
 0aa51a  sub_0aa51a                   kall 2    kjort nei  
 0aa556  sub_0aa556                   kall 2    kjort nei  
@@ -357,7 +358,7 @@
 0aaab0  sub_0aaab0                   kall 3    kjort ja   
 0aab0a  sub_0aab0a                   kall 1    kjort ja   
 0aab60  sub_0aab60                   kall 1    kjort ja   
-0aabbe  sub_0aabbe                   kall 2    kjort ja   
+0aabbe  sub_0aabbe                   kall 2    kjort ja     tekster: "v1.4"
 0aaf54  sub_0aaf54                   kall 6    kjort ja   
 0aafb0  sub_0aafb0                   kall 1    kjort ja   
 0ab010  sub_0ab010                   kall 9    kjort ja   
@@ -391,8 +392,8 @@
 0abb76  sub_0abb76                   kall 1    kjort nei  
 0abc5c  sub_0abc5c                   kall 1    kjort nei  
 0abc98  skriv_tur                    kall 0    kjort nei  skriver "NAVN's turn." (navnet fra aktiv_ridder +$6C)
-0abcae  sub_0abcae                   kall 1    kjort nei  
-0abd6e  sub_0abd6e                   kall 1    kjort nei  
+0abcae  sub_0abcae                   kall 1    kjort nei    tekster: "may ..."
+0abd6e  sub_0abd6e                   kall 1    kjort nei    tekster: "Enter Lair"; "Battle with"
 0abdb4  sub_0abdb4                   kall 2    kjort nei  
 0abdba  sub_0abdba                   kall 1    kjort ja   
 0abddc  sub_0abddc                   kall 1    kjort ja   

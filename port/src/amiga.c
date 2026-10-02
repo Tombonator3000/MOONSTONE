@@ -252,6 +252,7 @@ static void run_line(void)
 void amiga_run_frame(void)
 {
     uint32_t start_frame = M.frame;
+    game_n_draws = 0;                      /* tegnelisten gjelder ett bilde */
     while (M.frame == start_frame) {
         M.line_clk = M.clk;
         if (M.vpos == 0) {

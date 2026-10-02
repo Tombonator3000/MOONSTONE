@@ -269,6 +269,16 @@ bool     game_mog_running(void);
 int      game_port_player(int port);      /* spiller 0-3 som styrer port 0/1 naa, -1 = ukjent */
 const char *game_knight_name(int k);
 int      game_knight_player(int k);
+/* tegnelisten: figurene spillet tegnet i siste bilde (game.c). Venstre kant er
+ * x - xoff, flip = 1 naar figuren er speilvendt. */
+typedef struct { int16_t cel, frame, x, y, w, h, xoff, flip; uint32_t target; } GameDraw;
+#define GAME_MAX_DRAWS 256
+extern GameDraw game_draws[GAME_MAX_DRAWS];
+extern int      game_n_draws;
+void     game_slave_pc(uint32_t pc);
+void     game_register_hooks(void);
+const char *game_cel_name(int i);
+const char *game_background(void);
 
 /* ------------------------------------------------------------ hooks.c */
 typedef bool (*hook_fn)(void);
@@ -294,6 +304,7 @@ void     amiga_state(StateIO *s);
 void     paula_state(StateIO *s);
 void     video_state(StateIO *s);
 void     whd_state(StateIO *s);
+void     game_state(StateIO *s);
 /* hele tilstanden til/fra minnet; kalleren frigjor buf med free() */
 bool     state_save_mem(uint8_t **buf, size_t *size);
 bool     state_load_mem(const uint8_t *buf, size_t size);

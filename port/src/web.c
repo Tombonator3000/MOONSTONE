@@ -122,3 +122,9 @@ EMSCRIPTEN_KEEPALIVE void ms_file_inject(const char *path, const uint8_t *data, 
 EMSCRIPTEN_KEEPALIVE int ms_port_player(int port) { return game_port_player(port); }
 EMSCRIPTEN_KEEPALIVE const char *ms_knight_name(int k) { return game_knight_name(k); }
 EMSCRIPTEN_KEEPALIVE int ms_knight_player(int k) { return game_knight_player(k); }
+
+/* tegnelisten for HD-grafikk (se game.c og docs/hd-grafikk.md) */
+EMSCRIPTEN_KEEPALIVE int ms_draw_count(void) { return game_n_draws; }
+EMSCRIPTEN_KEEPALIVE const GameDraw *ms_draws(void) { return game_draws; }
+EMSCRIPTEN_KEEPALIVE int ms_draw_size(void) { return (int)sizeof(GameDraw); }
+EMSCRIPTEN_KEEPALIVE const char *ms_cel_name(int i) { return game_cel_name(i); }

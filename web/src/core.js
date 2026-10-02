@@ -102,6 +102,20 @@ const Kjerne = (() => {
         M._free(s);
     }
 
+    /* figurene spillet tegnet i siste bilde: fil, bildenummer, x, y, bredde, hoyde, speilet */
+    function tegneliste() {
+        const n = M._ms_draw_count();
+        if (!n) return [];
+        const p = M._ms_draws(), st = M._ms_draw_size();
+        const h = new Int16Array(M.HEAPU8.buffer, p, (n * st) >> 1);
+        const ut = [];
+        for (let i = 0; i < n; i++) {
+            const o = (i * st) >> 1;
+            ut.push({ fil: M.UTF8ToString(M._ms_cel_name(h[o])), bilde: h[o + 1], x: h[o + 2], y: h[o + 3], w: h[o + 4], h: h[o + 5], xoff: h[o + 6], speilet: h[o + 7] !== 0 });
+        }
+        return ut;
+    }
+
     return {
         last, aapne, start, startSomGjest, inndata, tast, bilde, rammebuffer, vindu, lyd,
         lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil,
@@ -113,6 +127,7 @@ const Kjerne = (() => {
         stoppMelding: () => M.UTF8ToString(M._ms_abort_msg()),
         volum: (v) => M._ms_volume(v),
         portSpillere: () => [M._ms_port_player(0), M._ms_port_player(1)],
+        tegneliste,
         ridderNavn: (k) => M.UTF8ToString(M._ms_knight_name(k)),
         les8: (a) => M._ms_peek8(a),
         les16: (a) => M._ms_peek16(a),

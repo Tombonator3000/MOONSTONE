@@ -103,6 +103,8 @@ static void usage(void)
            "  --dump F:FIL          skriv chip-minnet til fil i bilde F\n"
            "  --vis-tur             skriv hvilken spiller som styrer portene (nettspill)\n"
            "  --coverage FIL        lagre hvilke adresser som er kjort (legges til filen)\n"
+           "  --tegneliste F[:N]    skriv figurene som tegnes i bilde F og de N-1 neste (HD)\n"
+           "  --blit-log            skriv hvor Blitteren startes fra\n"
            "  --wav FIL             ta opp lyden\n"
            "  --log N               0 stille, 1 normal, 2 alt\n");
 }
@@ -123,6 +125,7 @@ static const char *find_game(void)
 
 static int run_headless(int frames, int shot_every, const char *shot_dir, int save_state_frame,
                         const char *save_state_file, const char *wav_path, bool show_turn);
+int draw_list_frame = -1, draw_list_count = 3;
 
 int main(int argc, char **argv)
 {
@@ -148,9 +151,16 @@ int main(int argc, char **argv)
         else if (!strcmp(a, "--nohooks")) nohooks = true;
         else if (!strcmp(a, "--hook-cycles")) hooks_measure = true;
         else if (!strcmp(a, "--hook-report")) hook_report = true;
+        else if (!strcmp(a, "--blit-log")) { extern bool blit_log; blit_log = true; }
         else if (!strcmp(a, "--log") && v) { log_level = atoi(v); i++; }
         else if (!strcmp(a, "--wav") && v) { wav_path = v; i++; }
         else if (!strcmp(a, "--vis-tur")) show_turn = true;
+        else if (!strcmp(a, "--tegneliste") && v) {
+            draw_list_frame = atoi(v);
+            const char *c = strchr(v, ':');
+            if (c) draw_list_count = atoi(c + 1);
+            i++;
+        }
         else if (!strcmp(a, "--mod") && v) { mod_dir = v; i++; }
         else if (!strcmp(a, "--coverage") && v) { coverage_path = v; i++; }
         else if (!strcmp(a, "--dump") && v) {
@@ -216,6 +226,7 @@ int main(int argc, char **argv)
         fprintf(stderr, "Kunne ikke laste tilstanden %s\n", load_state);
         return 1;
     }
+    if (load_state && headless) printf("Tilstand lastet, bilde %u\n", M.frame);
 
     /* --coverage: hvilke adresser som er kjort, lagt sammen med filen fra for.
      * Bare mog (fra $80000) teller; introen ligger paa de samme adressene. */
@@ -228,6 +239,7 @@ int main(int argc, char **argv)
     if (!headless) ret = frontend_run(&fo);
     else ret = run_headless(frames, shot_every, shot_dir, save_state_frame, save_state_file, wav_path, show_turn);
     if (hooks_measure || hook_report) hooks_report();
+    { extern bool blit_log; extern void blit_report(void); if (blit_log) blit_report(); }
     if (coverage_path) {
         static uint8_t old[CHIP_SIZE / 16];
         FILE *cf = fopen(coverage_path, "rb");
@@ -249,6 +261,13 @@ static int run_headless(int frames, int shot_every, const char *shot_dir, int sa
     for (int f = 0; f < frames; f++) {
         apply_presses(M.frame);
         amiga_run_frame();
+        if (draw_list_frame >= 0 && (int)M.frame >= draw_list_frame && (int)M.frame < draw_list_frame + draw_list_count) {
+            printf("tegneliste bilde %u (bakgrunn %s):\n", M.frame, game_background());
+            for (int d = 0; d < game_n_draws; d++)
+                printf("  %s bilde %d x %d y %d (%dx%d, xoff %d%s) buffer %06x\n", game_cel_name(game_draws[d].cel),
+                       game_draws[d].frame, game_draws[d].x, game_draws[d].y, game_draws[d].w, game_draws[d].h,
+                       game_draws[d].xoff, game_draws[d].flip ? ", speilet" : "", game_draws[d].target);
+        }
         int16_t tmp[4096];
         int n;
         while ((n = paula_take(tmp, 2048)) > 0) {

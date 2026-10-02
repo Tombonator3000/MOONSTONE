@@ -80,3 +80,94 @@ int game_knight_player(int k)
     if (!game_mog_running() || k < 0 || k > 3) return -1;
     return (int)rd32(KNIGHTS + (uint32_t)k * KNIGHT_SIZE + K_PLAYER);
 }
+
+/* ------------------------------------------------------------ tegneliste (HD-grafikk) */
+/* Slaven laster figurfiler (CEL) med rutinen paa slave+$58E: A0 = filnavnet,
+ * A1 = hvor filen legges i minnet. tegn_figur ($9DCEC) faar A0 = filen i minnet,
+ * D0 = bildenummer, D1 = x og D2 = y. Med de to kan vi si hvilket bilde fra
+ * hvilken fil som tegnes hvor, som er det en HD-pakke trenger (docs/hd-grafikk.md).
+ * Dette bare observerer; spillet kjorer som for. */
+#include "m68k.h"
+
+#define MAX_CELS 96
+typedef struct { uint32_t addr; char name[28]; } CelInfo;
+static CelInfo cels[MAX_CELS];
+static int     n_cels;
+static char    background[28];
+GameDraw game_draws[GAME_MAX_DRAWS];
+int      game_n_draws;
+
+static void read_str(uint32_t a, char *out, int n)
+{
+    int i = 0;
+    for (; i < n - 1; i++) {
+        uint8_t c = (uint8_t)mem_read8(a + (uint32_t)i);
+        if (c < 32 || c > 126) break;
+        out[i] = (char)c;
+    }
+    out[i] = 0;
+}
+
+void game_slave_pc(uint32_t pc)
+{
+    uint32_t off = pc - SLAVE_BASE;
+    if (off == 0x58e) {
+        uint32_t dest = m68k_get_reg(NULL, M68K_REG_A1);
+        char name[28];
+        read_str(m68k_get_reg(NULL, M68K_REG_A0), name, sizeof name);
+        int i;
+        for (i = 0; i < n_cels; i++) if (cels[i].addr == dest) break;
+        if (i == n_cels) {
+            if (n_cels == MAX_CELS) { memmove(cels, cels + 1, sizeof cels[0] * (MAX_CELS - 1)); n_cels--; i = n_cels; }
+            n_cels++;
+        }
+        cels[i].addr = dest;
+        memcpy(cels[i].name, name, sizeof cels[i].name);
+    } else if (off == 0x5f2) {
+        read_str(m68k_get_reg(NULL, M68K_REG_A0), background, sizeof background);
+    }
+}
+
+static bool observe_draw(void)
+{
+    if (game_n_draws >= GAME_MAX_DRAWS) return false;
+    uint32_t a0 = m68k_get_reg(NULL, M68K_REG_A0);
+    GameDraw *d = &game_draws[game_n_draws++];
+    d->cel = -1;
+    for (int i = 0; i < n_cels; i++) if (cels[i].addr == a0) { d->cel = i; break; }
+    d->frame = (int16_t)m68k_get_reg(NULL, M68K_REG_D0);
+    d->x = (int16_t)m68k_get_reg(NULL, M68K_REG_D1);
+    d->y = (int16_t)m68k_get_reg(NULL, M68K_REG_D2);
+    d->target = rd32(0x9e87e);             /* figurbuffer: hvor figuren tegnes */
+    /* Bredde og hoyde fra bildetabellen i filen (+10, 10 byte per bilde).
+     * Byte +8 er 1 for et vanlig bilde. speil_figur ($9DB16) snur et bilde der
+     * det ligger: radene snus innenfor bredden rundet opp til 16, og byte +8
+     * blir (utfyllingen << 4) med bit 0 slettet. tegn_figur trekker den ovre
+     * halvdelen fra x, saa et speilvendt bilde havner paa samme sted som det
+     * vanlige. Et vanlig bilde med noe i ovre halvdel flyttes til venstre. */
+    d->w = d->h = d->xoff = d->flip = 0;
+    if (d->frame >= 0 && (uint16_t)d->frame < (uint16_t)mem_read16(a0)) {
+        uint32_t e = a0 + 10 + (uint32_t)d->frame * 10;
+        uint8_t fl = (uint8_t)mem_read8(e + 8);
+        d->w = (int16_t)mem_read16(e + 4);
+        d->h = (int16_t)mem_read16(e + 6);
+        d->flip = !(fl & 1);
+        d->xoff = d->flip ? 0 : (int16_t)(fl >> 4);
+    }
+    return false;                          /* originalen tegner som vanlig */
+}
+
+const char *game_cel_name(int i) { return i >= 0 && i < n_cels ? cels[i].name : ""; }
+const char *game_background(void) { return background; }
+
+void game_register_hooks(void)
+{
+    hooks_register(0x9dcec, observe_draw, "tegn_figur (observer)");
+}
+
+void game_state(StateIO *s)
+{
+    STATE_VAR(s, cels);
+    STATE_VAR(s, n_cels);
+    STATE_VAR(s, background);
+}

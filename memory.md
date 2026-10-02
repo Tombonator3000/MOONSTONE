@@ -54,3 +54,17 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 - resload_Delay kjøres som en løkke i 68000 (tst.b flagg / bne), så avbrudd og musikk går
   videre mens vi venter. Flagget nullstilles når tiden er ute eller fire trykkes.
 - Kjernen kjører ca. 11 ganger raskere enn sanntid på én kjerne (9000 bilder på 16,5 s).
+
+## Tegning av figurer og HD-laget
+- Alle figurer tegnes av `tegn_figur` ($9DCEC i mog): A0 = CEL i minnet, D0 = bilde,
+  D1 = x, D2 = y. Tegner i figurbufferen (peker på $9E87E, fem plan à $12C0 byte).
+- Slaven laster CEL-filer med slave+$58E (A0 navn, A1 hvor). Bakgrunn: slave+$5F2 (A0 navn).
+- Bildetabellen i en CEL (fra +10, 10 byte per bilde): +4 bredde, +6 høyde, +8 flagg.
+  Flagg 1 = vanlig. `speil_figur` ($9DB16) speilvender bildet i minnet og skriver
+  (utfylling << 4), bit 0 = 0. `tegn_figur` trekker flagg >> 4 fra x, så speilet figur
+  havner på samme sted. Speiltabellen (256 byte) ligger på $9DBEC, lages av $9DBC6.
+- Figurene tegnes ti ganger i sekundet, ofte fordelt på to bilder på rad (i kamp He1.ob
+  i ett bilde, resten i det neste). Synlig to bilder etter det siste bildet i klyngen.
+- `--tegneliste F[:N]` skriver listen, `tools/hd_sjekk.py` måler treffet mot skjermbildet.
+- three.js: `ImageBitmap` snus ikke av WebGL (flipY virker ikke). Tegn på et lerret først.
+- Tilstander lagret før STATE_VERSION 3 virker ikke lenger.

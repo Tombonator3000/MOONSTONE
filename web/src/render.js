@@ -22,6 +22,19 @@ const Visning = (() => {
     let filter = 'skarp', format = 'pal', helt = false;
     let crop = [70, 19, 710, 219];
     let stabil = 0, nyCrop = null;
+    let diwNaa = [70, 19, 710, 219];
+
+    /* HD-lag (eksperimentelt): figurene fra tegnelisten tegnes med egne bilder
+     * oppaa Amiga-bildet. Spillet tegner figurene i en buffer utenfor skjermen,
+     * ofte fordelt paa to bilder paa rad (i kamp den ene ridderen i ett bilde og
+     * resten i det neste), og det ferdige bildet vises to bilder etter det siste.
+     * Vi samler derfor tegninger fra bilder paa rad til en klynge og viser den
+     * naar den er to bilder gammel. */
+    let hdGruppe = null, hdPakke = new Map(), visRammer = false;
+    let bildeNr = 0, sistTegnet = -99, klynger = [];
+    let visteListe = [], visesFra = 0;
+    const flater = [];
+    let rammeMat = null;
 
     const vert = `
         varying vec2 vUv;
@@ -115,6 +128,9 @@ const Visning = (() => {
         });
         mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), mat);
         scene.add(mesh);
+        hdGruppe = new THREE.Group();
+        scene.add(hdGruppe);
+        rammeMat = new THREE.MeshBasicMaterial({ color: 0xffd040, transparent: true, opacity: 0.28, depthTest: false });
         tilpass();
         window.addEventListener('resize', tilpass);
     }
@@ -163,16 +179,100 @@ const Visning = (() => {
         }
     }
 
+    /* kalles etter hvert bilde emulatoren kjorer, med tegnelisten for bildet */
+    function nyttBilde(liste) {
+        bildeNr++;
+        if (liste.length) {
+            if (sistTegnet === bildeNr - 1 && klynger.length) klynger[klynger.length - 1].liste.push(...liste);
+            else klynger.push({ liste: liste.slice() });
+            klynger[klynger.length - 1].vis = bildeNr + 2;
+            sistTegnet = bildeNr;
+        }
+        while (klynger.length && klynger[0].vis <= bildeNr) {
+            visteListe = klynger.shift().liste;
+            visesFra = bildeNr;
+        }
+        /* spillet tegner figurene paa nytt flere ganger i sekundet; har det ikke
+         * tegnet paa en stund er vi paa en skjerm uten figurer */
+        if (visteListe.length && bildeNr - visesFra > 50) visteListe = [];
+    }
+
+    function flate(i) {
+        if (!flater[i]) {
+            const m = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), rammeMat);
+            m.renderOrder = 2;
+            hdGruppe.add(m);
+            flater[i] = m;
+        }
+        return flater[i];
+    }
+
+    function tegnHd() {
+        let n = 0;
+        if (visRammer || hdPakke.size) {
+            const cw = crop[2] - crop[0], ch = crop[3] - crop[1];
+            for (const d of visteListe) {
+                const nokkel = d.fil.toLowerCase() + '/' + String(d.bilde).padStart(3, '0');
+                const t = hdPakke.get(nokkel);
+                if (!t && !visRammer) continue;
+                const fx = diwNaa[0] + (d.x - d.xoff) * 2, fy = diwNaa[1] + d.y;
+                const u = (fx - crop[0]) / cw, v = (fy - crop[1]) / ch;
+                const bw = d.w * 2 / cw, bh = d.h / ch;
+                const m = flate(n++);
+                m.material = t ? t.mat : rammeMat;
+                m.scale.set(d.speilet ? -bw * 2 : bw * 2, bh * 2, 1);   /* negativ bredde snur bildet */
+                m.position.set(-1 + (u + bw / 2) * 2, 1 - (v + bh / 2) * 2, 0);
+                m.visible = true;
+            }
+        }
+        for (let i = n; i < flater.length; i++) flater[i].visible = false;
+    }
+
     function tegn(fb, diw) {
         data.set(fb);
         tex.needsUpdate = true;
-        if (diw) oppdaterUtsnitt(diw);
+        if (diw) { oppdaterUtsnitt(diw); diwNaa = diw; }
+        tegnHd();
         renderer.render(scene, camera);
+    }
+
+    /* HD-pakke: filer med stier som ".../kn1.ob/012.png" (samme navn som tools/gfx.py extract) */
+    async function lastHdPakke(filer) {
+        let antall = 0;
+        for (const f of filer) {
+            const sti = (f.webkitRelativePath || f.name).split('/');
+            if (sti.length < 2 || !/\.png$/i.test(sti[sti.length - 1])) continue;
+            const nokkel = sti[sti.length - 2].toLowerCase() + '/' + sti[sti.length - 1].replace(/\.png$/i, '');
+            try {
+                /* ImageBitmap snus ikke av WebGL (flipY virker ikke), et lerret gjor */
+                const bilde = await createImageBitmap(f);
+                const lerret = document.createElement('canvas');
+                lerret.width = bilde.width; lerret.height = bilde.height;
+                lerret.getContext('2d').drawImage(bilde, 0, 0);
+                bilde.close();
+                const t = new THREE.Texture(lerret);
+                t.colorSpace = THREE.SRGBColorSpace;
+                t.needsUpdate = true;
+                const old = hdPakke.get(nokkel);
+                if (old) { old.tex.dispose(); old.mat.dispose(); }
+                hdPakke.set(nokkel, { tex: t, mat: new THREE.MeshBasicMaterial({ map: t, transparent: true, depthTest: false }) });
+                antall++;
+            } catch (e) { /* ikke et bilde */ }
+        }
+        return antall;
+    }
+
+    function tomHdPakke() {
+        for (const v of hdPakke.values()) { v.tex.dispose(); v.mat.dispose(); }
+        hdPakke.clear();
     }
 
     function bildeTilPng() {
         return renderer.domElement.toDataURL('image/png');
     }
 
-    return { init, tegn, tilpass, settFilter, settFormat, settHelt, bildeTilPng, scene: () => scene };
+    return {
+        init, tegn, nyttBilde, tilpass, settFilter, settFormat, settHelt, bildeTilPng, lastHdPakke, tomHdPakke,
+        settRammer: (on) => { visRammer = on; }, hdAntall: () => hdPakke.size, scene: () => scene,
+    };
 })();

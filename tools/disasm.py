@@ -231,13 +231,41 @@ class Disasm:
         with open(ut, 'w', encoding='utf-8') as f:
             f.write('\n'.join(linjer) + '\n')
 
+    def tekst_paa(self, a):
+        """Teksten som starter paa a, hvis det ser ut som en tekst."""
+        if not self.i_minne(a) or self.i_kode(a) and a in self.kode:
+            return None
+        o = a - BASE
+        s = bytearray()
+        while o < len(self.m) and 32 <= self.m[o] < 127 and len(s) < 40:
+            s.append(self.m[o])
+            o += 1
+        if len(s) >= 4 and (o >= len(self.m) or self.m[o] == 0):
+            return s.decode('latin-1').strip()
+        return None
+
     def funksjoner(self):
         ut = []
         alle = sorted(set(self.kall) | set(a for a in self.navn if self.i_kode(a)))
-        for a in alle:
+        kode = sorted(self.kode)
+        import bisect
+        for n, a in enumerate(alle):
             kjort = 'ja' if a in self.dekning else 'nei'
-            ut.append('%06x  %-28s kall %-4d kjort %-4s %s' % (a, self.etikett(a), self.kall.get(a, 0), kjort,
-                                                                 self.kommentar.get(a, '')))
+            # tekster funksjonen bruker: adresser i instruksjonene fram til neste funksjon
+            slutt = alle[n + 1] if n + 1 < len(alle) else a + 0x400
+            tekster = []
+            i = bisect.bisect_left(kode, a)
+            while i < len(kode) and kode[i] < slutt:
+                _, _, ops = self.kode[kode[i]]
+                for t in ADR.findall(ops):
+                    tk = self.tekst_paa(int(t, 16))
+                    if tk and tk not in tekster:
+                        tekster.append(tk)
+                i += 1
+            t = '; '.join('"%s"' % x for x in tekster[:4])
+            ut.append('%06x  %-28s kall %-4d kjort %-4s %s%s' % (a, self.etikett(a), self.kall.get(a, 0), kjort,
+                                                                   self.kommentar.get(a, ''),
+                                                                   ('  tekster: ' + t) if t else ''))
         return ut
 
 
@@ -281,7 +309,7 @@ def main():
         if fil == 'mog':
             funk = d.funksjoner()
     with open(os.path.join(ut, 'functions.txt'), 'w', encoding='utf-8') as f:
-        f.write('# Funksjoner i mog: adresse, navn, antall kall i koden, kjort i emulatoren, kommentar\n')
+        f.write('# Funksjoner i mog: adresse, navn, antall kall i koden, kjort i emulatoren, kommentar og tekster den bruker\n')
         f.write('\n'.join(funk) + '\n')
 
 

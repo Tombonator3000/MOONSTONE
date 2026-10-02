@@ -48,3 +48,51 @@ add30 avbrudd_niva4           lyd
 9d828 last_cel                slaven: laster og pakker ut en CEL-fil
 9d9e6 last_pakket             slaven: laster og pakker ut en fil
 9da32 lz_utpakk               slaven: spillets LZ-utpakker (flyttet og optimalisert av Wepl)
+#
+# Funnet ut fra tekstene funksjonene bruker (tools/disasm.py skriver dem i functions.txt)
+81a1a vis_spillere_tall        bruker tallet "1" (antall spillere i menyen)
+81e9a ridder_navn_standard     setter standardnavnene SIR_GODBER, SIR_RICHARD, SIR_JEFFREY, SIR_EDWARD
+822ae last_he1                 laster He1.ob
+822d6 last_bg2                 laster bg2.piv
+822fe last_be1                 laster be1.c
+82444 last_ridderfigurer       laster kn1.ob til kn4.ob og blo.cel (ridderen i kamp)
+8251c last_svart_ridder        laster He1.ob til He3.ob
+82844 kamp_mot_drage           laster Dragon1.cel, Dragon2.cel, Kn5.ob, be1.c
+82960 kamp_mot_vokter          laster Demon1-4.cel (vokteren i Valley of the Gods)
+82aae last_ki_mi               laster ki.cel og mi.c
+82ba8 last_skjermgrafikk       laster message.piv, bold.f, Small.font, ch.piv
+82e6c by_highwood              byen Highwood (HighWood.piv)
+82ea8 by_waterdeep             byen Waterdeep (WaterDeep.piv)
+82f20 trollmann_math           taarnet til Math (wi1.p, wi2.p, wi1.c)
+84c3c ridder_datamaskin_navn   navnene til ridderne datamaskinen spiller (SIR BANNER ...)
+8509a ridder_navn_tabell       navnetabellen for menneskelige riddere
+8878a last_treffsoner          laster collide.hit
+89052 skriv_tekst              skriver tekst med fonten (tegntabellen "E>EBCDEF...")
+89214 skriv_tekst_2
+89286 skriv_tall               skriver tall ("0123456789")
+89a38 mystikeren               Mythral the Mystic i Waterdeep (MYS.piv)
+89ca8 healer                   healeren (HEA.piv)
+89fd8 donasjon                 "Donation", "Your Gold"
+8a112 last_mys_cel             laster mys.cel
+8a1f0 taverna_terninger        Dragon Dice i tavernaen (tav.piv, dice.piv, dice.cel)
+8a5fa vis_gull_vunnet          "gold pieces."
+8a6fe vis_gull                 "gold pieces."
+8a802 stonehenge_druider       druidene ved Stonehenge (Hen1.p, Hen1.c)
+8c312 last_po_cel              laster po.cel (pekeren)
+8c4ba statusskjerm             ridderens status: Strength, Endurance, Constitution, Life points left
+9a1fc last_lyd_re              laster Re.a
+9a26c last_lyd_kn              laster kn.a (ridderens lyder)
+9a298 last_lyd_dr_be           laster Dr.a og Be.a
+9a2c4 last_lyd_gu              laster Gu.a
+9a306 last_lyd_he              laster He.a
+9a35e last_lyd_wz              laster Wz.a
+#
+# Figurtegning (IMAGEXCEL SPRITE-modulen)
+9dcec tegn_figur               A0 = CEL i minnet, D0 = bildenummer, D1 = x, D2 = y. Klipper og blitter med maske
+9e0bc blit_plan                kopierer ett plan (BLTCON0 $09F0)
+9db16 speil_figur              A0 = CEL, D0 = bilde: speilvender bildet der det ligger, byte 8 i tabellen: 1 vanlig, utfylling << 4 speilet
+9dbc6 lag_speiltabell          tabellen paa $9DBEC som snur bitene i en byte
+9dbec speiltabell              256 byte, byte med bitene i omvendt rekkefolge
+9e3aa sett_tegnebuffere        D0 = start: setter $9E876, $9E872, $9E87A, $9E87E og $9E882
+9e87e figurbuffer              hvor tegn_figur tegner (fem plan a $12C0 byte), ogsaa radbuffer for speil_figur
+9e1b0 vent_paa_blitter
