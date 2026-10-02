@@ -73,7 +73,7 @@ Turene (`$0AAC14` til `$0AAF54`):
   sekund, eller `borte` når den ikke er på kartet.
 - De andre i rommet får plass 2, 3 og 4 i rekkefølgen i rommet. `hver_frame` skriver
   dem inn før hvert bilde: posisjon, liv, figur (+$36, ikke 4, ellers styrer
-  datamaskinen den), port 2, navnet (i ledig chip-minne fra $FC000) og +$52 = 1 hvis
+  datamaskinen den på kartet), +$0B = 4, navnet (i ledig chip-minne fra $FC000) og +$52 = 1 hvis
   den er død (ellers ender spillet ditt når den dør). Datamaskinens ridder på plassen
   lagres og får plassen tilbake når spilleren går.
 - Har to valgt samme ridder, får den andre en ledig farge hos deg.
@@ -82,9 +82,11 @@ Turene (`$0AAC14` til `$0AAF54`):
   ridder flyttet seg, legges kopien tilbake øverst i lokka (`$0AAC8C`, høyst hvert
   fjerde bilde), og en liten rutine i chip-minnet ($FC080) tegner ridderne på nytt
   med `$0AAB0A` og setter tegnemålet ($9E202) tilbake. Slik ser du de andre gå.
-- Kamp: angriper du en fjern ridder, settes +$36 til 4 ved `$080AB8`, så
+- Kamp: angriper du en fjern ridder, settes +$36 og +$0B til 4 ved `$080AB8`, så
   datamaskinen styrer den i kampen, og den skrives ikke over før `$080BD8`. Kampen
-  påvirker bare ditt spill.
+  påvirker bare ditt spill. I kamp er +$0B den som styrer figuren
+  (`joystick_for_figur` $081F6A: 1 port 1, 2 port 2, 4 datamaskinen), så fjerne
+  riddere har alltid +$0B = 4.
 - Med `Mode Separate` av (Turns, eller alene) gjør ingen av lappene noe, og
   `tools/check_hooks.py` gir samme minne byte for byte.
 

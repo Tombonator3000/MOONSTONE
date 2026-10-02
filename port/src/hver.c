@@ -142,7 +142,7 @@ void hver_frame(void)
         mem_write16(r + 0x80, (uint16_t)H.y[k]);
         mem_write8(r + 0x49, (uint8_t)H.liv[k]);
         mem_write32(r + 0x36, H.figur[k]);  /* ikke 4: da ville datamaskinen styrt den */
-        mem_write8(r + 0x0b, 2);
+        mem_write8(r + 0x0b, 4);            /* som datamaskinens: i kamp er +$0B den som styrer (1 port 1, 2 port 2, 4 datamaskinen) */
         /* +$52 > 0: turen hoppes over ($0AAEEC). En doed ridder som ikke er datamaskinens,
          * teller ellers som en doed spiller, og spillet slutter ($0AAF08) */
         mem_write8(r + 0x52, H.liv[k] > 0 ? 0 : 1);
@@ -267,6 +267,7 @@ static bool hook_kamp(void)
     if (!(H.tatt & (1 << k))) return false;
     H.kamp |= (uint8_t)(1 << k);
     mem_write32(a + 0x36, 4);
+    mem_write8(a + 0x0b, 4);
     return false;
 }
 
