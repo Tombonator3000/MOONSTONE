@@ -298,7 +298,7 @@ const Visning = (() => {
     function lagRendermaal(utH) {
         const lw = (crop[2] - crop[0]) / 2, lh = crop[3] - crop[1];
         /* Scale4x trenger fire ganger; mer gir bare mer arbeid for skjermkortet */
-        const s = filter === 'glatt' ? 4 : Math.max(2, Math.min(6, Math.ceil(utH / lh)));
+        const s = filter === 'glatt' ? 4 : Math.max(2, Math.min(4, Math.ceil(utH / lh)));
         const w = Math.round(lw * s), h = Math.round(lh * s);
         if (rt && rt.width === w && rt.height === h) return;
         if (rt) rt.dispose();
