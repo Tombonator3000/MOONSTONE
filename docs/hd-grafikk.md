@@ -68,16 +68,69 @@ python3 tools/hd_sjekk.py --gfx assets/gfx --state kamp.sav --press 5:left:40
 I kamp og på kartet treffer alle figurene (1,00, eller litt under der noe annet
 enn en figur ligger over).
 
+## 3. Lagene: bakgrunn og forgrunn hver for seg
+
+Spillet holder selv en ren kopi av bakgrunnen: fem bitplan på 320 x 200, med en
+peker på $8CDE8. Figurene tegnes i et av to skjermbuffere (pekeren til det det
+tegnes i, ligger på $AA948), og når en figur flyttes, kopierer spillet bakgrunnen
+tilbake fra kopien (rutinen på $882E2, som bruker blitterrutinen på $9E252 for hvert
+plan). Det gjør at bildet kan deles i to lag, helt uten å vite hva slags skjerm det
+er (`port/src/lag.c`):
+
+- **bakgrunn**: kopien, gjort om til farger med paletten på hver linje
+- **forgrunn**: det skjermen viser, der det er annerledes enn bakgrunnen
+
+Forgrunnen tas fra det ferdige skjermbildet, så sprites og fargeskift kommer med.
+Lagt oppå hverandre gir lagene derfor nøyaktig det spillet viser (testet: 0 av
+614 400 piksler forskjellige). Lagene finnes når skjermen er slik spillet vanligvis
+har den (fem plan, 320 x 200); ellers vises skjermbildet som før.
+
+Eksempler: i kamp er bakgrunnen landskapet og forgrunnen ridderne. På kartet er
+bakgrunnen kartet og forgrunnen ridderen og markøren. I tittelmenyen er bakgrunnen
+stjernehimmelen med trærne, og logoen, tekstene og pilen er forgrunn. Noen skjermer
+(«Select a Knight») bruker ikke kopien; da er alt forgrunn.
+
+Det koster rundt 0,3 ms per bilde, og regnes bare ut når noe trenger lagene.
+
+### Renderen
+
+`web/src/render.js` tegner i to trinn. Først settes lagene sammen i et bilde med
+høy oppløsning (spillets 320 x 200 ganger 2-6, etter skjermen): hele skjermbildet
+underst, så bakgrunnen (eller HD-bakgrunnen), skygge, forgrunnen og HD-figurene.
+Så tegnes det bildet på skjermen med filteret (skarp, piksel, myk, CRT) og
+effektene. Effektene velges i menyen under «Effekter»:
+
+- **Skygger** under figurer og tekst (forgrunnen i svart, litt forskjøvet)
+- **Uskarp bakgrunn**, så figurene trer fram
+- **Glød** rundt lyse ting
+- **Sterkere og varmere farger**
+- **Vignett**
+
+### HD-bakgrunner
+
+En bakgrunn kjennes igjen på innholdet: en hash av de fem bitplanene, skrevet som åtte
+heksadesimale sifre. HD-bildet legges i mappen `bg` i HD-pakken med det navnet, for
+eksempel `bg/62d8d655.png` for øvingskampen. Det strekkes over hele spillvinduet, så
+et bilde på 1280 x 800 gir fire ganger så skarp bakgrunn. Slik får du bakgrunnene:
+
+- På nettsiden: «Lagre bakgrunnen som PNG» under «HD-grafikk» lagrer den som vises,
+  med riktig navn.
+- Uten vindu: `moonstone-headless --lag-dump MAPPE` skriver hver ny bakgrunn som
+  `MAPPE/HASH.png` når den har stått i 50 bilder (og på nytt hvis den blir lysere).
+  `--lag F:PREFIKS` skriver begge lagene i bilde F.
+
+Når spillet toner ut med paletten, tones HD-bakgrunnen og HD-figurene like mye
+(lysstyrken til fargene bakgrunnen bruker, mot den lyseste som er sett).
+
 ### Det som gjenstår
 
-- **Bakgrunnene.** Navnet på bakgrunnen (siste PIV fra slave+$5F2) er med i
-  tegnelisten, men HD-bakgrunner tegnes ikke ennå. Kampbakgrunnene (`.t`-filene) er
-  ikke dekodet.
-- **Ting som ligger foran figurene.** HD-figurene legges alltid øverst. Tegner
-  spillet noe over en figur med en annen rutine (tekst, deler av landskapet), vil
-  HD-figuren dekke det.
-- **Fargeeffekter.** Fading og fargeskift gjøres med paletten. HD-bildene følger ikke
-  med ennå; det kan tas fra paletten i kjernen.
+- **Bakgrunner som endres litt.** Skriver spillet noe inn i selve bakgrunnskopien
+  (for eksempel en markør som blir stående), får den en ny hash, og HD-bildet passer
+  ikke lenger. Det kan løses med å godta små forskjeller og legge dem over.
+- **Tekst i HD.** Teksten er forgrunn i lav oppløsning. `skriv_tekst` ($89052) kan
+  fanges opp som figurene, så teksten kan tegnes med en skarp font.
+- **Ting som ligger foran figurene.** HD-figurene legges over forgrunnen. Tegner
+  spillet noe over en figur med en annen rutine, vil HD-figuren dekke det.
 - **Andre tegnerutiner.** Noe grafikk tegnes ikke med `tegn_figur` (f.eks. tekst og
   menyrammer). `--blit-log` viser hvor Blitteren startes fra, og er et godt sted å
   begynne for å finne dem.

@@ -32,6 +32,17 @@ static void note_blit(void)
     }
 }
 
+/* --blit-trace F:N: hver blit i bilde F til F+N-1, med pekere og storrelse */
+int blit_trace_from = -1, blit_trace_n;
+
+static void trace_blit(void)
+{
+    if (blit_trace_from < 0 || (int)M.frame < blit_trace_from || (int)M.frame >= blit_trace_from + blit_trace_n) return;
+    printf("blit bilde %u pc %06x con %04x %04x A %06x B %06x C %06x D %06x mod %d %d %d %d %ux%u\n",
+           M.frame, m68k_get_reg(NULL, M68K_REG_PPC), B.con0, B.con1, B.pt[0], B.pt[1], B.pt[2], B.pt[3],
+           B.mod[0], B.mod[1], B.mod[2], B.mod[3], blit_w, blit_h);
+}
+
 void blit_report(void)
 {
     for (int i = 0; i < n_blit_pcs; i++)
@@ -190,6 +201,7 @@ static void blit_line(void)
 void blitter_start(void)
 {
     if (blit_log) note_blit();
+    trace_blit();
     if (B.busy) blitter_finish();          /* forrige var ikke ferdig: avslutt den forst */
     unsigned words;
     int cyc_per_word;

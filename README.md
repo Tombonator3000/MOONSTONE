@@ -127,6 +127,16 @@ spillet bruker det den finner. I nettleseren er musen derfor koblet inn slik:
 - **Styrekors og knapper på skjermen** vises på mobil og nettbrett, og kan slås på for
   mus i menyen under «Bilde og lyd».
 
+### Effekter og HD-grafikk i nettleseren
+
+Nettsiden deler bildet i to lag: bakgrunnen spillet holder for seg selv, og det som
+tegnes over den (figurer, tekst, piler). Lagt oppå hverandre er de nøyaktig
+originalbildet, men hvert lag kan byttes ut eller få egne effekter. I menyen under
+«Effekter» finnes skygger under figurene, uskarp bakgrunn, glød, sterkere farger og
+vignett. Under «HD-grafikk» kan du velge en mappe med egne bilder for figurene og for
+bakgrunnene (`bg/HASH.png`; «Lagre bakgrunnen som PNG» gir deg den som vises, med
+riktig navn). Se `docs/hd-grafikk.md`.
+
 Første gang tittelmenyen vises, står det øverst at valgene kan klikkes.
 
 

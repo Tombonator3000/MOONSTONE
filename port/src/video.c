@@ -13,6 +13,10 @@
 
 uint32_t video_fb[FB_W * FB_H];
 int      video_diw[4];
+uint32_t video_bpl_first[6];              /* bitplanpekerne paa forste linje i bildet (analyse, lag.c) */
+uint32_t video_line_pal[FB_H][32];        /* paletten (RGBA) ved starten av hver linje (lag.c) */
+int      video_bpl_planes;
+static uint32_t bpl_frame = 0xffffffffu;
 
 /* logg over endringer paa linjen */
 typedef struct { int16_t x; uint16_t reg, val; } Change;
@@ -146,6 +150,11 @@ void video_fetch(int vpos)
     fetch_x0 = hires ? start * 2 + 9 : start * 2 + 17;
     fetch_bplcon0 = C.bplcon0;
     fetch_bplcon1 = C.bplcon1;
+    if (bpl_frame != M.frame) {
+        bpl_frame = M.frame;
+        video_bpl_planes = planes;
+        for (int p = 0; p < planes; p++) video_bpl_first[p] = C.bplpt[p];
+    }
     for (int p = 0; p < planes; p++) {
         uint32_t pt = C.bplpt[p];
         for (int w = 0; w < words; w++) { fetch_data[p][w] = chip_r16(pt); pt += 2; }
@@ -245,6 +254,7 @@ void video_line_end(int vpos)
     uint16_t hamc = col[0];
     uint32_t pal[32];
     for (int i = 0; i < 32; i++) pal[i] = rgb12(col[i]);
+    memcpy(video_line_pal[y], pal, sizeof pal);
 
     for (int hx = 0; hx < FB_W; hx++) {
         int lx = FB_X0 + (hx >> 1);

@@ -18,7 +18,7 @@ SPILL       ?= ../Moonstonecd32-AMIGA.zip
 SPILL_INN    = $(if $(filter ja,$(MED_SPILLET)),$(wildcard $(SPILL)))
 
 CORE_SRC = src/amiga.c src/custom.c src/blitter.c src/video.c src/paula.c src/cia.c src/whdload.c \
-           src/files.c src/unzip.c src/decrunch.c src/hooks.c src/game.c src/patch.c src/meny.c src/state.c src/cpu_state.c src/png.c \
+           src/files.c src/unzip.c src/decrunch.c src/hooks.c src/game.c src/patch.c src/meny.c src/lag.c src/state.c src/cpu_state.c src/png.c \
            src/decomp/decomp.c src/spilldata.c
 MUSASHI_SRC = ext/musashi/m68kcpu.c ext/musashi/m68kops.c ext/musashi/m68kdasm.c ext/musashi/softfloat/softfloat.c
 CORE_OBJ = $(CORE_SRC:.c=.o)

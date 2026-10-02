@@ -73,7 +73,17 @@ EMSCRIPTEN_KEEPALIVE void ms_frame(void)
 {
     amiga_run_frame();
     audio_frames = paula_take(audio, AUDIO_RING);
+    if (lag_paa) lag_bygg();
 }
+
+/* lagene (lag.c): bakgrunn og forgrunn hver for seg, 320 x 200 RGBA */
+EMSCRIPTEN_KEEPALIVE void ms_lag_paa(int on) { lag_paa = on != 0; if (!lag_paa) lag_gyldig = false; }
+EMSCRIPTEN_KEEPALIVE int ms_lag_gyldig(void) { return lag_gyldig ? 1 : 0; }
+EMSCRIPTEN_KEEPALIVE void ms_lag_bygg(void) { lag_bygg(); }     /* lag paa nytt fra siste bilde */
+EMSCRIPTEN_KEEPALIVE uint32_t *ms_lag_bak(void) { return lag_bak; }
+EMSCRIPTEN_KEEPALIVE uint32_t *ms_lag_for(void) { return lag_for; }
+EMSCRIPTEN_KEEPALIVE uint32_t ms_lag_hash(void) { return lag_bak_hash; }
+EMSCRIPTEN_KEEPALIVE uint32_t ms_lag_lys(void) { return lag_bak_lys; }
 
 EMSCRIPTEN_KEEPALIVE uint32_t *ms_fb(void) { return video_fb; }
 EMSCRIPTEN_KEEPALIVE int ms_fb_w(void) { return FB_W; }

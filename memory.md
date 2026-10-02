@@ -177,3 +177,23 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   sjekksummen 5,6 ms (bare hvert 120. bilde hos verten). Visningen tegner nå bare når
   det er et nytt bilde, og tegnelisten hentes bare når en HD-pakke eller rammene er på.
 
+## Lagene (bakgrunn og forgrunn) og renderen
+- Den rene bakgrunnen: peker på $8CDE8 (i kamp $000400), fem plan à $1F40 byte (40 x 200).
+  Bufferet det tegnes i: peker på $AA948. Skjermbufferne i kamp: $75A3C og $6BDFA.
+- Tilbakestilling under figurene: $882E2 går gjennom en liste med rektangler (8 byte:
+  x, y, b, h) og kopierer fra bakgrunnen til tegnebufferet med $9E252 (A0 kilde, A1 mål,
+  D0/D1 modulo, D2 bredde i ord, D3 høyde), ett plan om gangen.
+- Figurene: $9E130 kopierer bildet til figurbufferet ($A2CD6, plan à $12C0), $9DF50 og
+  $9DF92 lager masken ($A8A96), $9E0AA blitter med maske til skjermen (minterm F2/22).
+- lag.c: bakgrunn = kopien med paletten på hver linje (video_line_pal), forgrunn =
+  video_fb der skjermens indeks eller farge er annerledes enn bakgrunnens. Sammen lik
+  originalen (0 av 614 400 piksler i test). Gyldig bare med fem plan lowres 320 x 200,
+  modulo 0 og plan $1F40 fra hverandre. Hash: FNV-1a av de fem planene. 0,3 ms per bilde.
+- `--blit-trace F:N` viser hver blit med pekere og skjermens bitplan; `--lag F:PREFIKS`
+  og `--lag-dump MAPPE` skriver lagene. Gamle .sav-filer i scratchpad virker ikke etter
+  STATE_VERSION 7; nye lages med --press-sekvenser (Practice: esc 100, ned 700 og 760,
+  fire 820; kart: Select Knight, fire 1300, return 1500, tilstand i 1650).
+- render.js: trinn 1 tegner lagene i et rendermål (lowres-koordinater, y nedover,
+  DoubleSide, teksturer uten flipY), trinn 2 filter og effekter. HD-teksturer fra lerret
+  har flipY = false nå.
+

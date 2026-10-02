@@ -1,7 +1,10 @@
 # todo.md
 
 ## Neste
-- [ ] Veien mot en native port (foreslått, venter på brukeren): 1) fange opp all tegning (bakgrunner PIV, tekst, paletter og fades) til lag i en moderne renderer, 2) flytte logikken til C del for del (kamp og kart først) med check_hooks, 3) fjerne 68000 og Amiga-brikkene når originalkoden ikke kjører lenger.
+- [ ] Veien mot en native port (brukeren sa ja 2026-10-02): 1) grafikken ut i lag (bakgrunn og forgrunn er ferdig; gjenstår tekst i HD og bakgrunner som endres litt), 2) logikken til C del for del (kamp og kart først) med check_hooks, 3) fjerne 68000 og Amiga-brikkene når originalkoden ikke kjører lenger.
+- [ ] Tekst i HD: fange opp skriv_tekst ($89052) og tegne teksten med en skarp font.
+- [ ] HD-bakgrunner som tåler små endringer i bakgrunnskopien (legg forskjellene over).
+- [ ] Effektene og HD-laget også i PC-versjonen (trenger OpenGL i frontend.c).
 - [ ] Flette rettelsen av workflowen (a998217 på grenen) til main, så «Run workflow» også publiserer.
 - [ ] HD-grafikk: bakgrunner i HD (PIV, og .t for kampene), fargeeffekter (fading) på HD-bildene, andre tegnerutiner enn tegn_figur (tekst, menyer).
 - [ ] Lage en liten HD-pakke som eksempel (f.eks. ridderne i fire ganger størrelse).
@@ -16,6 +19,7 @@
 - [ ] Teste moonstone.exe på ekte Windows.
 
 ## Ferdig
+- [x] Lagrenderer: bakgrunn og forgrunn fra spillets egen bakgrunnskopi, HD-bakgrunner etter hash, effekter (skygger, uskarp bakgrunn, glød, farger, vignett), HD-bilder tones med paletten.
 - [x] Mus og berøring i spillets menyer (klikk paa valg, Enter), fire og retning med musen i spillet, jevnere lyd, tegning bare ved nye bilder.
 - [x] Ingen startside: nettsiden starter i introen, som kan hoppes over, og nettspill og navn velges i spillets tittelmeny.
 - [x] Spillfilen bygget inn i programmene og nettsiden; startsiden uten filvalg.
