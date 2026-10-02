@@ -183,9 +183,10 @@ const Nett = (() => {
             }
             break;
         }
-        case 'inn': if (g) g.inn = d.j & 31; break;
-        case 'tast': if (g && g.klar) gjesteTaster.push([d.k & 0x7f, !!d.ned, g.spiller]); break;
-        case 'velg': if (g && g.klar) h.velg && h.velg(d.rad | 0); break;     /* gjesten klikket paa en rad i menyen */
+        /* i hver for seg spiller gjestene sitt eget spill: ingen taster, valg eller synk hit */
+        case 'inn': if (g && romSpill !== 'hver') g.inn = d.j & 31; break;
+        case 'tast': if (g && g.klar && romSpill !== 'hver') gjesteTaster.push([d.k & 0x7f, !!d.ned, g.spiller]); break;
+        case 'velg': if (g && g.klar && romSpill !== 'hver') h.velg && h.velg(d.rad | 0); break;     /* gjesten klikket paa en rad i menyen */
         case 'ridder':                          /* hver for seg: ridderen til en gjest, videre til de andre */
             if (g && romSpill === 'hver') {
                 const m = d.borte ? { t: 'ridder', fra: g.id, borte: true }
@@ -203,7 +204,7 @@ const Nett = (() => {
             }
             break;
         case 'synk':
-            if (g) { h.status && h.status(g.navn + ' kom ut av takt, sender tilstanden paa nytt'); h.trengerTilstand && h.trengerTilstand(g.id); }
+            if (g && romSpill !== 'hver') { h.status && h.status(g.navn + ' kom ut av takt, sender tilstanden paa nytt'); h.trengerTilstand && h.trengerTilstand(g.id); }
             break;
         case 'ping': conn.send({ t: 'pong', tid: d.tid }); break;
         }
@@ -345,6 +346,8 @@ const Nett = (() => {
         return new Promise((ok, feil) => {
             peer = lagPeer(null);
             peer.on('connection', (c) => { if (c.metadata && c.metadata.duell) duellInn(c); else c.close(); });
+            /* mister vi signalserveren, kan vi verken utfordre eller utfordres: koble til igjen */
+            peer.on('disconnected', () => { if (peer && !peer.destroyed && rolle === 'gjest') peer.reconnect(); });
             let aapnet = false;
             peer.on('open', () => {
                 vert = peer.connect(PREFIKS + kode.toLowerCase(), { reliable: true });
@@ -442,6 +445,7 @@ const Nett = (() => {
         return new Promise((ok, feil) => {
             if (!peer || peer.destroyed) { feil(new Error('ikke i et rom')); return; }
             const c = peer.connect(peerId(id), { reliable: true, metadata: { duell: true } });
+            if (!c) { feil(new Error('ikke koblet til signalserveren')); return; }   /* PeerJS gir undefined da */
             const t = setTimeout(() => { c.close(); feil(new Error('svarer ikke')); }, 10000);
             c.on('open', () => { clearTimeout(t); ok(c); });
             c.on('error', (e) => { clearTimeout(t); feil(e); });
@@ -498,7 +502,7 @@ const Nett = (() => {
         lagRom, bliMed, avslutt, chat, invitasjon, settPort, settSpiller, settModus, sendTilstand, porter, sendBilde,
         hentGjesteTaster, tastTillatt, vertensSpiller, harGjester, sendInn, sendTast, sendVelg, sendRidder, beOmSynk, spillere,
         romSpill: () => romSpill, minId: () => (rolle === 'vert' ? 'vert' : peer ? peer.id : null),
-        duellKoble, sendTilstandTil, tilstandsMottaker,
+        duellKoble, sendTilstandTil, tilstandsMottaker, peerId,
         rammer, rolle: () => rolle, kode: () => kode, ping: () => ping,
     };
 })();

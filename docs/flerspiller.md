@@ -123,6 +123,12 @@ Turene (`$0AAC14` til `$0AAF54`):
   over nettet (en grav, eller datamaskinen styrte den), plyndres ikke. Tingene er i
   den andres eget spill og ville blitt doble. Mennesket hopper til `$080BBC` (byttet
   tilbake etter plyndringen), datamaskinen til `$080BD8`.
+- Angriperen lukker forbindelsen først når den andre sier `ferdig` (eller etter et
+  minutt), og mister den andre forbindelsen, kjører den ferdig bildene som alt er
+  kommet, så resultatet ikke går tapt når fanen har vært skjult. En utfordring godtas
+  bare fra noen i rommet og for plass 1-3. Under en duell kan ingen av dem lagre,
+  laste eller ta pause, og tastene til den som forsvarer seg, går ikke til hans eget
+  spill etterpå.
 - Sier den andre nei (i sidemenyen, ikke på kartet, i en annen duell) eller svarer
   ikke på 15 sekunder, styrer datamaskinen ridderen i kampen (`HVER_AI`: +$36 og
   +$0B = 4). Under en duell endres ingenting i kjernen utenfra (de andre ridderne

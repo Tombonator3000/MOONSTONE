@@ -595,4 +595,8 @@ int meny_row_at(int y)
 void meny_state(StateIO *s)
 {
     STATE_VAR(s, M2);
+    /* in_menu er bare for frontenden og ikke med i tilstanden: lastes et spill fra
+     * kartet mens tittelmenyen vises, ville den staatt paa (hook_loop setter den igjen
+     * i neste bilde hvis menyen er framme) */
+    if (!s->saving) in_menu = false;
 }
