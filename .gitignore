@@ -1,0 +1,27 @@
+# Spillfilene ligger i Moonstonecd32-AMIGA.zip (lagt inn av eieren). Utpakkede
+# filer, grafikk og lyd lages lokalt og skal ikke sjekkes inn.
+spill/*
+!spill/LES_MEG.txt
+assets/*
+!assets/LES_MEG.md
+disasm/*.s
+disasm/*.bin
+*.o
+port/build-win/
+port/build-web/
+port/moonstone
+port/moonstone-headless
+port/moonstone.exe
+port/SDL2.dll
+port/ext/musashi/m68kmake
+port/ext/musashi/m68kops.c
+port/ext/musashi/m68kops.h
+web/build/
+*-komplett.html
+*-komplett*.zip
+*.sav
+*.wav
+*.bmp
+shot_*.png
+skjermbilde_*.png
+__pycache__/
