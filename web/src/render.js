@@ -20,6 +20,7 @@ const Visning = (() => {
     let renderer, scene, camera, mesh, tex, mat, data;
     let W = 720, H = 288;
     let filter = 'skarp', format = 'pal', helt = false;
+    let maaTegnes = true;                   /* noe annet enn et nytt bilde krever ny tegning */
     let crop = [70, 19, 710, 219];
     let stabil = 0, nyCrop = null;
     let diwNaa = [70, 19, 710, 219];
@@ -151,6 +152,7 @@ const Visning = (() => {
         renderer.setSize(w, h, true);
         const pr = renderer.getPixelRatio();
         mat.uniforms.outSize.value.set(w * pr, h * pr);
+        maaTegnes = true;                   /* lerretet er toemt */
     }
 
     function settFilter(f) {
@@ -159,10 +161,11 @@ const Visning = (() => {
         const lin = f !== 'piksel';
         tex.magFilter = tex.minFilter = lin ? THREE.LinearFilter : THREE.NearestFilter;
         tex.needsUpdate = true;
+        maaTegnes = true;
     }
 
-    function settFormat(f) { format = f; tilpass(); }
-    function settHelt(on) { helt = on; nyCrop = null; stabil = 99; }
+    function settFormat(f) { format = f; tilpass(); maaTegnes = true; }
+    function settHelt(on) { helt = on; nyCrop = null; stabil = 99; maaTegnes = true; }
 
     /* bytter utsnitt bare naar spillets vindu har vaert likt en stund */
     function oppdaterUtsnitt(diw) {
@@ -228,7 +231,11 @@ const Visning = (() => {
         for (let i = n; i < flater.length; i++) flater[i].visible = false;
     }
 
+    /* Kalles bare naar kjernen har laget et nytt bilde, eller maaTegnes() er sann
+     * (storrelse eller innstillinger endret). Ellers blir skjermen staaende, saa en
+     * skjerm med 120 eller 144 Hz ikke laster opp og tegner det samme bildet flere ganger. */
     function tegn(fb, diw) {
+        maaTegnes = false;
         data.set(fb);
         tex.needsUpdate = true;
         if (diw) { oppdaterUtsnitt(diw); diwNaa = diw; }
@@ -265,6 +272,7 @@ const Visning = (() => {
     function tomHdPakke() {
         for (const v of hdPakke.values()) { v.tex.dispose(); v.mat.dispose(); }
         hdPakke.clear();
+        maaTegnes = true;
     }
 
     function bildeTilPng() {
@@ -273,6 +281,9 @@ const Visning = (() => {
 
     return {
         init, tegn, nyttBilde, tilpass, settFilter, settFormat, settHelt, bildeTilPng, lastHdPakke, tomHdPakke,
-        settRammer: (on) => { visRammer = on; }, hdAntall: () => hdPakke.size, scene: () => scene,
+        settRammer: (on) => { visRammer = on; maaTegnes = true; }, hdAntall: () => hdPakke.size, scene: () => scene,
+        maaTegnes: () => maaTegnes,
+        utsnitt: () => crop.slice(),                /* delen av rammebufferet som vises (x0, y0, x1, y1) */
+        brukerListe: () => hdPakke.size > 0 || visRammer,   /* trengs tegnelisten fra kjernen? */
     };
 })();

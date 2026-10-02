@@ -10,9 +10,12 @@
 - [ ] Assembler-utgave av disassemblyen som bygger byte for byte like filer (vasm).
 - [ ] Teste nettspill (også «Online Game» i tittelmenyen) mot PeerJS Cloud og HiveMQ fra en vanlig nettleser (proxyen i skymiljøet stopper WebSocket; lokalt testet med egne servere).
 - [ ] Teste den nye oppstarten på en ekte mobil (lyd ved første trykk, trykk på skjermen hopper over introen, navnefeltet med skjermtastatur).
+- [ ] Klikk i menyene også i PC-versjonen (meny_row_at finnes; PC slår ikke på menylappen i dag).
+- [ ] Mus på andre skjermer enn tittelmenyen: velge ridder, butikker og inventar med klikk (krever å finne valgvariablene for hver skjerm).
 - [ ] Teste moonstone.exe på ekte Windows.
 
 ## Ferdig
+- [x] Mus og berøring i spillets menyer (klikk paa valg, Enter), fire og retning med musen i spillet, jevnere lyd, tegning bare ved nye bilder.
 - [x] Ingen startside: nettsiden starter i introen, som kan hoppes over, og nettspill og navn velges i spillets tittelmeny.
 - [x] Spillfilen bygget inn i programmene og nettsiden; startsiden uten filvalg.
 - [x] Spillbart på GitHub Pages: https://tombonator3000.github.io/MOONSTONE/

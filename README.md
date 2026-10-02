@@ -113,6 +113,23 @@ bare på den siste tasten, og da ville de skjult Esc.
 I kamp holder du fire og trykker en retning for de åtte angrepene (se manualen på ISO-en).
 På spillkontrollere er A fire, B mellomrom, Start E og Back Esc, som CD32-padden.
 
+### Mus og berøring i nettleseren
+
+Originalspillet bruker bare joystick. Det leser musen i avbruddet sitt, men ingen del av
+spillet bruker det den finner. I nettleseren er musen derfor koblet inn slik:
+
+- **Menyene** (tittelmenyen og nettspillsidene): klikk eller trykk på et valg. Pilen
+  flytter seg dit, og valget utføres. Pekeren blir en hånd over valg som kan klikkes.
+  Enter og mellomrom velger også, i tillegg til fire (Ctrl).
+- **I spillet** er venstre museknapp fire så lenge den holdes. Hold den og dra i en
+  retning for fire og retning samtidig (angrepene i kamp). Høyre knapp og dra er bare
+  retning.
+- **Styrekors og knapper på skjermen** vises på mobil og nettbrett, og kan slås på for
+  mus i menyen under «Bilde og lyd».
+
+Første gang tittelmenyen vises, står det øverst at valgene kan klikkes.
+
+
 | Tast | PC | Nettleser |
 | --- | --- | --- |
 | Meny | | Home |

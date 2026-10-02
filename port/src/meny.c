@@ -62,6 +62,9 @@ static struct {
     uint8_t n_rooms;                        /* aapne rom (Join Game) */
     uint8_t rooms_known;                    /* listen er hentet (eller feilet) */
     uint8_t select;                         /* velg denne linjen ved neste tegning (0 = ingen) */
+    uint8_t pick;                           /* klikket rad + 1, ogsaa i tittelmenyen (0 = ingen) */
+    uint8_t pick_fire;                      /* gi spillet fire en gang naar menyen er tegnet */
+    uint32_t pick_frame;                    /* bildet klikket kom i (M.frame) */
     uint8_t n_names;
     char    room[8];
     char    myname[TEXT_SIZE];              /* navnet til den som spiller her (Online Game) */
@@ -74,6 +77,7 @@ static struct {
 
 bool meny_online;                           /* frontenden kan nettspill (nettsiden) */
 bool meny_title_seen;                       /* tittelmenyen er naadd siden mog ble lastet (nettsiden spoler dit) */
+static bool in_menu;                        /* fra tittelmenyen starter til spillet forlater den */
 
 /* ---------------------------------------------------------------- hendelser */
 static int events[8], n_events;
@@ -316,9 +320,11 @@ static bool hook_loop(void)
 {
     if (!active()) return false;
     meny_title_seen = true;
+    in_menu = true;
     if (!M2.redraw) return false;
     M2.redraw = 0;
     if (M2.select) { wr16(VALG, M2.select); M2.select = 0; }
+    if (M2.pick) { wr16(VALG, (uint16_t)(M2.pick - 1)); M2.pick = 0; }
     build_page();
     m68k_set_reg(M68K_REG_PC, 0x81942);
     return true;
@@ -329,7 +335,19 @@ static bool hook_loop(void)
  * hooks (se hooks.c). */
 static bool hook_input(void)
 {
-    if (active() && !(m68k_get_reg(NULL, M68K_REG_D1) & 0x10)) M2.wait_release = 0;
+    if (!active()) return false;
+    uint32_t d1 = m68k_get_reg(NULL, M68K_REG_D1);
+    if (!(d1 & 0x10)) M2.wait_release = 0;
+    /* Et klikk eller Enter: fire en gang, etter at menyen er tegnet paa nytt. Lokka leser
+     * joysticken hele tiden, men aa tegne menyen tar flere bilder, saa et kort fire fra
+     * frontenden kunne komme mens den tegnet. Her ser spillet det som fra joysticken. */
+    if (M2.pick_fire && !M2.redraw) {
+        M2.pick_fire = 0;
+        if (M.frame - M2.pick_frame > 25) return false;     /* menyen var ikke framme */
+        m68k_set_reg(M68K_REG_D1, d1 | 0x10);
+        m68k_set_reg(M68K_REG_PC, 0x81910);                 /* forbi beq.b lokka: btst #4,d1 */
+        return true;
+    }
     return false;
 }
 
@@ -408,7 +426,16 @@ static bool hook_title(void)
     if (!active()) return false;
     M2.page = PAGE_TITLE;
     M2.redraw = 0;
+    M2.pick = M2.pick_fire = 0;
+    in_menu = true;
     build_page();
+    return false;
+}
+
+/* Practice ($8194A) og Select Knight ($81952): spillet forlater tittelmenyen */
+static bool hook_leave(void)
+{
+    in_menu = false;
     return false;
 }
 
@@ -419,6 +446,8 @@ void meny_register_hooks(void)
     hooks_register_patch(0x8190e, hook_input, "tittelmeny fire sluppet");
     hooks_register_patch(0x81916, hook_fire, "tittelmeny fire (nettspill)");
     hooks_register_patch(0x81968, hook_joystick, "tittelmeny joystick (nettspill)");
+    hooks_register_patch(0x8194a, hook_leave, "tittelmeny forlates (Practice)");
+    hooks_register_patch(0x81952, hook_leave, "tittelmeny forlates (Select Knight)");
 }
 
 /* ---------------------------------------------------------------- kommandoer */
@@ -502,6 +531,12 @@ void meny_command(int cmd, int arg, const char *text)
         if (arg == PAGE_JOIN) { M2.rooms_known = 0; M2.n_rooms = 0; M2.rooms_error[0] = 0; }
         M2.select = 1;
         break;
+    case MENY_CMD_SELECT:                   /* klikk paa en rad (arg), eller Enter (-1): pilen dit og fire */
+        if (!M2.enabled || arg < -1 || arg >= ROWS) return;
+        if (arg >= 0) { M2.pick = (uint8_t)(arg + 1); M2.redraw = 1; }
+        M2.pick_fire = 1;
+        M2.pick_frame = M.frame;
+        return;
     case MENY_CMD_SESSION_END:
         M2.session = SESSION_NONE;
         M2.n_names = 0;
@@ -520,7 +555,32 @@ void meny_reset(void)
 {
     memset(&M2, 0, sizeof M2);
     meny_title_seen = false;
+    in_menu = false;
     n_events = 0;
+}
+
+/* Er tittelmenyen (eller en nettspillside) paa skjermen? Ogsaa mens den tegnes paa
+ * nytt, som tar opp mot et sekund. Bare for frontenden; lagres ikke. */
+bool meny_in_menu(void)
+{
+    return M2.enabled && in_menu;
+}
+
+/* Raden paa linje y (spillets skjerm, 0 = overst) som kan velges med et klikk.
+ * -1: ikke i menyen, -2: i menyen, men ingen rad der. Leser bare, endrer ingenting. */
+int meny_row_at(int y)
+{
+    if (!meny_in_menu()) return -1;
+    if (M2.page == PAGE_TITLE) {
+        /* Players, Gore, Practice, Select Knight, Online Game (meny_mog_ready) */
+        static const int ty[5] = { 0x53, 0x6c, 0x88, 0x9c, 0xb0 };
+        for (int i = 0; i < 5; i++) if (y >= ty[i] - 3 && y < ty[i] + 21) return i;
+        return -2;
+    }
+    Row r[ROWS];
+    page_rows(r);
+    for (int i = 0; i < ROWS; i++) if (r[i].selectable && y >= row_y[i] - 1 && y < row_y[i] + 19) return i;
+    return -2;
 }
 
 void meny_state(StateIO *s)

@@ -153,3 +153,27 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 - Verten legger ut rommet på nytt med en gang antallet spillere endres
   (`stoppAnnonse.oppdater()`), ellers står det «1 of 4» i opptil ett minutt.
 
+## Mus, lyd og ytelse i nettleseren
+- Spillet bruker ikke musen: `les_mus` ($9B4FC) kalles fra VBL-avbruddet ($9B2D4) og
+  legger posisjonen i $9B7CC/$9B7CE og knappen i $9B7D0, men ingenting leser dem.
+- Tittelmenyens lokke ($81906) leser joysticken hele tiden (ingen venting på VBL), men
+  å tegne menyen på nytt (tegn_tittelmeny) tar rundt 20 bilder. Et kort fire fra
+  nettsiden kunne derfor komme mens den tegnet og bli borte.
+- Klikk på en rad: kommando 10 (VELG, arg = rad, -1 = raden pilen står på) setter
+  M2.pick og pick_fire. hook_loop setter VALG ved neste tegning, og hook_input ($8190E)
+  gir spillet fire en gang når menyen er tegnet: D1 |= $10 og PC = $81910 (forbi beq).
+  Gamle klikk (over 25 bilder) kastes. STATE_VERSION er 7.
+- meny_in_menu(): sann fra hook_title/hook_loop til Practice ($8194A) eller Select Knight
+  ($81952), også mens menyen tegnes. Bare for frontenden, lagres ikke.
+- meny_row_at(y): tittelradene har y $53, $6C, $88, $9C, $B0 (treff fra y-3 til y+21),
+  sidene $50 + 20 * i (19 piksler høye). Klikket regnes om med Visning.utsnitt() og
+  Kjerne.vindu() (y = utsnitt-y0 + andel * høyde - diw-y0).
+- Lyd: målet for bufferen starter på 80 ms og økes med 20 ms (til 200 ms) hver gang
+  den går tom. Tom buffer tones ut og fylles halvveis før avspillingen fortsetter.
+  Pause, sidemenyen og skjult fane tømmer bufferen, så det ikke regnes som et hull.
+  Kjernen tar volumet opp til 1 (over det klipper int16); resten forsterkes i workleten
+  med myk begrensning over 0,9.
+- Tid per bilde i Chromium (4 kjerner, swiftshader): kjernen 2-3 ms, visningen 2,8 ms,
+  sjekksummen 5,6 ms (bare hvert 120. bilde hos verten). Visningen tegner nå bare når
+  det er et nytt bilde, og tegnelisten hentes bare når en HD-pakke eller rammene er på.
+
