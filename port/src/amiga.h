@@ -284,7 +284,7 @@ const char *game_knight_name(int k);
 int      game_knight_player(int k);
 /* tegnelisten: figurene spillet tegnet i siste bilde (game.c). Venstre kant er
  * x - xoff, flip = 1 naar figuren er speilvendt. */
-typedef struct { int16_t cel, frame, x, y, w, h, xoff, flip; uint32_t target; } GameDraw;
+typedef struct { int16_t cel, frame, x, y, w, h, xoff, flip; uint32_t target, caller; } GameDraw;
 #define GAME_MAX_DRAWS 256
 extern GameDraw game_draws[GAME_MAX_DRAWS];
 extern int      game_n_draws;
@@ -306,12 +306,21 @@ extern bool meny_online;                  /* frontenden kan nettspill: "Online G
 extern bool meny_title_seen;              /* tittelmenyen er naadd (oppstart rett til menyen) */
 /* hendelser fra menyen til frontenden: kode | argument << 8 */
 enum { MENY_EV_HOST = 1, MENY_EV_JOIN_PAGE, MENY_EV_JOIN_ROOM, MENY_EV_ENTER_CODE, MENY_EV_COPY,
-       MENY_EV_PUBLIC, MENY_EV_LEAVE_JOIN, MENY_EV_BACK, MENY_EV_NAME };
+       MENY_EV_PUBLIC, MENY_EV_LEAVE_JOIN, MENY_EV_BACK, MENY_EV_NAME, MENY_EV_SPILL };
 /* kommandoer fra frontenden, brukes ved starten av et bilde (i nettspill hos alle) */
 enum { MENY_CMD_HOSTING = 1, MENY_CMD_PLAYERS, MENY_CMD_PUBLIC, MENY_CMD_ROOMS, MENY_CMD_MESSAGE,
-       MENY_CMD_SESSION_END, MENY_CMD_NAMES, MENY_CMD_MYNAME, MENY_CMD_PAGE, MENY_CMD_SELECT };
+       MENY_CMD_SESSION_END, MENY_CMD_NAMES, MENY_CMD_MYNAME, MENY_CMD_PAGE, MENY_CMD_SELECT, MENY_CMD_SPILL };
 enum { MENY_PAGE_ONLINE = 1, MENY_PAGE_JOIN = 3 };   /* for MENY_CMD_PAGE */
 int      meny_take_event(void);           /* 0 = ingen */
+/* hver.c: flerspiller "Hver for seg" (docs/flerspiller.md) */
+enum { HVER_FJERN = 1, HVER_RIDDER };
+void     hver_reset(void);
+void     hver_register_hooks(void);
+void     hver_kommando(int k, int arg, const char *text);
+void     hver_frame(void);                /* foer hvert bilde: de fjerne ridderne inn i spillet */
+void     hver_ridder(int k, int ut[4]);   /* x, y, liv, figur */
+bool     hver_paa(void);
+bool     hver_kart(void);                 /* spillet er paa kartet (ridderen kan sendes) */
 bool     meny_in_menu(void);              /* tittelmenyen (eller en nettspillside) er paa skjermen */
 int      meny_row_at(int y);              /* raden et klikk paa linje y treffer, -1/-2 = ingen */
 void     meny_command(int cmd, int arg, const char *text);
@@ -344,6 +353,7 @@ void     whd_state(StateIO *s);
 void     game_state(StateIO *s);
 void     patch_state(StateIO *s);
 void     meny_state(StateIO *s);
+void     hver_state(StateIO *s);
 /* hele tilstanden til/fra minnet; kalleren frigjor buf med free() */
 bool     state_save_mem(uint8_t **buf, size_t *size);
 bool     state_load_mem(const uint8_t *buf, size_t size);

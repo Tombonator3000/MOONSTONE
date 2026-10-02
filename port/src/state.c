@@ -18,7 +18,7 @@
 #define STATE_MAGIC   "MOONSTAT"
 
 bool state_any_game;
-#define STATE_VERSION 7
+#define STATE_VERSION 8
 
 void state_io(StateIO *s, void *p, size_t n)
 {
@@ -71,6 +71,7 @@ static void all_parts(StateIO *s)
     game_state(s);
     patch_state(s);
     meny_state(s);
+    hver_state(s);
     {
         extern unsigned blit_w, blit_h;
         STATE_VAR(s, blit_w);

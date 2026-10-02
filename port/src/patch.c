@@ -264,6 +264,7 @@ void patch_register_hooks(void)
     hooks_register_patch(0x890ea, clamp_text_x, "skriv_tekst x (hoyre)");
     hooks_register_patch(0x8b132, clear_d0_stats, "utstyr: STR/CON/END");
     meny_register_hooks();
+    hver_register_hooks();
 }
 
 void patch_state(StateIO *s)
@@ -276,6 +277,7 @@ void patch_reset(void)
 {
     texts_patched = 0;
     meny_reset();
+    hver_reset();
 }
 
 void game_mog_ready(void)

@@ -64,6 +64,8 @@ static struct {
     uint8_t select;                         /* velg denne linjen ved neste tegning (0 = ingen) */
     uint8_t pick;                           /* klikket rad + 1, ogsaa i tittelmenyen (0 = ingen) */
     uint8_t pick_fire;                      /* gi spillet fire en gang naar menyen er tegnet */
+    uint8_t spill;                          /* 0 = hver for seg (hver.c), 1 = tur for tur */
+    uint8_t msg_title;                      /* Back paa meldingen gaar til tittelmenyen */
     uint32_t pick_frame;                    /* bildet klikket kom i (M.frame) */
     uint8_t n_names;
     char    room[8];
@@ -191,7 +193,8 @@ static void page_rows(Row r[ROWS])
         if (name[0]) snprintf(buf[3], TEXT_SIZE, "Name  %s", name);
         else snprintf(buf[3], TEXT_SIZE, "Choose Name");
         r[3] = (Row){ buf[3], true };
-        r[4] = (Row){ "Back", true };
+        r[4] = (Row){ M2.spill ? "Mode  Turns" : "Mode  Separate", true };
+        r[5] = (Row){ "Back", true };
         break;
     }
     case PAGE_HOST:
@@ -374,20 +377,22 @@ static bool hook_fire(void)
         if (v == 1) {
             snprintf(M2.message[0], TEXT_SIZE, "Creating Room...");
             M2.message[1][0] = 0;
+            M2.msg_title = 0;
             show_page(PAGE_MESSAGE);
-            emit(MENY_EV_HOST, 0);
+            emit(MENY_EV_HOST, M2.spill);
         } else if (v == 2) {
             M2.rooms_known = 0; M2.n_rooms = 0; M2.rooms_error[0] = 0;
             show_page(PAGE_JOIN);
             emit(MENY_EV_JOIN_PAGE, 0);
         } else if (v == 3) emit(MENY_EV_NAME, 0);
+        else if (v == 4) { M2.spill ^= 1; build_page(); emit(MENY_EV_SPILL, M2.spill); }
         else show_page(PAGE_TITLE);
         break;
     case PAGE_HOST:
         if (v == 3) emit(MENY_EV_COPY, 0);
         else if (v == 4) emit(MENY_EV_PUBLIC, !M2.public_room);
         else if (v == 5) {
-            if (M2.players >= 2) set_players(M2.players);
+            if (M2.spill && M2.players >= 2) set_players(M2.players);   /* hver for seg: alle spiller alene */
             show_page(PAGE_TITLE);
             emit(MENY_EV_BACK, 0);
         }
@@ -398,7 +403,7 @@ static bool hook_fire(void)
         else if (v == 5) { show_page(PAGE_ONLINE); emit(MENY_EV_LEAVE_JOIN, 0); }
         break;
     case PAGE_MESSAGE:
-        show_page(M2.session == SESSION_HOST ? PAGE_HOST : PAGE_ONLINE);
+        show_page(M2.msg_title ? PAGE_TITLE : M2.session == SESSION_HOST ? PAGE_HOST : PAGE_ONLINE);
         break;
     }
     goto_redraw();
@@ -506,6 +511,7 @@ void meny_command(int cmd, int arg, const char *text)
         memcpy(M2.message[0], text, n);
         M2.message[0][n] = 0;
         snprintf(M2.message[1], TEXT_SIZE, "%s", nl ? nl + 1 : "");
+        M2.msg_title = arg == 1;            /* med i et rom hver for seg: rett til Select Knight */
         if (M2.page != PAGE_TITLE) M2.page = PAGE_MESSAGE;
         break;
     }
@@ -530,6 +536,9 @@ void meny_command(int cmd, int arg, const char *text)
         M2.page = (uint8_t)arg;
         if (arg == PAGE_JOIN) { M2.rooms_known = 0; M2.n_rooms = 0; M2.rooms_error[0] = 0; }
         M2.select = 1;
+        break;
+    case MENY_CMD_SPILL:                    /* hver for seg (0) eller tur for tur (1), lagret paa nettsiden */
+        M2.spill = (uint8_t)(arg & 1);
         break;
     case MENY_CMD_SELECT:                   /* klikk paa en rad (arg), eller Enter (-1): pilen dit og fire */
         if (!M2.enabled || arg < -1 || arg >= ROWS) return;

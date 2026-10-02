@@ -1,0 +1,113 @@
+# Flerspiller: tur for tur, og «Hver for seg»
+
+## Hvorfor nettspillet i dag føles tregt
+
+Moonstone er laget for å spilles ved samme maskin, tur for tur. På kartet styrer
+bare ridderen som har turen; de andre venter. Nettspillet kjører originalen
+nøyaktig likt hos alle (verten kjører spillet, gjestene får knappetrykkene), så
+det arver dette: når det ikke er din tur, kan du ikke gjøre noe.
+
+## Målet: «Hver for seg»
+
+Hver spiller spiller sitt eget spill samtidig, som alene, og ser de andre ridderne
+på kartet. Når to riddere møtes, kan de slåss, og den kampen spilles over nettet
+med begge styrende hver sin ridder.
+
+Status: steg 1 og 2 er ferdige (Mode Separate i Online Game, standard). Kamp mot en
+annen spiller går foreløpig mot datamaskinen hos deg; steg 3 gjenstår.
+
+## Det vi vet om spillet
+
+Ridderne: fire plasser à $84 byte fra $8D5B4 (`ridder_1` til `ridder_4`, se også
+`port/src/game.c`). Plasser uten menneske styres av datamaskinen (+$36 = 4).
+
+| Felt | Betydning |
+| --- | --- |
+| +$0B | joystickporten (2 på kartet, 1 for den andre ridderen i kamp) |
+| +$36 | spillernummer 0-3, 4 = datamaskinen |
+| +$49 | liv; 0 eller mindre = død (tegnes med bilde $21/$2A) |
+| +$4D | settes til 12 ved turstart |
+| +$52 | større enn 0: turen hoppes over |
+| +$56 | antall trekk per tur / 16 (`$8E7C2 = +$56 << 4`) |
+| +$64 | nullstilles ved turstart (svart ridder følger) |
+| +$6C | peker til navnet |
+| +$7E, +$80 | posisjonen på kartet (skjermkoordinater) |
+
+Turene (`$0AAC14` til `$0AAF54`):
+
+- `$8E79E` er hvilken plass som har turen (0-3). `$0AAF54` setter `aktiv_ridder`
+  ($8D9AC) til `ridder_1 + $84 * $8E79E`, port 2, +$4D = 12 og `$8E7C2`.
+- `$0AAC14` starter turen til en levende ridder (tegner kartet osv.), og løkka
+  `$0AAC8C` leser joysticken (eller kunstig intelligens for +$36 = 4).
+- `$8E7A0` teller trekkene. Tasten E setter den til `$8E7C2`, mellomrom viser
+  inventaret, Q avslutter.
+- Ved `$0AAE62` slutter turen når `$8E7A0 >= $8E7C2`: neste plass (`$8E79E + 1`,
+  modulo 4). Når den går rundt til 0, er det ny runde (`$08064A`, `$082B46`, og
+  `vent_paa_fire`).
+- Kartet: `$0AAB0A` tegner de andre ridderne (mi.c bilde +$36 + 5) på +$7E/+$80,
+  `$0AAAB0` den som har turen.
+- Det du kan gjøre der du står, bygges ved `$080F56`: andre riddere i nærheten
+  (avstand med `$080E00`, D5 = 2), den svarte ridderen og steder. Velger du en
+  ridder, blir det kamp mellom to riddere.
+- Kartet tegnes slik: når turen starter, kopieres kartet til bakgrunnen ($8CDE8),
+  stedene tegnes (`$0AAB60`), så de andre ridderne (`$0AAB0A`, rett etter
+  `$0AAC54`). I lokka (`$0AAC8C` til `$0AAF50`) tegnes ridderen som har turen, så
+  vises bildet og bakgrunnen kopieres inn i skjermbufferet på nytt (`$0AAF38`). Alt
+  som står i bakgrunnen, vises altså hvert bilde.
+- Valget der du står (fire på kartet): `$0ABB76` viser listen ($8EEEC, peker og
+  type: 1 levende ridder, $21 død ridder, 2 sted) og venter på tastene 1-9. En
+  ridder gir `$080AB8` med a0 = den som angriper og a1 = den andre. Er begge
+  datamaskinens (+$36 = 4), blir det ingen kamp. Ellers får mennesket port 2 og den
+  andre port 1 (+$0B), og kampen kjøres (`$083CEE`). Alle veier ut går via
+  `$080BD8`.
+- Turen hoppes over når +$52 er større enn 0 (`$0AAEEC`). En død ridder som ikke er
+  datamaskinens, telles som en død spiller (`$0AAF08`), og når alle spillerne er
+  døde, er spillet over.
+
+## Slik er «Hver for seg» laget (port/src/hver.c, web/src/app.js)
+
+- Verten velger **Mode Separate** (meny.c, `M2.spill`); rommet sier det til gjestene
+  i lobbymeldingen (`spill: 'hver'`). Gjestene får ingen tilstand og ingen bilder.
+- Hver nettleser sender sin ridder (+$7E, +$80, +$49, +$36 og navnet) til de andre via
+  verten når den endrer seg (høyst sju ganger i sekundet) og ellers hvert andre
+  sekund, eller `borte` når den ikke er på kartet.
+- De andre i rommet får plass 2, 3 og 4 i rekkefølgen i rommet. `hver_frame` skriver
+  dem inn før hvert bilde: posisjon, liv, figur (+$36, ikke 4, ellers styrer
+  datamaskinen den på kartet), +$0B = 4, navnet (i ledig chip-minne fra $FC000) og +$52 = 1 hvis
+  den er død (ellers ender spillet ditt når den dør). Datamaskinens ridder på plassen
+  lagres og får plassen tilbake når spilleren går.
+- Har to valgt samme ridder, får den andre en ledig farge hos deg.
+- Turen til en fjern ridder hoppes over (`$0AAC14`, se under Plan).
+- Kopi av bakgrunnen ved `$0AAC54` (kart og steder, uten ridderne). Har en fjern
+  ridder flyttet seg, legges kopien tilbake øverst i lokka (`$0AAC8C`, høyst hvert
+  fjerde bilde), og en liten rutine i chip-minnet ($FC080) tegner ridderne på nytt
+  med `$0AAB0A` og setter tegnemålet ($9E202) tilbake. Slik ser du de andre gå.
+- Kamp: angriper du en fjern ridder, settes +$36 og +$0B til 4 ved `$080AB8`, så
+  datamaskinen styrer den i kampen, og den skrives ikke over før `$080BD8`. Kampen
+  påvirker bare ditt spill. I kamp er +$0B den som styrer figuren
+  (`joystick_for_figur` $081F6A: 1 port 1, 2 port 2, 4 datamaskinen), så fjerne
+  riddere har alltid +$0B = 4.
+- Med `Mode Separate` av (Turns, eller alene) gjør ingen av lappene noe, og
+  `tools/check_hooks.py` gir samme minne byte for byte.
+
+Testes uten nettleser med `moonstone-headless --hver F:1:MASKE` (plassene) og
+`--hver F:2:0:"plass x y liv figur NAVN"`.
+
+## Plan
+
+1. **Hver sitt spill.** Alle starter et spill med like mange spillere som er med i
+   rommet. Spiller N styrer ridder N hos seg. Turen til en ridder som spilles på en
+   annen maskin, hoppes over med en gang (hook ved `$0AAC14`: hopp til
+   `$0AAE62` med `$8E7A0 = $8E7C2`). Ridderne til datamaskinen spiller som vanlig,
+   hos hver.
+2. **De andre på kartet.** Hver maskin sender posisjonen (+$7E/+$80) og livet til
+   sin ridder noen ganger i sekundet, og de skrives inn hos de andre. Spillet
+   tegner dem selv.
+3. **Møtes og slåss.** Velger du en annen spillers ridder, blir kampen en kort
+   lockstep-økt som nettspillet i dag: utfordreren kjører kampen, den andre lagrer
+   sitt eget spill, får tilstanden og styrer sin ridder med port 1. Når kampen er
+   over, tar den andre med seg ridderen sin (liv, gull, ting) tilbake til sitt
+   eget spill. Kroken er `$080AB8` (a1 er den fjerne ridderen), og kampen er over ved
+   `$080BD8`.
+4. **Resten:** hva som skjer om den andre er opptatt (i en by eller kamp), om to
+   utfordrer hverandre samtidig, og at årstiden og månedene går hver for seg.

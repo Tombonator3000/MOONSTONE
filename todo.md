@@ -1,6 +1,9 @@
 # todo.md
 
 ## Neste
+- [ ] Hver for seg, steg 3: dueller over nettet. Utfordreren kjører kampen som en kort lockstep-økt, den andre lagrer sitt spill, får tilstanden, styrer port 1 og tar med ridderen (liv, gull, ting) tilbake. Kroken er $080AB8.
+- [ ] Hver for seg, steg 4: motstanderen er opptatt (by, kamp), to utfordrer hverandre samtidig, årstidene går hver for seg.
+- [ ] Hver for seg: vise navnet til spilleren (ikke bare riddernavnet) når man står ved siden av, og en melding når noen kommer inn på kartet.
 - [ ] Veien mot en native port (brukeren sa ja 2026-10-02): 1) grafikken ut i lag (bakgrunn og forgrunn er ferdig; gjenstår tekst i HD og bakgrunner som endres litt), 2) logikken til C del for del (kamp og kart først) med check_hooks, 3) fjerne 68000 og Amiga-brikkene når originalkoden ikke kjører lenger.
 - [ ] HD-bilder med fargeindekser (PNG med palett) som får fargene fra skjermen.
 - [ ] HD-bakgrunner som tåler små endringer i bakgrunnskopien (legg forskjellene over).
@@ -19,6 +22,7 @@
 - [ ] Teste moonstone.exe på ekte Windows.
 
 ## Ferdig
+- [x] Flerspiller «Hver for seg» steg 1 og 2: Mode Separate i Online Game, alle spiller sitt eget spill, de andre vises på kartet og flytter seg mens du har turen, turene deres hoppes over, kamp mot dem styres foreløpig av datamaskinen.
 - [x] Varige HD-figurer (står så lenge forgrunnen er uendret), HD-tekst via bold.f og Small.font, filteret Glatt (Scale4x), tools/hd_skaler.py.
 - [x] Lagrenderer: bakgrunn og forgrunn fra spillets egen bakgrunnskopi, HD-bakgrunner etter hash, effekter (skygger, uskarp bakgrunn, glød, farger, vignett), HD-bilder tones med paletten.
 - [x] Mus og berøring i spillets menyer (klikk paa valg, Enter), fire og retning med musen i spillet, jevnere lyd, tegning bare ved nye bilder.

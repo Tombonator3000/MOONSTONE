@@ -147,6 +147,16 @@ const Kjerne = (() => {
         iMeny: () => !!M._ms_in_menu(),             /* tittelmenyen eller en nettspillside er framme */
         menyRad: (y) => M._ms_menu_row(y | 0),      /* raden paa linje y, -1 ikke i menyen, -2 ingen rad */
         menyKommando,
+        /* hver for seg (port/src/hver.c) */
+        hverKmd: (k, arg, tekst) => {
+            const t = tekst || '', n = M.lengthBytesUTF8(t) + 1, p = M._malloc(n);
+            M.stringToUTF8(t, p, n);
+            M._ms_hver_cmd(k, arg | 0, p);
+            M._free(p);
+        },
+        hverKart: () => !!M._ms_hver_kart(),
+        hverRidder: (k) => { const p = M._ms_hver_ridder(k) >> 2; return [M.HEAP32[p], M.HEAP32[p + 1], M.HEAP32[p + 2], M.HEAP32[p + 3]]; },
+        hverNavn: (k) => M.UTF8ToString(M._ms_hver_navn(k)),
         /* lagene (port/src/lag.c): bakgrunn og forgrunn, 320 x 200 RGBA, eller null */
         lagPaa: (on) => M._ms_lag_paa(on ? 1 : 0),
         lagBygg: () => M._ms_lag_bygg(),

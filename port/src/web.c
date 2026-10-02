@@ -17,6 +17,7 @@
  */
 #include "amiga.h"
 #include <emscripten.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -71,6 +72,7 @@ EMSCRIPTEN_KEEPALIVE void ms_key(int code, int down) { amiga_key(code, down != 0
 
 EMSCRIPTEN_KEEPALIVE void ms_frame(void)
 {
+    hver_frame();
     amiga_run_frame();
     audio_frames = paula_take(audio, AUDIO_RING);
     if (lag_paa) lag_bygg();
@@ -150,6 +152,14 @@ EMSCRIPTEN_KEEPALIVE const char *ms_cel_name(int i) { return game_cel_name(i); }
 EMSCRIPTEN_KEEPALIVE void ms_menu_enable(int on) { meny_online = on != 0; }
 EMSCRIPTEN_KEEPALIVE int ms_menu_event(void) { return meny_take_event(); }
 EMSCRIPTEN_KEEPALIVE void ms_menu_cmd(int cmd, int arg, const char *text) { meny_command(cmd, arg, text); }
+
+/* "Hver for seg" (hver.c): kommandoer, og ridderne slik de er i spillet her */
+EMSCRIPTEN_KEEPALIVE void ms_hver_cmd(int cmd, int arg, const char *text) { hver_kommando(cmd, arg, text); }
+static int  ridder_ut[4];
+static char ridder_navn[32];
+EMSCRIPTEN_KEEPALIVE int ms_hver_kart(void) { return hver_kart() ? 1 : 0; }
+EMSCRIPTEN_KEEPALIVE int *ms_hver_ridder(int k) { hver_ridder(k, ridder_ut); return ridder_ut; }
+EMSCRIPTEN_KEEPALIVE const char *ms_hver_navn(int k) { snprintf(ridder_navn, sizeof ridder_navn, "%s", game_knight_name(k)); return ridder_navn; }
 EMSCRIPTEN_KEEPALIVE int ms_menu_ready(void) { return meny_title_seen ? 1 : 0; }
 /* klikk og Enter i menyen: er menyen framme, og hvilken rad ligger paa linje y */
 EMSCRIPTEN_KEEPALIVE int ms_in_menu(void) { return meny_in_menu() ? 1 : 0; }

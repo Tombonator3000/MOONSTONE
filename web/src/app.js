@@ -8,10 +8,14 @@
  * invitasjonslenke aapner «Join Game» der med rommet valgt. Innstillinger,
  * lagring og egne filer ligger i sidemenyen (Home eller knappen oppe til hoyre).
  *
- * Tre maater aa spille paa:
+ * Maater aa spille paa:
  *   alene  kjernen kjorer her, joystick A paa port 2 og B paa port 1
  *   vert   som alene, men gjestene kobler seg til og faar hvert sitt joystick
+ *          (tur for tur, som originalen: verten kjorer spillet for alle)
  *   gjest  kjernen kjorer de samme bildene som verten, med inndataene fra verten
+ *   hver   hver for seg (docs/flerspiller.md): alle i rommet spiller sitt eget
+ *          spill, som alene, og ridderne sendes mellom maskinene, saa de andre
+ *          staar paa kartet ditt (port/src/hver.c)
  */
 'use strict';
 
@@ -19,13 +23,13 @@
     const $ = (id) => document.getElementById(id);
     const inn = Lager.innstillinger();
     const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false, knapper: false,
-        effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false } }, inn);
+        effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false }, spill: 'hver' }, inn);
     const lagreInnst = () => Lager.lagreInnstillinger(innst);
 
     const INNEBYGD = 'innebygd';
     let spillfil = null;                    /* INNEBYGD, eller en annen spillfil (Uint8Array) */
     let modFiler = {};                      /* navn -> Uint8Array, legges over data/ */
-    let modus = null;                       /* 'alene' | 'vert' | 'venter' | 'gjest' */
+    let modus = null;                       /* 'alene' | 'vert' | 'venter' | 'gjest' | 'hver' */
     let pause = false, menyApen = false, dialogApen = false, venterSynk = false, kjorer = false;
     let periode = 1 / 49.92;
     let akk = 0, sist = 0, plass = 1;
@@ -135,6 +139,7 @@
             modus = 'alene';
             akk = 0;
             menyKmd(KMD.MITTNAVN, 0, rensNavn(innst.navn, 10));
+            menyKmd(KMD.SPILL, innst.spill === 'sammen' ? 1 : 0);
             visSpill();
             lasting(null);
         } catch (e) {
@@ -150,6 +155,9 @@
         menyKo.length = 0;
         Nett.avslutt();
         Nett.rammer.length = 0;
+        fjerne.clear();
+        rekkefolge = [];
+        sistSendt = '';
         modus = null;
         venterSynk = false;
         pause = false;
@@ -229,7 +237,7 @@
     let sisteHint = null;
     function visHint() {
         let t = '', topp = false;
-        if ((modus === 'alene' || modus === 'vert') && !menyBrukt && !Kjerne.iIntro() && Kjerne.iMeny()) {
+        if ((modus === 'alene' || modus === 'vert' || modus === 'hver') && !menyBrukt && !Kjerne.iIntro() && Kjerne.iMeny()) {
             /* spillets meny kan ikke klikkes i originalen; si at det gaar her */
             t = beroering() ? 'Trykk på et valg i menyen' : 'Klikk på et valg, eller bruk piltastene og Enter';
             topp = true;
@@ -278,7 +286,7 @@
         menyBrukt = true;
     }
 
-    const spillAktivt = () => (modus === 'alene' || modus === 'vert' || modus === 'gjest') && !menyApen && !dialogApen;
+    const spillAktivt = () => (modus === 'alene' || modus === 'vert' || modus === 'gjest' || modus === 'hver') && !menyApen && !dialogApen;
 
     function klikk(e) {
         if ((e.button !== 0 && e.button !== 2) || !spillAktivt() || Kjerne.iIntro()) return;
@@ -339,8 +347,8 @@
      * hendelser hit, og vi svarer med kommandoer. Kommandoene brukes ved starten
      * av neste bilde, og verten sender dem med bildet til gjestene, saa alle
      * maskinene viser det samme. */
-    const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8, NAVN: 9 };
-    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10 };
+    const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8, NAVN: 9, SPILL: 10 };
+    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11 };
     const SIDE_JOIN = 3;
     const menyKo = [];
     let menyRom = [], sisteRomTekst = null, stoppMenyListe = null, sistAntall = 0, sisteNavn = null;
@@ -369,7 +377,8 @@
         sistAntall = 0;
         sisteNavn = null;
         return {
-            lobby: (liste, kode, portModus) => { visSpillere(liste, kode, portModus); sendNavn(liste); },
+            lobby: (liste, kode, portModus) => { visSpillere(liste, kode, portModus); sendNavn(liste); if (modus === 'hver') oppdaterFjerne(liste); },
+            ridder: (id, d) => mottaRidder(id, d),
             chat: chatLinje,
             status,
             velg: (rad) => { if (Kjerne.iMeny()) velgRad(rad); },   /* en gjest klikket i menyen */
@@ -386,31 +395,35 @@
         };
     }
 
+    const erVert = () => modus === 'vert' || (modus === 'hver' && Nett.rolle() === 'vert');
+
     function settOffentlig(on) {
         innst.offentlig = on;
         lagreInnst();
-        if (modus !== 'vert') return;
+        if (!erVert()) return;
         if (on && !stoppAnnonse) {
             stoppAnnonse = Romliste.annonser(() => ({
-                kode: Nett.kode(), vert: innst.navn || 'Vert', spillere: Nett.spillere().length, maks: 4,
+                kode: Nett.kode(), vert: innst.navn || 'Vert', spillere: Nett.spillere().length, maks: 4, spill: Nett.romSpill(),
             }));
         }
         if (!on && stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
         menyKmd(KMD.OFFENTLIG, on ? 1 : 0);
     }
 
-    async function vertFraMeny() {
-        if (modus === 'vert') { menyKmd(KMD.VERT, 0, Nett.kode()); return; }
+    async function vertFraMeny(spill) {
+        if (erVert()) { menyKmd(KMD.VERT, 0, Nett.kode()); return; }
+        if (modus === 'hver') { menyKmd(KMD.MELDING, 0, 'Already In Room\n' + Nett.kode()); return; }
         if (modus !== 'alene') return;
         try {
             status('Lager rom ...');
-            const kode = await Nett.lagRom(navn(), vertHendelser());
+            const kode = await Nett.lagRom(navn(), vertHendelser(), spill);
             if (modus !== 'alene') { Nett.avslutt(); return; }
-            modus = 'vert';
+            modus = spill === 'hver' ? 'hver' : 'vert';
             menyKmd(KMD.VERT, 0, kode);
             settOffentlig(innst.offentlig);
             oppdaterMeny();
-            status('Rommet ' + kode + ' er klart. Velg «Copy Link» og send lenken.');
+            status('Rommet ' + kode + ' er klart. Velg «Copy Link» og send lenken.'
+                + (spill === 'hver' ? ' Alle spiller sitt eget spill og ser hverandre på kartet.' : ''));
         } catch (e) {
             Nett.avslutt();
             menyKmd(KMD.MELDING, 0, 'No Connection\nTry Again Later');
@@ -460,7 +473,7 @@
     }
 
     async function kopierLenke() {
-        if (modus !== 'vert') return;
+        if (!erVert()) return;
         try { await navigator.clipboard.writeText(Nett.invitasjon()); status('Invitasjonslenken er kopiert'); }
         catch (e) { visMeny(true); status('Kopier lenken her i menyen'); }
     }
@@ -512,7 +525,13 @@
     function menyHendelse(h, arg) {
         switch (h) {
         case MENY.VERT:
-            medNavn(vertFraMeny, () => menyKmd(KMD.MELDING, 0, 'No Room Created'));
+            medNavn(() => vertFraMeny(arg ? 'sammen' : 'hver'), () => menyKmd(KMD.MELDING, 0, 'No Room Created'));
+            break;
+        case MENY.SPILL:
+            innst.spill = arg ? 'sammen' : 'hver';
+            lagreInnst();
+            status(arg ? 'Tur for tur: verten kjører spillet for alle, én ridder om gangen'
+                : 'Hver for seg: alle spiller sitt eget spill og ser hverandre på kartet');
             break;
         case MENY.JOIN_SIDE: if (modus === 'alene') lyttMenyRom(); break;
         case MENY.FORLAT_JOIN: stoppMenyRom(); menyInvitert = null; break;
@@ -531,7 +550,7 @@
     /* etter hvert bilde: verten og den som spiller alene handler, gjestene ser bare */
     function menyHendelser() {
         for (let e; (e = Kjerne.menyHendelse()); ) {
-            if (modus === 'alene' || modus === 'vert') menyHendelse(e & 0xff, e >> 8);
+            if (modus === 'alene' || modus === 'vert' || modus === 'hver') menyHendelse(e & 0xff, e >> 8);
         }
         if (invitasjon && modus === 'alene' && Kjerne.menyKlar()) aapneInvitasjon();
     }
@@ -545,15 +564,35 @@
         modus = 'venter';
         venterSynk = false;
         lasting('Kobler til rom ' + kode + ' ...');
+        /* Spillet her staar mens vi kobler til. Rommet sier om det er hver for seg
+         * (da fortsetter spillet her) eller tur for tur (da blir kjernen en gjest
+         * og faar tilstanden fra verten, som kommer rett etter forste lobby). */
+        let forste = true, gjestKjerne = false;
         try {
-            await startKjerne(true);
             await Nett.bliMed(kode, navn(), {
-                lobby: visSpillere,
+                lobby: (liste, k, portModus, spill) => {
+                    if (forste) {
+                        forste = false;
+                        if (spill === 'hver') {
+                            modus = 'hver';
+                            lasting(null);
+                            oppdaterMeny();
+                            menyKmd(KMD.MELDING, 1, 'In Room ' + k + '\nSeparate Games');
+                            status('Du er med i rom ' + k + '. Alle spiller sitt eget spill og ser hverandre på kartet.');
+                        } else {
+                            Kjerne.startSomGjest();
+                            gjestKjerne = true;
+                        }
+                    }
+                    visSpillere(liste, k, portModus);
+                    if (modus === 'hver') oppdaterFjerne(liste);
+                },
+                ridder: (id, d) => mottaRidder(id, d),
                 chat: chatLinje,
                 status,
                 ping: () => {},
                 feil: (t) => status(t),
-                frakoblet: (t) => startPaaNytt(t),
+                frakoblet: (t) => { if (modus === 'hver') forlatHver(t); else startPaaNytt(t); },
                 tilstand: (bytes) => {
                     if (!Kjerne.lastTilstand(bytes)) { status('Kunne ikke laste spillet fra verten.'); return; }
                     venterSynk = false;
@@ -568,8 +607,83 @@
                 },
             });
         } catch (e) {
-            startPaaNytt('Kunne ikke koble til: ' + e.message);
+            if (gjestKjerne) { startPaaNytt('Kunne ikke koble til: ' + e.message); return; }
+            Nett.avslutt();
+            modus = 'alene';                    /* spillet her er urort */
+            lasting(null);
+            status('Kunne ikke koble til: ' + e.message);
         }
+    }
+
+    /* ---------------------------------------------------------------- hver for seg
+     * Ridderne til de andre i rommet faar plass 2-4 hos oss (de datamaskinen ellers
+     * styrer), i rekkefolgen i rommet. Hver maskin sender sin ridder noen ganger i
+     * sekundet mens den er paa kartet. Se docs/flerspiller.md og port/src/hver.c. */
+    const HVER = { FJERN: 1, RIDDER: 2 };
+    const fjerne = new Map();               /* id -> { x, y, liv, figur, navn } eller { borte: true } */
+    let rekkefolge = [];                    /* de andre i rommet, i rekkefolgen i rommet */
+    let sistSendt = '', sistSendtTid = 0;
+
+    function mottaRidder(id, d) {
+        const foer = fjerne.get(id);
+        const varPaa = !!(foer && !foer.borte);
+        fjerne.set(id, d.borte ? { borte: true } : { x: d.x | 0, y: d.y | 0, liv: d.liv | 0, figur: d.figur & 3, navn: String(d.navn || '') });
+        oppdaterFjerne();
+        if (menyApen && varPaa === !!d.borte) visSpillere(null);     /* kom paa eller gikk av kartet */
+    }
+
+    function oppdaterFjerne(liste) {
+        if (liste) rekkefolge = liste.map((s) => s.id).filter((id) => id !== Nett.minId());
+        for (const id of [...fjerne.keys()]) if (!rekkefolge.includes(id)) fjerne.delete(id);
+        let maske = 0;
+        const kmd = [];
+        /* har to valgt samme ridder, faar den andre en ledig farge, saa de ikke ser like ut */
+        const brukt = new Set();
+        const min = Kjerne.hverKart() ? Kjerne.hverRidder(0)[3] : -1;
+        if (min >= 0 && min < 4) brukt.add(min);
+        rekkefolge.slice(0, 3).forEach((id, i) => {
+            const r = fjerne.get(id);
+            if (!r || r.borte) return;
+            const plass = i + 1;
+            maske |= 1 << plass;
+            let figur = r.figur;
+            if (brukt.has(figur)) figur = [0, 1, 2, 3].find((f) => !brukt.has(f));
+            brukt.add(figur);
+            const n = (r.navn || 'KNIGHT').toUpperCase().replace(/[^A-Z0-9 ]/g, '').trim().replace(/ +/g, '_').slice(0, 15) || 'KNIGHT';
+            kmd.push(plass + ' ' + r.x + ' ' + r.y + ' ' + r.liv + ' ' + figur + ' ' + n);
+        });
+        Kjerne.hverKmd(HVER.FJERN, maske);
+        for (const t of kmd) Kjerne.hverKmd(HVER.RIDDER, 0, t);
+    }
+
+    /* min ridder til de andre: naar den endrer seg (hoyst sju ganger i sekundet,
+     * ridderen flytter seg en piksel per bilde), og ellers hvert andre sekund */
+    function sendMinRidder() {
+        const naa = performance.now();
+        let m;
+        if (Kjerne.hverKart()) {
+            const [x, y, liv, figur] = Kjerne.hverRidder(0);
+            m = { x, y, liv, figur, navn: Kjerne.hverNavn(0) };
+        } else m = { borte: true };
+        const s = JSON.stringify(m);
+        if (naa - sistSendtTid < (s === sistSendt ? 2000 : 150)) return;
+        Nett.sendRidder(m);
+        sistSendt = s;
+        sistSendtTid = naa;
+    }
+
+    /* ut av et rom med hver for seg: spillet her fortsetter, de andre forsvinner */
+    function forlatHver(tekst) {
+        if (stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
+        Nett.avslutt();
+        fjerne.clear();
+        rekkefolge = [];
+        sistSendt = '';
+        Kjerne.hverKmd(HVER.FJERN, 0);
+        menyKmd(KMD.SLUTT);
+        modus = 'alene';
+        oppdaterMeny();
+        if (tekst) status(tekst);
     }
 
     /* ---------------------------------------------------------------- spillokka */
@@ -658,7 +772,7 @@
                 if (!ko.length) akk = Math.min(akk, periode);
                 if (ko.length > 40) while (ko.length > maal) { if (!kjorGjestebilde(ko.shift())) break; }
             }
-        } else if ((modus === 'alene' || modus === 'vert') && !pause && !(menyApen && modus === 'alene')) {
+        } else if ((modus === 'alene' || modus === 'vert' || modus === 'hver') && !pause && !(menyApen && modus !== 'vert')) {
             akk += dt;
             let n = 0;
             while (akk >= periode && n < 4) { kjorEttBilde(); akk -= periode; n++; }
@@ -668,7 +782,8 @@
                 return;
             }
         }
-        if (modus === 'alene' || modus === 'vert' || modus === 'gjest') {
+        if (modus === 'hver') sendMinRidder();     /* ogsaa naar spillet staar, saa de andre vet at vi er her */
+        if (modus === 'alene' || modus === 'vert' || modus === 'gjest' || modus === 'hver') {
             if (sisteModus === 'auto') visTur();
             visHint();
             /* bare naar det er noe nytt aa vise (se Visning.tegn); lagene bare naar de trengs */
@@ -680,7 +795,7 @@
 
     /* ---------------------------------------------------------------- sidemenyen */
     function visMeny(on) {
-        if (on !== menyApen && modus === 'alene') Lyd.clear();     /* spillet staar mens menyen er aapen */
+        if (on !== menyApen && (modus === 'alene' || modus === 'hver')) Lyd.clear();     /* spillet staar mens menyen er aapen */
         menyApen = on;
         $('meny').hidden = !on;
         $('meny-knapp').hidden = on;        /* ellers ligger den over «Tilbake til spillet» */
@@ -691,11 +806,18 @@
     }
 
     function oppdaterMeny() {
-        const nett = modus === 'vert' || modus === 'gjest';
+        const nett = modus === 'vert' || modus === 'gjest' || modus === 'hver';
         $('nettspill').hidden = !nett;
         $('lagring').hidden = modus === 'gjest';
-        $('omstart').textContent = nett ? 'Forlat nettspillet og start på nytt' : 'Start spillet på nytt';
-        if (modus === 'vert') {
+        $('omstart').textContent = modus === 'hver' ? 'Forlat rommet' : nett ? 'Forlat nettspillet og start på nytt' : 'Start spillet på nytt';
+        $('lagring-hjelp').textContent = 'Tilstanden lagres i denne nettleseren.';
+        if (modus === 'hver') {
+            $('rominfo').textContent = (erVert() ? 'Du er vert for rom ' + Nett.kode() + '. Send lenken til opptil tre andre.' : 'Du er med i rom ' + Nett.kode() + '.')
+                + ' Alle spiller sitt eget spill og ser de andre ridderne på kartet.';
+            $('lenke').value = erVert() ? Nett.invitasjon() : '';
+            $('lenkerad').hidden = !erVert();
+            $('lagring-hjelp').textContent = 'Tilstanden lagres i denne nettleseren og gjelder bare ditt eget spill.';
+        } else if (modus === 'vert') {
             $('rominfo').textContent = 'Du er vert for rom ' + Nett.kode() + '. Send lenken til opptil tre gjester.';
             $('lenke').value = Nett.invitasjon();
             $('lenkerad').hidden = false;
@@ -710,10 +832,25 @@
     let sisteSpillere = [], sisteModus = 'auto';
     function visSpillere(liste, kode, portModus) {
         if (liste) sisteSpillere = liste;
-        else if (modus === 'vert') sisteSpillere = Nett.spillere();
+        else if (erVert()) sisteSpillere = Nett.spillere();
         if (portModus) sisteModus = portModus;
         const tab = $('spillerliste');
         tab.innerHTML = '';
+        if (modus === 'hver') {
+            for (const s of sisteSpillere) {
+                const tr = document.createElement('tr');
+                const td1 = document.createElement('td');
+                td1.textContent = s.navn + (s.vert ? ' (vert)' : '') + (s.id === Nett.minId() ? ' (deg)' : '');
+                const td2 = document.createElement('td');
+                const r = fjerne.get(s.id);
+                td2.textContent = s.id === Nett.minId() ? '' : r && !r.borte ? 'På kartet' : 'Ikke på kartet';
+                tr.append(td1, td2);
+                tab.appendChild(tr);
+            }
+            $('port-hjelp').textContent = 'Hver for seg: alle styrer sin egen ridder i sitt eget spill. De andre ridderne står på kartet ditt '
+                + 'der de er i sine spill, i stedet for datamaskinens riddere.';
+            return;
+        }
         const vert = modus === 'vert';
         /* hvordan joystickene fordeles */
         const topp = document.createElement('tr');
@@ -787,7 +924,7 @@
     }
 
     async function lagre() {
-        if (modus !== 'alene' && modus !== 'vert') return;
+        if (modus !== 'alene' && modus !== 'vert' && modus !== 'hver') return;
         const s = Kjerne.lagreTilstand();
         if (!s) { status('Kunne ikke lagre.'); return; }
         const ok = await Lager.sett('tilstand' + plass, { data: s, tid: Date.now() });
@@ -795,10 +932,13 @@
     }
 
     async function last() {
-        if (modus !== 'alene' && modus !== 'vert') return;
+        if (modus !== 'alene' && modus !== 'vert' && modus !== 'hver') return;
         const v = await Lager.hent('tilstand' + plass);
         if (!v) { status('Ingenting lagret på plass ' + plass); return; }
         if (!Kjerne.lastTilstand(new Uint8Array(v.data))) { status('Tilstanden passer ikke med denne versjonen'); return; }
+        /* de fjerne ridderne i tilstanden er fra da den ble lagret: bruk de som er i rommet naa */
+        if (modus === 'hver') oppdaterFjerne();
+        else Kjerne.hverKmd(HVER.FJERN, 0);
         Lyd.clear();
         status('Lastet plass ' + plass);
         if (modus === 'vert') for (const s of Nett.spillere()) if (!s.vert) Nett.sendTilstand(s.id, Kjerne.lagreTilstand(), Kjerne.bildeNr());
@@ -807,7 +947,10 @@
     /* ---------------------------------------------------------------- knapper og taster */
     $('meny-knapp').addEventListener('click', () => visMeny(!menyApen));
     $('lukk-meny').addEventListener('click', () => visMeny(false));
-    $('omstart').addEventListener('click', () => startPaaNytt(modus === 'vert' || modus === 'gjest' ? 'Du har forlatt nettspillet' : ''));
+    $('omstart').addEventListener('click', () => {
+        if (modus === 'hver') { forlatHver('Du har forlatt rommet'); visMeny(false); return; }
+        startPaaNytt(modus === 'vert' || modus === 'gjest' ? 'Du har forlatt nettspillet' : '');
+    });
     $('lagre').addEventListener('click', lagre);
     $('last').addEventListener('click', last);
     $('kopier').addEventListener('click', async () => {
@@ -908,7 +1051,7 @@
         if (e.code === 'PageUp') { lagre(); return true; }
         if (e.code === 'PageDown') { last(); return true; }
         if (e.code === 'End') { plass = plass % 9 + 1; $('plass').value = plass; status('Plass ' + plass); return true; }
-        if (e.code === 'Pause' && modus === 'alene') { pause = !pause; Lyd.clear(); status(pause ? 'Pause' : 'Fortsetter'); return true; }
+        if (e.code === 'Pause' && (modus === 'alene' || modus === 'hver')) { pause = !pause; Lyd.clear(); status(pause ? 'Pause' : 'Fortsetter'); return true; }
         return false;
     });
     window.addEventListener('keydown', (e) => {
@@ -919,7 +1062,7 @@
 
     /* fanen lukkes: si fra til gjestene og fjern rommet fra listen */
     window.addEventListener('pagehide', () => {
-        if (modus !== 'vert') return;
+        if (modus !== 'vert' && modus !== 'hver') return;
         if (stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
         Nett.avslutt();
     });

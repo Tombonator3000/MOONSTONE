@@ -204,3 +204,24 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   bakgrunnen og forgrunnen; modus 0 henter hel texel (også hires).
 - LAG_SPOR=1 i miljøet får moonstone-headless til å skrive hash, forgrunn og lys per bilde.
 
+
+## Flerspiller «Hver for seg» (hver.c)
+- Mode Separate (M2.spill = 0) er standard, Turns (1) er det gamle tur for tur. Innstillingen
+  heter `innst.spill` ('hver' eller 'sammen') på nettsiden; verten bestemmer for rommet.
+- Ridderne: $8D5B4, $84 byte. +$0B port, +$36 figur 0-3 (4 = datamaskinen), +$49 liv,
+  +$52 > 0 hopper over turen, +$6C navn, +$7E/+$80 posisjon. aktiv_ridder $8D9AC.
+- Kroker: $0AAC14 turstart (fjern ridder: $8E7A0 = $8E7C2, PC = $0AAE62), $08188C tittel,
+  $0AAC54 kopi av bakgrunnen før ridderne, $0AAC8C toppen av kartløkka (tegner ridderne på
+  nytt via rutinen på $FC080), $080AB8 kamp (a1 fjern: +$36 = 4), $080BD8 kampen slutt.
+- Ledig chip: $FC000-$FC0FF (navn på $FC000 + k*16, rutinen på $FC080). Stakken ligger i
+  fast-minnet ($3FFF00), og området er null på kartet.
+- Kartet bygges fra bakgrunnen hvert bilde ($0AAF38 kopierer $8CDE8 til $AA948), så det som
+  tegnes i bakgrunnen vises med en gang.
+- Kopien av bakgrunnen er ikke i lagringen; etter lasting tegnes ridderne på nytt først
+  neste tur.
+- Testtilstanden $S/hv/kart.sav må lages på nytt når H eller M2 endres (STATE_VERSION 8,
+  ikke sluppet ennå). Uten tilstand: --press 1400 med --hver før return i 1500, så turen
+  starter med de fjerne ridderne.
+- Valgene på kartet venter på tastene 1-9 (`--press 1900:2:4` velger nummer 2).
+- Nettlesertest: $S/test26.js (vert og Kari, Separate, gange, farger, verten går).
+  Playwright ligger i /opt/node-tools/node_modules (NODE_PATH).
