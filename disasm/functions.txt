@@ -32,10 +32,11 @@
 08158e  sub_08158e                   kall 1    kjort nei  
 081846  tilbake_til_introen          kall 0    kjort nei  slaven: laster program paa nytt (avslutt spillet)  tekster: "program"
 081880  sub_081880                   kall 1    kjort ja   
-081968  sub_081968                   kall 1    kjort ja   
+08188c  tittelmeny                   kall 0    kjort ja   tittelmenyen: Players, Gore, Practice, Select Knight. Fire paa valg 2 = ovingskamp, 3 = start
+081968  tittelmeny_joystick          kall 1    kjort ja   opp/ned flytter valget (0-3), hoyre/venstre endrer antall spillere eller Gore
 081a02  sub_081a02                   kall 1    kjort nei  
-081a1a  vis_spillere_tall            kall 2    kjort ja   bruker tallet "1" (antall spillere i menyen)  tekster: "1"
-081ae6  sub_081ae6                   kall 3    kjort ja   
+081a1a  tegn_tittelmeny              kall 2    kjort ja   skriver tekstlisten paa $8F060 og pilen (y fra $8F2D4), antall spillere fra $8CDFC  tekster: "1"
+081ae6  endre_antall_spillere        kall 3    kjort ja   D0 = +1/-1, holder antallet mellom 1 og 4
 081b26  sub_081b26                   kall 4    kjort ja   
 081c4c  sub_081c4c                   kall 1    kjort ja   
 081c82  sub_081c82                   kall 1    kjort ja   
@@ -169,9 +170,9 @@
 088f30  sub_088f30                   kall 6    kjort nei  
 088f42  sub_088f42                   kall 39   kjort ja   
 089038  sub_089038                   kall 15   kjort ja   
-089052  skriv_tekst                  kall 18   kjort ja   skriver tekst med fonten (tegntabellen "E>EBCDEF...")  tekster: "E>EBCDEFEEEEAE@G456789:;<=EEEEEEE"
+089052  skriv_tekst                  kall 18   kjort ja   A0 = tekstliste (som $8F060): skriver hver linje med fonten, tegn - 32 slaas opp i $96210  tekster: "E>EBCDEFEEEEAE@G456789:;<=EEEEEEE"
 0891f6  sub_0891f6                   kall 1    kjort ja   
-089214  skriv_tekst_2                kall 2    kjort ja     tekster: "E>EBCDEFEEEEAE@G456789:;<=EEEEEEE"
+089214  skriv_tekst_2                kall 2    kjort ja   maaler bredden paa teksten (for sentrering)  tekster: "E>EBCDEFEEEEAE@G456789:;<=EEEEEEE"
 089286  skriv_tall                   kall 15   kjort ja   skriver tall ("0123456789")  tekster: "0123456789"
 08930c  sub_08930c                   kall 1    kjort ja   
 08933c  sub_08933c                   kall 23   kjort ja   

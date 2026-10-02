@@ -68,3 +68,15 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 - `--tegneliste F[:N]` skriver listen, `tools/hd_sjekk.py` måler treffet mot skjermbildet.
 - three.js: `ImageBitmap` snus ikke av WebGL (flipY virker ikke). Tegn på et lerret først.
 - Tilstander lagret før STATE_VERSION 3 virker ikke lenger.
+
+## Tekster og tittelmenyen
+- `mog` ligger upakket i spillfilen, og tekstene står som vanlig ASCII med 0 på slutten
+  (f.eks. "Players" på fil-offset 70727, $8F123 i minnet). Samme lengde eller kortere kan
+  byttes rett i fila og brukes med `--mod`. Testet: Spiller, Blod, Trening, Velg ridder.
+- `skriv_tekst` ($89052) skriver en lenket liste (som $8F060), 14 byte per linje: long
+  tekst, ord x, ord y, ord flagg (bit 0 = sentrert), long neste. Tegn - 32 slås opp i
+  tegntabellen på $96210 (96 byte) som gir bildenummer i fonten (bold.f har 76 bilder).
+  24 koder er ubrukte (gir bilde 69), blant annet [ ] { | } ^ @ ` ~. Der kan æøå kobles inn.
+- Tittelmenyen ($8188C): valg 0-3 i $8F2D2, pilens y per valg i $8F2D4 ($55, $6E, $94, $A8),
+  grensen 3 står i `cmpi.w #3` på $81916 og $819A6/$819B0. Fire på valg 2 = Practice,
+  3 = Select Knight. Antall spillere i $8CDFC (1-4), Gore av i $8F2CC.

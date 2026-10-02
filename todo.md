@@ -11,6 +11,9 @@
 - [ ] Teste nettspill mot PeerJS Cloud og HiveMQ fra en vanlig nettleser (proxyen i skymiljøet stopper WebSocket).
 - [ ] Teste moonstone.exe på ekte Windows.
 
+- [ ] Tekstverktøy: alle tekster i mog ut til en fil og inn igjen, lengre tekster flyttes og pekerne rettes, æøå som nye tegn i fonten.
+- [ ] Nettspill som valg i tittelmenyen (eget menyvalg som åpner lobbyen), se memory.md om tittelmenyen.
+
 ## Ferdig
 - [x] HD-lag for figurene i nettleseren: tegneliste fra tegn_figur, speiling, klynger, tools/hd_sjekk.py.
 - [x] GitHub Actions for Linux, Windows og nettsiden, med Pages-jobb.

@@ -50,7 +50,15 @@ add30 avbrudd_niva4           lyd
 9da32 lz_utpakk               slaven: spillets LZ-utpakker (flyttet og optimalisert av Wepl)
 #
 # Funnet ut fra tekstene funksjonene bruker (tools/disasm.py skriver dem i functions.txt)
-81a1a vis_spillere_tall        bruker tallet "1" (antall spillere i menyen)
+8188c tittelmeny               tittelmenyen: Players, Gore, Practice, Select Knight. Fire paa valg 2 = ovingskamp, 3 = start
+81968 tittelmeny_joystick      opp/ned flytter valget (0-3), hoyre/venstre endrer antall spillere eller Gore
+81a1a tegn_tittelmeny          skriver tekstlisten paa $8F060 og pilen (y fra $8F2D4), antall spillere fra $8CDFC
+81ae6 endre_antall_spillere    D0 = +1/-1, holder antallet mellom 1 og 4
+8cdfc antall_spillere          1-4
+8f060 tittelmeny_tekster       lenket liste, 14 byte per linje: long tekst, ord x, ord y, ord flagg (bit 0 sentrert), long neste
+8f2cc gore_av                  1 = Gore Off
+8f2d2 tittelmeny_valg          valgt linje 0-3
+8f2d4 tittelmeny_pil_y         y for pilen per valg: $55, $6E, $94, $A8
 81e9a ridder_navn_standard     setter standardnavnene SIR_GODBER, SIR_RICHARD, SIR_JEFFREY, SIR_EDWARD
 822ae last_he1                 laster He1.ob
 822d6 last_bg2                 laster bg2.piv
@@ -67,8 +75,9 @@ add30 avbrudd_niva4           lyd
 84c3c ridder_datamaskin_navn   navnene til ridderne datamaskinen spiller (SIR BANNER ...)
 8509a ridder_navn_tabell       navnetabellen for menneskelige riddere
 8878a last_treffsoner          laster collide.hit
-89052 skriv_tekst              skriver tekst med fonten (tegntabellen "E>EBCDEF...")
-89214 skriv_tekst_2
+89052 skriv_tekst              A0 = tekstliste (som $8F060): skriver hver linje med fonten, tegn - 32 slaas opp i $96210
+89214 skriv_tekst_2            maaler bredden paa teksten (for sentrering)
+96210 tegntabell               96 byte: tegn (ASCII 32-127) til bildenummer i fonten
 89286 skriv_tall               skriver tall ("0123456789")
 89a38 mystikeren               Mythral the Mystic i Waterdeep (MYS.piv)
 89ca8 healer                   healeren (HEA.piv)
