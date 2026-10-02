@@ -89,6 +89,7 @@
         const f = e.target.files[0];
         if (!f) return;
         const b = new Uint8Array(await f.arrayBuffer());
+        e.target.value = '';                    /* samme fil kan velges igjen */
         const innebygd = spillfil === INNEBYGD;
         spillfil = b;
         if (!innebygd) await Lager.sett('spillfil', b);
@@ -102,6 +103,7 @@
 
     $('velg-mod').addEventListener('change', async (e) => {
         for (const f of e.target.files) modFiler[f.name] = new Uint8Array(await f.arrayBuffer());
+        e.target.value = '';
         await Lager.sett('mod', modFiler);
         visMod();
         status('Brukes når spillet startes på nytt');
@@ -219,10 +221,10 @@
         const fire = ((j0 | j1) & Inndata.FIRE) !== 0;
         const nyFire = fire && !introFire;
         introFire = fire;
-        const tast = taster.some(([k, d]) => d && (k === 0x44 || k === 0x40));     /* Return, mellomrom */
+        const tast = taster.some(([k, d]) => d && MENYTASTER.includes(k));     /* Return, Enter, mellomrom */
         /* Introen ser bare paa den siste tasten (uten slipp-biten), saa Return eller
          * mellomrom etter Esc ville skjult den. De gjor ingenting i introen uansett. */
-        taster = taster.filter(([k]) => k !== 0x44 && k !== 0x40);
+        taster = taster.filter(([k]) => !MENYTASTER.includes(k));
         if (taster.some(([k, d]) => d && k === 0x45)) hopper = true;
         const trykk = skjermTrykk;
         skjermTrykk = false;
@@ -1307,6 +1309,7 @@
     });
     $('velg-hd').addEventListener('change', async (e) => {
         const n = await Visning.lastHdPakke(e.target.files);
+        e.target.value = '';                    /* samme mappe kan velges igjen etter endringer */
         const bg = Visning.hdBakgrunner();
         $('hd-status').textContent = Visning.hdAntall() + ' bilder i HD-pakken' + (bg ? ', av dem ' + bg + ' bakgrunner.' : '.');
         status(n + ' HD-bilder lastet');
@@ -1314,7 +1317,7 @@
     $('tom-hd').addEventListener('click', () => { Visning.tomHdPakke(); $('hd-status').textContent = 'Ingen HD-pakke.'; });
 
     Inndata.settHurtigtaster((e) => {
-        if (e.code === 'Home') { visMeny(!menyApen); return true; }
+        if (e.code === 'Home') { if (!e.repeat) visMeny(!menyApen); return true; }
         if (e.repeat) return false;
         if (e.code === 'PageUp') { lagre(); return true; }
         if (e.code === 'PageDown') { last(); return true; }
@@ -1325,7 +1328,7 @@
     /* Home lukker menyen ogsaa naar spillet ikke tar tastene; har hurtigtasten
      * nettopp aapnet den (samme trykk, defaultPrevented), skal den staa aapen */
     window.addEventListener('keydown', (e) => {
-        if (e.code === 'Home' && menyApen && !e.defaultPrevented) { visMeny(false); e.preventDefault(); }
+        if (e.code === 'Home' && menyApen && !e.defaultPrevented && !e.repeat) { visMeny(false); e.preventDefault(); }
     });
     /* fanen skjules: nettleseren stopper spillokka, saa lyden toemmes i stedet for aa hakke */
     document.addEventListener('visibilitychange', () => { if (document.hidden) Lyd.clear(); });
@@ -1340,6 +1343,7 @@
     /* ---------------------------------------------------------------- start */
     $('filter').value = innst.filter;
     $('format').value = innst.format;
+    $('rammer').checked = false;                /* Firefox fyller inn avkrysningen fra forrige gang */
     $('helt').checked = innst.helt;
     $('volum').value = innst.volum;
     $('knappevent').checked = innst.knappevent;

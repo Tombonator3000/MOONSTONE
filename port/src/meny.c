@@ -497,7 +497,7 @@ void meny_command(int cmd, int arg, const char *text)
             snprintf(M2.rooms[M2.n_rooms], TEXT_SIZE, "%s", line);
             snprintf(M2.room_counts[M2.n_rooms], sizeof M2.room_counts[0], "%s", tab ? tab + 1 : "");
             M2.n_rooms++;
-            p = nl ? nl + 1 : p + n;
+            p = nl ? nl + 1 : p + strlen(p);
         }
         /* siden aapnet uten rom, saa pilen sto paa Enter Code: flytt den til det
          * forste rommet naar det kommer */

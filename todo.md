@@ -1,6 +1,7 @@
 # todo.md
 
 ## Neste
+- [ ] Duell: beskyttelsesrullen ($080C1A) styres med port 2 (angriperen); la forsvareren styre den.
 - [ ] Duell: la den som blir angrepet få se et kort varsel før kampen («Tom utfordrer deg») i spillets egen stil, ikke bare i statuslinjen.
 - [ ] Hver for seg, steg 4: motstanderen er opptatt (by, kamp), to utfordrer hverandre samtidig, årstidene går hver for seg.
 - [ ] Hver for seg: vise navnet til spilleren (ikke bare riddernavnet) når man står ved siden av, og en melding når noen kommer inn på kartet.

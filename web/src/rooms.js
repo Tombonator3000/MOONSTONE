@@ -32,8 +32,12 @@ const Romliste = (() => {
      * og stopp.oppdater() legger det ut med en gang (f.eks. naar noen kommer inn) */
     function annonser(hentInfo) {
         let c;
-        try { c = kobl(); } catch (e) { return () => {}; }
+        const ingen = () => {};
+        ingen.oppdater = () => {};
+        try { c = kobl(); } catch (e) { return ingen; }      /* app.js kaller stopp.oppdater() */
+        let stoppet = false;
         const legg = () => {
+            if (stoppet) return;
             const info = hentInfo();
             info.tid = Date.now();
             const o = { retain: true, qos: 1 };
@@ -43,6 +47,8 @@ const Romliste = (() => {
         if (c.connected) legg(); else c.once('connect', legg);
         const t = setInterval(legg, 60000);
         const stopp = () => {
+            stoppet = true;                 /* kobler den til etter dette, skal rommet ikke legges ut */
+            c.removeListener('connect', legg);
             clearInterval(t);
             const info = hentInfo();
             try { c.publish(TEMA + info.kode, '', { retain: true, qos: 1 }); } catch (e) { /* frakoblet */ }

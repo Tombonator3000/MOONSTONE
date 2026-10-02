@@ -77,6 +77,10 @@ Turene (`$0AAC14` til `$0AAF54`):
   den er død (ellers ender spillet ditt når den dør). Datamaskinens ridder på plassen
   lagres og får plassen tilbake når spilleren går.
 - Har to valgt samme ridder, får den andre en ledig farge hos deg.
+- En plass tas ikke over mens datamaskinens ridder på den har turen (`aktiv_ridder`) eller
+  er i et møte med en annen ridder (`i_kamp`, satt ved `$080AB8` for begge, nullstilt ved
+  `$080BD8`): ellers venter spillet på joysticken din midt i datamaskinens tur. På samme
+  måte gis en plass ikke tilbake midt i en kamp, men når kampen er over.
 - Turen til en fjern ridder hoppes over (`$0AAC14`, se under Plan).
 - Kopi av bakgrunnen ved `$0AAC54` (kart og steder, uten ridderne). Har en fjern
   ridder flyttet seg, legges kopien tilbake øverst i lokka (`$0AAC8C`, høyst hvert
@@ -110,6 +114,15 @@ Turene (`$0AAC14` til `$0AAF54`):
   angriperen etter 12 sekunder (den andre sender joysticken minst hvert halve
   sekund). Da henter den andre sitt spill tilbake, og hos angriperen styrer
   datamaskinen ridderen.
+- Etter duellen er plassen hos angriperen slik kampen endte (liv og hele ridderen leses
+  fra minnet ved `$080BD8`, i samme bilde hos begge) til den andre sender ridderen sin på
+  nytt. En død ridder får dermed +$52 = 1, så spillet ditt ikke ender med «Game Over».
+- Duell bare mot en levende ridder (+$52 = 0 og +$49 > 0). En grav er type $21 i
+  valgene og går også til `$080AB8`, men til plyndringen (`$080BA4`).
+- Plyndring (`$080BA4`, a0 plyndrer a1): en fjern ridder som ikke var med i en duell
+  over nettet (en grav, eller datamaskinen styrte den), plyndres ikke. Tingene er i
+  den andres eget spill og ville blitt doble. Mennesket hopper til `$080BBC` (byttet
+  tilbake etter plyndringen), datamaskinen til `$080BD8`.
 - Sier den andre nei (i sidemenyen, ikke på kartet, i en annen duell) eller svarer
   ikke på 15 sekunder, styrer datamaskinen ridderen i kampen (`HVER_AI`: +$36 og
   +$0B = 4). Under en duell endres ingenting i kjernen utenfra (de andre ridderne
@@ -119,6 +132,17 @@ Turene (`$0AAC14` til `$0AAF54`):
 
 Testes uten nettleser med `moonstone-headless --hver F:1:MASKE` (plassene) og
 `--hver F:2:0:"plass x y liv figur NAVN"`.
+
+`tools/check_hooks.py` dekker ikke lappene (de kjøres også med `--nohooks`). At de ikke
+gjør noe når flerspilleren ikke er i bruk, sjekkes ved å bygge en kopi der
+`hver_register_hooks` returnerer med en gang, kjøre begge med trykkene fra
+check_hooks og `--online-meny`, og sammenligne minnedumpene (like byte for byte
+2026-10-02).
+
+Kjent begrensning: har den som angripes en beskyttelsesrull (ting $12), viser
+`$080C1A` en beskjed og venter på fire i port 2, og inventaret som åpnes etterpå
+styres også derfra. I en duell er det angriperens joystick, så forsvareren kan ikke
+bruke rullen.
 
 ## Plan
 

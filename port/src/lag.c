@@ -55,6 +55,7 @@ static bool skjermen_passer(uint32_t bak)
     if (C.bplcon0 & 0x8c00) return false;                       /* hires, HAM eller to spillefelt */
     if (C.bpl1mod != 0 || C.bpl2mod != 0) return false;
     if (video_diw[2] - video_diw[0] != LAG_W * 2 || video_diw[3] - video_diw[1] != LAG_H) return false;
+    if (video_diw[0] < 0 || video_diw[1] < 0 || video_diw[2] > FB_W || video_diw[3] > FB_H) return false;   /* innenfor rammebufferet */
     if (bak < 0x100 || bak + 5 * PLAN > CHIP_SIZE || (bak & 1)) return false;
     for (int p = 0; p < 5; p++) {
         uint32_t a = video_bpl_first[p];
