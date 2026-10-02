@@ -133,9 +133,10 @@ Nettsiden deler bildet i to lag: bakgrunnen spillet holder for seg selv, og det 
 tegnes over den (figurer, tekst, piler). Lagt oppå hverandre er de nøyaktig
 originalbildet, men hvert lag kan byttes ut eller få egne effekter. I menyen under
 «Effekter» finnes skygger under figurene, uskarp bakgrunn, glød, sterkere farger og
-vignett. Under «HD-grafikk» kan du velge en mappe med egne bilder for figurene og for
+vignett. Filteret «Glatt (Scale4x)» under «Bilde og lyd» runder av kantene i all
+grafikken, med spillets egne farger. Under «HD-grafikk» kan du velge en mappe med egne bilder for figurene (også bokstavene, i `bold.f` og `Small.font`) og for
 bakgrunnene (`bg/HASH.png`; «Lagre bakgrunnen som PNG» gir deg den som vises, med
-riktig navn). Se `docs/hd-grafikk.md`.
+riktig navn). `tools/hd_skaler.py` lager en HD-pakke automatisk av de utpakkede bildene. Se `docs/hd-grafikk.md`.
 
 Første gang tittelmenyen vises, står det øverst at valgene kan klikkes.
 

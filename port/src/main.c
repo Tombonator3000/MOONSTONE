@@ -141,6 +141,7 @@ static const char *lag_dump_dir;
 static void lag_steg(void)
 {
     lag_bygg();
+    if (getenv("LAG_SPOR")) printf("lag spor bilde %u: %s %08x forgrunn %d lys %u\n", M.frame - 1, lag_gyldig ? "gyldig" : "ugyldig", lag_bak_hash, lag_for_antall, lag_bak_lys);
     if ((int)M.frame - 1 == lag_frame) {
         char p[512];
         printf("lag bilde %u: %s, bakgrunn %08x, forgrunn %d piksler, lys %u\n", M.frame - 1,

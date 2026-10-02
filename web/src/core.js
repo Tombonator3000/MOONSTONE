@@ -156,6 +156,7 @@ const Kjerne = (() => {
             return {
                 bak: new Uint8Array(M.HEAPU8.buffer, M._ms_lag_bak(), n),
                 for: new Uint8Array(M.HEAPU8.buffer, M._ms_lag_for(), n),
+                forIdx: new Uint8Array(M.HEAPU8.buffer, M._ms_lag_for_idx(), 320 * 200),
                 hash: M._ms_lag_hash() >>> 0,
                 lys: M._ms_lag_lys() >>> 0,
             };

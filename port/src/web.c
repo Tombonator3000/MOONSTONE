@@ -82,6 +82,7 @@ EMSCRIPTEN_KEEPALIVE int ms_lag_gyldig(void) { return lag_gyldig ? 1 : 0; }
 EMSCRIPTEN_KEEPALIVE void ms_lag_bygg(void) { lag_bygg(); }     /* lag paa nytt fra siste bilde */
 EMSCRIPTEN_KEEPALIVE uint32_t *ms_lag_bak(void) { return lag_bak; }
 EMSCRIPTEN_KEEPALIVE uint32_t *ms_lag_for(void) { return lag_for; }
+EMSCRIPTEN_KEEPALIVE uint8_t *ms_lag_for_idx(void) { return lag_for_idx; }
 EMSCRIPTEN_KEEPALIVE uint32_t ms_lag_hash(void) { return lag_bak_hash; }
 EMSCRIPTEN_KEEPALIVE uint32_t ms_lag_lys(void) { return lag_bak_lys; }
 

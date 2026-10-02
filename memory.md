@@ -196,4 +196,11 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 - render.js: trinn 1 tegner lagene i et rendermål (lowres-koordinater, y nedover,
   DoubleSide, teksturer uten flipY), trinn 2 filter og effekter. HD-teksturer fra lerret
   har flipY = false nå.
+- Bokstavene tegnes av tegn_figur som figurer i bold.f (bilde 73 er MOONSTONE-logoen) og
+  Small.font. Tittelskjermen toner inn fra svart (lys 0), så HD-figurer må sammenlignes
+  på fargeindekser (lag_for_idx: indeks, $FF ingen, $FE bare fargen ulik), ikke farger.
+- Glatt-filteret: Scale4x regnet ut per utgangspiksel fra 5 x 5 lowres-piksler (s2 fem
+  ganger i s4), rendermål fast 4 x. fragAmiga brukes for rammebufferet (celle 2 x 1),
+  bakgrunnen og forgrunnen; modus 0 henter hel texel (også hires).
+- LAG_SPOR=1 i miljøet får moonstone-headless til å skrive hash, forgrunn og lys per bilde.
 
