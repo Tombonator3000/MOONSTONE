@@ -19,10 +19,19 @@
  * legges kopien tilbake og ridderne tegnes paa nytt (en liten rutine i ledig
  * chip-minne, kalt fra toppen av lokka paa kartet, $0AAC8C).
  *
- * Kamp ($080AB8, a1 = den som blir angrepet): til duellene over nettet er paa
- * plass, styres en fjern ridder av datamaskinen her i kampen (+$36 = 4), og
- * den skrives ikke over fra nettet foer kampen er slutt ($080BD8). Etterpaa er
- * den som i sitt eget spill igjen.
+ * Hele ridderen: strukturen ($84 byte) og tingene ridderen har (+$60 peker paa
+ * $18 byte) sendes ogsaa, saa en fjern ridder har sin egen styrke, sitt gull og
+ * sine ting her (HVER_BLOB). Felt som hoerer til plassen her (port, figur,
+ * rutene paa kartet, pekere og posisjon) skrives ikke over.
+ *
+ * Kamp ($080AB8, a1 = den som blir angrepet): kan spilleren naas over nettet
+ * (HVER_DUELL), blir det en duell: frontenden faar HVER_EV_DUELL, stopper etter
+ * bildet, og den andre spilleren faar hele maskinen og styrer sin ridder med
+ * port 1 til kampen er over ($080BD8, HVER_EV_DUELL_SLUTT). Da tar den andre med
+ * seg ridderen sin (HVER_MEG i sitt eget spill). Ellers, eller om den andre ikke
+ * svarer (HVER_AI), styrer datamaskinen her den fjerne ridderen i kampen
+ * (+$36 = +$0B = 4). I begge tilfeller skrives plassen ikke over fra nettet foer
+ * kampen er slutt.
  */
 #include "amiga.h"
 #include "m68k.h"
@@ -39,6 +48,8 @@
 #define BAK_PEKER  0x8cde8                 /* long: bakgrunnen */
 #define PLAN       0x1f40
 #define LOKKE      0x0aac8c                /* toppen av lokka paa kartet */
+#define TING       0x18                    /* +$60 peker paa tingene til ridderen */
+#define BLOB       (RSTR + TING)
 
 static struct {
     uint8_t  fjern;                         /* bit k: plass k spilles paa en annen maskin */
@@ -51,12 +62,85 @@ static struct {
     uint8_t  tatt;                          /* bit k: plassen er tatt over, originalen er lagret */
     uint32_t o36[4], o6c[4];                /* datamaskinens ridder, til plassen gis tilbake */
     uint8_t  o0b[4], o49[4];
+    uint8_t  orig[4][BLOB];                 /* hele datamaskinens ridder (struktur og ting) */
     int16_t  tx[4], ty[4];                  /* slik de fjerne ridderne er tegnet i bakgrunnen */
     int8_t   tliv[4];
     uint8_t  tfigur[4], tvist;              /* tvist: bit k, plass k er tegnet */
     uint32_t sist_tegnet;                   /* bildet de sist ble tegnet paa nytt */
-    uint8_t  kamp;                          /* bit k: plass k er i kamp her (datamaskinen styrer) */
+    uint8_t  kamp;                          /* bit k: plass k er i kamp her */
+    uint8_t  blob[4][BLOB];                 /* hele ridderen fra nettet */
+    uint8_t  har_blob;                      /* bit k */
+    uint8_t  duell_mulig;                   /* bit k: spilleren paa plass k kan naas for en duell */
+    uint8_t  duell;                         /* plass + 1 i en duell over nettet, 0 = ingen */
 } H;
+
+/* hendelser til frontenden (ikke i lagringen) */
+static int hev[8], n_hev;
+static void hendelse(int h, int arg) { if (n_hev < 8) hev[n_hev++] = h | arg << 8; }
+int hver_hendelse(void)
+{
+    if (!n_hev) return 0;
+    int h = hev[0];
+    memmove(hev, hev + 1, sizeof hev[0] * (size_t)--n_hev);
+    return h;
+}
+
+/* felt i strukturen som hoerer til plassen, ikke til ridderen */
+static bool eget_felt(int i)
+{
+    return i == 0x0b || (i >= 0x36 && i < 0x3a) || (i >= 0x42 && i < 0x46) || i == 0x52 ||
+           (i >= 0x60 && i < 0x68) || (i >= 0x6c && i < 0x70) || (i >= 0x7e && i < 0x82);
+}
+
+static uint32_t ting_adr(uint32_t r)
+{
+    uint32_t t = mem_read32(r + 0x60);
+    return (t >= 0x80000 && t + TING <= CHIP_SIZE) ? t : 0;
+}
+
+/* hele ridderen inn paa plass k (uten feltene som hoerer til plassen) */
+static void skriv_blob(int k, const uint8_t *b)
+{
+    uint32_t r = RIDDERE + (uint32_t)k * RSTR;
+    for (int i = 0; i < RSTR; i++)
+        if (!eget_felt(i)) mem_write8(r + (uint32_t)i, b[i]);
+    uint32_t t = ting_adr(r);
+    if (t) for (int i = 0; i < TING; i++) mem_write8(t + (uint32_t)i, b[RSTR + i]);
+}
+
+static void les_blob(int k, uint8_t *b)
+{
+    uint32_t r = RIDDERE + (uint32_t)(k & 3) * RSTR, t = ting_adr(r);
+    for (int i = 0; i < BLOB; i++)
+        b[i] = i < RSTR ? (uint8_t)mem_read8(r + (uint32_t)i) : t ? (uint8_t)mem_read8(t + (uint32_t)(i - RSTR)) : 0;
+}
+
+/* ridder k som heks (struktur og ting), til nettet */
+const char *hver_blob(int k)
+{
+    static char ut[BLOB * 2 + 1];
+    static const char *hx = "0123456789abcdef";
+    uint8_t b[BLOB];
+    les_blob(k, b);
+    for (int i = 0; i < BLOB; i++) {
+        ut[i * 2] = hx[b[i] >> 4];
+        ut[i * 2 + 1] = hx[b[i] & 15];
+    }
+    ut[BLOB * 2] = 0;
+    return ut;
+}
+
+static bool fra_heks(const char *text, uint8_t *b)
+{
+    if (strlen(text) < BLOB * 2) return false;
+    for (int i = 0; i < BLOB * 2; i++) {
+        char c = text[i];
+        int v = c >= '0' && c <= '9' ? c - '0' : c >= 'a' && c <= 'f' ? c - 'a' + 10 : c >= 'A' && c <= 'F' ? c - 'A' + 10 : -1;
+        if (v < 0) return false;
+        if (i & 1) b[i / 2] |= (uint8_t)v; else b[i / 2] = (uint8_t)(v << 4);
+    }
+    return true;
+}
 
 /* bakgrunnen uten de andre ridderne, fra turen startet (ikke i lagringen: etter
  * lasting tegnes de foerst paa nytt neste tur) */
@@ -67,11 +151,11 @@ static bool     kopi_ok;
 static uint32_t rd32(uint32_t a) { return mem_read32(a); }
 static void gi_tilbake(void);
 
-void hver_reset(void) { memset(&H, 0, sizeof H); kopi_ok = false; }
+void hver_reset(void) { memset(&H, 0, sizeof H); kopi_ok = false; n_hev = 0; }
 void hver_state(StateIO *s)
 {
     STATE_VAR(s, H);
-    if (!s->saving) kopi_ok = false;
+    if (!s->saving) { kopi_ok = false; n_hev = 0; }
 }
 bool hver_paa(void) { return H.fjern != 0; }
 bool hver_kart(void) { return H.kart != 0; }
@@ -85,6 +169,28 @@ void hver_kommando(int k, int arg, const char *text)
     case HVER_FJERN:
         H.fjern = (uint8_t)(arg & 0x0e);    /* plass 0 er alltid den som spiller her */
         gi_tilbake();
+        break;
+    case HVER_BLOB: {                       /* arg = plass, text = heks */
+        uint8_t b[BLOB];
+        if (arg < 1 || arg > 3 || !fra_heks(text, b)) return;
+        memcpy(H.blob[arg], b, BLOB);
+        H.har_blob |= (uint8_t)(1 << arg);
+        break;
+    }
+    case HVER_MEG: {                        /* ridderen min tilbake fra en duell: inn paa plass 0 */
+        uint8_t b[BLOB];
+        if (!whd_mog_loaded || !fra_heks(text, b)) return;
+        skriv_blob(0, b);
+        break;
+    }
+    case HVER_DUELL:                        /* arg = bitmaske: plassene der spilleren kan naas */
+        H.duell_mulig = (uint8_t)(arg & 0x0e);
+        break;
+    case HVER_AI:                           /* den andre svarte ikke: datamaskinen styrer i kampen */
+        if (arg < 1 || arg > 3 || !whd_mog_loaded) return;
+        mem_write32(RIDDERE + (uint32_t)arg * RSTR + 0x36, 4);
+        mem_write8(RIDDERE + (uint32_t)arg * RSTR + 0x0b, 4);
+        if (H.duell == arg + 1) H.duell = 0;
         break;
     case HVER_RIDDER: {
         int p, x, y, liv, figur;
@@ -111,6 +217,8 @@ static void gi_tilbake(void)
         if (!(H.tatt & (1 << k)) || (H.fjern & (1 << k))) continue;
         uint32_t r = RIDDERE + (uint32_t)k * RSTR;
         if (whd_mog_loaded) {
+            skriv_blob(k, H.orig[k]);
+            mem_write8(r + 0x52, H.orig[k][0x52]);
             mem_write32(r + 0x36, H.o36[k]);
             mem_write32(r + 0x6c, H.o6c[k]);
             mem_write8(r + 0x0b, H.o0b[k]);
@@ -118,6 +226,7 @@ static void gi_tilbake(void)
         }
         H.tatt &= (uint8_t)~(1 << k);
         H.kamp &= (uint8_t)~(1 << k);
+        H.har_blob &= (uint8_t)~(1 << k);
         H.har[k] = 0;
     }
 }
@@ -136,8 +245,10 @@ void hver_frame(void)
             H.o6c[k] = mem_read32(r + 0x6c);
             H.o0b[k] = (uint8_t)mem_read8(r + 0x0b);
             H.o49[k] = (uint8_t)mem_read8(r + 0x49);
+            les_blob(k, H.orig[k]);
             H.tatt |= (uint8_t)(1 << k);
         }
+        if (H.har_blob & (1 << k)) skriv_blob(k, H.blob[k]);
         mem_write16(r + 0x7e, (uint16_t)H.x[k]);
         mem_write16(r + 0x80, (uint16_t)H.y[k]);
         mem_write8(r + 0x49, (uint8_t)H.liv[k]);
@@ -165,9 +276,11 @@ void hver_ridder(int k, int ut[4])
 /* tittelmenyen: et nytt spill begynner, ingen plasser er tatt over */
 static bool hook_tittel(void)
 {
+    if (H.duell) hendelse(HVER_EV_DUELL_SLUTT, H.duell - 1);
     H.kart = 0;
     H.tatt = 0;
     H.kamp = 0;
+    H.duell = 0;
     kopi_ok = false;
     return false;
 }
@@ -266,6 +379,15 @@ static bool hook_kamp(void)
     int k = (int)((a - RIDDERE) / RSTR);
     if (!(H.tatt & (1 << k))) return false;
     H.kamp |= (uint8_t)(1 << k);
+    /* duell bare naar ridderen din angriper (a0 = plass 0); angriper datamaskinens
+     * ridder, blir det ingen kamp (begge er datamaskinens, $080B08) */
+    uint32_t a0 = m68k_get_reg(NULL, M68K_REG_A0);
+    if (a0 == RIDDERE && mem_read32(a0 + 0x36) != 4 && (H.duell_mulig & (1 << k)) && !H.duell) {
+        /* duell: +$36 er figuren (ikke 4), saa spillet gir ridderen port 1 ($080B36) */
+        H.duell = (uint8_t)(k + 1);
+        hendelse(HVER_EV_DUELL, k);
+        return false;
+    }
     mem_write32(a + 0x36, 4);
     mem_write8(a + 0x0b, 4);
     return false;
@@ -274,6 +396,14 @@ static bool hook_kamp(void)
 /* kampen er over (eller ble ikke noe av) */
 static bool hook_kamp_slutt(void)
 {
+    if (H.duell) {
+        int k = H.duell - 1;
+        hendelse(HVER_EV_DUELL_SLUTT, k);
+        /* plassen skrives ikke over foer den andre har sendt ridderen sin paa nytt */
+        H.har[k] = 0;
+        H.har_blob &= (uint8_t)~(1 << k);
+        H.duell = 0;
+    }
     H.kamp = 0;
     return false;
 }

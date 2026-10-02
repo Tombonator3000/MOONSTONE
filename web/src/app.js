@@ -153,6 +153,7 @@
         stoppMenyRom();
         menyInvitert = null;
         menyKo.length = 0;
+        if (D) { const d = D; D = null; clearTimeout(d.tidsfrist); try { if (d.conn) d.conn.close(); } catch (e) { /* lukket */ } }
         Nett.avslutt();
         Nett.rammer.length = 0;
         fjerne.clear();
@@ -379,6 +380,7 @@
         return {
             lobby: (liste, kode, portModus) => { visSpillere(liste, kode, portModus); sendNavn(liste); if (modus === 'hver') oppdaterFjerne(liste); },
             ridder: (id, d) => mottaRidder(id, d),
+            duell: (conn) => duellInn(conn),
             chat: chatLinje,
             status,
             velg: (rad) => { if (Kjerne.iMeny()) velgRad(rad); },   /* en gjest klikket i menyen */
@@ -588,6 +590,7 @@
                     if (modus === 'hver') oppdaterFjerne(liste);
                 },
                 ridder: (id, d) => mottaRidder(id, d),
+                duell: (conn) => duellInn(conn),
                 chat: chatLinje,
                 status,
                 ping: () => {},
@@ -619,7 +622,7 @@
      * Ridderne til de andre i rommet faar plass 2-4 hos oss (de datamaskinen ellers
      * styrer), i rekkefolgen i rommet. Hver maskin sender sin ridder noen ganger i
      * sekundet mens den er paa kartet. Se docs/flerspiller.md og port/src/hver.c. */
-    const HVER = { FJERN: 1, RIDDER: 2 };
+    const HVER = { FJERN: 1, RIDDER: 2, BLOB: 3, MEG: 4, DUELL: 5, AI: 6 };
     const fjerne = new Map();               /* id -> { x, y, liv, figur, navn } eller { borte: true } */
     let rekkefolge = [];                    /* de andre i rommet, i rekkefolgen i rommet */
     let sistSendt = '', sistSendtTid = 0;
@@ -627,7 +630,8 @@
     function mottaRidder(id, d) {
         const foer = fjerne.get(id);
         const varPaa = !!(foer && !foer.borte);
-        fjerne.set(id, d.borte ? { borte: true } : { x: d.x | 0, y: d.y | 0, liv: d.liv | 0, figur: d.figur & 3, navn: String(d.navn || '') });
+        fjerne.set(id, d.borte ? { borte: true } : { x: d.x | 0, y: d.y | 0, liv: d.liv | 0, figur: d.figur & 3, navn: String(d.navn || ''),
+            b: typeof d.b === 'string' && /^[0-9a-f]{312}$/.test(d.b) ? d.b : null });
         oppdaterFjerne();
         if (menyApen && varPaa === !!d.borte) visSpillere(null);     /* kom paa eller gikk av kartet */
     }
@@ -635,7 +639,10 @@
     function oppdaterFjerne(liste) {
         if (liste) rekkefolge = liste.map((s) => s.id).filter((id) => id !== Nett.minId());
         for (const id of [...fjerne.keys()]) if (!rekkefolge.includes(id)) fjerne.delete(id);
-        let maske = 0;
+        /* under en duell kjorer kjernen et spill begge maskinene har: ingen endringer utenfra */
+        if (D) { fjerneVenter = true; return; }
+        fjerneVenter = false;
+        let maske = 0, duell = 0;
         const kmd = [];
         /* har to valgt samme ridder, faar den andre en ledig farge, saa de ikke ser like ut */
         const brukt = new Set();
@@ -646,24 +653,29 @@
             if (!r || r.borte) return;
             const plass = i + 1;
             maske |= 1 << plass;
+            if (r.vent) return;                 /* etter en duell: vent paa ridderen slik den er naa */
+            duell |= 1 << plass;
             let figur = r.figur;
             if (brukt.has(figur)) figur = [0, 1, 2, 3].find((f) => !brukt.has(f));
             brukt.add(figur);
             const n = (r.navn || 'KNIGHT').toUpperCase().replace(/[^A-Z0-9 ]/g, '').trim().replace(/ +/g, '_').slice(0, 15) || 'KNIGHT';
-            kmd.push(plass + ' ' + r.x + ' ' + r.y + ' ' + r.liv + ' ' + figur + ' ' + n);
+            if (r.b) kmd.push([HVER.BLOB, plass, r.b]);
+            kmd.push([HVER.RIDDER, 0, plass + ' ' + r.x + ' ' + r.y + ' ' + r.liv + ' ' + figur + ' ' + n]);
         });
         Kjerne.hverKmd(HVER.FJERN, maske);
-        for (const t of kmd) Kjerne.hverKmd(HVER.RIDDER, 0, t);
+        Kjerne.hverKmd(HVER.DUELL, duell);
+        for (const [k, a, t] of kmd) Kjerne.hverKmd(k, a, t);
     }
 
     /* min ridder til de andre: naar den endrer seg (hoyst sju ganger i sekundet,
      * ridderen flytter seg en piksel per bilde), og ellers hvert andre sekund */
     function sendMinRidder() {
+        if (D && D.rolle === 'b') return;        /* kjernen kjorer kampen til den andre naa */
         const naa = performance.now();
         let m;
         if (Kjerne.hverKart()) {
             const [x, y, liv, figur] = Kjerne.hverRidder(0);
-            m = { x, y, liv, figur, navn: Kjerne.hverNavn(0) };
+            m = { x, y, liv, figur, navn: Kjerne.hverNavn(0), b: Kjerne.hverBlob(0) };
         } else m = { borte: true };
         const s = JSON.stringify(m);
         if (naa - sistSendtTid < (s === sistSendt ? 2000 : 150)) return;
@@ -674,6 +686,7 @@
 
     /* ut av et rom med hver for seg: spillet her fortsetter, de andre forsvinner */
     function forlatHver(tekst) {
+        avbrytDuell('');
         if (stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
         Nett.avslutt();
         fjerne.clear();
@@ -684,6 +697,190 @@
         modus = 'alene';
         oppdaterMeny();
         if (tekst) status(tekst);
+    }
+
+    /* ---------------------------------------------------------------- dueller
+     * Angriper du en annen spiller (port/src/hver.c: HVER_EV_DUELL), stopper
+     * spillet ditt etter bildet, og den andre faar hele maskinen over en direkte
+     * forbindelse (Nett.duellKoble). Den andre lagrer sitt eget spill, kjorer
+     * kampen sammen med deg (du er vert for kampen, den andre styrer port 1) og
+     * tar med seg ridderen sin tilbake naar kampen er over (HVER_EV_DUELL_SLUTT,
+     * HVER_MEG). Svarer ikke den andre, styrer datamaskinen ridderen (HVER_AI). */
+    const HEV = { DUELL: 1, SLUTT: 2 };
+    let D = null;                            /* duellen: { rolle 'a' (angriper) | 'b', conn, plass, status, ... } */
+    let fjerneVenter = false;
+
+    const navnTil = (id) => { const s = sisteSpillere.find((x) => x.id === id); return s ? s.navn : 'den andre'; };
+
+    function hverHendelser() {
+        for (let e; (e = Kjerne.hverHendelse()); ) {
+            if ((e & 0xff) === HEV.DUELL && (!D || D.rolle !== 'b')) startDuell(e >> 8);
+            else if ((e & 0xff) === HEV.SLUTT) { if (D && D.rolle === 'b') sluttDuellB(); else if (D) sluttDuellA(); }
+        }
+    }
+
+    /* A: du angrep ridderen paa plass k */
+    function startDuell(k) {
+        const id = rekkefolge[k - 1];
+        if (!id || D || modus !== 'hver') { Kjerne.hverKmd(HVER.AI, k); return; }
+        const d = D = { rolle: 'a', plass: k, id, status: 'venter', inn: 0, navn: navnTil(id), conn: null };
+        status('Utfordrer ' + d.navn + ' ...');
+        d.tidsfrist = setTimeout(() => utenDuell(d, d.navn + ' svarte ikke.'), 15000);
+        Nett.duellKoble(id).then((conn) => {
+            if (D !== d) { conn.close(); return; }
+            d.conn = conn;
+            conn.on('data', (m) => fraB(d, m));
+            conn.on('close', () => { if (D === d) utenDuell(d, 'Forbindelsen til ' + d.navn + ' ble brutt.'); });
+            conn.send({ t: 'utfordring', navn: innst.navn || 'Player', plass: k });
+        }).catch(() => utenDuell(d, 'Fikk ikke kontakt med ' + d.navn + '.'));
+    }
+
+    /* A: ingen duell likevel; datamaskinen styrer den andre ridderen i kampen */
+    function utenDuell(d, tekst) {
+        if (D !== d) return;
+        clearTimeout(d.tidsfrist);
+        Kjerne.hverKmd(HVER.AI, d.plass);
+        D = null;
+        if (d.conn) { const c = d.conn; d.conn = null; setTimeout(() => c.close(), 300); }
+        if (fjerneVenter) oppdaterFjerne();
+        akk = 0;
+        status(tekst + ' Datamaskinen styrer ridderen i kampen.');
+    }
+
+    function fraB(d, m) {
+        if (D !== d || !m) return;
+        switch (m.t) {
+        case 'ja':
+        case 'synk': {
+            d.status = 'sender';
+            const t = Kjerne.lagreTilstand();
+            if (t) Nett.sendTilstandTil(d.conn, t, Kjerne.bildeNr());
+            if (m.t === 'ja') status(d.navn + ' tar imot. Sender spillet ...');
+            break;
+        }
+        case 'klar':
+            clearTimeout(d.tidsfrist);
+            d.status = 'aktiv';
+            akk = 0;
+            status('Kamp mot ' + d.navn + '!');
+            break;
+        case 'nei': utenDuell(d, d.navn + ' kan ikke kjempe nå.'); break;
+        case 'inn': d.inn = m.j & 31; break;
+        }
+    }
+
+    /* A: kampen er over; den andre har kjort de samme bildene og tar ridderen sin */
+    function sluttDuellA() {
+        const d = D;
+        clearTimeout(d.tidsfrist);
+        D = null;
+        const r = fjerne.get(d.id);
+        if (r) r.vent = true;                    /* til den andre sender ridderen slik den er etter kampen */
+        oppdaterFjerne();
+        if (d.conn) { const c = d.conn; setTimeout(() => c.close(), 3000); }
+        status('Kampen mot ' + d.navn + ' er over.');
+    }
+
+    /* B: noen vil kjempe mot deg */
+    function duellInn(conn) {
+        conn.on('data', (m) => fraA(conn, m));
+        conn.on('close', () => { if (D && D.rolle === 'b' && D.conn === conn) avbrytDuell('Forbindelsen ble brutt. Tilbake i ditt eget spill.'); });
+    }
+
+    async function fraA(conn, m) {
+        if (!m) return;
+        if (m.t === 'utfordring') {
+            const egen = !D && modus === 'hver' && !menyApen && Kjerne.hverKart() ? Kjerne.lagreTilstand() : null;
+            if (!egen) { conn.send({ t: 'nei' }); setTimeout(() => conn.close(), 500); return; }
+            D = { rolle: 'b', conn, plass: m.plass | 0, status: 'venter', egen, rammer: [], navn: String(m.navn || 'Player').slice(0, 20),
+                motta: Nett.tilstandsMottaker(), sistInn: -1, sistInnTid: 0, akk: 0 };
+            Lyd.clear();
+            status(D.navn + ' utfordrer deg til kamp!');
+            conn.send({ t: 'ja' });
+            return;
+        }
+        const d = D;
+        if (!d || d.rolle !== 'b' || d.conn !== conn) return;
+        if (m.t === 'f') { d.rammer.push(m); return; }
+        if (m.t === 'tilstand') {
+            const t = await d.motta(m);
+            if (!t || D !== d) return;
+            if (!Kjerne.lastTilstand(t.bytes)) { avbrytDuell('Kunne ikke laste kampen.'); return; }
+            d.rammer = d.rammer.filter((r) => r.f >= t.f);
+            d.status = 'aktiv';
+            d.akk = 0;
+            Lyd.clear();
+            conn.send({ t: 'klar' });
+            status('Kamp mot ' + d.navn + '! Du styrer ridderen din.');
+        }
+    }
+
+    /* B: et bilde av kampen, med inndataene fra den andre */
+    function kjorDuellbilde(d, m) {
+        if (m.f !== Kjerne.bildeNr()) { d.status = 'venter'; d.rammer.length = 0; d.conn.send({ t: 'synk' }); return false; }
+        if (m.c) for (const [k, a, t] of m.c) Kjerne.menyKommando(k, a, t);
+        Kjerne.inndata(m.j[0], m.j[1]);
+        if (m.k) for (const [k, ned] of m.k) Kjerne.tast(k, ned);
+        Kjerne.bilde();
+        nyttBilde = true;
+        Visning.nyttBilde(Visning.brukerListe() ? Kjerne.tegneliste() : INGEN);
+        Lyd.push(Kjerne.lyd());
+        Kjerne.brukteFiler();
+        while (Kjerne.menyHendelse()) { /* menyen er den andres */ }
+        if (m.h !== undefined) {
+            if (Kjerne.sjekksum() === m.h) statistikk.duellSjekket = (statistikk.duellSjekket || 0) + 1;
+            else statistikk.duellAvvik = (statistikk.duellAvvik || 0) + 1;
+        }
+        if (m.h !== undefined && Kjerne.sjekksum() !== m.h && D === d) {
+            d.status = 'venter';
+            d.rammer.length = 0;
+            d.conn.send({ t: 'synk' });
+            status('Ute av takt, henter kampen på nytt ...');
+        }
+        hverHendelser();
+        return D === d && d.status === 'aktiv';
+    }
+
+    /* B: kampen er over: ridderen ut av kampen og inn i ditt eget spill */
+    function sluttDuellB() {
+        const d = D;
+        const ridder = Kjerne.hverBlob(d.plass);
+        D = null;
+        if (!Kjerne.lastTilstand(d.egen)) { status('Kunne ikke hente ditt eget spill tilbake.'); return; }
+        Kjerne.hverKmd(HVER.MEG, 0, ridder);
+        oppdaterFjerne();
+        sistSendt = '';
+        sistSendtTid = 0;
+        akk = 0;
+        Lyd.clear();
+        const c = d.conn;
+        setTimeout(() => c.close(), 1000);
+        status('Kampen er over. Tilbake i ditt eget spill.');
+    }
+
+    /* duellen avbrytes (forbindelsen brutt, du forlater rommet) */
+    function avbrytDuell(tekst) {
+        const d = D;
+        if (!d) return;
+        if (d.rolle === 'a') { utenDuell(d, tekst || ''); return; }
+        D = null;
+        if (d.egen) Kjerne.lastTilstand(d.egen);
+        try { d.conn.close(); } catch (e) { /* lukket */ }
+        oppdaterFjerne();
+        akk = 0;
+        Lyd.clear();
+        if (tekst) status(tekst);
+    }
+
+    /* B: joysticken din til den andre (port 1 i kampen) */
+    function sendDuellInn(d) {
+        const l = Inndata.les();
+        const j = l.a | l.b | museRetning | (museFire || performance.now() < klikkTil ? FIRE : 0);
+        const naa = performance.now();
+        if (j === d.sistInn && naa - d.sistInnTid < 500) return;
+        if (d.conn.open) d.conn.send({ t: 'inn', j });
+        d.sistInn = j;
+        d.sistInnTid = naa;
     }
 
     /* ---------------------------------------------------------------- spillokka */
@@ -703,6 +900,9 @@
                 const alle = taster.map(([k, d]) => [k, d, Nett.vertensSpiller()]).concat(Nett.hentGjesteTaster());
                 taster = alle.filter(([, d, sp]) => Nett.tastTillatt(sp, d, eiere)).map(([k, d]) => [k, d]);
             }
+        } else if (D && D.rolle === 'a' && D.status === 'aktiv') {
+            j0 = D.inn;                          /* port 1: den andre i duellen */
+            j1 = lokalt.a | lokalt.b;
         } else {
             j0 = lokalt.b;
             j1 = lokalt.a;
@@ -721,7 +921,15 @@
         if (modus === 'vert' && Nett.harGjester()) {
             Nett.sendBilde(f, [j0, j1], taster, filer, Kjerne.hentFil, f % 120 === 0 ? Kjerne.sjekksum() : undefined, kommandoer);
         }
+        if (D && D.rolle === 'a' && D.status === 'aktiv' && D.conn && D.conn.open) {
+            const m = { t: 'f', f, j: [j0, j1] };
+            if (taster.length) m.k = taster;
+            if (kommandoer.length) m.c = kommandoer;
+            if (f % 120 === 0) m.h = Kjerne.sjekksum();
+            D.conn.send(m);
+        }
         menyHendelser();
+        if (modus === 'hver') hverHendelser();
     }
 
     function kjorGjestebilde(m) {
@@ -772,10 +980,25 @@
                 if (!ko.length) akk = Math.min(akk, periode);
                 if (ko.length > 40) while (ko.length > maal) { if (!kjorGjestebilde(ko.shift())) break; }
             }
-        } else if ((modus === 'alene' || modus === 'vert' || modus === 'hver') && !pause && !(menyApen && modus !== 'vert')) {
+        } else if (D && D.rolle === 'b') {
+            /* kampen til den andre: de samme bildene, som en gjest */
+            const d = D;
+            sendDuellInn(d);
+            if (d.status === 'aktiv') {
+                const ko = d.rammer;
+                d.akk += dt * (1 + Math.max(-0.5, Math.min(1, (ko.length - 3) * 0.08)));
+                let n = 0;
+                while (d.akk >= periode && ko.length && n < 6 && D === d) { if (!kjorDuellbilde(d, ko.shift())) break; d.akk -= periode; n++; }
+                if (!ko.length) d.akk = Math.min(d.akk, periode);
+                while (ko.length > 40 && D === d) { if (!kjorDuellbilde(d, ko.shift())) break; }
+            }
+        } else if (D && D.rolle === 'a' && D.status !== 'aktiv') {
+            akk = 0;                                 /* venter paa den andre */
+        } else if ((modus === 'alene' || modus === 'vert' || modus === 'hver') && !pause && !(menyApen && modus !== 'vert' && !D)) {
             akk += dt;
             let n = 0;
-            while (akk >= periode && n < 4) { kjorEttBilde(); akk -= periode; n++; }
+            /* stopper med en gang en duell begynner (spillet venter paa den andre) */
+            while (akk >= periode && n < 4 && !(D && D.status !== 'aktiv')) { kjorEttBilde(); akk -= periode; n++; }
             if (akk > periode * 4) akk = 0;
             if (Kjerne.stoppet()) {
                 startPaaNytt(Kjerne.stoppMelding());
@@ -1054,8 +1277,10 @@
         if (e.code === 'Pause' && (modus === 'alene' || modus === 'hver')) { pause = !pause; Lyd.clear(); status(pause ? 'Pause' : 'Fortsetter'); return true; }
         return false;
     });
+    /* Home lukker menyen ogsaa naar spillet ikke tar tastene; har hurtigtasten
+     * nettopp aapnet den (samme trykk, defaultPrevented), skal den staa aapen */
     window.addEventListener('keydown', (e) => {
-        if (e.code === 'Home' && menyApen) { visMeny(false); e.preventDefault(); }
+        if (e.code === 'Home' && menyApen && !e.defaultPrevented) { visMeny(false); e.preventDefault(); }
     });
     /* fanen skjules: nettleseren stopper spillokka, saa lyden toemmes i stedet for aa hakke */
     document.addEventListener('visibilitychange', () => { if (document.hidden) Lyd.clear(); });
@@ -1079,5 +1304,6 @@
     const rom = new URLSearchParams(location.search).get('rom');
     if (rom && /^[A-Za-z0-9]{6}$/.test(rom)) invitasjon = rom.toUpperCase();
     Lager.hent('mod').then((m) => { if (m) { modFiler = m; visMod(); } }).finally(startSpillet);
-    window.moonDebug = { Kjerne, Nett, Visning, innst, statistikk, modus: () => modus, lyd: () => ({ ms: Lyd.bufferedMs(), hull: Lyd.hull() }) };
+    window.moonDebug = { Kjerne, Nett, Visning, innst, statistikk, modus: () => modus, lyd: () => ({ ms: Lyd.bufferedMs(), hull: Lyd.hull() }),
+        duell: () => (D ? { rolle: D.rolle, status: D.status, plass: D.plass, inn: D.inn, sistInn: D.sistInn } : null) };
 })();

@@ -225,3 +225,13 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 - Valgene på kartet venter på tastene 1-9 (`--press 1900:2:4` velger nummer 2).
 - Nettlesertest: $S/test26.js (vert og Kari, Separate, gange, farger, verten går).
   Playwright ligger i /opt/node-tools/node_modules (NODE_PATH).
+- Dueller (steg 3): HVER_BLOB (hele ridderen som heks, 312 tegn), HVER_MEG (inn paa plass 0
+  etter duellen), HVER_DUELL (maske: kan naas), HVER_AI (datamaskinen tar over), hendelser
+  HVER_EV_DUELL / HVER_EV_DUELL_SLUTT via ms_hver_hendelse. Nettsiden: D i app.js (rolle 'a'
+  angriper / 'b'), Nett.duellKoble (direkte PeerJS med metadata.duell), sendTilstandTil,
+  tilstandsMottaker. Protokollversjon 3.
+- Kampposisjonene: +$04 x og +$08 y (ord) i ridderstrukturen. Kampen laster i om lag 8 s.
+- Tester: $S/test27.js (duell, verten angriper, testspiller styrer etter posisjonene),
+  test28.js (Kari sier nei: datamaskinen tar over), test29.js (Kari angriper verten).
+- Home-tasten aapnet og lukket sidemenyen paa samme trykk (to lyttere); rettet med
+  e.defaultPrevented.

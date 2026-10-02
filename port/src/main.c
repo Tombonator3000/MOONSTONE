@@ -136,7 +136,7 @@ static const char *find_game(void)
 }
 
 /* --hver (hver.c) */
-static struct { uint32_t frame; int cmd, arg; char text[128]; } hver_cmds[64];
+static struct { uint32_t frame; int cmd, arg; char text[400]; } hver_cmds[64];
 static int n_hver_cmds;
 
 /* --lag og --lag-dump (lag.c) */
@@ -218,7 +218,7 @@ int main(int argc, char **argv)
         else if (!strcmp(a, "--hver") && v) {
             /* F:K:ARG:TEKST, som --meny, men til hver.c */
             if (n_hver_cmds < 64) {
-                char tmp[256];
+                char tmp[512];
                 snprintf(tmp, sizeof tmp, "%s", v);
                 char *f[4] = { tmp, NULL, NULL, NULL };
                 for (int k = 1; k < 4; k++) { char *c = f[k - 1] ? strchr(f[k - 1], ':') : NULL; if (c) { *c = 0; f[k] = c + 1; } }
@@ -385,6 +385,8 @@ static int run_headless(int frames, int shot_every, const char *shot_dir, int sa
         }
         for (int e; (e = meny_take_event()); )
             printf("meny-hendelse bilde %u: %d arg %d\n", M.frame, e & 0xff, e >> 8);
+        for (int e; (e = hver_hendelse()); )
+            printf("hver-hendelse bilde %u: %d plass %d\n", M.frame, e & 0xff, e >> 8);
         if (lag_paa) lag_steg();
         if (draw_list_frame >= 0 && (int)M.frame >= draw_list_frame && (int)M.frame < draw_list_frame + draw_list_count) {
             printf("tegneliste bilde %u (bakgrunn %s):\n", M.frame, game_background());
