@@ -46,3 +46,6 @@ Instrukser for AI-agenter og andre som jobber i dette repoet.
   Innstillinger, lagring og egne filer ligger i sidemenyen. Eieren vil ha det slik.
 - Endres strukturer som lagres i tilstanden, men som `layout_id()` i state.c ikke ser
   (f.eks. M2 i meny.c), skal `STATE_VERSION` økes.
+- Utgivelser: eieren har gitt varig lov (2026-10-02) til at agenten lager en PR mot
+  `main` når en del er ferdig og testet, venter på grønn CI og fletter selv. Pages
+  publiserer etter flettingen. Si fra til eieren når den nye versjonen er ute.

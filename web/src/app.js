@@ -18,7 +18,8 @@
 (() => {
     const $ = (id) => document.getElementById(id);
     const inn = Lager.innstillinger();
-    const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false, knapper: false }, inn);
+    const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false, knapper: false,
+        effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false } }, inn);
     const lagreInnst = () => Lager.lagreInnstillinger(innst);
 
     const INNEBYGD = 'innebygd';
@@ -170,6 +171,7 @@
         Visning.settFilter(innst.filter);
         Visning.settFormat(innst.format);
         Visning.settHelt(innst.helt);
+        Visning.settEffekter(innst.effekter);
         Visning.tilpass();
         Inndata.paa(!menyApen && !dialogApen);
         visKnapper();
@@ -669,9 +671,10 @@
         if (modus === 'alene' || modus === 'vert' || modus === 'gjest') {
             if (sisteModus === 'auto') visTur();
             visHint();
-            /* bare naar det er noe nytt aa vise (se Visning.tegn) */
-            if (nyttBilde || Visning.maaTegnes()) Visning.tegn(Kjerne.rammebuffer(), Kjerne.vindu());
+            /* bare naar det er noe nytt aa vise (se Visning.tegn); lagene bare naar de trengs */
+            if (nyttBilde || Visning.maaTegnes()) Visning.tegn(Kjerne.rammebuffer(), Kjerne.vindu(), Visning.trengerLag() ? Kjerne.lag() : null);
             nyttBilde = false;
+            Kjerne.lagPaa(Visning.trengerLag());
         }
     }
 
@@ -851,9 +854,50 @@
     $('navn-avbryt').addEventListener('click', navnAvbryt);
 
     $('rammer').addEventListener('change', (e) => { Visning.settRammer(e.target.checked); });
+
+    /* effekter: avkrysningsboksene heter effekt-NAVN */
+    for (const navn of Object.keys(innst.effekter)) {
+        const boks = $('effekt-' + navn);
+        if (!boks) continue;
+        boks.checked = !!innst.effekter[navn];
+        boks.addEventListener('change', () => {
+            innst.effekter[navn] = boks.checked;
+            Visning.settEffekter(innst.effekter);
+            lagreInnst();
+        });
+    }
+
+    /* bakgrunnen som vises, som PNG med navnet HD-pakken bruker (bg/HASH.png) */
+    $('lagre-bg').addEventListener('click', () => {
+        if (!modus || modus === 'venter') return;
+        /* lagene lages fra siste bilde, ogsaa naar spillet staar mens menyen er aapen */
+        Kjerne.lagPaa(true);
+        Kjerne.lagBygg();
+        const lag = Kjerne.lag();
+        Kjerne.lagPaa(Visning.trengerLag());
+        {
+            if (!lag) { status('Denne skjermen har ingen bakgrunn spillet holder for seg selv'); return; }
+            const lerret = document.createElement('canvas');
+            lerret.width = 320; lerret.height = 200;
+            const ctx = lerret.getContext('2d');
+            const bilde = ctx.createImageData(320, 200);
+            bilde.data.set(lag.bak);
+            ctx.putImageData(bilde, 0, 0);
+            const navn = lag.hash.toString(16).padStart(8, '0') + '.png';
+            lerret.toBlob((b) => {
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(b);
+                a.download = navn;
+                a.click();
+                setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+                status('Lagret ' + navn + '. Legg den i mappen bg i HD-pakken.');
+            });
+        }
+    });
     $('velg-hd').addEventListener('change', async (e) => {
         const n = await Visning.lastHdPakke(e.target.files);
-        $('hd-status').textContent = Visning.hdAntall() + ' bilder i HD-pakken.';
+        const bg = Visning.hdBakgrunner();
+        $('hd-status').textContent = Visning.hdAntall() + ' bilder i HD-pakken' + (bg ? ', av dem ' + bg + ' bakgrunner.' : '.');
         status(n + ' HD-bilder lastet');
     });
     $('tom-hd').addEventListener('click', () => { Visning.tomHdPakke(); $('hd-status').textContent = 'Ingen HD-pakke.'; });

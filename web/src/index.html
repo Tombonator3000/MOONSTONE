@@ -62,12 +62,23 @@
       <label class="avkryss"><input type="checkbox" id="skjermknapper"> Vis styrekors og knapper på skjermen også med mus</label>
     </section>
     <section class="boks">
+      <h3>Effekter</h3>
+      <p class="hjelp">Spillet tegnes i lag: bakgrunn, figurer og tekst hver for seg. Effektene bruker det.</p>
+      <label class="avkryss"><input type="checkbox" id="effekt-skygge"> Skygger under figurer og tekst</label>
+      <label class="avkryss"><input type="checkbox" id="effekt-dybde"> Litt uskarp bakgrunn, så figurene trer fram</label>
+      <label class="avkryss"><input type="checkbox" id="effekt-glod"> Glød rundt lyse ting (magi, ild, tekst)</label>
+      <label class="avkryss"><input type="checkbox" id="effekt-farger"> Sterkere og varmere farger</label>
+      <label class="avkryss"><input type="checkbox" id="effekt-vignett"> Mørkere hjørner (vignett)</label>
+    </section>
+    <section class="boks">
       <h3>HD-grafikk (eksperimentelt)</h3>
       <p class="hjelp">Velg en mappe med PNG-er navngitt som <code>tools/gfx.py extract</code> gir dem (for eksempel <code>kn1.ob/000.png</code>), gjerne tegnet i høyere oppløsning. Figurene spillet tegner, vises da med dine bilder. Se docs/hd-grafikk.md.</p>
       <label class="avkryss"><input type="checkbox" id="rammer"> Vis et gult felt der spillet tegner en figur uten HD-bilde</label>
+      <p class="hjelp">Bakgrunner: lagre den som vises, tegn den i høyere oppløsning, og legg den i mappen <code>bg</code> i HD-pakken med samme navn.</p>
       <div class="rad">
         <label class="knapp liten">Velg HD-mappe <input type="file" id="velg-hd" webkitdirectory multiple></label>
         <button id="tom-hd" class="knapp liten">Fjern</button>
+        <button id="lagre-bg" class="knapp liten">Lagre bakgrunnen som PNG</button>
       </div>
       <p class="hjelp" id="hd-status">Ingen HD-pakke.</p>
     </section>

@@ -112,6 +112,9 @@ static void usage(void)
            "  --online-meny         \"Online Game\" i tittelmenyen (som paa nettsiden)\n"
            "  --meny F:K:ARG:TEKST  menykommando K i bilde F (se meny.c), | blir linjeskift\n"
            "  --blit-log            skriv hvor Blitteren startes fra\n"
+           "  --blit-trace F:N      skriv hver blit og skjermens bitplan i bilde F og de N-1 neste\n"
+           "  --lag F:PREFIKS       lagene (lag.c) i bilde F: PREFIKS_bak.png og PREFIKS_for.png\n"
+           "  --lag-dump MAPPE      hver ny bakgrunn som MAPPE/HASH.png (til HD-bakgrunner)\n"
            "  --wav FIL             ta opp lyden\n"
            "  --log N               0 stille, 1 normal, 2 alt\n");
 }
@@ -128,6 +131,44 @@ static const char *find_game(void)
         if (f) { fclose(f); return cands[i]; }
     }
     return NULL;
+}
+
+/* --lag og --lag-dump (lag.c) */
+static int  lag_frame = -1;
+static char lag_prefix[400];
+static const char *lag_dump_dir;
+
+static void lag_steg(void)
+{
+    lag_bygg();
+    if ((int)M.frame - 1 == lag_frame) {
+        char p[512];
+        printf("lag bilde %u: %s, bakgrunn %08x, forgrunn %d piksler, lys %u\n", M.frame - 1,
+               lag_gyldig ? "gyldig" : "ikke gyldig", lag_bak_hash, lag_for_antall, lag_bak_lys);
+        if (lag_gyldig) {
+            snprintf(p, sizeof p, "%s_bak.png", lag_prefix);
+            png_write(p, lag_bak, LAG_W, LAG_H, LAG_W);
+            snprintf(p, sizeof p, "%s_for.png", lag_prefix);
+            png_write(p, lag_for, LAG_W, LAG_H, LAG_W);
+        }
+    }
+    if (lag_dump_dir && lag_gyldig) {
+        /* en bakgrunn som har staatt i 50 bilder, skrives en gang (og paa nytt hvis den blir lysere) */
+        static uint32_t forrige, stabil;
+        static struct { uint32_t hash, lys; } skrevet[512];
+        static int n_skrevet;
+        if (lag_bak_hash != forrige) { forrige = lag_bak_hash; stabil = 0; return; }
+        if (++stabil != 50) return;
+        int k;
+        for (k = 0; k < n_skrevet; k++) if (skrevet[k].hash == lag_bak_hash) break;
+        if (k < n_skrevet && skrevet[k].lys >= lag_bak_lys) return;
+        if (k == n_skrevet) { if (n_skrevet == 512) return; n_skrevet++; }
+        skrevet[k].hash = lag_bak_hash;
+        skrevet[k].lys = lag_bak_lys;
+        char p[512];
+        snprintf(p, sizeof p, "%s/%08x.png", lag_dump_dir, lag_bak_hash);
+        if (png_write(p, lag_bak, LAG_W, LAG_H, LAG_W)) printf("bakgrunn %08x (bilde %u) -> %s\n", lag_bak_hash, M.frame - 1, p);
+    }
 }
 
 static int run_headless(int frames, int shot_every, const char *shot_dir, int save_state_frame,
@@ -159,6 +200,21 @@ int main(int argc, char **argv)
         else if (!strcmp(a, "--hook-cycles")) hooks_measure = true;
         else if (!strcmp(a, "--hook-report")) hook_report = true;
         else if (!strcmp(a, "--blit-log")) { extern bool blit_log; blit_log = true; }
+        else if (!strcmp(a, "--lag") && v) {
+            lag_frame = atoi(v);
+            const char *c = strchr(v, ':');
+            snprintf(lag_prefix, sizeof lag_prefix, "%s", c ? c + 1 : "lag");
+            lag_paa = true;
+            i++;
+        }
+        else if (!strcmp(a, "--lag-dump") && v) { lag_dump_dir = v; lag_paa = true; i++; }
+        else if (!strcmp(a, "--blit-trace") && v) {
+            extern int blit_trace_from, blit_trace_n;
+            blit_trace_from = atoi(v);
+            const char *c = strchr(v, ':');
+            blit_trace_n = c ? atoi(c + 1) : 1;
+            i++;
+        }
         else if (!strcmp(a, "--log") && v) { log_level = atoi(v); i++; }
         else if (!strcmp(a, "--wav") && v) { wav_path = v; i++; }
         else if (!strcmp(a, "--vis-tur")) show_turn = true;
@@ -291,8 +347,19 @@ static int run_headless(int frames, int shot_every, const char *shot_dir, int sa
         for (int k = 0; k < n_menu_cmds; k++)
             if (menu_cmds[k].frame == M.frame) meny_command(menu_cmds[k].cmd, menu_cmds[k].arg, menu_cmds[k].text);
         amiga_run_frame();
+        {
+            extern int blit_trace_from, blit_trace_n;
+            extern uint32_t video_bpl_first[6];
+            extern int video_bpl_planes;
+            if (blit_trace_from >= 0 && (int)M.frame - 1 >= blit_trace_from && (int)M.frame - 1 < blit_trace_from + blit_trace_n) {
+                printf("skjerm bilde %u:", M.frame - 1);
+                for (int p = 0; p < video_bpl_planes; p++) printf(" %06x", video_bpl_first[p]);
+                printf("\n");
+            }
+        }
         for (int e; (e = meny_take_event()); )
             printf("meny-hendelse bilde %u: %d arg %d\n", M.frame, e & 0xff, e >> 8);
+        if (lag_paa) lag_steg();
         if (draw_list_frame >= 0 && (int)M.frame >= draw_list_frame && (int)M.frame < draw_list_frame + draw_list_count) {
             printf("tegneliste bilde %u (bakgrunn %s):\n", M.frame, game_background());
             for (int d = 0; d < game_n_draws; d++)

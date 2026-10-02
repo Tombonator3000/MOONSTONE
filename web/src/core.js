@@ -147,6 +147,19 @@ const Kjerne = (() => {
         iMeny: () => !!M._ms_in_menu(),             /* tittelmenyen eller en nettspillside er framme */
         menyRad: (y) => M._ms_menu_row(y | 0),      /* raden paa linje y, -1 ikke i menyen, -2 ingen rad */
         menyKommando,
+        /* lagene (port/src/lag.c): bakgrunn og forgrunn, 320 x 200 RGBA, eller null */
+        lagPaa: (on) => M._ms_lag_paa(on ? 1 : 0),
+        lagBygg: () => M._ms_lag_bygg(),
+        lag: () => {
+            if (!M._ms_lag_gyldig()) return null;
+            const n = 320 * 200 * 4;
+            return {
+                bak: new Uint8Array(M.HEAPU8.buffer, M._ms_lag_bak(), n),
+                for: new Uint8Array(M.HEAPU8.buffer, M._ms_lag_for(), n),
+                hash: M._ms_lag_hash() >>> 0,
+                lys: M._ms_lag_lys() >>> 0,
+            };
+        },
         last, aapne, harInnebygd, aapneInnebygd, start, startSomGjest, inndata, tast, bilde, rammebuffer, vindu, lyd,
         lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil,
         bredde: () => fbW, hoyde: () => fbH,
