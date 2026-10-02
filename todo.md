@@ -1,6 +1,7 @@
 # todo.md
 
 ## Neste
+- [ ] Veien mot en native port (foreslått, venter på brukeren): 1) fange opp all tegning (bakgrunner PIV, tekst, paletter og fades) til lag i en moderne renderer, 2) flytte logikken til C del for del (kamp og kart først) med check_hooks, 3) fjerne 68000 og Amiga-brikkene når originalkoden ikke kjører lenger.
 - [ ] Flette rettelsen av workflowen (a998217 på grenen) til main, så «Run workflow» også publiserer.
 - [ ] HD-grafikk: bakgrunner i HD (PIV, og .t for kampene), fargeeffekter (fading) på HD-bildene, andre tegnerutiner enn tegn_figur (tekst, menyer).
 - [ ] Lage en liten HD-pakke som eksempel (f.eks. ridderne i fire ganger størrelse).
