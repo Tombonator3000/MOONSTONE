@@ -1,7 +1,7 @@
 # todo.md
 
 ## Neste
-- [ ] Slå på GitHub Pages (Settings, Pages, Source: GitHub Actions) og flette til main. Privat repo krever betalt GitHub for Pages.
+- [ ] Flette PR #2 (https://github.com/Tombonator3000/MOONSTONE/pull/2) og slå på GitHub Pages (Settings, Pages, Source: GitHub Actions). Privat repo krever betalt GitHub for Pages.
 - [ ] HD-grafikk: bakgrunner i HD (PIV, og .t for kampene), fargeeffekter (fading) på HD-bildene, andre tegnerutiner enn tegn_figur (tekst, menyer).
 - [ ] Lage en liten HD-pakke som eksempel (f.eks. ridderne i fire ganger størrelse).
 - [ ] Finne ut hvordan .t-filene bygger kampbakgrunnene.
