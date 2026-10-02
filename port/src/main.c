@@ -116,6 +116,7 @@ static void usage(void)
            "  --lag F:PREFIKS       lagene (lag.c) i bilde F: PREFIKS_bak.png og PREFIKS_for.png\n"
            "  --lag-dump MAPPE      hver ny bakgrunn som MAPPE/HASH.png (til HD-bakgrunner)\n"
            "  --vakt ADR            skriv ut hver gang CPU-en skriver til ADR (heks, 4 byte)\n"
+           "  --hver F:K:ARG:TEKST  kommando K til hver.c i bilde F (1 fjerne plasser, 2 ridder)\n"
            "  --wav FIL             ta opp lyden\n"
            "  --log N               0 stille, 1 normal, 2 alt\n");
 }
@@ -133,6 +134,10 @@ static const char *find_game(void)
     }
     return NULL;
 }
+
+/* --hver (hver.c) */
+static struct { uint32_t frame; int cmd, arg; char text[128]; } hver_cmds[64];
+static int n_hver_cmds;
 
 /* --lag og --lag-dump (lag.c) */
 static int  lag_frame = -1;
@@ -210,6 +215,21 @@ int main(int argc, char **argv)
             i++;
         }
         else if (!strcmp(a, "--lag-dump") && v) { lag_dump_dir = v; lag_paa = true; i++; }
+        else if (!strcmp(a, "--hver") && v) {
+            /* F:K:ARG:TEKST, som --meny, men til hver.c */
+            if (n_hver_cmds < 64) {
+                char tmp[256];
+                snprintf(tmp, sizeof tmp, "%s", v);
+                char *f[4] = { tmp, NULL, NULL, NULL };
+                for (int k = 1; k < 4; k++) { char *c = f[k - 1] ? strchr(f[k - 1], ':') : NULL; if (c) { *c = 0; f[k] = c + 1; } }
+                hver_cmds[n_hver_cmds].frame = (uint32_t)atoi(f[0]);
+                hver_cmds[n_hver_cmds].cmd = f[1] ? atoi(f[1]) : 0;
+                hver_cmds[n_hver_cmds].arg = f[2] ? (int)strtol(f[2], NULL, 0) : 0;
+                snprintf(hver_cmds[n_hver_cmds].text, sizeof hver_cmds[0].text, "%s", f[3] ? f[3] : "");
+                n_hver_cmds++;
+            }
+            i++;
+        }
         else if (!strcmp(a, "--vakt") && v) { extern uint32_t amiga_vakt; amiga_vakt = (uint32_t)strtoul(v, NULL, 16); i++; }
         else if (!strcmp(a, "--blit-trace") && v) {
             extern int blit_trace_from, blit_trace_n;
@@ -349,6 +369,9 @@ static int run_headless(int frames, int shot_every, const char *shot_dir, int sa
         apply_presses(M.frame);
         for (int k = 0; k < n_menu_cmds; k++)
             if (menu_cmds[k].frame == M.frame) meny_command(menu_cmds[k].cmd, menu_cmds[k].arg, menu_cmds[k].text);
+        for (int k = 0; k < n_hver_cmds; k++)
+            if (hver_cmds[k].frame == M.frame) hver_kommando(hver_cmds[k].cmd, hver_cmds[k].arg, hver_cmds[k].text);
+        hver_frame();
         amiga_run_frame();
         {
             extern int blit_trace_from, blit_trace_n;

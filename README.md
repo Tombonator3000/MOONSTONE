@@ -56,20 +56,34 @@ spillets font og pil:
   navnet de andre ser. Spør spillet om navnet første gang du lager et rom eller blir
   med, om du ikke har valgt det før. Spillets font har bare engelske bokstaver, så
   æ, ø og å blir ae, o og a i menyen.
-- **Back** fra romsiden setter **Players** i tittelmenyen til antallet som er med.
+- **Mode** velger hvordan rommet spilles (verten bestemmer, valget huskes):
+  - **Separate** (standard): alle spiller sitt eget spill samtidig, som alene, og ser
+    de andre ridderne på kartet der de er i sine spill. De tar plassene til
+    datamaskinens riddere, i deres farger, og turene deres hoppes over hos deg.
+  - **Turns**: originalen, tur for tur. Verten kjører spillet for alle, og bare den som
+    har turen kan gjøre noe på kartet.
+- **Back** fra romsiden setter **Players** i tittelmenyen til antallet som er med
+  (bare i Turns).
 
 En invitasjonslenke åpner spillet på samme måte. Hopp over introen (her holder ett
 trykk), så åpnes **Join Game** med rommet øverst og pilen på det. Trykk fire for å bli
-med. Gjestene trenger ikke spillfilen. Velg så antall spillere og la hver spiller
-velge ridder etter tur.
+med. Gjestene trenger ikke spillfilen. I Separate kommer du rett tilbake til
+tittelmenyen og starter ditt eget spill med **Select Knight**. I Turns velger verten
+antall spillere, og hver spiller velger ridder etter tur.
 
-Lukker verten fanen, får gjestene beskjed og havner i introen igjen. Har verten
-forsvunnet uten å si fra (tapt nett), gir gjestene opp etter 20 sekunder uten svar.
+Lukker verten fanen, får gjestene beskjed. I Turns havner de i introen igjen; i
+Separate spiller de videre alene, og plassene får datamaskinens riddere tilbake. Har
+verten forsvunnet uten å si fra (tapt nett), gir gjestene opp etter 20 sekunder uten
+svar.
+
+Kamp mot en annen spiller i Separate: foreløpig styrer datamaskinen den andre ridderen
+i kampen hos deg, og kampen påvirker bare ditt spill. Ekte dueller over nettet, der
+begge styrer sin ridder, er det neste som kommer (se `docs/flerspiller.md`).
 
 Menyvalget finnes bare på nettsiden, siden PC-versjonen ikke har nettspill
 (`moonstone-headless --online-meny` viser det for testing).
 
-Verten kjører spillet og styrer turene. Gjestene får hele tilstanden til maskinen når de
+I Turns kjører verten spillet og styrer turene. Gjestene får hele tilstanden til maskinen når de
 kobler seg til, og deretter knappetrykkene for hvert bilde, så alle kjører nøyaktig det
 samme spillet. Filer spillet laster underveis, sendes med. Hvert 120. bilde sammenlignes
 en sjekksum, og en gjest som har kommet ut av takt får tilstanden på nytt.
@@ -165,6 +179,7 @@ Første gang tittelmenyen vises, står det øverst at valgene kan klikkes.
 | Grafikk | Alle bilder og figurer ut som PNG og inn igjen. Rundturen er byte for byte lik. |
 | Tekster | Alle tekster ut til en fil og inn igjen (`tools/tekst.py`), også lengre enn originalen. |
 | Nettspill i spillet | «Online Game» i tittelmenyen: lage rom, navnene på spillerne, kopiere lenke, offentlige rom, bli med. Testet med tre nettlesere. |
+| Hver for seg | Mode Separate: alle spiller sitt eget spill og ser hverandre på kartet, også mens de går. Testet med to nettlesere. Dueller over nettet gjenstår. |
 | HD-grafikk | Eksperimentelt i nettleseren: figurer kan byttes med PNG-er i høyere oppløsning. Plassering og speiling er sjekket mot emulatorbildet i kamp og på kartet. Bakgrunner gjenstår. |
 | Lyd | Lydeffektene som WAV, musikken som ProTracker-moduler. |
 | Disassembly | 13 775 instruksjoner og 412 funksjoner i mog, styrt av relokeringer og kodedekning. |
@@ -271,13 +286,14 @@ port/src/         emulatoren og PC-delen (C)
   game.c          det vi vet om spillets data (ridderne, turen, tegnelisten)
   patch.c         lapper i spillet: tekster.txt, lengre tekster   meny.c  «Online Game» i tittelmenyen
   hooks.c         C-erstatninger og kodedekning         decomp/    funksjonene i C
+  hver.c          flerspiller «Hver for seg»            lag.c      bakgrunn og forgrunn (HD)
   frontend.c      SDL2-vinduet                          web.c      grensesnittet til nettsiden
 port/ext/musashi  68000-kjernen (MIT)
 web/src/          nettsiden: core, render (three.js), audio, input, store, net (PeerJS), rooms (MQTT), app
 web/vendor/       three.js, PeerJS og MQTT.js (MIT)
-tools/            gfx.py, lyd.py, tekst.py, disasm.py, check_hooks.py, hd_sjekk.py, moonfiles.py
+tools/            gfx.py, lyd.py, tekst.py, disasm.py, check_hooks.py, hd_sjekk.py, hd_skaler.py, moonfiles.py
 disasm/           symbols.txt, functions.txt, coverage.bin
-docs/             hvordan spillet er bygget, HD-grafikk
+docs/             hvordan spillet er bygget, HD-grafikk, flerspiller
 windows/          start.bat og LES_MEG.txt til Windows-pakken
 ```
 

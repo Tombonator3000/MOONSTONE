@@ -24,7 +24,7 @@
 
 const Nett = (() => {
     const PREFIKS = 'moonstone-ms-';
-    const VERSJON = 1;
+    const VERSJON = 2;                          /* 2: Mode Separate (ridder-meldinger, spill i lobbyen) */
     const MAKS_GJESTER = 3;
     const DEL = 48 * 1024;
     const PORTER = ['p2', 'p1', 'p2'];        /* standard for gjest 1, 2, 3 */
@@ -103,11 +103,16 @@ const Nett = (() => {
         return -1;
     }
     const gjesteTaster = [];
+    /* 'sammen': verten kjorer spillet for alle (tur for tur, som originalen).
+     * 'hver': alle spiller sitt eget spill, og ridderne sendes til hverandre
+     * (docs/flerspiller.md); da faar gjestene ingen tilstand eller bilder. */
+    let romSpill = 'sammen';
 
-    function lagRom(navn, hendelser) {
+    function lagRom(navn, hendelser, spill) {
         h = hendelser;
         mittNavn = navn || 'Vert';
         rolle = 'vert';
+        romSpill = spill === 'hver' ? 'hver' : 'sammen';
         return new Promise((ok, feil) => {
             let forsok = 0, aapen = false;
             const tidsfrist = setTimeout(() => {
@@ -167,13 +172,27 @@ const Nett = (() => {
             };
             gjester.set(conn.peer, g);
             h.chat && h.chat('', g.navn + ' koblet seg til');
-            oppdaterLobby();
-            h.trengerTilstand && h.trengerTilstand(g.id);
+            if (romSpill === 'hver') {          /* gjesten spiller sitt eget spill */
+                g.klar = true;
+                g.venter = false;
+                oppdaterLobby();
+            } else {
+                oppdaterLobby();
+                h.trengerTilstand && h.trengerTilstand(g.id);
+            }
             break;
         }
         case 'inn': if (g) g.inn = d.j & 31; break;
         case 'tast': if (g && g.klar) gjesteTaster.push([d.k & 0x7f, !!d.ned, g.spiller]); break;
         case 'velg': if (g && g.klar) h.velg && h.velg(d.rad | 0); break;     /* gjesten klikket paa en rad i menyen */
+        case 'ridder':                          /* hver for seg: ridderen til en gjest, videre til de andre */
+            if (g && romSpill === 'hver') {
+                const m = d.borte ? { t: 'ridder', fra: g.id, borte: true }
+                    : { t: 'ridder', fra: g.id, x: d.x | 0, y: d.y | 0, liv: d.liv | 0, figur: d.figur | 0, navn: String(d.navn || '').slice(0, 20) };
+                for (const a of gjester.values()) if (a !== g && a.conn.open) a.conn.send(m);
+                h.ridder && h.ridder(g.id, m);
+            }
+            break;
         case 'chat':
             if (g) {
                 const tekst = String(d.tekst || '').slice(0, 300);
@@ -200,8 +219,8 @@ const Nett = (() => {
 
     function oppdaterLobby() {
         const l = spillere();
-        sendAlle({ t: 'lobby', spillere: l, kode, modus: portModus });
-        h.lobby && h.lobby(l, kode, portModus);
+        sendAlle({ t: 'lobby', spillere: l, kode, modus: portModus, spill: romSpill });
+        h.lobby && h.lobby(l, kode, portModus, romSpill);
         h.antall && h.antall(l.length);
     }
 
@@ -356,7 +375,8 @@ const Nett = (() => {
     async function fraVert(d) {
         if (!d || typeof d !== 'object') return;
         switch (d.t) {
-        case 'lobby': h.lobby && h.lobby(d.spillere, d.kode, d.modus); break;
+        case 'lobby': romSpill = d.spill || 'sammen'; h.lobby && h.lobby(d.spillere, d.kode, d.modus, romSpill); break;
+        case 'ridder': h.ridder && h.ridder(d.fra, d); break;
         case 'tilstand': {
             if (!deler || deler.id !== d.id) deler = { id: d.id, n: d.n, f: d.f, z: d.z, biter: new Array(d.n), fatt: 0 };
             if (!deler.biter[d.i]) { deler.biter[d.i] = tilBytes(d.data); deler.fatt++; }
@@ -396,6 +416,13 @@ const Nett = (() => {
     }
 
     function sendTast(k, ned) { if (vert && vert.open) vert.send({ t: 'tast', k, ned }); }
+
+    /* hver for seg: min ridder til de andre (verten sender til alle, en gjest til verten) */
+    function sendRidder(r) {
+        const m = Object.assign({ t: 'ridder' }, r);
+        if (rolle === 'vert') sendAlle(Object.assign(m, { fra: 'vert' }));
+        else if (vert && vert.open) vert.send(m);
+    }
     function sendVelg(rad) { if (vert && vert.open) vert.send({ t: 'velg', rad }); }
     function beOmSynk() { if (vert && vert.open) vert.send({ t: 'synk' }); }
 
@@ -414,12 +441,14 @@ const Nett = (() => {
         clearInterval(pingTimer);
         if (peer) { peer.destroy(); peer = null; }
         rolle = null;
+        romSpill = 'sammen';
         rammer.length = 0;
     }
 
     return {
         lagRom, bliMed, avslutt, chat, invitasjon, settPort, settSpiller, settModus, sendTilstand, porter, sendBilde,
-        hentGjesteTaster, tastTillatt, vertensSpiller, harGjester, sendInn, sendTast, sendVelg, beOmSynk, spillere,
+        hentGjesteTaster, tastTillatt, vertensSpiller, harGjester, sendInn, sendTast, sendVelg, sendRidder, beOmSynk, spillere,
+        romSpill: () => romSpill, minId: () => (rolle === 'vert' ? 'vert' : peer ? peer.id : null),
         rammer, rolle: () => rolle, kode: () => kode, ping: () => ping,
     };
 })();
