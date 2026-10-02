@@ -115,3 +115,13 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   men curl gjør det. Test de publiserte filene ved å laste dem ned og servere dem lokalt.
 - `/` og `\` i fonten er understrek (bilde 71), `-` og `:` har ikke noe bilde.
 
+## Spillfilen er bygget inn
+- `port/bin2c.py` gjør `Moonstonecd32-AMIGA.zip` om til `port/src/spilldata.c`
+  (`spill_innebygd`, `spill_innebygd_storrelse`) som strengkonstanter med \xNN; gcc
+  bruker et par sekunder, emcc litt mer. Fila skrives bare når innholdet endres.
+- `MED_SPILLET ?= ja` i Makefile (CI setter det også). Med `nei` blir tabellen tom.
+- PC: `--game` først, så den innebygde, så `spill/` og mappen programmet startes fra.
+- Nettsiden (4,3 MB) laster kjernen når siden åpnes; `ms_has_embedded()` sier om
+  fila er der, og `ms_open_embedded()` åpner den. Annen spillfil under «Egne filer og
+  annen spillfil». `Kjerne.last()` deler ett løfte, så kjernen lastes bare en gang.
+

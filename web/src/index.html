@@ -15,23 +15,6 @@
   <p class="under">A Hard Days Knight (Mindscape 1991), kjørt fra originalkoden på en emulert Amiga.</p>
 
   <section class="boks">
-    <p id="spillfil-status">Ser etter spillfilen ...</p>
-    <label class="knapp liten">Velg spillfil
-      <input type="file" id="velg-fil" accept=".zip,.iso,application/zip">
-    </label>
-    <p class="hjelp">Moonstonecd32-AMIGA.zip eller «Moonstone CD32.iso». Filen lagres bare i denne nettleseren. Gjester i nettspill trenger den ikke.</p>
-    <details>
-      <summary>Egne filer (endret grafikk)</summary>
-      <p class="hjelp">Filer laget med <code>tools/gfx.py build</code> (f.eks. bg1a.PIV) brukes i stedet for originalene i data/, og <code>tekster.txt</code> fra <code>tools/tekst.py</code> endrer tekstene i spillet. I nettspill får gjestene dem fra verten.</p>
-      <div class="rad">
-        <label class="knapp liten">Legg til filer <input type="file" id="velg-mod" multiple></label>
-        <button id="fjern-mod" class="knapp liten">Fjern alle</button>
-      </div>
-      <p class="hjelp" id="mod-liste">Ingen egne filer.</p>
-    </details>
-  </section>
-
-  <section class="boks">
     <label class="felt">Navnet ditt <input id="navn" maxlength="20" autocomplete="nickname"></label>
     <div class="rad">
       <button id="spill-alene" class="knapp">Spill</button>
@@ -43,7 +26,22 @@
     </div>
     <label class="avkryss"><input type="checkbox" id="offentlig"> Vis rommet mitt i listen over offentlige rom</label>
     <p class="hjelp">Du kan også trykke «Spill» og velge <b>Online Game</b> i spillets egen meny. Der lager du rom, kopierer invitasjonslenken og blir med i offentlige rom.</p>
+    <p id="spillfil-status" class="hjelp" role="status">Laster spillet ...</p>
   </section>
+
+  <details class="boks" id="filer">
+    <summary>Egne filer og annen spillfil</summary>
+    <p class="hjelp" id="spillfil-hjelp">Spillfilen (Moonstonecd32-AMIGA.zip) er bygget inn i siden. Vil du bruke en annen, f.eks. «Moonstone CD32.iso», velger du den her. Gjester i nettspill trenger ingen spillfil.</p>
+    <label class="knapp liten">Velg spillfil
+      <input type="file" id="velg-fil" accept=".zip,.iso,application/zip">
+    </label>
+    <p class="hjelp">Filer laget med <code>tools/gfx.py build</code> (f.eks. bg1a.PIV) brukes i stedet for originalene i data/, og <code>tekster.txt</code> fra <code>tools/tekst.py</code> endrer tekstene i spillet. I nettspill får gjestene dem fra verten.</p>
+    <div class="rad">
+      <label class="knapp liten">Legg til filer <input type="file" id="velg-mod" multiple></label>
+      <button id="fjern-mod" class="knapp liten">Fjern alle</button>
+    </div>
+    <p class="hjelp" id="mod-liste">Ingen egne filer.</p>
+  </details>
 
   <details class="boks" id="offentlige">
     <summary>Offentlige rom</summary>

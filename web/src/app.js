@@ -17,7 +17,8 @@
     const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false }, inn);
     const lagreInnst = () => Lager.lagreInnstillinger(innst);
 
-    let spillfil = null;                    /* Uint8Array */
+    const INNEBYGD = 'innebygd';
+    let spillfil = null;                    /* INNEBYGD, eller en annen spillfil (Uint8Array) */
     let modFiler = {};                      /* navn -> Uint8Array, legges over data/ */
     let modus = null;                       /* 'alene' | 'vert' | 'gjest' */
     let pause = false, menyApen = false, venterSynk = false, kjorer = false;
@@ -55,7 +56,15 @@
     }
 
     /* ---------------------------------------------------------------- spillfilen */
+    /* Spillfilen er bygget inn i kjernen (MED_SPILLET i bygget). Bare et bygg uten
+     * den trenger at noen velger filen, eller at den ligger ved siden av siden. */
     async function finnSpillfil() {
+        try {
+            await Kjerne.last();
+            if (Kjerne.harInnebygd()) { spillfil = INNEBYGD; visSpillfil('Spillet er klart. Skriv navnet ditt og trykk «Spill».'); return; }
+        } catch (e) { visSpillfil('Kunne ikke laste spillet: ' + e.message); return; }
+        $('spillfil-hjelp').textContent = 'Velg spillfilen (Moonstonecd32-AMIGA.zip eller «Moonstone CD32.iso»). Den lagres bare i denne nettleseren. Gjester i nettspill trenger den ikke.';
+        $('filer').open = true;
         const lagret = await Lager.hent('spillfil');
         if (lagret) { spillfil = new Uint8Array(lagret); visSpillfil('Spillfilen er klar (lagret i nettleseren).'); return; }
         for (const sti of ['spill/Moonstonecd32-AMIGA.zip', 'spill/moonstone.zip', 'Moonstonecd32-AMIGA.zip']) {
@@ -75,7 +84,9 @@
         const f = e.target.files[0];
         if (!f) return;
         const b = new Uint8Array(await f.arrayBuffer());
+        const innebygd = spillfil === INNEBYGD;
         spillfil = b;
+        if (innebygd) { visSpillfil('Bruker den valgte spillfilen til siden lastes på nytt.'); melding(''); return; }
         const ok = await Lager.sett('spillfil', b);
         visSpillfil(ok ? 'Spillfilen er lagret i nettleseren.' : 'Spillfilen er valgt (kunne ikke lagres i nettleseren).');
         melding('');
@@ -101,7 +112,8 @@
             Kjerne.startSomGjest();
         } else {
             if (!spillfil) throw new Error('Velg spillfilen først.');
-            Kjerne.aapne(spillfil.slice());
+            if (spillfil === INNEBYGD) Kjerne.aapneInnebygd();
+            else Kjerne.aapne(spillfil.slice());
             for (const [n, d] of Object.entries(modFiler)) Kjerne.leggInnFil('data/' + n, d);
             Kjerne.start(innst.knappevent);
         }

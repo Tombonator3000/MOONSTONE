@@ -22,9 +22,10 @@ Instrukser for AI-agenter og andre som jobber i dette repoet.
 
 ## Regler
 - Spillfilene (`Moonstonecd32-AMIGA.zip`) ligger i repoet fordi eieren la dem der.
-  Eieren regner Moonstone som abandonware og vil ha det enkelt: Pages-utgaven og
-  Windows/Linux-pakkene fra Actions har spillfilen med (`MED_SPILLET` i
-  `.github/workflows/bygg.yml`). Utpakket grafikk og lyd (`assets/`) og disassemblyen
+  Eieren regner Moonstone som abandonware og vil ha det enkelt: spillfilen bygges inn
+  i programmene og nettsiden (`port/bin2c.py`, `MED_SPILLET` i `port/Makefile` og
+  `.github/workflows/bygg.yml`), så ingen trenger å finne den. Den genererte
+  `port/src/spilldata.c` sjekkes ikke inn. Utpakket grafikk og lyd (`assets/`) og disassemblyen
   (`disasm/*.s`) lages lokalt med verktøyene og sjekkes ikke inn, fordi de kan lages
   på nytt når som helst.
 - Porten kjører originalkoden. En C-erstatning for en 68000-funksjon

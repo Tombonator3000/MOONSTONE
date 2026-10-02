@@ -237,6 +237,9 @@ extern void (*whd_log)(const char *msg);
  * selv, en zip med Moonstone-mappen eller en vanlig mappe. */
 bool     files_open(const char *path);
 bool     files_open_mem(uint8_t *data, size_t size, const char *name); /* tar over data */
+bool     files_open_embedded(void);       /* spillfila som er bygget inn (spilldata.c), false uten */
+extern const unsigned char spill_innebygd[];
+extern const size_t spill_innebygd_storrelse;
 void     files_close(void);
 /* Leser en fil fra spillmappen (Moonstone/...). Store og smaa bokstaver er likegyldig. */
 uint8_t *files_read(const char *name, size_t *size);

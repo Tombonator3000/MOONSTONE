@@ -7,10 +7,10 @@
 # privat repo krever GitHub et betalt abonnement for Pages. Til Pages er klart,
 # feiler bare det steget, uten at resten av kjoringen blir rod.
 #
-# MED_SPILLET: "ja" legger Moonstonecd32-AMIGA.zip ved siden av nettsiden og i
-# Windows-pakken, saa spillet starter uten at noen maa velge filen. Eieren har
-# bestemt dette (Moonstone regnes som abandonware). Sett til "nei" for aa slaa
-# det av; da maa verten velge filen selv. Gjester trenger den aldri.
+# MED_SPILLET: "ja" bygger Moonstonecd32-AMIGA.zip fra repoet inn i programmene og
+# nettsiden (port/bin2c.py), saa spillet starter uten at noen maa finne filen.
+# Eieren har bestemt dette (Moonstone regnes som abandonware). Sett til "nei" for
+# aa bygge uten; da maa verten velge filen selv. Gjester trenger den aldri.
 name: Bygg
 
 on:
@@ -37,13 +37,12 @@ jobs:
       - name: Kjor introen uten vindu
         run: |
           cd port
-          ./moonstone-headless --game ../Moonstonecd32-AMIGA.zip --headless --frames 3000 --log 0 | tee ut.txt
+          ./moonstone-headless --headless --frames 3000 --log 0 | tee ut.txt
           grep -q "Ferdig etter 3000 bilder" ut.txt
       - name: Pakk
         run: |
-          mkdir -p pakke/moonstone/spill
+          mkdir -p pakke/moonstone
           cp port/moonstone README.md pakke/moonstone/
-          if [ "$MED_SPILLET" = "ja" ]; then cp Moonstonecd32-AMIGA.zip pakke/moonstone/spill/; fi
       - uses: actions/upload-artifact@v4
         with:
           name: moonstone-linux
@@ -71,10 +70,9 @@ jobs:
         run: make -C port -j4 windows SDL2_MINGW=$PWD/SDL2-${SDL2_VERSION}/x86_64-w64-mingw32
       - name: Pakk
         run: |
-          mkdir -p pakke/moonstone/spill
+          mkdir -p pakke/moonstone
           cp port/moonstone.exe port/SDL2.dll windows/start.bat windows/LES_MEG.txt pakke/moonstone/
           cp SDL2-${SDL2_VERSION}/LICENSE.txt pakke/moonstone/SDL2_LICENSE.txt 2>/dev/null || true
-          if [ "$MED_SPILLET" = "ja" ]; then cp Moonstonecd32-AMIGA.zip pakke/moonstone/spill/; fi
       - uses: actions/upload-artifact@v4
         with:
           name: moonstone-windows
@@ -94,7 +92,6 @@ jobs:
         run: |
           mkdir -p side
           cp web/build/moonstone.html side/index.html
-          if [ "$MED_SPILLET" = "ja" ]; then mkdir -p side/spill && cp Moonstonecd32-AMIGA.zip side/spill/; fi
       - uses: actions/upload-artifact@v4
         with:
           name: moonstone-web

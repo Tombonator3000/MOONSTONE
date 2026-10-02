@@ -12,6 +12,7 @@
 - [ ] Teste moonstone.exe på ekte Windows.
 
 ## Ferdig
+- [x] Spillfilen bygget inn i programmene og nettsiden; startsiden uten filvalg.
 - [x] Spillbart på GitHub Pages: https://tombonator3000.github.io/MOONSTONE/
 - [x] Navnene på spillerne i romsiden i spillets meny.
 - [x] Tekstverktøy: tools/tekst.py og tekster.txt i porten, også lengre tekster og avsnitt.

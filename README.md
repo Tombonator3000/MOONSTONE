@@ -15,15 +15,15 @@ en (decomp), og hver erstatning sjekkes mot originalen.
 med three.js og lyden med WebAudio. Den lages med `make -C port web` og legges ut på
 GitHub Pages av Actions. Åpne siden, trykk **Spill**, og spill.
 
-Spillfilen hentes automatisk hvis den ligger ved siden av siden
-(`spill/Moonstonecd32-AMIGA.zip`, slik Pages-utgaven er satt opp). Ellers velger du
-den selv, og den lagres i nettleseren (IndexedDB).
+Spillfilen (`Moonstonecd32-AMIGA.zip` fra repoet) er bygget inn i siden, så spillet
+starter med en gang. En annen spillfil, f.eks. «Moonstone CD32.iso», kan velges under
+«Egne filer og annen spillfil».
 
 ### GitHub Pages
 
 Når Pages er slått på, ligger spillet på **https://tombonator3000.github.io/MOONSTONE/**.
 Hver push til `main` bygger siden på nytt og legger den ut (jobben `pages` i
-`.github/workflows/bygg.yml`), med spillfilen ved siden av.
+`.github/workflows/bygg.yml`), med spillfilen innebygd.
 
 Slik slås det på (bare eieren av repoet kan gjøre det):
 
@@ -78,14 +78,13 @@ til adressen.
 
 ## Spille på Windows og Linux
 
-Ferdige bygg ligger under **Actions** (filene `moonstone-windows` og `moonstone-linux`),
-med spillfilen i mappen `spill`. På Windows: dobbeltklikk `start.bat` eller
-`moonstone.exe`. Windows kan si at programmet er ukjent fordi det ikke er signert; velg
-«Mer informasjon» og «Kjør likevel».
+Ferdige bygg ligger under **Actions** (filene `moonstone-windows` og `moonstone-linux`).
+Spillfilen er bygget inn i programmet, så det trengs ingen andre filer. På Windows:
+dobbeltklikk `start.bat` eller `moonstone.exe`. Windows kan si at programmet er ukjent
+fordi det ikke er signert; velg «Mer informasjon» og «Kjør likevel».
 
-Programmet finner spillfilen i `spill/` eller mappen det startes fra, eller med
-`--game sti`. Det kan være zip-filen, ISO-en eller en mappe med `Moonstone.Slave` og
-`data/`. `moonstone --help` viser alle valgene.
+Med `--game sti` bruker programmet en annen spillfil: zip-filen, ISO-en eller en mappe
+med `Moonstone.Slave` og `data/`. `moonstone --help` viser alle valgene.
 
 ## Taster
 
@@ -205,6 +204,10 @@ sudo apt install build-essential libsdl2-dev
 make -C port              # moonstone med vindu
 make -C port headless     # moonstone-headless, uten SDL, for testing
 ```
+
+Spillfilen bygges inn (`port/bin2c.py` lager `port/src/spilldata.c` fra
+`Moonstonecd32-AMIGA.zip`). `make -C port MED_SPILLET=nei` bygger uten; da ser programmet
+etter filen i `spill/` og mappen det startes fra.
 
 Windows fra Linux (krever mingw-w64 og SDL2-devel-2.30.8-mingw):
 ```
