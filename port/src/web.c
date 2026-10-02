@@ -136,6 +136,7 @@ EMSCRIPTEN_KEEPALIVE void ms_file_inject(const char *path, const uint8_t *data, 
 {
     files_inject(path, data, (size_t)size);
 }
+EMSCRIPTEN_KEEPALIVE void ms_file_remove(const char *path) { files_remove(path); }
 
 /* nettspill: hvem som styrer portene naa (se game.c) */
 EMSCRIPTEN_KEEPALIVE int ms_port_player(int port) { return game_port_player(port); }

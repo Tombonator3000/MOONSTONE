@@ -115,6 +115,12 @@ const Kjerne = (() => {
         M._free(s);
     }
 
+    function fjernFil(sti) {
+        const s = streng(sti);
+        M._ms_file_remove(s);
+        M._free(s);
+    }
+
     /* figurene spillet tegnet i siste bilde: fil, bildenummer, x, y, bredde, hoyde, speilet */
     function tegneliste() {
         const n = M._ms_draw_count();
@@ -174,7 +180,7 @@ const Kjerne = (() => {
             };
         },
         last, aapne, harInnebygd, aapneInnebygd, start, startSomGjest, inndata, tast, bilde, rammebuffer, vindu, lyd,
-        lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil,
+        lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil, fjernFil,
         bredde: () => fbW, hoyde: () => fbH,
         bildeNr: () => M._ms_frame_no() >>> 0,
         hz: () => M._ms_hz(),

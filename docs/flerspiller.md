@@ -102,7 +102,14 @@ Turene (`$0AAC14` til `$0AAF54`):
   spill tilbake og legger ridderen inn på plass 0 (`HVER_MEG`). Hos deg skrives
   plassen ikke over før den andre har sendt ridderen sin på nytt.
 - Kampen laster grafikk i om lag 8 sekunder før den begynner (posisjonene i +$04 og
-  +$08 settes før det).
+  +$08 settes før det). Filene kampen trenger, lastes i bildet duellen starter i,
+  altså før maskinen sendes. Laster kampen filer senere, sendes de med bildet når
+  en av dem har andre filer enn de innebygde (`egne` i `ja`), og den andre får sine
+  egne filer tilbake etter kampen.
+- Den som angripes, gir opp etter 20 sekunder uten melding fra den andre, og
+  angriperen etter 12 sekunder (den andre sender joysticken minst hvert halve
+  sekund). Da henter den andre sitt spill tilbake, og hos angriperen styrer
+  datamaskinen ridderen.
 - Sier den andre nei (i sidemenyen, ikke på kartet, i en annen duell) eller svarer
   ikke på 15 sekunder, styrer datamaskinen ridderen i kampen (`HVER_AI`: +$36 og
   +$0B = 4). Under en duell endres ingenting i kjernen utenfra (de andre ridderne

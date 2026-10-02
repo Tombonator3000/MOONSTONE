@@ -379,6 +379,18 @@ void files_inject(const char *path, const uint8_t *data, size_t size)
     add_entry(path, d, size, true);
 }
 
+/* fjerner en fil (en duell la inn en fil spillet her ikke hadde) */
+void files_remove(const char *path)
+{
+    for (int i = 0; i < n_ents; i++)
+        if (same_ci(ents[i].path, path)) {
+            if (ents[i].owned) free(ents[i].data);
+            memmove(&ents[i], &ents[i + 1], sizeof *ents * (size_t)(n_ents - i - 1));
+            n_ents--;
+            return;
+        }
+}
+
 /* Gjest uten egne filer: tomt filsystem. */
 void files_empty(void)
 {

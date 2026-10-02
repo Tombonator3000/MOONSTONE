@@ -710,6 +710,10 @@
     let D = null;                            /* duellen: { rolle 'a' (angriper) | 'b', conn, plass, status, ... } */
     let fjerneVenter = false;
 
+    /* andre filer enn de innebygde: da maa filene kampen laster, sendes med */
+    const egneFiler = () => spillfil !== INNEBYGD || Object.keys(modFiler).length > 0;
+    const STILLE_A = 12000, STILLE_B = 20000;    /* ms uten melding foer duellen gis opp */
+
     const navnTil = (id) => { const s = sisteSpillere.find((x) => x.id === id); return s ? s.navn : 'den andre'; };
 
     function hverHendelser() {
@@ -729,6 +733,7 @@
         Nett.duellKoble(id).then((conn) => {
             if (D !== d) { conn.close(); return; }
             d.conn = conn;
+            d.sist = performance.now();
             conn.on('data', (m) => fraB(d, m));
             conn.on('close', () => { if (D === d) utenDuell(d, 'Forbindelsen til ' + d.navn + ' ble brutt.'); });
             conn.send({ t: 'utfordring', navn: innst.navn || 'Player', plass: k });
@@ -749,8 +754,12 @@
 
     function fraB(d, m) {
         if (D !== d || !m) return;
+        d.sist = performance.now();
         switch (m.t) {
         case 'ja':
+            d.filer = egneFiler() || !!m.egne;  /* andre filer hos en av dem: send filene kampen laster */
+            d.sendt = new Set();
+            /* falls through */
         case 'synk': {
             d.status = 'sender';
             const t = Kjerne.lagreTilstand();
@@ -793,14 +802,15 @@
             const egen = !D && modus === 'hver' && !menyApen && Kjerne.hverKart() ? Kjerne.lagreTilstand() : null;
             if (!egen) { conn.send({ t: 'nei' }); setTimeout(() => conn.close(), 500); return; }
             D = { rolle: 'b', conn, plass: m.plass | 0, status: 'venter', egen, rammer: [], navn: String(m.navn || 'Player').slice(0, 20),
-                motta: Nett.tilstandsMottaker(), sistInn: -1, sistInnTid: 0, akk: 0 };
+                motta: Nett.tilstandsMottaker(), sistInn: -1, sistInnTid: 0, akk: 0, sist: performance.now(), mine: new Map() };
             Lyd.clear();
             status(D.navn + ' utfordrer deg til kamp!');
-            conn.send({ t: 'ja' });
+            conn.send({ t: 'ja', egne: egneFiler() });
             return;
         }
         const d = D;
         if (!d || d.rolle !== 'b' || d.conn !== conn) return;
+        d.sist = performance.now();
         if (m.t === 'f') { d.rammer.push(m); return; }
         if (m.t === 'tilstand') {
             const t = await d.motta(m);
@@ -818,6 +828,11 @@
     /* B: et bilde av kampen, med inndataene fra den andre */
     function kjorDuellbilde(d, m) {
         if (m.f !== Kjerne.bildeNr()) { d.status = 'venter'; d.rammer.length = 0; d.conn.send({ t: 'synk' }); return false; }
+        /* filene kampen laster hos den andre; dine egne kommer tilbake etter kampen */
+        if (m.fil) for (const fil of m.fil) {
+            if (!d.mine.has(fil.n)) d.mine.set(fil.n, Kjerne.hentFil(fil.n));
+            Kjerne.leggInnFil(fil.n, new Uint8Array(fil.d));
+        }
         if (m.c) for (const [k, a, t] of m.c) Kjerne.menyKommando(k, a, t);
         Kjerne.inndata(m.j[0], m.j[1]);
         if (m.k) for (const [k, ned] of m.k) Kjerne.tast(k, ned);
@@ -841,11 +856,18 @@
         return D === d && d.status === 'aktiv';
     }
 
+    /* B: filene du hadde foer kampen */
+    function mineFilerTilbake(d) {
+        for (const [n, data] of d.mine) { if (data) Kjerne.leggInnFil(n, data); else Kjerne.fjernFil(n); }
+        d.mine.clear();
+    }
+
     /* B: kampen er over: ridderen ut av kampen og inn i ditt eget spill */
     function sluttDuellB() {
         const d = D;
         const ridder = Kjerne.hverBlob(d.plass);
         D = null;
+        mineFilerTilbake(d);
         if (!Kjerne.lastTilstand(d.egen)) { status('Kunne ikke hente ditt eget spill tilbake.'); return; }
         Kjerne.hverKmd(HVER.MEG, 0, ridder);
         oppdaterFjerne();
@@ -864,6 +886,7 @@
         if (!d) return;
         if (d.rolle === 'a') { utenDuell(d, tekst || ''); return; }
         D = null;
+        mineFilerTilbake(d);
         if (d.egen) Kjerne.lastTilstand(d.egen);
         try { d.conn.close(); } catch (e) { /* lukket */ }
         oppdaterFjerne();
@@ -925,6 +948,17 @@
             const m = { t: 'f', f, j: [j0, j1] };
             if (taster.length) m.k = taster;
             if (kommandoer.length) m.c = kommandoer;
+            if (D.filer) {
+                const nye = filer.filter((p) => !D.sendt.has(p));
+                if (nye.length) {
+                    m.fil = [];
+                    for (const p of nye) {
+                        const data = Kjerne.hentFil(p);
+                        if (data) m.fil.push({ n: p, d: data.buffer });
+                        D.sendt.add(p);
+                    }
+                }
+            }
             if (f % 120 === 0) m.h = Kjerne.sjekksum();
             D.conn.send(m);
         }
@@ -960,8 +994,19 @@
         return true;
     }
 
+    /* duellen gis opp naar den andre har vaert stille for lenge (forbindelsen kan
+     * henge uten at PeerJS sier fra) */
+    function sjekkDuell() {
+        const d = D;
+        if (!d || !d.sist) return;
+        const stille = performance.now() - d.sist;
+        if (d.rolle === 'a' && d.conn && stille > STILLE_A) utenDuell(d, d.navn + ' svarer ikke lenger.');
+        else if (d.rolle === 'b' && stille > STILLE_B) avbrytDuell(d.navn + ' svarer ikke lenger. Tilbake i ditt eget spill.');
+    }
+
     function lokke(t) {
         requestAnimationFrame(lokke);
+        sjekkDuell();
         const dt = Math.min(0.25, Math.max(0, (t - sist) / 1000));
         sist = t;
         if (modus === 'gjest') {
@@ -1305,5 +1350,6 @@
     if (rom && /^[A-Za-z0-9]{6}$/.test(rom)) invitasjon = rom.toUpperCase();
     Lager.hent('mod').then((m) => { if (m) { modFiler = m; visMod(); } }).finally(startSpillet);
     window.moonDebug = { Kjerne, Nett, Visning, innst, statistikk, modus: () => modus, lyd: () => ({ ms: Lyd.bufferedMs(), hull: Lyd.hull() }),
-        duell: () => (D ? { rolle: D.rolle, status: D.status, plass: D.plass, inn: D.inn, sistInn: D.sistInn } : null) };
+        duell: () => (D ? { rolle: D.rolle, status: D.status, plass: D.plass, inn: D.inn, sistInn: D.sistInn } : null),
+        duellStille: () => { if (D && D.conn) D.conn.send = () => {}; } };   /* test: forbindelsen henger */
 })();

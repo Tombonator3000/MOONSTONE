@@ -266,6 +266,7 @@ const char *files_accessed_name(int i);
 void     files_accessed_clear(void);
 const uint8_t *files_peek(const char *path, size_t *size);
 void     files_inject(const char *path, const uint8_t *data, size_t size);
+void     files_remove(const char *path);
 void     files_empty(void);
 int      files_add_overlay(const char *dir);   /* --mod: egne filer over data/ */
 
