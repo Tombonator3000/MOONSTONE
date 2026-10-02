@@ -122,13 +122,37 @@ et bilde på 1280 x 800 gir fire ganger så skarp bakgrunn. Slik får du bakgrun
 Når spillet toner ut med paletten, tones HD-bakgrunnen og HD-figurene like mye
 (lysstyrken til fargene bakgrunnen bruker, mot den lyseste som er sett).
 
+### Tekst i HD
+
+Bokstavene tegnes også av `tegn_figur`, som figurer i fontfilene `bold.f` (den store
+fonten; bilde 73 er hele MOONSTONE-logoen) og `Small.font` (den lille, på
+statusskjermene). HD-bilder for dem, f.eks. `bold.f/015.png`, gir derfor tekst i HD.
+
+Tekst tegnes bare én gang, mens figurene i kamp tegnes på nytt hele tiden. Med lagene
+blir en HD-figur derfor stående så lenge forgrunnen der den ligger er uendret
+(sammenlignet med fargeindeksene, så fading ikke teller som en endring), og den
+forsvinner når spillet tegner noe annet der eller bakgrunnen byttes. Uten lagene
+vises en klynge til det har gått 50 bilder uten nye tegninger, som før.
+
+### Glatt (Scale4x) og automatiske HD-pakker
+
+Filteret «Glatt (Scale4x)» runder av trappetrinnene i all grafikken uten HD-bilder:
+Scale2x (EPX) brukes to ganger i shaderen for Amiga-lagene. Det lager ingen nye
+farger, så paletten og fadingen er spillets egen, og kantene på figurene rundes også
+(alfa er med).
+
+`tools/hd_skaler.py INN UT` gjør det samme med PNG-filer og lager en HD-pakke i fire
+ganger størrelse av alt `tools/gfx.py extract` gir (og bakgrunner i `INN/bg`). Det er
+et utgangspunkt for å tegne over for hånd. Merk at fargene i de utpakkede bildene er
+fra paletten `gfx.py` velger, ikke alltid den skjermen bruker.
+
 ### Det som gjenstår
 
+- **HD-bilder med spillets palett.** Bilder med fargeindekser (PNG med palett) kunne
+  fått fargene fra skjermen når de tegnes, så de alltid passer.
 - **Bakgrunner som endres litt.** Skriver spillet noe inn i selve bakgrunnskopien
   (for eksempel en markør som blir stående), får den en ny hash, og HD-bildet passer
   ikke lenger. Det kan løses med å godta små forskjeller og legge dem over.
-- **Tekst i HD.** Teksten er forgrunn i lav oppløsning. `skriv_tekst` ($89052) kan
-  fanges opp som figurene, så teksten kan tegnes med en skarp font.
 - **Ting som ligger foran figurene.** HD-figurene legges over forgrunnen. Tegner
   spillet noe over en figur med en annen rutine, vil HD-figuren dekke det.
 - **Andre tegnerutiner.** Noe grafikk tegnes ikke med `tegn_figur` (f.eks. tekst og

@@ -32,6 +32,7 @@ bool     lag_paa;                          /* frontenden vil ha lagene */
 bool     lag_gyldig;                       /* lagene under passer til siste bilde */
 uint32_t lag_bak[LAG_H * LAG_W];           /* RGBA */
 uint32_t lag_for[LAG_H * LAG_W];           /* RGBA, 0 = gjennomsiktig */
+uint8_t  lag_for_idx[LAG_H * LAG_W];       /* fargeindeksen i forgrunnen, $FF = ingen, $FE = bare fargen er annerledes */
 uint32_t lag_bak_hash;                     /* innholdet i bakgrunnen (bitplanene) */
 uint32_t lag_bak_lys;                      /* summen av fargene bakgrunnen bruker (fading) */
 int      lag_for_antall;                   /* piksler i forgrunnen */
@@ -82,6 +83,7 @@ void lag_bygg(void)
         const uint32_t *pal = video_line_pal[video_diw[1] + y];
         const uint32_t *fb = video_fb + (size_t)(video_diw[1] + y) * FB_W + video_diw[0];
         uint32_t *ob = lag_bak + (size_t)y * LAG_W, *of = lag_for + (size_t)y * LAG_W;
+        uint8_t *oi = lag_for_idx + (size_t)y * LAG_W;
         for (int bx = 0; bx < LAG_W / 8; bx++) {
             uint32_t off = (uint32_t)(y * (LAG_W / 8) + bx);
             uint8_t ib[8], is[8];
@@ -93,8 +95,9 @@ void lag_bygg(void)
                 uint32_t vist = fb[x * 2];
                 ob[x] = cb;
                 brukt |= 1u << ib[i];
-                if (is[i] != ib[i] || vist != cb) { of[x] = vist; n++; }
-                else of[x] = 0;
+                if (is[i] != ib[i]) { of[x] = vist; oi[x] = is[i]; n++; }
+                else if (vist != cb) { of[x] = vist; oi[x] = 0xfe; n++; }
+                else { of[x] = 0; oi[x] = 0xff; }
             }
         }
     }
