@@ -115,6 +115,12 @@ const Kjerne = (() => {
         M._free(s);
     }
 
+    function fjernFil(sti) {
+        const s = streng(sti);
+        M._ms_file_remove(s);
+        M._free(s);
+    }
+
     /* figurene spillet tegnet i siste bilde: fil, bildenummer, x, y, bredde, hoyde, speilet */
     function tegneliste() {
         const n = M._ms_draw_count();
@@ -157,6 +163,8 @@ const Kjerne = (() => {
         hverKart: () => !!M._ms_hver_kart(),
         hverRidder: (k) => { const p = M._ms_hver_ridder(k) >> 2; return [M.HEAP32[p], M.HEAP32[p + 1], M.HEAP32[p + 2], M.HEAP32[p + 3]]; },
         hverNavn: (k) => M.UTF8ToString(M._ms_hver_navn(k)),
+        hverHendelse: () => M._ms_hver_hendelse(),   /* kode | plass << 8, 0 = ingen */
+        hverBlob: (k) => M.UTF8ToString(M._ms_hver_blob(k)),
         /* lagene (port/src/lag.c): bakgrunn og forgrunn, 320 x 200 RGBA, eller null */
         lagPaa: (on) => M._ms_lag_paa(on ? 1 : 0),
         lagBygg: () => M._ms_lag_bygg(),
@@ -172,7 +180,7 @@ const Kjerne = (() => {
             };
         },
         last, aapne, harInnebygd, aapneInnebygd, start, startSomGjest, inndata, tast, bilde, rammebuffer, vindu, lyd,
-        lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil,
+        lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil, fjernFil,
         bredde: () => fbW, hoyde: () => fbH,
         bildeNr: () => M._ms_frame_no() >>> 0,
         hz: () => M._ms_hz(),

@@ -136,6 +136,7 @@ EMSCRIPTEN_KEEPALIVE void ms_file_inject(const char *path, const uint8_t *data, 
 {
     files_inject(path, data, (size_t)size);
 }
+EMSCRIPTEN_KEEPALIVE void ms_file_remove(const char *path) { files_remove(path); }
 
 /* nettspill: hvem som styrer portene naa (se game.c) */
 EMSCRIPTEN_KEEPALIVE int ms_port_player(int port) { return game_port_player(port); }
@@ -159,6 +160,8 @@ static int  ridder_ut[4];
 static char ridder_navn[32];
 EMSCRIPTEN_KEEPALIVE int ms_hver_kart(void) { return hver_kart() ? 1 : 0; }
 EMSCRIPTEN_KEEPALIVE int *ms_hver_ridder(int k) { hver_ridder(k, ridder_ut); return ridder_ut; }
+EMSCRIPTEN_KEEPALIVE int ms_hver_hendelse(void) { return hver_hendelse(); }
+EMSCRIPTEN_KEEPALIVE const char *ms_hver_blob(int k) { return hver_blob(k); }
 EMSCRIPTEN_KEEPALIVE const char *ms_hver_navn(int k) { snprintf(ridder_navn, sizeof ridder_navn, "%s", game_knight_name(k)); return ridder_navn; }
 EMSCRIPTEN_KEEPALIVE int ms_menu_ready(void) { return meny_title_seen ? 1 : 0; }
 /* klikk og Enter i menyen: er menyen framme, og hvilken rad ligger paa linje y */

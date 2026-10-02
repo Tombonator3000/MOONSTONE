@@ -13,8 +13,8 @@ Hver spiller spiller sitt eget spill samtidig, som alene, og ser de andre ridder
 på kartet. Når to riddere møtes, kan de slåss, og den kampen spilles over nettet
 med begge styrende hver sin ridder.
 
-Status: steg 1 og 2 er ferdige (Mode Separate i Online Game, standard). Kamp mot en
-annen spiller går foreløpig mot datamaskinen hos deg; steg 3 gjenstår.
+Status: steg 1, 2 og 3 er ferdige (Mode Separate i Online Game, standard). Kamp mot en
+annen spiller er en duell over nettet der begge styrer sin ridder. Steg 4 gjenstår.
 
 ## Det vi vet om spillet
 
@@ -82,11 +82,38 @@ Turene (`$0AAC14` til `$0AAF54`):
   ridder flyttet seg, legges kopien tilbake øverst i lokka (`$0AAC8C`, høyst hvert
   fjerde bilde), og en liten rutine i chip-minnet ($FC080) tegner ridderne på nytt
   med `$0AAB0A` og setter tegnemålet ($9E202) tilbake. Slik ser du de andre gå.
-- Kamp: angriper du en fjern ridder, settes +$36 og +$0B til 4 ved `$080AB8`, så
-  datamaskinen styrer den i kampen, og den skrives ikke over før `$080BD8`. Kampen
-  påvirker bare ditt spill. I kamp er +$0B den som styrer figuren
-  (`joystick_for_figur` $081F6A: 1 port 1, 2 port 2, 4 datamaskinen), så fjerne
-  riddere har alltid +$0B = 4.
+- Hele ridderen sendes med: strukturen ($84 byte) og tingene (+$60 peker på $18
+  byte med antall av hver ting), som heks (`b` i meldingen, `HVER_BLOB`). Felt som
+  hører til plassen, skrives ikke over: +$0B, +$36, +$42/+$44 (ruten på kartet),
+  +$52, +$60/+$64 og +$6C (pekere) og +$7E/+$80 (posisjonen kommer for seg).
+  Stats: +$46 STR, +$47 END, +$48 CON, +$49 liv, +$4A gull, +$4E XP, +$50/+$54 HIT.
+- I kamp er +$0B den som styrer figuren (`joystick_for_figur` $081F6A: 1 port 1,
+  2 port 2, 4 datamaskinen), så fjerne riddere har +$0B = 4 utenom dueller.
+- Duell: angriper du en fjern ridder som kan nås (`HVER_DUELL`, alle som er på
+  kartet), lar `$080AB8` +$36 være figuren, så spillet gir ridderen port 1, og
+  frontenden får `HVER_EV_DUELL`. Spillet ditt stopper etter bildet. Nettsiden
+  kobler seg direkte til den andre (PeerJS, `metadata.duell`) og sender
+  `utfordring`. Den andre lagrer sitt eget spill (hele maskinen, i minnet), svarer
+  `ja`, får maskinen din og svarer `klar`. Så kjører du kampen og sender
+  inndataene for hvert bilde (`f`, med sjekksum hvert 120. bilde), og den andre
+  kjører de samme bildene og sender joysticken sin (`inn`, port 1). Ved `$080BD8`
+  (eller tittelmenyen) kommer `HVER_EV_DUELL_SLUTT` hos begge i samme bilde: den
+  andre tar ridderen sin fra plassen i ditt spill (`hver_blob`), henter sitt eget
+  spill tilbake og legger ridderen inn på plass 0 (`HVER_MEG`). Hos deg skrives
+  plassen ikke over før den andre har sendt ridderen sin på nytt.
+- Kampen laster grafikk i om lag 8 sekunder før den begynner (posisjonene i +$04 og
+  +$08 settes før det). Filene kampen trenger, lastes i bildet duellen starter i,
+  altså før maskinen sendes. Laster kampen filer senere, sendes de med bildet når
+  en av dem har andre filer enn de innebygde (`egne` i `ja`), og den andre får sine
+  egne filer tilbake etter kampen.
+- Den som angripes, gir opp etter 20 sekunder uten melding fra den andre, og
+  angriperen etter 12 sekunder (den andre sender joysticken minst hvert halve
+  sekund). Da henter den andre sitt spill tilbake, og hos angriperen styrer
+  datamaskinen ridderen.
+- Sier den andre nei (i sidemenyen, ikke på kartet, i en annen duell) eller svarer
+  ikke på 15 sekunder, styrer datamaskinen ridderen i kampen (`HVER_AI`: +$36 og
+  +$0B = 4). Under en duell endres ingenting i kjernen utenfra (de andre ridderne
+  oppdateres etterpå), ellers kommer maskinene ut av takt.
 - Med `Mode Separate` av (Turns, eller alene) gjør ingen av lappene noe, og
   `tools/check_hooks.py` gir samme minne byte for byte.
 
@@ -108,6 +135,6 @@ Testes uten nettleser med `moonstone-headless --hver F:1:MASKE` (plassene) og
    sitt eget spill, får tilstanden og styrer sin ridder med port 1. Når kampen er
    over, tar den andre med seg ridderen sin (liv, gull, ting) tilbake til sitt
    eget spill. Kroken er `$080AB8` (a1 er den fjerne ridderen), og kampen er over ved
-   `$080BD8`.
+   `$080BD8`. Ferdig, se over.
 4. **Resten:** hva som skjer om den andre er opptatt (i en by eller kamp), om to
    utfordrer hverandre samtidig, og at årstiden og månedene går hver for seg.

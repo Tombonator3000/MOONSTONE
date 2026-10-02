@@ -24,7 +24,7 @@
 
 const Nett = (() => {
     const PREFIKS = 'moonstone-ms-';
-    const VERSJON = 2;                          /* 2: Mode Separate (ridder-meldinger, spill i lobbyen) */
+    const VERSJON = 3;                          /* 2: Mode Separate, 3: hele ridderen og dueller */
     const MAKS_GJESTER = 3;
     const DEL = 48 * 1024;
     const PORTER = ['p2', 'p1', 'p2'];        /* standard for gjest 1, 2, 3 */
@@ -137,6 +137,7 @@ const Nett = (() => {
     }
 
     function nyGjest(conn) {
+        if (conn.metadata && conn.metadata.duell) { duellInn(conn); return; }
         conn.on('data', (d) => fraGjest(conn, d));
         conn.on('close', () => {
             const g = gjester.get(conn.peer);
@@ -189,6 +190,7 @@ const Nett = (() => {
             if (g && romSpill === 'hver') {
                 const m = d.borte ? { t: 'ridder', fra: g.id, borte: true }
                     : { t: 'ridder', fra: g.id, x: d.x | 0, y: d.y | 0, liv: d.liv | 0, figur: d.figur | 0, navn: String(d.navn || '').slice(0, 20) };
+                if (!d.borte && typeof d.b === 'string' && /^[0-9a-f]{312}$/.test(d.b)) m.b = d.b;
                 for (const a of gjester.values()) if (a !== g && a.conn.open) a.conn.send(m);
                 h.ridder && h.ridder(g.id, m);
             }
@@ -342,6 +344,7 @@ const Nett = (() => {
         kode = romkode.toUpperCase();
         return new Promise((ok, feil) => {
             peer = lagPeer(null);
+            peer.on('connection', (c) => { if (c.metadata && c.metadata.duell) duellInn(c); else c.close(); });
             let aapnet = false;
             peer.on('open', () => {
                 vert = peer.connect(PREFIKS + kode.toLowerCase(), { reliable: true });
@@ -426,6 +429,52 @@ const Nett = (() => {
     function sendVelg(rad) { if (vert && vert.open) vert.send({ t: 'velg', rad }); }
     function beOmSynk() { if (vert && vert.open) vert.send({ t: 'synk' }); }
 
+    /* ---------------------------------------------------------------- duell (hver for seg)
+     * To i samme rom kobler seg direkte til hverandre for en kamp. Den som
+     * angriper, er vert for kampen: den sender hele maskinen og deretter
+     * inndataene for hvert bilde, som i tur for tur. Den andre kjorer de samme
+     * bildene og sender joysticken sin. Meldingene tolkes i app.js. */
+    const peerId = (id) => (id === 'vert' ? PREFIKS + kode.toLowerCase() : id);
+
+    function duellInn(conn) { if (h.duell) h.duell(conn); else conn.close(); }
+
+    function duellKoble(id) {
+        return new Promise((ok, feil) => {
+            if (!peer || peer.destroyed) { feil(new Error('ikke i et rom')); return; }
+            const c = peer.connect(peerId(id), { reliable: true, metadata: { duell: true } });
+            const t = setTimeout(() => { c.close(); feil(new Error('svarer ikke')); }, 10000);
+            c.on('open', () => { clearTimeout(t); ok(c); });
+            c.on('error', (e) => { clearTimeout(t); feil(e); });
+        });
+    }
+
+    /* hele maskinen over en forbindelse, i deler */
+    async function sendTilstandTil(conn, bytes, bildeNr) {
+        const p = await pakk(bytes);
+        if (!conn.open) return;
+        const n = Math.ceil(p.data.length / DEL);
+        const tid = Date.now();
+        for (let i = 0; i < n; i++) {
+            conn.send({ t: 'tilstand', id: tid, i, n, f: bildeNr, z: p.z, data: tilBuffer(p.data.subarray(i * DEL, (i + 1) * DEL)) });
+        }
+    }
+
+    /* setter sammen delene; gir { bytes, f } naar alt er kommet, ellers null */
+    function tilstandsMottaker() {
+        let del = null;
+        return async (d) => {
+            if (!del || del.id !== d.id) del = { id: d.id, n: d.n, biter: new Array(d.n), fatt: 0 };
+            if (!del.biter[d.i]) { del.biter[d.i] = tilBytes(d.data); del.fatt++; }
+            if (del.fatt < del.n) return null;
+            const total = del.biter.reduce((s, b) => s + b.length, 0);
+            const alt = new Uint8Array(total);
+            let o = 0;
+            for (const b of del.biter) { alt.set(b, o); o += b.length; }
+            del = null;
+            return { bytes: await pakkUt(alt, d.z), f: d.f };
+        };
+    }
+
     /* ---------------------------------------------------------------- begge */
     function chat(tekst) {
         tekst = String(tekst).slice(0, 300);
@@ -449,6 +498,7 @@ const Nett = (() => {
         lagRom, bliMed, avslutt, chat, invitasjon, settPort, settSpiller, settModus, sendTilstand, porter, sendBilde,
         hentGjesteTaster, tastTillatt, vertensSpiller, harGjester, sendInn, sendTast, sendVelg, sendRidder, beOmSynk, spillere,
         romSpill: () => romSpill, minId: () => (rolle === 'vert' ? 'vert' : peer ? peer.id : null),
+        duellKoble, sendTilstandTil, tilstandsMottaker,
         rammer, rolle: () => rolle, kode: () => kode, ping: () => ping,
     };
 })();

@@ -76,9 +76,12 @@ Separate spiller de videre alene, og plassene får datamaskinens riddere tilbake
 verten forsvunnet uten å si fra (tapt nett), gir gjestene opp etter 20 sekunder uten
 svar.
 
-Kamp mot en annen spiller i Separate: foreløpig styrer datamaskinen den andre ridderen
-i kampen hos deg, og kampen påvirker bare ditt spill. Ekte dueller over nettet, der
-begge styrer sin ridder, er det neste som kommer (se `docs/flerspiller.md`).
+Møtes dere på kartet, kan du velge **Battle with** den andres ridder. Da blir det
+en duell over nettet: spillet ditt stopper et øyeblikk, den andre får kampen i sin
+nettleser og styrer sin ridder, og når kampen er over, er begge tilbake i sitt eget
+spill med ridderen slik kampen endte (liv, gull, ting). Ridderne har sin ekte
+styrke og sine ting også i de andres spill. Kan ikke den andre kjempe akkurat nå
+(sidemenyen er åpen, eller ikke på kartet), styrer datamaskinen ridderen i kampen.
 
 Menyvalget finnes bare på nettsiden, siden PC-versjonen ikke har nettspill
 (`moonstone-headless --online-meny` viser det for testing).
@@ -179,7 +182,7 @@ Første gang tittelmenyen vises, står det øverst at valgene kan klikkes.
 | Grafikk | Alle bilder og figurer ut som PNG og inn igjen. Rundturen er byte for byte lik. |
 | Tekster | Alle tekster ut til en fil og inn igjen (`tools/tekst.py`), også lengre enn originalen. |
 | Nettspill i spillet | «Online Game» i tittelmenyen: lage rom, navnene på spillerne, kopiere lenke, offentlige rom, bli med. Testet med tre nettlesere. |
-| Hver for seg | Mode Separate: alle spiller sitt eget spill og ser hverandre på kartet, også mens de går. Testet med to nettlesere. Dueller over nettet gjenstår. |
+| Hver for seg | Mode Separate: alle spiller sitt eget spill og ser hverandre på kartet, også mens de går. Dueller over nettet med begge ved hver sin joystick. Testet med to nettlesere, begge veier. |
 | HD-grafikk | Eksperimentelt i nettleseren: figurer kan byttes med PNG-er i høyere oppløsning. Plassering og speiling er sjekket mot emulatorbildet i kamp og på kartet. Bakgrunner gjenstår. |
 | Lyd | Lydeffektene som WAV, musikken som ProTracker-moduler. |
 | Disassembly | 13 775 instruksjoner og 412 funksjoner i mog, styrt av relokeringer og kodedekning. |

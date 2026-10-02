@@ -266,6 +266,7 @@ const char *files_accessed_name(int i);
 void     files_accessed_clear(void);
 const uint8_t *files_peek(const char *path, size_t *size);
 void     files_inject(const char *path, const uint8_t *data, size_t size);
+void     files_remove(const char *path);
 void     files_empty(void);
 int      files_add_overlay(const char *dir);   /* --mod: egne filer over data/ */
 
@@ -313,7 +314,10 @@ enum { MENY_CMD_HOSTING = 1, MENY_CMD_PLAYERS, MENY_CMD_PUBLIC, MENY_CMD_ROOMS, 
 enum { MENY_PAGE_ONLINE = 1, MENY_PAGE_JOIN = 3 };   /* for MENY_CMD_PAGE */
 int      meny_take_event(void);           /* 0 = ingen */
 /* hver.c: flerspiller "Hver for seg" (docs/flerspiller.md) */
-enum { HVER_FJERN = 1, HVER_RIDDER };
+enum { HVER_FJERN = 1, HVER_RIDDER, HVER_BLOB, HVER_MEG, HVER_DUELL, HVER_AI };
+enum { HVER_EV_DUELL = 1, HVER_EV_DUELL_SLUTT };   /* hver_hendelse: kode | plass << 8 */
+int      hver_hendelse(void);             /* 0 = ingen */
+const char *hver_blob(int k);             /* ridder k (struktur og ting) som heks */
 void     hver_reset(void);
 void     hver_register_hooks(void);
 void     hver_kommando(int k, int arg, const char *text);
