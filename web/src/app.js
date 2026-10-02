@@ -205,16 +205,34 @@
      * av neste bilde, og verten sender dem med bildet til gjestene, så alle
      * maskinene viser det samme. */
     const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8 };
-    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6 };
+    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7 };
     const menyKo = [];
-    let menyRom = [], sisteRomTekst = null, stoppMenyListe = null, sistAntall = 0;
+    let menyRom = [], sisteRomTekst = null, stoppMenyListe = null, sistAntall = 0, sisteNavn = null;
+
+    /* spillets font har bare engelske bokstaver, tall og noen tegn */
+    function rensNavn(t, maks) {
+        return String(t || '')
+            .replace(/[æÆ]/g, (c) => (c === 'æ' ? 'ae' : 'Ae')).replace(/[øØ]/g, (c) => (c === 'ø' ? 'o' : 'O'))
+            .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^A-Za-z0-9 .,!']/g, '').replace(/\s+/g, ' ').trim().slice(0, maks);
+    }
+
+    /* navnene i rommet til spillets meny: "1 Tom", i spillerrekkefolge */
+    function sendNavn(liste) {
+        const l = liste.slice().sort((a, b) => (a.spiller < 0) - (b.spiller < 0) || a.spiller - b.spiller);
+        const tekst = l.map((x) => (x.spiller >= 0 ? (x.spiller + 1) + ' ' : '') + (rensNavn(x.navn, 10) || 'Player')).join('\n');
+        if (tekst === sisteNavn) return;
+        sisteNavn = tekst;
+        menyKmd(KMD.NAVN, 0, tekst);
+    }
 
     function menyKmd(k, arg, tekst) { menyKo.push([k, arg | 0, tekst || '']); }
 
     function vertHendelser() {
         sistAntall = 0;
+        sisteNavn = null;
         return {
-            lobby: visSpillere,
+            lobby: (liste, kode, portModus) => { visSpillere(liste, kode, portModus); sendNavn(liste); },
             chat: chatLinje,
             status,
             trengerTilstand: (id) => {
@@ -249,7 +267,7 @@
             menyKmd(KMD.VERT, 0, kode);
             settOffentlig(innst.offentlig);
             oppdaterMeny();
-            status('Rommet ' + kode + ' er klart. Velg «Copy Invite Link» og send lenken.');
+            status('Rommet ' + kode + ' er klart. Velg «Copy Link» og send lenken.');
         } catch (e) {
             Nett.avslutt();
             menyKmd(KMD.MELDING, 0, 'No Connection\nTry Again Later');
@@ -257,9 +275,9 @@
         }
     }
 
+    /* "navn<tab>1 of 4"; spillet kutter navnet saa linjen faar plass */
     function romLinje(r) {
-        const n = String(r.vert || 'Host').replace(/[^A-Za-z0-9 ]/g, '').trim().slice(0, 10) || 'Host';
-        return n + '  ' + (r.spillere || 1) + ' of ' + (r.maks || 4);
+        return (rensNavn(r.vert, 10) || 'Host') + '\t' + (r.spillere || 1) + ' of ' + (r.maks || 4);
     }
 
     function lyttMenyRom() {

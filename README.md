@@ -19,14 +19,30 @@ Spillfilen hentes automatisk hvis den ligger ved siden av siden
 (`spill/Moonstonecd32-AMIGA.zip`, slik Pages-utgaven er satt opp). Ellers velger du
 den selv, og den lagres i nettleseren (IndexedDB).
 
+### GitHub Pages
+
+Når Pages er slått på, ligger spillet på **https://tombonator3000.github.io/MOONSTONE/**.
+Hver push til `main` bygger siden på nytt og legger den ut (jobben `pages` i
+`.github/workflows/bygg.yml`), med spillfilen ved siden av.
+
+Slik slås det på (bare eieren av repoet kan gjøre det):
+
+1. Pages krever at repoet er offentlig, eller et betalt GitHub-abonnement.
+   Offentlig: Settings, General, nederst under «Danger Zone»: «Change repository
+   visibility» til Public.
+2. Settings, Pages, «Build and deployment»: Source = **GitHub Actions**.
+3. Actions, «Bygg», «Run workflow» på `main` (eller push noe til `main`).
+
+Selve siden er alltid offentlig, også om repoet er privat med betalt abonnement.
+
 ### Nettspill
 
 Nettspillet ligger i spillets egen tittelmeny, under **Online Game**, tegnet med
 spillets font og pil:
 
-- **Host Game** lager et rom. Siden viser romkoden og hvor mange som er med.
-  **Copy Invite Link** kopierer invitasjonslenken, og **Public Room** legger rommet i
-  listen over offentlige rom.
+- **Host Game** lager et rom. Siden viser romkoden og navnene til de som er med,
+  med spillernummer (1 er den som velger ridder først). **Copy Link** kopierer
+  invitasjonslenken, og **Public** legger rommet i listen over offentlige rom.
 - **Join Game** viser de offentlige rommene. Velg ett, eller **Enter Code** for å
   skrive inn en romkode eller lime inn en lenke.
 - **Back** fra romsiden setter **Players** i tittelmenyen til antallet som er med.
@@ -107,7 +123,7 @@ På spillkontrollere er A fire, B mellomrom, Start E og Back Esc, som CD32-padde
 | Nettspill | PeerJS med opptil fire spillere, joystick etter tur, romliste via HiveMQ. Testet med to nettlesere mot en lokal PeerJS-server og MQTT-megler. |
 | Grafikk | Alle bilder og figurer ut som PNG og inn igjen. Rundturen er byte for byte lik. |
 | Tekster | Alle tekster ut til en fil og inn igjen (`tools/tekst.py`), også lengre enn originalen. |
-| Nettspill i spillet | «Online Game» i tittelmenyen: lage rom, kopiere lenke, offentlige rom, bli med. Testet med to nettlesere. |
+| Nettspill i spillet | «Online Game» i tittelmenyen: lage rom, navnene på spillerne, kopiere lenke, offentlige rom, bli med. Testet med tre nettlesere. |
 | HD-grafikk | Eksperimentelt i nettleseren: figurer kan byttes med PNG-er i høyere oppløsning. Plassering og speiling er sjekket mot emulatorbildet i kamp og på kartet. Bakgrunner gjenstår. |
 | Lyd | Lydeffektene som WAV, musikken som ProTracker-moduler. |
 | Disassembly | 13 775 instruksjoner og 412 funksjoner i mog, styrt av relokeringer og kodedekning. |

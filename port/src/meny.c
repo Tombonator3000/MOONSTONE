@@ -31,9 +31,9 @@
 #define TITLE_ARROWS 0xf8000                /* 5 ord */
 #define TITLE_NODE   0xf8010                /* "Online Game" i tittelmenyen */
 #define TITLE_TEXT   0xf8020
-#define PAGE_NODES   0xf8100                /* siden: 5 linjer a 14 byte */
+#define PAGE_NODES   0xf8100                /* siden: 6 linjer a 14 byte */
 #define PAGE_ARROWS  0xf8180
-#define PAGE_TEXTS   0xf8200                /* 5 tekster a 48 byte */
+#define PAGE_TEXTS   0xf8200                /* 6 tekster a 48 byte */
 #define TEXT_SIZE    48
 
 #define LIST_HEAD    0x8f060
@@ -43,8 +43,9 @@
 #define FONT_PTR     0x8ce94                /* +$A: fonten skriv_tekst bruker */
 #define CHAR_TABLE   0x96210
 
-#define ROWS 5
-static const uint16_t row_y[ROWS] = { 0x53, 0x6c, 0x88, 0x9c, 0xb0 };
+/* sidene har seks linjer (fonten er 19 piksler hoy, logoen slutter paa y 64) */
+#define ROWS 6
+static const uint16_t row_y[ROWS] = { 0x50, 0x64, 0x78, 0x8c, 0xa0, 0xb4 };
 
 enum { PAGE_TITLE, PAGE_ONLINE, PAGE_HOST, PAGE_JOIN, PAGE_MESSAGE };
 enum { SESSION_NONE, SESSION_HOST, SESSION_GUEST };
@@ -61,8 +62,11 @@ static struct {
     uint8_t n_rooms;                        /* aapne rom (Join Game) */
     uint8_t rooms_known;                    /* listen er hentet (eller feilet) */
     uint8_t select;                         /* velg denne linjen ved neste tegning (0 = ingen) */
+    uint8_t n_names;
     char    room[8];
-    char    rooms[2][TEXT_SIZE];
+    char    names[4][TEXT_SIZE];            /* "1 Tom", i spillerrekkefolge */
+    char    rooms[3][TEXT_SIZE];            /* navnet paa verten */
+    char    room_counts[3][12];             /* "1 of 4" */
     char    message[2][TEXT_SIZE];
     char    rooms_error[TEXT_SIZE];
 } M2;
@@ -103,19 +107,60 @@ static int glyph_width(int c)
 }
 
 /* kopierer bare tegn fonten har, og stopper foer teksten blir bredere enn
- * 250 piksler (skriv_tekst gir bredden tilbake i D0, se patch.c) */
-static void fit_text(char *dst, const char *src)
+ * maxw piksler. Hele linjer holdes under 250 (skriv_tekst gir bredden
+ * tilbake i D0, se patch.c). */
+static void fit_width(char *dst, const char *src, int maxw)
 {
     int w = 0, n = 0;
     for (; *src && n < TEXT_SIZE - 1; src++) {
         int gw = glyph_width((unsigned char)*src);
         if (gw < 0) continue;
-        if (w + gw > 250) break;
+        if (w + gw > maxw) break;
         w += gw;
         dst[n++] = *src;
     }
     while (n && dst[n - 1] == ' ') n--;
     dst[n] = 0;
+}
+
+static void fit_text(char *dst, const char *src) { fit_width(dst, src, 250); }
+
+static int text_width(const char *t)
+{
+    int w = 0;
+    for (; *t; t++) { int gw = glyph_width((unsigned char)*t); if (gw > 0) w += gw; }
+    return w;
+}
+
+/* Linjer man kan velge, holdes under 158 piksler som i originalmenyen, ellers
+ * gaar teksten inn under pilen (x 50). Rom: "Tom  1 of 4", navnet kuttes. */
+static void room_line(char *dst, int i)
+{
+    char name[TEXT_SIZE];
+    const char *count = M2.room_counts[i];
+    fit_width(name, M2.rooms[i], 158 - text_width(count) - 2 * text_width(" "));
+    snprintf(dst, TEXT_SIZE, "%s  %s", name, count);
+}
+
+/* et navn som maa kuttes, kuttes ved siste mellomrom ("3 Ola Nordmann" -> "3 Ola") */
+static void fit_name(char *dst, const char *src, int maxw)
+{
+    char all[TEXT_SIZE];
+    fit_width(all, src, 10000);
+    fit_width(dst, src, maxw);
+    if (strcmp(dst, all) && all[strlen(dst)] != ' ') {
+        char *sp = strrchr(dst, ' ');
+        if (sp && sp > strchr(dst, ' ')) *sp = 0;   /* behold nummeret og minst ett ord */
+    }
+}
+
+/* to navn paa en linje: "1 Tom   2 Kari" */
+static void name_pair(char *dst, int a, int b)
+{
+    char x[TEXT_SIZE], y[TEXT_SIZE];
+    fit_name(x, a < M2.n_names ? M2.names[a] : "", 112);
+    fit_name(y, b < M2.n_names ? M2.names[b] : "", 112);
+    snprintf(dst, TEXT_SIZE, "%s%s%s", x, y[0] ? "   " : "", y);
 }
 
 /* ---------------------------------------------------------------- sidene */
@@ -135,26 +180,36 @@ static void page_rows(Row r[ROWS])
     case PAGE_HOST:
         snprintf(buf[0], TEXT_SIZE, "Room %s", M2.room);
         r[0].text = buf[0];
-        snprintf(buf[1], TEXT_SIZE, "%d of 4 Players", M2.players ? M2.players : 1);
-        r[1].text = buf[1];
-        r[2] = (Row){ "Copy Invite Link", true };
-        r[3] = (Row){ M2.public_room ? "Public Room  On" : "Public Room  Off", true };
-        r[4] = (Row){ "Back", true };
+        if (!M2.n_names) {
+            snprintf(buf[1], TEXT_SIZE, "%d of 4 Players", M2.players ? M2.players : 1);
+            r[1].text = buf[1];
+        } else {
+            name_pair(buf[1], 0, 1);
+            r[1].text = buf[1];
+            if (M2.n_names > 2) { name_pair(buf[2], 2, 3); r[2].text = buf[2]; }
+            else if (M2.n_names == 1) r[2].text = "Waiting for Players";
+        }
+        r[3] = (Row){ "Copy Link", true };
+        r[4] = (Row){ M2.public_room ? "Public  On" : "Public  Off", true };
+        r[5] = (Row){ "Back", true };
         break;
     case PAGE_JOIN:
         r[0].text = "Join Game";
         if (!M2.rooms_known) r[1].text = "Looking for Rooms";
         else if (M2.rooms_error[0]) r[1].text = M2.rooms_error;
         else if (!M2.n_rooms) r[1].text = "No Open Rooms";
-        for (int i = 0; i < M2.n_rooms && i < 2; i++) r[1 + i] = (Row){ M2.rooms[i], true };
-        r[3] = (Row){ "Enter Code", true };
-        r[4] = (Row){ "Back", true };
+        for (int i = 0; i < M2.n_rooms && i < 3; i++) {
+            room_line(buf[1 + i], i);
+            r[1 + i] = (Row){ buf[1 + i], true };
+        }
+        r[4] = (Row){ "Enter Code", true };
+        r[5] = (Row){ "Back", true };
         break;
     case PAGE_MESSAGE:
         r[0].text = "Online Game";
         r[1].text = M2.message[0];
         r[2].text = M2.message[1];
-        r[4] = (Row){ "Back", true };
+        r[3] = (Row){ "Back", true };
         break;
     }
 }
@@ -294,18 +349,18 @@ static bool hook_fire(void)
         } else show_page(PAGE_TITLE);
         break;
     case PAGE_HOST:
-        if (v == 2) emit(MENY_EV_COPY, 0);
-        else if (v == 3) emit(MENY_EV_PUBLIC, !M2.public_room);
-        else if (v == 4) {
+        if (v == 3) emit(MENY_EV_COPY, 0);
+        else if (v == 4) emit(MENY_EV_PUBLIC, !M2.public_room);
+        else if (v == 5) {
             if (M2.players >= 2) set_players(M2.players);
             show_page(PAGE_TITLE);
             emit(MENY_EV_BACK, 0);
         }
         break;
     case PAGE_JOIN:
-        if (v == 1 || v == 2) emit(MENY_EV_JOIN_ROOM, v - 1);
-        else if (v == 3) emit(MENY_EV_ENTER_CODE, 0);
-        else if (v == 4) { show_page(PAGE_ONLINE); emit(MENY_EV_LEAVE_JOIN, 0); }
+        if (v >= 1 && v <= 3) emit(MENY_EV_JOIN_ROOM, v - 1);
+        else if (v == 4) emit(MENY_EV_ENTER_CODE, 0);
+        else if (v == 5) { show_page(PAGE_ONLINE); emit(MENY_EV_LEAVE_JOIN, 0); }
         break;
     case PAGE_MESSAGE:
         show_page(M2.session == SESSION_HOST ? PAGE_HOST : PAGE_ONLINE);
@@ -362,7 +417,7 @@ void meny_command(int cmd, int arg, const char *text)
         if (M2.players < 1) M2.players = 1;
         if (M2.page == PAGE_MESSAGE || M2.page == PAGE_ONLINE) {
             M2.page = PAGE_HOST;
-            M2.select = 2;                  /* Copy Invite Link */
+            M2.select = 3;                  /* Copy Link */
         }
         break;
     case MENY_CMD_PLAYERS:
@@ -377,14 +432,19 @@ void meny_command(int cmd, int arg, const char *text)
         M2.rooms_error[0] = 0;
         if (arg < 0) { snprintf(M2.rooms_error, TEXT_SIZE, "%s", text); break; }
         const char *p = text;
-        while (*p && M2.n_rooms < 2) {
+        while (*p && M2.n_rooms < 3) {
             const char *nl = strchr(p, '\n');
             size_t n = nl ? (size_t)(nl - p) : strlen(p);
             char line[TEXT_SIZE];
             if (n >= sizeof line) n = sizeof line - 1;
             memcpy(line, p, n);
             line[n] = 0;
-            snprintf(M2.rooms[M2.n_rooms++], TEXT_SIZE, "%s", line);
+            /* "navn<tab>1 of 4" */
+            char *tab = strchr(line, '\t');
+            if (tab) *tab = 0;
+            snprintf(M2.rooms[M2.n_rooms], TEXT_SIZE, "%s", line);
+            snprintf(M2.room_counts[M2.n_rooms], sizeof M2.room_counts[0], "%s", tab ? tab + 1 : "");
+            M2.n_rooms++;
             p = nl ? nl + 1 : p + n;
         }
         break;
@@ -399,8 +459,22 @@ void meny_command(int cmd, int arg, const char *text)
         if (M2.page != PAGE_TITLE) M2.page = PAGE_MESSAGE;
         break;
     }
+    case MENY_CMD_NAMES: {
+        M2.n_names = 0;
+        const char *p = text;
+        while (*p && M2.n_names < 4) {
+            const char *nl = strchr(p, '\n');
+            size_t n = nl ? (size_t)(nl - p) : strlen(p);
+            if (n >= TEXT_SIZE) n = TEXT_SIZE - 1;
+            memcpy(M2.names[M2.n_names], p, n);
+            M2.names[M2.n_names++][n] = 0;
+            p = nl ? nl + 1 : p + strlen(p);
+        }
+        break;
+    }
     case MENY_CMD_SESSION_END:
         M2.session = SESSION_NONE;
+        M2.n_names = 0;
         M2.players = 0;
         M2.public_room = 0;
         if (M2.page == PAGE_HOST) M2.page = PAGE_ONLINE;

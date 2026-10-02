@@ -95,11 +95,18 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 - En hook rett etter et kall til en C-erstattet funksjon kalles ikke (hook_return setter PC,
   og Musashi kjører instruksjonen uten ny hook). Derfor $8190E og ikke $8190C i meny.c.
 - Lapper registreres med `hooks_register_patch`; de kjøres også med --nohooks og bestemmer
-  selv ut fra tilstanden (texts_patched, M2.enabled) om de gjør noe. STATE_VERSION er 4.
+  selv ut fra tilstanden (texts_patched, M2.enabled) om de gjør noe.
 - Tittelmenyen med nettspill: rader på y $53, $6C, $88, $9C, $B0. «Online Game» er valg 4.
+  Nettspillsidene har seks rader: $50, $64, $78, $8C, $A0, $B4. Romsiden: «Room KODE»,
+  to linjer med navn («1 Tom   2 Kari», kommando 7 med ett navn per linje), «Copy Link»,
+  «Public  On/Off», «Back». Linjer man kan velge holdes under 158 piksler, ellers går
+  teksten inn under pilen (x 50). Navn kuttes ved siste mellomrom.
   Sidene bygges av meny.c og tegnes av tegn_tittelmeny ($81942 = tegn på nytt og tilbake
   til løkka). Hendelser: 1 Host, 2 Join-side, 3 rom valgt, 4 Enter Code, 5 kopier lenke,
   6 offentlig, 7 forlot Join, 8 Back. Kommandoer: 1 rom (kode), 2 spillere, 3 offentlig,
-  4 romliste (linjer), 5 melding, 6 slutt.
+  4 romliste (linjer «navn<tab>1 of 4»), 5 melding, 6 slutt, 7 navn. STATE_VERSION er 5.
+- Repoet er privat og hadde ikke Pages (has_pages false, deploy ga 404 «Ensure GitHub
+  Pages has been enabled»). Pages krever offentlig repo eller betalt plan, og slås på av
+  eieren i Settings; GITHUB_TOKEN kan ikke slå det på.
 - `/` og `\` i fonten er understrek (bilde 71), `-` og `:` har ikke noe bilde.
 

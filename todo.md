@@ -1,7 +1,7 @@
 # todo.md
 
 ## Neste
-- [ ] Flette PR #2 (https://github.com/Tombonator3000/MOONSTONE/pull/2) og slå på GitHub Pages (Settings, Pages, Source: GitHub Actions). Privat repo krever betalt GitHub for Pages.
+- [ ] Slå på GitHub Pages (eieren): repoet offentlig eller betalt plan, så Settings, Pages, Source: GitHub Actions, og kjør «Bygg» på main.
 - [ ] HD-grafikk: bakgrunner i HD (PIV, og .t for kampene), fargeeffekter (fading) på HD-bildene, andre tegnerutiner enn tegn_figur (tekst, menyer).
 - [ ] Lage en liten HD-pakke som eksempel (f.eks. ridderne i fire ganger størrelse).
 - [ ] Finne ut hvordan .t-filene bygger kampbakgrunnene.
@@ -11,9 +11,8 @@
 - [ ] Teste nettspill (også «Online Game» i tittelmenyen) mot PeerJS Cloud og HiveMQ fra en vanlig nettleser (proxyen i skymiljøet stopper WebSocket; lokalt testet med egne servere).
 - [ ] Teste moonstone.exe på ekte Windows.
 
-- [ ] Vise navnene på spillerne i rommet i spillets meny (i dag bare antallet).
-
 ## Ferdig
+- [x] Navnene på spillerne i romsiden i spillets meny.
 - [x] Tekstverktøy: tools/tekst.py og tekster.txt i porten, også lengre tekster og avsnitt.
 - [x] «Online Game» i spillets tittelmeny: Host Game, Join Game, Copy Invite Link, Public Room, Enter Code.
 - [x] HD-lag for figurene i nettleseren: tegneliste fra tegn_figur, speiling, klynger, tools/hd_sjekk.py.
