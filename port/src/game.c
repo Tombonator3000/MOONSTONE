@@ -139,6 +139,7 @@ static bool observe_draw(void)
     d->x = (int16_t)m68k_get_reg(NULL, M68K_REG_D1);
     d->y = (int16_t)m68k_get_reg(NULL, M68K_REG_D2);
     d->target = rd32(0x9e87e);             /* figurbuffer: hvor figuren tegnes */
+    d->caller = mem_read32(m68k_get_reg(NULL, M68K_REG_A7));   /* returadressen: hvem som tegner */
     /* Bredde og hoyde fra bildetabellen i filen (+10, 10 byte per bilde).
      * Byte +8 er 1 for et vanlig bilde. speil_figur ($9DB16) snur et bilde der
      * det ligger: radene snus innenfor bredden rundet opp til 16, og byte +8

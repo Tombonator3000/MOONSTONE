@@ -169,9 +169,16 @@ void mem_write32(uint32_t a, uint32_t v)
 unsigned int m68k_read_memory_8(unsigned int a)  { return mem_read8(a); }
 unsigned int m68k_read_memory_16(unsigned int a) { return mem_read16(a); }
 unsigned int m68k_read_memory_32(unsigned int a) { return mem_read32(a); }
-void m68k_write_memory_8(unsigned int a, unsigned int v)  { mem_write8(a, v); }
-void m68k_write_memory_16(unsigned int a, unsigned int v) { mem_write16(a, v); }
-void m68k_write_memory_32(unsigned int a, unsigned int v) { mem_write32(a, v); }
+/* --vakt ADR: skriv ut naar CPU-en skriver til ADR til ADR+3 (analyse) */
+uint32_t amiga_vakt = 0xffffffffu;
+static void vakt(unsigned a, unsigned n, unsigned v)
+{
+    if (a + n <= amiga_vakt || a >= amiga_vakt + 4) return;
+    printf("vakt bilde %u pc %06x: %u byte til %06x = %x\n", M.frame, m68k_get_reg(NULL, M68K_REG_PPC), n, a, v);
+}
+void m68k_write_memory_8(unsigned int a, unsigned int v)  { if (amiga_vakt != 0xffffffffu) vakt(a, 1, v); mem_write8(a, v); }
+void m68k_write_memory_16(unsigned int a, unsigned int v) { if (amiga_vakt != 0xffffffffu) vakt(a, 2, v); mem_write16(a, v); }
+void m68k_write_memory_32(unsigned int a, unsigned int v) { if (amiga_vakt != 0xffffffffu) vakt(a, 4, v); mem_write32(a, v); }
 unsigned int m68k_read_disassembler_8(unsigned int a)  { a &= 0xffffff; uint8_t *p = mem_ptr(a, 1); return p ? p[0] : 0; }
 unsigned int m68k_read_disassembler_16(unsigned int a) { return m68k_read_disassembler_8(a) << 8 | m68k_read_disassembler_8(a + 1); }
 unsigned int m68k_read_disassembler_32(unsigned int a) { return m68k_read_disassembler_16(a) << 16 | m68k_read_disassembler_16(a + 2); }

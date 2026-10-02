@@ -284,7 +284,7 @@ const char *game_knight_name(int k);
 int      game_knight_player(int k);
 /* tegnelisten: figurene spillet tegnet i siste bilde (game.c). Venstre kant er
  * x - xoff, flip = 1 naar figuren er speilvendt. */
-typedef struct { int16_t cel, frame, x, y, w, h, xoff, flip; uint32_t target; } GameDraw;
+typedef struct { int16_t cel, frame, x, y, w, h, xoff, flip; uint32_t target, caller; } GameDraw;
 #define GAME_MAX_DRAWS 256
 extern GameDraw game_draws[GAME_MAX_DRAWS];
 extern int      game_n_draws;

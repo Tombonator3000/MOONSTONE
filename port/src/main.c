@@ -115,6 +115,7 @@ static void usage(void)
            "  --blit-trace F:N      skriv hver blit og skjermens bitplan i bilde F og de N-1 neste\n"
            "  --lag F:PREFIKS       lagene (lag.c) i bilde F: PREFIKS_bak.png og PREFIKS_for.png\n"
            "  --lag-dump MAPPE      hver ny bakgrunn som MAPPE/HASH.png (til HD-bakgrunner)\n"
+           "  --vakt ADR            skriv ut hver gang CPU-en skriver til ADR (heks, 4 byte)\n"
            "  --wav FIL             ta opp lyden\n"
            "  --log N               0 stille, 1 normal, 2 alt\n");
 }
@@ -209,6 +210,7 @@ int main(int argc, char **argv)
             i++;
         }
         else if (!strcmp(a, "--lag-dump") && v) { lag_dump_dir = v; lag_paa = true; i++; }
+        else if (!strcmp(a, "--vakt") && v) { extern uint32_t amiga_vakt; amiga_vakt = (uint32_t)strtoul(v, NULL, 16); i++; }
         else if (!strcmp(a, "--blit-trace") && v) {
             extern int blit_trace_from, blit_trace_n;
             blit_trace_from = atoi(v);
@@ -364,9 +366,9 @@ static int run_headless(int frames, int shot_every, const char *shot_dir, int sa
         if (draw_list_frame >= 0 && (int)M.frame >= draw_list_frame && (int)M.frame < draw_list_frame + draw_list_count) {
             printf("tegneliste bilde %u (bakgrunn %s):\n", M.frame, game_background());
             for (int d = 0; d < game_n_draws; d++)
-                printf("  %s bilde %d x %d y %d (%dx%d, xoff %d%s) buffer %06x\n", game_cel_name(game_draws[d].cel),
+                printf("  %s bilde %d x %d y %d (%dx%d, xoff %d%s) buffer %06x fra %06x\n", game_cel_name(game_draws[d].cel),
                        game_draws[d].frame, game_draws[d].x, game_draws[d].y, game_draws[d].w, game_draws[d].h,
-                       game_draws[d].xoff, game_draws[d].flip ? ", speilet" : "", game_draws[d].target);
+                       game_draws[d].xoff, game_draws[d].flip ? ", speilet" : "", game_draws[d].target, game_draws[d].caller);
         }
         int16_t tmp[4096];
         int n;
