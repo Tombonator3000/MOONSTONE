@@ -5,7 +5,8 @@
  * har med bilde, lyd, taster og nettverk aa gjore ligger i JavaScript. Her er
  * bare funksjonene JavaScript kaller:
  *
- *   ms_open_mem(ptr, n)     spillfilene fra en zip eller ISO i minnet (kjernen tar over bufferet)
+ *   ms_open_embedded()      spillfila som er bygget inn (ms_has_embedded() sier om den finnes)
+ *   ms_open_mem(ptr, n)     andre spillfiler fra en zip eller ISO i minnet (kjernen tar over bufferet)
  *   ms_start(buttonwait)    start maskinen
  *   ms_input(j0, j1)        joystickene for neste bilde (port 1 og port 2)
  *   ms_key(kode, ned)       en tast paa Amiga-tastaturet
@@ -31,6 +32,10 @@ EMSCRIPTEN_KEEPALIVE int ms_open_mem(uint8_t *data, int size)
 {
     return files_open_mem(data, (size_t)size, "spill") ? 1 : 0;
 }
+
+/* spillfila som er bygget inn i kjernen (port/bin2c.py) */
+EMSCRIPTEN_KEEPALIVE int ms_has_embedded(void) { return spill_innebygd_storrelse > 0; }
+EMSCRIPTEN_KEEPALIVE int ms_open_embedded(void) { return files_open_embedded() ? 1 : 0; }
 
 EMSCRIPTEN_KEEPALIVE const char *ms_error(void) { return files_error; }
 
@@ -133,3 +138,6 @@ EMSCRIPTEN_KEEPALIVE const char *ms_cel_name(int i) { return game_cel_name(i); }
 EMSCRIPTEN_KEEPALIVE void ms_menu_enable(int on) { meny_online = on != 0; }
 EMSCRIPTEN_KEEPALIVE int ms_menu_event(void) { return meny_take_event(); }
 EMSCRIPTEN_KEEPALIVE void ms_menu_cmd(int cmd, int arg, const char *text) { meny_command(cmd, arg, text); }
+EMSCRIPTEN_KEEPALIVE int ms_menu_ready(void) { return meny_title_seen ? 1 : 0; }
+/* introen (program) gaar; den hoppes over med Esc */
+EMSCRIPTEN_KEEPALIVE int ms_in_intro(void) { return whd_mog_loaded ? 0 : 1; }

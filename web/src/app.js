@@ -1,13 +1,17 @@
 /*
- * app.js - startsiden, spillokka og menyen.
+ * app.js - oppstarten, spillokka og menyen.
+ *
+ * Siden har ingen egen startside. Spillet starter med en gang, med introen.
+ * Introen hoppes over med Esc, og mens den gaar ogsaa med fire, Enter,
+ * mellomrom og et trykk paa skjermen (introTaster). Nettspill velges i
+ * spillets tittelmeny under «Online Game» (port/src/meny.c), og en
+ * invitasjonslenke aapner «Join Game» der med rommet valgt. Innstillinger,
+ * lagring og egne filer ligger i sidemenyen (Home eller knappen oppe til hoyre).
  *
  * Tre maater aa spille paa:
  *   alene  kjernen kjorer her, joystick A paa port 2 og B paa port 1
  *   vert   som alene, men gjestene kobler seg til og faar hvert sitt joystick
  *   gjest  kjernen kjorer de samme bildene som verten, med inndataene fra verten
- *
- * Spillfilen hentes fra IndexedDB, eller fra spill/Moonstonecd32-AMIGA.zip ved
- * siden av siden hvis den ligger der (GitHub Pages-utgaven kan ha den med).
  */
 'use strict';
 
@@ -17,29 +21,31 @@
     const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false }, inn);
     const lagreInnst = () => Lager.lagreInnstillinger(innst);
 
-    let spillfil = null;                    /* Uint8Array */
+    const INNEBYGD = 'innebygd';
+    let spillfil = null;                    /* INNEBYGD, eller en annen spillfil (Uint8Array) */
     let modFiler = {};                      /* navn -> Uint8Array, legges over data/ */
-    let modus = null;                       /* 'alene' | 'vert' | 'gjest' */
-    let pause = false, menyApen = false, venterSynk = false, kjorer = false;
+    let modus = null;                       /* 'alene' | 'vert' | 'venter' | 'gjest' */
+    let pause = false, menyApen = false, dialogApen = false, venterSynk = false, kjorer = false;
     let periode = 1 / 49.92;
     let akk = 0, sist = 0, plass = 1;
-    let stoppAnnonse = null, stoppListe = null;
+    let stoppAnnonse = null;
     let statusTimer = null;
+    let invitasjon = null;                  /* romkoden i en invitasjonslenke, til tittelmenyen er naadd */
     const statistikk = { sjekket: 0, avvik: 0 };
 
     /* ---------------------------------------------------------------- meldinger */
-    function melding(tekst, feil) {
-        const m = $('melding');
-        m.textContent = tekst || '';
-        m.classList.toggle('feil', !!feil);
-    }
-
     function status(tekst) {
         const s = $('status');
         s.textContent = tekst;
         s.classList.add('vis');
         clearTimeout(statusTimer);
-        statusTimer = setTimeout(() => s.classList.remove('vis'), 3000);
+        statusTimer = setTimeout(() => s.classList.remove('vis'), 3500);
+    }
+
+    /* teppet over spillet mens det lastes, kobler til eller ikke kan starte */
+    function lasting(tekst) {
+        $('lasting').hidden = !tekst;
+        $('lasting-tekst').textContent = tekst || '';
     }
 
     function chatLinje(fra, tekst) {
@@ -55,30 +61,33 @@
     }
 
     /* ---------------------------------------------------------------- spillfilen */
+    /* Spillfilen er bygget inn i kjernen (MED_SPILLET i bygget). Bare et bygg uten
+     * den trenger en valgt fil, eller at filen ligger ved siden av siden. */
     async function finnSpillfil() {
+        await Kjerne.last();
+        if (Kjerne.harInnebygd()) { spillfil = INNEBYGD; return true; }
+        $('spillfil-hjelp').textContent = 'Velg spillfilen (Moonstonecd32-AMIGA.zip eller «Moonstone CD32.iso»). Den lagres bare i denne nettleseren. Gjester i nettspill trenger den ikke.';
         const lagret = await Lager.hent('spillfil');
-        if (lagret) { spillfil = new Uint8Array(lagret); visSpillfil('Spillfilen er klar (lagret i nettleseren).'); return; }
+        if (lagret) { spillfil = new Uint8Array(lagret); return true; }
         for (const sti of ['spill/Moonstonecd32-AMIGA.zip', 'spill/moonstone.zip', 'Moonstonecd32-AMIGA.zip']) {
             try {
                 const r = await fetch(sti);
                 if (!r.ok) continue;
                 const b = new Uint8Array(await r.arrayBuffer());
-                if (b.length > 100000) { spillfil = b; visSpillfil('Spillfilen er klar (fulgte med siden).'); return; }
+                if (b.length > 100000) { spillfil = b; return true; }
             } catch (e) { /* fra disk eller uten nett */ }
         }
-        visSpillfil('Velg spillfilen for å spille alene eller være vert. Som gjest trenger du den ikke.');
+        return false;
     }
-
-    function visSpillfil(tekst) { $('spillfil-status').textContent = tekst; }
 
     $('velg-fil').addEventListener('change', async (e) => {
         const f = e.target.files[0];
         if (!f) return;
         const b = new Uint8Array(await f.arrayBuffer());
+        const innebygd = spillfil === INNEBYGD;
         spillfil = b;
-        const ok = await Lager.sett('spillfil', b);
-        visSpillfil(ok ? 'Spillfilen er lagret i nettleseren.' : 'Spillfilen er valgt (kunne ikke lagres i nettleseren).');
-        melding('');
+        if (!innebygd) await Lager.sett('spillfil', b);
+        startPaaNytt(innebygd ? 'Bruker den valgte spillfilen til siden lastes på nytt' : 'Spillfilen er lagret i nettleseren');
     });
 
     function visMod() {
@@ -90,8 +99,9 @@
         for (const f of e.target.files) modFiler[f.name] = new Uint8Array(await f.arrayBuffer());
         await Lager.sett('mod', modFiler);
         visMod();
+        status('Brukes når spillet startes på nytt');
     });
-    $('fjern-mod').addEventListener('click', async () => { modFiler = {}; await Lager.slett('mod'); visMod(); });
+    $('fjern-mod').addEventListener('click', async () => { modFiler = {}; await Lager.slett('mod'); visMod(); status('Brukes ikke etter neste omstart'); });
 
     /* ---------------------------------------------------------------- oppstart */
     async function startKjerne(somGjest) {
@@ -100,8 +110,9 @@
         if (somGjest) {
             Kjerne.startSomGjest();
         } else {
-            if (!spillfil) throw new Error('Velg spillfilen først.');
-            Kjerne.aapne(spillfil.slice());
+            if (!spillfil) throw new Error('Spillfilen mangler.');
+            if (spillfil === INNEBYGD) Kjerne.aapneInnebygd();
+            else Kjerne.aapne(spillfil.slice());
             for (const [n, d] of Object.entries(modFiler)) Kjerne.leggInnFil('data/' + n, d);
             Kjerne.start(innst.knappevent);
         }
@@ -109,9 +120,49 @@
         Kjerne.volum(innst.volum);
     }
 
+    /* spillet starter rett paa introen; ingenting aa velge foer det */
+    async function startSpillet() {
+        lasting('Laster Moonstone ...');
+        try {
+            if (!spillfil && !(await finnSpillfil())) {
+                visSpill();
+                lasting('Spillfilen mangler. Velg den under «Spillfil og egne filer» i menyen.');
+                visMeny(true);
+                return;
+            }
+            await startKjerne(false);
+            modus = 'alene';
+            akk = 0;
+            menyKmd(KMD.MITTNAVN, 0, rensNavn(innst.navn, 10));
+            visSpill();
+            lasting(null);
+        } catch (e) {
+            lasting('Kunne ikke starte spillet: ' + e.message);
+        }
+    }
+
+    /* ut av et nettspill, eller ny spillfil: spillet startes paa nytt fra introen */
+    function startPaaNytt(tekst) {
+        if (stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
+        stoppMenyRom();
+        menyInvitert = null;
+        menyKo.length = 0;
+        Nett.avslutt();
+        Nett.rammer.length = 0;
+        modus = null;
+        venterSynk = false;
+        pause = false;
+        visDialog('kode-dialog', false);
+        visDialog('navn-dialog', false);
+        visMeny(false);
+        Lyd.clear();
+        hopper = false;
+        escOpp = 0;
+        if (tekst) status(tekst);
+        startSpillet();
+    }
+
     function visSpill() {
-        $('start').hidden = true;
-        $('spill').hidden = false;
         if (!Visning.klar) {
             Visning.init($('lerret'), Kjerne.bredde(), Kjerne.hoyde());
             Visning.klar = true;
@@ -120,94 +171,84 @@
         Visning.settFormat(innst.format);
         Visning.settHelt(innst.helt);
         Visning.tilpass();
-        Inndata.paa(true);
+        Inndata.paa(!menyApen && !dialogApen);
         const touch = matchMedia('(pointer: coarse)').matches;
         $('touch').hidden = !touch;
         if (!kjorer) { kjorer = true; requestAnimationFrame(lokke); }
     }
 
-    function navn() {
-        const n = $('navn').value.trim().slice(0, 20);
-        innst.navn = n;
-        lagreInnst();
-        return n || 'Spiller';
-    }
+    function navn() { return innst.navn || 'Player'; }
 
-    async function spillAlene() {
-        try {
-            melding('Starter ...');
-            await Lyd.start();
-            await startKjerne(false);
-            modus = 'alene';
-            oppdaterMeny();
-            visSpill();
-            melding('');
-        } catch (e) { melding(e.message, true); }
-    }
+    /* ---------------------------------------------------------------- lyd og introen
+     * Nettleseren slipper ikke lyden ut foer noen har trykket paa noe. Det forste
+     * trykket starter lyden (og hopper ikke over introen), saa introen kan hores.
+     * Esc teller ikke som et trykk for nettleseren, saa vi prover igjen ved neste. */
+    let lydForsokt = false, forsteTrykk = 0, skjermTrykk = false;
 
-    async function lagRom() {
-        try {
-            if (!spillfil) throw new Error('Velg spillfilen først. Gjestene trenger den ikke, men verten gjør det.');
-            melding('Lager rom ...');
-            await Lyd.start();
-            await startKjerne(false);
-            const kode = await Nett.lagRom(navn(), vertHendelser());
-            modus = 'vert';
-            menyKmd(KMD.VERT, 0, kode);
-            settOffentlig($('offentlig').checked);
-            oppdaterMeny();
-            visSpill();
-            melding('');
-            status('Rommet ' + kode + ' er klart. Del lenken i menyen (Home).');
-            visMeny(true);
-        } catch (e) { melding('Kunne ikke lage rom: ' + e.message, true); Nett.avslutt(); modus = null; }
+    function lydPaa() {
+        if (Lyd.running()) return;
+        if (!lydForsokt) { lydForsokt = true; forsteTrykk = performance.now(); }
+        Lyd.start().catch(() => {});
     }
+    for (const t of ['pointerdown', 'keydown', 'touchend']) window.addEventListener(t, lydPaa, { capture: true });
 
-    async function bliMed(kode) {
-        kode = (kode || $('romkode').value).trim().toUpperCase();
-        if (!/^[A-Z0-9]{6}$/.test(kode)) { melding('Romkoden har seks tegn.', true); return; }
-        const fraSpillet = modus === 'alene';
-        if (fraSpillet) { modus = 'venter'; status('Kobler til rom ' + kode + ' ...'); }
-        try {
-            melding('Kobler til rom ' + kode + ' ...');
-            await Lyd.start();
-            await startKjerne(true);
-            await Nett.bliMed(kode, navn(), {
-                lobby: visSpillere,
-                chat: chatLinje,
-                status: (t) => { status(t); melding(t); },
-                ping: () => {},
-                feil: (t) => { melding(t, true); status(t); },
-                frakoblet: (t) => { avslutt(); melding(t, true); },
-                tilstand: (bytes) => {
-                    if (!Kjerne.lastTilstand(bytes)) { melding('Kunne ikke laste spillet fra verten.', true); return; }
-                    venterSynk = false;
-                    akk = 0;
-                    if (modus !== 'gjest') {
-                        modus = 'gjest';
-                        oppdaterMeny();
-                        visSpill();
-                        melding('');
-                    }
-                    status('Du er med i spillet.');
-                },
-            });
-            modus = modus || 'venter';
-        } catch (e) {
-            if (fraSpillet) { avslutt(); melding(e.message, true); return; }
-            melding(e.message, true); Nett.avslutt(); modus = null;
+    $('skjerm').addEventListener('pointerdown', () => { skjermTrykk = true; });
+
+    /* Introen hoppes over med Esc. Mens den gaar, gjor fire, Enter, mellomrom og
+     * et trykk paa skjermen det samme, saa det gaar ogsaa paa mobil og med
+     * spillkontroller. Trykket som starter lyden, regnes ikke med, unntatt naar
+     * siden er aapnet med en invitasjon: da vil man rett til rommet. */
+    let introFire = false, escOpp = 0, hopper = false;
+    function introTaster(j0, j1, taster) {
+        if (escOpp && --escOpp === 0) taster.push([0x45, false]);
+        if (!Kjerne.iIntro()) { introFire = false; skjermTrykk = false; hopper = false; return taster; }
+        const fire = ((j0 | j1) & Inndata.FIRE) !== 0;
+        const nyFire = fire && !introFire;
+        introFire = fire;
+        const tast = taster.some(([k, d]) => d && (k === 0x44 || k === 0x40));     /* Return, mellomrom */
+        /* Introen ser bare paa den siste tasten (uten slipp-biten), saa Return eller
+         * mellomrom etter Esc ville skjult den. De gjor ingenting i introen uansett. */
+        taster = taster.filter(([k]) => k !== 0x44 && k !== 0x40);
+        if (taster.some(([k, d]) => d && k === 0x45)) hopper = true;
+        const trykk = skjermTrykk;
+        skjermTrykk = false;
+        const lov = invitasjon || !lydForsokt || performance.now() - forsteTrykk > 300;
+        if ((nyFire || tast || trykk) && lov && !escOpp) {
+            taster.push([0x45, true]);
+            escOpp = 4;
+            hopper = true;
         }
+        return taster;
+    }
+
+    let sisteHint = null;
+    function visHint() {
+        let t = '';
+        if (modus === 'alene' && Kjerne.iIntro()) {
+            /* introen gjor ferdig det den holder paa med, det kan ta et par sekunder */
+            if (hopper) t = 'Hopper over introen ...';
+            else if (invitasjon) t = 'Du er invitert til rom ' + invitasjon + '. Trykk på skjermen, fire eller Esc for å hoppe over introen.';
+            else if (lydForsokt) t = 'Esc, fire eller et trykk på skjermen hopper over introen';
+            else t = 'Trykk på skjermen eller en tast for lyd';
+        }
+        if ($('status').classList.contains('vis')) t = '';     /* meldingen staar paa samme sted */
+        if (t === sisteHint) return;
+        sisteHint = t;
+        $('hint').hidden = !t;
+        $('hint').textContent = t;
     }
 
     /* ---------------------------------------------------------------- nettspill i tittelmenyen
-     * Spillets tittelmeny har fått "Online Game" (port/src/meny.c). Menyen sender
+     * Spillets tittelmeny har «Online Game» (port/src/meny.c). Menyen sender
      * hendelser hit, og vi svarer med kommandoer. Kommandoene brukes ved starten
-     * av neste bilde, og verten sender dem med bildet til gjestene, så alle
+     * av neste bilde, og verten sender dem med bildet til gjestene, saa alle
      * maskinene viser det samme. */
-    const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8 };
-    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7 };
+    const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8, NAVN: 9 };
+    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9 };
+    const SIDE_JOIN = 3;
     const menyKo = [];
     let menyRom = [], sisteRomTekst = null, stoppMenyListe = null, sistAntall = 0, sisteNavn = null;
+    let menyInvitert = null;                /* rommet i invitasjonen, foerst i Join Game */
 
     /* spillets font har bare engelske bokstaver, tall og noen tegn */
     function rensNavn(t, maks) {
@@ -239,13 +280,17 @@
                 const s = Kjerne.lagreTilstand();
                 if (s) Nett.sendTilstand(id, s, Kjerne.bildeNr());
             },
-            antall: (n) => { if (n !== sistAntall) { sistAntall = n; menyKmd(KMD.SPILLERE, n); } },
+            antall: (n) => {
+                if (n === sistAntall) return;
+                sistAntall = n;
+                menyKmd(KMD.SPILLERE, n);
+                if (stoppAnnonse) stoppAnnonse.oppdater();      /* riktig antall i den offentlige listen */
+            },
         };
     }
 
     function settOffentlig(on) {
         innst.offentlig = on;
-        $('offentlig').checked = on;
         lagreInnst();
         if (modus !== 'vert') return;
         if (on && !stoppAnnonse) {
@@ -259,6 +304,7 @@
 
     async function vertFraMeny() {
         if (modus === 'vert') { menyKmd(KMD.VERT, 0, Nett.kode()); return; }
+        if (modus !== 'alene') return;
         try {
             status('Lager rom ...');
             const kode = await Nett.lagRom(navn(), vertHendelser());
@@ -275,30 +321,45 @@
         }
     }
 
-    /* "navn<tab>1 of 4"; spillet kutter navnet saa linjen faar plass */
+    /* "navn<tab>1 of 4"; spillet kutter navnet saa linjen faar plass.
+     * Invitasjonen er "Room ABC123" uten antall. */
     function romLinje(r) {
+        if (r.invitert) return 'Room ' + r.kode;
         return (rensNavn(r.vert, 10) || 'Host') + '\t' + (r.spillere || 1) + ' of ' + (r.maks || 4);
+    }
+
+    function oppdaterRomliste(rom, feil) {
+        const liste = menyInvitert ? [{ kode: menyInvitert, invitert: true }] : [];
+        for (const r of rom || []) if ((r.spillere || 1) < (r.maks || 4) && r.kode !== menyInvitert) liste.push(r);
+        menyRom = liste.slice(0, 3);
+        let n = menyRom.length, tekst = menyRom.map(romLinje).join('\n');
+        if (!n && feil) { n = -1; tekst = 'No Room List'; }
+        if (n + tekst === sisteRomTekst) return;
+        sisteRomTekst = n + tekst;
+        menyKmd(KMD.ROM, n, tekst);
     }
 
     function lyttMenyRom() {
         stoppMenyRom();
-        stoppMenyListe = Romliste.lytt((rom, feil) => {
-            let tekst, n;
-            if (feil) { menyRom = []; n = -1; tekst = 'No Room List'; }
-            else {
-                menyRom = rom.filter((r) => (r.spillere || 1) < (r.maks || 4)).slice(0, 2);
-                n = menyRom.length;
-                tekst = menyRom.map(romLinje).join('\n');
-            }
-            if (n + tekst === sisteRomTekst) return;
-            sisteRomTekst = n + tekst;
-            menyKmd(KMD.ROM, n, tekst);
-        });
+        if (menyInvitert) oppdaterRomliste([], null);
+        stoppMenyListe = Romliste.lytt(oppdaterRomliste);
     }
 
     function stoppMenyRom() {
         if (stoppMenyListe) { stoppMenyListe(); stoppMenyListe = null; }
         sisteRomTekst = null;
+    }
+
+    /* invitasjonslenke: naar tittelmenyen er kommet, aapnes Join Game med rommet valgt */
+    function aapneInvitasjon() {
+        menyInvitert = invitasjon;
+        invitasjon = null;
+        const u = new URL(location.href);
+        u.searchParams.delete('rom');
+        history.replaceState(null, '', u);
+        menyKmd(KMD.SIDE, SIDE_JOIN);
+        lyttMenyRom();
+        status('Du er invitert til rom ' + menyInvitert + '. Trykk fire for å bli med.');
     }
 
     async function kopierLenke() {
@@ -307,10 +368,11 @@
         catch (e) { visMeny(true); status('Kopier lenken her i menyen'); }
     }
 
-    function visKodeDialog(on) {
-        $('kode-dialog').hidden = !on;
-        Inndata.paa(!on);
-        if (on) { $('kode-felt').value = ''; $('kode-felt').focus(); }
+    /* ---------------------------------------------------------------- dialoger (navn og romkode) */
+    function visDialog(id, on) {
+        $(id).hidden = !on;
+        dialogApen = !$('kode-dialog').hidden || !$('navn-dialog').hidden;
+        Inndata.paa(!menyApen && !dialogApen && !!modus);
     }
 
     function kodeFraTekst(t) {
@@ -318,19 +380,54 @@
         return m ? m[1].toUpperCase() : null;
     }
 
+    let etterNavn = null, avbruttNavn = null;
+    function spoerNavn(etter, avbrutt) {
+        etterNavn = etter || null;
+        avbruttNavn = avbrutt || null;
+        $('navn-felt').value = innst.navn;
+        visDialog('navn-dialog', true);
+        $('navn-felt').focus();
+        $('navn-felt').select();
+    }
+
+    function navnOk() {
+        const n = $('navn-felt').value.trim().slice(0, 20);
+        if (!n) { status('Skriv navnet ditt'); return; }
+        innst.navn = n;
+        lagreInnst();
+        menyKmd(KMD.MITTNAVN, 0, rensNavn(n, 10));
+        visDialog('navn-dialog', false);
+        const f = etterNavn;
+        etterNavn = avbruttNavn = null;
+        if (f) f();
+    }
+
+    function navnAvbryt() {
+        visDialog('navn-dialog', false);
+        const f = avbruttNavn;
+        etterNavn = avbruttNavn = null;
+        if (f) f();
+    }
+
+    /* noe som trenger navnet: spoer forst hvis det mangler */
+    function medNavn(f, avbrutt) { if (innst.navn) f(); else spoerNavn(f, avbrutt); }
+
     function menyHendelse(h, arg) {
         switch (h) {
-        case MENY.VERT: vertFraMeny(); break;
+        case MENY.VERT:
+            medNavn(vertFraMeny, () => menyKmd(KMD.MELDING, 0, 'No Room Created'));
+            break;
         case MENY.JOIN_SIDE: if (modus === 'alene') lyttMenyRom(); break;
-        case MENY.FORLAT_JOIN: stoppMenyRom(); break;
+        case MENY.FORLAT_JOIN: stoppMenyRom(); menyInvitert = null; break;
         case MENY.JOIN_ROM: {
             const r = menyRom[arg];
-            if (r && modus === 'alene') { stoppMenyRom(); bliMed(r.kode); }
+            if (r && modus === 'alene') medNavn(() => bliMed(r.kode));
             break;
         }
-        case MENY.KODE: if (modus === 'alene') visKodeDialog(true); break;
+        case MENY.KODE: if (modus === 'alene') { $('kode-felt').value = ''; visDialog('kode-dialog', true); $('kode-felt').focus(); } break;
         case MENY.KOPIER: kopierLenke(); break;
         case MENY.OFFENTLIG: settOffentlig(!!arg); break;
+        case MENY.NAVN: spoerNavn(null); break;
         }
     }
 
@@ -338,6 +435,43 @@
     function menyHendelser() {
         for (let e; (e = Kjerne.menyHendelse()); ) {
             if (modus === 'alene' || modus === 'vert') menyHendelse(e & 0xff, e >> 8);
+        }
+        if (invitasjon && modus === 'alene' && Kjerne.menyKlar()) aapneInvitasjon();
+    }
+
+    /* ---------------------------------------------------------------- bli med som gjest */
+    async function bliMed(kode) {
+        kode = String(kode || '').trim().toUpperCase();
+        if (!/^[A-Z0-9]{6}$/.test(kode)) { status('Romkoden har seks tegn.'); return; }
+        stoppMenyRom();
+        menyInvitert = null;
+        modus = 'venter';
+        venterSynk = false;
+        lasting('Kobler til rom ' + kode + ' ...');
+        try {
+            await startKjerne(true);
+            await Nett.bliMed(kode, navn(), {
+                lobby: visSpillere,
+                chat: chatLinje,
+                status,
+                ping: () => {},
+                feil: (t) => status(t),
+                frakoblet: (t) => startPaaNytt(t),
+                tilstand: (bytes) => {
+                    if (!Kjerne.lastTilstand(bytes)) { status('Kunne ikke laste spillet fra verten.'); return; }
+                    venterSynk = false;
+                    akk = 0;
+                    if (modus !== 'gjest') {
+                        modus = 'gjest';
+                        oppdaterMeny();
+                        lasting(null);
+                        visSpill();
+                    }
+                    status('Du er med i spillet.');
+                },
+            });
+        } catch (e) {
+            startPaaNytt('Kunne ikke koble til: ' + e.message);
         }
     }
 
@@ -358,6 +492,7 @@
             j0 = lokalt.b;
             j1 = lokalt.a;
         }
+        taster = introTaster(j0, j1, taster);
         const f = Kjerne.bildeNr();
         const kommandoer = menyKo.splice(0);
         for (const [k, a, t] of kommandoer) Kjerne.menyKommando(k, a, t);
@@ -426,23 +561,23 @@
             while (akk >= periode && n < 4) { kjorEttBilde(); akk -= periode; n++; }
             if (akk > periode * 4) akk = 0;
             if (Kjerne.stoppet()) {
-                const msg = Kjerne.stoppMelding();
-                avslutt();
-                melding(msg);
+                startPaaNytt(Kjerne.stoppMelding());
                 return;
             }
         }
-        if (modus) {
+        if (modus === 'alene' || modus === 'vert' || modus === 'gjest') {
             if (sisteModus === 'auto') visTur();
+            visHint();
             Visning.tegn(Kjerne.rammebuffer(), Kjerne.vindu());
         }
     }
 
-    /* ---------------------------------------------------------------- meny */
+    /* ---------------------------------------------------------------- sidemenyen */
     function visMeny(on) {
         menyApen = on;
         $('meny').hidden = !on;
-        Inndata.paa(!on);
+        $('meny-knapp').hidden = on;        /* ellers ligger den over «Tilbake til spillet» */
+        Inndata.paa(!on && !dialogApen && !!modus);
         if (on) oppdaterMeny();
     }
 
@@ -450,6 +585,7 @@
         const nett = modus === 'vert' || modus === 'gjest';
         $('nettspill').hidden = !nett;
         $('lagring').hidden = modus === 'gjest';
+        $('omstart').textContent = nett ? 'Forlat nettspillet og start på nytt' : 'Start spillet på nytt';
         if (modus === 'vert') {
             $('rominfo').textContent = 'Du er vert for rom ' + Nett.kode() + '. Send lenken til opptil tre gjester.';
             $('lenke').value = Nett.invitasjon();
@@ -559,31 +695,10 @@
         if (modus === 'vert') for (const s of Nett.spillere()) if (!s.vert) Nett.sendTilstand(s.id, Kjerne.lagreTilstand(), Kjerne.bildeNr());
     }
 
-    function avslutt() {
-        if (stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
-        stoppMenyRom();
-        menyKo.length = 0;
-        $('kode-dialog').hidden = true;
-        Nett.avslutt();
-        modus = null;
-        venterSynk = false;
-        Inndata.paa(false);
-        visMeny(false);
-        Lyd.clear();
-        $('spill').hidden = true;
-        $('start').hidden = false;
-        Nett.rammer.length = 0;
-        history.replaceState(null, '', location.pathname);
-    }
-
     /* ---------------------------------------------------------------- knapper og taster */
-    $('spill-alene').addEventListener('click', spillAlene);
-    $('lag-rom').addEventListener('click', lagRom);
-    $('bli-med').addEventListener('click', () => bliMed());
-    $('romkode').addEventListener('keydown', (e) => { if (e.key === 'Enter') bliMed(); });
     $('meny-knapp').addEventListener('click', () => visMeny(!menyApen));
     $('lukk-meny').addEventListener('click', () => visMeny(false));
-    $('avslutt').addEventListener('click', avslutt);
+    $('omstart').addEventListener('click', () => startPaaNytt(modus === 'vert' || modus === 'gjest' ? 'Du har forlatt nettspillet' : ''));
     $('lagre').addEventListener('click', lagre);
     $('last').addEventListener('click', last);
     $('kopier').addEventListener('click', async () => {
@@ -601,20 +716,28 @@
     $('helt').addEventListener('change', (e) => { innst.helt = e.target.checked; Visning.settHelt(innst.helt); lagreInnst(); });
     $('volum').addEventListener('input', (e) => { innst.volum = +e.target.value; if (modus) Kjerne.volum(innst.volum); lagreInnst(); });
     $('knappevent').addEventListener('change', (e) => { innst.knappevent = e.target.checked; lagreInnst(); status('Gjelder fra neste start'); });
-    $('offentlig').addEventListener('change', (e) => settOffentlig(e.target.checked));
+
     const kodeOk = () => {
         const k = kodeFraTekst($('kode-felt').value);
         if (!k) { status('Skriv romkoden (seks tegn) eller lim inn lenken'); return; }
-        visKodeDialog(false);
-        bliMed(k);
+        visDialog('kode-dialog', false);
+        medNavn(() => bliMed(k));
     };
     $('kode-ok').addEventListener('click', kodeOk);
     $('kode-felt').addEventListener('keydown', (e) => {
         if (e.key === 'Enter') kodeOk();
-        if (e.key === 'Escape') visKodeDialog(false);
+        if (e.key === 'Escape') visDialog('kode-dialog', false);
         e.stopPropagation();
     });
-    $('kode-avbryt').addEventListener('click', () => visKodeDialog(false));
+    $('kode-avbryt').addEventListener('click', () => visDialog('kode-dialog', false));
+    $('navn-ok').addEventListener('click', navnOk);
+    $('navn-felt').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') navnOk();
+        if (e.key === 'Escape') navnAvbryt();
+        e.stopPropagation();
+    });
+    $('navn-avbryt').addEventListener('click', navnAvbryt);
+
     $('rammer').addEventListener('change', (e) => { Visning.settRammer(e.target.checked); });
     $('velg-hd').addEventListener('change', async (e) => {
         const n = await Visning.lastHdPakke(e.target.files);
@@ -633,50 +756,25 @@
         return false;
     });
     window.addEventListener('keydown', (e) => {
-        if (e.code === 'Home' && menyApen && modus) { visMeny(false); e.preventDefault(); }
+        if (e.code === 'Home' && menyApen) { visMeny(false); e.preventDefault(); }
     });
-
-    /* offentlige rom: listen fylles naar boksen aapnes */
-    $('offentlige').addEventListener('toggle', () => {
-        if ($('offentlige').open && !stoppListe) {
-            stoppListe = Romliste.lytt((rom, feil) => {
-                const ul = $('romliste');
-                ul.innerHTML = '';
-                if (feil) { ul.innerHTML = '<li class="hjelp"></li>'; ul.firstChild.textContent = 'Listen er ikke tilgjengelig: ' + feil; return; }
-                if (!rom.length) { ul.innerHTML = '<li class="hjelp">Ingen offentlige rom akkurat nå.</li>'; return; }
-                for (const r of rom) {
-                    const li = document.createElement('li');
-                    const tekst = document.createElement('span');
-                    tekst.textContent = (r.vert || 'Vert') + ' (' + r.kode + '), ' + (r.spillere || 1) + ' av ' + (r.maks || 4) + ' spillere';
-                    const b = document.createElement('button');
-                    b.className = 'knapp liten';
-                    b.textContent = 'Bli med';
-                    b.disabled = (r.spillere || 1) >= (r.maks || 4);
-                    b.addEventListener('click', () => bliMed(r.kode));
-                    li.append(tekst, b);
-                    ul.appendChild(li);
-                }
-            });
-        }
+    /* fanen lukkes: si fra til gjestene og fjern rommet fra listen */
+    window.addEventListener('pagehide', () => {
+        if (modus !== 'vert') return;
+        if (stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
+        Nett.avslutt();
     });
 
     /* ---------------------------------------------------------------- start */
-    $('navn').value = innst.navn;
     $('filter').value = innst.filter;
     $('format').value = innst.format;
     $('helt').checked = innst.helt;
     $('volum').value = innst.volum;
     $('knappevent').checked = innst.knappevent;
-    $('offentlig').checked = innst.offentlig;
     fyllPlasser();
     Inndata.lagTouch($('touch'));
-    finnSpillfil();
-    Lager.hent('mod').then((m) => { if (m) { modFiler = m; visMod(); } });
     const rom = new URLSearchParams(location.search).get('rom');
-    if (rom) {
-        $('romkode').value = rom.toUpperCase();
-        melding('Du er invitert til rom ' + rom.toUpperCase() + '. Skriv navnet ditt og trykk «Bli med».');
-        $('bli-med').focus();
-    }
+    if (rom && /^[A-Za-z0-9]{6}$/.test(rom)) invitasjon = rom.toUpperCase();
+    Lager.hent('mod').then((m) => { if (m) { modFiler = m; visMod(); } }).finally(startSpillet);
     window.moonDebug = { Kjerne, Nett, Visning, innst, statistikk, modus: () => modus };
 })();

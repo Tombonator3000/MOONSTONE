@@ -89,7 +89,7 @@ static void apply_presses(uint32_t frame)
 static void usage(void)
 {
     printf("Moonstone for PC, bygget paa originalkoden fra Amiga.\n\n"
-           "  --game STI            spillfilene (Moonstonecd32-AMIGA.zip, ISO eller mappe)\n"
+           "  --game STI            andre spillfiler enn de innebygde (zip, ISO eller mappe)\n"
            "  --mod MAPPE           bruk filene i MAPPE i stedet for de i data/ (endret grafikk)\n"
            "  --scale N             vindusstorrelse (standard 3)\n"
            "  --fullscreen          fullskjerm\n"
@@ -226,14 +226,16 @@ int main(int argc, char **argv)
         }
     }
 
-    if (!game) game = find_game();
-    if (!game) {
+    /* --game foerst, saa spillfila som er bygget inn, saa en fil paa disk */
+    bool embedded = !game && spill_innebygd_storrelse > 0;
+    if (!game && !embedded) game = find_game();
+    if (!game && !embedded) {
         fprintf(stderr, "Fant ikke spillfilene. Legg Moonstonecd32-AMIGA.zip i mappen spill/ eller bruk --game.\n");
         if (!headless) frontend_message("Fant ikke spillfilene.\n\nLegg Moonstonecd32-AMIGA.zip i mappen \"spill\" ved siden av programmet.");
         return 1;
     }
-    if (!files_open(game)) {
-        fprintf(stderr, "%s: %s\n", game, files_error);
+    if (embedded ? !files_open_embedded() : !files_open(game)) {
+        fprintf(stderr, "%s: %s\n", embedded ? "innebygd spillfil" : game, files_error);
         if (!headless) frontend_message(files_error);
         return 1;
     }

@@ -10,9 +10,16 @@ SDL_LIBS   := $(shell sdl2-config --libs 2>/dev/null)
 CFLAGS  ?= -O2 -g
 CFLAGS  += -std=gnu99 -Wall -Wno-misleading-indentation -Iext/musashi -Isrc
 
+# Spillfila fra repoet bygges inn i programmet, saa spillet starter uten at noen
+# maa finne den (Moonstone regnes som abandonware, og eieren har bestemt det).
+# make MED_SPILLET=nei bygger uten; da ser programmet etter fila paa disk.
+MED_SPILLET ?= ja
+SPILL       ?= ../Moonstonecd32-AMIGA.zip
+SPILL_INN    = $(if $(filter ja,$(MED_SPILLET)),$(wildcard $(SPILL)))
+
 CORE_SRC = src/amiga.c src/custom.c src/blitter.c src/video.c src/paula.c src/cia.c src/whdload.c \
            src/files.c src/unzip.c src/decrunch.c src/hooks.c src/game.c src/patch.c src/meny.c src/state.c src/cpu_state.c src/png.c \
-           src/decomp/decomp.c
+           src/decomp/decomp.c src/spilldata.c
 MUSASHI_SRC = ext/musashi/m68kcpu.c ext/musashi/m68kops.c ext/musashi/m68kdasm.c ext/musashi/softfloat/softfloat.c
 CORE_OBJ = $(CORE_SRC:.c=.o)
 MUSASHI_OBJ = $(MUSASHI_SRC:.c=.o)
@@ -39,11 +46,16 @@ ext/musashi/%.o: ext/musashi/%.c $(MUSASHI_GEN)
 src/%.o: src/%.c src/amiga.h $(MUSASHI_GEN)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
+# lages hver gang, men skrives bare om naar innholdet er endret
+src/spilldata.c: bin2c.py FORCE
+	python3 bin2c.py $@ $(SPILL_INN)
+
 clean:
 	rm -rf build-win build-web ../web/build
-	rm -f $(CORE_OBJ) $(MUSASHI_OBJ) src/*.o moonstone moonstone-headless moonstone.exe SDL2.dll ext/musashi/m68kmake $(MUSASHI_GEN)
+	rm -f $(CORE_OBJ) $(MUSASHI_OBJ) src/*.o src/spilldata.c moonstone moonstone-headless moonstone.exe SDL2.dll ext/musashi/m68kmake $(MUSASHI_GEN)
 
-.PHONY: clean headless windows web
+.PHONY: clean headless windows web FORCE
+FORCE:
 
 # Kryssbygging til Windows fra Linux:
 #   make windows SDL2_MINGW=/sti/til/SDL2-2.30.x/x86_64-w64-mingw32

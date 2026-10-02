@@ -13,17 +13,24 @@ en (decomp), og hver erstatning sjekkes mot originalen.
 
 `web/build/moonstone.html` er hele spillet i én fil: emulatoren som WebAssembly, bildet
 med three.js og lyden med WebAudio. Den lages med `make -C port web` og legges ut på
-GitHub Pages av Actions. Åpne siden, trykk **Spill**, og spill.
+GitHub Pages av Actions. Det finnes ingen egen startside: spillet starter med introen
+med en gang siden er lastet, og alt annet velges i spillets egen tittelmeny.
 
-Spillfilen hentes automatisk hvis den ligger ved siden av siden
-(`spill/Moonstonecd32-AMIGA.zip`, slik Pages-utgaven er satt opp). Ellers velger du
-den selv, og den lagres i nettleseren (IndexedDB).
+Nettleseren slipper ikke ut lyd før du har trykket på noe, så det første trykket slår på
+lyden. Deretter hopper Esc, fire, Enter, mellomrom eller et trykk på skjermen over
+introen. Det kan ta et par sekunder før den slutter, for introen gjør ferdig overgangen
+den holder på med.
+
+Spillfilen (`Moonstonecd32-AMIGA.zip` fra repoet) er bygget inn i siden. En annen
+spillfil, f.eks. «Moonstone CD32.iso», kan velges i menyen (Home eller knappen oppe til
+høyre) under «Spillfil og egne filer». Der ligger også bilde og lyd, lagring og
+HD-grafikk.
 
 ### GitHub Pages
 
 Når Pages er slått på, ligger spillet på **https://tombonator3000.github.io/MOONSTONE/**.
 Hver push til `main` bygger siden på nytt og legger den ut (jobben `pages` i
-`.github/workflows/bygg.yml`), med spillfilen ved siden av.
+`.github/workflows/bygg.yml`), med spillfilen innebygd.
 
 Slik slås det på (bare eieren av repoet kan gjøre det):
 
@@ -45,18 +52,22 @@ spillets font og pil:
   invitasjonslenken, og **Public** legger rommet i listen over offentlige rom.
 - **Join Game** viser de offentlige rommene. Velg ett, eller **Enter Code** for å
   skrive inn en romkode eller lime inn en lenke.
+- **Choose Name** (eller **Name** med navnet ditt) åpner et lite felt der du skriver
+  navnet de andre ser. Spør spillet om navnet første gang du lager et rom eller blir
+  med, om du ikke har valgt det før. Spillets font har bare engelske bokstaver, så
+  æ, ø og å blir ae, o og a i menyen.
 - **Back** fra romsiden setter **Players** i tittelmenyen til antallet som er med.
+
+En invitasjonslenke åpner spillet på samme måte. Hopp over introen (her holder ett
+trykk), så åpnes **Join Game** med rommet øverst og pilen på det. Trykk fire for å bli
+med. Gjestene trenger ikke spillfilen. Velg så antall spillere og la hver spiller
+velge ridder etter tur.
+
+Lukker verten fanen, får gjestene beskjed og havner i introen igjen. Har verten
+forsvunnet uten å si fra (tapt nett), gir gjestene opp etter 20 sekunder uten svar.
 
 Menyvalget finnes bare på nettsiden, siden PC-versjonen ikke har nettspill
 (`moonstone-headless --online-meny` viser det for testing).
-
-Det går også fra startsiden som før:
-
-1. Verten trykker **Lag nettspill**. Spillet starter, og menyen (Home eller knappen
-   oppe til høyre) viser en invitasjonslenke.
-2. Send lenken til opptil tre andre. De åpner den, skriver navnet sitt og trykker
-   **Bli med**. Gjestene trenger ikke spillfilen.
-3. Velg antall spillere i spillet og la hver spiller velge ridder etter tur.
 
 Verten kjører spillet og styrer turene. Gjestene får hele tilstanden til maskinen når de
 kobler seg til, og deretter knappetrykkene for hvert bilde, så alle kjører nøyaktig det
@@ -70,7 +81,7 @@ Bare den som har turen kan trykke tastene (mellomrom, E).
 
 PeerJS Cloud kobler nettleserne sammen gratis, og dataene går så direkte mellom dem
 (WebRTC). Offentlige rom vises i en liste via den gratis MQTT-megleren til HiveMQ hvis
-verten krysser av for det. Lagring skjer i nettleseren til verten. Begge deler er samme
+verten slår på **Public**. Lagring skjer i nettleseren til verten. Begge deler er samme
 oppskrift som i Guild Life.
 
 Egen PeerJS-server eller MQTT-megler: legg `?peer=vert:port` eller `?mqtt=wss://vert/sti`
@@ -78,14 +89,13 @@ til adressen.
 
 ## Spille på Windows og Linux
 
-Ferdige bygg ligger under **Actions** (filene `moonstone-windows` og `moonstone-linux`),
-med spillfilen i mappen `spill`. På Windows: dobbeltklikk `start.bat` eller
-`moonstone.exe`. Windows kan si at programmet er ukjent fordi det ikke er signert; velg
-«Mer informasjon» og «Kjør likevel».
+Ferdige bygg ligger under **Actions** (filene `moonstone-windows` og `moonstone-linux`).
+Spillfilen er bygget inn i programmet, så det trengs ingen andre filer. På Windows:
+dobbeltklikk `start.bat` eller `moonstone.exe`. Windows kan si at programmet er ukjent
+fordi det ikke er signert; velg «Mer informasjon» og «Kjør likevel».
 
-Programmet finner spillfilen i `spill/` eller mappen det startes fra, eller med
-`--game sti`. Det kan være zip-filen, ISO-en eller en mappe med `Moonstone.Slave` og
-`data/`. `moonstone --help` viser alle valgene.
+Med `--game sti` bruker programmet en annen spillfil: zip-filen, ISO-en eller en mappe
+med `Moonstone.Slave` og `data/`. `moonstone --help` viser alle valgene.
 
 ## Taster
 
@@ -96,7 +106,10 @@ Programmet finner spillfilen i `spill/` eller mappen det startes fra, eller med
 | Spillkontroller | nummer 1 | nummer 2 |
 
 Resten av tastaturet går til Amigaen som det er: **mellomrom** viser inventaret, **E**
-avslutter turen, **Esc** hopper over introen, og du skriver navnet til ridderen.
+avslutter turen, **Esc** hopper over introen, og du skriver navnet til ridderen. I
+nettleseren hopper også fire, Enter, mellomrom og et trykk på skjermen over introen.
+Mens introen går, sendes ikke Enter og mellomrom videre til spillet, for introen ser
+bare på den siste tasten, og da ville de skjult Esc.
 I kamp holder du fire og trykker en retning for de åtte angrepene (se manualen på ISO-en).
 På spillkontrollere er A fire, B mellomrom, Start E og Back Esc, som CD32-padden.
 
@@ -139,7 +152,8 @@ port/moonstone --mod mod
 ```
 
 `build` lager bare filene du har endret, og de pakkes med samme metode som spillet.
-På nettsiden velger du dem under «Egne filer». I nettspill får gjestene dem fra verten.
+På nettsiden velger du dem i menyen under «Spillfil og egne filer». I nettspill får
+gjestene dem fra verten.
 
 ```
 python3 tools/lyd.py extract Moonstonecd32-AMIGA.zip assets/lyd
@@ -162,7 +176,8 @@ bruker filen når spillet er lastet, så spillfilen endres ikke. Tekster kan bli
 da legges de i ledig minne og pekerne rettes, og avsnitt flyttes samlet. `check` viser
 hva som endres, og sier fra om en tekst blir for bred for skjermen, har tegn fonten
 ikke har (æøå finnes ikke), eller ikke kan bli lengre. På nettsiden velges
-`tekster.txt` under «Egne filer», og i nettspill får gjestene den fra verten.
+`tekster.txt` i menyen under «Spillfil og egne filer», og i nettspill får gjestene den
+fra verten.
 
 ### HD-grafikk (eksperimentelt)
 
@@ -205,6 +220,10 @@ sudo apt install build-essential libsdl2-dev
 make -C port              # moonstone med vindu
 make -C port headless     # moonstone-headless, uten SDL, for testing
 ```
+
+Spillfilen bygges inn (`port/bin2c.py` lager `port/src/spilldata.c` fra
+`Moonstonecd32-AMIGA.zip`). `make -C port MED_SPILLET=nei` bygger uten; da ser programmet
+etter filen i `spill/` og mappen det startes fra.
 
 Windows fra Linux (krever mingw-w64 og SDL2-devel-2.30.8-mingw):
 ```

@@ -10,12 +10,19 @@ const Kjerne = (() => {
     let M = null;
     let fbW = 720, fbH = 288;
 
-    async function last() {
-        if (M) return M;
-        M = await MoonCore();
-        fbW = M._ms_fb_w();
-        fbH = M._ms_fb_h();
-        return M;
+    /* lastes bare en gang, ogsaa om flere spor ber om den samtidig */
+    let laster = null;
+    function last() {
+        if (!laster) {
+            laster = MoonCore().then((m) => {
+                M = m;
+                fbW = M._ms_fb_w();
+                fbH = M._ms_fb_h();
+                return M;
+            });
+            laster.catch(() => { laster = null; });
+        }
+        return laster;
     }
 
     function kopierInn(bytes) {
@@ -31,7 +38,13 @@ const Kjerne = (() => {
         return p;
     }
 
-    /* spillfilene (zip eller ISO); kjernen tar over bufferet */
+    /* spillfila som er bygget inn i kjernen (port/bin2c.py) */
+    function harInnebygd() { return !!M._ms_has_embedded(); }
+    function aapneInnebygd() {
+        if (!M._ms_open_embedded()) throw new Error(M.UTF8ToString(M._ms_error()) || 'Den innebygde spillfilen kan ikke leses.');
+    }
+
+    /* andre spillfiler (zip eller ISO); kjernen tar over bufferet */
     function aapne(bytes) {
         const p = kopierInn(bytes);
         if (!M._ms_open_mem(p, bytes.length)) throw new Error(M.UTF8ToString(M._ms_error()));
@@ -129,8 +142,10 @@ const Kjerne = (() => {
     return {
         menyPaa: (on) => M._ms_menu_enable(on ? 1 : 0),
         menyHendelse: () => M._ms_menu_event(),
+        menyKlar: () => !!M._ms_menu_ready(),       /* tittelmenyen er naadd */
+        iIntro: () => !!M._ms_in_intro(),
         menyKommando,
-        last, aapne, start, startSomGjest, inndata, tast, bilde, rammebuffer, vindu, lyd,
+        last, aapne, harInnebygd, aapneInnebygd, start, startSomGjest, inndata, tast, bilde, rammebuffer, vindu, lyd,
         lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil,
         bredde: () => fbW, hoyde: () => fbH,
         bildeNr: () => M._ms_frame_no() >>> 0,

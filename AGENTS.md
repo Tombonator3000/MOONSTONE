@@ -22,9 +22,10 @@ Instrukser for AI-agenter og andre som jobber i dette repoet.
 
 ## Regler
 - Spillfilene (`Moonstonecd32-AMIGA.zip`) ligger i repoet fordi eieren la dem der.
-  Eieren regner Moonstone som abandonware og vil ha det enkelt: Pages-utgaven og
-  Windows/Linux-pakkene fra Actions har spillfilen med (`MED_SPILLET` i
-  `.github/workflows/bygg.yml`). Utpakket grafikk og lyd (`assets/`) og disassemblyen
+  Eieren regner Moonstone som abandonware og vil ha det enkelt: spillfilen bygges inn
+  i programmene og nettsiden (`port/bin2c.py`, `MED_SPILLET` i `port/Makefile` og
+  `.github/workflows/bygg.yml`), så ingen trenger å finne den. Den genererte
+  `port/src/spilldata.c` sjekkes ikke inn. Utpakket grafikk og lyd (`assets/`) og disassemblyen
   (`disasm/*.s`) lages lokalt med verktøyene og sjekkes ikke inn, fordi de kan lages
   på nytt når som helst.
 - Porten kjører originalkoden. En C-erstatning for en 68000-funksjon
@@ -40,3 +41,8 @@ Instrukser for AI-agenter og andre som jobber i dette repoet.
   alle maskinene i et nettspill gjør det samme også etter at en tilstand er lastet.
   Det som endrer spillets minne utenfra, går som menykommandoer ved starten av et bilde.
 - Tekstene fra spillet (`tools/tekst.py extract`) sjekkes ikke inn, som grafikken.
+- Nettsiden skal ikke ha en egen startside. Den starter rett i introen, som kan hoppes
+  over, og nettspill og navn velges bare i spillets tittelmeny («Online Game»).
+  Innstillinger, lagring og egne filer ligger i sidemenyen. Eieren vil ha det slik.
+- Endres strukturer som lagres i tilstanden, men som `layout_id()` i state.c ikke ser
+  (f.eks. M2 i meny.c), skal `STATE_VERSION` økes.

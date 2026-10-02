@@ -289,6 +289,16 @@ bool files_open_mem(uint8_t *data, size_t size, const char *name)
     return find_root();
 }
 
+/* Spillfila som er bygget inn i programmet (port/bin2c.py), eller false. */
+bool files_open_embedded(void)
+{
+    if (!spill_innebygd_storrelse) return false;
+    uint8_t *d = malloc(spill_innebygd_storrelse);       /* files_open_mem tar over bufferet */
+    if (!d) return false;
+    memcpy(d, spill_innebygd, spill_innebygd_storrelse);
+    return files_open_mem(d, spill_innebygd_storrelse, "innebygd");
+}
+
 bool files_open(const char *path)
 {
     files_close();
