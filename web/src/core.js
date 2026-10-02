@@ -112,6 +112,8 @@ const Kjerne = (() => {
         stoppet: () => !!M._ms_aborted(),
         stoppMelding: () => M.UTF8ToString(M._ms_abort_msg()),
         volum: (v) => M._ms_volume(v),
+        portSpillere: () => [M._ms_port_player(0), M._ms_port_player(1)],
+        ridderNavn: (k) => M.UTF8ToString(M._ms_knight_name(k)),
         les8: (a) => M._ms_peek8(a),
         les16: (a) => M._ms_peek16(a),
     };

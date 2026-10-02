@@ -194,12 +194,16 @@
     /* ---------------------------------------------------------------- spillokka */
     function kjorEttBilde() {
         const lokalt = Inndata.les();
-        const taster = Inndata.hentTaster();
+        let taster = Inndata.hentTaster();
         let j0, j1;
         if (modus === 'vert') {
-            [j0, j1] = Nett.porter(lokalt.a | lokalt.b);
+            const eiere = Kjerne.portSpillere();
+            [j0, j1] = Nett.porter(lokalt.a | lokalt.b, eiere);
             if (!Nett.harGjester()) { j0 = lokalt.b; j1 = lokalt.a; }
-            for (const t of Nett.hentGjesteTaster()) taster.push(t);
+            else {
+                const alle = taster.map(([k, d]) => [k, d, Nett.vertensSpiller()]).concat(Nett.hentGjesteTaster());
+                taster = alle.filter(([, d, sp]) => Nett.tastTillatt(sp, d, eiere)).map(([k, d]) => [k, d]);
+            }
         } else {
             j0 = lokalt.b;
             j1 = lokalt.a;
@@ -271,7 +275,10 @@
                 return;
             }
         }
-        if (modus) Visning.tegn(Kjerne.rammebuffer(), Kjerne.vindu());
+        if (modus) {
+            if (sisteModus === 'auto') visTur();
+            Visning.tegn(Kjerne.rammebuffer(), Kjerne.vindu());
+        }
     }
 
     /* ---------------------------------------------------------------- meny */
@@ -298,33 +305,73 @@
         visSpillere(null);
     }
 
-    let sisteSpillere = [];
-    function visSpillere(liste) {
+    let sisteSpillere = [], sisteModus = 'auto';
+    function visSpillere(liste, kode, portModus) {
         if (liste) sisteSpillere = liste;
         else if (modus === 'vert') sisteSpillere = Nett.spillere();
+        if (portModus) sisteModus = portModus;
         const tab = $('spillerliste');
         tab.innerHTML = '';
-        const navn = { p2: 'Joystick 1 (port 2)', p1: 'Joystick 2 (port 1)', begge: 'Begge', ingen: 'Ser på' };
+        const vert = modus === 'vert';
+        /* hvordan joystickene fordeles */
+        const topp = document.createElement('tr');
+        const t1 = document.createElement('td');
+        t1.textContent = 'Joystick';
+        const t2 = document.createElement('td');
+        if (vert) {
+            const sel = document.createElement('select');
+            for (const [v, t] of [['auto', 'Følger turen i spillet'], ['fast', 'Faste porter']]) {
+                const o = document.createElement('option');
+                o.value = v; o.textContent = t; o.selected = v === sisteModus;
+                sel.appendChild(o);
+            }
+            sel.addEventListener('change', () => Nett.settModus(sel.value));
+            t2.appendChild(sel);
+        } else t2.textContent = sisteModus === 'auto' ? 'Følger turen i spillet' : 'Faste porter';
+        topp.append(t1, t2);
+        tab.appendChild(topp);
+        const portNavn = { p2: 'Joystick 1 (port 2)', p1: 'Joystick 2 (port 1)', begge: 'Begge', ingen: 'Ser på' };
+        const spillerNavn = { '-1': 'Ser på', 0: 'Spiller 1', 1: 'Spiller 2', 2: 'Spiller 3', 3: 'Spiller 4' };
         for (const s of sisteSpillere) {
             const tr = document.createElement('tr');
             const td1 = document.createElement('td');
             td1.textContent = s.navn + (s.vert ? ' (vert)' : '') + (s.klar === false ? ' (kobler til ...)' : '');
             const td2 = document.createElement('td');
-            if (modus === 'vert') {
+            const valg = sisteModus === 'auto' ? spillerNavn : portNavn;
+            const verdi = sisteModus === 'auto' ? String(s.spiller) : s.port;
+            if (vert) {
                 const sel = document.createElement('select');
-                for (const [v, t] of Object.entries(navn)) {
+                for (const [v, t] of Object.entries(valg)) {
                     const o = document.createElement('option');
-                    o.value = v; o.textContent = t; o.selected = v === s.port;
+                    o.value = v; o.textContent = t; o.selected = v === verdi;
                     sel.appendChild(o);
                 }
-                sel.addEventListener('change', () => Nett.settPort(s.id, sel.value));
+                sel.addEventListener('change', () => {
+                    if (sisteModus === 'auto') Nett.settSpiller(s.id, +sel.value);
+                    else Nett.settPort(s.id, sel.value);
+                });
                 td2.appendChild(sel);
             } else {
-                td2.textContent = navn[s.port] || s.port;
+                td2.textContent = valg[verdi] || verdi;
             }
             tr.append(td1, td2);
             tab.appendChild(tr);
         }
+        $('port-hjelp').textContent = sisteModus === 'auto'
+            ? 'Spiller 1 er den som velger ridder først i spillet, spiller 2 den neste osv. Joysticken går automatisk til den som har turen på kartet, og i kamp mellom to riddere får begge sin joystick. I menyene kan alle styre.'
+            : 'Moonstone har to joystickporter. Joystick 1 (port 2) brukes på kartet og i menyene, i kamp mellom to riddere brukes begge.';
+    }
+
+    /* vis hvem som har turen naar det endrer seg */
+    let sistEier = -2;
+    function visTur() {
+        if (modus !== 'vert' && modus !== 'gjest') return;
+        const e = Kjerne.portSpillere()[1];
+        if (e === sistEier) return;
+        sistEier = e;
+        if (e < 0) return;
+        const s = sisteSpillere.find((x) => x.spiller === e);
+        if (s) status(s.navn + ' har turen');
     }
 
     function fyllPlasser() {

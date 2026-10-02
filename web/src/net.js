@@ -92,7 +92,15 @@ const Nett = (() => {
 
     /* ---------------------------------------------------------------- vert */
     const gjester = new Map();                /* peer-id -> gjest */
-    let vertPort = 'p2';
+    let vertPort = 'p2', vertSpiller = 0;
+    let portModus = 'auto';                   /* 'auto' = joysticken folger turen, 'fast' = faste porter */
+
+    function ledigSpiller() {
+        const brukt = new Set([vertSpiller]);
+        for (const g of gjester.values()) brukt.add(g.spiller);
+        for (let i = 0; i < 4; i++) if (!brukt.has(i)) return i;
+        return -1;
+    }
     const gjesteTaster = [];
 
     function lagRom(navn, hendelser) {
@@ -153,7 +161,8 @@ const Nett = (() => {
             }
             g = {
                 conn, id: conn.peer, navn: String(d.navn || 'Gjest').slice(0, 20),
-                port: PORTER[gjester.size] || 'ingen', inn: 0, klar: false, venter: true, ko: [], filer: new Set(),
+                port: PORTER[gjester.size] || 'ingen', spiller: ledigSpiller(),
+                inn: 0, klar: false, venter: true, ko: [], filer: new Set(),
             };
             gjester.set(conn.peer, g);
             h.chat && h.chat('', g.navn + ' koblet seg til');
@@ -162,7 +171,7 @@ const Nett = (() => {
             break;
         }
         case 'inn': if (g) g.inn = d.j & 31; break;
-        case 'tast': if (g && g.klar) gjesteTaster.push([d.k & 0x7f, !!d.ned]); break;
+        case 'tast': if (g && g.klar) gjesteTaster.push([d.k & 0x7f, !!d.ned, g.spiller]); break;
         case 'chat':
             if (g) {
                 const tekst = String(d.tekst || '').slice(0, 300);
@@ -182,15 +191,15 @@ const Nett = (() => {
     }
 
     function spillere() {
-        const l = [{ id: 'vert', navn: mittNavn, port: vertPort, vert: true }];
-        for (const g of gjester.values()) l.push({ id: g.id, navn: g.navn, port: g.port, klar: g.klar });
+        const l = [{ id: 'vert', navn: mittNavn, port: vertPort, spiller: vertSpiller, vert: true }];
+        for (const g of gjester.values()) l.push({ id: g.id, navn: g.navn, port: g.port, spiller: g.spiller, klar: g.klar });
         return l;
     }
 
     function oppdaterLobby() {
         const l = spillere();
-        sendAlle({ t: 'lobby', spillere: l, kode });
-        h.lobby && h.lobby(l, kode);
+        sendAlle({ t: 'lobby', spillere: l, kode, modus: portModus });
+        h.lobby && h.lobby(l, kode, portModus);
         h.antall && h.antall(l.length);
     }
 
@@ -199,6 +208,14 @@ const Nett = (() => {
         else if (gjester.has(id)) gjester.get(id).port = port;
         oppdaterLobby();
     }
+
+    function settSpiller(id, n) {
+        if (id === 'vert') vertSpiller = n;
+        else if (gjester.has(id)) gjester.get(id).spiller = n;
+        oppdaterLobby();
+    }
+
+    function settModus(m) { portModus = m; oppdaterLobby(); }
 
     /* Tilstanden sendes i deler. Bildene som kjores mens den pakkes, legges i
      * koen til gjesten og sendes etterpaa, i riktig rekkefolge. */
@@ -223,19 +240,47 @@ const Nett = (() => {
         oppdaterLobby();
     }
 
-    /* inndata for de to portene: hver spiller legges paa porten sin */
-    function porter(lokal) {
+    /* Inndata for de to portene. Med 'auto' folger joysticken turen i spillet:
+     * eiere[1] er spilleren (0-3) som styrer port 2 naa, eiere[0] port 1 (se
+     * port/src/game.c). Er det ukjent (menyer, intro), styrer alle spillerne
+     * port 2. Med 'fast' er hver deltaker koblet til en bestemt port. */
+    function porter(lokal, eiere) {
+        const deltakere = [{ spiller: vertSpiller, port: vertPort, inn: lokal }];
+        for (const g of gjester.values()) if (g.klar) deltakere.push({ spiller: g.spiller, port: g.port, inn: g.inn });
         const j = [0, 0];
+        if (portModus === 'auto') {
+            const har = (n) => n >= 0 && deltakere.some((d) => d.spiller === n);
+            const fra = (n) => { let b = 0; for (const d of deltakere) if (d.spiller === n) b |= d.inn; return b; };
+            const e2 = eiere ? eiere[1] : -1, e1 = eiere ? eiere[0] : -1;
+            if (har(e2)) j[1] = fra(e2);
+            else if (e2 < 0) { for (const d of deltakere) if (d.spiller >= 0) j[1] |= d.inn; }
+            else j[1] = lokal;                    /* ingen er den spilleren: verten styrer */
+            if (har(e1)) j[0] = fra(e1);
+            else if (e1 >= 0) j[0] = lokal;
+            return j;
+        }
         const legg = (port, b) => {
             if (port === 'p1' || port === 'begge') j[0] |= b;
             if (port === 'p2' || port === 'begge') j[1] |= b;
         };
-        legg(vertPort, lokal);
-        for (const g of gjester.values()) if (g.klar) legg(g.port, g.inn);
+        for (const d of deltakere) legg(d.port, d.inn);
         return j;
     }
 
     function hentGjesteTaster() { return gjesteTaster.splice(0, gjesteTaster.length); }
+
+    /* Med joystick etter tur gjelder det ogsaa tastene (mellomrom, E osv.):
+     * bare den som har turen kan trykke ned en tast. Slipp gaar alltid gjennom. */
+    function tastTillatt(spiller, ned, eiere) {
+        if (!ned || portModus !== 'auto' || !eiere) return true;
+        const e2 = eiere[1];
+        if (e2 < 0) return true;
+        let finnes = vertSpiller === e2;
+        for (const g of gjester.values()) if (g.klar && g.spiller === e2) finnes = true;
+        return !finnes || spiller === e2;
+    }
+
+    function vertensSpiller() { return vertSpiller; }
 
     /* etter hvert bilde: send inndataene og filene som ble brukt */
     function sendBilde(f, j, taster, filer, hentFil, sjekksum) {
@@ -298,7 +343,7 @@ const Nett = (() => {
     async function fraVert(d) {
         if (!d || typeof d !== 'object') return;
         switch (d.t) {
-        case 'lobby': h.lobby && h.lobby(d.spillere, d.kode); break;
+        case 'lobby': h.lobby && h.lobby(d.spillere, d.kode, d.modus); break;
         case 'tilstand': {
             if (!deler || deler.id !== d.id) deler = { id: d.id, n: d.n, f: d.f, z: d.z, biter: new Array(d.n), fatt: 0 };
             if (!deler.biter[d.i]) { deler.biter[d.i] = tilBytes(d.data); deler.fatt++; }
@@ -357,8 +402,8 @@ const Nett = (() => {
     }
 
     return {
-        lagRom, bliMed, avslutt, chat, invitasjon, settPort, sendTilstand, porter, sendBilde,
-        hentGjesteTaster, harGjester, sendInn, sendTast, beOmSynk, spillere,
+        lagRom, bliMed, avslutt, chat, invitasjon, settPort, settSpiller, settModus, sendTilstand, porter, sendBilde,
+        hentGjesteTaster, tastTillatt, vertensSpiller, harGjester, sendInn, sendTast, beOmSynk, spillere,
         rammer, rolle: () => rolle, kode: () => kode, ping: () => ping,
     };
 })();

@@ -19,6 +19,9 @@ bool png_write(const char *path, const uint32_t *rgba, int w, int h, int stride)
 void decomp_register_all(void);
 
 typedef struct { int frame, len; char what[32]; } Press;
+typedef struct { int frame; char path[256]; } Dump;
+static Dump dumps[64];
+static int  n_dumps;
 static Press presses[256];
 static int   n_presses;
 
@@ -94,6 +97,9 @@ static void usage(void)
            "  --press F:HVA[:LENGDE] trykk knapp/tast i bilde F (fire, up, p2-fire, esc, f1, a ...)\n"
            "  --save-state F:FIL    lagre tilstand i bilde F\n"
            "  --load-state FIL      start fra en lagret tilstand\n"
+           "  --dump F:FIL          skriv chip-minnet til fil i bilde F\n"
+           "  --vis-tur             skriv hvilken spiller som styrer portene (nettspill)\n"
+           "  --wav FIL             ta opp lyden\n"
            "  --log N               0 stille, 1 normal, 2 alt\n");
 }
 
@@ -114,7 +120,7 @@ static const char *find_game(void)
 int main(int argc, char **argv)
 {
     const char *game = NULL, *shot_dir = ".", *load_state = NULL, *save_state_file = NULL, *wav_path = NULL;
-    bool headless = false, nohooks = false;
+    bool headless = false, nohooks = false, show_turn = false;
     int frames = 0, shot_every = 0, save_state_frame = -1;
     FrontendOptions fo = { .scale = 3, .volume = 1.0f };
 
@@ -134,6 +140,16 @@ int main(int argc, char **argv)
         else if (!strcmp(a, "--nohooks")) nohooks = true;
         else if (!strcmp(a, "--log") && v) { log_level = atoi(v); i++; }
         else if (!strcmp(a, "--wav") && v) { wav_path = v; i++; }
+        else if (!strcmp(a, "--vis-tur")) show_turn = true;
+        else if (!strcmp(a, "--dump") && v) {
+            if (n_dumps < 64) {
+                dumps[n_dumps].frame = atoi(v);
+                const char *c = strchr(v, ':');
+                snprintf(dumps[n_dumps].path, sizeof dumps[0].path, "%s", c ? c + 1 : "ram.bin");
+                n_dumps++;
+            }
+            i++;
+        }
         else if (!strcmp(a, "--load-state") && v) { load_state = v; i++; }
         else if (!strcmp(a, "--save-state") && v) {
             save_state_frame = atoi(v);
@@ -202,6 +218,19 @@ int main(int argc, char **argv)
             snprintf(path, sizeof path, "%s/shot_%05d.png", shot_dir, f + 1);
             png_write(path, video_fb, FB_W, FB_H, FB_W);
         }
+        if (show_turn) {
+            static int last = -99;
+            int p2 = game_port_player(1), p1 = game_port_player(0);
+            if (p2 * 10 + p1 != last) {
+                last = p2 * 10 + p1;
+                printf("bilde %u: port 2 = spiller %d, port 1 = spiller %d\n", M.frame, p2, p1);
+            }
+        }
+        for (int d = 0; d < n_dumps; d++)
+            if (dumps[d].frame == (int)M.frame) {
+                FILE *df = fopen(dumps[d].path, "wb");
+                if (df) { fwrite(chip, 1, CHIP_SIZE, df); fclose(df); }
+            }
         if (save_state_frame == f + 1) {
             if (state_save_file(save_state_file)) printf("Tilstand lagret i %s\n", save_state_file);
         }

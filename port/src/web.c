@@ -117,3 +117,8 @@ EMSCRIPTEN_KEEPALIVE void ms_file_inject(const char *path, const uint8_t *data, 
 {
     files_inject(path, data, (size_t)size);
 }
+
+/* nettspill: hvem som styrer portene naa (se game.c) */
+EMSCRIPTEN_KEEPALIVE int ms_port_player(int port) { return game_port_player(port); }
+EMSCRIPTEN_KEEPALIVE const char *ms_knight_name(int k) { return game_knight_name(k); }
+EMSCRIPTEN_KEEPALIVE int ms_knight_player(int k) { return game_knight_player(k); }

@@ -260,6 +260,13 @@ long     rnc_unpack(const uint8_t *src, size_t len, uint8_t *dst, size_t dstlen)
 /* Spillets egen LZ-pakking (PIV, CEL, .t og andre). Returnerer utpakket lengde. */
 size_t   ms_unpack(const uint8_t *src, size_t srclen, uint8_t *dst, size_t dstmax);
 
+/* ------------------------------------------------------------ game.c */
+/* Det vi vet om spillets data i minnet (se game.c). */
+bool     game_mog_running(void);
+int      game_port_player(int port);      /* spiller 0-3 som styrer port 0/1 naa, -1 = ukjent */
+const char *game_knight_name(int k);
+int      game_knight_player(int k);
+
 /* ------------------------------------------------------------ hooks.c */
 typedef bool (*hook_fn)(void);
 void     hooks_register(uint32_t addr, hook_fn fn, const char *name);

@@ -11,7 +11,7 @@ CFLAGS  ?= -O2 -g
 CFLAGS  += -std=gnu99 -Wall -Wno-misleading-indentation -Iext/musashi -Isrc
 
 CORE_SRC = src/amiga.c src/custom.c src/blitter.c src/video.c src/paula.c src/cia.c src/whdload.c \
-           src/files.c src/unzip.c src/decrunch.c src/hooks.c src/state.c src/cpu_state.c src/png.c \
+           src/files.c src/unzip.c src/decrunch.c src/hooks.c src/game.c src/state.c src/cpu_state.c src/png.c \
            src/decomp/decomp.c
 MUSASHI_SRC = ext/musashi/m68kcpu.c ext/musashi/m68kops.c ext/musashi/m68kdasm.c ext/musashi/softfloat/softfloat.c
 CORE_OBJ = $(CORE_SRC:.c=.o)
