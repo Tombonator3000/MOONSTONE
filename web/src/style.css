@@ -1,0 +1,73 @@
+:root {
+    --bakgrunn: #07081a;
+    --panel: #11132e;
+    --kant: #2b2f63;
+    --tekst: #e9e4d4;
+    --svak: #a49f92;
+    --gull: #e3b866;
+    --knapp: #2a2560;
+    --knapp-hover: #3a3480;
+    --feil: #ff8a7a;
+    color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bakgrunn); color: var(--tekst); }
+body { font: 16px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; color: var(--gull); font-weight: normal; margin: 0 0 .4em; }
+h1 { font-size: 2.6rem; letter-spacing: .06em; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.15rem; }
+.panel { max-width: 640px; margin: 0 auto; padding: 24px 16px 40px; }
+.under { color: var(--svak); margin-top: 0; }
+.boks { background: var(--panel); border: 1px solid var(--kant); border-radius: 10px; padding: 14px 16px; margin: 14px 0; }
+.boks > summary { cursor: pointer; color: var(--gull); }
+.rad { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin: 8px 0; }
+.felt { display: flex; flex-direction: column; gap: 4px; font-size: .9rem; color: var(--svak); flex: 1 1 160px; }
+.avkryss { display: flex; gap: 8px; align-items: center; margin: 8px 0; font-size: .95rem; }
+input, select { font: inherit; color: var(--tekst); background: #0b0c22; border: 1px solid var(--kant); border-radius: 6px; padding: 8px 10px; min-width: 0; }
+input[type=range] { padding: 0; }
+input[type=checkbox] { width: 18px; height: 18px; }
+#romkode { text-transform: uppercase; letter-spacing: .2em; flex: 1 1 120px; }
+.knapp { font: inherit; color: var(--tekst); background: var(--knapp); border: 1px solid #4b4596; border-radius: 8px; padding: 10px 18px; cursor: pointer; }
+.knapp:hover { background: var(--knapp-hover); }
+.knapp:disabled { opacity: .5; cursor: default; }
+.knapp.liten { padding: 7px 12px; font-size: .9rem; }
+label.knapp input[type=file] { display: none; }
+.hjelp { color: var(--svak); font-size: .88rem; margin: 6px 0; }
+.smaa { color: var(--svak); font-size: .8rem; }
+#melding { min-height: 1.4em; }
+#melding.feil { color: var(--feil); }
+.taster { padding-left: 1.2em; margin: 8px 0 0; }
+.taster li { margin: 4px 0; }
+#romliste { list-style: none; padding: 0; margin: 8px 0 0; }
+#romliste li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--kant); }
+
+#spill { position: fixed; inset: 0; background: #000; }
+#skjerm { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+#lerret { display: block; image-rendering: pixelated; }
+#meny-knapp { position: absolute; top: 10px; right: 10px; font: inherit; font-size: .85rem; color: var(--tekst); background: rgba(20, 20, 50, .55); border: 1px solid rgba(120, 110, 200, .5); border-radius: 6px; padding: 6px 10px; cursor: pointer; opacity: .55; }
+#meny-knapp:hover { opacity: 1; }
+#status { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); background: rgba(10, 10, 30, .8); padding: 6px 14px; border-radius: 8px; font-size: .9rem; pointer-events: none; opacity: 0; transition: opacity .4s; max-width: calc(100% - 32px); text-align: center; }
+#status.vis { opacity: 1; }
+#chatlinjer { position: absolute; left: 12px; top: 12px; max-width: min(420px, 60vw); font-size: .85rem; pointer-events: none; }
+#chatlinjer div { background: rgba(10, 10, 30, .7); padding: 3px 8px; border-radius: 6px; margin-bottom: 4px; transition: opacity 1s; }
+#meny { position: absolute; inset: 0; overflow-y: auto; background: rgba(7, 8, 26, .94); max-width: none; }
+#meny > * { max-width: 640px; margin-left: auto; margin-right: auto; }
+.menytopp { display: flex; justify-content: space-between; align-items: center; }
+#lenke { flex: 1 1 200px; font-size: .85rem; }
+#spillerliste { width: 100%; border-collapse: collapse; margin: 10px 0; }
+#spillerliste td { padding: 6px 4px; border-bottom: 1px solid var(--kant); }
+#spillerliste select { width: 100%; }
+#chatlogg { max-height: 160px; overflow-y: auto; font-size: .9rem; margin: 8px 0; }
+#chatfelt { width: 100%; }
+
+#touch { position: absolute; inset: auto 0 0 0; height: 46vh; pointer-events: none; }
+#touch .kors { position: absolute; left: 18px; bottom: 18px; width: min(40vw, 190px); height: min(40vw, 190px); border-radius: 50%; background: rgba(255, 255, 255, .08); border: 2px solid rgba(255, 255, 255, .25); pointer-events: auto; touch-action: none; }
+#touch .knapper { position: absolute; right: 14px; bottom: 18px; display: grid; grid-template-columns: repeat(2, auto); gap: 10px; pointer-events: auto; }
+#touch button { font: inherit; font-size: .85rem; color: #fff; background: rgba(255, 255, 255, .1); border: 2px solid rgba(255, 255, 255, .3); border-radius: 12px; padding: 12px 10px; touch-action: none; user-select: none; }
+#touch button.fire { grid-column: span 2; padding: 22px 10px; background: rgba(227, 184, 102, .22); }
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    .panel { padding: 16px 16px 32px; }
+}

@@ -245,6 +245,13 @@ bool     files_save(const char *name, const uint8_t *data, size_t size, size_t o
 int      files_saved_count(void);
 const char *files_saved_name(int i, const uint8_t **data, size_t *size);
 uint32_t files_game_crc(void);
+/* nettspill: filer spillet har brukt siden sist, og filer fra verten */
+int      files_accessed_count(void);
+const char *files_accessed_name(int i);
+void     files_accessed_clear(void);
+const uint8_t *files_peek(const char *path, size_t *size);
+void     files_inject(const char *path, const uint8_t *data, size_t size);
+void     files_empty(void);
 
 /* ------------------------------------------------------------ decrunch.c */
 /* RNC ProPack metode 1 og 2. Returnerer utpakket lengde, 0 hvis ikke RNC, -1 ved feil. */
@@ -280,6 +287,7 @@ bool     state_load_mem(const uint8_t *buf, size_t size);
 bool     state_save_file(const char *path);
 bool     state_load_file(const char *path);
 uint32_t state_ram_hash(void);            /* sjekksum av RAM og registre, for nettspill */
+extern bool state_any_game;               /* gjest uten spillfiler: ikke sjekk hvilke filer tilstanden er laget med */
 
 /* ------------------------------------------------------------ logg */
 extern int  log_level;                    /* 0 stille, 1 viktig, 2 mye */
