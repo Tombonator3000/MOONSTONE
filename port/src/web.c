@@ -128,3 +128,8 @@ EMSCRIPTEN_KEEPALIVE int ms_draw_count(void) { return game_n_draws; }
 EMSCRIPTEN_KEEPALIVE const GameDraw *ms_draws(void) { return game_draws; }
 EMSCRIPTEN_KEEPALIVE int ms_draw_size(void) { return (int)sizeof(GameDraw); }
 EMSCRIPTEN_KEEPALIVE const char *ms_cel_name(int i) { return game_cel_name(i); }
+
+/* nettspill i tittelmenyen (meny.c): slaas paa foer spillet starter */
+EMSCRIPTEN_KEEPALIVE void ms_menu_enable(int on) { meny_online = on != 0; }
+EMSCRIPTEN_KEEPALIVE int ms_menu_event(void) { return meny_take_event(); }
+EMSCRIPTEN_KEEPALIVE void ms_menu_cmd(int cmd, int arg, const char *text) { meny_command(cmd, arg, text); }

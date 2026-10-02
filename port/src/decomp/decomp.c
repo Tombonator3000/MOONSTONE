@@ -141,4 +141,5 @@ void decomp_register_all(void)
     hooks_register(0x82008, joydat_til_bits, "joydat_til_bits");
     hooks_register(0x81f92, les_joysticker, "les_joysticker");
     game_register_hooks();                 /* observatorer (tegnelisten), endrer ingenting */
+    patch_register_hooks();                /* lapper (tekster, menyen), styrt av tilstanden */
 }

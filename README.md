@@ -19,7 +19,38 @@ Spillfilen hentes automatisk hvis den ligger ved siden av siden
 (`spill/Moonstonecd32-AMIGA.zip`, slik Pages-utgaven er satt opp). Ellers velger du
 den selv, og den lagres i nettleseren (IndexedDB).
 
+### GitHub Pages
+
+Når Pages er slått på, ligger spillet på **https://tombonator3000.github.io/MOONSTONE/**.
+Hver push til `main` bygger siden på nytt og legger den ut (jobben `pages` i
+`.github/workflows/bygg.yml`), med spillfilen ved siden av.
+
+Slik slås det på (bare eieren av repoet kan gjøre det):
+
+1. Pages krever at repoet er offentlig, eller et betalt GitHub-abonnement.
+   Offentlig: Settings, General, nederst under «Danger Zone»: «Change repository
+   visibility» til Public.
+2. Settings, Pages, «Build and deployment»: Source = **GitHub Actions**.
+3. Actions, «Bygg», «Run workflow» på `main` (eller push noe til `main`).
+
+Selve siden er alltid offentlig, også om repoet er privat med betalt abonnement.
+
 ### Nettspill
+
+Nettspillet ligger i spillets egen tittelmeny, under **Online Game**, tegnet med
+spillets font og pil:
+
+- **Host Game** lager et rom. Siden viser romkoden og navnene til de som er med,
+  med spillernummer (1 er den som velger ridder først). **Copy Link** kopierer
+  invitasjonslenken, og **Public** legger rommet i listen over offentlige rom.
+- **Join Game** viser de offentlige rommene. Velg ett, eller **Enter Code** for å
+  skrive inn en romkode eller lime inn en lenke.
+- **Back** fra romsiden setter **Players** i tittelmenyen til antallet som er med.
+
+Menyvalget finnes bare på nettsiden, siden PC-versjonen ikke har nettspill
+(`moonstone-headless --online-meny` viser det for testing).
+
+Det går også fra startsiden som før:
 
 1. Verten trykker **Lag nettspill**. Spillet starter, og menyen (Home eller knappen
    oppe til høyre) viser en invitasjonslenke.
@@ -91,6 +122,8 @@ På spillkontrollere er A fire, B mellomrom, Start E og Back Esc, som CD32-padde
 | Nettleser | WebAssembly, three.js med filtrene skarp, rene piksler, myk og CRT, lyd, spillkontrollere, berøringsknapper, lagring i IndexedDB. Testet i Chromium. |
 | Nettspill | PeerJS med opptil fire spillere, joystick etter tur, romliste via HiveMQ. Testet med to nettlesere mot en lokal PeerJS-server og MQTT-megler. |
 | Grafikk | Alle bilder og figurer ut som PNG og inn igjen. Rundturen er byte for byte lik. |
+| Tekster | Alle tekster ut til en fil og inn igjen (`tools/tekst.py`), også lengre enn originalen. |
+| Nettspill i spillet | «Online Game» i tittelmenyen: lage rom, navnene på spillerne, kopiere lenke, offentlige rom, bli med. Testet med tre nettlesere. |
 | HD-grafikk | Eksperimentelt i nettleseren: figurer kan byttes med PNG-er i høyere oppløsning. Plassering og speiling er sjekket mot emulatorbildet i kamp og på kartet. Bakgrunner gjenstår. |
 | Lyd | Lydeffektene som WAV, musikken som ProTracker-moduler. |
 | Disassembly | 13 775 instruksjoner og 412 funksjoner i mog, styrt av relokeringer og kodedekning. |
@@ -114,6 +147,22 @@ python3 tools/lyd.py extract Moonstonecd32-AMIGA.zip assets/lyd
 
 gir lydeffektene som WAV og musikken som `.mod`. Verktøyene trenger Python 3 og Pillow
 (`pip install pillow`), disassembleren også capstone.
+
+### Tekstene i spillet
+
+```
+python3 tools/tekst.py extract Moonstonecd32-AMIGA.zip tekster.txt
+# endre tekstene i anførselstegnene, f.eks. 8f130 "Practice" -> "Practice Battle"
+python3 tools/tekst.py check Moonstonecd32-AMIGA.zip tekster.txt
+port/moonstone --mod MAPPE           # med tekster.txt i MAPPE
+```
+
+`extract` gir alle de 361 tekstene i hovedspillet med adressen der de ligger. Porten
+bruker filen når spillet er lastet, så spillfilen endres ikke. Tekster kan bli lengre;
+da legges de i ledig minne og pekerne rettes, og avsnitt flyttes samlet. `check` viser
+hva som endres, og sier fra om en tekst blir for bred for skjermen, har tegn fonten
+ikke har (æøå finnes ikke), eller ikke kan bli lengre. På nettsiden velges
+`tekster.txt` under «Egne filer», og i nettspill får gjestene den fra verten.
 
 ### HD-grafikk (eksperimentelt)
 
@@ -173,12 +222,13 @@ port/src/         emulatoren og PC-delen (C)
   paula.c         lyd                                   cia.c      tidtakere, tastatur
   whdload.c       slaven og resload-funksjonene         files.c    zip, ISO og mapper
   game.c          det vi vet om spillets data (ridderne, turen, tegnelisten)
+  patch.c         lapper i spillet: tekster.txt, lengre tekster   meny.c  «Online Game» i tittelmenyen
   hooks.c         C-erstatninger og kodedekning         decomp/    funksjonene i C
   frontend.c      SDL2-vinduet                          web.c      grensesnittet til nettsiden
 port/ext/musashi  68000-kjernen (MIT)
 web/src/          nettsiden: core, render (three.js), audio, input, store, net (PeerJS), rooms (MQTT), app
 web/vendor/       three.js, PeerJS og MQTT.js (MIT)
-tools/            gfx.py, lyd.py, disasm.py, check_hooks.py, hd_sjekk.py, moonfiles.py
+tools/            gfx.py, lyd.py, tekst.py, disasm.py, check_hooks.py, hd_sjekk.py, moonfiles.py
 disasm/           symbols.txt, functions.txt, coverage.bin
 docs/             hvordan spillet er bygget, HD-grafikk
 windows/          start.bat og LES_MEG.txt til Windows-pakken

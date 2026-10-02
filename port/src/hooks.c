@@ -6,6 +6,14 @@
  * hooks_register(adresse, funksjon, navn). Naar CPU-en kommer til adressen,
  * kjores C-funksjonen. Returnerer den true, har den gjort jobben og kalt
  * hook_return() (som RTS). Returnerer den false, kjores originalkoden.
+ *
+ * Merk: naar en C-funksjon har kalt hook_return(), kjores instruksjonen paa
+ * returadressen uten at hooks der kalles. Sett derfor ikke en hook rett etter
+ * et kall til en funksjon som er i C (den ville bare virket med --nohooks).
+ *
+ * Lapper (hooks_register_patch, patch.c og meny.c) er bevisste endringer av
+ * spillet, ikke erstatninger. De kjores ogsaa med --nohooks og --hook-cycles,
+ * og bestemmer selv (ut fra tilstanden) om de gjor noe.
  */
 #include "amiga.h"
 #include "m68k.h"
@@ -16,7 +24,7 @@
 static uint8_t hook_bits[HOOK_SPACE / 16];
 #define MAX_HOOKS 512
 static struct {
-    uint32_t addr; hook_fn fn; const char *name; uint32_t calls;
+    uint32_t addr; hook_fn fn; const char *name; uint32_t calls; bool patch;
     uint64_t cyc_sum; uint32_t cyc_n, cyc_min, cyc_max;     /* --hook-cycles: originalen */
 } table[MAX_HOOKS];
 bool hooks_measure;                         /* --hook-cycles: kjor originalen og mal syklusene */
@@ -36,16 +44,20 @@ void hooks_clear(void)
     n_hooks = 0;
 }
 
-void hooks_register(uint32_t addr, hook_fn fn, const char *name)
+static void add_hook(uint32_t addr, hook_fn fn, const char *name, bool patch)
 {
     if (addr >= HOOK_SPACE || (addr & 1) || n_hooks >= MAX_HOOKS) return;
     table[n_hooks].addr = addr;
     table[n_hooks].fn = fn;
     table[n_hooks].name = name;
     table[n_hooks].calls = 0;
+    table[n_hooks].patch = patch;
     n_hooks++;
     hook_bits[addr >> 4] |= (uint8_t)(1 << ((addr >> 1) & 7));
 }
+
+void hooks_register(uint32_t addr, hook_fn fn, const char *name) { add_hook(addr, fn, name, false); }
+void hooks_register_patch(uint32_t addr, hook_fn fn, const char *name) { add_hook(addr, fn, name, true); }
 
 /* C-funksjonen bruker like mange sykluser som originalen */
 void hook_cycles(int n)
@@ -95,7 +107,11 @@ void ami_instr_hook(unsigned pc)
     if (hook_trace) hook_trace(pc);
     if (pc < HOOK_SPACE && (hook_bits[pc >> 4] & (1 << ((pc >> 1) & 7))) && whd_mog_loaded) {
         for (int i = 0; i < n_hooks; i++)
-            if (table[i].addr == pc) {
+            if (table[i].addr == pc && table[i].patch) {
+                if (table[i].fn()) { table[i].calls++; return; }
+            }
+        for (int i = 0; i < n_hooks; i++)
+            if (table[i].addr == pc && !table[i].patch) {
                 if (hooks_measure) {
                     if (n_open < 64) {
                         uint32_t sp = m68k_get_reg(NULL, M68K_REG_SP);

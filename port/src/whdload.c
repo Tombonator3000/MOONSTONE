@@ -98,9 +98,28 @@ static bool copy_in(uint32_t a, const uint8_t *src, size_t len)
 
 static uint32_t rd32(const uint8_t *p) { return (uint32_t)p[0] << 24 | p[1] << 16 | p[2] << 8 | p[3]; }
 
+/* adressene til langordene siste resload_Relocate rettet (patch.c bruker dem
+ * for aa flytte tekster i mog) */
+uint32_t *whd_relocs;
+int       whd_n_relocs;
+static int relocs_cap;
+
+static void note_reloc(uint32_t a)
+{
+    if (whd_n_relocs == relocs_cap) {
+        int cap = relocs_cap ? relocs_cap * 2 : 4096;
+        uint32_t *n = realloc(whd_relocs, (size_t)cap * sizeof *n);
+        if (!n) return;
+        whd_relocs = n;
+        relocs_cap = cap;
+    }
+    whd_relocs[whd_n_relocs++] = a;
+}
+
 /* Legger en hunk-fil (som i AmigaDOS LoadSeg) ut paa adresse base, med hunkene
- * rett etter hverandre slik resload_Relocate gjor. Returnerer storrelsen. */
-static long hunk_relocate(const uint8_t *f, size_t len, uint32_t base)
+ * rett etter hverandre slik resload_Relocate gjor. Returnerer storrelsen.
+ * Med record lagres adressene som relokeres i whd_relocs. */
+static long hunk_relocate(const uint8_t *f, size_t len, uint32_t base, bool record)
 {
     size_t p = 0;
 #define NEED(n) do { if (p + (n) > len) return -1; } while (0)
@@ -158,6 +177,7 @@ static long hunk_relocate(const uint8_t *f, size_t len, uint32_t base)
                     uint8_t *q = out + (addr[h] - base) + off;
                     uint32_t v = rd32(q) + addr[th];
                     q[0] = (uint8_t)(v >> 24); q[1] = (uint8_t)(v >> 16); q[2] = (uint8_t)(v >> 8); q[3] = (uint8_t)v;
+                    if (record) note_reloc(addr[h] + off);
                 }
             }
         } else if (t == HUNK_RELOC32SHORT) {
@@ -173,6 +193,7 @@ static long hunk_relocate(const uint8_t *f, size_t len, uint32_t base)
                     uint8_t *q = out + (addr[h] - base) + off;
                     uint32_t v = rd32(q) + addr[th];
                     q[0] = (uint8_t)(v >> 24); q[1] = (uint8_t)(v >> 16); q[2] = (uint8_t)(v >> 8); q[3] = (uint8_t)v;
+                    if (record) note_reloc(addr[h] + off);
                 }
             }
             if ((p - start) & 2) p += 2;
@@ -404,7 +425,8 @@ void whd_call(unsigned off)
         uint32_t max = a0 < CHIP_SIZE ? CHIP_SIZE - a0 : (FAST_BASE + FAST_SIZE) - a0;
         uint8_t *copy = malloc(max);
         for (uint32_t i = 0; i < max; i++) copy[i] = (uint8_t)mem_read8(a0 + i);
-        long size = hunk_relocate(copy, max, a0);
+        whd_n_relocs = 0;
+        long size = hunk_relocate(copy, max, a0, true);
         free(copy);
         if (size < 0) { abort_game("Kunne ikke relokere filen paa %06x", a0); break; }
         wlog("Relocate %06x: %ld byte", a0, size);
@@ -423,6 +445,7 @@ void whd_call(unsigned off)
     case 0x64:                                            /* Patch */
         wlog("Patch %06x -> %06x", a0, a1);
         apply_patchlist(a0, a1);
+        if (whd_mog_loaded) game_mog_ready();   /* mog er lastet, relokert og lappet */
         break;
     case 0x6c:
         abort_game("Denne versjonen av spillfilene trenger resload_Delta, som ikke er med.");
@@ -440,7 +463,7 @@ bool whd_boot(void)
     size_t size;
     uint8_t *f = files_read("Moonstone.Slave", &size);
     if (!f) { snprintf(files_error, sizeof files_error, "Fant ikke Moonstone.Slave."); return false; }
-    long n = hunk_relocate(f, size, SLAVE_BASE);
+    long n = hunk_relocate(f, size, SLAVE_BASE, false);
     free(f);
     if (n < 64) { snprintf(files_error, sizeof files_error, "Moonstone.Slave kan ikke leses."); return false; }
     uint8_t *s = fast + (SLAVE_BASE - FAST_BASE);

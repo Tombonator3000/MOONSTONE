@@ -22,7 +22,7 @@
     <p class="hjelp">Moonstonecd32-AMIGA.zip eller «Moonstone CD32.iso». Filen lagres bare i denne nettleseren. Gjester i nettspill trenger den ikke.</p>
     <details>
       <summary>Egne filer (endret grafikk)</summary>
-      <p class="hjelp">Filer laget med <code>tools/gfx.py build</code> (f.eks. bg1a.PIV) brukes i stedet for originalene i data/. I nettspill får gjestene dem fra verten.</p>
+      <p class="hjelp">Filer laget med <code>tools/gfx.py build</code> (f.eks. bg1a.PIV) brukes i stedet for originalene i data/, og <code>tekster.txt</code> fra <code>tools/tekst.py</code> endrer tekstene i spillet. I nettspill får gjestene dem fra verten.</p>
       <div class="rad">
         <label class="knapp liten">Legg til filer <input type="file" id="velg-mod" multiple></label>
         <button id="fjern-mod" class="knapp liten">Fjern alle</button>
@@ -42,6 +42,7 @@
       <button id="bli-med" class="knapp">Bli med</button>
     </div>
     <label class="avkryss"><input type="checkbox" id="offentlig"> Vis rommet mitt i listen over offentlige rom</label>
+    <p class="hjelp">Du kan også trykke «Spill» og velge <b>Online Game</b> i spillets egen meny. Der lager du rom, kopierer invitasjonslenken og blir med i offentlige rom.</p>
   </section>
 
   <details class="boks" id="offentlige">
@@ -79,6 +80,15 @@
   <button id="meny-knapp" title="Meny (Home)">Meny</button>
   <div id="status"></div>
   <div id="chatlinjer"></div>
+  <div id="kode-dialog" class="boks" hidden>
+    <h3>Bli med i et rom</h3>
+    <p class="hjelp">Skriv romkoden (seks tegn) eller lim inn invitasjonslenken.</p>
+    <input id="kode-felt" maxlength="300" autocomplete="off" spellcheck="false" aria-label="Romkode eller lenke">
+    <div class="rad">
+      <button id="kode-ok" class="knapp">Bli med</button>
+      <button id="kode-avbryt" class="knapp">Avbryt</button>
+    </div>
+  </div>
   <div id="meny" class="panel" hidden>
     <div class="menytopp"><h2>Meny</h2><button id="lukk-meny" class="knapp liten">Tilbake til spillet</button></div>
     <section class="boks">
