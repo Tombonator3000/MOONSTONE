@@ -7,10 +7,37 @@
  * som venter paa Blitteren paa riktig maate merker ingen forskjell.
  */
 #include "amiga.h"
+#include "m68k.h"
 #include <string.h>
+#include <stdio.h>
 
 Blitter  B;
 unsigned blit_w = 1, blit_h = 1;
+
+/* --blit-log: hvor Blitteren startes fra (PC), for aa finne tegnerutinene */
+bool blit_log;
+static struct { uint32_t pc; uint32_t n; uint16_t con0, con1; unsigned w, h; } blit_pcs[64];
+static int n_blit_pcs;
+
+static void note_blit(void)
+{
+    uint32_t pc = m68k_get_reg(NULL, M68K_REG_PPC);
+    for (int i = 0; i < n_blit_pcs; i++)
+        if (blit_pcs[i].pc == pc) { blit_pcs[i].n++; return; }
+    if (n_blit_pcs < 64) {
+        blit_pcs[n_blit_pcs].pc = pc; blit_pcs[n_blit_pcs].n = 1;
+        blit_pcs[n_blit_pcs].con0 = B.con0; blit_pcs[n_blit_pcs].con1 = B.con1;
+        blit_pcs[n_blit_pcs].w = blit_w; blit_pcs[n_blit_pcs].h = blit_h;
+        n_blit_pcs++;
+    }
+}
+
+void blit_report(void)
+{
+    for (int i = 0; i < n_blit_pcs; i++)
+        printf("blit fra PC %06x: %u ganger (forste: BLTCON0 %04x BLTCON1 %04x, %u x %u ord)\n",
+               blit_pcs[i].pc, blit_pcs[i].n, blit_pcs[i].con0, blit_pcs[i].con1, blit_pcs[i].w, blit_pcs[i].h);
+}
 
 void blitter_reset(void)
 {
@@ -162,6 +189,7 @@ static void blit_line(void)
 
 void blitter_start(void)
 {
+    if (blit_log) note_blit();
     if (B.busy) blitter_finish();          /* forrige var ikke ferdig: avslutt den forst */
     unsigned words;
     int cyc_per_word;

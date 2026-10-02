@@ -17,13 +17,16 @@ Instrukser for AI-agenter og andre som jobber i dette repoet.
 - Skriv enkelt og menneskelig, uten floskler.
 - C-kode: C99 (gnu99), 4 mellomrom innrykk, ingen nye avhengigheter uten god grunn.
   Kommentarer i C-filene skrives uten æ, ø og å (aa, oe), som i Moomesa-prosjektet.
-- JavaScript: vanlige ES-moduler uten byggesteg. Three.js og PeerJS hentes fra CDN.
+- JavaScript: vanlige skript uten byggesteg (web/pakk.py setter dem sammen). three.js,
+  PeerJS og MQTT.js ligger i web/vendor og bygges inn i siden.
 
 ## Regler
 - Spillfilene (`Moonstonecd32-AMIGA.zip`) ligger i repoet fordi eieren la dem der.
-  Utpakket grafikk, lyd, disassembly (`disasm/*.s`) og bygg med spillet inni skal
-  ikke sjekkes inn, og ingenting av spillets data skal på GitHub Pages (Pages er
-  offentlig selv når repoet er privat). Nettsiden ber brukeren velge sin egen fil.
+  Eieren regner Moonstone som abandonware og vil ha det enkelt: Pages-utgaven og
+  Windows/Linux-pakkene fra Actions har spillfilen med (`MED_SPILLET` i
+  `.github/workflows/bygg.yml`). Utpakket grafikk og lyd (`assets/`) og disassemblyen
+  (`disasm/*.s`) lages lokalt med verktøyene og sjekkes ikke inn, fordi de kan lages
+  på nytt når som helst.
 - Porten kjører originalkoden. En C-erstatning for en 68000-funksjon
   (`port/src/decomp/`) skal gi samme resultat som originalen. Sjekk med
   `tools/check_hooks.py`, som kjører med og uten `--nohooks` og sammenligner.

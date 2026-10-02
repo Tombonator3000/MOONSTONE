@@ -1,0 +1,98 @@
+# Navn og kommentarer for disassemblyen av mog (hovedspillet), lastet til $80000.
+# Format: adresse navn kommentar. Endre her og kjor tools/disasm.py paa nytt.
+#
+# Joystick og ridderne (se port/src/game.c)
+81f6a joystick_for_figur      D0 = joysticken til figuren i A0: byte $B = 1 gir port 1, ellers port 2
+81f7c vent_paa_fire           venter til fire trykkes og slippes (port 2)
+81f92 les_joysticker          JOY1DAT til $8D9A2 (port 2) og JOY0DAT til $8D9A0 (port 1), bit 4 = fire
+82008 joydat_til_bits         gjor JOYxDAT om til bit 0-3 (hoyre, venstre, ned, opp)
+8d5b4 ridder_1                fire riddere a $84 byte: +$B port (1/2, 4 = datamaskin), +$36 spiller, +$6C navn
+8d638 ridder_2
+8d6bc ridder_3
+8d740 ridder_4
+8d7c4 svart_ridder            ($36 = 5)
+8d9a0 joy_port1               siste joystickverdi i port 1
+8d9a2 joy_port2               siste joystickverdi i port 2
+8d9ac aktiv_ridder            peker til ridderen som har turen
+8d9b0 forste_ridder
+abc98 skriv_tur               skriver "NAVN's turn." (navnet fra aktiv_ridder +$6C)
+#
+# Tekster
+82d82 monstermeny             testmeny: B - Balok, A - Trogg with Axes osv.
+8f0b8 riddernavn_valg         SIR_RICHARD, SIR_GODBER, SIR_JEFFREY, SIR_EDWARD
+95ee6 navn_sir_banner         navnene til ridderne datamaskinen spiller
+9629a tekst_tur               " turn."
+96d50 tekst_magiske_ting      Potion of healing, Gem of seeing ...
+#
+# Avbrudd (vektorene som mog setter)
+9b0e8 avbrudd_niva1
+9b130 avbrudd_niva2           CIA-A: tastaturet
+9b25e avbrudd_niva3           VERTB, Copper og Blitter
+add30 avbrudd_niva4           lyd
+9b378 avbrudd_niva5
+9b3b0 avbrudd_niva6
+9b4fc les_mus                 JOY0DAT som mus (pekeren i noen skjermer)
+#
+# Steder slaven lapper (Moonstone.Slave, patchlisten paa slave+$234)
+80096 knappevent_1            slaven: ButtonWait (vent paa fire) og hopp til $81880
+81846 tilbake_til_introen     slaven: laster program paa nytt (avslutt spillet)
+88a72 knappevent_2            slaven: ButtonWait foer kamp
+8c0c6 gullgrense_1            slaven: 150 er endret til 999
+8c2e8 gullgrense_2            slaven: 150 er endret til 999
+8c2f0 gullgrense_3            slaven: 150 er endret til 999
+990a4 joystick_lapp           slaven: hopper til les_joysticker
+9a374 last_fil_buffer         slaven: laster en fil via resload
+9b15a tastatur_kvittering     slaven: riktig handshake mot tastaturet
+9ccae last_piv                slaven: laster et PIV-bilde (palett og bitplan)
+9d62a cel_storrelse           slaven: minnebehov for en CEL-fil
+9d828 last_cel                slaven: laster og pakker ut en CEL-fil
+9d9e6 last_pakket             slaven: laster og pakker ut en fil
+9da32 lz_utpakk               slaven: spillets LZ-utpakker (flyttet og optimalisert av Wepl)
+#
+# Funnet ut fra tekstene funksjonene bruker (tools/disasm.py skriver dem i functions.txt)
+81a1a vis_spillere_tall        bruker tallet "1" (antall spillere i menyen)
+81e9a ridder_navn_standard     setter standardnavnene SIR_GODBER, SIR_RICHARD, SIR_JEFFREY, SIR_EDWARD
+822ae last_he1                 laster He1.ob
+822d6 last_bg2                 laster bg2.piv
+822fe last_be1                 laster be1.c
+82444 last_ridderfigurer       laster kn1.ob til kn4.ob og blo.cel (ridderen i kamp)
+8251c last_svart_ridder        laster He1.ob til He3.ob
+82844 kamp_mot_drage           laster Dragon1.cel, Dragon2.cel, Kn5.ob, be1.c
+82960 kamp_mot_vokter          laster Demon1-4.cel (vokteren i Valley of the Gods)
+82aae last_ki_mi               laster ki.cel og mi.c
+82ba8 last_skjermgrafikk       laster message.piv, bold.f, Small.font, ch.piv
+82e6c by_highwood              byen Highwood (HighWood.piv)
+82ea8 by_waterdeep             byen Waterdeep (WaterDeep.piv)
+82f20 trollmann_math           taarnet til Math (wi1.p, wi2.p, wi1.c)
+84c3c ridder_datamaskin_navn   navnene til ridderne datamaskinen spiller (SIR BANNER ...)
+8509a ridder_navn_tabell       navnetabellen for menneskelige riddere
+8878a last_treffsoner          laster collide.hit
+89052 skriv_tekst              skriver tekst med fonten (tegntabellen "E>EBCDEF...")
+89214 skriv_tekst_2
+89286 skriv_tall               skriver tall ("0123456789")
+89a38 mystikeren               Mythral the Mystic i Waterdeep (MYS.piv)
+89ca8 healer                   healeren (HEA.piv)
+89fd8 donasjon                 "Donation", "Your Gold"
+8a112 last_mys_cel             laster mys.cel
+8a1f0 taverna_terninger        Dragon Dice i tavernaen (tav.piv, dice.piv, dice.cel)
+8a5fa vis_gull_vunnet          "gold pieces."
+8a6fe vis_gull                 "gold pieces."
+8a802 stonehenge_druider       druidene ved Stonehenge (Hen1.p, Hen1.c)
+8c312 last_po_cel              laster po.cel (pekeren)
+8c4ba statusskjerm             ridderens status: Strength, Endurance, Constitution, Life points left
+9a1fc last_lyd_re              laster Re.a
+9a26c last_lyd_kn              laster kn.a (ridderens lyder)
+9a298 last_lyd_dr_be           laster Dr.a og Be.a
+9a2c4 last_lyd_gu              laster Gu.a
+9a306 last_lyd_he              laster He.a
+9a35e last_lyd_wz              laster Wz.a
+#
+# Figurtegning (IMAGEXCEL SPRITE-modulen)
+9dcec tegn_figur               A0 = CEL i minnet, D0 = bildenummer, D1 = x, D2 = y. Klipper og blitter med maske
+9e0bc blit_plan                kopierer ett plan (BLTCON0 $09F0)
+9db16 speil_figur              A0 = CEL, D0 = bilde: speilvender bildet der det ligger, byte 8 i tabellen: 1 vanlig, utfylling << 4 speilet
+9dbc6 lag_speiltabell          tabellen paa $9DBEC som snur bitene i en byte
+9dbec speiltabell              256 byte, byte med bitene i omvendt rekkefolge
+9e3aa sett_tegnebuffere        D0 = start: setter $9E876, $9E872, $9E87A, $9E87E og $9E882
+9e87e figurbuffer              hvor tegn_figur tegner (fem plan a $12C0 byte), ogsaa radbuffer for speil_figur
+9e1b0 vent_paa_blitter

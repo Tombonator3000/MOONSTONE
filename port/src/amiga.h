@@ -228,6 +228,8 @@ bool     whd_boot(void);                  /* laster slaven og setter CPU-en klar
 void     whd_call(unsigned offset);       /* CPU-en kaller resload + offset */
 void     whd_delay_check(void);           /* avslutter resload_Delay naar tiden er ute */
 extern int whd_buttonwait;
+extern bool whd_mog_loaded;
+extern int  whd_keyexit;
 extern void (*whd_log)(const char *msg);
 
 /* ------------------------------------------------------------ files.c */
@@ -245,6 +247,14 @@ bool     files_save(const char *name, const uint8_t *data, size_t size, size_t o
 int      files_saved_count(void);
 const char *files_saved_name(int i, const uint8_t **data, size_t *size);
 uint32_t files_game_crc(void);
+/* nettspill: filer spillet har brukt siden sist, og filer fra verten */
+int      files_accessed_count(void);
+const char *files_accessed_name(int i);
+void     files_accessed_clear(void);
+const uint8_t *files_peek(const char *path, size_t *size);
+void     files_inject(const char *path, const uint8_t *data, size_t size);
+void     files_empty(void);
+int      files_add_overlay(const char *dir);   /* --mod: egne filer over data/ */
 
 /* ------------------------------------------------------------ decrunch.c */
 /* RNC ProPack metode 1 og 2. Returnerer utpakket lengde, 0 hvis ikke RNC, -1 ved feil. */
@@ -253,12 +263,32 @@ long     rnc_unpack(const uint8_t *src, size_t len, uint8_t *dst, size_t dstlen)
 /* Spillets egen LZ-pakking (PIV, CEL, .t og andre). Returnerer utpakket lengde. */
 size_t   ms_unpack(const uint8_t *src, size_t srclen, uint8_t *dst, size_t dstmax);
 
+/* ------------------------------------------------------------ game.c */
+/* Det vi vet om spillets data i minnet (se game.c). */
+bool     game_mog_running(void);
+int      game_port_player(int port);      /* spiller 0-3 som styrer port 0/1 naa, -1 = ukjent */
+const char *game_knight_name(int k);
+int      game_knight_player(int k);
+/* tegnelisten: figurene spillet tegnet i siste bilde (game.c). Venstre kant er
+ * x - xoff, flip = 1 naar figuren er speilvendt. */
+typedef struct { int16_t cel, frame, x, y, w, h, xoff, flip; uint32_t target; } GameDraw;
+#define GAME_MAX_DRAWS 256
+extern GameDraw game_draws[GAME_MAX_DRAWS];
+extern int      game_n_draws;
+void     game_slave_pc(uint32_t pc);
+void     game_register_hooks(void);
+const char *game_cel_name(int i);
+const char *game_background(void);
+
 /* ------------------------------------------------------------ hooks.c */
 typedef bool (*hook_fn)(void);
 void     hooks_register(uint32_t addr, hook_fn fn, const char *name);
 void     hooks_clear(void);
 void     hook_return(void);
+void     hook_cycles(int n);              /* C-funksjonen bruker n sykluser, som originalen */
+void     hooks_report(void);
 extern bool hooks_disabled;
+extern bool hooks_measure;
 extern void (*hook_trace)(uint32_t pc);
 
 /* ------------------------------------------------------------ state.c */
@@ -274,12 +304,14 @@ void     amiga_state(StateIO *s);
 void     paula_state(StateIO *s);
 void     video_state(StateIO *s);
 void     whd_state(StateIO *s);
+void     game_state(StateIO *s);
 /* hele tilstanden til/fra minnet; kalleren frigjor buf med free() */
 bool     state_save_mem(uint8_t **buf, size_t *size);
 bool     state_load_mem(const uint8_t *buf, size_t size);
 bool     state_save_file(const char *path);
 bool     state_load_file(const char *path);
 uint32_t state_ram_hash(void);            /* sjekksum av RAM og registre, for nettspill */
+extern bool state_any_game;               /* gjest uten spillfiler: ikke sjekk hvilke filer tilstanden er laget med */
 
 /* ------------------------------------------------------------ logg */
 extern int  log_level;                    /* 0 stille, 1 viktig, 2 mye */

@@ -16,7 +16,9 @@
 #include <string.h>
 
 #define STATE_MAGIC   "MOONSTAT"
-#define STATE_VERSION 1
+
+bool state_any_game;
+#define STATE_VERSION 3
 
 void state_io(StateIO *s, void *p, size_t n)
 {
@@ -56,7 +58,8 @@ static void all_parts(StateIO *s)
     STATE_VAR(s, lay);
     STATE_VAR(s, game);
     if (!s->saving) {
-        if (memcmp(magic, STATE_MAGIC, 8) || ver != STATE_VERSION || lay != layout_id() || game != files_game_crc()) {
+        if (memcmp(magic, STATE_MAGIC, 8) || ver != STATE_VERSION || lay != layout_id()
+            || (!state_any_game && game != files_game_crc())) {
             s->error = true;
             return;
         }
@@ -65,6 +68,7 @@ static void all_parts(StateIO *s)
     paula_state(s);
     video_state(s);
     whd_state(s);
+    game_state(s);
     {
         extern unsigned blit_w, blit_h;
         STATE_VAR(s, blit_w);

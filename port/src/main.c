@@ -19,6 +19,9 @@ bool png_write(const char *path, const uint32_t *rgba, int w, int h, int stride)
 void decomp_register_all(void);
 
 typedef struct { int frame, len; char what[32]; } Press;
+typedef struct { int frame; char path[256]; } Dump;
+static Dump dumps[64];
+static int  n_dumps;
 static Press presses[256];
 static int   n_presses;
 
@@ -82,11 +85,14 @@ static void usage(void)
 {
     printf("Moonstone for PC, bygget paa originalkoden fra Amiga.\n\n"
            "  --game STI            spillfilene (Moonstonecd32-AMIGA.zip, ISO eller mappe)\n"
+           "  --mod MAPPE           bruk filene i MAPPE i stedet for de i data/ (endret grafikk)\n"
            "  --scale N             vindusstorrelse (standard 3)\n"
            "  --fullscreen          fullskjerm\n"
            "  --volume V            lydstyrke, 1.0 er normal\n"
            "  --buttonwait          vent paa fire for kamp (WHDLoad ButtonWait)\n"
            "  --nohooks             kjor bare originalkoden (ingen C-erstatninger)\n"
+           "  --hook-cycles         kjor originalen og mal syklusene til funksjonene i decomp/\n"
+           "  --hook-report         skriv hvor ofte hver C-erstatning ble brukt\n"
            "  --headless            uten vindu og lyd, for testing\n"
            "  --frames N            antall bilder (headless)\n"
            "  --shot-every N        lagre skjermbilde hvert N. bilde (PNG)\n"
@@ -94,6 +100,12 @@ static void usage(void)
            "  --press F:HVA[:LENGDE] trykk knapp/tast i bilde F (fire, up, p2-fire, esc, f1, a ...)\n"
            "  --save-state F:FIL    lagre tilstand i bilde F\n"
            "  --load-state FIL      start fra en lagret tilstand\n"
+           "  --dump F:FIL          skriv chip-minnet til fil i bilde F\n"
+           "  --vis-tur             skriv hvilken spiller som styrer portene (nettspill)\n"
+           "  --coverage FIL        lagre hvilke adresser som er kjort (legges til filen)\n"
+           "  --tegneliste F[:N]    skriv figurene som tegnes i bilde F og de N-1 neste (HD)\n"
+           "  --blit-log            skriv hvor Blitteren startes fra\n"
+           "  --wav FIL             ta opp lyden\n"
            "  --log N               0 stille, 1 normal, 2 alt\n");
 }
 
@@ -111,10 +123,15 @@ static const char *find_game(void)
     return NULL;
 }
 
+static int run_headless(int frames, int shot_every, const char *shot_dir, int save_state_frame,
+                        const char *save_state_file, const char *wav_path, bool show_turn);
+int draw_list_frame = -1, draw_list_count = 3;
+
 int main(int argc, char **argv)
 {
+    const char *mod_dir = NULL, *coverage_path = NULL;
     const char *game = NULL, *shot_dir = ".", *load_state = NULL, *save_state_file = NULL, *wav_path = NULL;
-    bool headless = false, nohooks = false;
+    bool headless = false, nohooks = false, show_turn = false, hook_report = false;
     int frames = 0, shot_every = 0, save_state_frame = -1;
     FrontendOptions fo = { .scale = 3, .volume = 1.0f };
 
@@ -132,8 +149,29 @@ int main(int argc, char **argv)
         else if (!strcmp(a, "--volume") && v) { fo.volume = (float)atof(v); i++; }
         else if (!strcmp(a, "--buttonwait")) whd_buttonwait = 1;
         else if (!strcmp(a, "--nohooks")) nohooks = true;
+        else if (!strcmp(a, "--hook-cycles")) hooks_measure = true;
+        else if (!strcmp(a, "--hook-report")) hook_report = true;
+        else if (!strcmp(a, "--blit-log")) { extern bool blit_log; blit_log = true; }
         else if (!strcmp(a, "--log") && v) { log_level = atoi(v); i++; }
         else if (!strcmp(a, "--wav") && v) { wav_path = v; i++; }
+        else if (!strcmp(a, "--vis-tur")) show_turn = true;
+        else if (!strcmp(a, "--tegneliste") && v) {
+            draw_list_frame = atoi(v);
+            const char *c = strchr(v, ':');
+            if (c) draw_list_count = atoi(c + 1);
+            i++;
+        }
+        else if (!strcmp(a, "--mod") && v) { mod_dir = v; i++; }
+        else if (!strcmp(a, "--coverage") && v) { coverage_path = v; i++; }
+        else if (!strcmp(a, "--dump") && v) {
+            if (n_dumps < 64) {
+                dumps[n_dumps].frame = atoi(v);
+                const char *c = strchr(v, ':');
+                snprintf(dumps[n_dumps].path, sizeof dumps[0].path, "%s", c ? c + 1 : "ram.bin");
+                n_dumps++;
+            }
+            i++;
+        }
         else if (!strcmp(a, "--load-state") && v) { load_state = v; i++; }
         else if (!strcmp(a, "--save-state") && v) {
             save_state_frame = atoi(v);
@@ -173,8 +211,13 @@ int main(int argc, char **argv)
         if (!headless) frontend_message(files_error);
         return 1;
     }
+    if (mod_dir) {
+        int n = files_add_overlay(mod_dir);
+        if (n < 0) { fprintf(stderr, "Fant ikke mappen %s\n", mod_dir); return 1; }
+        printf("%d filer fra %s brukes i stedet for originalene\n", n, mod_dir);
+    }
     hooks_disabled = nohooks;
-    if (!nohooks) decomp_register_all();
+    decomp_register_all();
     if (!amiga_init()) {
         fprintf(stderr, "Oppstart feilet: %s\n", files_error);
         return 1;
@@ -183,8 +226,34 @@ int main(int argc, char **argv)
         fprintf(stderr, "Kunne ikke laste tilstanden %s\n", load_state);
         return 1;
     }
+    if (load_state && headless) printf("Tilstand lastet, bilde %u\n", M.frame);
 
-    if (!headless) return frontend_run(&fo);
+    /* --coverage: hvilke adresser som er kjort, lagt sammen med filen fra for.
+     * Bare mog (fra $80000) teller; introen ligger paa de samme adressene. */
+    static uint8_t cov[CHIP_SIZE / 16];
+    if (coverage_path) {
+        extern uint8_t *hook_coverage;
+        hook_coverage = cov;
+    }
+    int ret = 0;
+    if (!headless) ret = frontend_run(&fo);
+    else ret = run_headless(frames, shot_every, shot_dir, save_state_frame, save_state_file, wav_path, show_turn);
+    if (hooks_measure || hook_report) hooks_report();
+    { extern bool blit_log; extern void blit_report(void); if (blit_log) blit_report(); }
+    if (coverage_path) {
+        static uint8_t old[CHIP_SIZE / 16];
+        FILE *cf = fopen(coverage_path, "rb");
+        if (cf) { size_t n = fread(old, 1, sizeof old, cf); (void)n; fclose(cf); }
+        for (size_t i = 0; i < sizeof cov; i++) cov[i] |= old[i];
+        cf = fopen(coverage_path, "wb");
+        if (cf) { fwrite(cov, 1, sizeof cov, cf); fclose(cf); printf("Kodedekning lagret i %s\n", coverage_path); }
+    }
+    return ret;
+}
+
+static int run_headless(int frames, int shot_every, const char *shot_dir, int save_state_frame,
+                        const char *save_state_file, const char *wav_path, bool show_turn)
+{
 
     FILE *wav = wav_path ? fopen(wav_path, "wb") : NULL;
     uint32_t wav_frames = 0;
@@ -192,6 +261,13 @@ int main(int argc, char **argv)
     for (int f = 0; f < frames; f++) {
         apply_presses(M.frame);
         amiga_run_frame();
+        if (draw_list_frame >= 0 && (int)M.frame >= draw_list_frame && (int)M.frame < draw_list_frame + draw_list_count) {
+            printf("tegneliste bilde %u (bakgrunn %s):\n", M.frame, game_background());
+            for (int d = 0; d < game_n_draws; d++)
+                printf("  %s bilde %d x %d y %d (%dx%d, xoff %d%s) buffer %06x\n", game_cel_name(game_draws[d].cel),
+                       game_draws[d].frame, game_draws[d].x, game_draws[d].y, game_draws[d].w, game_draws[d].h,
+                       game_draws[d].xoff, game_draws[d].flip ? ", speilet" : "", game_draws[d].target);
+        }
         int16_t tmp[4096];
         int n;
         while ((n = paula_take(tmp, 2048)) > 0) {
@@ -202,6 +278,19 @@ int main(int argc, char **argv)
             snprintf(path, sizeof path, "%s/shot_%05d.png", shot_dir, f + 1);
             png_write(path, video_fb, FB_W, FB_H, FB_W);
         }
+        if (show_turn) {
+            static int last = -99;
+            int p2 = game_port_player(1), p1 = game_port_player(0);
+            if (p2 * 10 + p1 != last) {
+                last = p2 * 10 + p1;
+                printf("bilde %u: port 2 = spiller %d, port 1 = spiller %d\n", M.frame, p2, p1);
+            }
+        }
+        for (int d = 0; d < n_dumps; d++)
+            if (dumps[d].frame == (int)M.frame) {
+                FILE *df = fopen(dumps[d].path, "wb");
+                if (df) { fwrite(chip, 1, CHIP_SIZE, df); fclose(df); }
+            }
         if (save_state_frame == f + 1) {
             if (state_save_file(save_state_file)) printf("Tilstand lagret i %s\n", save_state_file);
         }

@@ -42,6 +42,21 @@ char files_error[256];
 static FileEntry *saved;
 static int        n_saved;
 
+/* Filer spillet har sett paa (lest eller spurt etter storrelsen til). Verten i
+ * nettspill sender dem til gjestene, som ikke har spillfilene selv. */
+static char accessed[32][160];
+static int  n_accessed;
+
+static void note_access(const char *path)
+{
+    for (int i = 0; i < n_accessed; i++) if (!strcmp(accessed[i], path)) return;
+    if (n_accessed < 32) snprintf(accessed[n_accessed++], sizeof accessed[0], "%s", path);
+}
+
+int files_accessed_count(void) { return n_accessed; }
+const char *files_accessed_name(int i) { return i >= 0 && i < n_accessed ? accessed[i] : NULL; }
+void files_accessed_clear(void) { n_accessed = 0; }
+
 static bool same_ci(const char *a, const char *b)
 {
     for (; *a && *b; a++, b++)
@@ -325,8 +340,40 @@ static FileEntry *lookup(const char *name)
     n = n ? n + 1 : name;
     while (*n == '/') n++;
     for (int i = 0; i < n_saved; i++) if (same_ci(saved[i].path, n)) return &saved[i];
-    for (int i = 0; i < n_ents; i++) if (same_ci(ents[i].path, n)) return &ents[i];
+    for (int i = 0; i < n_ents; i++) if (same_ci(ents[i].path, n)) { note_access(ents[i].path); return &ents[i]; }
     return NULL;
+}
+
+/* Henter en fil uten aa logge tilgangen (for aa sende den til en gjest). */
+const uint8_t *files_peek(const char *path, size_t *size)
+{
+    for (int i = 0; i < n_ents; i++)
+        if (same_ci(ents[i].path, path)) { *size = ents[i].size; return ents[i].data; }
+    return NULL;
+}
+
+/* Legger inn en fil vi har faatt fra verten (gjest i nettspill). */
+void files_inject(const char *path, const uint8_t *data, size_t size)
+{
+    for (int i = 0; i < n_ents; i++)
+        if (same_ci(ents[i].path, path)) {
+            if (ents[i].owned) free(ents[i].data);
+            ents[i].data = malloc(size ? size : 1);
+            memcpy(ents[i].data, data, size);
+            ents[i].size = size;
+            ents[i].owned = true;
+            return;
+        }
+    uint8_t *d = malloc(size ? size : 1);
+    memcpy(d, data, size);
+    add_entry(path, d, size, true);
+}
+
+/* Gjest uten egne filer: tomt filsystem. */
+void files_empty(void)
+{
+    files_close();
+    files_error[0] = 0;
 }
 
 bool files_exists(const char *name, size_t *size)
@@ -399,4 +446,49 @@ uint32_t files_game_crc(void)
         if (e) crc ^= crc32_calc(e->data, e->size) * (uint32_t)(i + 1);
     }
     return crc;
+}
+
+/* Filer i en mappe (f.eks. fra tools/gfx.py build) legges over spillfilene i
+ * data/. Det er slik endret grafikk og lyd tas i bruk. Returnerer antall filer. */
+int files_add_overlay(const char *dir)
+{
+    int n = 0;
+#ifndef _WIN32
+    DIR *d = opendir(dir);
+    if (!d) return -1;
+    struct dirent *de;
+    while ((de = readdir(d))) {
+        if (de->d_name[0] == '.') continue;
+        char full[1024], rel[300];
+        snprintf(full, sizeof full, "%s/%s", dir, de->d_name);
+        snprintf(rel, sizeof rel, "data/%s", de->d_name);
+        size_t sz;
+        uint8_t *data = read_file(full, &sz);
+        if (!data) continue;
+        files_inject(rel, data, sz);
+        free(data);
+        n++;
+    }
+    closedir(d);
+#else
+    char pattern[1024];
+    snprintf(pattern, sizeof pattern, "%s\\*", dir);
+    WIN32_FIND_DATAA fd;
+    HANDLE h = FindFirstFileA(pattern, &fd);
+    if (h == INVALID_HANDLE_VALUE) return -1;
+    do {
+        if (fd.cFileName[0] == '.' || (fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) continue;
+        char full[1024], rel[300];
+        snprintf(full, sizeof full, "%s\\%s", dir, fd.cFileName);
+        snprintf(rel, sizeof rel, "data/%s", fd.cFileName);
+        size_t sz;
+        uint8_t *data = read_file(full, &sz);
+        if (!data) continue;
+        files_inject(rel, data, sz);
+        free(data);
+        n++;
+    } while (FindNextFileA(h, &fd));
+    FindClose(h);
+#endif
+    return n;
 }

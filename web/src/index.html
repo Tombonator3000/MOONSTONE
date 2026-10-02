@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Moonstone (Mindscape 1991) i nettleseren, kjørt fra originalkoden, med nettspill for opptil fire.">
+<title>Moonstone</title>
+<style>
+%%STIL%%
+</style>
+</head>
+<body>
+<main id="start" class="panel">
+  <h1>Moonstone</h1>
+  <p class="under">A Hard Days Knight (Mindscape 1991), kjørt fra originalkoden på en emulert Amiga.</p>
+
+  <section class="boks">
+    <p id="spillfil-status">Ser etter spillfilen ...</p>
+    <label class="knapp liten">Velg spillfil
+      <input type="file" id="velg-fil" accept=".zip,.iso,application/zip">
+    </label>
+    <p class="hjelp">Moonstonecd32-AMIGA.zip eller «Moonstone CD32.iso». Filen lagres bare i denne nettleseren. Gjester i nettspill trenger den ikke.</p>
+    <details>
+      <summary>Egne filer (endret grafikk)</summary>
+      <p class="hjelp">Filer laget med <code>tools/gfx.py build</code> (f.eks. bg1a.PIV) brukes i stedet for originalene i data/. I nettspill får gjestene dem fra verten.</p>
+      <div class="rad">
+        <label class="knapp liten">Legg til filer <input type="file" id="velg-mod" multiple></label>
+        <button id="fjern-mod" class="knapp liten">Fjern alle</button>
+      </div>
+      <p class="hjelp" id="mod-liste">Ingen egne filer.</p>
+    </details>
+  </section>
+
+  <section class="boks">
+    <label class="felt">Navnet ditt <input id="navn" maxlength="20" autocomplete="nickname"></label>
+    <div class="rad">
+      <button id="spill-alene" class="knapp">Spill</button>
+      <button id="lag-rom" class="knapp">Lag nettspill</button>
+    </div>
+    <div class="rad">
+      <input id="romkode" placeholder="Romkode" maxlength="6" autocomplete="off" spellcheck="false">
+      <button id="bli-med" class="knapp">Bli med</button>
+    </div>
+    <label class="avkryss"><input type="checkbox" id="offentlig"> Vis rommet mitt i listen over offentlige rom</label>
+  </section>
+
+  <details class="boks" id="offentlige">
+    <summary>Offentlige rom</summary>
+    <ul id="romliste"><li class="hjelp">Henter listen ...</li></ul>
+  </details>
+
+  <p id="melding" role="status"></p>
+
+  <details class="boks">
+    <summary>Slik spiller du</summary>
+    <ul class="taster">
+      <li><b>Joystick 1:</b> piltastene, Ctrl er fire. Spillkontroller 1.</li>
+      <li><b>Joystick 2:</b> talltastaturet 8 2 4 6 (7 9 1 3 på skrå), 0 er fire. Spillkontroller 2.</li>
+      <li><b>Mellomrom:</b> inventaret til ridderen. <b>E:</b> avslutt turen. <b>Esc:</b> hopp over introen.</li>
+      <li>I kamp: hold fire og trykk en retning for de åtte angrepene (se manualen).</li>
+      <li><b>Home:</b> menyen. <b>Page Up / Page Down:</b> lagre / laste. <b>End:</b> neste lagringsplass. <b>F10:</b> avslutt.</li>
+      <li>På spillkontroller: A = fire, B = mellomrom, Start = E, Back = Esc.</li>
+    </ul>
+  </details>
+  <p class="smaa">Laget for å lære hvordan spillet er bygget. Kjernen er en Amiga 500-emulator i C (WebAssembly), bildet tegnes med three.js, nettspill går med PeerJS.</p>
+</main>
+
+<div id="spill" hidden>
+  <div id="skjerm"><canvas id="lerret"></canvas></div>
+  <div id="touch" hidden>
+    <div class="kors"></div>
+    <div class="knapper">
+      <button data-knapp="40">Inventar</button>
+      <button data-knapp="12">Slutt tur</button>
+      <button data-knapp="45">Esc</button>
+      <button data-knapp="fire" class="fire">Fire</button>
+    </div>
+  </div>
+  <button id="meny-knapp" title="Meny (Home)">Meny</button>
+  <div id="status"></div>
+  <div id="chatlinjer"></div>
+  <div id="meny" class="panel" hidden>
+    <div class="menytopp"><h2>Meny</h2><button id="lukk-meny" class="knapp liten">Tilbake til spillet</button></div>
+    <section class="boks">
+      <h3>Bilde og lyd</h3>
+      <div class="rad">
+        <label class="felt">Filter
+          <select id="filter"><option value="skarp">Skarp</option><option value="piksel">Rene piksler</option><option value="myk">Myk</option><option value="crt">CRT</option></select>
+        </label>
+        <label class="felt">Format
+          <select id="format"><option value="pal">PAL (kvadratiske piksler)</option><option value="43">4:3</option></select>
+        </label>
+      </div>
+      <label class="avkryss"><input type="checkbox" id="helt"> Vis hele PAL-bildet (med kanter)</label>
+      <label class="felt">Lydstyrke <input type="range" id="volum" min="0" max="2" step="0.05"></label>
+      <label class="avkryss"><input type="checkbox" id="knappevent"> Vent på fire før kamp (ButtonWait, gir tid til å lese)</label>
+    </section>
+    <section class="boks">
+      <h3>HD-grafikk (eksperimentelt)</h3>
+      <p class="hjelp">Velg en mappe med PNG-er navngitt som <code>tools/gfx.py extract</code> gir dem (for eksempel <code>kn1.ob/000.png</code>), gjerne tegnet i høyere oppløsning. Figurene spillet tegner, vises da med dine bilder. Se docs/hd-grafikk.md.</p>
+      <label class="avkryss"><input type="checkbox" id="rammer"> Vis et gult felt der spillet tegner en figur uten HD-bilde</label>
+      <div class="rad">
+        <label class="knapp liten">Velg HD-mappe <input type="file" id="velg-hd" webkitdirectory multiple></label>
+        <button id="tom-hd" class="knapp liten">Fjern</button>
+      </div>
+      <p class="hjelp" id="hd-status">Ingen HD-pakke.</p>
+    </section>
+    <section class="boks" id="lagring">
+      <h3>Lagring</h3>
+      <p class="hjelp" id="lagring-hjelp">Tilstanden lagres i denne nettleseren.</p>
+      <div class="rad">
+        <label class="felt">Plass <select id="plass"></select></label>
+        <button id="lagre" class="knapp liten">Lagre</button>
+        <button id="last" class="knapp liten">Last</button>
+      </div>
+    </section>
+    <section class="boks" id="nettspill" hidden>
+      <h3>Nettspill</h3>
+      <p id="rominfo"></p>
+      <div class="rad" id="lenkerad">
+        <input id="lenke" readonly>
+        <button id="kopier" class="knapp liten">Kopier lenken</button>
+      </div>
+      <table id="spillerliste"></table>
+      <p class="hjelp" id="port-hjelp">Moonstone har to joystickporter. Joystick 1 (port 2) brukes på kartet, i kamp mellom to riddere brukes begge. Spillere på samme joystick deler den som ved et vanlig bord: den som har turen, styrer.</p>
+      <div id="chat"><div id="chatlogg"></div><input id="chatfelt" placeholder="Skriv en melding og trykk Enter" maxlength="300"></div>
+    </section>
+    <div class="rad"><button id="avslutt" class="knapp">Avslutt til startsiden</button></div>
+  </div>
+</div>
+
+<script>
+%%VENDOR%%
+</script>
+<script>
+%%KJERNE%%
+</script>
+<script>
+%%APP%%
+</script>
+</body>
+</html>

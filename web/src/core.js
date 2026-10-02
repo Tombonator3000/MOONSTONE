@@ -1,0 +1,135 @@
+/*
+ * core.js - innpakning rundt emulatorkjernen (WebAssembly, port/src/web.c).
+ *
+ * Kjernen kjorer originalkoden til Moonstone paa en emulert Amiga 500. Her er
+ * bare smaa hjelpere for aa sende data inn og ut av minnet til WebAssembly.
+ */
+'use strict';
+
+const Kjerne = (() => {
+    let M = null;
+    let fbW = 720, fbH = 288;
+
+    async function last() {
+        if (M) return M;
+        M = await MoonCore();
+        fbW = M._ms_fb_w();
+        fbH = M._ms_fb_h();
+        return M;
+    }
+
+    function kopierInn(bytes) {
+        const p = M._malloc(bytes.length || 1);
+        M.HEAPU8.set(bytes, p);
+        return p;
+    }
+
+    function streng(s) {
+        const n = M.lengthBytesUTF8(s) + 1;
+        const p = M._malloc(n);
+        M.stringToUTF8(s, p, n);
+        return p;
+    }
+
+    /* spillfilene (zip eller ISO); kjernen tar over bufferet */
+    function aapne(bytes) {
+        const p = kopierInn(bytes);
+        if (!M._ms_open_mem(p, bytes.length)) throw new Error(M.UTF8ToString(M._ms_error()));
+    }
+
+    function start(knappevent) {
+        if (!M._ms_start(knappevent ? 1 : 0)) throw new Error(M.UTF8ToString(M._ms_error()) || 'Oppstart feilet');
+    }
+
+    function startSomGjest() {
+        M._ms_guest();
+        M._ms_start_empty();
+    }
+
+    function inndata(j0, j1) { M._ms_input(j0 | 0, j1 | 0); }
+    function tast(kode, ned) { M._ms_key(kode | 0, ned ? 1 : 0); }
+    function bilde() { M._ms_frame(); }
+
+    function rammebuffer() {
+        return new Uint8Array(M.HEAPU8.buffer, M._ms_fb(), fbW * fbH * 4);
+    }
+
+    function vindu() {
+        const p = M._ms_diw() >> 2;
+        return [M.HEAP32[p], M.HEAP32[p + 1], M.HEAP32[p + 2], M.HEAP32[p + 3]];
+    }
+
+    function lyd() {
+        const n = M._ms_audio_frames();
+        return new Int16Array(M.HEAP16.buffer, M._ms_audio(), n * 2);
+    }
+
+    function lagreTilstand() {
+        const n = M._ms_state_save();
+        if (!n) return null;
+        return new Uint8Array(M.HEAPU8.buffer, M._ms_state_buf(), n).slice();
+    }
+
+    function lastTilstand(bytes) {
+        const p = kopierInn(bytes);
+        const ok = M._ms_state_load(p, bytes.length);
+        M._free(p);
+        return !!ok;
+    }
+
+    /* nettspill: filer spillet har brukt i dette bildet */
+    function brukteFiler() {
+        const n = M._ms_accessed_count();
+        const ut = [];
+        for (let i = 0; i < n; i++) ut.push(M.UTF8ToString(M._ms_accessed_name(i)));
+        M._ms_accessed_clear();
+        return ut;
+    }
+
+    function hentFil(sti) {
+        const s = streng(sti);
+        const p = M._ms_file_peek(s);
+        M._free(s);
+        if (!p) return null;
+        return new Uint8Array(M.HEAPU8.buffer, p, M._ms_file_size()).slice();
+    }
+
+    function leggInnFil(sti, bytes) {
+        const s = streng(sti);
+        const p = kopierInn(bytes);
+        M._ms_file_inject(s, p, bytes.length);
+        M._free(p);
+        M._free(s);
+    }
+
+    /* figurene spillet tegnet i siste bilde: fil, bildenummer, x, y, bredde, hoyde, speilet */
+    function tegneliste() {
+        const n = M._ms_draw_count();
+        if (!n) return [];
+        const p = M._ms_draws(), st = M._ms_draw_size();
+        const h = new Int16Array(M.HEAPU8.buffer, p, (n * st) >> 1);
+        const ut = [];
+        for (let i = 0; i < n; i++) {
+            const o = (i * st) >> 1;
+            ut.push({ fil: M.UTF8ToString(M._ms_cel_name(h[o])), bilde: h[o + 1], x: h[o + 2], y: h[o + 3], w: h[o + 4], h: h[o + 5], xoff: h[o + 6], speilet: h[o + 7] !== 0 });
+        }
+        return ut;
+    }
+
+    return {
+        last, aapne, start, startSomGjest, inndata, tast, bilde, rammebuffer, vindu, lyd,
+        lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil,
+        bredde: () => fbW, hoyde: () => fbH,
+        bildeNr: () => M._ms_frame_no() >>> 0,
+        hz: () => M._ms_hz(),
+        sjekksum: () => M._ms_hash() >>> 0,
+        stoppet: () => !!M._ms_aborted(),
+        stoppMelding: () => M.UTF8ToString(M._ms_abort_msg()),
+        volum: (v) => M._ms_volume(v),
+        portSpillere: () => [M._ms_port_player(0), M._ms_port_player(1)],
+        tegneliste,
+        ridderNavn: (k) => M.UTF8ToString(M._ms_knight_name(k)),
+        les8: (a) => M._ms_peek8(a),
+        les16: (a) => M._ms_peek16(a),
+    };
+})();

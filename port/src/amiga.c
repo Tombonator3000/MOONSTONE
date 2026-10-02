@@ -194,6 +194,12 @@ static void keyboard_line(void)
     if (M.kbd_head == M.kbd_tail) return;
     uint8_t code = M.kbd_queue[M.kbd_head];
     M.kbd_head = (M.kbd_head + 1) % (int)sizeof M.kbd_queue;
+    /* WHDLoad avslutter naar QuitKey trykkes (F10 for Moonstone) */
+    if (code == whd_keyexit && !M.aborted) {
+        snprintf(M.abort_msg, sizeof M.abort_msg, "Spillet er avsluttet (F10).");
+        M.aborted = true;
+        return;
+    }
     /* bitene sendes rotert ett steg til venstre og invertert */
     uint8_t sdr = (uint8_t)~((code << 1) | (code >> 7));
     cia_serial_in(sdr);
@@ -246,6 +252,7 @@ static void run_line(void)
 void amiga_run_frame(void)
 {
     uint32_t start_frame = M.frame;
+    game_n_draws = 0;                      /* tegnelisten gjelder ett bilde */
     while (M.frame == start_frame) {
         M.line_clk = M.clk;
         if (M.vpos == 0) {

@@ -19,6 +19,8 @@
 #include <stdarg.h>
 
 int  whd_buttonwait = 0;
+bool whd_mog_loaded;                       /* hovedspillet er lastet (ikke introen) */
+int  whd_keyexit = -1;                     /* ws_keyexit: tasten som avslutter (F10) */
 void (*whd_log)(const char *msg);
 
 #define DELAY_STUB  (RESLOAD_BASE + 0x100)
@@ -276,6 +278,11 @@ static void load_file(bool decrunch)
         }
     }
     copy_in(dest, data, size);
+    {
+        size_t pl = strlen(path);
+        if (pl >= 4 && !strcmp(path + pl - 4, "/mog")) whd_mog_loaded = true;
+        if (pl >= 8 && !strcmp(path + pl - 8, "/program")) whd_mog_loaded = false;
+    }
     wlog("LoadFile%s %s -> %06x (%u byte)", decrunch ? "Decrunch" : "", path, dest, (unsigned)size);
     free(data);
     set_reg(M68K_REG_D0, (uint32_t)size);
@@ -443,6 +450,7 @@ bool whd_boot(void)
     slave_basemem = rd32(s + 16);
     uint32_t loader = (uint32_t)(s[24] << 8 | s[25]);
     uint32_t cdir = (uint32_t)(s[26] << 8 | s[27]);
+    whd_keyexit = s[31] ? s[31] : -1;
     if (cdir) snprintf(current_dir, sizeof current_dir, "%s", (const char *)s + cdir);
     else current_dir[0] = 0;
     if (slave_version >= 8) {
@@ -486,4 +494,5 @@ void whd_delay_check(void)
 void whd_state(StateIO *s)
 {
     STATE_VAR(s, current_dir);
+    STATE_VAR(s, whd_mog_loaded);
 }
