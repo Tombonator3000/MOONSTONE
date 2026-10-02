@@ -228,6 +228,8 @@ bool     whd_boot(void);                  /* laster slaven og setter CPU-en klar
 void     whd_call(unsigned offset);       /* CPU-en kaller resload + offset */
 void     whd_delay_check(void);           /* avslutter resload_Delay naar tiden er ute */
 extern int whd_buttonwait;
+extern bool whd_mog_loaded;
+extern int  whd_keyexit;
 extern void (*whd_log)(const char *msg);
 
 /* ------------------------------------------------------------ files.c */
@@ -252,6 +254,7 @@ void     files_accessed_clear(void);
 const uint8_t *files_peek(const char *path, size_t *size);
 void     files_inject(const char *path, const uint8_t *data, size_t size);
 void     files_empty(void);
+int      files_add_overlay(const char *dir);   /* --mod: egne filer over data/ */
 
 /* ------------------------------------------------------------ decrunch.c */
 /* RNC ProPack metode 1 og 2. Returnerer utpakket lengde, 0 hvis ikke RNC, -1 ved feil. */
@@ -272,7 +275,10 @@ typedef bool (*hook_fn)(void);
 void     hooks_register(uint32_t addr, hook_fn fn, const char *name);
 void     hooks_clear(void);
 void     hook_return(void);
+void     hook_cycles(int n);              /* C-funksjonen bruker n sykluser, som originalen */
+void     hooks_report(void);
 extern bool hooks_disabled;
+extern bool hooks_measure;
 extern void (*hook_trace)(uint32_t pc);
 
 /* ------------------------------------------------------------ state.c */

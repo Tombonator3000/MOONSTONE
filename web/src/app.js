@@ -18,6 +18,7 @@
     const lagreInnst = () => Lager.lagreInnstillinger(innst);
 
     let spillfil = null;                    /* Uint8Array */
+    let modFiler = {};                      /* navn -> Uint8Array, legges over data/ */
     let modus = null;                       /* 'alene' | 'vert' | 'gjest' */
     let pause = false, menyApen = false, venterSynk = false, kjorer = false;
     let periode = 1 / 49.92;
@@ -80,6 +81,18 @@
         melding('');
     });
 
+    function visMod() {
+        const navn = Object.keys(modFiler);
+        $('mod-liste').textContent = navn.length ? 'Brukes: ' + navn.join(', ') : 'Ingen egne filer.';
+    }
+
+    $('velg-mod').addEventListener('change', async (e) => {
+        for (const f of e.target.files) modFiler[f.name] = new Uint8Array(await f.arrayBuffer());
+        await Lager.sett('mod', modFiler);
+        visMod();
+    });
+    $('fjern-mod').addEventListener('click', async () => { modFiler = {}; await Lager.slett('mod'); visMod(); });
+
     /* ---------------------------------------------------------------- oppstart */
     async function startKjerne(somGjest) {
         await Kjerne.last();
@@ -88,6 +101,7 @@
         } else {
             if (!spillfil) throw new Error('Velg spillfilen først.');
             Kjerne.aapne(spillfil.slice());
+            for (const [n, d] of Object.entries(modFiler)) Kjerne.leggInnFil('data/' + n, d);
             Kjerne.start(innst.knappevent);
         }
         periode = 1 / Kjerne.hz();
@@ -491,6 +505,7 @@
     fyllPlasser();
     Inndata.lagTouch($('touch'));
     finnSpillfil();
+    Lager.hent('mod').then((m) => { if (m) { modFiler = m; visMod(); } });
     const rom = new URLSearchParams(location.search).get('rom');
     if (rom) {
         $('romkode').value = rom.toUpperCase();

@@ -4,8 +4,8 @@ spill/*
 !spill/LES_MEG.txt
 assets/*
 !assets/LES_MEG.md
+# disassemblyen inneholder hele spillkoden og lages lokalt med tools/disasm.py
 disasm/*.s
-disasm/*.bin
 *.o
 port/build-win/
 port/build-web/

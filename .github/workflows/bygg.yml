@@ -1,0 +1,119 @@
+# Bygger PC-porten for Linux og Windows og nettleserversjonen ved hver push.
+# Ferdige filer ligger under "Artifacts" paa siden til hver kjoring i Actions-fanen.
+#
+# Paa hovedgrenen legges nettleserversjonen ogsaa ut paa GitHub Pages. Det krever
+# at Pages er slaatt paa: Settings -> Pages -> Source: GitHub Actions. For et
+# privat repo krever GitHub et betalt abonnement for Pages. Til Pages er klart,
+# feiler bare det steget, uten at resten av kjoringen blir rod.
+#
+# MED_SPILLET: "ja" legger Moonstonecd32-AMIGA.zip ved siden av nettsiden og i
+# Windows-pakken, saa spillet starter uten at noen maa velge filen. Eieren har
+# bestemt dette (Moonstone regnes som abandonware). Sett til "nei" for aa slaa
+# det av; da maa verten velge filen selv. Gjester trenger den aldri.
+name: Bygg
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+env:
+  MED_SPILLET: "ja"
+
+jobs:
+  linux:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Installer SDL2
+        run: |
+          sudo rm -f /var/lib/man-db/auto-update
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libsdl2-dev
+      - name: Bygg
+        run: make -C port -j4 moonstone headless
+      - name: Kjor introen uten vindu
+        run: |
+          cd port
+          ./moonstone-headless --game ../Moonstonecd32-AMIGA.zip --headless --frames 3000 --log 0 | tee ut.txt
+          grep -q "Ferdig etter 3000 bilder" ut.txt
+      - name: Pakk
+        run: |
+          mkdir -p pakke/moonstone/spill
+          cp port/moonstone README.md pakke/moonstone/
+          if [ "$MED_SPILLET" = "ja" ]; then cp Moonstonecd32-AMIGA.zip pakke/moonstone/spill/; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: moonstone-linux
+          path: pakke/
+
+  windows:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      SDL2_VERSION: 2.30.8
+      SDL2_SHA256: adbf5ae7b5144f02d4cb091a9a7f4752f8e835b4bebd9f3fcafd9d7a4194f3b9
+    steps:
+      - uses: actions/checkout@v4
+      - name: Installer MinGW
+        run: |
+          sudo rm -f /var/lib/man-db/auto-update
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends gcc-mingw-w64-x86-64 mingw-w64-x86-64-dev
+      - name: Hent SDL2 for MinGW
+        run: |
+          curl -sSL -o sdl.tar.gz https://github.com/libsdl-org/SDL/releases/download/release-${SDL2_VERSION}/SDL2-devel-${SDL2_VERSION}-mingw.tar.gz
+          echo "${SDL2_SHA256}  sdl.tar.gz" | sha256sum -c
+          tar xzf sdl.tar.gz
+      - name: Bygg moonstone.exe
+        run: make -C port -j4 windows SDL2_MINGW=$PWD/SDL2-${SDL2_VERSION}/x86_64-w64-mingw32
+      - name: Pakk
+        run: |
+          mkdir -p pakke/moonstone/spill
+          cp port/moonstone.exe port/SDL2.dll windows/start.bat windows/LES_MEG.txt pakke/moonstone/
+          cp SDL2-${SDL2_VERSION}/LICENSE.txt pakke/moonstone/SDL2_LICENSE.txt 2>/dev/null || true
+          if [ "$MED_SPILLET" = "ja" ]; then cp Moonstonecd32-AMIGA.zip pakke/moonstone/spill/; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: moonstone-windows
+          path: pakke/
+
+  web:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mymindstorm/setup-emsdk@v14
+        with:
+          version: 3.1.74
+      - name: Bygg nettleserversjonen
+        run: make -C port -j4 web
+      - name: Klargjor siden
+        run: |
+          mkdir -p side
+          cp web/build/moonstone.html side/index.html
+          if [ "$MED_SPILLET" = "ja" ]; then mkdir -p side/spill && cp Moonstonecd32-AMIGA.zip side/spill/; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: moonstone-web
+          path: side/
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        with:
+          path: side
+
+  pages:
+    needs: web
+    if: github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-24.04
+    continue-on-error: true
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

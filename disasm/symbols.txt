@@ -1,0 +1,50 @@
+# Navn og kommentarer for disassemblyen av mog (hovedspillet), lastet til $80000.
+# Format: adresse navn kommentar. Endre her og kjor tools/disasm.py paa nytt.
+#
+# Joystick og ridderne (se port/src/game.c)
+81f6a joystick_for_figur      D0 = joysticken til figuren i A0: byte $B = 1 gir port 1, ellers port 2
+81f7c vent_paa_fire           venter til fire trykkes og slippes (port 2)
+81f92 les_joysticker          JOY1DAT til $8D9A2 (port 2) og JOY0DAT til $8D9A0 (port 1), bit 4 = fire
+82008 joydat_til_bits         gjor JOYxDAT om til bit 0-3 (hoyre, venstre, ned, opp)
+8d5b4 ridder_1                fire riddere a $84 byte: +$B port (1/2, 4 = datamaskin), +$36 spiller, +$6C navn
+8d638 ridder_2
+8d6bc ridder_3
+8d740 ridder_4
+8d7c4 svart_ridder            ($36 = 5)
+8d9a0 joy_port1               siste joystickverdi i port 1
+8d9a2 joy_port2               siste joystickverdi i port 2
+8d9ac aktiv_ridder            peker til ridderen som har turen
+8d9b0 forste_ridder
+abc98 skriv_tur               skriver "NAVN's turn." (navnet fra aktiv_ridder +$6C)
+#
+# Tekster
+82d82 monstermeny             testmeny: B - Balok, A - Trogg with Axes osv.
+8f0b8 riddernavn_valg         SIR_RICHARD, SIR_GODBER, SIR_JEFFREY, SIR_EDWARD
+95ee6 navn_sir_banner         navnene til ridderne datamaskinen spiller
+9629a tekst_tur               " turn."
+96d50 tekst_magiske_ting      Potion of healing, Gem of seeing ...
+#
+# Avbrudd (vektorene som mog setter)
+9b0e8 avbrudd_niva1
+9b130 avbrudd_niva2           CIA-A: tastaturet
+9b25e avbrudd_niva3           VERTB, Copper og Blitter
+add30 avbrudd_niva4           lyd
+9b378 avbrudd_niva5
+9b3b0 avbrudd_niva6
+9b4fc les_mus                 JOY0DAT som mus (pekeren i noen skjermer)
+#
+# Steder slaven lapper (Moonstone.Slave, patchlisten paa slave+$234)
+80096 knappevent_1            slaven: ButtonWait (vent paa fire) og hopp til $81880
+81846 tilbake_til_introen     slaven: laster program paa nytt (avslutt spillet)
+88a72 knappevent_2            slaven: ButtonWait foer kamp
+8c0c6 gullgrense_1            slaven: 150 er endret til 999
+8c2e8 gullgrense_2            slaven: 150 er endret til 999
+8c2f0 gullgrense_3            slaven: 150 er endret til 999
+990a4 joystick_lapp           slaven: hopper til les_joysticker
+9a374 last_fil_buffer         slaven: laster en fil via resload
+9b15a tastatur_kvittering     slaven: riktig handshake mot tastaturet
+9ccae last_piv                slaven: laster et PIV-bilde (palett og bitplan)
+9d62a cel_storrelse           slaven: minnebehov for en CEL-fil
+9d828 last_cel                slaven: laster og pakker ut en CEL-fil
+9d9e6 last_pakket             slaven: laster og pakker ut en fil
+9da32 lz_utpakk               slaven: spillets LZ-utpakker (flyttet og optimalisert av Wepl)

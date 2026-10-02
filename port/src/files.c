@@ -447,3 +447,48 @@ uint32_t files_game_crc(void)
     }
     return crc;
 }
+
+/* Filer i en mappe (f.eks. fra tools/gfx.py build) legges over spillfilene i
+ * data/. Det er slik endret grafikk og lyd tas i bruk. Returnerer antall filer. */
+int files_add_overlay(const char *dir)
+{
+    int n = 0;
+#ifndef _WIN32
+    DIR *d = opendir(dir);
+    if (!d) return -1;
+    struct dirent *de;
+    while ((de = readdir(d))) {
+        if (de->d_name[0] == '.') continue;
+        char full[1024], rel[300];
+        snprintf(full, sizeof full, "%s/%s", dir, de->d_name);
+        snprintf(rel, sizeof rel, "data/%s", de->d_name);
+        size_t sz;
+        uint8_t *data = read_file(full, &sz);
+        if (!data) continue;
+        files_inject(rel, data, sz);
+        free(data);
+        n++;
+    }
+    closedir(d);
+#else
+    char pattern[1024];
+    snprintf(pattern, sizeof pattern, "%s\\*", dir);
+    WIN32_FIND_DATAA fd;
+    HANDLE h = FindFirstFileA(pattern, &fd);
+    if (h == INVALID_HANDLE_VALUE) return -1;
+    do {
+        if (fd.cFileName[0] == '.' || (fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) continue;
+        char full[1024], rel[300];
+        snprintf(full, sizeof full, "%s\\%s", dir, fd.cFileName);
+        snprintf(rel, sizeof rel, "data/%s", fd.cFileName);
+        size_t sz;
+        uint8_t *data = read_file(full, &sz);
+        if (!data) continue;
+        files_inject(rel, data, sz);
+        free(data);
+        n++;
+    } while (FindNextFileA(h, &fd));
+    FindClose(h);
+#endif
+    return n;
+}

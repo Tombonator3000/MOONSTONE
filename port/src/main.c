@@ -85,11 +85,14 @@ static void usage(void)
 {
     printf("Moonstone for PC, bygget paa originalkoden fra Amiga.\n\n"
            "  --game STI            spillfilene (Moonstonecd32-AMIGA.zip, ISO eller mappe)\n"
+           "  --mod MAPPE           bruk filene i MAPPE i stedet for de i data/ (endret grafikk)\n"
            "  --scale N             vindusstorrelse (standard 3)\n"
            "  --fullscreen          fullskjerm\n"
            "  --volume V            lydstyrke, 1.0 er normal\n"
            "  --buttonwait          vent paa fire for kamp (WHDLoad ButtonWait)\n"
            "  --nohooks             kjor bare originalkoden (ingen C-erstatninger)\n"
+           "  --hook-cycles         kjor originalen og mal syklusene til funksjonene i decomp/\n"
+           "  --hook-report         skriv hvor ofte hver C-erstatning ble brukt\n"
            "  --headless            uten vindu og lyd, for testing\n"
            "  --frames N            antall bilder (headless)\n"
            "  --shot-every N        lagre skjermbilde hvert N. bilde (PNG)\n"
@@ -99,6 +102,7 @@ static void usage(void)
            "  --load-state FIL      start fra en lagret tilstand\n"
            "  --dump F:FIL          skriv chip-minnet til fil i bilde F\n"
            "  --vis-tur             skriv hvilken spiller som styrer portene (nettspill)\n"
+           "  --coverage FIL        lagre hvilke adresser som er kjort (legges til filen)\n"
            "  --wav FIL             ta opp lyden\n"
            "  --log N               0 stille, 1 normal, 2 alt\n");
 }
@@ -117,10 +121,14 @@ static const char *find_game(void)
     return NULL;
 }
 
+static int run_headless(int frames, int shot_every, const char *shot_dir, int save_state_frame,
+                        const char *save_state_file, const char *wav_path, bool show_turn);
+
 int main(int argc, char **argv)
 {
+    const char *mod_dir = NULL, *coverage_path = NULL;
     const char *game = NULL, *shot_dir = ".", *load_state = NULL, *save_state_file = NULL, *wav_path = NULL;
-    bool headless = false, nohooks = false, show_turn = false;
+    bool headless = false, nohooks = false, show_turn = false, hook_report = false;
     int frames = 0, shot_every = 0, save_state_frame = -1;
     FrontendOptions fo = { .scale = 3, .volume = 1.0f };
 
@@ -138,9 +146,13 @@ int main(int argc, char **argv)
         else if (!strcmp(a, "--volume") && v) { fo.volume = (float)atof(v); i++; }
         else if (!strcmp(a, "--buttonwait")) whd_buttonwait = 1;
         else if (!strcmp(a, "--nohooks")) nohooks = true;
+        else if (!strcmp(a, "--hook-cycles")) hooks_measure = true;
+        else if (!strcmp(a, "--hook-report")) hook_report = true;
         else if (!strcmp(a, "--log") && v) { log_level = atoi(v); i++; }
         else if (!strcmp(a, "--wav") && v) { wav_path = v; i++; }
         else if (!strcmp(a, "--vis-tur")) show_turn = true;
+        else if (!strcmp(a, "--mod") && v) { mod_dir = v; i++; }
+        else if (!strcmp(a, "--coverage") && v) { coverage_path = v; i++; }
         else if (!strcmp(a, "--dump") && v) {
             if (n_dumps < 64) {
                 dumps[n_dumps].frame = atoi(v);
@@ -189,8 +201,13 @@ int main(int argc, char **argv)
         if (!headless) frontend_message(files_error);
         return 1;
     }
+    if (mod_dir) {
+        int n = files_add_overlay(mod_dir);
+        if (n < 0) { fprintf(stderr, "Fant ikke mappen %s\n", mod_dir); return 1; }
+        printf("%d filer fra %s brukes i stedet for originalene\n", n, mod_dir);
+    }
     hooks_disabled = nohooks;
-    if (!nohooks) decomp_register_all();
+    decomp_register_all();
     if (!amiga_init()) {
         fprintf(stderr, "Oppstart feilet: %s\n", files_error);
         return 1;
@@ -200,7 +217,31 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    if (!headless) return frontend_run(&fo);
+    /* --coverage: hvilke adresser som er kjort, lagt sammen med filen fra for.
+     * Bare mog (fra $80000) teller; introen ligger paa de samme adressene. */
+    static uint8_t cov[CHIP_SIZE / 16];
+    if (coverage_path) {
+        extern uint8_t *hook_coverage;
+        hook_coverage = cov;
+    }
+    int ret = 0;
+    if (!headless) ret = frontend_run(&fo);
+    else ret = run_headless(frames, shot_every, shot_dir, save_state_frame, save_state_file, wav_path, show_turn);
+    if (hooks_measure || hook_report) hooks_report();
+    if (coverage_path) {
+        static uint8_t old[CHIP_SIZE / 16];
+        FILE *cf = fopen(coverage_path, "rb");
+        if (cf) { size_t n = fread(old, 1, sizeof old, cf); (void)n; fclose(cf); }
+        for (size_t i = 0; i < sizeof cov; i++) cov[i] |= old[i];
+        cf = fopen(coverage_path, "wb");
+        if (cf) { fwrite(cov, 1, sizeof cov, cf); fclose(cf); printf("Kodedekning lagret i %s\n", coverage_path); }
+    }
+    return ret;
+}
+
+static int run_headless(int frames, int shot_every, const char *shot_dir, int save_state_frame,
+                        const char *save_state_file, const char *wav_path, bool show_turn)
+{
 
     FILE *wav = wav_path ? fopen(wav_path, "wb") : NULL;
     uint32_t wav_frames = 0;

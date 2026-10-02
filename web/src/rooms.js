@@ -10,7 +10,10 @@
 'use strict';
 
 const Romliste = (() => {
-    const MEGLER = 'wss://broker.hivemq.com:8884/mqtt';
+    /* ?mqtt=wss://vert:port/sti (og eventuelt &mqttv=4) gir en annen megler, f.eks. egen eller for testing */
+    const sok = new URLSearchParams(location.search);
+    const MEGLER = sok.get('mqtt') || 'wss://broker.hivemq.com:8884/mqtt';
+    const VERSJON = +(sok.get('mqttv') || 5);
     const TEMA = 'moonstone-ms/v1/rom/';
     const LEVETID = 300;
     let klient = null;
@@ -19,7 +22,7 @@ const Romliste = (() => {
         if (klient) return klient;
         if (typeof mqtt === 'undefined') throw new Error('MQTT er ikke lastet');
         klient = mqtt.connect(MEGLER, {
-            protocolVersion: 5, clean: true, connectTimeout: 10000, reconnectPeriod: 5000,
+            protocolVersion: VERSJON, clean: true, connectTimeout: 10000, reconnectPeriod: 5000,
             clientId: 'moonstone_' + Math.random().toString(16).slice(2, 10),
         });
         return klient;
@@ -32,7 +35,9 @@ const Romliste = (() => {
         const legg = () => {
             const info = hentInfo();
             info.tid = Date.now();
-            c.publish(TEMA + info.kode, JSON.stringify(info), { retain: true, qos: 1, properties: { messageExpiryInterval: LEVETID } });
+            const o = { retain: true, qos: 1 };
+            if (VERSJON === 5) o.properties = { messageExpiryInterval: LEVETID };
+            c.publish(TEMA + info.kode, JSON.stringify(info), o);
         };
         if (c.connected) legg(); else c.once('connect', legg);
         const t = setInterval(legg, 60000);
