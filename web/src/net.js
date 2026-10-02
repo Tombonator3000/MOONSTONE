@@ -283,11 +283,13 @@ const Nett = (() => {
     function vertensSpiller() { return vertSpiller; }
 
     /* etter hvert bilde: send inndataene og filene som ble brukt */
-    function sendBilde(f, j, taster, filer, hentFil, sjekksum) {
+    /* kommandoer: menykommandoer (meny.c) som verten brukte foer dette bildet */
+    function sendBilde(f, j, taster, filer, hentFil, sjekksum, kommandoer) {
         if (!gjester.size) return;
         for (const g of gjester.values()) {
             const m = { t: 'f', f, j };
             if (taster.length) m.k = taster;
+            if (kommandoer && kommandoer.length) m.c = kommandoer;
             if (sjekksum !== undefined) m.h = sjekksum;
             const nye = filer.filter((p) => !g.filer.has(p));
             if (nye.length) {

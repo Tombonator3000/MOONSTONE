@@ -25,6 +25,11 @@ static int  n_dumps;
 static Press presses[256];
 static int   n_presses;
 
+/* --meny F:KOMMANDO:ARG:TEKST, som nettsiden sender (meny.c) */
+typedef struct { uint32_t frame; int cmd, arg; char text[96]; } MenuCmd;
+static MenuCmd menu_cmds[32];
+static int     n_menu_cmds;
+
 static const struct { const char *name; int code; } keynames[] = {
     {"esc",0x45},{"space",0x40},{"return",0x44},{"enter",0x43},{"tab",0x42},{"backspace",0x41},{"del",0x46},
     {"f1",0x50},{"f2",0x51},{"f3",0x52},{"f4",0x53},{"f5",0x54},{"f6",0x55},{"f7",0x56},{"f8",0x57},{"f9",0x58},{"f10",0x59},
@@ -104,6 +109,8 @@ static void usage(void)
            "  --vis-tur             skriv hvilken spiller som styrer portene (nettspill)\n"
            "  --coverage FIL        lagre hvilke adresser som er kjort (legges til filen)\n"
            "  --tegneliste F[:N]    skriv figurene som tegnes i bilde F og de N-1 neste (HD)\n"
+           "  --online-meny         \"Online Game\" i tittelmenyen (som paa nettsiden)\n"
+           "  --meny F:K:ARG:TEKST  menykommando K i bilde F (se meny.c), | blir linjeskift\n"
            "  --blit-log            skriv hvor Blitteren startes fra\n"
            "  --wav FIL             ta opp lyden\n"
            "  --log N               0 stille, 1 normal, 2 alt\n");
@@ -177,6 +184,25 @@ int main(int argc, char **argv)
             save_state_frame = atoi(v);
             const char *c = strchr(v, ':');
             save_state_file = c ? c + 1 : "moonstone.sav";
+            i++;
+        } else if (!strcmp(a, "--online-meny")) {
+            meny_online = true;
+        } else if (!strcmp(a, "--meny") && v) {
+            if (n_menu_cmds < 32) {
+                MenuCmd *m = &menu_cmds[n_menu_cmds++];
+                char tmp[160];
+                snprintf(tmp, sizeof tmp, "%s", v);
+                char *f[4] = { tmp, NULL, NULL, NULL };
+                for (int k = 1; k < 4; k++) {
+                    char *c = f[k - 1] ? strchr(f[k - 1], ':') : NULL;
+                    if (c) { *c = 0; f[k] = c + 1; }
+                }
+                m->frame = (uint32_t)atoi(f[0]);
+                m->cmd = f[1] ? atoi(f[1]) : 0;
+                m->arg = f[2] ? atoi(f[2]) : 0;
+                snprintf(m->text, sizeof m->text, "%s", f[3] ? f[3] : "");
+                for (char *c = m->text; *c; c++) if (*c == '|') *c = '\n';
+            }
             i++;
         } else if (!strcmp(a, "--press") && v) {
             if (n_presses < 256) {
@@ -260,7 +286,11 @@ static int run_headless(int frames, int shot_every, const char *shot_dir, int sa
     if (wav) { uint8_t hdr[44] = {0}; fwrite(hdr, 1, 44, wav); }
     for (int f = 0; f < frames; f++) {
         apply_presses(M.frame);
+        for (int k = 0; k < n_menu_cmds; k++)
+            if (menu_cmds[k].frame == M.frame) meny_command(menu_cmds[k].cmd, menu_cmds[k].arg, menu_cmds[k].text);
         amiga_run_frame();
+        for (int e; (e = meny_take_event()); )
+            printf("meny-hendelse bilde %u: %d arg %d\n", M.frame, e & 0xff, e >> 8);
         if (draw_list_frame >= 0 && (int)M.frame >= draw_list_frame && (int)M.frame < draw_list_frame + draw_list_count) {
             printf("tegneliste bilde %u (bakgrunn %s):\n", M.frame, game_background());
             for (int d = 0; d < game_n_draws; d++)

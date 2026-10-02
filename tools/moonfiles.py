@@ -376,3 +376,58 @@ def svx_alle(d):
             ut.append(dict(rate=rate or 8363, data=data, navn=navn, offset=i))
         i = d.find(b'FORM', i + 4)
     return ut
+
+
+# ---------------------------------------------------------------- hunk-filer
+
+
+def legg_ut(d, base=0x80000):
+    """Relokerer en AmigaDOS hunk-fil slik slaven gjør: hunkene rett etter hverandre fra base.
+    Returnerer (minne, hunker, rel): hunker er (start, slutt, type), rel adressene som ble relokert."""
+    p = 0
+
+    def L():
+        nonlocal p
+        v = struct.unpack('>I', d[p:p + 4])[0]
+        p += 4
+        return v
+    assert L() == 0x3f3
+    while L():
+        p += 4 * struct.unpack('>I', d[p - 4:p])[0]
+    L()
+    forste, siste = L(), L()
+    storrelser = [L() & 0x3fffffff for _ in range(siste - forste + 1)]
+    adr, a = [], base
+    for s in storrelser:
+        adr.append(a)
+        a += s * 4
+    minne = bytearray(a - base)
+    hunker, rel = [], []
+    h = -1
+    while p + 4 <= len(d):
+        t = L() & 0x3fffffff
+        if t in (0x3e9, 0x3ea, 0x3eb):
+            h += 1
+            n = L() * 4
+            typ = {0x3e9: 'kode', 0x3ea: 'data', 0x3eb: 'bss'}[t]
+            if t != 0x3eb:
+                minne[adr[h] - base:adr[h] - base + n] = d[p:p + n]
+                p += n
+            hunker.append((adr[h], adr[h] + storrelser[h] * 4, typ))
+        elif t == 0x3ec:
+            while True:
+                n = L()
+                if not n:
+                    break
+                th = L()
+                for _ in range(n):
+                    off = L()
+                    q = adr[h] - base + off
+                    v = struct.unpack('>I', minne[q:q + 4])[0] + adr[th]
+                    minne[q:q + 4] = struct.pack('>I', v)
+                    rel.append(adr[h] + off)
+        elif t == 0x3f2:
+            pass
+        else:
+            break
+    return bytes(minne), hunker, set(rel)

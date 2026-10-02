@@ -280,9 +280,27 @@ void     game_register_hooks(void);
 const char *game_cel_name(int i);
 const char *game_background(void);
 
+/* ------------------------------------------------------------ patch.c, meny.c */
+extern uint32_t *whd_relocs;              /* langordene siste resload_Relocate rettet */
+extern int       whd_n_relocs;
+void     game_mog_ready(void);            /* mog er lastet og lappet: tekster.txt og menyen */
+bool     meny_mog_ready(void);            /* true naar menyen er lappet */
+void     patch_register_hooks(void);      /* lappene; de sjekker selv tilstanden */
+void     meny_register_hooks(void);
+extern bool meny_online;                  /* frontenden kan nettspill: "Online Game" i tittelmenyen */
+/* hendelser fra menyen til frontenden: kode | argument << 8 */
+enum { MENY_EV_HOST = 1, MENY_EV_JOIN_PAGE, MENY_EV_JOIN_ROOM, MENY_EV_ENTER_CODE, MENY_EV_COPY,
+       MENY_EV_PUBLIC, MENY_EV_LEAVE_JOIN, MENY_EV_BACK };
+/* kommandoer fra frontenden, brukes ved starten av et bilde (i nettspill hos alle) */
+enum { MENY_CMD_HOSTING = 1, MENY_CMD_PLAYERS, MENY_CMD_PUBLIC, MENY_CMD_ROOMS, MENY_CMD_MESSAGE,
+       MENY_CMD_SESSION_END };
+int      meny_take_event(void);           /* 0 = ingen */
+void     meny_command(int cmd, int arg, const char *text);
+
 /* ------------------------------------------------------------ hooks.c */
 typedef bool (*hook_fn)(void);
 void     hooks_register(uint32_t addr, hook_fn fn, const char *name);
+void     hooks_register_patch(uint32_t addr, hook_fn fn, const char *name);
 void     hooks_clear(void);
 void     hook_return(void);
 void     hook_cycles(int n);              /* C-funksjonen bruker n sykluser, som originalen */
@@ -305,6 +323,8 @@ void     paula_state(StateIO *s);
 void     video_state(StateIO *s);
 void     whd_state(StateIO *s);
 void     game_state(StateIO *s);
+void     patch_state(StateIO *s);
+void     meny_state(StateIO *s);
 /* hele tilstanden til/fra minnet; kalleren frigjor buf med free() */
 bool     state_save_mem(uint8_t **buf, size_t *size);
 bool     state_load_mem(const uint8_t *buf, size_t size);

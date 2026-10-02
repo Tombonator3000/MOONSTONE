@@ -80,3 +80,26 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 - Tittelmenyen ($8188C): valg 0-3 i $8F2D2, pilens y per valg i $8F2D4 ($55, $6E, $94, $A8),
   grensen 3 står i `cmpi.w #3` på $81916 og $819A6/$819B0. Fire på valg 2 = Practice,
   3 = Select Knight. Antall spillere i $8CDFC (1-4), Gore av i $8F2CC.
+
+## Tekstverktøy, lapper og nettspill i tittelmenyen
+- `tools/tekst.py extract` gir 361 tekster i mog. Porten bruker `data/tekster.txt` i
+  `game_mog_ready()` (patch.c), som kalles fra resload_Patch når mog er lappet.
+  whdload.c husker hvilke langord resload_Relocate rettet (`whd_relocs`), så pekere til
+  flyttede tekster kan rettes. Avsnitt: byte med antall linjer (1-31) og linjene.
+- Spillet bruker aldri chip over $B1000. Porten: $E0000 tegnelister (255 plasser),
+  $F0000 flyttede tekster, $F8000 menysidene.
+- Grenser i originalen: tegnelistene har 45 plasser ($8DE4A/$8DFB2) og tekst sjekker
+  ikke grensen; sentrert tekst over 320 piksler gir x utenfor skjermen ($890BC/$890EA);
+  D0 har tekstbredden etter skriv_tekst og $8B132 leser STR/CON/END med move.b (257).
+- Fonten skriv_tekst bruker, ligger i ExpMem ($2433A2), pekeren på $8CE94+$A.
+- En hook rett etter et kall til en C-erstattet funksjon kalles ikke (hook_return setter PC,
+  og Musashi kjører instruksjonen uten ny hook). Derfor $8190E og ikke $8190C i meny.c.
+- Lapper registreres med `hooks_register_patch`; de kjøres også med --nohooks og bestemmer
+  selv ut fra tilstanden (texts_patched, M2.enabled) om de gjør noe. STATE_VERSION er 4.
+- Tittelmenyen med nettspill: rader på y $53, $6C, $88, $9C, $B0. «Online Game» er valg 4.
+  Sidene bygges av meny.c og tegnes av tegn_tittelmeny ($81942 = tegn på nytt og tilbake
+  til løkka). Hendelser: 1 Host, 2 Join-side, 3 rom valgt, 4 Enter Code, 5 kopier lenke,
+  6 offentlig, 7 forlot Join, 8 Back. Kommandoer: 1 rom (kode), 2 spillere, 3 offentlig,
+  4 romliste (linjer), 5 melding, 6 slutt.
+- `/` og `\` i fonten er understrek (bilde 71), `-` og `:` har ikke noe bilde.
+

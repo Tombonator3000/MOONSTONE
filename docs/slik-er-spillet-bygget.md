@@ -68,6 +68,35 @@ byte 8 i bildetabellen: 1 betyr vanlig, og (utfylling << 4) betyr speilet, der
 utfyllingen er bredden rundet opp til 16 minus bredden. `tegn_figur` trekker den øvre
 halvdelen fra x, så den speilede figuren havner på samme sted som den vanlige.
 
+## Tekst og menyer
+
+Tekstene ligger som vanlig ASCII med 0 på slutten i `mog`. `skriv_tekst` ($89052) skriver
+en lenket liste der hver linje er 14 byte: peker til teksten, x, y, flagg og peker til
+neste linje. Flagg bit 0 sentrerer teksten, bit 1 gjør at bakgrunnen settes tilbake når
+skjermen tegnes på nytt. Hvert tegn slås opp i en tabell på $96210 som gir bildet i
+fonten (`bold.f`, 76 bilder, 19 piksler høy). Fonten ligger i ExpMem ($2433A2), ikke i
+chip-minnet. 24 tegn i tabellen er ubrukte, blant annet æøå-plassene `[ ] { | }`.
+
+Lengre tekster (det Math, healeren og druidene sier) er avsnitt: en byte med antall
+linjer og så linjene etter hverandre. Bare starten av avsnittet har en peker.
+
+Tittelmenyen ($8188C) bruker samme liste ($8F060), en tabell med y for pilen ($8F2D4)
+og en løkke som leser joysticken. Valg 0-3 ligger i $8F2D2. Porten bruker denne motoren
+til nettspillsidene (`port/src/meny.c`).
+
+Tre ting i originalkoden som setter grenser når tekster endres (`port/src/patch.c`):
+
+- Alt som tegnes, huskes i en av to lister på 45 plasser ($8DE4A og $8DFB2) så
+  bakgrunnen kan settes tilbake. Tekst har ingen grense, og flere tegn enn 45 på en skjerm
+  skriver over ridderdataene. Porten flytter listene til ledig minne med plass til 255.
+- En sentrert tekst bredere enn 320 piksler gir en x langt utenfor skjermen.
+- `skriv_tekst` gir bredden på teksten tilbake i D0, og utstyrsskjermen leser STR, CON og
+  END med `move.b` uten å tømme D0 ($8B132). Etter en tekst bredere enn 255 piksler
+  vises 1 som 257.
+
+Spillet bruker aldri chip-minnet over $B1000 (BaseMem i slaven). Der legger porten
+flyttede tekster ($F0000), de nye listene ($E0000) og menysidene ($F8000).
+
 ## Ridderne og turene
 
 Fire strukturer på $84 byte fra $8D5B4:

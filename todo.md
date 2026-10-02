@@ -8,13 +8,14 @@
 - [ ] Flere funksjoner i C: hovedløkken på kartet, kampsystemet.
 - [ ] Spille gjennom mer av spillet med --coverage (kamper, byer, Stonehenge) for bedre disassembly.
 - [ ] Assembler-utgave av disassemblyen som bygger byte for byte like filer (vasm).
-- [ ] Teste nettspill mot PeerJS Cloud og HiveMQ fra en vanlig nettleser (proxyen i skymiljøet stopper WebSocket).
+- [ ] Teste nettspill (også «Online Game» i tittelmenyen) mot PeerJS Cloud og HiveMQ fra en vanlig nettleser (proxyen i skymiljøet stopper WebSocket; lokalt testet med egne servere).
 - [ ] Teste moonstone.exe på ekte Windows.
 
-- [ ] Tekstverktøy: alle tekster i mog ut til en fil og inn igjen, lengre tekster flyttes og pekerne rettes, æøå som nye tegn i fonten.
-- [ ] Nettspill som valg i tittelmenyen (eget menyvalg som åpner lobbyen), se memory.md om tittelmenyen.
+- [ ] Vise navnene på spillerne i rommet i spillets meny (i dag bare antallet).
 
 ## Ferdig
+- [x] Tekstverktøy: tools/tekst.py og tekster.txt i porten, også lengre tekster og avsnitt.
+- [x] «Online Game» i spillets tittelmeny: Host Game, Join Game, Copy Invite Link, Public Room, Enter Code.
 - [x] HD-lag for figurene i nettleseren: tegneliste fra tegn_figur, speiling, klynger, tools/hd_sjekk.py.
 - [x] GitHub Actions for Linux, Windows og nettsiden, med Pages-jobb.
 - [x] Verktøy: bilder og figurer som PNG (rundtur byte for byte lik), lyder som WAV, musikk som .mod.

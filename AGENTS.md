@@ -34,3 +34,9 @@ Instrukser for AI-agenter og andre som jobber i dette repoet.
   inndata gir samme resultat på alle maskiner. Ikke bruk klokke, tilfeldige tall
   eller flyttall i emuleringen (lyd ut og bilde ut er unntatt).
 - `tools/gfx.py extract` etterfulgt av `build` uten endringer skal gi identiske filer.
+- Lapper som bevisst endrer spillet (`port/src/patch.c`, `port/src/meny.c`: tekster.txt
+  og «Online Game») skal ikke gjøre noe når de ikke er i bruk, så originalspillet er
+  urørt. De registreres alltid og styres av verdier i den lagrede tilstanden, slik at
+  alle maskinene i et nettspill gjør det samme også etter at en tilstand er lastet.
+  Det som endrer spillets minne utenfra, går som menykommandoer ved starten av et bilde.
+- Tekstene fra spillet (`tools/tekst.py extract`) sjekkes ikke inn, som grafikken.

@@ -116,7 +116,20 @@ const Kjerne = (() => {
         return ut;
     }
 
+    /* nettspill i tittelmenyen (port/src/meny.c) */
+    function menyKommando(k, arg, tekst) {
+        const t = tekst || '';
+        const n = M.lengthBytesUTF8(t) + 1;
+        const p = M._malloc(n);
+        M.stringToUTF8(t, p, n);
+        M._ms_menu_cmd(k, arg | 0, p);
+        M._free(p);
+    }
+
     return {
+        menyPaa: (on) => M._ms_menu_enable(on ? 1 : 0),
+        menyHendelse: () => M._ms_menu_event(),
+        menyKommando,
         last, aapne, start, startSomGjest, inndata, tast, bilde, rammebuffer, vindu, lyd,
         lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil,
         bredde: () => fbW, hoyde: () => fbH,

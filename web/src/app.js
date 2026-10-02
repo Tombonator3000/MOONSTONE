@@ -96,6 +96,7 @@
     /* ---------------------------------------------------------------- oppstart */
     async function startKjerne(somGjest) {
         await Kjerne.last();
+        Kjerne.menyPaa(true);               /* "Online Game" i spillets tittelmeny */
         if (somGjest) {
             Kjerne.startSomGjest();
         } else {
@@ -150,22 +151,10 @@
             melding('Lager rom ...');
             await Lyd.start();
             await startKjerne(false);
-            const kode = await Nett.lagRom(navn(), {
-                lobby: visSpillere,
-                chat: chatLinje,
-                status,
-                trengerTilstand: (id) => {
-                    const s = Kjerne.lagreTilstand();
-                    if (s) Nett.sendTilstand(id, s, Kjerne.bildeNr());
-                },
-                antall: () => {},
-            });
+            const kode = await Nett.lagRom(navn(), vertHendelser());
             modus = 'vert';
-            if ($('offentlig').checked) {
-                stoppAnnonse = Romliste.annonser(() => ({
-                    kode, vert: innst.navn || 'Vert', spillere: Nett.spillere().length, maks: 4,
-                }));
-            }
+            menyKmd(KMD.VERT, 0, kode);
+            settOffentlig($('offentlig').checked);
             oppdaterMeny();
             visSpill();
             melding('');
@@ -177,6 +166,8 @@
     async function bliMed(kode) {
         kode = (kode || $('romkode').value).trim().toUpperCase();
         if (!/^[A-Z0-9]{6}$/.test(kode)) { melding('Romkoden har seks tegn.', true); return; }
+        const fraSpillet = modus === 'alene';
+        if (fraSpillet) { modus = 'venter'; status('Kobler til rom ' + kode + ' ...'); }
         try {
             melding('Kobler til rom ' + kode + ' ...');
             await Lyd.start();
@@ -202,7 +193,134 @@
                 },
             });
             modus = modus || 'venter';
-        } catch (e) { melding(e.message, true); Nett.avslutt(); modus = null; }
+        } catch (e) {
+            if (fraSpillet) { avslutt(); melding(e.message, true); return; }
+            melding(e.message, true); Nett.avslutt(); modus = null;
+        }
+    }
+
+    /* ---------------------------------------------------------------- nettspill i tittelmenyen
+     * Spillets tittelmeny har fått "Online Game" (port/src/meny.c). Menyen sender
+     * hendelser hit, og vi svarer med kommandoer. Kommandoene brukes ved starten
+     * av neste bilde, og verten sender dem med bildet til gjestene, så alle
+     * maskinene viser det samme. */
+    const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8 };
+    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6 };
+    const menyKo = [];
+    let menyRom = [], sisteRomTekst = null, stoppMenyListe = null, sistAntall = 0;
+
+    function menyKmd(k, arg, tekst) { menyKo.push([k, arg | 0, tekst || '']); }
+
+    function vertHendelser() {
+        sistAntall = 0;
+        return {
+            lobby: visSpillere,
+            chat: chatLinje,
+            status,
+            trengerTilstand: (id) => {
+                const s = Kjerne.lagreTilstand();
+                if (s) Nett.sendTilstand(id, s, Kjerne.bildeNr());
+            },
+            antall: (n) => { if (n !== sistAntall) { sistAntall = n; menyKmd(KMD.SPILLERE, n); } },
+        };
+    }
+
+    function settOffentlig(on) {
+        innst.offentlig = on;
+        $('offentlig').checked = on;
+        lagreInnst();
+        if (modus !== 'vert') return;
+        if (on && !stoppAnnonse) {
+            stoppAnnonse = Romliste.annonser(() => ({
+                kode: Nett.kode(), vert: innst.navn || 'Vert', spillere: Nett.spillere().length, maks: 4,
+            }));
+        }
+        if (!on && stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
+        menyKmd(KMD.OFFENTLIG, on ? 1 : 0);
+    }
+
+    async function vertFraMeny() {
+        if (modus === 'vert') { menyKmd(KMD.VERT, 0, Nett.kode()); return; }
+        try {
+            status('Lager rom ...');
+            const kode = await Nett.lagRom(navn(), vertHendelser());
+            if (modus !== 'alene') { Nett.avslutt(); return; }
+            modus = 'vert';
+            menyKmd(KMD.VERT, 0, kode);
+            settOffentlig(innst.offentlig);
+            oppdaterMeny();
+            status('Rommet ' + kode + ' er klart. Velg «Copy Invite Link» og send lenken.');
+        } catch (e) {
+            Nett.avslutt();
+            menyKmd(KMD.MELDING, 0, 'No Connection\nTry Again Later');
+            status('Kunne ikke lage rom: ' + e.message);
+        }
+    }
+
+    function romLinje(r) {
+        const n = String(r.vert || 'Host').replace(/[^A-Za-z0-9 ]/g, '').trim().slice(0, 10) || 'Host';
+        return n + '  ' + (r.spillere || 1) + ' of ' + (r.maks || 4);
+    }
+
+    function lyttMenyRom() {
+        stoppMenyRom();
+        stoppMenyListe = Romliste.lytt((rom, feil) => {
+            let tekst, n;
+            if (feil) { menyRom = []; n = -1; tekst = 'No Room List'; }
+            else {
+                menyRom = rom.filter((r) => (r.spillere || 1) < (r.maks || 4)).slice(0, 2);
+                n = menyRom.length;
+                tekst = menyRom.map(romLinje).join('\n');
+            }
+            if (n + tekst === sisteRomTekst) return;
+            sisteRomTekst = n + tekst;
+            menyKmd(KMD.ROM, n, tekst);
+        });
+    }
+
+    function stoppMenyRom() {
+        if (stoppMenyListe) { stoppMenyListe(); stoppMenyListe = null; }
+        sisteRomTekst = null;
+    }
+
+    async function kopierLenke() {
+        if (modus !== 'vert') return;
+        try { await navigator.clipboard.writeText(Nett.invitasjon()); status('Invitasjonslenken er kopiert'); }
+        catch (e) { visMeny(true); status('Kopier lenken her i menyen'); }
+    }
+
+    function visKodeDialog(on) {
+        $('kode-dialog').hidden = !on;
+        Inndata.paa(!on);
+        if (on) { $('kode-felt').value = ''; $('kode-felt').focus(); }
+    }
+
+    function kodeFraTekst(t) {
+        const m = String(t).match(/[?&]rom=([A-Za-z0-9]{6})/) || String(t).match(/^\s*([A-Za-z0-9]{6})\s*$/);
+        return m ? m[1].toUpperCase() : null;
+    }
+
+    function menyHendelse(h, arg) {
+        switch (h) {
+        case MENY.VERT: vertFraMeny(); break;
+        case MENY.JOIN_SIDE: if (modus === 'alene') lyttMenyRom(); break;
+        case MENY.FORLAT_JOIN: stoppMenyRom(); break;
+        case MENY.JOIN_ROM: {
+            const r = menyRom[arg];
+            if (r && modus === 'alene') { stoppMenyRom(); bliMed(r.kode); }
+            break;
+        }
+        case MENY.KODE: if (modus === 'alene') visKodeDialog(true); break;
+        case MENY.KOPIER: kopierLenke(); break;
+        case MENY.OFFENTLIG: settOffentlig(!!arg); break;
+        }
+    }
+
+    /* etter hvert bilde: verten og den som spiller alene handler, gjestene ser bare */
+    function menyHendelser() {
+        for (let e; (e = Kjerne.menyHendelse()); ) {
+            if (modus === 'alene' || modus === 'vert') menyHendelse(e & 0xff, e >> 8);
+        }
     }
 
     /* ---------------------------------------------------------------- spillokka */
@@ -223,6 +341,8 @@
             j1 = lokalt.a;
         }
         const f = Kjerne.bildeNr();
+        const kommandoer = menyKo.splice(0);
+        for (const [k, a, t] of kommandoer) Kjerne.menyKommando(k, a, t);
         Kjerne.inndata(j0, j1);
         for (const [k, d] of taster) Kjerne.tast(k, d);
         Kjerne.bilde();
@@ -230,8 +350,9 @@
         Lyd.push(Kjerne.lyd());
         const filer = Kjerne.brukteFiler();
         if (modus === 'vert' && Nett.harGjester()) {
-            Nett.sendBilde(f, [j0, j1], taster, filer, Kjerne.hentFil, f % 120 === 0 ? Kjerne.sjekksum() : undefined);
+            Nett.sendBilde(f, [j0, j1], taster, filer, Kjerne.hentFil, f % 120 === 0 ? Kjerne.sjekksum() : undefined, kommandoer);
         }
+        menyHendelser();
     }
 
     function kjorGjestebilde(m) {
@@ -241,12 +362,14 @@
             return false;
         }
         if (m.fil) for (const fil of m.fil) Kjerne.leggInnFil(fil.n, fil.d);
+        if (m.c) for (const [k, a, t] of m.c) Kjerne.menyKommando(k, a, t);
         Kjerne.inndata(m.j[0], m.j[1]);
         if (m.k) for (const [k, d] of m.k) Kjerne.tast(k, d);
         Kjerne.bilde();
         Visning.nyttBilde(Kjerne.tegneliste());
         Lyd.push(Kjerne.lyd());
         Kjerne.brukteFiler();
+        menyHendelser();
         if (m.h !== undefined) {
             if (Kjerne.sjekksum() === m.h) statistikk.sjekket++;
             else if (!venterSynk) {
@@ -420,6 +543,9 @@
 
     function avslutt() {
         if (stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
+        stoppMenyRom();
+        menyKo.length = 0;
+        $('kode-dialog').hidden = true;
         Nett.avslutt();
         modus = null;
         venterSynk = false;
@@ -457,7 +583,20 @@
     $('helt').addEventListener('change', (e) => { innst.helt = e.target.checked; Visning.settHelt(innst.helt); lagreInnst(); });
     $('volum').addEventListener('input', (e) => { innst.volum = +e.target.value; if (modus) Kjerne.volum(innst.volum); lagreInnst(); });
     $('knappevent').addEventListener('change', (e) => { innst.knappevent = e.target.checked; lagreInnst(); status('Gjelder fra neste start'); });
-    $('offentlig').addEventListener('change', (e) => { innst.offentlig = e.target.checked; lagreInnst(); });
+    $('offentlig').addEventListener('change', (e) => settOffentlig(e.target.checked));
+    const kodeOk = () => {
+        const k = kodeFraTekst($('kode-felt').value);
+        if (!k) { status('Skriv romkoden (seks tegn) eller lim inn lenken'); return; }
+        visKodeDialog(false);
+        bliMed(k);
+    };
+    $('kode-ok').addEventListener('click', kodeOk);
+    $('kode-felt').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') kodeOk();
+        if (e.key === 'Escape') visKodeDialog(false);
+        e.stopPropagation();
+    });
+    $('kode-avbryt').addEventListener('click', () => visKodeDialog(false));
     $('rammer').addEventListener('change', (e) => { Visning.settRammer(e.target.checked); });
     $('velg-hd').addEventListener('change', async (e) => {
         const n = await Visning.lastHdPakke(e.target.files);

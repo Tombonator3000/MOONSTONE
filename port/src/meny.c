@@ -1,0 +1,417 @@
+/*
+ * meny.c - nettspill i spillets egen tittelmeny.
+ *
+ * Tittelmenyen ($8188C) er en lenket liste med tekster som skriv_tekst tegner
+ * (tegn_tittelmeny, $81A1A), en tabell med y for pilen, og en lokke ($81906)
+ * som leser joysticken. Vi legger til en linje, "Online Game", og bruker den
+ * samme motoren til egne sider (Host Game, Join Game ...): tegn_tittelmeny
+ * faar en annen liste og en annen pil-tabell, og vi styrer valgene i C.
+ * Slik tegnes nettspillmenyen med spillets font, pil og bakgrunn.
+ *
+ * Alt som endrer spillets minne skjer enten i hooks (naar CPU-en kommer til
+ * en adresse) eller i kommandoer fra frontenden som brukes ved starten av et
+ * bilde (meny_command). I nettspill sender verten kommandoene med bildet, saa
+ * alle maskinene gjor det samme. Hendelser (meny_take_event) gaar andre veien,
+ * til frontenden, og endrer ingenting i spillet.
+ *
+ * Adresser (se disasm/symbols.txt):
+ *   $81906 lokka: jsr les_joysticker     $8190E beq lokka (ingenting trykket)
+ *   $81916 fire er trykket               $81942 tegn menyen paa nytt, tilbake til lokka
+ *   $81968 tittelmeny_joystick           $819A8, $819B2 siste valg (3)
+ *   $81A40 peker til pil-tabellen        $81ACC peker til tekstlisten
+ *   $8F060 tekstlisten                   $8F2D2 valgt linje
+ *   $8CDFC antall spillere               $8F2DC verdi fra $8F058 per antall spillere
+ */
+#include "amiga.h"
+#include "m68k.h"
+#include <string.h>
+#include <stdio.h>
+
+#define MENU_BASE    0xf8000
+#define TITLE_ARROWS 0xf8000                /* 5 ord */
+#define TITLE_NODE   0xf8010                /* "Online Game" i tittelmenyen */
+#define TITLE_TEXT   0xf8020
+#define PAGE_NODES   0xf8100                /* siden: 5 linjer a 14 byte */
+#define PAGE_ARROWS  0xf8180
+#define PAGE_TEXTS   0xf8200                /* 5 tekster a 48 byte */
+#define TEXT_SIZE    48
+
+#define LIST_HEAD    0x8f060
+#define VALG         0x8f2d2
+#define PLAYERS      0x8cdfc
+#define JOY_PORT2    0x8d9a2
+#define FONT_PTR     0x8ce94                /* +$A: fonten skriv_tekst bruker */
+#define CHAR_TABLE   0x96210
+
+#define ROWS 5
+static const uint16_t row_y[ROWS] = { 0x53, 0x6c, 0x88, 0x9c, 0xb0 };
+
+enum { PAGE_TITLE, PAGE_ONLINE, PAGE_HOST, PAGE_JOIN, PAGE_MESSAGE };
+enum { SESSION_NONE, SESSION_HOST, SESSION_GUEST };
+
+/* alt som paavirker spillet, lagres i tilstanden */
+static struct {
+    uint8_t enabled;                        /* menyen er lappet inn i mog */
+    uint8_t page;
+    uint8_t redraw;                         /* tegn siden paa nytt neste gang lokka gaar */
+    uint8_t wait_release;                   /* vent til fire slippes */
+    uint8_t session;
+    uint8_t players;                        /* i rommet, med verten */
+    uint8_t public_room;
+    uint8_t n_rooms;                        /* aapne rom (Join Game) */
+    uint8_t rooms_known;                    /* listen er hentet (eller feilet) */
+    uint8_t select;                         /* velg denne linjen ved neste tegning (0 = ingen) */
+    char    room[8];
+    char    rooms[2][TEXT_SIZE];
+    char    message[2][TEXT_SIZE];
+    char    rooms_error[TEXT_SIZE];
+} M2;
+
+bool meny_online;                           /* frontenden kan nettspill (nettsiden) */
+
+/* ---------------------------------------------------------------- hendelser */
+static int events[8], n_events;
+
+static void emit(int ev, int arg)
+{
+    if (n_events < 8) events[n_events++] = ev | arg << 8;
+}
+
+int meny_take_event(void)
+{
+    if (!n_events) return 0;
+    int e = events[0];
+    memmove(events, events + 1, sizeof events[0] * (size_t)--n_events);
+    return e;
+}
+
+/* ---------------------------------------------------------------- tekst */
+static void wr16(uint32_t a, uint16_t v) { chip[a] = (uint8_t)(v >> 8); chip[a + 1] = (uint8_t)v; }
+static void wr32(uint32_t a, uint32_t v) { wr16(a, (uint16_t)(v >> 16)); wr16(a + 2, (uint16_t)v); }
+static uint32_t rd32(uint32_t a) { return (uint32_t)chip[a] << 24 | chip[a + 1] << 16 | chip[a + 2] << 8 | chip[a + 3]; }
+static uint16_t rd16(uint32_t a) { return (uint16_t)(chip[a] << 8 | chip[a + 1]); }
+
+/* bredden paa et tegn i fonten som ligger i minnet, eller -1 hvis fonten mangler det */
+static int glyph_width(int c)
+{
+    if (c < 32 || c > 126) return -1;
+    int g = chip[CHAR_TABLE + c - 32];
+    if (g == 69 && c != ' ') return -1;    /* ubrukte tegn peker paa bilde 69 */
+    uint32_t f = rd32(FONT_PTR + 0xa);      /* ligger i ExpMem ($200000-) */
+    if (f < 0x1000 || g >= (int)(uint16_t)mem_read16(f)) return -1;
+    return (uint16_t)mem_read16(f + 10 + 10 * (uint32_t)g + 4);
+}
+
+/* kopierer bare tegn fonten har, og stopper foer teksten blir bredere enn
+ * 250 piksler (skriv_tekst gir bredden tilbake i D0, se patch.c) */
+static void fit_text(char *dst, const char *src)
+{
+    int w = 0, n = 0;
+    for (; *src && n < TEXT_SIZE - 1; src++) {
+        int gw = glyph_width((unsigned char)*src);
+        if (gw < 0) continue;
+        if (w + gw > 250) break;
+        w += gw;
+        dst[n++] = *src;
+    }
+    while (n && dst[n - 1] == ' ') n--;
+    dst[n] = 0;
+}
+
+/* ---------------------------------------------------------------- sidene */
+typedef struct { const char *text; bool selectable; } Row;
+
+static void page_rows(Row r[ROWS])
+{
+    static char buf[ROWS][TEXT_SIZE];
+    for (int i = 0; i < ROWS; i++) { r[i].text = ""; r[i].selectable = false; }
+    switch (M2.page) {
+    case PAGE_ONLINE:
+        r[0].text = "Online Game";
+        r[1] = (Row){ "Host Game", true };
+        r[2] = (Row){ "Join Game", true };
+        r[3] = (Row){ "Back", true };
+        break;
+    case PAGE_HOST:
+        snprintf(buf[0], TEXT_SIZE, "Room %s", M2.room);
+        r[0].text = buf[0];
+        snprintf(buf[1], TEXT_SIZE, "%d of 4 Players", M2.players ? M2.players : 1);
+        r[1].text = buf[1];
+        r[2] = (Row){ "Copy Invite Link", true };
+        r[3] = (Row){ M2.public_room ? "Public Room  On" : "Public Room  Off", true };
+        r[4] = (Row){ "Back", true };
+        break;
+    case PAGE_JOIN:
+        r[0].text = "Join Game";
+        if (!M2.rooms_known) r[1].text = "Looking for Rooms";
+        else if (M2.rooms_error[0]) r[1].text = M2.rooms_error;
+        else if (!M2.n_rooms) r[1].text = "No Open Rooms";
+        for (int i = 0; i < M2.n_rooms && i < 2; i++) r[1 + i] = (Row){ M2.rooms[i], true };
+        r[3] = (Row){ "Enter Code", true };
+        r[4] = (Row){ "Back", true };
+        break;
+    case PAGE_MESSAGE:
+        r[0].text = "Online Game";
+        r[1].text = M2.message[0];
+        r[2].text = M2.message[1];
+        r[4] = (Row){ "Back", true };
+        break;
+    }
+}
+
+/* skriver siden inn i minnet og peker tegn_tittelmeny paa den */
+static void build_page(void)
+{
+    if (!M2.enabled) return;
+    if (M2.page == PAGE_TITLE) {
+        wr32(0x81acc, LIST_HEAD);
+        wr32(0x81a40, TITLE_ARROWS);
+        return;
+    }
+    Row r[ROWS];
+    page_rows(r);
+    uint32_t prev = 0;
+    for (int i = 0; i < ROWS; i++) {
+        uint32_t node = PAGE_NODES + (uint32_t)i * 14, text = PAGE_TEXTS + (uint32_t)i * TEXT_SIZE;
+        char t[TEXT_SIZE];
+        fit_text(t, r[i].text);
+        memset(chip + text, 0, TEXT_SIZE);
+        memcpy(chip + text, t, strlen(t));
+        wr32(node, text);
+        wr16(node + 4, 0);                  /* x: sentrert */
+        wr16(node + 6, row_y[i]);
+        wr16(node + 8, 3);                  /* sentrert, og bakgrunnen settes tilbake */
+        wr32(node + 10, 0);
+        if (prev) wr32(prev + 10, node);
+        prev = node;
+        wr16(PAGE_ARROWS + (uint32_t)i * 2, (uint16_t)(row_y[i] + (row_y[i] <= 0x6c ? 2 : -2)));
+    }
+    wr32(0x81acc, PAGE_NODES);
+    wr32(0x81a40, PAGE_ARROWS);
+    /* valget maa staa paa en linje som kan velges */
+    int v = rd16(VALG);
+    if (v >= ROWS || !r[v].selectable) {
+        for (v = 0; v < ROWS && !r[v].selectable; v++) ;
+        wr16(VALG, (uint16_t)(v < ROWS ? v : 0));
+    }
+}
+
+static void show_page(int page)
+{
+    M2.page = (uint8_t)page;
+    wr16(VALG, page == PAGE_TITLE ? 4 : 0);
+    build_page();
+}
+
+/* ---------------------------------------------------------------- lapper i mog */
+bool meny_mog_ready(void)
+{
+    M2.enabled = meny_online;
+    M2.page = PAGE_TITLE;
+    M2.redraw = M2.wait_release = 0;
+    if (!M2.enabled) return false;
+    /* Practice og Select Knight litt opp, saa en femte linje faar plass */
+    wr16(0x8f082, 0x88);
+    wr16(0x8f090, 0x9c);
+    /* ny linje etter Select Knight: "Online Game" */
+    memcpy(chip + TITLE_TEXT, "Online Game", 12);
+    wr32(TITLE_NODE, TITLE_TEXT);
+    wr16(TITLE_NODE + 4, 0);
+    wr16(TITLE_NODE + 6, 0xb0);
+    wr16(TITLE_NODE + 8, 3);
+    wr32(TITLE_NODE + 10, rd32(0x8f094));   /* det Select Knight pekte paa ("1"-linjen) */
+    wr32(0x8f094, TITLE_NODE);
+    /* pilen: Players, Gore, Practice, Select Knight, Online Game */
+    static const uint16_t arrows[5] = { 0x55, 0x6e, 0x86, 0x9a, 0xae };
+    for (int i = 0; i < 5; i++) wr16(TITLE_ARROWS + (uint32_t)i * 2, arrows[i]);
+    wr32(0x81a40, TITLE_ARROWS);
+    /* fem valg (0-4) i stedet for fire */
+    wr16(0x819a8, 4);
+    wr16(0x819b2, 4);
+    return true;
+}
+
+/* ---------------------------------------------------------------- hooks */
+/* hooks kjores bare naar mog er lastet (hooks.c), saa tilstanden er nok */
+static bool active(void) { return M2.enabled; }
+
+static void goto_redraw(void)
+{
+    M2.wait_release = 1;
+    m68k_set_reg(M68K_REG_PC, 0x81942);    /* bsr tegn_tittelmeny; bra lokka */
+}
+
+/* lokka: en kommando har endret siden. Siden bygges her, ikke i kommandoen,
+ * saa vi aldri skriver om listen mens skriv_tekst holder paa med den. */
+static bool hook_loop(void)
+{
+    if (!active() || !M2.redraw) return false;
+    M2.redraw = 0;
+    if (M2.select) { wr16(VALG, M2.select); M2.select = 0; }
+    build_page();
+    m68k_set_reg(M68K_REG_PC, 0x81942);
+    return true;
+}
+
+/* beq.b lokka (etter tst.w d1): husk naar fire er sluppet. Ikke paa $8190C:
+ * det er returadressen fra les_joysticker, som er i C, og der kalles ikke
+ * hooks (se hooks.c). */
+static bool hook_input(void)
+{
+    if (active() && !(m68k_get_reg(NULL, M68K_REG_D1) & 0x10)) M2.wait_release = 0;
+    return false;
+}
+
+static void set_players(int n)
+{
+    if (n < 1) n = 1;
+    if (n > 4) n = 4;
+    wr16(PLAYERS, (uint16_t)n);
+    wr16(0x8f2dc, rd16(0x8f058 + (uint32_t)(n - 1) * 2));    /* som endre_antall_spillere */
+}
+
+/* fire er trykket */
+static bool hook_fire(void)
+{
+    if (!active()) return false;
+    int v = rd16(VALG);
+    if (M2.wait_release) { m68k_set_reg(M68K_REG_PC, 0x81906); return true; }
+    switch (M2.page) {
+    case PAGE_TITLE:
+        if (v != 4) return false;          /* originalen: Practice, Select Knight osv. */
+        show_page(M2.session == SESSION_HOST ? PAGE_HOST : PAGE_ONLINE);
+        break;
+    case PAGE_ONLINE:
+        if (v == 1) {
+            snprintf(M2.message[0], TEXT_SIZE, "Creating Room...");
+            M2.message[1][0] = 0;
+            show_page(PAGE_MESSAGE);
+            emit(MENY_EV_HOST, 0);
+        } else if (v == 2) {
+            M2.rooms_known = 0; M2.n_rooms = 0; M2.rooms_error[0] = 0;
+            show_page(PAGE_JOIN);
+            emit(MENY_EV_JOIN_PAGE, 0);
+        } else show_page(PAGE_TITLE);
+        break;
+    case PAGE_HOST:
+        if (v == 2) emit(MENY_EV_COPY, 0);
+        else if (v == 3) emit(MENY_EV_PUBLIC, !M2.public_room);
+        else if (v == 4) {
+            if (M2.players >= 2) set_players(M2.players);
+            show_page(PAGE_TITLE);
+            emit(MENY_EV_BACK, 0);
+        }
+        break;
+    case PAGE_JOIN:
+        if (v == 1 || v == 2) emit(MENY_EV_JOIN_ROOM, v - 1);
+        else if (v == 3) emit(MENY_EV_ENTER_CODE, 0);
+        else if (v == 4) { show_page(PAGE_ONLINE); emit(MENY_EV_LEAVE_JOIN, 0); }
+        break;
+    case PAGE_MESSAGE:
+        show_page(M2.session == SESSION_HOST ? PAGE_HOST : PAGE_ONLINE);
+        break;
+    }
+    goto_redraw();
+    return true;
+}
+
+/* opp/ned paa sidene (tittelmenyen selv bruker originalen) */
+static bool hook_joystick(void)
+{
+    if (!active() || M2.page == PAGE_TITLE) return false;
+    Row r[ROWS];
+    page_rows(r);
+    int v = rd16(VALG), j = rd16(JOY_PORT2), nv = v;
+    if (j & 8) { for (int i = v - 1; i >= 0; i--) if (r[i].selectable) { nv = i; break; } }
+    else if (j & 4) { for (int i = v + 1; i < ROWS; i++) if (r[i].selectable) { nv = i; break; } }
+    wr16(VALG, (uint16_t)nv);
+    m68k_set_reg(M68K_REG_D0, nv != v);
+    hook_return();
+    return true;
+}
+
+/* tittelmenyen starter: alltid paa forsiden */
+static bool hook_title(void)
+{
+    if (!active()) return false;
+    M2.page = PAGE_TITLE;
+    M2.redraw = 0;
+    build_page();
+    return false;
+}
+
+void meny_register_hooks(void)
+{
+    hooks_register_patch(0x8188c, hook_title, "tittelmeny (nettspill)");
+    hooks_register_patch(0x81906, hook_loop, "tittelmeny lokke (nettspill)");
+    hooks_register_patch(0x8190e, hook_input, "tittelmeny fire sluppet");
+    hooks_register_patch(0x81916, hook_fire, "tittelmeny fire (nettspill)");
+    hooks_register_patch(0x81968, hook_joystick, "tittelmeny joystick (nettspill)");
+}
+
+/* ---------------------------------------------------------------- kommandoer */
+/* Kommandoene kan komme foer mog er lastet (verten lager rommet fra
+ * startsiden); da husker vi bare rommet til menyen finnes. */
+void meny_command(int cmd, int arg, const char *text)
+{
+    text = text ? text : "";
+    switch (cmd) {
+    case MENY_CMD_HOSTING:
+        M2.session = SESSION_HOST;
+        snprintf(M2.room, sizeof M2.room, "%s", text);
+        if (M2.players < 1) M2.players = 1;
+        if (M2.page == PAGE_MESSAGE || M2.page == PAGE_ONLINE) {
+            M2.page = PAGE_HOST;
+            M2.select = 2;                  /* Copy Invite Link */
+        }
+        break;
+    case MENY_CMD_PLAYERS:
+        M2.players = (uint8_t)(arg < 1 ? 1 : arg > 4 ? 4 : arg);
+        break;
+    case MENY_CMD_PUBLIC:
+        M2.public_room = arg != 0;
+        break;
+    case MENY_CMD_ROOMS: {
+        M2.rooms_known = 1;
+        M2.n_rooms = 0;
+        M2.rooms_error[0] = 0;
+        if (arg < 0) { snprintf(M2.rooms_error, TEXT_SIZE, "%s", text); break; }
+        const char *p = text;
+        while (*p && M2.n_rooms < 2) {
+            const char *nl = strchr(p, '\n');
+            size_t n = nl ? (size_t)(nl - p) : strlen(p);
+            char line[TEXT_SIZE];
+            if (n >= sizeof line) n = sizeof line - 1;
+            memcpy(line, p, n);
+            line[n] = 0;
+            snprintf(M2.rooms[M2.n_rooms++], TEXT_SIZE, "%s", line);
+            p = nl ? nl + 1 : p + n;
+        }
+        break;
+    }
+    case MENY_CMD_MESSAGE: {
+        const char *nl = strchr(text, '\n');
+        size_t n = nl ? (size_t)(nl - text) : strlen(text);
+        if (n >= TEXT_SIZE) n = TEXT_SIZE - 1;
+        memcpy(M2.message[0], text, n);
+        M2.message[0][n] = 0;
+        snprintf(M2.message[1], TEXT_SIZE, "%s", nl ? nl + 1 : "");
+        if (M2.page != PAGE_TITLE) M2.page = PAGE_MESSAGE;
+        break;
+    }
+    case MENY_CMD_SESSION_END:
+        M2.session = SESSION_NONE;
+        M2.players = 0;
+        M2.public_room = 0;
+        if (M2.page == PAGE_HOST) M2.page = PAGE_ONLINE;
+        break;
+    default:
+        return;
+    }
+    if (M2.enabled && M2.page != PAGE_TITLE) M2.redraw = 1;
+}
+
+void meny_state(StateIO *s)
+{
+    STATE_VAR(s, M2);
+}
