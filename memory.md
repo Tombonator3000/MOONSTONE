@@ -105,8 +105,13 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   til løkka). Hendelser: 1 Host, 2 Join-side, 3 rom valgt, 4 Enter Code, 5 kopier lenke,
   6 offentlig, 7 forlot Join, 8 Back. Kommandoer: 1 rom (kode), 2 spillere, 3 offentlig,
   4 romliste (linjer «navn<tab>1 of 4»), 5 melding, 6 slutt, 7 navn. STATE_VERSION er 5.
-- Repoet er privat og hadde ikke Pages (has_pages false, deploy ga 404 «Ensure GitHub
-  Pages has been enabled»). Pages krever offentlig repo eller betalt plan, og slås på av
-  eieren i Settings; GITHUB_TOKEN kan ikke slå det på.
+- Pages: repoet er offentlig og Pages bruker GitHub Actions (eieren slo det på
+  2026-10-02). Spillet ligger på https://tombonator3000.github.io/MOONSTONE/ med
+  spill/Moonstonecd32-AMIGA.zip ved siden av. Før det var repoet privat, og deploy ga
+  404 «Ensure GitHub Pages has been enabled». GITHUB_TOKEN kan ikke slå på Pages.
+- «Run workflow» (workflow_dispatch) publiserte ikke før rettelsen a998217, fordi
+  pages-jobben krevde push. Ny kjøring av en push-kjøring på main publiserer.
+- Chromium i skymiljøet kommer ikke gjennom proxyen til github.io (ERR_TOO_MANY_RETRIES),
+  men curl gjør det. Test de publiserte filene ved å laste dem ned og servere dem lokalt.
 - `/` og `\` i fonten er understrek (bilde 71), `-` og `:` har ikke noe bilde.
 

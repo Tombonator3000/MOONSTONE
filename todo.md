@@ -1,7 +1,7 @@
 # todo.md
 
 ## Neste
-- [ ] Slå på GitHub Pages (eieren): repoet offentlig eller betalt plan, så Settings, Pages, Source: GitHub Actions, og kjør «Bygg» på main.
+- [ ] Flette rettelsen av workflowen (a998217 på grenen) til main, så «Run workflow» også publiserer.
 - [ ] HD-grafikk: bakgrunner i HD (PIV, og .t for kampene), fargeeffekter (fading) på HD-bildene, andre tegnerutiner enn tegn_figur (tekst, menyer).
 - [ ] Lage en liten HD-pakke som eksempel (f.eks. ridderne i fire ganger størrelse).
 - [ ] Finne ut hvordan .t-filene bygger kampbakgrunnene.
@@ -12,6 +12,7 @@
 - [ ] Teste moonstone.exe på ekte Windows.
 
 ## Ferdig
+- [x] Spillbart på GitHub Pages: https://tombonator3000.github.io/MOONSTONE/
 - [x] Navnene på spillerne i romsiden i spillets meny.
 - [x] Tekstverktøy: tools/tekst.py og tekster.txt i porten, også lengre tekster og avsnitt.
 - [x] «Online Game» i spillets tittelmeny: Host Game, Join Game, Copy Invite Link, Public Room, Enter Code.
