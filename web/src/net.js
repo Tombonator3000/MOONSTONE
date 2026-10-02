@@ -173,6 +173,7 @@ const Nett = (() => {
         }
         case 'inn': if (g) g.inn = d.j & 31; break;
         case 'tast': if (g && g.klar) gjesteTaster.push([d.k & 0x7f, !!d.ned, g.spiller]); break;
+        case 'velg': if (g && g.klar) h.velg && h.velg(d.rad | 0); break;     /* gjesten klikket paa en rad i menyen */
         case 'chat':
             if (g) {
                 const tekst = String(d.tekst || '').slice(0, 300);
@@ -395,6 +396,7 @@ const Nett = (() => {
     }
 
     function sendTast(k, ned) { if (vert && vert.open) vert.send({ t: 'tast', k, ned }); }
+    function sendVelg(rad) { if (vert && vert.open) vert.send({ t: 'velg', rad }); }
     function beOmSynk() { if (vert && vert.open) vert.send({ t: 'synk' }); }
 
     /* ---------------------------------------------------------------- begge */
@@ -417,7 +419,7 @@ const Nett = (() => {
 
     return {
         lagRom, bliMed, avslutt, chat, invitasjon, settPort, settSpiller, settModus, sendTilstand, porter, sendBilde,
-        hentGjesteTaster, tastTillatt, vertensSpiller, harGjester, sendInn, sendTast, beOmSynk, spillere,
+        hentGjesteTaster, tastTillatt, vertensSpiller, harGjester, sendInn, sendTast, sendVelg, beOmSynk, spillere,
         rammer, rolle: () => rolle, kode: () => kode, ping: () => ping,
     };
 })();

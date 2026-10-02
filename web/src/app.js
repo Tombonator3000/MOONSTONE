@@ -18,7 +18,7 @@
 (() => {
     const $ = (id) => document.getElementById(id);
     const inn = Lager.innstillinger();
-    const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false }, inn);
+    const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false, knapper: false }, inn);
     const lagreInnst = () => Lager.lagreInnstillinger(innst);
 
     const INNEBYGD = 'innebygd';
@@ -117,7 +117,7 @@
             Kjerne.start(innst.knappevent);
         }
         periode = 1 / Kjerne.hz();
-        Kjerne.volum(innst.volum);
+        settVolum(innst.volum);
     }
 
     /* spillet starter rett paa introen; ingenting aa velge foer det */
@@ -172,12 +172,15 @@
         Visning.settHelt(innst.helt);
         Visning.tilpass();
         Inndata.paa(!menyApen && !dialogApen);
-        const touch = matchMedia('(pointer: coarse)').matches;
-        $('touch').hidden = !touch;
+        visKnapper();
         if (!kjorer) { kjorer = true; requestAnimationFrame(lokke); }
     }
 
     function navn() { return innst.navn || 'Player'; }
+
+    /* styrekors og knapper paa skjermen: alltid ved beroering, ellers hvis valgt i menyen */
+    const beroering = () => matchMedia('(pointer: coarse)').matches;
+    function visKnapper() { $('touch').hidden = !(beroering() || innst.knapper); }
 
     /* ---------------------------------------------------------------- lyd og introen
      * Nettleseren slipper ikke lyden ut foer noen har trykket paa noe. Det forste
@@ -223,19 +226,110 @@
 
     let sisteHint = null;
     function visHint() {
-        let t = '';
-        if (modus === 'alene' && Kjerne.iIntro()) {
+        let t = '', topp = false;
+        if ((modus === 'alene' || modus === 'vert') && !menyBrukt && !Kjerne.iIntro() && Kjerne.iMeny()) {
+            /* spillets meny kan ikke klikkes i originalen; si at det gaar her */
+            t = beroering() ? 'Trykk på et valg i menyen' : 'Klikk på et valg, eller bruk piltastene og Enter';
+            topp = true;
+        } else if (modus === 'alene' && Kjerne.iIntro()) {
             /* introen gjor ferdig det den holder paa med, det kan ta et par sekunder */
             if (hopper) t = 'Hopper over introen ...';
             else if (invitasjon) t = 'Du er invitert til rom ' + invitasjon + '. Trykk på skjermen, fire eller Esc for å hoppe over introen.';
             else if (lydForsokt) t = 'Esc, fire eller et trykk på skjermen hopper over introen';
             else t = 'Trykk på skjermen eller en tast for lyd';
         }
-        if ($('status').classList.contains('vis')) t = '';     /* meldingen staar paa samme sted */
-        if (t === sisteHint) return;
-        sisteHint = t;
+        if (!topp && $('status').classList.contains('vis')) t = '';     /* meldingen staar paa samme sted */
+        if (t + topp === sisteHint) return;
+        sisteHint = t + topp;
         $('hint').hidden = !t;
         $('hint').textContent = t;
+        $('hint').classList.toggle('topp', topp);
+    }
+
+    /* ---------------------------------------------------------------- mus, trykk og Enter
+     * Spillet selv bruker bare joystick: det leser musen i avbruddet, men ingenting
+     * bruker det den finner. Her er musen koblet inn slik det er naturlig:
+     *  - klikk eller trykk paa en rad i tittelmenyen (eller en nettspillside): pilen
+     *    dit og fire (kommando VELG; port/src/meny.c gir spillet fire naar menyen er
+     *    tegnet, likt paa alle maskiner i nettspill). Enter og mellomrom er fire der.
+     *  - ellers er venstre knapp fire saa lenge den holdes, og drar du mens den
+     *    holdes, blir det ogsaa en retning: fire og retning er angrepene i kamp.
+     *    Hoyre knapp og dra er bare retning (gaa). Et klikk er et kort fire.
+     * Introen har sin egen behandling (introTaster). */
+    const FIRE = Inndata.FIRE;
+    const MENYTASTER = [0x44, 0x43, 0x40];          /* Return, Enter paa talltastaturet, mellomrom */
+    let museFire = false, museRetning = 0, museStart = null, klikkHold = 0, klikkTil = 0, menyBrukt = false;
+
+    /* linjen i spillets bilde (0 = overst i spillets vindu) der det ble klikket */
+    function spillY(e) {
+        const r = $('lerret').getBoundingClientRect();
+        const fy = (e.clientY - r.top) / r.height;
+        if (!(fy >= 0 && fy <= 1)) return -1000;
+        const c = Visning.utsnitt();
+        return Math.floor(c[1] + fy * (c[3] - c[1]) - Kjerne.vindu()[1]);
+    }
+
+    /* rad (eller -1 = raden pilen staar paa) er valgt her eller av en gjest */
+    function velgRad(rad) {
+        if (modus === 'gjest') { Nett.sendVelg(rad); return; }
+        menyKmd(KMD.VELG, rad);
+        menyBrukt = true;
+    }
+
+    const spillAktivt = () => (modus === 'alene' || modus === 'vert' || modus === 'gjest') && !menyApen && !dialogApen;
+
+    function klikk(e) {
+        if ((e.button !== 0 && e.button !== 2) || !spillAktivt() || Kjerne.iIntro()) return;
+        const rad = Kjerne.menyRad(spillY(e));
+        if (e.button === 0 && rad >= 0) { velgRad(rad); return; }
+        if (rad !== -1) return;                      /* i menyen, men ikke paa en rad */
+        museStart = { x: e.clientX, y: e.clientY };
+        museRetning = 0;
+        try { $('skjerm').setPointerCapture(e.pointerId); } catch (err) { /* ikke viktig */ }
+        if (e.button === 0) {
+            museFire = true;
+            klikkHold = 3;                           /* et kort klikk varer minst tre bilder */
+            klikkTil = performance.now() + 80;       /* det samme for en gjest */
+        }
+    }
+    function slippMus() { museFire = false; museRetning = 0; museStart = null; }
+    $('skjerm').addEventListener('pointerdown', klikk);
+    $('skjerm').addEventListener('contextmenu', (e) => e.preventDefault());
+    for (const t of ['pointerup', 'pointercancel', 'blur']) window.addEventListener(t, slippMus);
+
+    /* retning fra der knappen ble trykket ned, i aatte retninger som styrekorset */
+    function dragRetning(e) {
+        const dx = e.clientX - museStart.x, dy = e.clientY - museStart.y;
+        if (Math.hypot(dx, dy) < 14) return 0;
+        const v = Math.atan2(dy, dx), s = Math.PI / 8;
+        let b = 0;
+        if (v > -7 * s && v < -s) b |= Inndata.OPP;
+        if (v > s && v < 7 * s) b |= Inndata.NED;
+        if (v > 5 * s || v < -5 * s) b |= Inndata.VENSTRE;
+        if (v > -3 * s && v < 3 * s) b |= Inndata.HOYRE;
+        return b;
+    }
+
+    /* dra for retning, og haanden over rader som kan velges, saa man ser at de kan klikkes */
+    $('skjerm').addEventListener('pointermove', (e) => {
+        if (museStart) { museRetning = dragRetning(e); return; }
+        const over = spillAktivt() && !Kjerne.iIntro() && Kjerne.menyRad(spillY(e)) >= 0;
+        $('skjerm').style.cursor = over ? 'pointer' : '';
+    });
+
+    /* fire og retning fra musen; regnes per bilde, saa et kort klikk ogsaa kommer med */
+    function museBits() {
+        let b = museRetning;
+        if (klikkHold > 0) { klikkHold--; b |= FIRE; }
+        if (museFire) b |= FIRE;
+        return b;
+    }
+
+    /* i menyen er Enter og mellomrom fire (paa raden pilen staar paa) og gaar ikke til spillet */
+    function menyTaster(taster) {
+        if (!Kjerne.iMeny()) return taster;
+        if (taster.some(([k, d]) => d && MENYTASTER.includes(k))) velgRad(-1);
+        return taster.filter(([k]) => !MENYTASTER.includes(k));
     }
 
     /* ---------------------------------------------------------------- nettspill i tittelmenyen
@@ -244,7 +338,7 @@
      * av neste bilde, og verten sender dem med bildet til gjestene, saa alle
      * maskinene viser det samme. */
     const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8, NAVN: 9 };
-    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9 };
+    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10 };
     const SIDE_JOIN = 3;
     const menyKo = [];
     let menyRom = [], sisteRomTekst = null, stoppMenyListe = null, sistAntall = 0, sisteNavn = null;
@@ -276,6 +370,7 @@
             lobby: (liste, kode, portModus) => { visSpillere(liste, kode, portModus); sendNavn(liste); },
             chat: chatLinje,
             status,
+            velg: (rad) => { if (Kjerne.iMeny()) velgRad(rad); },   /* en gjest klikket i menyen */
             trengerTilstand: (id) => {
                 const s = Kjerne.lagreTilstand();
                 if (s) Nett.sendTilstand(id, s, Kjerne.bildeNr());
@@ -476,9 +571,13 @@
     }
 
     /* ---------------------------------------------------------------- spillokka */
+    const INGEN = [];
+    let nyttBilde = false;                  /* kjernen har laget et bilde siden sist det ble tegnet */
     function kjorEttBilde() {
         const lokalt = Inndata.les();
-        let taster = Inndata.hentTaster();
+        lokalt.a |= museBits();
+        if ((lokalt.a | lokalt.b) && Kjerne.iMeny()) menyBrukt = true;
+        let taster = menyTaster(Inndata.hentTaster());
         let j0, j1;
         if (modus === 'vert') {
             const eiere = Kjerne.portSpillere();
@@ -499,7 +598,8 @@
         Kjerne.inndata(j0, j1);
         for (const [k, d] of taster) Kjerne.tast(k, d);
         Kjerne.bilde();
-        Visning.nyttBilde(Kjerne.tegneliste());
+        nyttBilde = true;
+        Visning.nyttBilde(Visning.brukerListe() ? Kjerne.tegneliste() : INGEN);
         Lyd.push(Kjerne.lyd());
         const filer = Kjerne.brukteFiler();
         if (modus === 'vert' && Nett.harGjester()) {
@@ -519,7 +619,8 @@
         Kjerne.inndata(m.j[0], m.j[1]);
         if (m.k) for (const [k, d] of m.k) Kjerne.tast(k, d);
         Kjerne.bilde();
-        Visning.nyttBilde(Kjerne.tegneliste());
+        nyttBilde = true;
+        Visning.nyttBilde(Visning.brukerListe() ? Kjerne.tegneliste() : INGEN);
         Lyd.push(Kjerne.lyd());
         Kjerne.brukteFiler();
         menyHendelser();
@@ -542,8 +643,8 @@
         if (modus === 'gjest') {
             /* send egne knapper til verten */
             const l = Inndata.les();
-            Nett.sendInn(l.a | l.b);
-            for (const [k, d] of Inndata.hentTaster()) Nett.sendTast(k, d);
+            Nett.sendInn(l.a | l.b | museRetning | (museFire || performance.now() < klikkTil ? FIRE : 0));
+            for (const [k, d] of menyTaster(Inndata.hentTaster())) Nett.sendTast(k, d);
             const ko = Nett.rammer;
             while (ko.length && ko[0].f < Kjerne.bildeNr()) ko.shift();
             if (!venterSynk) {
@@ -568,15 +669,20 @@
         if (modus === 'alene' || modus === 'vert' || modus === 'gjest') {
             if (sisteModus === 'auto') visTur();
             visHint();
-            Visning.tegn(Kjerne.rammebuffer(), Kjerne.vindu());
+            /* bare naar det er noe nytt aa vise (se Visning.tegn) */
+            if (nyttBilde || Visning.maaTegnes()) Visning.tegn(Kjerne.rammebuffer(), Kjerne.vindu());
+            nyttBilde = false;
         }
     }
 
     /* ---------------------------------------------------------------- sidemenyen */
     function visMeny(on) {
+        if (on !== menyApen && modus === 'alene') Lyd.clear();     /* spillet staar mens menyen er aapen */
         menyApen = on;
         $('meny').hidden = !on;
         $('meny-knapp').hidden = on;        /* ellers ligger den over «Tilbake til spillet» */
+        /* knappen som lukket menyen skal ikke ha fokus, ellers trykker Enter og mellomrom paa den */
+        if (!on && document.activeElement && document.activeElement !== document.body) document.activeElement.blur();
         Inndata.paa(!on && !dialogApen && !!modus);
         if (on) oppdaterMeny();
     }
@@ -714,8 +820,14 @@
     $('filter').addEventListener('change', (e) => { innst.filter = e.target.value; Visning.settFilter(innst.filter); lagreInnst(); });
     $('format').addEventListener('change', (e) => { innst.format = e.target.value; Visning.settFormat(innst.format); lagreInnst(); });
     $('helt').addEventListener('change', (e) => { innst.helt = e.target.checked; Visning.settHelt(innst.helt); lagreInnst(); });
-    $('volum').addEventListener('input', (e) => { innst.volum = +e.target.value; if (modus) Kjerne.volum(innst.volum); lagreInnst(); });
+    /* kjernen tar volumet opp til 1; resten forsterkes i lydtraaden med myk begrensning */
+    function settVolum(v) {
+        Kjerne.volum(Math.min(1, v));
+        Lyd.forsterk(Math.max(1, v));
+    }
+    $('volum').addEventListener('input', (e) => { innst.volum = +e.target.value; if (modus) settVolum(innst.volum); lagreInnst(); });
     $('knappevent').addEventListener('change', (e) => { innst.knappevent = e.target.checked; lagreInnst(); status('Gjelder fra neste start'); });
+    $('skjermknapper').addEventListener('change', (e) => { innst.knapper = e.target.checked; lagreInnst(); visKnapper(); });
 
     const kodeOk = () => {
         const k = kodeFraTekst($('kode-felt').value);
@@ -752,12 +864,15 @@
         if (e.code === 'PageUp') { lagre(); return true; }
         if (e.code === 'PageDown') { last(); return true; }
         if (e.code === 'End') { plass = plass % 9 + 1; $('plass').value = plass; status('Plass ' + plass); return true; }
-        if (e.code === 'Pause' && modus === 'alene') { pause = !pause; status(pause ? 'Pause' : 'Fortsetter'); return true; }
+        if (e.code === 'Pause' && modus === 'alene') { pause = !pause; Lyd.clear(); status(pause ? 'Pause' : 'Fortsetter'); return true; }
         return false;
     });
     window.addEventListener('keydown', (e) => {
         if (e.code === 'Home' && menyApen) { visMeny(false); e.preventDefault(); }
     });
+    /* fanen skjules: nettleseren stopper spillokka, saa lyden toemmes i stedet for aa hakke */
+    document.addEventListener('visibilitychange', () => { if (document.hidden) Lyd.clear(); });
+
     /* fanen lukkes: si fra til gjestene og fjern rommet fra listen */
     window.addEventListener('pagehide', () => {
         if (modus !== 'vert') return;
@@ -771,10 +886,11 @@
     $('helt').checked = innst.helt;
     $('volum').value = innst.volum;
     $('knappevent').checked = innst.knappevent;
+    $('skjermknapper').checked = innst.knapper;
     fyllPlasser();
     Inndata.lagTouch($('touch'));
     const rom = new URLSearchParams(location.search).get('rom');
     if (rom && /^[A-Za-z0-9]{6}$/.test(rom)) invitasjon = rom.toUpperCase();
     Lager.hent('mod').then((m) => { if (m) { modFiler = m; visMod(); } }).finally(startSpillet);
-    window.moonDebug = { Kjerne, Nett, Visning, innst, statistikk, modus: () => modus };
+    window.moonDebug = { Kjerne, Nett, Visning, innst, statistikk, modus: () => modus, lyd: () => ({ ms: Lyd.bufferedMs(), hull: Lyd.hull() }) };
 })();

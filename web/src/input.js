@@ -43,6 +43,7 @@ const Inndata = (() => {
     const padTaster = { 1: 0x40, 9: 0x12, 4: 0x01, 5: 0x02, 2: 0x03, 3: 0x04, 8: 0x45 };
 
     const nede = new Set();
+    const kort = new Set();                 /* joysticktaster trykket siden sist, ogsaa om de er sluppet */
     const tasteKo = [];                     /* [kode, ned] siden sist */
     let touchA = 0;
     let aktiv = false;                      /* bare naar spillet vises */
@@ -51,7 +52,7 @@ const Inndata = (() => {
 
     function paa(on) {
         aktiv = on;
-        if (!on) { nede.clear(); tasteKo.length = 0; }
+        if (!on) { nede.clear(); kort.clear(); tasteKo.length = 0; }
     }
 
     function tastNed(e) {
@@ -59,7 +60,7 @@ const Inndata = (() => {
         if (hurtig && hurtig(e)) { e.preventDefault(); return; }
         if (e.repeat) { e.preventDefault(); return; }
         const c = e.code;
-        if (c in joyA || c in joyB) { nede.add(c); e.preventDefault(); return; }
+        if (c in joyA || c in joyB) { nede.add(c); kort.add(c); e.preventDefault(); return; }
         if (c in amiga) {
             nede.add(c);
             tasteKo.push([amiga[c], true]);
@@ -111,13 +112,15 @@ const Inndata = (() => {
         return 0;
     }
 
-    /* joystick A og B akkurat naa */
+    /* joystick A og B akkurat naa; et trykk som er sluppet foer bildet, teller ett bilde */
     function les() {
         let a = touchA, b = 0;
-        for (const c of nede) {
+        for (const c of nede) kort.add(c);
+        for (const c of kort) {
             if (c in joyA) a |= joyA[c];
             if (c in joyB) b |= joyB[c];
         }
+        kort.clear();
         a |= pad(0);
         b |= pad(1);
         return { a, b };
@@ -174,6 +177,7 @@ const Inndata = (() => {
     }
 
     function settHurtigtaster(fn) { hurtig = fn; }
+    const holdt = (kode) => nede.has(kode);
 
-    return { les, hentTaster, paa, lagTouch, settHurtigtaster, OPP, NED, VENSTRE, HOYRE, FIRE };
+    return { les, hentTaster, paa, lagTouch, settHurtigtaster, holdt, OPP, NED, VENSTRE, HOYRE, FIRE };
 })();

@@ -299,9 +299,11 @@ enum { MENY_EV_HOST = 1, MENY_EV_JOIN_PAGE, MENY_EV_JOIN_ROOM, MENY_EV_ENTER_COD
        MENY_EV_PUBLIC, MENY_EV_LEAVE_JOIN, MENY_EV_BACK, MENY_EV_NAME };
 /* kommandoer fra frontenden, brukes ved starten av et bilde (i nettspill hos alle) */
 enum { MENY_CMD_HOSTING = 1, MENY_CMD_PLAYERS, MENY_CMD_PUBLIC, MENY_CMD_ROOMS, MENY_CMD_MESSAGE,
-       MENY_CMD_SESSION_END, MENY_CMD_NAMES, MENY_CMD_MYNAME, MENY_CMD_PAGE };
+       MENY_CMD_SESSION_END, MENY_CMD_NAMES, MENY_CMD_MYNAME, MENY_CMD_PAGE, MENY_CMD_SELECT };
 enum { MENY_PAGE_ONLINE = 1, MENY_PAGE_JOIN = 3 };   /* for MENY_CMD_PAGE */
 int      meny_take_event(void);           /* 0 = ingen */
+bool     meny_in_menu(void);              /* tittelmenyen (eller en nettspillside) er paa skjermen */
+int      meny_row_at(int y);              /* raden et klikk paa linje y treffer, -1/-2 = ingen */
 void     meny_command(int cmd, int arg, const char *text);
 
 /* ------------------------------------------------------------ hooks.c */

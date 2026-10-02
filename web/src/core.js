@@ -144,6 +144,8 @@ const Kjerne = (() => {
         menyHendelse: () => M._ms_menu_event(),
         menyKlar: () => !!M._ms_menu_ready(),       /* tittelmenyen er naadd */
         iIntro: () => !!M._ms_in_intro(),
+        iMeny: () => !!M._ms_in_menu(),             /* tittelmenyen eller en nettspillside er framme */
+        menyRad: (y) => M._ms_menu_row(y | 0),      /* raden paa linje y, -1 ikke i menyen, -2 ingen rad */
         menyKommando,
         last, aapne, harInnebygd, aapneInnebygd, start, startSomGjest, inndata, tast, bilde, rammebuffer, vindu, lyd,
         lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil,

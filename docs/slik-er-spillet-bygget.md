@@ -89,6 +89,12 @@ Tittelmenyen ($8188C) bruker samme liste ($8F060), en tabell med y for pilen ($8
 og en løkke som leser joysticken. Valg 0-3 ligger i $8F2D2. Porten bruker denne motoren
 til nettspillsidene (`port/src/meny.c`).
 
+Løkka leser joysticken hele tiden uten å vente på bildet, men å tegne menyen på nytt
+tar rundt 20 bilder. Spillet har også en rutine som leser musen (`les_mus`, $9B4FC,
+fra VBL-avbruddet), men ingen del av spillet bruker det den finner. Nettsiden kobler
+musen inn selv: et klikk på en rad blir menykommandoen VELG, og `meny.c` gir spillet
+fire når menyen er ferdig tegnet.
+
 Tre ting i originalkoden som setter grenser når tekster endres (`port/src/patch.c`):
 
 - Alt som tegnes, huskes i en av to lister på 45 plasser ($8DE4A og $8DFB2) så

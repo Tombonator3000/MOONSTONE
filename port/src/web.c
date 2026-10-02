@@ -81,7 +81,8 @@ EMSCRIPTEN_KEEPALIVE int ms_fb_h(void) { return FB_H; }
 EMSCRIPTEN_KEEPALIVE int *ms_diw(void) { return video_diw; }
 EMSCRIPTEN_KEEPALIVE int16_t *ms_audio(void) { return audio; }
 EMSCRIPTEN_KEEPALIVE int ms_audio_frames(void) { return audio_frames; }
-EMSCRIPTEN_KEEPALIVE void ms_volume(float v) { paula_volume = v; }
+/* hoyst 1: over det klipper int16-utgangen; nettsiden forsterker resten i lydtraaden */
+EMSCRIPTEN_KEEPALIVE void ms_volume(float v) { paula_volume = v < 0 ? 0 : v > 1 ? 1 : v; }
 EMSCRIPTEN_KEEPALIVE uint32_t ms_frame_no(void) { return M.frame; }
 EMSCRIPTEN_KEEPALIVE double ms_hz(void) { return AMIGA_HZ; }
 EMSCRIPTEN_KEEPALIVE int ms_aborted(void) { return M.aborted ? 1 : 0; }
@@ -139,5 +140,8 @@ EMSCRIPTEN_KEEPALIVE void ms_menu_enable(int on) { meny_online = on != 0; }
 EMSCRIPTEN_KEEPALIVE int ms_menu_event(void) { return meny_take_event(); }
 EMSCRIPTEN_KEEPALIVE void ms_menu_cmd(int cmd, int arg, const char *text) { meny_command(cmd, arg, text); }
 EMSCRIPTEN_KEEPALIVE int ms_menu_ready(void) { return meny_title_seen ? 1 : 0; }
+/* klikk og Enter i menyen: er menyen framme, og hvilken rad ligger paa linje y */
+EMSCRIPTEN_KEEPALIVE int ms_in_menu(void) { return meny_in_menu() ? 1 : 0; }
+EMSCRIPTEN_KEEPALIVE int ms_menu_row(int y) { return meny_row_at(y); }
 /* introen (program) gaar; den hoppes over med Esc */
 EMSCRIPTEN_KEEPALIVE int ms_in_intro(void) { return whd_mog_loaded ? 0 : 1; }

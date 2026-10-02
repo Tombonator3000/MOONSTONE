@@ -70,7 +70,7 @@ label.knapp input[type=file] { display: none; }
 #lasting[hidden] { display: none; }
 #lasting-tekst { color: var(--svak); max-width: 36em; }
 #hint { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); background: rgba(10, 10, 30, .7); padding: 6px 14px; border-radius: 8px; font-size: .85rem; color: var(--svak); pointer-events: none; max-width: calc(100% - 32px); text-align: center; }
-body:has(#touch:not([hidden])) #hint { bottom: auto; top: 52px; }
+body:has(#touch:not([hidden])) #hint, #hint.topp { bottom: auto; top: 52px; }
 /* rekkefolgen: spillet, lasting, menyen, menyknappen, dialoger, meldinger */
 #meny { z-index: 4; }
 #meny-knapp { z-index: 5; }
