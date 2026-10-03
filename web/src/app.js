@@ -358,6 +358,7 @@
     const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8, NAVN: 9, SPILL: 10, BIND: 11 };
     const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11, KONTROLL: 12 };
     const SIDE_JOIN = 3;
+    const SIDE_VERT = 2;                    /* romsiden til verten: Copy Link og Public er vertens */
     const menyKo = [];
     let menyRom = [], sisteRomTekst = null, stoppMenyListe = null, sistAntall = 0, sisteNavn = null;
     let menyInvitert = null;                /* rommet i invitasjonen, foerst i Join Game */
@@ -390,7 +391,8 @@
             duell: (conn) => duellInn(conn),
             chat: chatLinje,
             status,
-            velg: (rad) => { if (Kjerne.iMeny()) velgRad(rad); },   /* en gjest klikket i menyen */
+            velg: (rad) => { if (Kjerne.iMeny() && Kjerne.menySide() !== SIDE_VERT) velgRad(rad); },   /* en gjest klikket i menyen (ikke paa romsiden) */
+            iMeny: () => Kjerne.iMeny(),            /* der kan spillernumrene gjores om uten hull */
             trengerTilstand: (id) => {
                 const s = Kjerne.lagreTilstand();
                 if (s) Nett.sendTilstand(id, s, Kjerne.bildeNr());
@@ -647,7 +649,7 @@
         if (modus === 'vert' && !Nett.harGjester()) return true;
         const eier = Kjerne.portSpillere()[1];
         if (eier < 0) return modus === 'vert';
-        if (modus === 'vert') return eier === Nett.vertensSpiller();
+        if (modus === 'vert') return eier === Nett.vertensSpiller() || !Nett.harSpiller(eier);    /* ingen har ridderen: verten styrer den */
         const meg = sisteSpillere.find((x) => x.id === Nett.minId());   /* listen gjesten faar fra verten */
         return !!meg && meg.spiller === eier;
     }
@@ -1081,6 +1083,7 @@
         case 'klar':
             clearTimeout(d.tidsfrist);
             d.status = 'aktiv';
+            d.kort = d.kortN = 0;                /* trykk mens den andre lastet, er gamle */
             akk = 0;
             status('Kamp mot ' + d.navn + '!');
             break;
@@ -1248,7 +1251,9 @@
         if ((lokalt.a | lokalt.b) && Kjerne.iMeny()) menyBrukt = true;
         let j0, j1;
         if (modus === 'vert') {
-            const eiere = Kjerne.portSpillere();
+            let eiere = Kjerne.portSpillere();
+            /* romsiden er vertens: et fire fra en gjest paa Copy Link ville aapnet sidemenyen hos verten */
+            if (Kjerne.menySide() === SIDE_VERT) eiere = [-1, Nett.vertensSpiller()];
             [j0, j1] = Nett.porter(lokalt.a | lokalt.b, eiere);
             if (!Nett.harGjester()) { j0 = lokalt.b; j1 = lokalt.a; }
             else {
@@ -1350,7 +1355,7 @@
             let inn = l.a | l.b | museRetning | (museFire || performance.now() < klikkTil ? FIRE : 0);
             if (valgJoystick(l.a | l.b)) inn = 0;
             Nett.sendInn(inn);
-            for (const [k, d] of menyTaster(valgTaster(Inndata.hentTaster()))) Nett.sendTast(k, d);
+            for (const [k, d] of menyTaster(valgTaster(Inndata.hentTaster()))) if (k !== 0x59) Nett.sendTast(k, d);    /* F10 er vertens */
             const ko = Nett.rammer;
             while (ko.length && ko[0].f < Kjerne.bildeNr()) ko.shift();
             if (!venterSynk) {
@@ -1378,6 +1383,8 @@
             }
         } else if (D && D.rolle === 'a' && D.status !== 'aktiv') {
             akk = 0;                                 /* venter paa den andre */
+            Inndata.les();                           /* det som trykkes mens kampen lastes hos den andre, skal ikke komme etterpaa */
+            Inndata.hentTaster();
         } else if ((modus === 'alene' || modus === 'vert' || modus === 'hver') && !pause && !(menyApen && modus !== 'vert' && !D)) {
             akk += dt;
             let n = 0;
@@ -1703,11 +1710,20 @@
     window.addEventListener('keydown', (e) => {
         if (e.code === 'Home' && menyApen && !e.defaultPrevented && !e.repeat) { visMeny(false); e.preventDefault(); }
     });
-    /* fanen skjules: nettleseren stopper spillokka, saa lyden toemmes i stedet for aa hakke */
-    document.addEventListener('visibilitychange', () => { if (document.hidden) Lyd.clear(); });
+    /* fanen skjules: nettleseren stopper spillokka, saa lyden toemmes i stedet for aa hakke.
+     * En gjest og den som forsvarer seg i en duell slipper joysticken hos den andre med en
+     * gang (ellers fortsetter en retning som holdes, til siden vises igjen). */
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) return;
+        Lyd.clear();
+        if (modus === 'gjest') Nett.sendInn(0);
+        if (D && D.rolle === 'b' && D.conn && D.conn.open) { D.conn.send({ t: 'inn', j: 0 }); D.sistInn = 0; D.sistInnTid = performance.now(); }
+    });
 
-    /* fanen lukkes: si fra til gjestene og fjern rommet fra listen */
+    /* fanen lukkes: si fra til gjestene og fjern rommet fra listen. En gjest lukker
+     * forbindelsen, saa verten merker det med en gang (WebRTC gjor det ikke alltid). */
     window.addEventListener('pagehide', () => {
+        if (modus === 'gjest') { Nett.avslutt(); return; }
         if (modus !== 'vert' && modus !== 'hver') return;
         if (stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
         Nett.avslutt();

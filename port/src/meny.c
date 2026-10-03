@@ -712,6 +712,12 @@ bool meny_in_menu(void)
     return M2.enabled && in_menu;
 }
 
+/* Siden som vises (PAGE_*), eller -1 utenfor menyen. Bare for frontenden. */
+int meny_side(void)
+{
+    return meny_in_menu() ? M2.page : -1;
+}
+
 /* Raden paa linje y (spillets skjerm, 0 = overst) som kan velges med et klikk.
  * -1: ikke i menyen, -2: i menyen, men ingen rad der. Leser bare, endrer ingenting. */
 int meny_row_at(int y)

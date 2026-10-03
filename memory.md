@@ -269,7 +269,8 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   (type - $15) * 4 (Enter Village, Enter the city of Highwood ..., $21 «Pillage knight's grave»).
   Overskriften er navnet til aktiv_ridder + « may ... » ($962A1). AI-ridderne ($8E7AE) velger selv.
 - Tastaturet: avbruddet ($9B130) legger tegnet (oversatt via $9B696) i $9B685 naar tasten
-  SLIPPES; $9B716 er tabellen over tastene som er nede.
+  TRYKKES (rettet 2026-10-03: --vakt 9B684 med --press 600:a:30 viser skrivingen i bilde 600,
+  ingenting ved slippet); $9B716 er tabellen over tastene som er nede.
 - Navnet til ridderen: sub_081B26, lokka paa $081B7C. Fire godtar, Return ($1C) godtar,
   Backspace ($0E) sletter, maks 13 tegn. Bufferen er pekeren paa $8F0B4, lengden ordet $8CE32.
 - game.c observerer $0ABBBA og $081B7C (som lapper, hooks_register_patch: de endrer

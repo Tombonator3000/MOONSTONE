@@ -152,6 +152,7 @@ const Kjerne = (() => {
         iIntro: () => !!(M && M._ms_in_intro()),
         iMeny: () => !!(M && M._ms_in_menu()),      /* tittelmenyen eller en nettspillside er framme */
         menyRad: (y) => M._ms_menu_row(y | 0),      /* raden paa linje y, -1 ikke i menyen, -2 ingen rad */
+        menySide: () => (M ? M._ms_menu_page() : -1),    /* siden i menyen (2 = romsiden til verten), -1 utenfor */
         menyKommando,
         /* hver for seg (port/src/hver.c) */
         hverKmd: (k, arg, tekst) => {

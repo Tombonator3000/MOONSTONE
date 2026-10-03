@@ -334,6 +334,7 @@ bool     hver_paa(void);
 bool     hver_kart(void);                 /* spillet er paa kartet (ridderen kan sendes) */
 void     meny_frame(void);                /* foer hvert bilde: fire som kom mens menyen ble tegnet */
 bool     meny_in_menu(void);              /* tittelmenyen (eller en nettspillside) er paa skjermen */
+int      meny_side(void);                 /* siden som vises (0 tittelmenyen, 2 romsiden til verten), -1 utenfor */
 int      meny_row_at(int y);              /* raden et klikk paa linje y treffer, -1/-2 = ingen */
 void     meny_command(int cmd, int arg, const char *text);
 

@@ -87,9 +87,21 @@ gjestene 2-4 i den rekkefølgen de kom, og verten kan endre det i sidemenyen).
   settes antallet opp, så alle får en ridder.
 - Joysticken fra en gjest kommer som siste tilstand. Et kort trykk huskes i tre
   bilder hos verten, så det ikke blir borte når trykk og slipp kommer mellom to bilder.
-  Det samme gjelder forsvareren i en duell.
+  Det samme gjelder forsvareren i en duell. Kommer det ingenting på 1,5 sekunder
+  (gjesten sender minst hvert halve sekund), er siden til den andre stoppet, og
+  joysticken regnes som sluppet. En gjest sender også null når fanen skjules.
+- Romsiden (Copy Link, Public, Back) styres bare av verten; ellers kunne et fire fra
+  en gjest åpne sidemenyen hos verten. F10 (som avslutter spillet) tas ikke imot fra
+  gjester.
+- En gjest har en id i fanen (sessionStorage). Laster den siden på nytt eller mister
+  nettet og kommer tilbake, får den samme spillernummer (og ridder) igjen, og en gammel
+  forbindelse som henger, tas bort. I menyene tettes hull i numrene når noen går. En
+  gjest som ikke har sagt noe på 30 sekunder, regnes som borte, og verten tar over
+  ridderen.
 
-Test: `$S/test35.js` (vert og gjest; verten velger SIR RICHARD).
+Tester: `$S/test35.js` (vert og gjest; verten velger SIR RICHARD) og `$S/test36.js`
+(tre i rommet: Copy Link og F10 fra en gjest, ny forbindelse, nummer uten hull, en side
+som fryser mens en retning holdes).
 
 ## Slik er «Hver for seg» laget (port/src/hver.c, web/src/app.js)
 

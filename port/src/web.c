@@ -178,5 +178,6 @@ EMSCRIPTEN_KEEPALIVE int ms_menu_ready(void) { return meny_title_seen ? 1 : 0; }
 /* klikk og Enter i menyen: er menyen framme, og hvilken rad ligger paa linje y */
 EMSCRIPTEN_KEEPALIVE int ms_in_menu(void) { return meny_in_menu() ? 1 : 0; }
 EMSCRIPTEN_KEEPALIVE int ms_menu_row(int y) { return meny_row_at(y); }
+EMSCRIPTEN_KEEPALIVE int ms_menu_page(void) { return meny_side(); }
 /* introen (program) gaar; den hoppes over med Esc */
 EMSCRIPTEN_KEEPALIVE int ms_in_intro(void) { return whd_mog_loaded ? 0 : 1; }

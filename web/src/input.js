@@ -199,6 +199,8 @@ const Inndata = (() => {
     window.addEventListener('keydown', tastNed);
     window.addEventListener('keyup', tastOpp);
     window.addEventListener('blur', sluppAlt);
+    /* siden skjules (annen fane, laast mobil): alt er sluppet, ogsaa styrekorset paa skjermen */
+    document.addEventListener('visibilitychange', () => { if (document.hidden) { sluppAlt(); touchA = 0; touchKort = 0; } });
 
     function pad(i) {
         const pads = navigator.getGamepads ? navigator.getGamepads() : [];
