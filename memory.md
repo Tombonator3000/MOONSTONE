@@ -124,6 +124,12 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   fire-trykk i M2.fire_seen, og hook_input gir dem når løkka leser igjen, så lenge ingen
   retning holdes og trykket er under 30 bilder gammelt. wait_release slippes bare i
   hook_input, ellers gir et fire som holdes i 20 bilder to valg.
+- Beskyttelsesrullen ($080C1A, i møtet før kampen): er den angrepne (a1 = $8CE94+4) et
+  menneske med en rull (tingtabellen +$12), vises «NAVN may use their Scroll of
+  protection», så vent_paa_fire (port 2), så inventaret til den angrepne ($08AAC4 med
+  d0 = 9, pekeren styres med port 2). $8BEA4 = $12 etterpå betyr at rullen ble brukt.
+  I en duell setter hver.c H.rulle fra $080C52 til $080C98, og hver_frame flytter
+  port 1 (forsvareren) til port 2 så lenge.
 - Fontbredder (skriv_tekst): mellomrom 15, A 20, B 17, C 13, D 17, E 13, F 16, I 9,
   K 19, M 24, N 19, P 17, S 13, T 16, W 24, a 13, e 11, i 9, l 8, m 19, n 14, o 12,
   r 12, s 11, t 11, tall 7-12. Mangler: " & ( ) * + - : ; < = > ? @ [ ] ^ _ ` { | } ~.

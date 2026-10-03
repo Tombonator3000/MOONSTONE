@@ -80,7 +80,9 @@ Møtes dere på kartet, kan du velge **Battle with** den andres ridder. Da blir 
 en duell over nettet: spillet ditt stopper et øyeblikk, den andre får kampen i sin
 nettleser og styrer sin ridder, og når kampen er over, er begge tilbake i sitt eget
 spill med ridderen slik kampen endte (liv, gull, ting). Ridderne har sin ekte
-styrke og sine ting også i de andres spill. Kan ikke den andre kjempe akkurat nå
+styrke og sine ting også i de andres spill. Har den du angriper en beskyttelsesrull
+(«may use their Scroll of protection»), er det den andre som trykker fire og velger
+i inventaret sitt om rullen skal brukes. Kan ikke den andre kjempe akkurat nå
 (sidemenyen er åpen, eller ikke på kartet), styrer datamaskinen ridderen i kampen.
 
 Menyvalget finnes bare på nettsiden, siden PC-versjonen ikke har nettspill
