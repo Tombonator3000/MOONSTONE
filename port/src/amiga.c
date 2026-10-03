@@ -316,6 +316,7 @@ void amiga_reset(void)
 bool amiga_init(void)
 {
     amiga_reset();
+    musikk_last();                        /* fra filene naa; en gjest i nettspill beholder den fra foer */
     if (!whd_boot()) return false;
     return true;
 }

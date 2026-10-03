@@ -189,6 +189,7 @@ const Kjerne = (() => {
         stoppet: () => !!M._ms_aborted(),
         stoppMelding: () => M.UTF8ToString(M._ms_abort_msg()),
         volum: (v) => M._ms_volume(v),
+        musikk: (paa, v) => M && M._ms_musikk(paa ? 1 : 0, v),     /* bakgrunnsmusikken (port/src/musikk.c) */
         portSpillere: () => [M._ms_port_player(0), M._ms_port_player(1)],
         velgerRidder: () => !!(M && M._ms_velger_ridder()),       /* Select a Knight eller navnet etterpaa */
         tegneliste,

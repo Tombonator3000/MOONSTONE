@@ -98,6 +98,8 @@ static void usage(void)
            "  --scale N             vindusstorrelse (standard 3)\n"
            "  --fullscreen          fullskjerm\n"
            "  --volume V            lydstyrke, 1.0 er normal\n"
+           "  --musikk V            styrken paa musikken i resten av spillet (0-1, standard 0.5)\n"
+           "  --ingen-musikk        bare introen har musikk, som i originalen\n"
            "  --buttonwait          vent paa fire for kamp (WHDLoad ButtonWait)\n"
            "  --nohooks             kjor bare originalkoden (ingen C-erstatninger)\n"
            "  --hook-cycles         kjor originalen og mal syklusene til funksjonene i decomp/\n"
@@ -207,6 +209,8 @@ int main(int argc, char **argv)
         else if (!strcmp(a, "--scale") && v) { fo.scale = atoi(v); i++; }
         else if (!strcmp(a, "--fullscreen")) fo.fullscreen = true;
         else if (!strcmp(a, "--volume") && v) { fo.volume = (float)atof(v); i++; }
+        else if (!strcmp(a, "--ingen-musikk")) musikk_sett(false, -1.0f);
+        else if (!strcmp(a, "--musikk") && v) { musikk_sett(true, (float)atof(v)); i++; }
         else if (!strcmp(a, "--buttonwait")) whd_buttonwait = 1;
         else if (!strcmp(a, "--nohooks")) nohooks = true;
         else if (!strcmp(a, "--hook-cycles")) hooks_measure = true;
