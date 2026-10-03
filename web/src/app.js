@@ -564,7 +564,7 @@
         const noekkel = v ? v.tittel + '|' + v.valg.join('|') : '';
         oppdaterNavnKnapp();
         /* tok ikke spillet tasten (den kom bort), kan man velge igjen */
-        if (valgNaa && valgNaa.valgt && performance.now() - valgNaa.valgt > 1500) valgNaa.valgt = 0;
+        if (valgNaa && valgNaa.valgt && performance.now() - valgNaa.valgt > 4000) valgNaa.valgt = 0;
         if (noekkel === (valgNaa ? valgNaa.noekkel : '')) return;
         const boks = $('valg');
         if (!v) { valgNaa = null; boks.hidden = true; return; }
@@ -592,6 +592,14 @@
         merkValg(0);
         boks.hidden = false;
         plasserOver(boks);
+    }
+
+    /* uten valgboks (duell, ny start): det som ble trykket der, glemmes */
+    function skjulValg() {
+        valgNaa = null;
+        valgStille = false;
+        valgJoy = 0;
+        $('valg').hidden = true;
     }
 
     function merkValg(i) {
@@ -628,7 +636,7 @@
     function valgTaster(taster) {
         if (!valgNaa || !valgNaa.aktiv) return taster;
         if (taster.some(([k, d]) => d && MENYTASTER.includes(k))) velgValg(valgMerket);
-        return taster.filter(([k]) => !MENYTASTER.includes(k));
+        return taster.filter(([k, d]) => !(d && MENYTASTER.includes(k)));     /* slippene gaar videre */
     }
 
     /* Er det denne spilleren som velger? Alene og hver for seg alltid; i et rom tur
@@ -640,23 +648,24 @@
         const eier = Kjerne.portSpillere()[1];
         if (eier < 0) return modus === 'vert';
         if (modus === 'vert') return eier === Nett.vertensSpiller();
-        const meg = Nett.spillere().find((x) => x.id === Nett.minId());
+        const meg = sisteSpillere.find((x) => x.id === Nett.minId());   /* listen gjesten faar fra verten */
         return !!meg && meg.spiller === eier;
     }
 
     /* boksen midt over spillets bilde, innenfor skjermen */
     function plasserOver(el) {
         const r = $('lerret').getBoundingClientRect();
+        el.style.left = el.style.top = '0px';        /* maal bredden uten forrige plassering */
         const w = el.offsetWidth, h = el.offsetHeight;
         const x = Math.max(8, Math.min(innerWidth - w - 8, r.left + (r.width - w) / 2));
         const y = Math.max(8, Math.min(innerHeight - h - 8, r.top + (r.height - h) / 2));
         el.style.left = x + 'px';
         el.style.top = y + 'px';
     }
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', () => requestAnimationFrame(() => {      /* etter at fonten har ny storrelse */
         if (!$('valg').hidden) plasserOver($('valg'));
         if (!$('navn-knapp').hidden) plasserNavnKnapp();
-    });
+    }));
 
     /* ---------------------------------------------------------------- navnet til ridderen
      * Etter Select a Knight skriver man navnet med tastaturet (fire godtar det som
@@ -1028,6 +1037,7 @@
         const id = rekkefolge[k - 1];
         if (!id || D || modus !== 'hver') { Kjerne.hverKmd(HVER.AI, k); return; }
         const d = D = { rolle: 'a', plass: k, id, status: 'venter', inn: 0, navn: navnTil(id), conn: null };
+        skjulValg();
         status('Utfordrer ' + d.navn + ' ...');
         d.tidsfrist = setTimeout(() => utenDuell(d, d.navn + ' svarte ikke.'), 15000);
         Nett.duellKoble(id).then((conn) => {
@@ -1119,6 +1129,7 @@
             if (!egen) { conn.send({ t: 'nei' }); setTimeout(() => conn.close(), 500); return; }
             D = { rolle: 'b', conn, plass: p, status: 'venter', egen, rammer: [], navn: String(m.navn || 'Player').slice(0, 20),
                 motta: Nett.tilstandsMottaker(), sistInn: -1, sistInnTid: 0, akk: 0, sist: performance.now(), mine: new Map() };
+            skjulValg();                        /* kampen vises; valgene kommer tilbake etter den */
             Lyd.clear();
             status(D.navn + ' utfordrer deg til kamp!');
             conn.send({ t: 'ja', egne: egneFiler() });

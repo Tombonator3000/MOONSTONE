@@ -27,7 +27,6 @@ const Spillgrafikk = (() => {
     const laget = new Map();                /* tegn som er satt sammen (ae, oe, aa, -, :, ...) */
     let pilB = null, logoB = null, nattB = null;
     let enhet = 1;                          /* CSS-piksler per spillpiksel */
-    const lerreter = new Set();             /* alle tekstlerreter, for ny storrelse */
 
     /* ---------------------------------------------------------------- formatene */
     const u16 = (d, i) => d[i] << 8 | d[i + 1];
@@ -228,7 +227,6 @@ const Spillgrafikk = (() => {
         if (el.dataset.ptNoekkel === noekkel) return;
         el.dataset.ptNoekkel = noekkel;
         el.dataset.ptTekst = tekst;
-        for (const c of el.querySelectorAll('canvas')) lerreter.delete(c);
         if (!klar) { el.textContent = tekst; return; }
         el.textContent = '';
         el.classList.add('pt-klar');
@@ -239,7 +237,6 @@ const Spillgrafikk = (() => {
             if (i < ord.length - 1) c.dataset.mellom = '1';
             c.setAttribute('aria-hidden', 'true');
             storrelse(c);
-            lerreter.add(c);
             el.appendChild(c);
             if (i < ord.length - 1) el.appendChild(document.createElement('wbr'));    /* her kan linjen brytes (uten tekst) */
         });
@@ -268,7 +265,7 @@ const Spillgrafikk = (() => {
         rot.setProperty('--natt-b', (320 * k * ny) + 'px');
         if (ny === enhet) return;
         enhet = ny;
-        for (const c of lerreter) if (c.isConnected) storrelse(c); else lerreter.delete(c);
+        for (const c of document.querySelectorAll('canvas[data-skala]')) storrelse(c);     /* bare de som vises */
     }
 
     /* ---------------------------------------------------------------- oppstart */
@@ -310,7 +307,6 @@ const Spillgrafikk = (() => {
         c.dataset.skala = String(skala || 1);
         c.setAttribute('aria-hidden', 'true');
         storrelse(c);
-        lerreter.add(c);
         return c;
     }
 

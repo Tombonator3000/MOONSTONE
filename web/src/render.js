@@ -453,10 +453,10 @@ const Visning = (() => {
     let hdLys = 1;                          /* fading for HD-bildene, fra paletten (lagene) */
     function tegnHd() {
         let n = 0;
-        if (visRammer || (hdPaa && hdPakke.size)) {
+        if (hdPaa && (visRammer || hdPakke.size)) {        /* «Original»: ingen HD-bilder og ingen gule felt */
             for (const d of visteListe) {
                 const nokkel = d.fil.toLowerCase() + '/' + String(d.bilde).padStart(3, '0');
-                const t = hdPaa ? hdPakke.get(nokkel) : null;
+                const t = hdPakke.get(nokkel);
                 if (!t && !visRammer) continue;
                 const x = diwNaa[0] / 2 + d.x - d.xoff - ux(), y = diwNaa[1] + d.y - uy();
                 const m = flate(n++);
@@ -573,10 +573,10 @@ const Visning = (() => {
         viste: () => visteListe.length,             /* figurer som vises med HD-bilde eller gult felt */
         maaTegnes: () => maaTegnes,
         utsnitt: () => crop.slice(),                /* delen av rammebufferet som vises (x0, y0, x1, y1) */
-        brukerListe: () => (hdPaa && hdPakke.size > 0) || visRammer,   /* trengs tegnelisten fra kjernen? */
+        brukerListe: () => hdPaa && (hdPakke.size > 0 || visRammer),   /* trengs tegnelisten fra kjernen? */
         /* trengs lagene fra kjernen? (HD-bakgrunner eller effekter som skiller lagene) */
         trengerLag: () => (hdPaa && hdPakke.size > 0) || effekter.skygge || effekter.dybde || tvungetLag,
-        /* HD-grafikk eller originalen (bryteren i menyen, F9) */
+        /* HD-grafikk eller originalen (bryteren i menyen) */
         settHd: (on) => { hdPaa = !!on; maaTegnes = true; },
         hdPaa: () => hdPaa,
         lagNaa: () => lagNaa,
