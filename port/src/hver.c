@@ -73,6 +73,7 @@ static struct {
     uint8_t  duell_mulig;                   /* bit k: spilleren paa plass k kan naas for en duell */
     uint8_t  duell;                         /* plass + 1 i en duell over nettet, 0 = ingen */
     uint8_t  i_kamp;                        /* bit k: ridder k (ogsaa datamaskinens) er i et moete ($080AB8-$080BD8) */
+    uint8_t  rulle;                         /* forsvareren i duellen svarer om beskyttelsesrullen ($080C52-$080C98) */
 } H;
 
 /* hendelser til frontenden (ikke i lagringen) */
@@ -244,6 +245,10 @@ static void gi_tilbake(void)
  * paa kartet (paa tittelskjermen og under valg av ridder settes ridderne opp) */
 void hver_frame(void)
 {
+    /* beskyttelsesrullen i en duell (hook_rulle): spillet venter paa fire i port 2 og
+     * lar saa ridderen velge i inventaret med joysticken i port 2, men det er
+     * forsvareren som spiller, og han har port 1. Port 1 flyttes dit saa lenge. */
+    if (H.rulle) { IN.joy[1] = IN.joy[0]; IN.joy[0] = 0; }
     if (!H.fjern || !whd_mog_loaded || !H.kart) return;
     for (int k = 1; k < 4; k++) {
         if (!(H.fjern & (1 << k)) || !H.har[k] || (H.kamp & (1 << k))) continue;
@@ -294,6 +299,7 @@ static bool hook_tittel(void)
     H.kamp = 0;
     H.i_kamp = 0;
     H.duell = 0;
+    H.rulle = 0;
     kopi_ok = false;
     return false;
 }
@@ -409,6 +415,24 @@ static bool hook_kamp(void)
     return false;
 }
 
+/* den angrepne ridderen har en beskyttelsesrull ($080C1A): «KARI may use their
+ * Scroll of protection», fire, og saa inventaret til ridderen ($08AAC4, d0 = 9).
+ * I en duell er den angrepne den andre spilleren (a1 = $8CE94+4). */
+static bool hook_rulle(void)
+{
+    if (!H.duell) return false;
+    uint32_t a1 = mem_read32(0x8ce94 + 4);
+    if (plass_for(a1) == H.duell - 1) H.rulle = 1;
+    return false;
+}
+
+/* inventaret er lukket: joystickene som foer */
+static bool hook_rulle_slutt(void)
+{
+    H.rulle = 0;
+    return false;
+}
+
 /* kampen er over (eller ble ikke noe av) */
 static bool hook_kamp_slutt(void)
 {
@@ -425,6 +449,7 @@ static bool hook_kamp_slutt(void)
     }
     H.kamp = 0;
     H.i_kamp = 0;
+    H.rulle = 0;
     gi_tilbake();                           /* plasser som ble ledige under kampen */
     return false;
 }
@@ -452,4 +477,6 @@ void hver_register_hooks(void)
     hooks_register_patch(0x080ab8, hook_kamp, "ridder mot ridder (hver for seg)");
     hooks_register_patch(0x080bd8, hook_kamp_slutt, "ridder mot ridder slutt (hver for seg)");
     hooks_register_patch(0x080ba4, hook_plyndring, "plyndring (hver for seg)");
+    hooks_register_patch(0x080c52, hook_rulle, "beskyttelsesrullen (hver for seg)");
+    hooks_register_patch(0x080c98, hook_rulle_slutt, "beskyttelsesrullen slutt (hver for seg)");
 }

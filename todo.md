@@ -1,7 +1,8 @@
 # todo.md
 
 ## Neste
-- [ ] Duell: beskyttelsesrullen ($080C1A) styres med port 2 (angriperen); la forsvareren styre den.
+- [ ] Options-siden også i PC-versjonen (SDL): taster og knapper i spillets meny. PC slår ikke på menylappen i dag.
+- [ ] Options: velge spillkontroller nummer 2 og hvilken kontroller som er spiller 1.
 - [ ] Duell: la den som blir angrepet få se et kort varsel før kampen («Tom utfordrer deg») i spillets egen stil, ikke bare i statuslinjen.
 - [ ] Hver for seg, steg 4: motstanderen er opptatt (by, kamp), to utfordrer hverandre samtidig, årstidene går hver for seg.
 - [ ] Hver for seg: vise navnet til spilleren (ikke bare riddernavnet) når man står ved siden av, og en melding når noen kommer inn på kartet.
@@ -23,6 +24,8 @@
 - [ ] Teste moonstone.exe på ekte Windows.
 
 ## Ferdig
+- [x] Duell: beskyttelsesrullen ($080C1A) og inventaret etterpå styres av forsvareren (port 1 flyttes til port 2 mens spillet venter).
+- [x] Options i tittelmenyen (nettsiden): Online Game, Keyboard (fire og bevegelse for begge spillerne), Gamepad (fire, inventar, Pass, Esc), Default Controls. Lagres i nettleseren. Korte fire-trykk mens menyen tegnes, blir husket.
 - [x] Flerspiller «Hver for seg» steg 3: dueller over nettet (direkte forbindelse, den andre får maskinen og styrer port 1, tar ridderen med tilbake), hele ridderen sendes, datamaskinen tar over om den andre ikke kan.
 - [x] Flerspiller «Hver for seg» steg 1 og 2: Mode Separate i Online Game, alle spiller sitt eget spill, de andre vises på kartet og flytter seg mens du har turen, turene deres hoppes over, kamp mot dem styres foreløpig av datamaskinen.
 - [x] Varige HD-figurer (står så lenge forgrunnen er uendret), HD-tekst via bold.f og Small.font, filteret Glatt (Scale4x), tools/hd_skaler.py.

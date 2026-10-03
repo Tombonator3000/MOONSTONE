@@ -109,6 +109,30 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   5 melding, 6 slutt, 7 navn, 8 mitt navn, 9 side (Join Game for en invitasjon).
   STATE_VERSION er 6 (myname kom inn i M2; layout_id ser ikke på M2, så versjonen må
   økes når M2 endres).
+- Options (2026-10-03): valg 4 i tittelmenyen heter nå «Options» og åpner en side med
+  Online Game, Keyboard, Gamepad, Default Controls og Back. Back fra Online-siden går
+  til Options; Back fra romsiden går fortsatt til tittelmenyen. Hendelse 11 (BIND,
+  arg 0 = standard, 1-4 tastaturet, 5-8 spillkontrolleren) og kommando 12 (CONTROLS,
+  åtte linjer med navn) i M2.ctrl. En verdi som begynner med '*' vises alene på
+  linjen («Press a Key»). Linjene på kontrollsidene bruker label_value: maks 190
+  punkter, to mellomrom, ett når det ikke er plass. Pilen står til venstre for linjer
+  opp til ca 196 punkter (målt: «Default Controls» = 195 går så vidt klar).
+  STATE_VERSION 11.
+- Tittelmenyen tegner seg på nytt i ca 15 bilder etter hvert flytt, og løkka leser ikke
+  joysticken så lenge. Spillet ser også joysticken ett bilde etter IN (et trykk i bilde F
+  leses i F+1). meny_frame (før hvert bilde, i web.c, main.c og frontend.c) husker nye
+  fire-trykk i M2.fire_seen, og hook_input gir dem når løkka leser igjen, så lenge ingen
+  retning holdes og trykket er under 30 bilder gammelt. wait_release slippes bare i
+  hook_input, ellers gir et fire som holdes i 20 bilder to valg.
+- Beskyttelsesrullen ($080C1A, i møtet før kampen): er den angrepne (a1 = $8CE94+4) et
+  menneske med en rull (tingtabellen +$12), vises «NAVN may use their Scroll of
+  protection», så vent_paa_fire (port 2), så inventaret til den angrepne ($08AAC4 med
+  d0 = 9, pekeren styres med port 2). $8BEA4 = $12 etterpå betyr at rullen ble brukt.
+  I en duell setter hver.c H.rulle fra $080C52 til $080C98, og hver_frame flytter
+  port 1 (forsvareren) til port 2 så lenge.
+- Fontbredder (skriv_tekst): mellomrom 15, A 20, B 17, C 13, D 17, E 13, F 16, I 9,
+  K 19, M 24, N 19, P 17, S 13, T 16, W 24, a 13, e 11, i 9, l 8, m 19, n 14, o 12,
+  r 12, s 11, t 11, tall 7-12. Mangler: " & ( ) * + - : ; < = > ? @ [ ] ^ _ ` { | } ~.
 - Pages: repoet er offentlig og Pages bruker GitHub Actions (eieren slo det på
   2026-10-02). Spillet ligger på https://tombonator3000.github.io/MOONSTONE/. Før
   spillfila ble bygget inn, lå spill/Moonstonecd32-AMIGA.zip ved siden av. Før det var repoet privat, og deploy ga

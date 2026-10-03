@@ -3,16 +3,23 @@
  *
  * Tittelmenyen ($8188C) er en lenket liste med tekster som skriv_tekst tegner
  * (tegn_tittelmeny, $81A1A), en tabell med y for pilen, og en lokke ($81906)
- * som leser joysticken. Vi legger til en linje, "Online Game", og bruker den
+ * som leser joysticken. Vi legger til en linje, "Options", og bruker den
  * samme motoren til egne sider (Host Game, Join Game ...): tegn_tittelmeny
  * faar en annen liste og en annen pil-tabell, og vi styrer valgene i C.
  * Slik tegnes nettspillmenyen med spillets font, pil og bakgrunn.
  *
  * Alt som endrer spillets minne skjer enten i hooks (naar CPU-en kommer til
  * en adresse) eller i kommandoer fra frontenden som brukes ved starten av et
- * bilde (meny_command). I nettspill sender verten kommandoene med bildet, saa
- * alle maskinene gjor det samme. Hendelser (meny_take_event) gaar andre veien,
- * til frontenden, og endrer ingenting i spillet.
+ * bilde (meny_command).
+ *
+ * Linjen i tittelmenyen heter "Options" og gaar til en side med Online Game og
+ * oppsettet av kontrollene (Keyboard, Gamepad). Selve tastene og knappene leses
+ * av frontenden; den sender navnene paa dem (MENY_CMD_CONTROLS), og naar en
+ * linje velges, kommer MENY_EV_BIND, og frontenden venter paa neste tast.
+ *
+ * I nettspill sender verten kommandoene med bildet, saa alle maskinene gjor
+ * det samme. Hendelser (meny_take_event) gaar andre veien, til frontenden, og
+ * endrer ingenting i spillet.
  *
  * Adresser (se disasm/symbols.txt):
  *   $81906 lokka: jsr les_joysticker     $8190E beq lokka (ingenting trykket)
@@ -47,7 +54,9 @@
 #define ROWS 6
 static const uint16_t row_y[ROWS] = { 0x50, 0x64, 0x78, 0x8c, 0xa0, 0xb4 };
 
-enum { PAGE_TITLE, PAGE_ONLINE, PAGE_HOST, PAGE_JOIN, PAGE_MESSAGE };
+enum { PAGE_TITLE, PAGE_ONLINE, PAGE_HOST, PAGE_JOIN, PAGE_MESSAGE, PAGE_OPTIONS, PAGE_KEYS, PAGE_PAD };
+#define CTRL_N    8                        /* navnene paa tastene: 4 for tastaturet, 4 for spillkontrolleren */
+#define CTRL_SIZE 16
 enum { SESSION_NONE, SESSION_HOST, SESSION_GUEST };
 
 /* alt som paavirker spillet, lagres i tilstanden */
@@ -66,6 +75,9 @@ static struct {
     uint8_t pick_fire;                      /* gi spillet fire en gang naar menyen er tegnet */
     uint8_t spill;                          /* 0 = hver for seg (hver.c), 1 = tur for tur */
     uint8_t msg_title;                      /* Back paa meldingen gaar til tittelmenyen */
+    uint8_t fire_prev;                      /* fire i port 2 forrige bilde (meny_frame) */
+    uint8_t fire_seen;                      /* fire trykket mens lokka ikke leste joysticken */
+    uint32_t fire_frame;                    /* bildet det kom i */
     uint32_t pick_frame;                    /* bildet klikket kom i (M.frame) */
     uint8_t n_names;
     char    room[8];
@@ -75,6 +87,7 @@ static struct {
     char    room_counts[3][12];             /* "1 of 4" */
     char    message[2][TEXT_SIZE];
     char    rooms_error[TEXT_SIZE];
+    char    ctrl[CTRL_N][CTRL_SIZE];        /* "Ctrl", "Arrows", ... (MENY_CMD_CONTROLS) */
 } M2;
 
 bool meny_online;                           /* frontenden kan nettspill (nettsiden) */
@@ -155,6 +168,20 @@ static void room_line(char *dst, int i)
     snprintf(dst, TEXT_SIZE, "%s  %s", name, count);
 }
 
+/* "Fire  Ctrl" paa sidene med kontroller. Pilen staar til venstre for linjer
+ * opp til ca 196 piksler, saa her tillates 190. Faar ikke verdien plass med to
+ * mellomrom, brukes ett ("Inventory Start"), og saa kuttes den. En verdi som
+ * begynner med '*' vises alene paa linjen ("Press a Key"). */
+static void label_value(char *dst, const char *label, const char *value)
+{
+    char v[TEXT_SIZE];
+    if (value[0] == '*') { fit_width(dst, value + 1, 190); return; }
+    int rest = 190 - text_width(label);
+    const char *sep = text_width(value) <= rest - 2 * text_width(" ") ? "  " : " ";
+    fit_width(v, value, rest - text_width(sep));
+    snprintf(dst, TEXT_SIZE, "%s%s%s", label, sep, v);
+}
+
 /* et navn som maa kuttes, kuttes ved siste mellomrom ("3 Ola Nordmann" -> "3 Ola") */
 static void fit_name(char *dst, const char *src, int maxw)
 {
@@ -231,6 +258,30 @@ static void page_rows(Row r[ROWS])
         r[2].text = M2.message[1];
         r[3] = (Row){ "Back", true };
         break;
+    case PAGE_OPTIONS:
+        r[0].text = "Options";
+        r[1] = (Row){ "Online Game", true };
+        r[2] = (Row){ "Keyboard", true };
+        r[3] = (Row){ "Gamepad", true };
+        r[4] = (Row){ "Default Controls", true };
+        r[5] = (Row){ "Back", true };
+        break;
+    case PAGE_KEYS:
+    case PAGE_PAD: {
+        /* fire og bevegelse for spiller 1 og 2, eller knappene paa spillkontrolleren */
+        static const char *const navn[2][4] = {
+            { "Fire", "Move", "Fire 2", "Move 2" },
+            { "Fire", "Inventory", "Pass", "Escape" },     /* Pass: E, avslutter turen */
+        };
+        int s = M2.page == PAGE_PAD;
+        r[0].text = s ? "Gamepad" : "Keyboard";
+        for (int i = 0; i < 4; i++) {
+            label_value(buf[1 + i], navn[s][i], M2.ctrl[s * 4 + i]);
+            r[1 + i] = (Row){ buf[1 + i], true };
+        }
+        r[5] = (Row){ "Back", true };
+        break;
+    }
     }
 }
 
@@ -289,15 +340,15 @@ bool meny_mog_ready(void)
     /* Practice og Select Knight litt opp, saa en femte linje faar plass */
     wr16(0x8f082, 0x88);
     wr16(0x8f090, 0x9c);
-    /* ny linje etter Select Knight: "Online Game" */
-    memcpy(chip + TITLE_TEXT, "Online Game", 12);
+    /* ny linje etter Select Knight: "Options" (Online Game og kontrollene) */
+    memcpy(chip + TITLE_TEXT, "Options", 8);
     wr32(TITLE_NODE, TITLE_TEXT);
     wr16(TITLE_NODE + 4, 0);
     wr16(TITLE_NODE + 6, 0xb0);
     wr16(TITLE_NODE + 8, 3);
     wr32(TITLE_NODE + 10, rd32(0x8f094));   /* det Select Knight pekte paa ("1"-linjen) */
     wr32(0x8f094, TITLE_NODE);
-    /* pilen: Players, Gore, Practice, Select Knight, Online Game */
+    /* pilen: Players, Gore, Practice, Select Knight, Options */
     static const uint16_t arrows[5] = { 0x55, 0x6e, 0x86, 0x9a, 0xae };
     for (int i = 0; i < 5; i++) wr16(TITLE_ARROWS + (uint32_t)i * 2, arrows[i]);
     wr32(0x81a40, TITLE_ARROWS);
@@ -340,7 +391,8 @@ static bool hook_input(void)
 {
     if (!active()) return false;
     uint32_t d1 = m68k_get_reg(NULL, M68K_REG_D1);
-    if (!(d1 & 0x10)) M2.wait_release = 0;
+    if (d1 & 0x10) M2.fire_seen = 0;       /* spillet ser trykket selv */
+    else M2.wait_release = 0;
     /* Et klikk eller Enter: fire en gang, etter at menyen er tegnet paa nytt. Lokka leser
      * joysticken hele tiden, men aa tegne menyen tar flere bilder, saa et kort fire fra
      * frontenden kunne komme mens den tegnet. Her ser spillet det som fra joysticken. */
@@ -351,7 +403,32 @@ static bool hook_input(void)
         m68k_set_reg(M68K_REG_PC, 0x81910);                 /* forbi beq.b lokka: btst #4,d1 */
         return true;
     }
+    /* et kort fire mens menyen ble tegnet (meny_frame): gis naa, som fra joysticken.
+     * Holdes en retning, flyttes pilen foerst (ned og saa fire), og et trykk som er
+     * mer enn et halvt sekund gammelt, glemmes. */
+    if (M2.fire_seen && M.frame - M2.fire_frame > 30) M2.fire_seen = 0;
+    if (M2.fire_seen && !M2.redraw && !(d1 & 0x0f)) {
+        M2.fire_seen = 0;
+        m68k_set_reg(M68K_REG_D1, d1 | 0x10);
+        m68k_set_reg(M68K_REG_PC, 0x81910);
+        return true;
+    }
     return false;
+}
+
+/* foer hvert bilde. Etter et flytt bruker spillet ca 15 bilder paa aa tegne
+ * menyen, og lokka leser ikke joysticken saa lenge. Et fire som trykkes og
+ * slippes i den tiden, ville blitt borte; det huskes her og gis i hook_input.
+ * Bare nye trykk teller, saa et fire som holdes inne etter et valg, ikke gir
+ * et valg til. Spillet ser joysticken et bilde senere enn IN, saa wait_release
+ * slippes fortsatt bare i hook_input. Inndataene er de samme paa alle
+ * maskinene i et nettspill. */
+void meny_frame(void)
+{
+    if (!M2.enabled) return;
+    uint8_t fire = (IN.joy[1] & JOY_FIRE) != 0;
+    if (fire && !M2.fire_prev) { M2.fire_seen = 1; M2.fire_frame = M.frame; }
+    M2.fire_prev = fire;
 }
 
 static void set_players(int n)
@@ -371,7 +448,19 @@ static bool hook_fire(void)
     switch (M2.page) {
     case PAGE_TITLE:
         if (v != 4) return false;          /* originalen: Practice, Select Knight osv. */
-        show_page(M2.session == SESSION_HOST ? PAGE_HOST : PAGE_ONLINE);
+        show_page(PAGE_OPTIONS);
+        break;
+    case PAGE_OPTIONS:
+        if (v == 1) show_page(M2.session == SESSION_HOST ? PAGE_HOST : PAGE_ONLINE);
+        else if (v == 2) show_page(PAGE_KEYS);
+        else if (v == 3) show_page(PAGE_PAD);
+        else if (v == 4) emit(MENY_EV_BIND, 0);         /* standardoppsettet */
+        else show_page(PAGE_TITLE);
+        break;
+    case PAGE_KEYS:
+    case PAGE_PAD:
+        if (v >= 1 && v <= 4) emit(MENY_EV_BIND, (M2.page == PAGE_PAD ? 4 : 0) + v);   /* 1-4 tastatur, 5-8 spillkontroller */
+        else show_page(PAGE_OPTIONS);
         break;
     case PAGE_ONLINE:
         if (v == 1) {
@@ -386,7 +475,7 @@ static bool hook_fire(void)
             emit(MENY_EV_JOIN_PAGE, 0);
         } else if (v == 3) emit(MENY_EV_NAME, 0);
         else if (v == 4) { M2.spill ^= 1; build_page(); emit(MENY_EV_SPILL, M2.spill); }
-        else show_page(PAGE_TITLE);
+        else show_page(PAGE_OPTIONS);
         break;
     case PAGE_HOST:
         if (v == 3) emit(MENY_EV_COPY, 0);
@@ -432,6 +521,7 @@ static bool hook_title(void)
     M2.page = PAGE_TITLE;
     M2.redraw = 0;
     M2.pick = M2.pick_fire = 0;
+    M2.fire_seen = 0;                       /* et trykk fra spillet foer menyen */
     in_menu = true;
     build_page();
     return false;
@@ -540,6 +630,19 @@ void meny_command(int cmd, int arg, const char *text)
     case MENY_CMD_SPILL:                    /* hver for seg (0) eller tur for tur (1), lagret paa nettsiden */
         M2.spill = (uint8_t)(arg & 1);
         break;
+    case MENY_CMD_CONTROLS: {               /* navnene paa tastene, en linje hver (se PAGE_KEYS/PAGE_PAD) */
+        const char *p = text;
+        for (int i = 0; i < CTRL_N; i++) {
+            const char *nl = strchr(p, '\n');
+            size_t n = nl ? (size_t)(nl - p) : strlen(p);
+            if (n >= CTRL_SIZE) n = CTRL_SIZE - 1;
+            memcpy(M2.ctrl[i], p, n);
+            M2.ctrl[i][n] = 0;
+            p = nl ? nl + 1 : p + strlen(p);
+        }
+        if (M2.page != PAGE_KEYS && M2.page != PAGE_PAD) return;   /* vises ikke naa */
+        break;
+    }
     case MENY_CMD_SELECT:                   /* klikk paa en rad (arg), eller Enter (-1): pilen dit og fire */
         if (!M2.enabled || arg < -1 || arg >= ROWS) return;
         if (arg >= 0) { M2.pick = (uint8_t)(arg + 1); M2.redraw = 1; }

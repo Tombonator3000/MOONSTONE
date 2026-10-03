@@ -44,8 +44,8 @@ Selve siden er alltid offentlig, også om repoet er privat med betalt abonnement
 
 ### Nettspill
 
-Nettspillet ligger i spillets egen tittelmeny, under **Online Game**, tegnet med
-spillets font og pil:
+Nettspillet ligger i spillets egen tittelmeny, under **Options** og **Online Game**,
+tegnet med spillets font og pil:
 
 - **Host Game** lager et rom. Siden viser romkoden og navnene til de som er med,
   med spillernummer (1 er den som velger ridder først). **Copy Link** kopierer
@@ -80,11 +80,14 @@ Møtes dere på kartet, kan du velge **Battle with** den andres ridder. Da blir 
 en duell over nettet: spillet ditt stopper et øyeblikk, den andre får kampen i sin
 nettleser og styrer sin ridder, og når kampen er over, er begge tilbake i sitt eget
 spill med ridderen slik kampen endte (liv, gull, ting). Ridderne har sin ekte
-styrke og sine ting også i de andres spill. Kan ikke den andre kjempe akkurat nå
+styrke og sine ting også i de andres spill. Har den du angriper en beskyttelsesrull
+(«may use their Scroll of protection»), er det den andre som trykker fire og velger
+i inventaret sitt om rullen skal brukes. Kan ikke den andre kjempe akkurat nå
 (sidemenyen er åpen, eller ikke på kartet), styrer datamaskinen ridderen i kampen.
 
 Menyvalget finnes bare på nettsiden, siden PC-versjonen ikke har nettspill
-(`moonstone-headless --online-meny` viser det for testing).
+(`moonstone-headless --online-meny` viser det for testing). **Back** på
+Online Game-siden går tilbake til Options.
 
 I Turns kjører verten spillet og styrer turene. Gjestene får hele tilstanden til maskinen når de
 kobler seg til, og deretter knappetrykkene for hvert bilde, så alle kjører nøyaktig det
@@ -122,6 +125,8 @@ med `Moonstone.Slave` og `data/`. `moonstone --help` viser alle valgene.
 | Fire | Ctrl | talltastaturet 0 |
 | Spillkontroller | nummer 1 | nummer 2 |
 
+I nettleseren kan tastene og knappene endres under **Options** i tittelmenyen (se under).
+
 Resten av tastaturet går til Amigaen som det er: **mellomrom** viser inventaret, **E**
 avslutter turen, **Esc** hopper over introen, og du skriver navnet til ridderen. I
 nettleseren hopper også fire, Enter, mellomrom og et trykk på skjermen over introen.
@@ -129,6 +134,32 @@ Mens introen går, sendes ikke Enter og mellomrom videre til spillet, for introe
 bare på den siste tasten, og da ville de skjult Esc.
 I kamp holder du fire og trykker en retning for de åtte angrepene (se manualen på ISO-en).
 På spillkontrollere er A fire, B mellomrom, Start E og Back Esc, som CD32-padden.
+LB, RB, X og Y er tallene 1 til 4 så lenge de ikke er valgt til noe annet.
+
+### Options: oppsett av kontrollene i nettleseren
+
+**Options** i tittelmenyen har **Online Game** (over), **Keyboard**, **Gamepad**,
+**Default Controls** og **Back**. Sidene er tegnet med spillets font og pil, som
+resten av menyen.
+
+- **Keyboard** viser fire og bevegelse for spiller 1 og spiller 2 (`Fire 2`,
+  `Move 2`). Velg en fire-linje, så står det **Press a Key**; neste tast blir fire.
+  Velg en bevegelseslinje for å bytte mellom piltastene, WASD, IJKL og
+  talltastaturet (`Keypad`). Joysticken til spiller 1 vinner om en tast er valgt
+  for begge.
+- **Gamepad** viser knappene på den første spillkontrolleren: **Fire**,
+  **Inventory** (mellomrom), **Pass** (E, avslutter turen) og **Escape**. Velg en
+  linje, så står det **Press a Button**; neste knapp blir valgt. Er knappen allerede
+  i bruk, bytter de to plass. Korset og venstre spak er alltid bevegelse.
+- **Esc** avbryter et valg, og etter ti sekunder uten trykk avbrytes det av seg selv.
+  Home, Page Up, Page Down, End, Pause, F11 og F12 brukes av nettsiden og kan ikke velges.
+- **Default Controls** setter alt tilbake som i tabellen over.
+
+I et rom tur for tur (Turns) med gjester styrer alle tittelmenyen sammen, så der kan
+ikke kontrollene endres; sett dem opp før du lager eller blir med i rommet.
+Oppsettet lagres i nettleseren sammen med de andre innstillingene. Et kort trykk på
+fire mens menyen tegnes på nytt (rett etter at pilen er flyttet), blir husket og
+gitt når menyen er ferdig, så raske valg ikke forsvinner.
 
 ### Mus og berøring i nettleseren
 
@@ -137,7 +168,7 @@ spillet bruker det den finner. I nettleseren er musen derfor koblet inn slik:
 
 - **Menyene** (tittelmenyen og nettspillsidene): klikk eller trykk på et valg. Pilen
   flytter seg dit, og valget utføres. Pekeren blir en hånd over valg som kan klikkes.
-  Enter og mellomrom velger også, i tillegg til fire (Ctrl).
+  Enter og mellomrom velger også, i tillegg til fire (Ctrl, eller tasten valgt i Options).
 - **I spillet** er venstre museknapp fire så lenge den holdes. Hold den og dra i en
   retning for fire og retning samtidig (angrepene i kamp). Høyre knapp og dra er bare
   retning.
@@ -181,7 +212,8 @@ Første gang tittelmenyen vises, står det øverst at valgene kan klikkes.
 | Nettspill | PeerJS med opptil fire spillere, joystick etter tur, romliste via HiveMQ. Testet med to nettlesere mot en lokal PeerJS-server og MQTT-megler. |
 | Grafikk | Alle bilder og figurer ut som PNG og inn igjen. Rundturen er byte for byte lik. |
 | Tekster | Alle tekster ut til en fil og inn igjen (`tools/tekst.py`), også lengre enn originalen. |
-| Nettspill i spillet | «Online Game» i tittelmenyen: lage rom, navnene på spillerne, kopiere lenke, offentlige rom, bli med. Testet med tre nettlesere. |
+| Nettspill i spillet | «Online Game» under Options i tittelmenyen: lage rom, navnene på spillerne, kopiere lenke, offentlige rom, bli med. Testet med tre nettlesere. |
+| Kontroller | Options i tittelmenyen: velge taster for fire og bevegelse for begge spillerne og knappene på spillkontrolleren, i spillets egen meny. Lagres i nettleseren. |
 | Hver for seg | Mode Separate: alle spiller sitt eget spill og ser hverandre på kartet, også mens de går. Dueller over nettet med begge ved hver sin joystick. Testet med to nettlesere, begge veier. |
 | HD-grafikk | Eksperimentelt i nettleseren: figurer kan byttes med PNG-er i høyere oppløsning. Plassering og speiling er sjekket mot emulatorbildet i kamp og på kartet. Bakgrunner gjenstår. |
 | Lyd | Lydeffektene som WAV, musikken som ProTracker-moduler. |
@@ -287,7 +319,7 @@ port/src/         emulatoren og PC-delen (C)
   paula.c         lyd                                   cia.c      tidtakere, tastatur
   whdload.c       slaven og resload-funksjonene         files.c    zip, ISO og mapper
   game.c          det vi vet om spillets data (ridderne, turen, tegnelisten)
-  patch.c         lapper i spillet: tekster.txt, lengre tekster   meny.c  «Online Game» i tittelmenyen
+  patch.c         lapper i spillet: tekster.txt, lengre tekster   meny.c  Options og «Online Game» i tittelmenyen
   hooks.c         C-erstatninger og kodedekning         decomp/    funksjonene i C
   hver.c          flerspiller «Hver for seg»            lag.c      bakgrunn og forgrunn (HD)
   frontend.c      SDL2-vinduet                          web.c      grensesnittet til nettsiden
