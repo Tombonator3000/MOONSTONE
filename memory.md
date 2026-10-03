@@ -329,4 +329,8 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   laster music.cmp ($085662) etter bildene, saa de foerste ca. 32 s er stille; sangen aapner med 12 s
   nesten stille, slag til 23 s, hovedtema fra posisjon 4. mog har bare en driver for lydeffekter
   ($0AE0DA, fire kanaler med avbrudd). musikk.c spiller music.cmp naar mog kjorer (ikke i emuleringen).
+- musikk_last kjoerer i hver amiga_init: nettsiden starter kjernen paa nytt i samme WebAssembly-instans
+  (startPaaNytt, ny spillfil eller egne filer), saa modulen lastes fra filene som gjelder naa. En gjest i
+  nettspill (ms_start_empty, ingen amiga_init) beholder modulen fra forrige oppstart. Test: $S/mus3.js.
+- Introen hoppes over headless med --press 200:esc:4 (fire hopper ikke over); tittelmenyen fra ca. bilde 600.
 - ffmpeg her har libopenmpt og kan spille .mod til WAV (sammenligning med egen spiller).

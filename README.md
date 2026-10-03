@@ -200,7 +200,8 @@ Originalen har musikk bare i introen og i sluttscenen. Introsangen begynner før
 halvt minutt, så de fleste hørte den aldri. Nå spilles introsangen også i tittelmenyen, på
 kartet og i kampene (`port/src/musikk.c`), fra hovedtemaet og om igjen. I sidemenyen kan
 den slås av («Musikk i hele spillet»), og styrken kan settes for seg («Musikkstyrke»).
-Introen og sluttscenen har sin egen musikk som før.
+Introen og sluttscenen har sin egen musikk som før. En egen `music.cmp` (egne filer i
+sidemenyen, eller `--mod` på PC) brukes også til denne musikken.
 
 ### Effekter og HD-grafikk i nettleseren
 

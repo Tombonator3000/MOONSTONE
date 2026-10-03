@@ -162,9 +162,19 @@ static void start_sang(void)
     igjen = 0;
 }
 
+/* Kalles fra amiga_init. Nettsiden starter kjernen paa nytt uten aa laste den paa
+ * nytt (en annen spillfil eller egne filer), saa modulen lastes hver gang fra filene
+ * som gjelder naa. Finnes ingen music.cmp som kan spilles, blir det ingen musikk. */
 void musikk_last(void)
 {
-    if (mod) return;
+    free(mod);
+    mod = NULL;
+    mod_len = 0;
+    orden = monstre = NULL;
+    memset(ins, 0, sizeof ins);
+    memset(kan, 0, sizeof kan);
+    styrke = 0.0f;                         /* maskinen starter paa nytt: ingen utoning av den gamle */
+    f_l = f_r = 0.0f;
     for (int f = 0; f < 16; f++) {
         int ft = f < 8 ? f : f - 16;
         for (int i = 0; i < 36; i++) per_tab[f][i] = (int16_t)lrint(per0[i] * pow(2.0, -ft / 96.0));

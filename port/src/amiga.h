@@ -221,7 +221,7 @@ int      paula_take(int16_t *out, int max_frames);  /* henter ferdige samples (s
 extern float paula_volume;
 
 /* musikk.c: introsangen som bakgrunnsmusikk naar hovedspillet kjorer (ikke i emuleringen) */
-void     musikk_last(void);               /* pakker ut data/music.cmp (en gang) */
+void     musikk_last(void);               /* pakker ut data/music.cmp fra filene som gjelder naa (amiga_init) */
 void     musikk_bland(int16_t *out, int n);
 void     musikk_sett(bool paa, float volum);   /* volum < 0: som foer */
 bool     musikk_lastet(void);
