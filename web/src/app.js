@@ -1728,6 +1728,11 @@
         if (stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
         Nett.avslutt();
     });
+    /* kommer siden tilbake fra nettleserens hurtigbuffer etter pagehide, er rommet borte:
+     * start paa nytt i stedet for aa vise et spill uten forbindelse */
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted && (modus === 'gjest' || modus === 'vert' || modus === 'hver')) location.reload();
+    });
 
     /* ---------------------------------------------------------------- start */
     $('filter').value = innst.filter;
