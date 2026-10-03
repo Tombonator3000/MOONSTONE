@@ -359,6 +359,7 @@
     const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11, KONTROLL: 12 };
     const SIDE_JOIN = 3;
     const SIDE_VERT = 2;                    /* romsiden til verten: Copy Link og Public er vertens */
+    let romHint = 0;                        /* sist gjesten fikk beskjed om at romsiden er vertens */
     const menyKo = [];
     let menyRom = [], sisteRomTekst = null, stoppMenyListe = null, sistAntall = 0, sisteNavn = null;
     let menyInvitert = null;                /* rommet i invitasjonen, foerst i Join Game */
@@ -1354,6 +1355,10 @@
             const l = Inndata.les();
             let inn = l.a | l.b | museRetning | (museFire || performance.now() < klikkTil ? FIRE : 0);
             if (valgJoystick(l.a | l.b)) inn = 0;
+            if (inn && Kjerne.menySide() === SIDE_VERT && performance.now() - romHint > 5000) {
+                romHint = performance.now();
+                status('Romsiden styres av verten. I tittelmenyen kan alle styre.');
+            }
             Nett.sendInn(inn);
             for (const [k, d] of menyTaster(valgTaster(Inndata.hentTaster()))) if (k !== 0x59) Nett.sendTast(k, d);    /* F10 er vertens */
             const ko = Nett.rammer;
