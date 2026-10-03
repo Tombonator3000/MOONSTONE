@@ -365,6 +365,7 @@ static bool active(void) { return M2.enabled; }
 static void goto_redraw(void)
 {
     M2.wait_release = 1;
+    M2.fire_seen = 0;                       /* trykket som ga valget, er brukt */
     m68k_set_reg(M68K_REG_PC, 0x81942);    /* bsr tegn_tittelmeny; bra lokka */
 }
 
@@ -391,8 +392,12 @@ static bool hook_input(void)
 {
     if (!active()) return false;
     uint32_t d1 = m68k_get_reg(NULL, M68K_REG_D1);
-    if (d1 & 0x10) M2.fire_seen = 0;       /* spillet ser trykket selv */
-    else M2.wait_release = 0;
+    if (d1 & 0x10) {
+        /* et nytt trykk etter valget (fire ble sluppet og trykket igjen mens menyen
+         * ble tegnet), ikke det samme som fortsatt holdes */
+        if (M2.wait_release && M2.fire_seen) M2.wait_release = 0;
+        M2.fire_seen = 0;                   /* spillet ser trykket selv */
+    } else M2.wait_release = 0;
     /* Et klikk eller Enter: fire en gang, etter at menyen er tegnet paa nytt. Lokka leser
      * joysticken hele tiden, men aa tegne menyen tar flere bilder, saa et kort fire fra
      * frontenden kunne komme mens den tegnet. Her ser spillet det som fra joysticken. */
