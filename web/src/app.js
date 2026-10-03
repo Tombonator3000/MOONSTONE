@@ -89,6 +89,7 @@
         const f = e.target.files[0];
         if (!f) return;
         const b = new Uint8Array(await f.arrayBuffer());
+        e.target.value = '';                    /* samme fil kan velges igjen */
         const innebygd = spillfil === INNEBYGD;
         spillfil = b;
         if (!innebygd) await Lager.sett('spillfil', b);
@@ -102,6 +103,7 @@
 
     $('velg-mod').addEventListener('change', async (e) => {
         for (const f of e.target.files) modFiler[f.name] = new Uint8Array(await f.arrayBuffer());
+        e.target.value = '';
         await Lager.sett('mod', modFiler);
         visMod();
         status('Brukes når spillet startes på nytt');
@@ -153,6 +155,8 @@
         stoppMenyRom();
         menyInvitert = null;
         menyKo.length = 0;
+        okt++;
+        lagerRom = false;
         if (D) { const d = D; D = null; clearTimeout(d.tidsfrist); try { if (d.conn) d.conn.close(); } catch (e) { /* lukket */ } }
         Nett.avslutt();
         Nett.rammer.length = 0;
@@ -219,10 +223,10 @@
         const fire = ((j0 | j1) & Inndata.FIRE) !== 0;
         const nyFire = fire && !introFire;
         introFire = fire;
-        const tast = taster.some(([k, d]) => d && (k === 0x44 || k === 0x40));     /* Return, mellomrom */
+        const tast = taster.some(([k, d]) => d && MENYTASTER.includes(k));     /* Return, Enter, mellomrom */
         /* Introen ser bare paa den siste tasten (uten slipp-biten), saa Return eller
          * mellomrom etter Esc ville skjult den. De gjor ingenting i introen uansett. */
-        taster = taster.filter(([k]) => k !== 0x44 && k !== 0x40);
+        taster = taster.filter(([k]) => !MENYTASTER.includes(k));
         if (taster.some(([k, d]) => d && k === 0x45)) hopper = true;
         const trykk = skjermTrykk;
         skjermTrykk = false;
@@ -398,6 +402,9 @@
     }
 
     const erVert = () => modus === 'vert' || (modus === 'hver' && Nett.rolle() === 'vert');
+    /* teller for nettoekter: et svar som kommer etter at brukeren har gaatt videre
+     * (forlatt, laget et nytt rom), skal ikke rive ned den nye oekten */
+    let okt = 0, lagerRom = false;
 
     function settOffentlig(on) {
         innst.offentlig = on;
@@ -415,10 +422,14 @@
     async function vertFraMeny(spill) {
         if (erVert()) { menyKmd(KMD.VERT, 0, Nett.kode()); return; }
         if (modus === 'hver') { menyKmd(KMD.MELDING, 0, 'Already In Room\n' + Nett.kode()); return; }
-        if (modus !== 'alene') return;
+        if (modus !== 'alene' || lagerRom) return;      /* ett rom om gangen (to trykk paa Host Game) */
+        const min = ++okt;
+        lagerRom = true;
         try {
             status('Lager rom ...');
             const kode = await Nett.lagRom(navn(), vertHendelser(), spill);
+            lagerRom = false;
+            if (min !== okt) return;                     /* brukeren har gaatt videre; avslutt er gjort */
             if (modus !== 'alene') { Nett.avslutt(); return; }
             modus = spill === 'hver' ? 'hver' : 'vert';
             menyKmd(KMD.VERT, 0, kode);
@@ -427,6 +438,8 @@
             status('Rommet ' + kode + ' er klart. Velg «Copy Link» og send lenken.'
                 + (spill === 'hver' ? ' Alle spiller sitt eget spill og ser hverandre på kartet.' : ''));
         } catch (e) {
+            lagerRom = false;
+            if (min !== okt) return;
             Nett.avslutt();
             menyKmd(KMD.MELDING, 0, 'No Connection\nTry Again Later');
             status('Kunne ikke lage rom: ' + e.message);
@@ -565,6 +578,8 @@
         menyInvitert = null;
         modus = 'venter';
         venterSynk = false;
+        const min = ++okt;
+        let sisteFeil = null;
         lasting('Kobler til rom ' + kode + ' ...');
         /* Spillet her staar mens vi kobler til. Rommet sier om det er hver for seg
          * (da fortsetter spillet her) eller tur for tur (da blir kjernen en gjest
@@ -573,6 +588,7 @@
         try {
             await Nett.bliMed(kode, navn(), {
                 lobby: (liste, k, portModus, spill) => {
+                    if (min !== okt) return;
                     if (forste) {
                         forste = false;
                         if (spill === 'hver') {
@@ -594,9 +610,16 @@
                 chat: chatLinje,
                 status,
                 ping: () => {},
-                feil: (t) => status(t),
-                frakoblet: (t) => { if (modus === 'hver') forlatHver(t); else startPaaNytt(t); },
+                feil: (t) => { sisteFeil = t; status(t); },
+                frakoblet: (t) => {
+                    if (min !== okt) return;
+                    if (modus === 'hver') forlatHver(t);
+                    /* avvist foer noe er hentet (fullt rom, annen versjon): spillet her er urort */
+                    else if (modus === 'venter' && !gjestKjerne) avbrytTilkobling(sisteFeil || t);
+                    else startPaaNytt(t);
+                },
                 tilstand: (bytes) => {
+                    if (min !== okt || !gjestKjerne) return;     /* bare en gjest i tur for tur faar maskinen */
                     if (!Kjerne.lastTilstand(bytes)) { status('Kunne ikke laste spillet fra verten.'); return; }
                     venterSynk = false;
                     akk = 0;
@@ -610,12 +633,19 @@
                 },
             });
         } catch (e) {
+            if (min !== okt) return;                     /* brukeren har gaatt videre */
             if (gjestKjerne) { startPaaNytt('Kunne ikke koble til: ' + e.message); return; }
-            Nett.avslutt();
-            modus = 'alene';                    /* spillet her er urort */
-            lasting(null);
-            status('Kunne ikke koble til: ' + e.message);
+            avbrytTilkobling('Kunne ikke koble til: ' + e.message);
         }
+    }
+
+    /* tilkoblingen ble ikke noe av, og spillet her er urort: tilbake til det */
+    function avbrytTilkobling(tekst) {
+        okt++;
+        Nett.avslutt();
+        modus = 'alene';
+        lasting(null);
+        status(tekst);
     }
 
     /* ---------------------------------------------------------------- hver for seg
@@ -686,6 +716,7 @@
 
     /* ut av et rom med hver for seg: spillet her fortsetter, de andre forsvinner */
     function forlatHver(tekst) {
+        okt++;
         avbrytDuell('');
         if (stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
         Nett.avslutt();
@@ -762,6 +793,7 @@
             /* falls through */
         case 'synk': {
             d.status = 'sender';
+            if (d.sendt) d.sendt.clear();       /* bildene med filene kan vaere kastet hos den andre */
             const t = Kjerne.lagreTilstand();
             if (t) Nett.sendTilstandTil(d.conn, t, Kjerne.bildeNr());
             if (m.t === 'ja') status(d.navn + ' tar imot. Sender spillet ...');
@@ -786,22 +818,37 @@
         const r = fjerne.get(d.id);
         if (r) r.vent = true;                    /* til den andre sender ridderen slik den er etter kampen */
         oppdaterFjerne();
-        if (d.conn) { const c = d.conn; setTimeout(() => c.close(), 3000); }
+        if (d.conn) {
+            /* den andre kan ligge etter (fanen skjult); lukk naar den har kjort ferdig */
+            const c = d.conn;
+            const lukk = () => { try { c.close(); } catch (e) { /* lukket */ } };
+            c.on('data', (m) => { if (m && m.t === 'ferdig') lukk(); });
+            setTimeout(lukk, 60000);
+        }
         status('Kampen mot ' + d.navn + ' er over.');
     }
 
     /* B: noen vil kjempe mot deg */
     function duellInn(conn) {
+        /* bare fra en som er i rommet (vertens Peer-ID staar i den offentlige romlisten) */
+        if (!rekkefolge.some((id) => Nett.peerId(id) === conn.peer)) { conn.close(); return; }
         conn.on('data', (m) => fraA(conn, m));
-        conn.on('close', () => { if (D && D.rolle === 'b' && D.conn === conn) avbrytDuell('Forbindelsen ble brutt. Tilbake i ditt eget spill.'); });
+        conn.on('close', () => {
+            const d = D;
+            if (!d || d.rolle !== 'b' || d.conn !== conn) return;
+            /* bildene som alt er kommet, kan fore fram til slutten av kampen */
+            while (D === d && d.status === 'aktiv' && d.rammer.length) kjorDuellbilde(d, d.rammer.shift());
+            if (D === d) avbrytDuell('Forbindelsen ble brutt. Tilbake i ditt eget spill.');
+        });
     }
 
     async function fraA(conn, m) {
         if (!m) return;
         if (m.t === 'utfordring') {
-            const egen = !D && modus === 'hver' && !menyApen && Kjerne.hverKart() ? Kjerne.lagreTilstand() : null;
+            const p = m.plass | 0;
+            const egen = !D && modus === 'hver' && !menyApen && !pause && p >= 1 && p <= 3 && Kjerne.hverKart() ? Kjerne.lagreTilstand() : null;
             if (!egen) { conn.send({ t: 'nei' }); setTimeout(() => conn.close(), 500); return; }
-            D = { rolle: 'b', conn, plass: m.plass | 0, status: 'venter', egen, rammer: [], navn: String(m.navn || 'Player').slice(0, 20),
+            D = { rolle: 'b', conn, plass: p, status: 'venter', egen, rammer: [], navn: String(m.navn || 'Player').slice(0, 20),
                 motta: Nett.tilstandsMottaker(), sistInn: -1, sistInnTid: 0, akk: 0, sist: performance.now(), mine: new Map() };
             Lyd.clear();
             status(D.navn + ' utfordrer deg til kamp!');
@@ -876,6 +923,7 @@
         akk = 0;
         Lyd.clear();
         const c = d.conn;
+        try { c.send({ t: 'ferdig' }); } catch (e) { /* lukket */ }
         setTimeout(() => c.close(), 1000);
         status('Kampen er over. Tilbake i ditt eget spill.');
     }
@@ -1029,6 +1077,8 @@
             /* kampen til den andre: de samme bildene, som en gjest */
             const d = D;
             sendDuellInn(d);
+            Inndata.hentTaster();                    /* tastene dine hoerer ikke til ditt spill naa */
+            klikkHold = 0;
             if (d.status === 'aktiv') {
                 const ko = d.rammer;
                 d.akk += dt * (1 + Math.max(-0.5, Math.min(1, (ko.length - 3) * 0.08)));
@@ -1193,6 +1243,7 @@
 
     async function lagre() {
         if (modus !== 'alene' && modus !== 'vert' && modus !== 'hver') return;
+        if (D) { status('Ikke under en duell'); return; }
         const s = Kjerne.lagreTilstand();
         if (!s) { status('Kunne ikke lagre.'); return; }
         const ok = await Lager.sett('tilstand' + plass, { data: s, tid: Date.now() });
@@ -1201,15 +1252,39 @@
 
     async function last() {
         if (modus !== 'alene' && modus !== 'vert' && modus !== 'hver') return;
+        if (D) { status('Ikke under en duell'); return; }
+        const m0 = modus;
         const v = await Lager.hent('tilstand' + plass);
+        if (D || modus !== m0) return;           /* en duell kan ha startet mens vi hentet */
         if (!v) { status('Ingenting lagret på plass ' + plass); return; }
         if (!Kjerne.lastTilstand(new Uint8Array(v.data))) { status('Tilstanden passer ikke med denne versjonen'); return; }
         /* de fjerne ridderne i tilstanden er fra da den ble lagret: bruk de som er i rommet naa */
         if (modus === 'hver') oppdaterFjerne();
         else Kjerne.hverKmd(HVER.FJERN, 0);
+        menyRomPaaNytt();
         Lyd.clear();
         status('Lastet plass ' + plass);
         if (modus === 'vert') for (const s of Nett.spillere()) if (!s.vert) Nett.sendTilstand(s.id, Kjerne.lagreTilstand(), Kjerne.bildeNr());
+    }
+
+    /* Tilstanden har med seg menyen (rommet, antall, navn) fra da den ble lagret:
+     * fortell menyen hvordan det er naa. I tur for tur gaar kommandoene med i
+     * neste bilde til gjestene. */
+    function menyRomPaaNytt() {
+        menyKmd(KMD.MITTNAVN, 0, rensNavn(innst.navn, 10));
+        if (erVert()) {
+            const l = Nett.spillere();
+            menyKmd(KMD.VERT, 0, Nett.kode());
+            menyKmd(KMD.SPILLERE, l.length);
+            sistAntall = l.length;
+            sisteNavn = null;
+            sendNavn(l);
+            menyKmd(KMD.OFFENTLIG, innst.offentlig ? 1 : 0);
+            menyKmd(KMD.SPILL, Nett.romSpill() === 'hver' ? 0 : 1);
+        } else {
+            menyKmd(KMD.SLUTT);
+            menyKmd(KMD.SPILL, innst.spill === 'sammen' ? 1 : 0);
+        }
     }
 
     /* ---------------------------------------------------------------- knapper og taster */
@@ -1307,6 +1382,7 @@
     });
     $('velg-hd').addEventListener('change', async (e) => {
         const n = await Visning.lastHdPakke(e.target.files);
+        e.target.value = '';                    /* samme mappe kan velges igjen etter endringer */
         const bg = Visning.hdBakgrunner();
         $('hd-status').textContent = Visning.hdAntall() + ' bilder i HD-pakken' + (bg ? ', av dem ' + bg + ' bakgrunner.' : '.');
         status(n + ' HD-bilder lastet');
@@ -1314,18 +1390,18 @@
     $('tom-hd').addEventListener('click', () => { Visning.tomHdPakke(); $('hd-status').textContent = 'Ingen HD-pakke.'; });
 
     Inndata.settHurtigtaster((e) => {
-        if (e.code === 'Home') { visMeny(!menyApen); return true; }
+        if (e.code === 'Home') { if (!e.repeat) visMeny(!menyApen); return true; }
         if (e.repeat) return false;
         if (e.code === 'PageUp') { lagre(); return true; }
         if (e.code === 'PageDown') { last(); return true; }
         if (e.code === 'End') { plass = plass % 9 + 1; $('plass').value = plass; status('Plass ' + plass); return true; }
-        if (e.code === 'Pause' && (modus === 'alene' || modus === 'hver')) { pause = !pause; Lyd.clear(); status(pause ? 'Pause' : 'Fortsetter'); return true; }
+        if (e.code === 'Pause' && (modus === 'alene' || modus === 'hver') && !D) { pause = !pause; Lyd.clear(); status(pause ? 'Pause' : 'Fortsetter'); return true; }
         return false;
     });
     /* Home lukker menyen ogsaa naar spillet ikke tar tastene; har hurtigtasten
      * nettopp aapnet den (samme trykk, defaultPrevented), skal den staa aapen */
     window.addEventListener('keydown', (e) => {
-        if (e.code === 'Home' && menyApen && !e.defaultPrevented) { visMeny(false); e.preventDefault(); }
+        if (e.code === 'Home' && menyApen && !e.defaultPrevented && !e.repeat) { visMeny(false); e.preventDefault(); }
     });
     /* fanen skjules: nettleseren stopper spillokka, saa lyden toemmes i stedet for aa hakke */
     document.addEventListener('visibilitychange', () => { if (document.hidden) Lyd.clear(); });
@@ -1340,6 +1416,7 @@
     /* ---------------------------------------------------------------- start */
     $('filter').value = innst.filter;
     $('format').value = innst.format;
+    $('rammer').checked = false;                /* Firefox fyller inn avkrysningen fra forrige gang */
     $('helt').checked = innst.helt;
     $('volum').value = innst.volum;
     $('knappevent').checked = innst.knappevent;

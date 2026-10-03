@@ -40,6 +40,7 @@ const Lager = (() => {
                 t.objectStore('filer').put(verdi, nokkel);
                 t.oncomplete = ok;
                 t.onerror = () => feil(t.error);
+                t.onabort = () => feil(t.error || new Error('avbrutt'));   /* f.eks. full lagringsplass */
             });
             return true;
         } catch (e) { return false; }
@@ -53,6 +54,7 @@ const Lager = (() => {
                 t.objectStore('filer').delete(nokkel);
                 t.oncomplete = ok;
                 t.onerror = ok;
+                t.onabort = ok;
             });
         } catch (e) { /* ingen lagring */ }
     }

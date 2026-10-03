@@ -72,6 +72,7 @@ static struct {
     uint8_t  har_blob;                      /* bit k */
     uint8_t  duell_mulig;                   /* bit k: spilleren paa plass k kan naas for en duell */
     uint8_t  duell;                         /* plass + 1 i en duell over nettet, 0 = ingen */
+    uint8_t  i_kamp;                        /* bit k: ridder k (ogsaa datamaskinens) er i et moete ($080AB8-$080BD8) */
 } H;
 
 /* hendelser til frontenden (ikke i lagringen) */
@@ -96,6 +97,13 @@ static uint32_t ting_adr(uint32_t r)
 {
     uint32_t t = mem_read32(r + 0x60);
     return (t >= 0x80000 && t + TING <= CHIP_SIZE) ? t : 0;
+}
+
+/* plassen til en ridderpeker, eller -1 */
+static int plass_for(uint32_t a)
+{
+    if (a < RIDDERE || a >= RIDDERE + 4 * RSTR || (a - RIDDERE) % RSTR) return -1;
+    return (int)((a - RIDDERE) / RSTR);
 }
 
 /* hele ridderen inn paa plass k (uten feltene som hoerer til plassen) */
@@ -187,7 +195,7 @@ void hver_kommando(int k, int arg, const char *text)
         H.duell_mulig = (uint8_t)(arg & 0x0e);
         break;
     case HVER_AI:                           /* den andre svarte ikke: datamaskinen styrer i kampen */
-        if (arg < 1 || arg > 3 || !whd_mog_loaded) return;
+        if (arg < 1 || arg > 3 || !whd_mog_loaded || !(H.tatt & (1 << arg))) return;
         mem_write32(RIDDERE + (uint32_t)arg * RSTR + 0x36, 4);
         mem_write8(RIDDERE + (uint32_t)arg * RSTR + 0x0b, 4);
         if (H.duell == arg + 1) H.duell = 0;
@@ -215,6 +223,7 @@ static void gi_tilbake(void)
 {
     for (int k = 1; k < 4; k++) {
         if (!(H.tatt & (1 << k)) || (H.fjern & (1 << k))) continue;
+        if ((H.kamp | H.i_kamp) & (1 << k)) continue;   /* midt i en kamp: naar kampen er over ($080BD8) */
         uint32_t r = RIDDERE + (uint32_t)k * RSTR;
         if (whd_mog_loaded) {
             skriv_blob(k, H.orig[k]);
@@ -241,6 +250,9 @@ void hver_frame(void)
         uint32_t r = RIDDERE + (uint32_t)k * RSTR;
         if (!(H.tatt & (1 << k))) {
             if (mem_read32(r + 0x36) != 4) continue;   /* bare datamaskinens plasser (to kan spille paa en maskin) */
+            /* ikke midt i datamaskinens tur eller i en kamp den er med i: da ville
+             * spillet ventet paa joysticken din, eller kampen faatt en annen ridder */
+            if (rd32(AKTIV) == r || (H.i_kamp & (1 << k))) continue;
             H.o36[k] = mem_read32(r + 0x36);
             H.o6c[k] = mem_read32(r + 0x6c);
             H.o0b[k] = (uint8_t)mem_read8(r + 0x0b);
@@ -280,6 +292,7 @@ static bool hook_tittel(void)
     H.kart = 0;
     H.tatt = 0;
     H.kamp = 0;
+    H.i_kamp = 0;
     H.duell = 0;
     kopi_ok = false;
     return false;
@@ -374,15 +387,18 @@ static bool hook_turstart(void)
 static bool hook_kamp(void)
 {
     if (!H.fjern) return false;
-    uint32_t a = m68k_get_reg(NULL, M68K_REG_A1);
-    if (a < RIDDERE || a >= RIDDERE + 4 * RSTR || (a - RIDDERE) % RSTR) return false;
-    int k = (int)((a - RIDDERE) / RSTR);
+    uint32_t a = m68k_get_reg(NULL, M68K_REG_A1), a0 = m68k_get_reg(NULL, M68K_REG_A0);
+    int k = plass_for(a), k0 = plass_for(a0);
+    if (k0 >= 0) H.i_kamp |= (uint8_t)(1 << k0);
+    if (k < 0) return false;
+    H.i_kamp |= (uint8_t)(1 << k);
     if (!(H.tatt & (1 << k))) return false;
     H.kamp |= (uint8_t)(1 << k);
-    /* duell bare naar ridderen din angriper (a0 = plass 0); angriper datamaskinens
-     * ridder, blir det ingen kamp (begge er datamaskinens, $080B08) */
-    uint32_t a0 = m68k_get_reg(NULL, M68K_REG_A0);
-    if (a0 == RIDDERE && mem_read32(a0 + 0x36) != 4 && (H.duell_mulig & (1 << k)) && !H.duell) {
+    /* duell bare naar ridderen din angriper (a0 = plass 0) en levende ridder (en grav
+     * plyndres, $080AD4/$080ADC); angriper datamaskinens ridder, blir det ingen kamp
+     * (begge er datamaskinens, $080B08) */
+    bool lever = mem_read8(a + 0x52) == 0 && (int8_t)mem_read8(a + 0x49) > 0;
+    if (a0 == RIDDERE && mem_read32(a0 + 0x36) != 4 && lever && (H.duell_mulig & (1 << k)) && !H.duell) {
         /* duell: +$36 er figuren (ikke 4), saa spillet gir ridderen port 1 ($080B36) */
         H.duell = (uint8_t)(k + 1);
         hendelse(HVER_EV_DUELL, k);
@@ -399,13 +415,32 @@ static bool hook_kamp_slutt(void)
     if (H.duell) {
         int k = H.duell - 1;
         hendelse(HVER_EV_DUELL_SLUTT, k);
-        /* plassen skrives ikke over foer den andre har sendt ridderen sin paa nytt */
-        H.har[k] = 0;
-        H.har_blob &= (uint8_t)~(1 << k);
+        /* til den andre sender ridderen sin paa nytt, er plassen slik kampen endte (ogsaa
+         * en doed ridder faar +$52 = 1, ellers teller spillet den som en doed spiller,
+         * $0AAF08); begge maskinene gjoer dette i samme bilde */
+        H.liv[k] = (int8_t)mem_read8(RIDDERE + (uint32_t)k * RSTR + 0x49);
+        les_blob(k, H.blob[k]);
+        H.har_blob |= (uint8_t)(1 << k);
         H.duell = 0;
     }
     H.kamp = 0;
+    H.i_kamp = 0;
+    gi_tilbake();                           /* plasser som ble ledige under kampen */
     return false;
+}
+
+/* plyndring ($080BA4, a0 plyndrer a1): en fjern ridder som ikke var med i en duell
+ * over nettet (en grav, eller datamaskinen styrte den), har tingene sine i sitt
+ * eget spill, saa de ville blitt doble. Den plyndres ikke. */
+static bool hook_plyndring(void)
+{
+    if (!H.fjern || H.duell) return false;
+    int k = plass_for(m68k_get_reg(NULL, M68K_REG_A1));
+    if (k < 1 || !(H.tatt & (1 << k))) return false;
+    uint32_t a0 = m68k_get_reg(NULL, M68K_REG_A0);
+    /* mennesket: hopp over plyndringen ($08AAC4), men ikke byttet tilbake etter den */
+    m68k_set_reg(M68K_REG_PC, mem_read32(a0 + 0x36) == 4 ? 0x080bd8 : 0x080bbc);
+    return true;
 }
 
 void hver_register_hooks(void)
@@ -416,4 +451,5 @@ void hver_register_hooks(void)
     hooks_register_patch(LOKKE, hook_lokke, "lokka paa kartet (hver for seg)");
     hooks_register_patch(0x080ab8, hook_kamp, "ridder mot ridder (hver for seg)");
     hooks_register_patch(0x080bd8, hook_kamp_slutt, "ridder mot ridder slutt (hver for seg)");
+    hooks_register_patch(0x080ba4, hook_plyndring, "plyndring (hver for seg)");
 }

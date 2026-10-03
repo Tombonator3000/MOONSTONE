@@ -312,8 +312,12 @@ const Visning = (() => {
 
     function settRtFilter() {
         if (!rt) return;
-        rt.texture.magFilter = rt.texture.minFilter = filter === 'piksel' ? THREE.NearestFilter : THREE.LinearFilter;
-        rt.texture.needsUpdate = true;
+        const f = filter === 'piksel' ? THREE.NearestFilter : THREE.LinearFilter;
+        if (rt.texture.magFilter === f) return;
+        rt.texture.magFilter = rt.texture.minFilter = f;
+        /* three.js laster ikke teksturen til et rendermaal opp paa nytt (needsUpdate
+         * virker ikke); dispose gjoer at maalet settes opp igjen med filteret */
+        rt.dispose();
     }
 
     function tilpass() {
@@ -323,6 +327,8 @@ const Visning = (() => {
         const a = sideforhold();
         let w = bw, h = Math.round(bw / a);
         if (h > bh) { h = bh; w = Math.round(bh * a); }
+        const dpr = window.devicePixelRatio || 1;   /* endres ved zoom og ved bytte av skjerm */
+        if (renderer.getPixelRatio() !== dpr) renderer.setPixelRatio(dpr);
         renderer.setSize(w, h, true);
         const pr = renderer.getPixelRatio();
         postMat.uniforms.outSize.value.set(w * pr, h * pr);
@@ -332,6 +338,7 @@ const Visning = (() => {
 
     function settFilter(f) {
         filter = f;
+        if (!postMat) return;               /* visningen er ikke laget ennaa; init bruker filteret */
         postMat.uniforms.mode.value = { skarp: 0, piksel: 1, myk: 2, crt: 3, glatt: 0 }[f] ?? 0;
         const modus = f === 'glatt' ? 2 : f === 'myk' ? 1 : 0;
         for (const m of [fbMat, bakAmigaMat, forMat, skyggeMat]) m.uniforms.modus.value = m === skyggeMat ? Math.min(modus, 1) : modus;
@@ -350,6 +357,7 @@ const Visning = (() => {
 
     function settEffekter(e) {
         Object.assign(effekter, e);
+        if (!postMat) return;
         postMat.uniforms.glod.value = effekter.glod ? 1 : 0;
         postMat.uniforms.farger.value = effekter.farger ? 1 : 0;
         postMat.uniforms.vignett.value = effekter.vignett ? 1 : 0;
@@ -374,8 +382,12 @@ const Visning = (() => {
     function nyttBilde(liste) {
         bildeNr++;
         if (liste.length) {
-            if (sistTegnet === bildeNr - 1 && klynger.length) klynger[klynger.length - 1].liste.push(...liste);
-            else klynger.push({ liste: liste.slice() });
+            /* tegninger i bilder paa rad hoerer sammen, men en klynge varer hoeyst fire
+             * bilder: tegner spillet i hvert bilde (inventaret), ville den ellers aldri
+             * blitt vist og vokst uten grense */
+            const k = klynger[klynger.length - 1];
+            if (sistTegnet === bildeNr - 1 && k && bildeNr - k.start < 4 && k.liste.length < 2000) k.liste.push(...liste);
+            else klynger.push({ liste: liste.slice(), start: bildeNr });
             klynger[klynger.length - 1].vis = bildeNr + 2;
             sistTegnet = bildeNr;
         }
