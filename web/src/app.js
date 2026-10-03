@@ -25,6 +25,7 @@
     const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false, knapper: false,
         effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false }, spill: 'hver' }, inn);
     const lagreInnst = () => Lager.lagreInnstillinger(innst);
+    innst.kontroller = Inndata.settOppsett(innst.kontroller);
 
     const INNEBYGD = 'innebygd';
     let spillfil = null;                    /* INNEBYGD, eller en annen spillfil (Uint8Array) */
@@ -142,6 +143,7 @@
             akk = 0;
             menyKmd(KMD.MITTNAVN, 0, rensNavn(innst.navn, 10));
             menyKmd(KMD.SPILL, innst.spill === 'sammen' ? 1 : 0);
+            sendKontroller();
             visSpill();
             lasting(null);
         } catch (e) {
@@ -352,8 +354,8 @@
      * hendelser hit, og vi svarer med kommandoer. Kommandoene brukes ved starten
      * av neste bilde, og verten sender dem med bildet til gjestene, saa alle
      * maskinene viser det samme. */
-    const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8, NAVN: 9, SPILL: 10 };
-    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11 };
+    const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8, NAVN: 9, SPILL: 10, BIND: 11 };
+    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11, KONTROLL: 12 };
     const SIDE_JOIN = 3;
     const menyKo = [];
     let menyRom = [], sisteRomTekst = null, stoppMenyListe = null, sistAntall = 0, sisteNavn = null;
@@ -493,6 +495,59 @@
         catch (e) { visMeny(true); status('Kopier lenken her i menyen'); }
     }
 
+    /* ---------------------------------------------------------------- kontrollene
+     * Options i tittelmenyen har sidene Keyboard og Gamepad (port/src/meny.c). Menyen
+     * viser navnene vi sender (KMD.KONTROLL), og naar en linje velges, kommer
+     * MENY.BIND: 0 standardoppsettet, 1 fire og 2 bevegelse for joystick A, 3 og 4
+     * det samme for B, 5-8 knappene for fire, inventar, avslutt turen og Esc.
+     * Bevegelsen bytter mellom oppsettene; ellers venter vi paa neste tast eller
+     * knapp (input.js fang). Oppsettet lagres i innstillingene. */
+    let kontrollFrist = null;
+
+    function sendKontroller(venter) {
+        const n = Inndata.oppsettNavn();
+        if (venter) n[venter - 1] = venter >= 5 ? '*Press a Button' : '*Press a Key';   /* '*': hele linjen (meny.c) */
+        menyKmd(KMD.KONTROLL, 0, n.join('\n'));
+    }
+
+    function brukKontroller(o) {
+        innst.kontroller = Inndata.settOppsett(o);
+        lagreInnst();
+        sendKontroller();
+    }
+
+    function velgKontroll(id) {
+        Inndata.avbrytFang();
+        clearTimeout(kontrollFrist);
+        const o = Inndata.oppsett();
+        if (id === 0) { brukKontroller(Inndata.forvalg()); status('Kontrollene er som standard igjen'); return; }
+        if (id === 2 || id === 4) {
+            const v = Inndata.flyttValg, n = id === 2 ? 'flytt1' : 'flytt2';
+            o[n] = v[(v.indexOf(o[n]) + 1) % v.length];
+            brukKontroller(o);
+            return;
+        }
+        if (id < 1 || id > 8) return;
+        const pad = id >= 5;
+        sendKontroller(id);
+        status(pad ? 'Trykk en knapp på spillkontrolleren (Esc avbryter)' : 'Trykk tasten du vil bruke (Esc avbryter)');
+        kontrollFrist = setTimeout(() => { Inndata.avbrytFang(); sendKontroller(); status('Ingenting valgt'); }, 10000);
+        Inndata.fang(pad ? 'pad' : 'tast', (kode) => {
+            clearTimeout(kontrollFrist);
+            if (kode === null) { sendKontroller(); status('Avbrutt'); return; }
+            if (id === 1) o.fire1 = [kode];
+            else if (id === 3) o.fire2 = [kode];
+            else {
+                /* knappen bytter plass med den som hadde den fra foer */
+                const i = id - 5, j = o.pad.indexOf(kode);
+                if (j >= 0 && j !== i) o.pad[j] = o.pad[i];
+                o.pad[i] = kode;
+            }
+            brukKontroller(o);
+            status(pad ? 'Knappen er lagret' : 'Tasten er lagret');
+        });
+    }
+
     /* ---------------------------------------------------------------- dialoger (navn og romkode) */
     function visDialog(id, on) {
         $(id).hidden = !on;
@@ -559,6 +614,7 @@
         case MENY.KOPIER: kopierLenke(); break;
         case MENY.OFFENTLIG: settOffentlig(!!arg); break;
         case MENY.NAVN: spoerNavn(null); break;
+        case MENY.BIND: velgKontroll(arg); break;
         }
     }
 
@@ -960,8 +1016,10 @@
     function kjorEttBilde() {
         const lokalt = Inndata.les();
         lokalt.a |= museBits();
+        let taster = Inndata.hentTaster();
+        if (Inndata.fanger()) { lokalt.a = lokalt.b = 0; taster = []; }     /* en tast skal velges i Options */
+        taster = menyTaster(taster);
         if ((lokalt.a | lokalt.b) && Kjerne.iMeny()) menyBrukt = true;
-        let taster = menyTaster(Inndata.hentTaster());
         let j0, j1;
         if (modus === 'vert') {
             const eiere = Kjerne.portSpillere();
@@ -1055,6 +1113,7 @@
     function lokke(t) {
         requestAnimationFrame(lokke);
         sjekkDuell();
+        Inndata.sjekkFang();
         const dt = Math.min(0.25, Math.max(0, (t - sist) / 1000));
         sist = t;
         if (modus === 'gjest') {
@@ -1272,6 +1331,7 @@
      * neste bilde til gjestene. */
     function menyRomPaaNytt() {
         menyKmd(KMD.MITTNAVN, 0, rensNavn(innst.navn, 10));
+        sendKontroller();
         if (erVert()) {
             const l = Nett.spillere();
             menyKmd(KMD.VERT, 0, Nett.kode());

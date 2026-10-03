@@ -73,6 +73,7 @@ EMSCRIPTEN_KEEPALIVE void ms_key(int code, int down) { amiga_key(code, down != 0
 EMSCRIPTEN_KEEPALIVE void ms_frame(void)
 {
     hver_frame();
+    meny_frame();
     amiga_run_frame();
     audio_frames = paula_take(audio, AUDIO_RING);
     if (lag_paa) lag_bygg();

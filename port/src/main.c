@@ -372,6 +372,7 @@ static int run_headless(int frames, int shot_every, const char *shot_dir, int sa
         for (int k = 0; k < n_hver_cmds; k++)
             if (hver_cmds[k].frame == M.frame) hver_kommando(hver_cmds[k].cmd, hver_cmds[k].arg, hver_cmds[k].text);
         hver_frame();
+        meny_frame();
         amiga_run_frame();
         {
             extern int blit_trace_from, blit_trace_n;
