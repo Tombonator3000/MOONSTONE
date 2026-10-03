@@ -191,6 +191,16 @@ const Kjerne = (() => {
         portSpillere: () => [M._ms_port_player(0), M._ms_port_player(1)],
         tegneliste,
         ridderNavn: (k) => M.UTF8ToString(M._ms_knight_name(k)),
+        /* valgene paa kartet (tastene 1-9) og navnet som skrives etter Select a Knight (port/src/game.c) */
+        kartValg: () => {
+            const n = M._ms_valg_antall();
+            if (!n) return null;
+            const valg = [];
+            for (let i = 0; i < n; i++) valg.push(M.UTF8ToString(M._ms_valg_tekst(i)));
+            return { tittel: M.UTF8ToString(M._ms_valg_tittel()), valg };
+        },
+        navnAktiv: () => !!M._ms_navn_aktiv(),
+        navn: () => M.UTF8ToString(M._ms_navn()),
         les8: (a) => M._ms_peek8(a),
         les16: (a) => M._ms_peek16(a),
     };

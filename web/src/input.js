@@ -253,7 +253,22 @@ const Inndata = (() => {
         return { a, b };
     }
 
+    /* Taster siden selv trykker (valgene paa kartet, navnet til ridderen): ned om
+     * «om» bilder, opp to bilder senere. Telles i hentTaster, som kalles en gang
+     * per bilde (verten og alene) eller per skjermbilde (gjest). */
+    const planlagt = [];                    /* { om, kode, ned } */
+    function trykk(kode, om) {
+        om = om || 0;
+        planlagt.push({ om, kode, ned: true }, { om: om + 2, kode, ned: false });
+    }
+
     function hentTaster() {
+        planlagt.sort((a, b) => a.om - b.om);
+        while (planlagt.length && planlagt[0].om <= 0) {
+            const t = planlagt.shift();
+            tasteKo.push([t.kode, t.ned]);
+        }
+        for (const t of planlagt) t.om--;
         return tasteKo.splice(0, tasteKo.length);
     }
 
@@ -310,6 +325,7 @@ const Inndata = (() => {
 
     return {
         les, hentTaster, paa, lagTouch, settHurtigtaster, holdt, OPP, NED, VENSTRE, HOYRE, FIRE,
+        trykk, kode: (code) => amiga[code], venter: () => planlagt.length > 0,
         settOppsett, oppsett: () => JSON.parse(JSON.stringify(oppsett)), forvalg, oppsettNavn, tastNavn, padNavn,
         fang, avbrytFang, sjekkFang, fanger: () => !!fanger, flyttValg: Object.keys(FLYTT),
     };

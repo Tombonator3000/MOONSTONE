@@ -52,9 +52,18 @@ ingen rolle). Bildet strekkes over figurens plass, så et bilde i fire ganger
 størrelse gir fire ganger så skarp figur. Det som skal være gjennomsiktig, må være
 gjennomsiktig i PNG-en (alfakanalen).
 
-På nettsiden: Meny, «HD-grafikk (eksperimentelt)», velg mappen. Kryss av for gule
-felt, så vises et gult felt der spillet tegner en figur som ikke har HD-bilde. Da er
-det lett å se hva som mangler.
+På nettsiden: Meny, «HD-grafikk», velg mappen. Slå på «Gult felt der HD-bilde
+mangler», så vises et gult felt der spillet tegner en figur som ikke har HD-bilde. Da
+er det lett å se hva som mangler.
+
+**Liste over all grafikken:** `docs/grafikkliste.md` (laget med
+`tools/grafikkliste.py`) har hver fil, hva den er, og hvert bilde med størrelse og
+navnet HD-bildet skal ha. `docs/grafikkliste.csv` har det samme med ett bilde per
+linje, også et forslag til størrelse i fire ganger originalen.
+
+**Bytte mellom HD og originalen:** «Grafikk: HD der den finnes / Original» i menyen
+slår HD-bildene av og på uten å fjerne pakken (`Visning.settHd` i render.js), så
+man kan sammenligne. Valget huskes i innstillingene.
 
 ### Sjekk av plasseringen
 

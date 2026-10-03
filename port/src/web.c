@@ -142,6 +142,14 @@ EMSCRIPTEN_KEEPALIVE void ms_file_remove(const char *path) { files_remove(path);
 /* nettspill: hvem som styrer portene naa (se game.c) */
 EMSCRIPTEN_KEEPALIVE int ms_port_player(int port) { return game_port_player(port); }
 EMSCRIPTEN_KEEPALIVE const char *ms_knight_name(int k) { return game_knight_name(k); }
+
+/* valgene paa kartet (game_valg): antallet fyller tekstene, som hentes etterpaa */
+static char valg_tekst[9][GAME_VALG_LEN], valg_tittel[GAME_VALG_LEN];
+EMSCRIPTEN_KEEPALIVE int ms_valg_antall(void) { return game_valg(valg_tekst, valg_tittel); }
+EMSCRIPTEN_KEEPALIVE const char *ms_valg_tekst(int i) { return i >= 0 && i < 9 ? valg_tekst[i] : ""; }
+EMSCRIPTEN_KEEPALIVE const char *ms_valg_tittel(void) { return valg_tittel; }
+EMSCRIPTEN_KEEPALIVE const char *ms_navn(void) { const char *n = game_navn(); return n ? n : ""; }
+EMSCRIPTEN_KEEPALIVE int ms_navn_aktiv(void) { return game_navn() != NULL; }
 EMSCRIPTEN_KEEPALIVE int ms_knight_player(int k) { return game_knight_player(k); }
 
 /* tegnelisten for HD-grafikk (se game.c og docs/hd-grafikk.md) */

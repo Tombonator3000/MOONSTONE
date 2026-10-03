@@ -161,9 +161,88 @@ static bool observe_draw(void)
 const char *game_cel_name(int i) { return i >= 0 && i < n_cels ? cels[i].name : ""; }
 const char *game_background(void) { return background; }
 
+/* ------------------------------------------------------------ valgene paa kartet */
+/* Fire paa kartet ($0AADEE, sub_0ABB76): har stedet flere valg, tegnes de i en
+ * brun boks («SIR GODBER may ...», «1 Enter Village», «2 Battle with KARI»), og
+ * lokka paa $0ABBBA venter paa tastene 1-9. Valgene ligger paa $8EEEC, 8 byte
+ * hver: long maal, long type (1 = kamp mot ridderen i maal, 2 = «Enter Lair»,
+ * ellers teksten paa $96386 + (type - $15) * 4). Tom tabell slutter med maal 0.
+ * Nettsiden viser valgene som knapper (mobil og spillkontroller) og trykker
+ * tasten. Dette bare observerer; spillet kjorer som for. */
+#define VALG_TABELL 0x8eeec
+static uint32_t valg_bilde = 0xffffffffu;  /* sist lokka gikk */
+
+static bool observe_valg(void) { valg_bilde = M.frame; return false; }
+
+/* streng fra minnet, '_' blir mellomrom (riddernavnene) */
+static void les_tekst(uint32_t a, char *ut, int n, int pos)
+{
+    if (a < 0x80000 || a >= CHIP_SIZE - 64) return;
+    for (int i = 0; pos < n - 1; i++) {
+        uint8_t c = chip[a + (uint32_t)i];
+        if (c < 32 || c > 126) break;
+        ut[pos++] = c == '_' ? ' ' : (char)c;
+    }
+    ut[pos] = 0;
+}
+
+static void trim(char *t)
+{
+    size_t n = strlen(t);
+    while (n && t[n - 1] == ' ') t[--n] = 0;
+}
+
+/* antall valg (0 = spillet venter ikke), tekstene og overskriften */
+int game_valg(char tekst[9][GAME_VALG_LEN], char *tittel)
+{
+    tittel[0] = 0;
+    if (!game_mog_running() || M.frame - valg_bilde > 2) return 0;
+    int n = 0;
+    for (; n < 9; n++) {
+        uint32_t e = VALG_TABELL + (uint32_t)n * 8, maal = rd32(e), type = rd32(e + 4);
+        char *t = tekst[n];
+        t[0] = 0;
+        if (!maal) break;
+        if (type == 2) les_tekst(0x96330, t, GAME_VALG_LEN, 0);
+        else if (type == 1) {
+            les_tekst(0x9633b, t, GAME_VALG_LEN, 0);
+            les_tekst(rd32(maal + K_NAME), t, GAME_VALG_LEN, (int)strlen(t));
+        } else if (type >= 0x15 && type < 0x15 + 32) les_tekst(rd32(0x96386 + (type - 0x15) * 4), t, GAME_VALG_LEN, 0);
+        trim(t);
+    }
+    les_tekst(rd32(rd32(CUR_KNIGHT) + K_NAME), tittel, GAME_VALG_LEN, 0);
+    les_tekst(0x962a1, tittel, GAME_VALG_LEN, (int)strlen(tittel));    /* " may ... " */
+    trim(tittel);
+    return n;
+}
+
+/* ------------------------------------------------------------ navnet til ridderen */
+/* Etter Select a Knight skrives navnet ($081B7C): tastene skriver, Return ($1C)
+ * eller fire godtar, Backspace ($0E) sletter. Bufferen er pekeren paa $8F0B4,
+ * lengden $8CE32 (maks 13). Nettsiden tilbyr et tekstfelt paa mobil. */
+static uint32_t navn_bilde = 0xffffffffu;
+
+static bool observe_navn(void) { navn_bilde = M.frame; return false; }
+
+/* navnet saa langt, eller NULL naar spillet ikke venter paa navnet */
+const char *game_navn(void)
+{
+    static char buf[GAME_VALG_LEN];
+    if (!game_mog_running() || M.frame - navn_bilde > 2) return NULL;
+    uint32_t p = rd32(0x8f0b4);
+    int n = (int)(uint16_t)(chip[0x8ce32] << 8 | chip[0x8ce33]);
+    buf[0] = 0;
+    if (p < 0x80000 || p >= CHIP_SIZE - 32 || n < 0 || n > 20) return buf;
+    for (int i = 0; i < n; i++) buf[i] = chip[p + (uint32_t)i] == '_' ? ' ' : (char)chip[p + (uint32_t)i];
+    buf[n] = 0;
+    return buf;
+}
+
 void game_register_hooks(void)
 {
     hooks_register(0x9dcec, observe_draw, "tegn_figur (observer)");
+    hooks_register(0x0abbba, observe_valg, "valgene paa kartet (observer)");
+    hooks_register(0x081b7c, observe_navn, "navnet til ridderen (observer)");
 }
 
 void game_state(StateIO *s)

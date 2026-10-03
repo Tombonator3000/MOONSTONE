@@ -1,52 +1,115 @@
+/* Fargene er spillets egne: paletten til tittelmenyen (ch.piv) og den brune
+ * valgboksen paa kartet. Tekst i spillets font tegnes av grafikk.js (.pt, .pt2);
+ * --pe er en spillpiksel i CSS-piksler (hele skjermpiksler, saa den blir skarp). */
 :root {
-    --bakgrunn: #07081a;
-    --panel: #11132e;
-    --kant: #2b2f63;
-    --tekst: #e9e4d4;
-    --svak: #a49f92;
-    --gull: #e3b866;
-    --knapp: #2a2560;
-    --knapp-hover: #3a3480;
+    --natt: #000022;                /* himmelen (farge 15) */
+    --natt-lys: #112233;            /* 6 */
+    --panel: rgba(0, 0, 26, .84);
+    --kant: #884422;                /* 12 */
+    --kant-lys: #cc9955;            /* 11 */
+    --gull: #ddcc99;                /* 10 */
+    --krem: #ffeedd;                /* 9 */
+    --tekst: #ffeedd;
+    --svak: #bba986;
+    --knapp: #221100;               /* 8 */
+    --knapp-lys: #332211;           /* 7 */
+    --boks: #aa6633;                /* valgboksen paa kartet */
+    --boks-mork: #442200;
+    --boks-lys: #cc7744;
+    --boks-skygge: #995533;
     --feil: #ff8a7a;
+    --pe: 1px;
+    --natt-b: 640px;                /* bredden paa nattehimmelen bak menyen */
     color-scheme: dark;
 }
 * { box-sizing: border-box; }
-html, body { margin: 0; height: 100%; background: var(--bakgrunn); color: var(--tekst); }
-body { font: 16px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
-h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; color: var(--gull); font-weight: normal; margin: 0 0 .4em; }
+[hidden] { display: none !important; }      /* ogsaa for knapper med display: inline-flex */
+html, body { margin: 0; height: 100%; background: var(--natt); color: var(--tekst); }
+body { font: 16px/1.45 Georgia, "Times New Roman", serif; }
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; color: var(--gull); font-weight: normal; margin: 0 0 .5em; }
 h1 { font-size: 2.6rem; letter-spacing: .06em; }
 h2 { font-size: 1.5rem; }
 h3 { font-size: 1.15rem; }
-.panel { max-width: 640px; margin: 0 auto; padding: 24px 16px 40px; }
-.boks { background: var(--panel); border: 1px solid var(--kant); border-radius: 10px; padding: 14px 16px; margin: 14px 0; }
-.rad { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin: 8px 0; }
+code { font-size: .85em; color: var(--gull); }
+
+/* tekst i spillets font */
+.pt-klar { font-size: 0; line-height: 0; }
+.pt-klar canvas { display: inline-block; vertical-align: top; image-rendering: crisp-edges; image-rendering: pixelated; }
+.pt-tekst { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.pt:not(.pt-klar), .pt2:not(.pt-klar) { color: var(--gull); }
+
+/* ---------------------------------------------------------------- sidemenyen */
+.panel { max-width: 640px; margin: 0 auto; padding: 16px 16px 40px; }
+#meny { position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain; max-width: none; z-index: 4;
+        padding-top: max(16px, env(safe-area-inset-top)); padding-bottom: max(40px, env(safe-area-inset-bottom)); background: var(--natt); }
+.spillgrafikk #meny::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+        background: var(--natt) var(--natt-bilde) center top / var(--natt-b) auto no-repeat; image-rendering: pixelated; }
+#meny > * { max-width: 640px; margin-left: auto; margin-right: auto; }
+.menytopp { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-bottom: 8px; padding-top: 10px; }
+#meny-logo { min-height: calc(var(--pe) * 54); display: flex; align-items: center; justify-content: center; }
+#meny-logo canvas { image-rendering: pixelated; }
+
+.boks { position: relative; background: var(--panel); border: calc(var(--pe) * 2) solid var(--kant);
+        box-shadow: inset 0 0 0 var(--pe) #000, 0 0 0 var(--pe) #000, 0 8px 22px rgba(0, 0, 0, .45);
+        padding: 14px 16px; margin: 16px 0; }
+.boks > h3 { margin: 0 0 10px; padding-bottom: 8px; border-bottom: calc(var(--pe) * 2) solid var(--kant);
+        box-shadow: 0 var(--pe) 0 rgba(204, 153, 85, .35); display: flex; align-items: center; gap: calc(var(--pe) * 6); }
+.spillgrafikk .boks > h3::before { content: ''; flex: 0 0 auto; width: calc(var(--pe) * 38); height: calc(var(--pe) * 19);
+        background: var(--pil) center / 100% 100% no-repeat; image-rendering: pixelated; }
+
+.valg { position: relative; display: flex; align-items: center; gap: 12px; padding: 8px 10px; margin: 2px -10px;
+        min-height: 44px; cursor: pointer; border-left: calc(var(--pe) * 3) solid transparent; }
+.valg > .pt:first-child { flex: 1 1 auto; }
+.valg .verdi { flex: 0 1 auto; min-width: 0; text-align: right; }
+.valg:hover, .valg:focus-within { background: rgba(204, 153, 85, .12); border-left-color: var(--kant-lys); }
+.valg input[type=checkbox] { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; pointer-events: none; }
+.valg select { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; margin: 0; }
+.valg.glider { flex-wrap: wrap; }
+.valg.glider input[type=range] { flex: 1 0 100%; order: 3; }
+
+.rad { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 10px 0; }
+.rad.midt { justify-content: center; margin-top: 22px; }
 .felt { display: flex; flex-direction: column; gap: 4px; font-size: .9rem; color: var(--svak); flex: 1 1 160px; }
-.avkryss { display: flex; gap: 8px; align-items: center; margin: 8px 0; font-size: .95rem; }
-input, select { font: inherit; color: var(--tekst); background: #0b0c22; border: 1px solid var(--kant); border-radius: 6px; padding: 8px 10px; min-width: 0; }
-input[type=range] { padding: 0; }
+input, select { font: inherit; color: var(--tekst); background: var(--natt); border: calc(var(--pe) * 2) solid var(--kant); border-radius: 0; padding: 8px 10px; min-width: 0; }
+input:focus, select:focus { outline: none; border-color: var(--kant-lys); }
 input[type=checkbox] { width: 18px; height: 18px; }
-.knapp { font: inherit; color: var(--tekst); background: var(--knapp); border: 1px solid #4b4596; border-radius: 8px; padding: 10px 18px; cursor: pointer; }
-.knapp:hover { background: var(--knapp-hover); }
+input[type=range] { -webkit-appearance: none; appearance: none; height: 30px; padding: 0; background: transparent; border: 0; }
+input[type=range]::-webkit-slider-runnable-track { height: 10px; background: var(--knapp); border: 2px solid var(--kant); }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 26px; margin-top: -10px; background: var(--gull);
+        border: 2px solid #000; box-shadow: inset -3px -3px 0 var(--kant-lys), inset 3px 3px 0 var(--krem); }
+input[type=range]::-moz-range-track { height: 6px; background: var(--knapp); border: 2px solid var(--kant); }
+input[type=range]::-moz-range-thumb { width: 14px; height: 22px; border-radius: 0; background: var(--gull); border: 2px solid #000; }
+
+.knapp { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 8px 16px;
+        font: inherit; color: var(--krem); background: linear-gradient(var(--knapp-lys), var(--knapp)); border: calc(var(--pe) * 2) solid var(--kant);
+        border-radius: 0; box-shadow: inset 0 0 0 var(--pe) #000, inset calc(var(--pe) * 3) calc(var(--pe) * 3) 0 rgba(255, 238, 221, .08);
+        cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.knapp:hover, .knapp:focus-visible { border-color: var(--kant-lys); outline: none; }
+.knapp:active { transform: translateY(1px); }
 .knapp:disabled { opacity: .5; cursor: default; }
-.knapp.liten { padding: 7px 12px; font-size: .9rem; }
 label.knapp input[type=file] { display: none; }
 .hjelp { color: var(--svak); font-size: .88rem; margin: 6px 0; }
-.smaa { color: var(--svak); font-size: .8rem; }
-.taster { padding-left: 1.2em; margin: 8px 0 0; }
-.taster li { margin: 4px 0; }
+.smaa { color: var(--svak); font-size: .8rem; text-align: center; }
+.taster { padding-left: 1.2em; margin: 8px 0 0; color: var(--gull); }
+.taster li { margin: 5px 0; }
+.taster b { color: var(--krem); font-weight: normal; }
+#rominfo { margin: 6px 0; }
 
+/* ---------------------------------------------------------------- spillet */
 #spill { position: fixed; inset: 0; background: #000; }
 #skjerm { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
 #lerret { display: block; image-rendering: pixelated; }
-#meny-knapp { position: absolute; top: 10px; right: 10px; font: inherit; font-size: .85rem; color: var(--tekst); background: rgba(20, 20, 50, .55); border: 1px solid rgba(120, 110, 200, .5); border-radius: 6px; padding: 6px 10px; cursor: pointer; opacity: .55; }
+#meny-knapp { position: absolute; top: max(10px, env(safe-area-inset-top)); right: 10px; color: var(--krem); background: rgba(34, 17, 0, .6);
+        border: calc(var(--pe) * 2) solid rgba(136, 68, 34, .85); border-radius: 0; padding: 6px 10px; cursor: pointer; opacity: .7; font: inherit; font-size: .85rem; }
 #meny-knapp:hover { opacity: 1; }
-#status { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); background: rgba(10, 10, 30, .8); padding: 6px 14px; border-radius: 8px; font-size: .9rem; pointer-events: none; opacity: 0; transition: opacity .4s; max-width: calc(100% - 32px); text-align: center; }
+.spillboks { background: var(--boks); border: calc(var(--pe) * 3) solid var(--boks-mork);
+        box-shadow: inset 0 0 0 var(--pe) var(--boks-lys), 0 6px 24px rgba(0, 0, 0, .6); color: #fff; }
+#status { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); padding: 7px 14px; font-size: .9rem; pointer-events: none;
+        opacity: 0; transition: opacity .4s; max-width: calc(100% - 32px); text-align: center;
+        background: var(--boks); border: calc(var(--pe) * 3) solid var(--boks-mork); box-shadow: inset 0 0 0 var(--pe) var(--boks-lys); color: #fff; }
 #status.vis { opacity: 1; }
 #chatlinjer { position: absolute; left: 12px; top: 12px; max-width: min(420px, 60vw); font-size: .85rem; pointer-events: none; }
-#chatlinjer div { background: rgba(10, 10, 30, .7); padding: 3px 8px; border-radius: 6px; margin-bottom: 4px; transition: opacity 1s; }
-#meny { position: absolute; inset: 0; overflow-y: auto; background: rgba(7, 8, 26, .94); max-width: none; }
-#meny > * { max-width: 640px; margin-left: auto; margin-right: auto; }
-.menytopp { display: flex; justify-content: space-between; align-items: center; }
+#chatlinjer div { background: rgba(0, 0, 26, .75); border-left: 3px solid var(--kant); padding: 3px 8px; margin-bottom: 4px; transition: opacity 1s; }
 #lenke { flex: 1 1 200px; font-size: .85rem; }
 #spillerliste { width: 100%; border-collapse: collapse; margin: 10px 0; }
 #spillerliste td { padding: 6px 4px; border-bottom: 1px solid var(--kant); }
@@ -54,24 +117,48 @@ label.knapp input[type=file] { display: none; }
 #chatlogg { max-height: 160px; overflow-y: auto; font-size: .9rem; margin: 8px 0; }
 #chatfelt { width: 100%; }
 
+/* valgene paa kartet og navnet til ridderen (app.js plasserer dem) */
+#valg { position: absolute; z-index: 3; padding: 10px 12px; min-width: min(280px, calc(100% - 24px)); max-width: calc(100% - 24px); }
+#valg-tittel { margin: 0 4px 6px; }
+#valg-liste { display: flex; flex-direction: column; gap: 2px; }
+.valg-knapp { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 6px 10px 6px 6px; width: 100%; text-align: left; font: inherit;
+        color: #fff; background: transparent; border: 0; border-left: calc(var(--pe) * 3) solid transparent; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.valg-knapp .pil { width: calc(var(--pe) * 38); height: calc(var(--pe) * 19); flex: 0 0 auto; visibility: hidden;
+        background: var(--pil) center / 100% 100% no-repeat; image-rendering: pixelated; }
+.valg-knapp.merket { background: var(--boks-skygge); border-left-color: var(--boks-mork); }
+.valg-knapp.merket .pil, .valg-knapp:hover .pil { visibility: visible; }
+.valg-knapp:focus-visible { outline: 2px solid var(--krem); outline-offset: -2px; }
+#navn-knapp { position: absolute; z-index: 3; }
+
 #touch { position: absolute; inset: auto 0 0 0; height: 46vh; pointer-events: none; }
-#touch .kors { position: absolute; left: 18px; bottom: 18px; width: min(40vw, 190px); height: min(40vw, 190px); border-radius: 50%; background: rgba(255, 255, 255, .08); border: 2px solid rgba(255, 255, 255, .25); pointer-events: auto; touch-action: none; }
-#touch .knapper { position: absolute; right: 14px; bottom: 18px; display: grid; grid-template-columns: repeat(2, auto); gap: 10px; pointer-events: auto; }
-#touch button { font: inherit; font-size: .85rem; color: #fff; background: rgba(255, 255, 255, .1); border: 2px solid rgba(255, 255, 255, .3); border-radius: 12px; padding: 12px 10px; touch-action: none; user-select: none; }
-#touch button.fire { grid-column: span 2; padding: 22px 10px; background: rgba(227, 184, 102, .22); }
+#touch .kors { position: absolute; left: 18px; bottom: max(18px, env(safe-area-inset-bottom)); width: min(40vw, 190px); height: min(40vw, 190px); border-radius: 50%;
+        background:
+            linear-gradient(rgba(204, 153, 85, .18), rgba(204, 153, 85, .18)) center / 30% 86% no-repeat,
+            linear-gradient(rgba(204, 153, 85, .18), rgba(204, 153, 85, .18)) center / 86% 30% no-repeat,
+            rgba(0, 0, 26, .35);
+        border: 2px solid rgba(204, 153, 85, .55); pointer-events: auto; touch-action: none; }
+#touch .knapper { position: absolute; right: 14px; bottom: max(18px, env(safe-area-inset-bottom)); display: grid; grid-template-columns: repeat(2, auto); gap: 10px; pointer-events: auto; }
+#touch button { font: inherit; font-size: .85rem; color: var(--krem); background: rgba(34, 17, 0, .5); border: 2px solid rgba(204, 153, 85, .6);
+        border-radius: 0; padding: 12px 10px; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent;
+        display: flex; align-items: center; justify-content: center; }
+#touch button.fire { grid-column: span 2; padding: 22px 10px; background: rgba(170, 102, 51, .45); border-color: rgba(255, 238, 221, .55); }
+#touch button:active { background: rgba(204, 153, 85, .45); }
 
 @media (max-width: 480px) {
     h1 { font-size: 2rem; }
-    .panel { padding: 16px 16px 32px; }
+    .panel { padding-left: 12px; padding-right: 12px; }
+    .boks { padding: 12px; }
 }
-.dialog { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(420px, calc(100% - 32px)); margin: 0; box-shadow: 0 10px 40px rgba(0, 0, 0, .6); z-index: 6; }
+.dialog { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(420px, calc(100% - 32px)); margin: 0; z-index: 6; }
 .dialog input { width: 100%; }
-#lasting { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: var(--bakgrunn); text-align: center; padding: 16px; z-index: 2; }
+#lasting { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: var(--natt); text-align: center; padding: 16px; z-index: 2; }
 #lasting[hidden] { display: none; }
 #lasting-tekst { color: var(--svak); max-width: 36em; }
-#hint { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); background: rgba(10, 10, 30, .7); padding: 6px 14px; border-radius: 8px; font-size: .85rem; color: var(--svak); pointer-events: none; max-width: calc(100% - 32px); text-align: center; }
+#hint { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); padding: 6px 12px; font-size: .85rem; pointer-events: none;
+        max-width: calc(100% - 32px); text-align: center; background: rgba(0, 0, 26, .78); border: calc(var(--pe) * 2) solid rgba(136, 68, 34, .9); color: var(--gull); }
 body:has(#touch:not([hidden])) #hint, #hint.topp { bottom: auto; top: 52px; }
-/* rekkefolgen: spillet, lasting, menyen, menyknappen, dialoger, meldinger */
+/* rekkefolgen: spillet, lasting, valgene, menyen, menyknappen, dialoger, meldinger */
 #meny { z-index: 4; }
 #meny-knapp { z-index: 5; }
 #status { z-index: 7; }
+#hint { z-index: 1; }
