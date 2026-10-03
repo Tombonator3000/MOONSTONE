@@ -618,10 +618,18 @@
         }
     }
 
-    /* etter hvert bilde: verten og den som spiller alene handler, gjestene ser bare */
+    /* etter hvert bilde: verten og den som spiller alene handler, gjestene ser bare.
+     * I et rom tur for tur styrer alle tittelmenyen sammen (net.js porter), saa vi
+     * vet ikke hvem som valgte en linje i Keyboard eller Gamepad. Da endres ingen
+     * kontroller; de settes opp foer man lager eller blir med i rommet. */
     function menyHendelser() {
         for (let e; (e = Kjerne.menyHendelse()); ) {
-            if (modus === 'alene' || modus === 'vert' || modus === 'hver') menyHendelse(e & 0xff, e >> 8);
+            const h = e & 0xff, arg = e >> 8;
+            if (h === MENY.BIND && ((modus === 'vert' && Nett.harGjester()) || modus === 'gjest')) {
+                status('Kontrollene kan ikke endres i et rom tur for tur, der alle styrer menyen. Sett dem opp før du lager eller blir med i et rom.');
+                continue;
+            }
+            if (modus === 'alene' || modus === 'vert' || modus === 'hver') menyHendelse(h, arg);
         }
         if (invitasjon && modus === 'alene' && Kjerne.menyKlar()) aapneInvitasjon();
     }

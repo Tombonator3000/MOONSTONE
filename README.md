@@ -155,6 +155,8 @@ resten av menyen.
   Home, Page Up, Page Down, End, Pause, F11 og F12 brukes av nettsiden og kan ikke velges.
 - **Default Controls** setter alt tilbake som i tabellen over.
 
+I et rom tur for tur (Turns) med gjester styrer alle tittelmenyen sammen, så der kan
+ikke kontrollene endres; sett dem opp før du lager eller blir med i rommet.
 Oppsettet lagres i nettleseren sammen med de andre innstillingene. Et kort trykk på
 fire mens menyen tegnes på nytt (rett etter at pilen er flyttet), blir husket og
 gitt når menyen er ferdig, så raske valg ikke forsvinner.
