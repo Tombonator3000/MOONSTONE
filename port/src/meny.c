@@ -67,6 +67,7 @@ static struct {
     uint8_t wait_release;                   /* vent til fire slippes */
     uint8_t session;
     uint8_t players;                        /* i rommet, med verten */
+    uint8_t knights;                        /* riddere rommet trenger: hoeyeste spillernummer + 1 (tilskuere teller ikke) */
     uint8_t public_room;
     uint8_t n_rooms;                        /* aapne rom (Join Game) */
     uint8_t rooms_known;                    /* listen er hentet (eller feilet) */
@@ -504,7 +505,7 @@ static bool hook_fire(void)
         if (v == 3) emit(MENY_EV_COPY, 0);
         else if (v == 4) emit(MENY_EV_PUBLIC, !M2.public_room);
         else if (v == 5) {
-            if (M2.spill && M2.players >= 2) set_players(M2.players);   /* hver for seg: alle spiller alene */
+            if (M2.spill && M2.knights >= 2) set_players(M2.knights);   /* tur for tur: en ridder til hver spiller i rommet */
             show_page(PAGE_TITLE);
             emit(MENY_EV_BACK, 0);
         }
@@ -557,14 +558,15 @@ static bool hook_leave(void)
     return false;
 }
 
-/* Select Knight i et rom tur for tur: alle i rommet skal faa en ridder. Kom noen
- * inn etter at verten gikk tilbake til tittelmenyen (Back setter antallet), staar
- * Players fortsatt paa det gamle, og den nye ville bare sett paa. Antallet settes
- * opp (aldri ned) foer $81958 leser det. */
+/* Select Knight i et rom tur for tur: alle som spiller i rommet, skal faa en ridder.
+ * Kom noen inn etter at verten gikk tilbake til tittelmenyen (Back setter antallet),
+ * staar Players fortsatt paa det gamle, og den nye ville bare sett paa. Antallet
+ * settes opp (aldri ned) til M2.knights foer $81958 leser det. Tilskuere og to som
+ * deler et spillernummer, gir ingen ekstra ridder. */
 static bool hook_leave_knight(void)
 {
     in_menu = false;
-    if (active() && M2.spill && M2.session == SESSION_HOST && M2.players > rd16(PLAYERS)) set_players(M2.players);
+    if (active() && M2.spill && M2.session == SESSION_HOST && M2.knights > rd16(PLAYERS)) set_players(M2.knights);
     return false;
 }
 
@@ -598,6 +600,9 @@ void meny_command(int cmd, int arg, const char *text)
     case MENY_CMD_PLAYERS:
         M2.players = (uint8_t)(arg < 1 ? 1 : arg > 4 ? 4 : arg);
         break;
+    case MENY_CMD_KNIGHTS:                  /* hoeyeste spillernummer + 1 i rommet; vises ikke */
+        M2.knights = (uint8_t)(arg < 0 ? 0 : arg > 4 ? 4 : arg);
+        return;
     case MENY_CMD_PUBLIC:
         M2.public_room = arg != 0;
         break;
@@ -687,6 +692,7 @@ void meny_command(int cmd, int arg, const char *text)
         M2.session = SESSION_NONE;
         M2.n_names = 0;
         M2.players = 0;
+        M2.knights = 0;
         M2.public_room = 0;
         if (M2.page == PAGE_HOST) M2.page = PAGE_ONLINE;
         break;

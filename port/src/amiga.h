@@ -317,7 +317,7 @@ enum { MENY_EV_HOST = 1, MENY_EV_JOIN_PAGE, MENY_EV_JOIN_ROOM, MENY_EV_ENTER_COD
 /* kommandoer fra frontenden, brukes ved starten av et bilde (i nettspill hos alle) */
 enum { MENY_CMD_HOSTING = 1, MENY_CMD_PLAYERS, MENY_CMD_PUBLIC, MENY_CMD_ROOMS, MENY_CMD_MESSAGE,
        MENY_CMD_SESSION_END, MENY_CMD_NAMES, MENY_CMD_MYNAME, MENY_CMD_PAGE, MENY_CMD_SELECT, MENY_CMD_SPILL,
-       MENY_CMD_CONTROLS };
+       MENY_CMD_CONTROLS, MENY_CMD_KNIGHTS };
 enum { MENY_PAGE_ONLINE = 1, MENY_PAGE_JOIN = 3 };   /* for MENY_CMD_PAGE */
 int      meny_take_event(void);           /* 0 = ingen */
 /* hver.c: flerspiller "Hver for seg" (docs/flerspiller.md) */

@@ -69,16 +69,31 @@ const Nett = (() => {
 
     /* Gjesten kjenner seg igjen naar den kobler til paa nytt (siden lastet paa nytt,
      * nettet var borte): samme id i fanen (sessionStorage), saa verten gir den samme
-     * spillernummeret, og dermed samme ridder, tilbake. */
-    function klientId() {
-        let id = null;
-        try { id = sessionStorage.getItem('moonstone.klient'); } catch (e) { /* ikke tilgjengelig */ }
-        if (!id || !/^[a-z0-9]{8,24}$/.test(id)) {
-            id = Array.from(crypto.getRandomValues(new Uint8Array(10)), (b) => (b % 36).toString(36)).join('');
-            try { sessionStorage.setItem('moonstone.klient', id); } catch (e) { /* bare denne gangen */ }
-        }
+     * spillernummeret, og dermed samme ridder, tilbake. En kopi av fanen (Dupliser,
+     * eller en lenke som aapnes fra siden) faar med seg sessionStorage. Derfor spor
+     * fanen de andre fanene (BroadcastChannel) naar siden aapnes: svarer en som lever
+     * og har samme id, lager kopien sin egen. En fane som lastes paa nytt, er alene. */
+    const ID_OK = /^[a-z0-9]{8,24}$/;
+    function nyKlientId() {
+        const id = Array.from(crypto.getRandomValues(new Uint8Array(10)), (b) => (b % 36).toString(36)).join('');
+        try { sessionStorage.setItem('moonstone.klient', id); } catch (e) { /* bare denne gangen */ }
         return id;
     }
+    let klient = null;
+    const klientKlar = new Promise((ferdig) => {
+        try { klient = sessionStorage.getItem('moonstone.klient'); } catch (e) { /* ikke tilgjengelig */ }
+        if (!klient || !ID_OK.test(klient)) { klient = nyKlientId(); }
+        let kanal = null;
+        try { kanal = new BroadcastChannel('moonstone-klient'); } catch (e) { ferdig(); return; }
+        const meg = nyKode() + nyKode();     /* denne siden, ikke fanen */
+        kanal.onmessage = (e) => {
+            const d = e.data || {};
+            if (d.spor === klient && d.fra !== meg) kanal.postMessage({ har: d.spor, til: d.fra });
+            else if (d.har === klient && d.til === meg) klient = nyKlientId();
+        };
+        kanal.postMessage({ spor: klient, fra: meg });
+        setTimeout(ferdig, 300);
+    });
 
     /* Egen PeerJS-server i stedet for PeerJS Cloud: ?peer=vert:port[/sti] i adressen. */
     let server = {};
@@ -446,7 +461,7 @@ const Nett = (() => {
                 vert.on('open', () => {
                     aapnet = true;
                     sistFraVert = performance.now();
-                    vert.send({ t: 'hei', navn: mittNavn, v: VERSJON, id: klientId() });
+                    klientKlar.then(() => { if (vert && vert.open) vert.send({ t: 'hei', navn: mittNavn, v: VERSJON, id: klient }); });
                     /* WebRTC merker ikke alltid at verten er borte (lukket fane, tapt nett),
                      * saa gjesten gir opp naar verten ikke har svart paa en stund */
                     pingTimer = setInterval(() => {

@@ -356,12 +356,12 @@
      * av neste bilde, og verten sender dem med bildet til gjestene, saa alle
      * maskinene viser det samme. */
     const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8, NAVN: 9, SPILL: 10, BIND: 11 };
-    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11, KONTROLL: 12 };
+    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11, KONTROLL: 12, RIDDERE: 13 };
     const SIDE_JOIN = 3;
     const SIDE_VERT = 2;                    /* romsiden til verten: Copy Link og Public er vertens */
     let romHint = 0;                        /* sist gjesten fikk beskjed om at romsiden er vertens */
     const menyKo = [];
-    let menyRom = [], sisteRomTekst = null, stoppMenyListe = null, sistAntall = 0, sisteNavn = null;
+    let menyRom = [], sisteRomTekst = null, stoppMenyListe = null, sistAntall = 0, sisteNavn = null, sisteRiddere = -1;
     let menyInvitert = null;                /* rommet i invitasjonen, foerst i Join Game */
 
     /* spillets font har bare engelske bokstaver, tall og noen tegn */
@@ -383,11 +383,21 @@
 
     function menyKmd(k, arg, tekst) { menyKo.push([k, arg | 0, tekst || '']); }
 
+    /* tur for tur: hvor mange riddere rommet trenger (hoeyeste spillernummer + 1);
+     * tilskuere («Ser på») og to som deler et nummer, gir ingen ekstra ridder */
+    function sendRiddere(liste) {
+        const n = liste.reduce((m, s) => Math.max(m, s.spiller >= 0 ? s.spiller + 1 : 0), 0);
+        if (n === sisteRiddere) return;
+        sisteRiddere = n;
+        menyKmd(KMD.RIDDERE, n);
+    }
+
     function vertHendelser() {
         sistAntall = 0;
         sisteNavn = null;
+        sisteRiddere = -1;
         return {
-            lobby: (liste, kode, portModus) => { visSpillere(liste, kode, portModus); sendNavn(liste); if (modus === 'hver') oppdaterFjerne(liste); },
+            lobby: (liste, kode, portModus) => { visSpillere(liste, kode, portModus); sendNavn(liste); sendRiddere(liste); if (modus === 'hver') oppdaterFjerne(liste); },
             ridder: (id, d) => mottaRidder(id, d),
             duell: (conn) => duellInn(conn),
             chat: chatLinje,

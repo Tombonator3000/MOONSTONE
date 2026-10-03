@@ -83,8 +83,10 @@ gjestene 2-4 i den rekkefølgen de kom, og verten kan endre det i sidemenyen).
   og angriper datamaskinen, får mennesket port 2); plyndringen styres av den som
   plyndrer, med porten til +$0B (pekeren på `$08C3EA`). Fasen er med i lagringen.
 - I menyene (tittelmenyen og nettspillsidene) kan alle styre.
-- Velger verten Select Knight med færre spillere (Players) enn det er folk i rommet,
-  settes antallet opp, så alle får en ridder.
+- Velger verten Select Knight med færre spillere (Players) enn rommet trenger, settes
+  antallet opp, så alle får en ridder. Rommet trenger høyeste spillernummer + 1
+  (menykommando 13, M2.knights): tilskuere («Ser på») og to som deler et nummer, gir
+  ingen ekstra ridder. Back fra romsiden bruker det samme tallet.
 - Joysticken fra en gjest kommer som siste tilstand. Et kort trykk huskes i tre
   bilder hos verten, så det ikke blir borte når trykk og slipp kommer mellom to bilder.
   Det samme gjelder forsvareren i en duell. Kommer det ingenting på 1,5 sekunder
@@ -95,7 +97,9 @@ gjestene 2-4 i den rekkefølgen de kom, og verten kan endre det i sidemenyen).
   gjester.
 - En gjest har en id i fanen (sessionStorage). Laster den siden på nytt eller mister
   nettet og kommer tilbake, får den samme spillernummer (og ridder) igjen, og en gammel
-  forbindelse som henger, tas bort. I menyene tettes hull i numrene når noen går. En
+  forbindelse som henger, tas bort. En kopi av fanen (Dupliser) får med seg
+  sessionStorage, så fanene spør hverandre (BroadcastChannel) når siden åpnes, og en
+  kopi som får svar fra en levende fane med samme id, lager sin egen. I menyene tettes hull i numrene når noen går. En
   gjest som ikke har sagt noe på 30 sekunder, regnes som borte, og verten tar over
   ridderen.
 
