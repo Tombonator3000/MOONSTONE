@@ -69,6 +69,8 @@ EMSCRIPTEN_KEEPALIVE void ms_input(int j0, int j1)
 }
 
 EMSCRIPTEN_KEEPALIVE void ms_key(int code, int down) { amiga_key(code, down != 0); }
+/* bakgrunnsmusikken i resten av spillet (musikk.c): av/paa og styrke 0-1 */
+EMSCRIPTEN_KEEPALIVE void ms_musikk(int paa, float volum) { musikk_sett(paa != 0, volum); }
 
 EMSCRIPTEN_KEEPALIVE void ms_frame(void)
 {

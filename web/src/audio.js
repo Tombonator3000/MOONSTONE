@@ -126,6 +126,11 @@ registerProcessor('moon-out', MoonOut);`;
             } catch (e) {
                 ctx = new AudioContext();
             }
+            /* Mobil: resume() maa kalles i selve trykket, foer noe annet ventes paa (ellers
+             * kan lyden bli staaende av til neste trykk). Paa iPhone folger Web Audio ellers
+             * lydloes-bryteren, saa spillet blir stille selv om video har lyd. */
+            try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) { /* eldre nettlesere */ }
+            if (ctx.state === 'suspended') ctx.resume().catch(() => {});
             try {
                 const url = URL.createObjectURL(new Blob([workletSrc], { type: 'application/javascript' }));
                 await ctx.audioWorklet.addModule(url);

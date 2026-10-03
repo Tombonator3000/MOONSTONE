@@ -22,7 +22,7 @@
 (() => {
     const $ = (id) => document.getElementById(id);
     const inn = Lager.innstillinger();
-    const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false, knapper: false,
+    const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, musikk: true, musikkVolum: 0.5, knappevent: false, navn: '', offentlig: false, knapper: false,
         effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false }, spill: 'hver', hd: 'hd' }, inn);
     const lagreInnst = () => Lager.lagreInnstillinger(innst);
     innst.kontroller = Inndata.settOppsett(innst.kontroller);
@@ -127,6 +127,7 @@
         }
         periode = 1 / Kjerne.hz();
         settVolum(innst.volum);
+        Kjerne.musikk(innst.musikk, innst.musikkVolum);
     }
 
     /* spillet starter rett paa introen; ingenting aa velge foer det */
@@ -1630,6 +1631,9 @@
         Lyd.forsterk(Math.max(1, v));
     }
     $('volum').addEventListener('input', (e) => { innst.volum = +e.target.value; if (modus) settVolum(innst.volum); lagreInnst(); });
+    /* introsangen i menyen og resten av spillet (originalen har den bare i introen) */
+    $('musikk').addEventListener('change', (e) => { innst.musikk = e.target.checked; if (modus) Kjerne.musikk(innst.musikk, innst.musikkVolum); lagreInnst(); });
+    $('musikk-volum').addEventListener('input', (e) => { innst.musikkVolum = +e.target.value; if (modus) Kjerne.musikk(innst.musikk, innst.musikkVolum); lagreInnst(); });
     $('knappevent').addEventListener('change', (e) => { innst.knappevent = e.target.checked; lagreInnst(); status('Gjelder fra neste start'); });
     $('skjermknapper').addEventListener('change', (e) => { innst.knapper = e.target.checked; lagreInnst(); visKnapper(); });
 
@@ -1755,6 +1759,8 @@
     $('rammer').checked = false;                /* Firefox fyller inn avkrysningen fra forrige gang */
     $('helt').checked = innst.helt;
     $('volum').value = innst.volum;
+    $('musikk').checked = innst.musikk !== false;
+    $('musikk-volum').value = typeof innst.musikkVolum === 'number' ? innst.musikkVolum : 0.5;
     $('knappevent').checked = innst.knappevent;
     $('skjermknapper').checked = innst.knapper;
     $('hd-bryter').value = innst.hd === 'original' ? 'original' : 'hd';
