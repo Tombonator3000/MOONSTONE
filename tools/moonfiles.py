@@ -297,7 +297,7 @@ def er_cel(d):
     if len(d) < 20:
         return False
     n, plen, minne = struct.unpack('>HII', d[:10])
-    if n == 0 or n > 500 or 10 + n * 10 + plen > len(d) + 2:
+    if n == 0 or n > 500 or 10 + n * 10 > len(d) or 10 + n * 10 + plen > len(d) + 2:
         return False
     tabell = [struct.unpack('>IHHBB', d[10 + i * 10:20 + i * 10]) for i in range(n)]
     if tabell[0][0] != 0 or not all(0 < w <= 640 and 0 < h <= 400 for (_, w, h, _, _) in tabell):

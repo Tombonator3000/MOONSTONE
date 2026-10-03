@@ -170,9 +170,12 @@ const char *game_background(void) { return background; }
  * Nettsiden viser valgene som knapper (mobil og spillkontroller) og trykker
  * tasten. Dette bare observerer; spillet kjorer som for. */
 #define VALG_TABELL 0x8eeec
-static uint32_t valg_bilde = 0xffffffffu;  /* sist lokka gikk */
+static uint32_t valg_bilde = 0xffffffffu;  /* sist lokka gikk (ikke i lagringen; nullstilles ved lasting) */
 
 static bool observe_valg(void) { valg_bilde = M.frame; return false; }
+
+/* long fra minnet, eller 0 utenfor chip-minnet (pekere fra spillets data) */
+static uint32_t rd32_trygg(uint32_t a) { return a < CHIP_SIZE - 3 ? rd32(a) : 0; }
 
 /* streng fra minnet, '_' blir mellomrom (riddernavnene) */
 static void les_tekst(uint32_t a, char *ut, int n, int pos)
@@ -203,32 +206,39 @@ int game_valg(char tekst[9][GAME_VALG_LEN], char *tittel)
         char *t = tekst[n];
         t[0] = 0;
         if (!maal) break;
-        if (type == 2) les_tekst(0x96330, t, GAME_VALG_LEN, 0);
+        /* tekstene slaas opp gjennom lea-ene i sub_0ABD6E, som patch.c peker om naar
+         * tekster.txt flytter en tekst (lea dat_096330 paa $0ABD78 osv.) */
+        if (type == 2) les_tekst(rd32(0x0abd7a), t, GAME_VALG_LEN, 0);
         else if (type == 1) {
-            les_tekst(0x9633b, t, GAME_VALG_LEN, 0);
-            les_tekst(rd32(maal + K_NAME), t, GAME_VALG_LEN, (int)strlen(t));
-        } else if (type >= 0x15 && type < 0x15 + 32) les_tekst(rd32(0x96386 + (type - 0x15) * 4), t, GAME_VALG_LEN, 0);
+            les_tekst(rd32(0x0abd8e), t, GAME_VALG_LEN, 0);
+            les_tekst(rd32_trygg(maal + K_NAME), t, GAME_VALG_LEN, (int)strlen(t));
+        } else if (type >= 0x15 && type < 0x15 + 32) les_tekst(rd32_trygg(rd32(0x0abdac) + (type - 0x15) * 4), t, GAME_VALG_LEN, 0);
         trim(t);
     }
-    les_tekst(rd32(rd32(CUR_KNIGHT) + K_NAME), tittel, GAME_VALG_LEN, 0);
-    les_tekst(0x962a1, tittel, GAME_VALG_LEN, (int)strlen(tittel));    /* " may ... " */
+    les_tekst(rd32_trygg(rd32(CUR_KNIGHT) + K_NAME), tittel, GAME_VALG_LEN, 0);
+    les_tekst(rd32(0x0abcb6), tittel, GAME_VALG_LEN, (int)strlen(tittel));    /* " may ... " ($0ABCB4) */
     trim(tittel);
     return n;
 }
 
 /* ------------------------------------------------------------ navnet til ridderen */
-/* Etter Select a Knight skrives navnet ($081B7C): tastene skriver, Return ($1C)
- * eller fire godtar, Backspace ($0E) sletter. Bufferen er pekeren paa $8F0B4,
- * lengden $8CE32 (maks 13). Nettsiden tilbyr et tekstfelt paa mobil. */
-static uint32_t navn_bilde = 0xffffffffu;
+/* Etter Select a Knight skrives navnet (sub_081B26, lokka paa $081B7C): tastene
+ * skriver, Return ($1C) eller fire godtar, Backspace ($0E) sletter. Bufferen er
+ * pekeren paa $8F0B4, lengden ordet $8CE32 (maks 13). Ordet $8CE34 er 1 saa lenge
+ * navnet skrives ($081B32 til $081C74), ogsaa mens det tegnes paa nytt etter en
+ * tast (6-7 bilder, og da leser lokka ikke tastene). Nettsiden tilbyr et tekstfelt
+ * paa mobil og sender en tast om gangen, naar lokka leser igjen (game_navn_klar). */
+static uint32_t navn_bilde = 0xffffffffu;   /* sist lokka leste tastene */
 
 static bool observe_navn(void) { navn_bilde = M.frame; return false; }
+
+bool game_navn_klar(void) { return game_navn() != NULL && M.frame - navn_bilde <= 1; }
 
 /* navnet saa langt, eller NULL naar spillet ikke venter paa navnet */
 const char *game_navn(void)
 {
     static char buf[GAME_VALG_LEN];
-    if (!game_mog_running() || M.frame - navn_bilde > 2) return NULL;
+    if (!game_mog_running() || !(chip[0x8ce34] << 8 | chip[0x8ce35])) return NULL;
     uint32_t p = rd32(0x8f0b4);
     int n = (int)(uint16_t)(chip[0x8ce32] << 8 | chip[0x8ce33]);
     buf[0] = 0;
@@ -238,11 +248,14 @@ const char *game_navn(void)
     return buf;
 }
 
+/* Observatorene inne i lokker registreres som lapper: de endrer ingenting, og som
+ * vanlige kroker ville --hook-cycles tatt dem for funksjoner og maalt feil. */
 void game_register_hooks(void)
 {
+    valg_bilde = navn_bilde = 0xffffffffu;
     hooks_register(0x9dcec, observe_draw, "tegn_figur (observer)");
-    hooks_register(0x0abbba, observe_valg, "valgene paa kartet (observer)");
-    hooks_register(0x081b7c, observe_navn, "navnet til ridderen (observer)");
+    hooks_register_patch(0x0abbba, observe_valg, "valgene paa kartet (observer)");
+    hooks_register_patch(0x081b7c, observe_navn, "navnet til ridderen (observer)");
 }
 
 void game_state(StateIO *s)
@@ -250,4 +263,5 @@ void game_state(StateIO *s)
     STATE_VAR(s, cels);
     STATE_VAR(s, n_cels);
     STATE_VAR(s, background);
+    if (!s->saving) valg_bilde = navn_bilde = 0xffffffffu;    /* et annet bilde enn da lokka gikk */
 }

@@ -568,8 +568,9 @@
         if (noekkel === (valgNaa ? valgNaa.noekkel : '')) return;
         const boks = $('valg');
         if (!v) { valgNaa = null; boks.hidden = true; return; }
-        valgNaa = { noekkel, valg: v.valg, valgt: 0 };
+        valgNaa = { noekkel, valg: v.valg, valgt: 0, aktiv: minTur() };
         valgJoy = 0xff;                     /* fire som aapnet valgene, maa slippes forst */
+        boks.classList.toggle('venter', !valgNaa.aktiv);
         Spillgrafikk.sett($('valg-tittel'), v.tittel);
         const liste = $('valg-liste');
         liste.textContent = '';
@@ -583,6 +584,7 @@
             const tekst = document.createElement('span');
             b.append(pil, tekst);
             Spillgrafikk.sett(tekst, (i + 1) + ' ' + t);
+            b.disabled = !valgNaa.aktiv;
             b.addEventListener('click', () => velgValg(i));
             b.addEventListener('pointerenter', () => merkValg(i));
             liste.appendChild(b);
@@ -599,7 +601,7 @@
     }
 
     function velgValg(i) {
-        if (!valgNaa || valgNaa.valgt || i < 0 || i >= valgNaa.valg.length) return;
+        if (!valgNaa || !valgNaa.aktiv || valgNaa.valgt || i < 0 || i >= valgNaa.valg.length) return;
         valgNaa.valgt = performance.now();   /* til spillet har tatt tasten og boksen er borte */
         Inndata.trykk(0x01 + i);             /* tastene 1-9 paa Amigaen */
         valgStille = true;
@@ -613,7 +615,7 @@
             valgJoy = bits;
             return true;
         }
-        if (!valgNaa) { valgJoy = bits; return false; }
+        if (!valgNaa || !valgNaa.aktiv) { valgJoy = bits; return false; }
         const ny = bits & ~valgJoy;
         valgJoy = bits;
         if (ny & Inndata.OPP) merkValg(valgMerket - 1);
@@ -624,9 +626,22 @@
 
     /* Enter og mellomrom velger der pilen staar; tallene gaar rett til spillet */
     function valgTaster(taster) {
-        if (!valgNaa) return taster;
+        if (!valgNaa || !valgNaa.aktiv) return taster;
         if (taster.some(([k, d]) => d && MENYTASTER.includes(k))) velgValg(valgMerket);
         return taster.filter(([k]) => !MENYTASTER.includes(k));
+    }
+
+    /* Er det denne spilleren som velger? Alene og hver for seg alltid; i et rom tur
+     * for tur den som har joysticken i port 2 (ridderen som har turen). Ellers vises
+     * valgene bare, og tastene ville verten uansett ikke sluppet gjennom. */
+    function minTur() {
+        if (modus !== 'vert' && modus !== 'gjest') return true;
+        if (modus === 'vert' && !Nett.harGjester()) return true;
+        const eier = Kjerne.portSpillere()[1];
+        if (eier < 0) return modus === 'vert';
+        if (modus === 'vert') return eier === Nett.vertensSpiller();
+        const meg = Nett.spillere().find((x) => x.id === Nett.minId());
+        return !!meg && meg.spiller === eier;
     }
 
     /* boksen midt over spillets bilde, innenfor skjermen */
@@ -648,7 +663,8 @@
      * staar). Paa mobil kommer en knapp under bildet som aapner et tekstfelt; navnet
      * skrives saa inn i spillet tast for tast, og Return godtar det. */
     function oppdaterNavnKnapp() {
-        const vis = Kjerne.navnAktiv() && (beroering() || innst.knapper) && !menyApen && !dialogApen && !Inndata.venter();
+        navnSteg();
+        const vis = Kjerne.navnAktiv() && (beroering() || innst.knapper) && !menyApen && !dialogApen && !navnSending && minTur();
         const k = $('navn-knapp');
         if (k.hidden !== vis) return;
         k.hidden = !vis;
@@ -671,20 +687,37 @@
         $('ridder-felt').select();
     });
 
+    /* Etter hver tast tegner spillet navnet paa nytt i 6-7 bilder, og en tast som
+     * kommer da, blir borte. Tastene sendes derfor en om gangen: neste naar lokka
+     * leser igjen (Kjerne.navnKlar) og navnet har endret seg (eller etter 1,5 s). */
+    let navnSending = null;                 /* { ko: [koder], forrige, frist } */
+
+    function navnSteg() {
+        const s = navnSending;
+        if (!s) return;
+        if (!Kjerne.navnAktiv()) { navnSending = null; return; }     /* godtatt, eller ute av navnet */
+        if (!Kjerne.navnKlar() || Inndata.venter()) return;
+        const naa = Kjerne.navn();
+        if (s.forrige !== null && naa === s.forrige && performance.now() < s.frist) return;
+        if (!s.ko.length) { navnSending = null; return; }
+        s.forrige = naa;
+        s.frist = performance.now() + 1500;
+        Inndata.trykk(s.ko.shift());
+    }
+
     function ridderOk() {
         const nytt = $('ridder-felt').value.toUpperCase().replace(/[ÆØÅ]/g, (c) => ({ Æ: 'AE', Ø: 'O', Å: 'A' }[c]))
             .normalize('NFD').replace(/[^A-Z0-9 ]/g, '').replace(/\s+/g, ' ').trim().slice(0, 13);
         visDialog('ridder-dialog', false);
         if (!nytt || !Kjerne.navnAktiv()) return;
-        let om = 0;
-        for (let i = Kjerne.navn().length; i > 0; i--, om += 4) Inndata.trykk(0x41, om);     /* Backspace */
+        const ko = [];
+        for (let i = Kjerne.navn().length; i > 0; i--) ko.push(0x41);       /* Backspace */
         for (const c of nytt) {
             const kode = c === ' ' ? 0x40 : Inndata.kode(/[0-9]/.test(c) ? 'Digit' + c : 'Key' + c);
-            if (kode === undefined) continue;
-            Inndata.trykk(kode, om);
-            om += 4;
+            if (kode !== undefined) ko.push(kode);
         }
-        Inndata.trykk(0x44, om);                /* Return godtar navnet */
+        ko.push(0x44);                          /* Return godtar navnet */
+        navnSending = { ko, forrige: null, frist: 0 };
         $('navn-knapp').hidden = true;
     }
     $('ridder-ok').addEventListener('click', ridderOk);

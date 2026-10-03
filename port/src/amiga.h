@@ -296,6 +296,7 @@ const char *game_background(void);
 #define GAME_VALG_LEN 48
 int      game_valg(char tekst[9][GAME_VALG_LEN], char *tittel);   /* valgene paa kartet (tastene 1-9), 0 = ingen */
 const char *game_navn(void);              /* navnet som skrives etter Select a Knight, NULL = ikke naa */
+bool     game_navn_klar(void);            /* navnet skrives, og lokka leser tastene akkurat naa */
 
 /* ------------------------------------------------------------ patch.c, meny.c */
 extern uint32_t *whd_relocs;              /* langordene siste resload_Relocate rettet */

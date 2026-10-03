@@ -150,6 +150,7 @@ EMSCRIPTEN_KEEPALIVE const char *ms_valg_tekst(int i) { return i >= 0 && i < 9 ?
 EMSCRIPTEN_KEEPALIVE const char *ms_valg_tittel(void) { return valg_tittel; }
 EMSCRIPTEN_KEEPALIVE const char *ms_navn(void) { const char *n = game_navn(); return n ? n : ""; }
 EMSCRIPTEN_KEEPALIVE int ms_navn_aktiv(void) { return game_navn() != NULL; }
+EMSCRIPTEN_KEEPALIVE int ms_navn_klar(void) { return game_navn_klar() ? 1 : 0; }
 EMSCRIPTEN_KEEPALIVE int ms_knight_player(int k) { return game_knight_player(k); }
 
 /* tegnelisten for HD-grafikk (se game.c og docs/hd-grafikk.md) */

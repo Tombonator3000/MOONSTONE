@@ -128,6 +128,8 @@ label.knapp input[type=file] { display: none; }
 .valg-knapp.merket { background: var(--boks-skygge); border-left-color: var(--boks-mork); }
 .valg-knapp.merket .pil, .valg-knapp:hover .pil { visibility: visible; }
 .valg-knapp:focus-visible { outline: 2px solid var(--krem); outline-offset: -2px; }
+.valg-knapp:disabled { cursor: default; }
+#valg.venter .valg-knapp { opacity: .75; }
 #navn-knapp { position: absolute; z-index: 3; }
 
 #touch { position: absolute; inset: auto 0 0 0; height: 46vh; pointer-events: none; }
