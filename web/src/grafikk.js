@@ -241,7 +241,7 @@ const Spillgrafikk = (() => {
             storrelse(c);
             lerreter.add(c);
             el.appendChild(c);
-            if (i < ord.length - 1) el.appendChild(document.createTextNode(' '));     /* her kan linjen brytes */
+            if (i < ord.length - 1) el.appendChild(document.createElement('wbr'));    /* her kan linjen brytes (uten tekst) */
         });
         /* skjermlesere leser teksten, ikke bildene */
         const s = document.createElement('span');
