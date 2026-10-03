@@ -272,9 +272,18 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   SLIPPES; $9B716 er tabellen over tastene som er nede.
 - Navnet til ridderen: sub_081B26, lokka paa $081B7C. Fire godtar, Return ($1C) godtar,
   Backspace ($0E) sletter, maks 13 tegn. Bufferen er pekeren paa $8F0B4, lengden ordet $8CE32.
-- game.c observerer $0ABBBA og $081B7C (hooks_register, endrer ingenting); web.c:
-  ms_valg_antall/tekst/tittel, ms_navn/ms_navn_aktiv. app.js viser valgene som knapper og
-  trykker tasten med Inndata.trykk (ned naa, opp to bilder senere).
+- game.c observerer $0ABBBA og $081B7C (som lapper, hooks_register_patch: de endrer
+  ingenting, og vanlige kroker inne i lokker forstyrrer --hook-cycles); web.c:
+  ms_valg_antall/tekst/tittel, ms_navn/ms_navn_aktiv/ms_navn_klar. app.js viser valgene som
+  knapper og trykker tasten med Inndata.trykk (ned naa, opp to bilder senere). Tekstene leses
+  gjennom lea-ene ($0ABD7A, $0ABD8E, $0ABDAC, $0ABCB6), som patch.c peker om for tekster.txt.
+  Observatorene nullstilles ved lasting (game_state) og start.
+- Navnet: ordet $8CE34 er 1 hele tiden navnet skrives (ogsaa mens det tegnes paa nytt etter en
+  tast, 6-7 bilder der lokka ikke leser tastene og $9B684 nullstilles etterpaa). Nettsiden sender
+  derfor en tast om gangen: neste naar lokka leser igjen og navnet har endret seg.
+- Menyen husker ogsaa opp og ned som kommer mens den tegnes (M2.dir_seen, meny_frame), og gir
+  dem ved aa skrive $8D9A2 (opp 8, ned 4) og gaa til $81910 (ikke fire -> tittelmeny_joystick).
+  Et nytt fire-trykk mens menyen tegnes slipper wait_release (M2.fire_seen). STATE_VERSION 12.
 - bold.f: 76 bilder, 19 punkter hoye: 0-25 A-Z, 26-51 a-z, 52-61 0-9, 62 !, 63 ?, 64 ., 65 ,,
   66 #, 67 $, 68 %, 69 tom (15 bred), 70 ', 71 _ (og /), 72 prikk, 73 logoen (305 x 54),
   74-75 copyright. skriv_tekst flytter bredden minus 3 for bold.f ($089166, flagg bit 3).
