@@ -189,6 +189,7 @@ const Kjerne = (() => {
         stoppMelding: () => M.UTF8ToString(M._ms_abort_msg()),
         volum: (v) => M._ms_volume(v),
         portSpillere: () => [M._ms_port_player(0), M._ms_port_player(1)],
+        velgerRidder: () => !!(M && M._ms_velger_ridder()),       /* Select a Knight eller navnet etterpaa */
         tegneliste,
         ridderNavn: (k) => M.UTF8ToString(M._ms_knight_name(k)),
         /* valgene paa kartet (tastene 1-9) og navnet som skrives etter Select a Knight (port/src/game.c) */

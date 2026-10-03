@@ -148,7 +148,7 @@ const Inndata = (() => {
     const nede = new Set();
     const kort = new Set();                 /* joysticktaster trykket siden sist, ogsaa om de er sluppet */
     const tasteKo = [];                     /* [kode, ned] siden sist */
-    let touchA = 0;
+    let touchA = 0, touchKort = 0;          /* touchKort: trykk paa skjermen siden sist, ogsaa om de er sluppet */
     let aktiv = false;                      /* bare naar spillet vises */
     let hurtig = null;                      /* taster siden selv bruker (meny osv.) */
     const padForrige = [{}, {}];
@@ -236,12 +236,14 @@ const Inndata = (() => {
             for (const k in forr) forr[k] = trykket.includes(+k);
             for (const k of trykket) forr[k] = true;
             kort.clear();
+            touchKort = 0;
             let joy = false;
             for (const c of nede) if (c in joyA || c in joyB) joy = true;
             if (trykket.length || joy) return { a: 0, b: 0 };
             stille = false;
         }
-        let a = touchA, b = 0;
+        let a = touchA | touchKort, b = 0;
+        touchKort = 0;
         for (const c of nede) kort.add(c);
         for (const c of kort) {
             if (c in joyA) a |= joyA[c];
@@ -275,7 +277,7 @@ const Inndata = (() => {
     /* berøringsknapper: et styrekors og noen knapper */
     function lagTouch(rot) {
         const kors = rot.querySelector('.kors');
-        const sett = (bit, on) => { touchA = on ? (touchA | bit) : (touchA & ~bit); };
+        const sett = (bit, on) => { touchA = on ? (touchA | bit) : (touchA & ~bit); if (on) touchKort |= bit; };
         const retning = (ev) => {
             const r = kors.getBoundingClientRect();
             const x = (ev.clientX - r.left) / r.width - 0.5, y = (ev.clientY - r.top) / r.height - 0.5;
@@ -289,6 +291,7 @@ const Inndata = (() => {
                 if (v > -3 * s && v < 3 * s) b |= HOYRE;
             }
             touchA = (touchA & FIRE) | b;
+            touchKort |= b;
         };
         kors.addEventListener('pointerdown', (e) => { kors.setPointerCapture(e.pointerId); retning(e); e.preventDefault(); });
         kors.addEventListener('pointermove', (e) => { if (e.buttons || e.pointerType === 'touch') retning(e); });

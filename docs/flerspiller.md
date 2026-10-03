@@ -24,7 +24,7 @@ Ridderne: fire plasser à $84 byte fra $8D5B4 (`ridder_1` til `ridder_4`, se ogs
 | Felt | Betydning |
 | --- | --- |
 | +$0B | joystickporten (2 på kartet, 1 for den andre ridderen i kamp) |
-| +$36 | spillernummer 0-3, 4 = datamaskinen |
+| +$36 | figuren som ble valgt (0-3), 4 = datamaskinen |
 | +$49 | liv; 0 eller mindre = død (tegnes med bilde $21/$2A) |
 | +$4D | settes til 12 ved turstart |
 | +$52 | større enn 0: turen hoppes over |
@@ -63,6 +63,33 @@ Turene (`$0AAC14` til `$0AAF54`):
 - Turen hoppes over når +$52 er større enn 0 (`$0AAEEC`). En død ridder som ikke er
   datamaskinens, telles som en død spiller (`$0AAF08`), og når alle spillerne er
   døde, er spillet over.
+
+## Tur for tur (Turns): hvem styrer
+
+Verten kjører spillet og slår sammen joystickene for hvert bilde (`Nett.porter`).
+Med «Følger turen i spillet» (standard) får port 2 og port 1 inndataene til den
+deltakeren som har spillernummeret `game_port_player` gir (verten er spiller 1,
+gjestene 2-4 i den rekkefølgen de kom, og verten kan endre det i sidemenyen).
+
+- Spillernummeret er **plassen** til ridderen, altså rekkefølgen ridderne ble valgt
+  i Select a Knight. Før 2026-10-03 ble figuren (+$36) brukt. Den sier hvilken av de
+  fire ridderne som ble valgt, så valgte verten SIR RICHARD (figur 1), styrte gjesten
+  vertens ridder, og valgte noen JEFFREY eller EDWARD, styrte verten begge.
+- I Select a Knight og navnet styrer bare den som skal velge (`$8F49C`), og
+  statuslinjen sier «Tom velger ridder». Tastene til de andre slippes ikke gjennom.
+- På kartet styrer den som har turen (`aktiv_ridder`), også tastene (mellomrom, E).
+- Et møte mellom to riddere (`$080AB8` til `$080BD8`): beskyttelsesrullen er den
+  angrepnes; i kampen gir +$0B portene (angriperen port 2, et angrepet menneske port 1,
+  og angriper datamaskinen, får mennesket port 2); plyndringen styres av den som
+  plyndrer, med porten til +$0B (pekeren på `$08C3EA`). Fasen er med i lagringen.
+- I menyene (tittelmenyen og nettspillsidene) kan alle styre.
+- Velger verten Select Knight med færre spillere (Players) enn det er folk i rommet,
+  settes antallet opp, så alle får en ridder.
+- Joysticken fra en gjest kommer som siste tilstand. Et kort trykk huskes i tre
+  bilder hos verten, så det ikke blir borte når trykk og slipp kommer mellom to bilder.
+  Det samme gjelder forsvareren i en duell.
+
+Test: `$S/test35.js` (vert og gjest; verten velger SIR RICHARD).
 
 ## Slik er «Hver for seg» laget (port/src/hver.c, web/src/app.js)
 

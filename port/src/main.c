@@ -29,6 +29,10 @@ static int   n_presses;
 typedef struct { uint32_t frame; int cmd, arg; char text[96]; } MenuCmd;
 static MenuCmd menu_cmds[32];
 static int     n_menu_cmds;
+/* --skriv: verdier som skrives i minnet foer et bilde (testoppsett, f.eks. ridderne ved siden av hverandre) */
+typedef struct { uint32_t frame, addr, value; int size; } Poke;
+static Poke pokes[64];
+static int n_pokes;
 
 static const struct { const char *name; int code; } keynames[] = {
     {"esc",0x45},{"space",0x40},{"return",0x44},{"enter",0x43},{"tab",0x42},{"backspace",0x41},{"del",0x46},
@@ -106,6 +110,7 @@ static void usage(void)
            "  --save-state F:FIL    lagre tilstand i bilde F\n"
            "  --load-state FIL      start fra en lagret tilstand\n"
            "  --dump F:FIL          skriv chip-minnet til fil i bilde F\n"
+           "  --skriv F:ADR:VERDI[:N] skriv VERDI (N = 1, 2 eller 4 byte) paa ADR (heks) foer bilde F\n"
            "  --vis-tur             skriv hvilken spiller som styrer portene (nettspill)\n"
            "  --coverage FIL        lagre hvilke adresser som er kjort (legges til filen)\n"
            "  --tegneliste F[:N]    skriv figurene som tegnes i bilde F og de N-1 neste (HD)\n"
@@ -264,6 +269,17 @@ int main(int argc, char **argv)
             const char *c = strchr(v, ':');
             save_state_file = c ? c + 1 : "moonstone.sav";
             i++;
+        } else if (!strcmp(a, "--skriv") && v) {
+            if (n_pokes < 64) {
+                Poke *p = &pokes[n_pokes++];
+                char tmp[64], *c;
+                snprintf(tmp, sizeof tmp, "%s", v);
+                p->frame = (uint32_t)strtoul(tmp, &c, 10);
+                p->addr = *c == ':' ? (uint32_t)strtoul(c + 1, &c, 16) : 0;
+                p->value = *c == ':' ? (uint32_t)strtoul(c + 1, &c, 0) : 0;
+                p->size = *c == ':' ? atoi(c + 1) : 1;
+            }
+            i++;
         } else if (!strcmp(a, "--online-meny")) {
             meny_online = true;
         } else if (!strcmp(a, "--meny") && v) {
@@ -371,6 +387,12 @@ static int run_headless(int frames, int shot_every, const char *shot_dir, int sa
             if (menu_cmds[k].frame == M.frame) meny_command(menu_cmds[k].cmd, menu_cmds[k].arg, menu_cmds[k].text);
         for (int k = 0; k < n_hver_cmds; k++)
             if (hver_cmds[k].frame == M.frame) hver_kommando(hver_cmds[k].cmd, hver_cmds[k].arg, hver_cmds[k].text);
+        for (int k = 0; k < n_pokes; k++)
+            if (pokes[k].frame == M.frame) {
+                if (pokes[k].size == 4) mem_write32(pokes[k].addr, pokes[k].value);
+                else if (pokes[k].size == 2) mem_write16(pokes[k].addr, (uint16_t)pokes[k].value);
+                else mem_write8(pokes[k].addr, (uint8_t)pokes[k].value);
+            }
         hver_frame();
         meny_frame();
         amiga_run_frame();

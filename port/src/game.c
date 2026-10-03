@@ -7,7 +7,7 @@
  *
  * Ridderne: fire strukturer paa $84 byte fra $8D5B4.
  *   +$0B byte  hvem som styrer: 1 = joystick i port 1, 2 = joystick i port 2, 4 = datamaskinen
- *   +$36 long  spillernummer 0-3, eller 4 for en ridder datamaskinen spiller
+ *   +$36 long  figuren som ble valgt i Select a Knight (0-3), eller 4 for en ridder datamaskinen spiller
  *   +$6C long  peker til navnet (f.eks. "SIR_GODBER")
  * $8D9AC long  peker til ridderen som har turen (ogsaa naar datamaskinen spiller)
  * $8D9A0 ord   joystick i port 1 slik spillet leser den ($81F92), $8D9A2 port 2
@@ -39,26 +39,81 @@ static int knight_index(uint32_t p)
     return (int)((p - KNIGHTS) / KNIGHT_SIZE);
 }
 
-/* Spillernummeret (0-3) som styrer porten akkurat naa, eller -1 hvis vi ikke vet
- * (menyer, intro) eller datamaskinen styrer. port: 0 = port 1, 1 = port 2. */
+/* ------------------------------------------------------------ hvem styrer portene (nettspill) */
+/* Select a Knight (sub_081C82) gir ridderne plass for plass: $8F49C er plassen som
+ * faar neste ridder ($8D5B4, saa + $84 for hver), $8F4A0 hvor mange som gjenstaar.
+ * Den som velger forst, faar altsaa plass 0 osv. Ridderen faar +$36 = figuren som
+ * ble valgt (0 GODBER, 1 RICHARD, 2 JEFFREY, 3 EDWARD, $081ECA), ikke rekkefolgen,
+ * saa nettspillet bruker plassen: spiller 1 er den som velger forst.
+ *
+ * Et moete mellom to riddere ($080AB8 til $080BD8, alle veier ut gaar dit):
+ * $8CE94 er den som angriper og $8CE98 den angrepne. Beskyttelsesrullen
+ * ($080C52-$080C98) er den angrepnes: vent_paa_fire leser port 2, og pekeren i
+ * inventaret ($08C3EA) leser porten til ridderen i $8CE94 (port 1 naar +$0B er 1,
+ * ellers port 2), som da er den angrepne ($080C82). I kampen ($080B40) har
+ * mennesket som angriper port 2 og et angrepet menneske port 1 (+$0B), og
+ * angriper datamaskinen, faar mennesket port 2. Etter kampen byttes de to om
+ * naar den angrepne vant ($080B94), og den som plyndrer ($080BA4, $8CE94) styrer
+ * pekeren med sin egen port. Rullen og plyndringen gir derfor begge portene til
+ * den som velger. */
+#define VELG_IGJEN  0x8f4a0
+#define VELG_PLASS  0x8f49c
+#define MOETE_A     0x8ce94
+#define MOETE_B     0x8ce98
+enum { MOETE_INGEN, MOETE_FOER, MOETE_RULLE, MOETE_KAMP, MOETE_PLYNDRING };
+
+static uint32_t velg_bilde = 0xffffffffu;   /* sist lokka i Select a Knight leste joysticken */
+static uint32_t navn_bilde = 0xffffffffu;   /* sist lokka for navnet leste tastene */
+static uint8_t moete;                       /* MOETE_*, i lagringen */
+
+static uint16_t rd16(uint32_t a) { return (uint16_t)(chip[a] << 8 | chip[a + 1]); }
+
+static bool menneske(int k)
+{
+    return k >= 0 && rd32(KNIGHTS + (uint32_t)k * KNIGHT_SIZE + K_PLAYER) <= 3;
+}
+
+static int styres_med(int k) { return chip[KNIGHTS + (uint32_t)k * KNIGHT_SIZE + K_CTRL]; }
+
+/* Select a Knight eller navnet etterpaa er paa skjermen */
+bool game_velger_ridder(void)
+{
+    if (!game_mog_running() || meny_in_menu()) return false;
+    uint16_t igjen = rd16(VELG_IGJEN);
+    if (igjen < 1 || igjen > 4 || knight_index(rd32(VELG_PLASS)) < 0) return false;
+    return M.frame - velg_bilde <= 50 || M.frame - navn_bilde <= 50;
+}
+
+/* Plassen (0-3, rekkefolgen ridderne ble valgt i) til mennesket som styrer porten
+ * akkurat naa, eller -1 naar alle kan styre (menyer, intro) eller datamaskinen
+ * styrer. port: 0 = port 1, 1 = port 2. */
 int game_port_player(int port)
 {
-    if (!game_mog_running()) return -1;
-    if (port == 1) {
-        int k = knight_index(rd32(CUR_KNIGHT));
-        if (k < 0) return -1;
-        uint32_t s = KNIGHTS + (uint32_t)k * KNIGHT_SIZE;
-        uint32_t pl = rd32(s + K_PLAYER);
-        if (pl > 3 || chip[s + K_CTRL] != 2) return -1;
-        return (int)pl;
+    if (!game_mog_running() || meny_in_menu()) return -1;
+    if (game_velger_ridder()) return port == 1 ? knight_index(rd32(VELG_PLASS)) : -1;
+    int a = knight_index(rd32(MOETE_A)), b = knight_index(rd32(MOETE_B));
+    switch (moete) {
+    case MOETE_RULLE:
+        return menneske(b) ? b : -1;
+    case MOETE_KAMP:
+        if (menneske(a) && styres_med(a) == (port == 1 ? 2 : 1)) return a;
+        if (menneske(b) && styres_med(b) == (port == 1 ? 2 : 1)) return b;
+        return -1;
+    case MOETE_PLYNDRING:
+        return menneske(a) ? a : -1;
     }
-    for (int k = 0; k < 4; k++) {
-        uint32_t s = KNIGHTS + (uint32_t)k * KNIGHT_SIZE;
-        uint32_t pl = rd32(s + K_PLAYER);
-        if (chip[s + K_CTRL] == 1 && pl <= 3) return (int)pl;
-    }
-    return -1;
+    if (port != 1) return -1;
+    int k = knight_index(rd32(CUR_KNIGHT));
+    return menneske(k) && styres_med(k) == 2 ? k : -1;
 }
+
+static bool observe_velg(void) { velg_bilde = M.frame; return false; }
+static bool observe_moete(void) { moete = MOETE_FOER; return false; }
+static bool observe_rulle(void) { if (moete) moete = MOETE_RULLE; return false; }
+static bool observe_rulle_slutt(void) { if (moete) moete = MOETE_FOER; return false; }
+static bool observe_kamp(void) { if (moete) moete = MOETE_KAMP; return false; }
+static bool observe_plyndring(void) { if (moete) moete = MOETE_PLYNDRING; return false; }
+static bool observe_moete_slutt(void) { moete = MOETE_INGEN; return false; }
 
 /* navnet til ridder k (0-3), eller "" */
 const char *game_knight_name(int k)
@@ -228,8 +283,6 @@ int game_valg(char tekst[9][GAME_VALG_LEN], char *tittel)
  * navnet skrives ($081B32 til $081C74), ogsaa mens det tegnes paa nytt etter en
  * tast (6-7 bilder, og da leser lokka ikke tastene). Nettsiden tilbyr et tekstfelt
  * paa mobil og sender en tast om gangen, naar lokka leser igjen (game_navn_klar). */
-static uint32_t navn_bilde = 0xffffffffu;   /* sist lokka leste tastene */
-
 static bool observe_navn(void) { navn_bilde = M.frame; return false; }
 
 bool game_navn_klar(void) { return game_navn() != NULL && M.frame - navn_bilde <= 1; }
@@ -252,10 +305,25 @@ const char *game_navn(void)
  * vanlige kroker ville --hook-cycles tatt dem for funksjoner og maalt feil. */
 void game_register_hooks(void)
 {
-    valg_bilde = navn_bilde = 0xffffffffu;
+    valg_bilde = navn_bilde = velg_bilde = 0xffffffffu;
+    moete = MOETE_INGEN;
     hooks_register(0x9dcec, observe_draw, "tegn_figur (observer)");
     hooks_register_patch(0x0abbba, observe_valg, "valgene paa kartet (observer)");
     hooks_register_patch(0x081b7c, observe_navn, "navnet til ridderen (observer)");
+    hooks_register_patch(0x081cfa, observe_velg, "Select a Knight (observer)");
+    hooks_register_patch(0x080ab8, observe_moete, "moete mellom riddere (observer)");
+    hooks_register_patch(0x080c52, observe_rulle, "beskyttelsesrullen (observer)");
+    hooks_register_patch(0x080c98, observe_rulle_slutt, "beskyttelsesrullen slutt (observer)");
+    hooks_register_patch(0x080b40, observe_kamp, "kampen i moetet (observer)");
+    hooks_register_patch(0x080ba4, observe_plyndring, "plyndringen (observer)");
+    hooks_register_patch(0x080bd8, observe_moete_slutt, "moetet slutt (observer)");
+}
+
+/* ny maskin (amiga_reset): ingen lokker sett, intet moete */
+void game_reset(void)
+{
+    valg_bilde = navn_bilde = velg_bilde = 0xffffffffu;
+    moete = MOETE_INGEN;
 }
 
 void game_state(StateIO *s)
@@ -263,5 +331,6 @@ void game_state(StateIO *s)
     STATE_VAR(s, cels);
     STATE_VAR(s, n_cels);
     STATE_VAR(s, background);
-    if (!s->saving) valg_bilde = navn_bilde = 0xffffffffu;    /* et annet bilde enn da lokka gikk */
+    STATE_VAR(s, moete);
+    if (!s->saving) valg_bilde = navn_bilde = velg_bilde = 0xffffffffu;    /* et annet bilde enn da lokka gikk */
 }

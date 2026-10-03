@@ -294,3 +294,27 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 - `.knapp { display: inline-flex }` overstyrer `hidden`; style.css har `[hidden] { display: none !important }`.
 - DRAGON1.CEL har seks tomme bilder forst (planmaske 0); er_cel godtar det naa.
 
+
+## Hvem styrer i nettspill (2026-10-03)
+- +$36 er figuren som ble valgt i Select a Knight (0 GODBER, 1 RICHARD, 2 JEFFREY, 3 EDWARD,
+  $081ECA), ikke rekkefolgen. Select a Knight (sub_081C82, lokka paa $081CFA) gir plass for
+  plass: $8F49C er plassen som faar neste ridder, $8F4A0 hvor mange som gjenstaar (startverdi 1,
+  0 naar spillet er i gang), $8F4A2 er figurene som er ledige (bit), $8F51E pilen.
+  Navnet (sub_081B26) kalles bare herfra. Turene gaar i plassenes rekkefolge.
+- game_port_player gir plassen. Moetet: $080AB8 (start, $8CE94 angriper, $8CE98 den angrepne),
+  $080C1A rullen (kalles foer portene settes, vent_paa_fire port 2, saa inventaret med
+  $8CE94 = den angrepne), $080B14 portene (menneske som angriper +$0B 2, angrepet menneske 1;
+  angriper datamaskinen, faar mennesket 2), $080B40 kampen, $080B94 bytte naar den angrepne
+  vant, $080BA4 plyndring (a0 plyndrer), $080BD8 slutt. HIT (+$50) leses naar kampen
+  starter; aa endre den midt i kampen gjoer ingenting.
+- Pekeren i inventaret og plyndringen ($08C3EA): porten til ridderen i $8E8B6 (= $8CE94,
+  sub_08CA1C), port 1 naar +$0B er 1. Hoyre +2 x, venstre -2, ned +2 y, opp -2, fire.
+- I en duell i Separate har forsvareren +$0B = 1 etter kampen, saa plyndringen hans gaar
+  med port 1 (inndataene hans) uten noe ekstra. Rullen trenger H.rulle fordi fjerne riddere
+  har +$0B = 4 foer kampen.
+- Select Knight i et Turns-rom (M2.spill 1, SESSION_HOST) setter Players opp til M2.players.
+- moonstone-headless --skriv F:ADR:VERDI[:N] skriver i minnet foer bilde F (testoppsett).
+  To mennesker i moete: Players 2, ridder 2 flyttes til ridder 1 ($8D6B6/$8D6B8 = 300/5 i
+  bilde 2100), fire 2200, tasten 2 i 2300; forsvareren gaar med p2-right 62 og p2-down 42
+  fra 2850 og slaar med p2-fire + p2-right (angriperen med HIT 1 via $8D604 i 2250).
+- Nettlesertest for Turns-kontrollene: $S/test35.js.

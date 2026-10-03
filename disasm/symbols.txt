@@ -6,7 +6,7 @@
 81f7c vent_paa_fire           venter til fire trykkes og slippes (port 2)
 81f92 les_joysticker          JOY1DAT til $8D9A2 (port 2) og JOY0DAT til $8D9A0 (port 1), bit 4 = fire
 82008 joydat_til_bits         gjor JOYxDAT om til bit 0-3 (hoyre, venstre, ned, opp)
-8d5b4 ridder_1                fire riddere a $84 byte: +$B port (1/2, 4 = datamaskin), +$36 spiller, +$6C navn
+8d5b4 ridder_1                fire riddere a $84 byte: +$B port (1/2, 4 = datamaskin), +$36 figur (4 = datamaskin), +$6C navn
 8d638 ridder_2
 8d6bc ridder_3
 8d740 ridder_4

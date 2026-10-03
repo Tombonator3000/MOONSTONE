@@ -1036,7 +1036,7 @@
     function startDuell(k) {
         const id = rekkefolge[k - 1];
         if (!id || D || modus !== 'hver') { Kjerne.hverKmd(HVER.AI, k); return; }
-        const d = D = { rolle: 'a', plass: k, id, status: 'venter', inn: 0, navn: navnTil(id), conn: null };
+        const d = D = { rolle: 'a', plass: k, id, status: 'venter', inn: 0, kort: 0, kortN: 0, navn: navnTil(id), conn: null };
         skjulValg();
         status('Utfordrer ' + d.navn + ' ...');
         d.tidsfrist = setTimeout(() => utenDuell(d, d.navn + ' svarte ikke.'), 15000);
@@ -1085,7 +1085,7 @@
             status('Kamp mot ' + d.navn + '!');
             break;
         case 'nei': utenDuell(d, d.navn + ' kan ikke kjempe nå.'); break;
-        case 'inn': d.inn = m.j & 31; break;
+        case 'inn': d.inn = Nett.nyInn(d, m.j); break;      /* et kort trykk varer noen bilder (net.js) */
         }
     }
 
@@ -1256,7 +1256,7 @@
                 taster = alle.filter(([, d, sp]) => Nett.tastTillatt(sp, d, eiere)).map(([k, d]) => [k, d]);
             }
         } else if (D && D.rolle === 'a' && D.status === 'aktiv') {
-            j0 = D.inn;                          /* port 1: den andre i duellen */
+            j0 = Nett.brukInn(D);                /* port 1: den andre i duellen */
             j1 = lokalt.a | lokalt.b;
         } else {
             j0 = lokalt.b;
@@ -1505,20 +1505,21 @@
             tab.appendChild(tr);
         }
         $('port-hjelp').textContent = sisteModus === 'auto'
-            ? 'Spiller 1 er den som velger ridder først i spillet, spiller 2 den neste osv. Joysticken går automatisk til den som har turen på kartet, og i kamp mellom to riddere får begge sin joystick. I menyene kan alle styre.'
+            ? 'Spiller 1 velger ridder først i spillet, så spiller 2 osv., og bare den som skal velge, kan styre da. Joysticken går automatisk til den som har turen på kartet, og i kamp mellom to riddere får begge sin joystick. I menyene kan alle styre.'
             : 'Moonstone har to joystickporter. Joystick 1 (port 2) brukes på kartet og i menyene, i kamp mellom to riddere brukes begge.';
     }
 
-    /* vis hvem som har turen naar det endrer seg */
+    /* vis hvem som har turen (eller velger ridder) naar det endrer seg */
     let sistEier = -2;
     function visTur() {
         if (modus !== 'vert' && modus !== 'gjest') return;
-        const e = Kjerne.portSpillere()[1];
-        if (e === sistEier) return;
-        sistEier = e;
+        const e = Kjerne.portSpillere()[1], velger = Kjerne.velgerRidder();
+        const n = e * 2 + (velger ? 1 : 0);
+        if (n === sistEier) return;
+        sistEier = n;
         if (e < 0) return;
         const s = sisteSpillere.find((x) => x.spiller === e);
-        if (s) status(s.navn + ' har turen');
+        if (s) status(s.navn + (velger ? ' velger ridder' : ' har turen'));
     }
 
     function fyllPlasser() {

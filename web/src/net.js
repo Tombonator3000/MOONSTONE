@@ -28,6 +28,7 @@ const Nett = (() => {
     const MAKS_GJESTER = 3;
     const DEL = 48 * 1024;
     const PORTER = ['p2', 'p1', 'p2'];        /* standard for gjest 1, 2, 3 */
+    const HOLD = 3;                           /* et kort trykk fra nettet varer minst saa mange bilder */
 
     let peer = null, rolle = null, kode = '', mittNavn = 'Spiller';
     let h = {};                               /* hendelser til app.js */
@@ -169,7 +170,7 @@ const Nett = (() => {
             g = {
                 conn, id: conn.peer, navn: String(d.navn || 'Gjest').slice(0, 20),
                 port: PORTER[gjester.size] || 'ingen', spiller: ledigSpiller(),
-                inn: 0, klar: false, venter: true, ko: [], filer: new Set(),
+                inn: 0, kort: 0, kortN: 0, klar: false, venter: true, ko: [], filer: new Set(),
             };
             gjester.set(conn.peer, g);
             h.chat && h.chat('', g.navn + ' koblet seg til');
@@ -184,7 +185,7 @@ const Nett = (() => {
             break;
         }
         /* i hver for seg spiller gjestene sitt eget spill: ingen taster, valg eller synk hit */
-        case 'inn': if (g && romSpill !== 'hver') g.inn = d.j & 31; break;
+        case 'inn': if (g && romSpill !== 'hver') g.inn = nyInn(g, d.j); break;
         case 'tast': if (g && g.klar && romSpill !== 'hver') gjesteTaster.push([d.k & 0x7f, !!d.ned, g.spiller]); break;
         case 'velg': if (g && g.klar && romSpill !== 'hver') h.velg && h.velg(d.rad | 0); break;     /* gjesten klikket paa en rad i menyen */
         case 'ridder':                          /* hver for seg: ridderen til en gjest, videre til de andre */
@@ -264,13 +265,29 @@ const Nett = (() => {
         oppdaterLobby();
     }
 
+    /* Joysticken fra nettet: bare siste tilstand kommer fram, saa et kort trykk
+     * kunne bli borte naar trykk og slipp kom mellom to bilder her. Nye trykk
+     * huskes derfor i HOLD bilder (o.kort), som et kort klikk med musen. */
+    function nyInn(o, j) {
+        j &= 31;
+        const ny = j & ~o.inn;
+        if (ny) { o.kort |= ny; o.kortN = HOLD; }
+        return j;
+    }
+    function brukInn(o) {
+        const b = o.inn | (o.kortN > 0 ? o.kort : 0);
+        if (o.kortN > 0 && --o.kortN === 0) o.kort = 0;
+        return b;
+    }
+
     /* Inndata for de to portene. Med 'auto' folger joysticken turen i spillet:
-     * eiere[1] er spilleren (0-3) som styrer port 2 naa, eiere[0] port 1 (se
-     * port/src/game.c). Er det ukjent (menyer, intro), styrer alle spillerne
-     * port 2. Med 'fast' er hver deltaker koblet til en bestemt port. */
+     * eiere[1] er spilleren (0-3, rekkefolgen ridderne ble valgt i) som styrer
+     * port 2 naa, eiere[0] port 1 (se port/src/game.c). Er det ukjent (menyer,
+     * intro), styrer alle spillerne port 2. Med 'fast' er hver deltaker koblet
+     * til en bestemt port. Kalles en gang per bilde. */
     function porter(lokal, eiere) {
         const deltakere = [{ spiller: vertSpiller, port: vertPort, inn: lokal }];
-        for (const g of gjester.values()) if (g.klar) deltakere.push({ spiller: g.spiller, port: g.port, inn: g.inn });
+        for (const g of gjester.values()) if (g.klar) deltakere.push({ spiller: g.spiller, port: g.port, inn: brukInn(g) });
         const j = [0, 0];
         if (portModus === 'auto') {
             const har = (n) => n >= 0 && deltakere.some((d) => d.spiller === n);
@@ -502,7 +519,7 @@ const Nett = (() => {
         lagRom, bliMed, avslutt, chat, invitasjon, settPort, settSpiller, settModus, sendTilstand, porter, sendBilde,
         hentGjesteTaster, tastTillatt, vertensSpiller, harGjester, sendInn, sendTast, sendVelg, sendRidder, beOmSynk, spillere,
         romSpill: () => romSpill, minId: () => (rolle === 'vert' ? 'vert' : peer ? peer.id : null),
-        duellKoble, sendTilstandTil, tilstandsMottaker, peerId,
+        duellKoble, sendTilstandTil, tilstandsMottaker, peerId, nyInn, brukInn,
         rammer, rolle: () => rolle, kode: () => kode, ping: () => ping,
     };
 })();

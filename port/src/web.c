@@ -139,8 +139,9 @@ EMSCRIPTEN_KEEPALIVE void ms_file_inject(const char *path, const uint8_t *data, 
 }
 EMSCRIPTEN_KEEPALIVE void ms_file_remove(const char *path) { files_remove(path); }
 
-/* nettspill: hvem som styrer portene naa (se game.c) */
+/* nettspill: hvem som styrer portene naa (plassen 0-3, se game.c) */
 EMSCRIPTEN_KEEPALIVE int ms_port_player(int port) { return game_port_player(port); }
+EMSCRIPTEN_KEEPALIVE int ms_velger_ridder(void) { return game_velger_ridder() ? 1 : 0; }
 EMSCRIPTEN_KEEPALIVE const char *ms_knight_name(int k) { return game_knight_name(k); }
 
 /* valgene paa kartet (game_valg): antallet fyller tekstene, som hentes etterpaa */

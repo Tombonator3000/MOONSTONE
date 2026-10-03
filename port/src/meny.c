@@ -557,6 +557,17 @@ static bool hook_leave(void)
     return false;
 }
 
+/* Select Knight i et rom tur for tur: alle i rommet skal faa en ridder. Kom noen
+ * inn etter at verten gikk tilbake til tittelmenyen (Back setter antallet), staar
+ * Players fortsatt paa det gamle, og den nye ville bare sett paa. Antallet settes
+ * opp (aldri ned) foer $81958 leser det. */
+static bool hook_leave_knight(void)
+{
+    in_menu = false;
+    if (active() && M2.spill && M2.session == SESSION_HOST && M2.players > rd16(PLAYERS)) set_players(M2.players);
+    return false;
+}
+
 void meny_register_hooks(void)
 {
     hooks_register_patch(0x8188c, hook_title, "tittelmeny (nettspill)");
@@ -565,7 +576,7 @@ void meny_register_hooks(void)
     hooks_register_patch(0x81916, hook_fire, "tittelmeny fire (nettspill)");
     hooks_register_patch(0x81968, hook_joystick, "tittelmeny joystick (nettspill)");
     hooks_register_patch(0x8194a, hook_leave, "tittelmeny forlates (Practice)");
-    hooks_register_patch(0x81952, hook_leave, "tittelmeny forlates (Select Knight)");
+    hooks_register_patch(0x81952, hook_leave_knight, "tittelmeny forlates (Select Knight)");
 }
 
 /* ---------------------------------------------------------------- kommandoer */

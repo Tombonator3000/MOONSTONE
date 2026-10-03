@@ -115,7 +115,7 @@ Fire strukturer på $84 byte fra $8D5B4:
 | Offset | Innhold |
 | --- | --- |
 | +$0B | hvem som styrer: 1 = joystick i port 1, 2 = joystick i port 2, 4 = datamaskinen |
-| +$36 | spillernummer 0-3, eller 4 for en ridder datamaskinen spiller |
+| +$36 | figuren som ble valgt i Select a Knight (0 GODBER, 1 RICHARD, 2 JEFFREY, 3 EDWARD), eller 4 for en ridder datamaskinen spiller |
 | +$6C | peker til navnet |
 
 Langordet på $8D9AC peker på ridderen som har turen (også når datamaskinen spiller).
@@ -126,6 +126,13 @@ joysticker". Etter at alle har hatt tur, kommer "Next Day" og månen går videre
 
 `les_joysticker` ($81F92) leser begge portene hvert bilde til $8D9A2 (port 2) og $8D9A0
 (port 1). `joystick_for_figur` ($81F6A) gir joysticken til en figur ut fra +$0B.
+
+Select a Knight (`$081C82`) gir ridderne plass for plass: `$8F49C` er plassen som får
+neste ridder og `$8F4A0` hvor mange som gjenstår. Den som velger først, får plass 0,
+uansett hvilken av de fire ridderne den velger. Turene går i plassenes rekkefølge.
+
+Pekeren i inventaret og plyndringen (`$08C3EA`) leser porten til ridderen i `$8CE94`:
+port 1 når den har +$0B = 1, ellers port 2.
 
 Dette er det nettspillet bruker for å gi joysticken til den som har turen
 (`port/src/game.c`).
