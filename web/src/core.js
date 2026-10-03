@@ -152,6 +152,7 @@ const Kjerne = (() => {
         iIntro: () => !!(M && M._ms_in_intro()),
         iMeny: () => !!(M && M._ms_in_menu()),      /* tittelmenyen eller en nettspillside er framme */
         menyRad: (y) => M._ms_menu_row(y | 0),      /* raden paa linje y, -1 ikke i menyen, -2 ingen rad */
+        menySide: () => (M ? M._ms_menu_page() : -1),    /* siden i menyen (2 = romsiden til verten), -1 utenfor */
         menyKommando,
         /* hver for seg (port/src/hver.c) */
         hverKmd: (k, arg, tekst) => {
@@ -189,6 +190,7 @@ const Kjerne = (() => {
         stoppMelding: () => M.UTF8ToString(M._ms_abort_msg()),
         volum: (v) => M._ms_volume(v),
         portSpillere: () => [M._ms_port_player(0), M._ms_port_player(1)],
+        velgerRidder: () => !!(M && M._ms_velger_ridder()),       /* Select a Knight eller navnet etterpaa */
         tegneliste,
         ridderNavn: (k) => M.UTF8ToString(M._ms_knight_name(k)),
         /* valgene paa kartet (tastene 1-9) og navnet som skrives etter Select a Knight (port/src/game.c) */

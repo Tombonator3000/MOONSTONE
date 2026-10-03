@@ -280,7 +280,9 @@ size_t   ms_unpack(const uint8_t *src, size_t srclen, uint8_t *dst, size_t dstma
 /* ------------------------------------------------------------ game.c */
 /* Det vi vet om spillets data i minnet (se game.c). */
 bool     game_mog_running(void);
-int      game_port_player(int port);      /* spiller 0-3 som styrer port 0/1 naa, -1 = ukjent */
+int      game_port_player(int port);      /* plassen (0-3) til mennesket som styrer port 0/1 naa, -1 = alle/ingen */
+bool     game_velger_ridder(void);        /* Select a Knight eller navnet etterpaa */
+void     game_reset(void);
 const char *game_knight_name(int k);
 int      game_knight_player(int k);
 /* tegnelisten: figurene spillet tegnet i siste bilde (game.c). Venstre kant er
@@ -315,7 +317,7 @@ enum { MENY_EV_HOST = 1, MENY_EV_JOIN_PAGE, MENY_EV_JOIN_ROOM, MENY_EV_ENTER_COD
 /* kommandoer fra frontenden, brukes ved starten av et bilde (i nettspill hos alle) */
 enum { MENY_CMD_HOSTING = 1, MENY_CMD_PLAYERS, MENY_CMD_PUBLIC, MENY_CMD_ROOMS, MENY_CMD_MESSAGE,
        MENY_CMD_SESSION_END, MENY_CMD_NAMES, MENY_CMD_MYNAME, MENY_CMD_PAGE, MENY_CMD_SELECT, MENY_CMD_SPILL,
-       MENY_CMD_CONTROLS };
+       MENY_CMD_CONTROLS, MENY_CMD_KNIGHTS };
 enum { MENY_PAGE_ONLINE = 1, MENY_PAGE_JOIN = 3 };   /* for MENY_CMD_PAGE */
 int      meny_take_event(void);           /* 0 = ingen */
 /* hver.c: flerspiller "Hver for seg" (docs/flerspiller.md) */
@@ -332,6 +334,7 @@ bool     hver_paa(void);
 bool     hver_kart(void);                 /* spillet er paa kartet (ridderen kan sendes) */
 void     meny_frame(void);                /* foer hvert bilde: fire som kom mens menyen ble tegnet */
 bool     meny_in_menu(void);              /* tittelmenyen (eller en nettspillside) er paa skjermen */
+int      meny_side(void);                 /* siden som vises (0 tittelmenyen, 2 romsiden til verten), -1 utenfor */
 int      meny_row_at(int y);              /* raden et klikk paa linje y treffer, -1/-2 = ingen */
 void     meny_command(int cmd, int arg, const char *text);
 

@@ -294,6 +294,7 @@ void amiga_reset(void)
     memset(fast, 0, sizeof fast);
     memset(&M, 0, sizeof M);
     patch_reset();
+    game_reset();
     M.lof = true;
     M.kbd_ready = true;
     custom_reset();

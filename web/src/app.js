@@ -356,10 +356,12 @@
      * av neste bilde, og verten sender dem med bildet til gjestene, saa alle
      * maskinene viser det samme. */
     const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8, NAVN: 9, SPILL: 10, BIND: 11 };
-    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11, KONTROLL: 12 };
+    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11, KONTROLL: 12, RIDDERE: 13 };
     const SIDE_JOIN = 3;
+    const SIDE_VERT = 2;                    /* romsiden til verten: Copy Link og Public er vertens */
+    let romHint = 0;                        /* sist gjesten fikk beskjed om at romsiden er vertens */
     const menyKo = [];
-    let menyRom = [], sisteRomTekst = null, stoppMenyListe = null, sistAntall = 0, sisteNavn = null;
+    let menyRom = [], sisteRomTekst = null, stoppMenyListe = null, sistAntall = 0, sisteNavn = null, sisteRiddere = -1;
     let menyInvitert = null;                /* rommet i invitasjonen, foerst i Join Game */
 
     /* spillets font har bare engelske bokstaver, tall og noen tegn */
@@ -381,16 +383,27 @@
 
     function menyKmd(k, arg, tekst) { menyKo.push([k, arg | 0, tekst || '']); }
 
+    /* tur for tur: hvor mange riddere rommet trenger (hoeyeste spillernummer + 1);
+     * tilskuere («Ser på») og to som deler et nummer, gir ingen ekstra ridder */
+    function sendRiddere(liste) {
+        const n = liste.reduce((m, s) => Math.max(m, s.spiller >= 0 ? s.spiller + 1 : 0), 0);
+        if (n === sisteRiddere) return;
+        sisteRiddere = n;
+        menyKmd(KMD.RIDDERE, n);
+    }
+
     function vertHendelser() {
         sistAntall = 0;
         sisteNavn = null;
+        sisteRiddere = -1;
         return {
-            lobby: (liste, kode, portModus) => { visSpillere(liste, kode, portModus); sendNavn(liste); if (modus === 'hver') oppdaterFjerne(liste); },
+            lobby: (liste, kode, portModus) => { visSpillere(liste, kode, portModus); sendNavn(liste); sendRiddere(liste); if (modus === 'hver') oppdaterFjerne(liste); },
             ridder: (id, d) => mottaRidder(id, d),
             duell: (conn) => duellInn(conn),
             chat: chatLinje,
             status,
-            velg: (rad) => { if (Kjerne.iMeny()) velgRad(rad); },   /* en gjest klikket i menyen */
+            velg: (rad) => { if (Kjerne.iMeny() && Kjerne.menySide() !== SIDE_VERT) velgRad(rad); },   /* en gjest klikket i menyen (ikke paa romsiden) */
+            iMeny: () => Kjerne.iMeny(),            /* der kan spillernumrene gjores om uten hull */
             trengerTilstand: (id) => {
                 const s = Kjerne.lagreTilstand();
                 if (s) Nett.sendTilstand(id, s, Kjerne.bildeNr());
@@ -647,7 +660,7 @@
         if (modus === 'vert' && !Nett.harGjester()) return true;
         const eier = Kjerne.portSpillere()[1];
         if (eier < 0) return modus === 'vert';
-        if (modus === 'vert') return eier === Nett.vertensSpiller();
+        if (modus === 'vert') return eier === Nett.vertensSpiller() || !Nett.harSpiller(eier);    /* ingen har ridderen: verten styrer den */
         const meg = sisteSpillere.find((x) => x.id === Nett.minId());   /* listen gjesten faar fra verten */
         return !!meg && meg.spiller === eier;
     }
@@ -1036,7 +1049,7 @@
     function startDuell(k) {
         const id = rekkefolge[k - 1];
         if (!id || D || modus !== 'hver') { Kjerne.hverKmd(HVER.AI, k); return; }
-        const d = D = { rolle: 'a', plass: k, id, status: 'venter', inn: 0, navn: navnTil(id), conn: null };
+        const d = D = { rolle: 'a', plass: k, id, status: 'venter', inn: 0, kort: 0, kortN: 0, navn: navnTil(id), conn: null };
         skjulValg();
         status('Utfordrer ' + d.navn + ' ...');
         d.tidsfrist = setTimeout(() => utenDuell(d, d.navn + ' svarte ikke.'), 15000);
@@ -1081,11 +1094,12 @@
         case 'klar':
             clearTimeout(d.tidsfrist);
             d.status = 'aktiv';
+            d.kort = d.kortN = 0;                /* trykk mens den andre lastet, er gamle */
             akk = 0;
             status('Kamp mot ' + d.navn + '!');
             break;
         case 'nei': utenDuell(d, d.navn + ' kan ikke kjempe nå.'); break;
-        case 'inn': d.inn = m.j & 31; break;
+        case 'inn': d.inn = Nett.nyInn(d, m.j); break;      /* et kort trykk varer noen bilder (net.js) */
         }
     }
 
@@ -1248,7 +1262,9 @@
         if ((lokalt.a | lokalt.b) && Kjerne.iMeny()) menyBrukt = true;
         let j0, j1;
         if (modus === 'vert') {
-            const eiere = Kjerne.portSpillere();
+            let eiere = Kjerne.portSpillere();
+            /* romsiden er vertens: et fire fra en gjest paa Copy Link ville aapnet sidemenyen hos verten */
+            if (Kjerne.menySide() === SIDE_VERT) eiere = [-1, Nett.vertensSpiller()];
             [j0, j1] = Nett.porter(lokalt.a | lokalt.b, eiere);
             if (!Nett.harGjester()) { j0 = lokalt.b; j1 = lokalt.a; }
             else {
@@ -1256,7 +1272,7 @@
                 taster = alle.filter(([, d, sp]) => Nett.tastTillatt(sp, d, eiere)).map(([k, d]) => [k, d]);
             }
         } else if (D && D.rolle === 'a' && D.status === 'aktiv') {
-            j0 = D.inn;                          /* port 1: den andre i duellen */
+            j0 = Nett.brukInn(D);                /* port 1: den andre i duellen */
             j1 = lokalt.a | lokalt.b;
         } else {
             j0 = lokalt.b;
@@ -1349,8 +1365,12 @@
             const l = Inndata.les();
             let inn = l.a | l.b | museRetning | (museFire || performance.now() < klikkTil ? FIRE : 0);
             if (valgJoystick(l.a | l.b)) inn = 0;
+            if (inn && Kjerne.menySide() === SIDE_VERT && performance.now() - romHint > 5000) {
+                romHint = performance.now();
+                status('Romsiden styres av verten. I tittelmenyen kan alle styre.');
+            }
             Nett.sendInn(inn);
-            for (const [k, d] of menyTaster(valgTaster(Inndata.hentTaster()))) Nett.sendTast(k, d);
+            for (const [k, d] of menyTaster(valgTaster(Inndata.hentTaster()))) if (k !== 0x59) Nett.sendTast(k, d);    /* F10 er vertens */
             const ko = Nett.rammer;
             while (ko.length && ko[0].f < Kjerne.bildeNr()) ko.shift();
             if (!venterSynk) {
@@ -1378,6 +1398,8 @@
             }
         } else if (D && D.rolle === 'a' && D.status !== 'aktiv') {
             akk = 0;                                 /* venter paa den andre */
+            Inndata.les();                           /* det som trykkes mens kampen lastes hos den andre, skal ikke komme etterpaa */
+            Inndata.hentTaster();
         } else if ((modus === 'alene' || modus === 'vert' || modus === 'hver') && !pause && !(menyApen && modus !== 'vert' && !D)) {
             akk += dt;
             let n = 0;
@@ -1505,20 +1527,21 @@
             tab.appendChild(tr);
         }
         $('port-hjelp').textContent = sisteModus === 'auto'
-            ? 'Spiller 1 er den som velger ridder først i spillet, spiller 2 den neste osv. Joysticken går automatisk til den som har turen på kartet, og i kamp mellom to riddere får begge sin joystick. I menyene kan alle styre.'
+            ? 'Spiller 1 velger ridder først i spillet, så spiller 2 osv., og bare den som skal velge, kan styre da. Joysticken går automatisk til den som har turen på kartet, og i kamp mellom to riddere får begge sin joystick. I menyene kan alle styre.'
             : 'Moonstone har to joystickporter. Joystick 1 (port 2) brukes på kartet og i menyene, i kamp mellom to riddere brukes begge.';
     }
 
-    /* vis hvem som har turen naar det endrer seg */
+    /* vis hvem som har turen (eller velger ridder) naar det endrer seg */
     let sistEier = -2;
     function visTur() {
         if (modus !== 'vert' && modus !== 'gjest') return;
-        const e = Kjerne.portSpillere()[1];
-        if (e === sistEier) return;
-        sistEier = e;
+        const e = Kjerne.portSpillere()[1], velger = Kjerne.velgerRidder();
+        const n = e * 2 + (velger ? 1 : 0);
+        if (n === sistEier) return;
+        sistEier = n;
         if (e < 0) return;
         const s = sisteSpillere.find((x) => x.spiller === e);
-        if (s) status(s.navn + ' har turen');
+        if (s) status(s.navn + (velger ? ' velger ridder' : ' har turen'));
     }
 
     function fyllPlasser() {
@@ -1702,14 +1725,28 @@
     window.addEventListener('keydown', (e) => {
         if (e.code === 'Home' && menyApen && !e.defaultPrevented && !e.repeat) { visMeny(false); e.preventDefault(); }
     });
-    /* fanen skjules: nettleseren stopper spillokka, saa lyden toemmes i stedet for aa hakke */
-    document.addEventListener('visibilitychange', () => { if (document.hidden) Lyd.clear(); });
+    /* fanen skjules: nettleseren stopper spillokka, saa lyden toemmes i stedet for aa hakke.
+     * En gjest og den som forsvarer seg i en duell slipper joysticken hos den andre med en
+     * gang (ellers fortsetter en retning som holdes, til siden vises igjen). */
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) return;
+        Lyd.clear();
+        if (modus === 'gjest') Nett.sendInn(0);
+        if (D && D.rolle === 'b' && D.conn && D.conn.open) { D.conn.send({ t: 'inn', j: 0 }); D.sistInn = 0; D.sistInnTid = performance.now(); }
+    });
 
-    /* fanen lukkes: si fra til gjestene og fjern rommet fra listen */
+    /* fanen lukkes: si fra til gjestene og fjern rommet fra listen. En gjest lukker
+     * forbindelsen, saa verten merker det med en gang (WebRTC gjor det ikke alltid). */
     window.addEventListener('pagehide', () => {
+        if (modus === 'gjest') { Nett.avslutt(); return; }
         if (modus !== 'vert' && modus !== 'hver') return;
         if (stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
         Nett.avslutt();
+    });
+    /* kommer siden tilbake fra nettleserens hurtigbuffer etter pagehide, er rommet borte:
+     * start paa nytt i stedet for aa vise et spill uten forbindelse */
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted && (modus === 'gjest' || modus === 'vert' || modus === 'hver')) location.reload();
     });
 
     /* ---------------------------------------------------------------- start */

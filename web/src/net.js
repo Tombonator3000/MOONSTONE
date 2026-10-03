@@ -28,6 +28,9 @@ const Nett = (() => {
     const MAKS_GJESTER = 3;
     const DEL = 48 * 1024;
     const PORTER = ['p2', 'p1', 'p2'];        /* standard for gjest 1, 2, 3 */
+    const HOLD = 3;                           /* et kort trykk fra nettet varer minst saa mange bilder */
+    const STILLE_INN = 1500;                  /* ms uten joystick fra den andre: siden dens staar, alt er sluppet */
+    const STILLE_GJEST = 30000;               /* ms uten noe fra en gjest foer verten regner den som borte */
 
     let peer = null, rolle = null, kode = '', mittNavn = 'Spiller';
     let h = {};                               /* hendelser til app.js */
@@ -64,6 +67,34 @@ const Nett = (() => {
         return new Uint8Array(await new Response(s).arrayBuffer());
     }
 
+    /* Gjesten kjenner seg igjen naar den kobler til paa nytt (siden lastet paa nytt,
+     * nettet var borte): samme id i fanen (sessionStorage), saa verten gir den samme
+     * spillernummeret, og dermed samme ridder, tilbake. En kopi av fanen (Dupliser,
+     * eller en lenke som aapnes fra siden) faar med seg sessionStorage. Derfor spor
+     * fanen de andre fanene (BroadcastChannel) naar siden aapnes: svarer en som lever
+     * og har samme id, lager kopien sin egen. En fane som lastes paa nytt, er alene. */
+    const ID_OK = /^[a-z0-9]{8,24}$/;
+    function nyKlientId() {
+        const id = Array.from(crypto.getRandomValues(new Uint8Array(10)), (b) => (b % 36).toString(36)).join('');
+        try { sessionStorage.setItem('moonstone.klient', id); } catch (e) { /* bare denne gangen */ }
+        return id;
+    }
+    let klient = null;
+    const klientKlar = new Promise((ferdig) => {
+        try { klient = sessionStorage.getItem('moonstone.klient'); } catch (e) { /* ikke tilgjengelig */ }
+        if (!klient || !ID_OK.test(klient)) { klient = nyKlientId(); }
+        let kanal = null;
+        try { kanal = new BroadcastChannel('moonstone-klient'); } catch (e) { ferdig(); return; }
+        const meg = nyKode() + nyKode();     /* denne siden, ikke fanen */
+        kanal.onmessage = (e) => {
+            const d = e.data || {};
+            if (d.spor === klient && d.fra !== meg) kanal.postMessage({ har: d.spor, til: d.fra });
+            else if (d.har === klient && d.til === meg) klient = nyKlientId();
+        };
+        kanal.postMessage({ spor: klient, fra: meg });
+        setTimeout(ferdig, 300);
+    });
+
     /* Egen PeerJS-server i stedet for PeerJS Cloud: ?peer=vert:port[/sti] i adressen. */
     let server = {};
     (() => {
@@ -95,12 +126,37 @@ const Nett = (() => {
     const gjester = new Map();                /* peer-id -> gjest */
     let vertPort = 'p2', vertSpiller = 0;
     let portModus = 'auto';                   /* 'auto' = joysticken folger turen, 'fast' = faste porter */
+    const husk = new Map();                   /* klient-id -> spillernummer, for gjester som kobler til paa nytt */
+    let vaktTimer = null;
+
+    function brukt(n) {
+        if (n === vertSpiller) return true;
+        for (const g of gjester.values()) if (g.spiller === n) return true;
+        return false;
+    }
 
     function ledigSpiller() {
-        const brukt = new Set([vertSpiller]);
-        for (const g of gjester.values()) brukt.add(g.spiller);
-        for (let i = 0; i < 4; i++) if (!brukt.has(i)) return i;
+        for (let i = 0; i < 4; i++) if (!brukt(i)) return i;
         return -1;
+    }
+
+    /* Nummer uten hull (0, 1, 2 ...) i samme rekkefolge. Bare i menyene: der har ingen
+     * valgt ridder ennaa, og ellers ville den som gikk, latt en ridder staa uten spiller. */
+    function komprimer() {
+        const l = [{ s: vertSpiller, sett: (n) => { vertSpiller = n; } }];
+        for (const g of gjester.values()) l.push({ s: g.spiller, sett: (n) => { g.spiller = n; } });
+        l.filter((x) => x.s >= 0).sort((a, b) => a.s - b.s).forEach((x, i) => x.sett(i));
+    }
+
+    /* en gjest er borte (lukket, eller har ikke sagt noe paa lenge) */
+    function fjernGjest(g, tekst) {
+        if (gjester.get(g.id) !== g) return;
+        gjester.delete(g.id);
+        if (g.klient) husk.set(g.klient, g.spiller);
+        try { g.conn.close(); } catch (e) { /* lukket */ }
+        h.chat && h.chat('', g.navn + ' ' + tekst);
+        if (h.iMeny && h.iMeny()) komprimer();
+        oppdaterLobby();
     }
     const gjesteTaster = [];
     /* 'sammen': verten kjorer spillet for alle (tur for tur, som originalen).
@@ -123,7 +179,21 @@ const Nett = (() => {
             const prov = () => {
                 kode = nyKode();
                 peer = lagPeer(PREFIKS + kode.toLowerCase());
-                peer.on('open', () => { aapen = true; clearTimeout(tidsfrist); oppdaterLobby(); ok(kode); });
+                peer.on('open', () => {
+                    aapen = true;
+                    clearTimeout(tidsfrist);
+                    /* WebRTC merker ikke alltid at en gjest er borte; gjestene sender noe minst hvert
+                     * andre sekund. I tur for tur tar verten over ridderen til en som er borte (ellers
+                     * staar spillet paa turen hans); i hver for seg staar den bare paa kartet. */
+                    clearInterval(vaktTimer);
+                    vaktTimer = setInterval(() => {
+                        if (romSpill !== 'sammen') return;
+                        const naa = performance.now();
+                        for (const g of [...gjester.values()]) if (naa - g.sist > STILLE_GJEST) fjernGjest(g, 'svarer ikke lenger');
+                    }, 5000);
+                    oppdaterLobby();
+                    ok(kode);
+                });
                 peer.on('connection', nyGjest);
                 peer.on('disconnected', () => { if (aapen && peer && !peer.destroyed) peer.reconnect(); });
                 peer.on('error', (e) => {
@@ -141,11 +211,7 @@ const Nett = (() => {
         conn.on('data', (d) => fraGjest(conn, d));
         conn.on('close', () => {
             const g = gjester.get(conn.peer);
-            if (g) {
-                gjester.delete(conn.peer);
-                h.chat && h.chat('', g.navn + ' koblet fra');
-                oppdaterLobby();
-            }
+            if (g && g.conn === conn) fjernGjest(g, 'koblet fra');
         });
         conn.on('error', () => { /* close kommer etterpaa */ });
     }
@@ -153,6 +219,7 @@ const Nett = (() => {
     function fraGjest(conn, d) {
         if (!d || typeof d !== 'object') return;
         let g = gjester.get(conn.peer);
+        if (g) g.sist = performance.now();
         switch (d.t) {
         case 'hei': {
             if (g) return;
@@ -161,18 +228,28 @@ const Nett = (() => {
                 setTimeout(() => conn.close(), 500);
                 return;
             }
+            /* samme gjest paa nytt foer den gamle forbindelsen er lukket: den gamle tas bort */
+            const klient = typeof d.id === 'string' && /^[a-z0-9]{8,24}$/.test(d.id) ? d.id : '';
+            let gammel = null;
+            if (klient) for (const x of gjester.values()) if (x.klient === klient) gammel = x;
+            if (gammel) { gjester.delete(gammel.id); try { gammel.conn.close(); } catch (e) { /* lukket */ } }
             if (gjester.size >= MAKS_GJESTER) {
                 conn.send({ t: 'feil', tekst: 'Rommet er fullt (fire spillere).' });
                 setTimeout(() => conn.close(), 500);
                 return;
             }
+            /* tilbake: samme spillernummer (og ridder) som sist, om ingen har tatt det */
+            let spiller = gammel ? gammel.spiller : null;
+            if (spiller === null && klient && husk.has(klient) && !brukt(husk.get(klient))) spiller = husk.get(klient);
+            const tilbake = spiller !== null;
+            if (!tilbake) spiller = ledigSpiller();
             g = {
-                conn, id: conn.peer, navn: String(d.navn || 'Gjest').slice(0, 20),
-                port: PORTER[gjester.size] || 'ingen', spiller: ledigSpiller(),
-                inn: 0, klar: false, venter: true, ko: [], filer: new Set(),
+                conn, id: conn.peer, klient, navn: String(d.navn || 'Gjest').slice(0, 20),
+                port: gammel ? gammel.port : PORTER[gjester.size] || 'ingen', spiller,
+                inn: 0, kort: 0, kortN: 0, innTid: 0, sist: performance.now(), klar: false, venter: true, ko: [], filer: new Set(),
             };
             gjester.set(conn.peer, g);
-            h.chat && h.chat('', g.navn + ' koblet seg til');
+            h.chat && h.chat('', g.navn + (tilbake ? ' er tilbake' : ' koblet seg til'));
             if (romSpill === 'hver') {          /* gjesten spiller sitt eget spill */
                 g.klar = true;
                 g.venter = false;
@@ -184,8 +261,9 @@ const Nett = (() => {
             break;
         }
         /* i hver for seg spiller gjestene sitt eget spill: ingen taster, valg eller synk hit */
-        case 'inn': if (g && romSpill !== 'hver') g.inn = d.j & 31; break;
-        case 'tast': if (g && g.klar && romSpill !== 'hver') gjesteTaster.push([d.k & 0x7f, !!d.ned, g.spiller]); break;
+        case 'inn': if (g && romSpill !== 'hver') g.inn = nyInn(g, d.j); break;
+        /* F10 avslutter spillet (WHDLoad QuitKey) for alle; det er bare vertens tast */
+        case 'tast': if (g && g.klar && romSpill !== 'hver' && (d.k & 0x7f) !== 0x59) gjesteTaster.push([d.k & 0x7f, !!d.ned, g.spiller]); break;
         case 'velg': if (g && g.klar && romSpill !== 'hver') h.velg && h.velg(d.rad | 0); break;     /* gjesten klikket paa en rad i menyen */
         case 'ridder':                          /* hver for seg: ridderen til en gjest, videre til de andre */
             if (g && romSpill === 'hver') {
@@ -261,16 +339,38 @@ const Nett = (() => {
         g.ko = [];
         g.venter = false;
         g.klar = true;
+        g.kort = g.kortN = 0;                   /* trykk mens tilstanden ble sendt, er gamle */
         oppdaterLobby();
     }
 
+    /* Joysticken fra nettet: bare siste tilstand kommer fram, saa et kort trykk
+     * kunne bli borte naar trykk og slipp kom mellom to bilder her. Nye trykk
+     * huskes derfor i HOLD bilder (o.kort), som et kort klikk med musen. */
+    function nyInn(o, j) {
+        j &= 31;
+        const ny = j & ~o.inn;
+        if (ny) { o.kort |= ny; o.kortN = HOLD; }
+        o.innTid = performance.now();
+        return j;
+    }
+    /* Den andre sender joysticken minst hvert halve sekund. Kommer ingenting paa en
+     * stund, staar siden dens (skjult fane, laast mobil), og en retning som ble holdt,
+     * skal ikke fortsette aa gaa. */
+    function brukInn(o) {
+        if (o.inn && performance.now() - (o.innTid || 0) > STILLE_INN) o.inn = 0;
+        const b = o.inn | (o.kortN > 0 ? o.kort : 0);
+        if (o.kortN > 0 && --o.kortN === 0) o.kort = 0;
+        return b;
+    }
+
     /* Inndata for de to portene. Med 'auto' folger joysticken turen i spillet:
-     * eiere[1] er spilleren (0-3) som styrer port 2 naa, eiere[0] port 1 (se
-     * port/src/game.c). Er det ukjent (menyer, intro), styrer alle spillerne
-     * port 2. Med 'fast' er hver deltaker koblet til en bestemt port. */
+     * eiere[1] er spilleren (0-3, rekkefolgen ridderne ble valgt i) som styrer
+     * port 2 naa, eiere[0] port 1 (se port/src/game.c). Er det ukjent (menyer,
+     * intro), styrer alle spillerne port 2. Med 'fast' er hver deltaker koblet
+     * til en bestemt port. Kalles en gang per bilde. */
     function porter(lokal, eiere) {
         const deltakere = [{ spiller: vertSpiller, port: vertPort, inn: lokal }];
-        for (const g of gjester.values()) if (g.klar) deltakere.push({ spiller: g.spiller, port: g.port, inn: g.inn });
+        for (const g of gjester.values()) if (g.klar) deltakere.push({ spiller: g.spiller, port: g.port, inn: brukInn(g) });
         const j = [0, 0];
         if (portModus === 'auto') {
             const har = (n) => n >= 0 && deltakere.some((d) => d.spiller === n);
@@ -305,6 +405,13 @@ const Nett = (() => {
     }
 
     function vertensSpiller() { return vertSpiller; }
+
+    /* er det noen (verten eller en gjest som er klar) med spillernummeret? */
+    function harSpiller(n) {
+        if (n === vertSpiller) return true;
+        for (const g of gjester.values()) if (g.klar && g.spiller === n) return true;
+        return false;
+    }
 
     /* etter hvert bilde: send inndataene og filene som ble brukt */
     /* kommandoer: menykommandoer (meny.c) som verten brukte foer dette bildet */
@@ -354,7 +461,7 @@ const Nett = (() => {
                 vert.on('open', () => {
                     aapnet = true;
                     sistFraVert = performance.now();
-                    vert.send({ t: 'hei', navn: mittNavn, v: VERSJON });
+                    klientKlar.then(() => { if (vert && vert.open) vert.send({ t: 'hei', navn: mittNavn, v: VERSJON, id: klient }); });
                     /* WebRTC merker ikke alltid at verten er borte (lukket fane, tapt nett),
                      * saa gjesten gir opp naar verten ikke har svart paa en stund */
                     pingTimer = setInterval(() => {
@@ -489,7 +596,8 @@ const Nett = (() => {
     /* app.js faar ingen hendelser fra forbindelser som lukkes her */
     function avslutt() {
         h = {};
-        if (rolle === 'vert') { sendAlle({ t: 'slutt' }); for (const g of gjester.values()) g.conn.close(); gjester.clear(); }
+        if (rolle === 'vert') { sendAlle({ t: 'slutt' }); for (const g of gjester.values()) g.conn.close(); gjester.clear(); husk.clear(); }
+        clearInterval(vaktTimer);
         if (vert) { vert.close(); vert = null; }
         clearInterval(pingTimer);
         if (peer) { peer.destroy(); peer = null; }
@@ -500,9 +608,9 @@ const Nett = (() => {
 
     return {
         lagRom, bliMed, avslutt, chat, invitasjon, settPort, settSpiller, settModus, sendTilstand, porter, sendBilde,
-        hentGjesteTaster, tastTillatt, vertensSpiller, harGjester, sendInn, sendTast, sendVelg, sendRidder, beOmSynk, spillere,
+        hentGjesteTaster, tastTillatt, vertensSpiller, harSpiller, harGjester, sendInn, sendTast, sendVelg, sendRidder, beOmSynk, spillere,
         romSpill: () => romSpill, minId: () => (rolle === 'vert' ? 'vert' : peer ? peer.id : null),
-        duellKoble, sendTilstandTil, tilstandsMottaker, peerId,
+        duellKoble, sendTilstandTil, tilstandsMottaker, peerId, nyInn, brukInn,
         rammer, rolle: () => rolle, kode: () => kode, ping: () => ping,
     };
 })();

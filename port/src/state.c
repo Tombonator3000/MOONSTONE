@@ -18,7 +18,7 @@
 #define STATE_MAGIC   "MOONSTAT"
 
 bool state_any_game;
-#define STATE_VERSION 12
+#define STATE_VERSION 13
 
 void state_io(StateIO *s, void *p, size_t n)
 {

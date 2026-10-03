@@ -25,8 +25,11 @@
 - [ ] Klikk i menyene også i PC-versjonen (meny_row_at finnes; PC slår ikke på menylappen i dag).
 - [ ] Mus på andre skjermer enn tittelmenyen: velge ridder, butikker og inventar med klikk (krever å finne valgvariablene for hver skjerm).
 - [ ] Teste moonstone.exe på ekte Windows.
+- [ ] Turns: teste beskyttelsesrullen og at datamaskinens ridder angriper et menneske headless (logikken er der, men bare kampen og plyndringen mellom to mennesker er testet).
+- [ ] Nettspill over et ekte nett med to maskiner: hvor mye forsinkelse gjesten og forsvareren i en duell merker i kamp, og om bufferen på tre bilder bør justeres.
 
 ## Ferdig
+- [x] Nettspill tur for tur: joysticken følger rekkefølgen ridderne ble valgt i (ikke figuren), bare den som velger styrer Select a Knight og navnet, møtet mellom to riddere gir portene til riktig spiller (rullen, kampen, plyndringen), Players settes opp til antallet i rommet, og korte trykk fra nettet blir ikke borte.
 - [x] Mobil i spillets menyer: valgene paa kartet som knapper (trykk, styrekors og Fire, Enter), navnet til ridderen med tekstfelt. Sidemenyen, knappene og meldingene i spillets stil (font, pil, logo og nattehimmel fra spillfilen). Bryter mellom HD og original grafikk. docs/grafikkliste.md og .csv over all grafikken.
 - [x] Duell: beskyttelsesrullen ($080C1A) og inventaret etterpå styres av forsvareren (port 1 flyttes til port 2 mens spillet venter).
 - [x] Options i tittelmenyen (nettsiden): Online Game, Keyboard (fire og bevegelse for begge spillerne), Gamepad (fire, inventar, Pass, Esc), Default Controls. Lagres i nettleseren. Korte fire-trykk mens menyen tegnes, blir husket.

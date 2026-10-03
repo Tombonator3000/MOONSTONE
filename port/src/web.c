@@ -139,8 +139,9 @@ EMSCRIPTEN_KEEPALIVE void ms_file_inject(const char *path, const uint8_t *data, 
 }
 EMSCRIPTEN_KEEPALIVE void ms_file_remove(const char *path) { files_remove(path); }
 
-/* nettspill: hvem som styrer portene naa (se game.c) */
+/* nettspill: hvem som styrer portene naa (plassen 0-3, se game.c) */
 EMSCRIPTEN_KEEPALIVE int ms_port_player(int port) { return game_port_player(port); }
+EMSCRIPTEN_KEEPALIVE int ms_velger_ridder(void) { return game_velger_ridder() ? 1 : 0; }
 EMSCRIPTEN_KEEPALIVE const char *ms_knight_name(int k) { return game_knight_name(k); }
 
 /* valgene paa kartet (game_valg): antallet fyller tekstene, som hentes etterpaa */
@@ -177,5 +178,6 @@ EMSCRIPTEN_KEEPALIVE int ms_menu_ready(void) { return meny_title_seen ? 1 : 0; }
 /* klikk og Enter i menyen: er menyen framme, og hvilken rad ligger paa linje y */
 EMSCRIPTEN_KEEPALIVE int ms_in_menu(void) { return meny_in_menu() ? 1 : 0; }
 EMSCRIPTEN_KEEPALIVE int ms_menu_row(int y) { return meny_row_at(y); }
+EMSCRIPTEN_KEEPALIVE int ms_menu_page(void) { return meny_side(); }
 /* introen (program) gaar; den hoppes over med Esc */
 EMSCRIPTEN_KEEPALIVE int ms_in_intro(void) { return whd_mog_loaded ? 0 : 1; }
