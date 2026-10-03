@@ -145,10 +145,11 @@ gjør noe når flerspilleren ikke er i bruk, sjekkes ved å bygge en kopi der
 check_hooks og `--online-meny`, og sammenligne minnedumpene (like byte for byte
 2026-10-02).
 
-Kjent begrensning: har den som angripes en beskyttelsesrull (ting $12), viser
-`$080C1A` en beskjed og venter på fire i port 2, og inventaret som åpnes etterpå
-styres også derfra. I en duell er det angriperens joystick, så forsvareren kan ikke
-bruke rullen.
+Beskyttelsesrullen: har den som angripes en rull (ting $12), viser `$080C1A` en
+beskjed og venter på fire i port 2, og inventaret som åpnes etterpå styres også
+derfra. I en duell ville det vært angriperens joystick. hver.c setter derfor
+`H.rulle` fra `$080C52` til `$080C98` når den angrepne er motstanderen i duellen,
+og `hver_frame` flytter port 1 (forsvareren) til port 2 så lenge (2026-10-03).
 
 ## Plan
 
