@@ -75,9 +75,11 @@ static struct {
     uint8_t pick_fire;                      /* gi spillet fire en gang naar menyen er tegnet */
     uint8_t spill;                          /* 0 = hver for seg (hver.c), 1 = tur for tur */
     uint8_t msg_title;                      /* Back paa meldingen gaar til tittelmenyen */
-    uint8_t fire_prev;                      /* fire i port 2 forrige bilde (meny_frame) */
+    uint8_t joy_prev;                       /* port 2 forrige bilde (meny_frame) */
     uint8_t fire_seen;                      /* fire trykket mens lokka ikke leste joysticken */
     uint32_t fire_frame;                    /* bildet det kom i */
+    uint8_t dir_seen;                       /* JOY_UP eller JOY_DOWN, trykket mens menyen ble tegnet */
+    uint32_t dir_frame;
     uint32_t pick_frame;                    /* bildet klikket kom i (M.frame) */
     uint8_t n_names;
     char    room[8];
@@ -365,6 +367,7 @@ static bool active(void) { return M2.enabled; }
 static void goto_redraw(void)
 {
     M2.wait_release = 1;
+    M2.fire_seen = 0;                       /* trykket som ga valget, er brukt */
     m68k_set_reg(M68K_REG_PC, 0x81942);    /* bsr tegn_tittelmeny; bra lokka */
 }
 
@@ -391,8 +394,13 @@ static bool hook_input(void)
 {
     if (!active()) return false;
     uint32_t d1 = m68k_get_reg(NULL, M68K_REG_D1);
-    if (d1 & 0x10) M2.fire_seen = 0;       /* spillet ser trykket selv */
-    else M2.wait_release = 0;
+    if (d1 & 0x0c) M2.dir_seen = 0;        /* spillet ser retningen selv */
+    if (d1 & 0x10) {
+        /* et nytt trykk etter valget (fire ble sluppet og trykket igjen mens menyen
+         * ble tegnet), ikke det samme som fortsatt holdes */
+        if (M2.wait_release && M2.fire_seen) M2.wait_release = 0;
+        M2.fire_seen = 0;                   /* spillet ser trykket selv */
+    } else M2.wait_release = 0;
     /* Et klikk eller Enter: fire en gang, etter at menyen er tegnet paa nytt. Lokka leser
      * joysticken hele tiden, men aa tegne menyen tar flere bilder, saa et kort fire fra
      * frontenden kunne komme mens den tegnet. Her ser spillet det som fra joysticken. */
@@ -401,6 +409,19 @@ static bool hook_input(void)
         if (M.frame - M2.pick_frame > 25) return false;     /* menyen var ikke framme */
         m68k_set_reg(M68K_REG_D1, d1 | 0x10);
         m68k_set_reg(M68K_REG_PC, 0x81910);                 /* forbi beq.b lokka: btst #4,d1 */
+        return true;
+    }
+    /* et kort opp eller ned mens menyen ble tegnet: pilen flyttes naa. Lokka og
+     * tittelmeny_joystick ($81968, hook_joystick paa sidene) leser $8D9A2, saa den
+     * settes som les_joysticker ville gjort (opp = 8, ned = 4). Retningen gis foer
+     * et fire som ogsaa venter (ned og saa fire). */
+    if (M2.dir_seen && M.frame - M2.dir_frame > 30) M2.dir_seen = 0;
+    if (M2.dir_seen && !M2.redraw && !(d1 & 0x1f)) {
+        uint16_t b = (M2.dir_seen & JOY_UP) ? 8 : 4;
+        M2.dir_seen = 0;
+        wr16(JOY_PORT2, b);
+        m68k_set_reg(M68K_REG_D1, (d1 & 0xffff0000u) | b);
+        m68k_set_reg(M68K_REG_PC, 0x81910);                 /* ikke fire: til tittelmeny_joystick */
         return true;
     }
     /* et kort fire mens menyen ble tegnet (meny_frame): gis naa, som fra joysticken.
@@ -417,8 +438,9 @@ static bool hook_input(void)
 }
 
 /* foer hvert bilde. Etter et flytt bruker spillet ca 15 bilder paa aa tegne
- * menyen, og lokka leser ikke joysticken saa lenge. Et fire som trykkes og
- * slippes i den tiden, ville blitt borte; det huskes her og gis i hook_input.
+ * menyen, og lokka leser ikke joysticken saa lenge. Et fire (eller opp og ned)
+ * som trykkes og slippes i den tiden, ville blitt borte; det huskes her og gis i
+ * hook_input. Korte trykk paa styrekorset paa mobil er typisk slik.
  * Bare nye trykk teller, saa et fire som holdes inne etter et valg, ikke gir
  * et valg til. Spillet ser joysticken et bilde senere enn IN, saa wait_release
  * slippes fortsatt bare i hook_input. Inndataene er de samme paa alle
@@ -426,9 +448,10 @@ static bool hook_input(void)
 void meny_frame(void)
 {
     if (!M2.enabled) return;
-    uint8_t fire = (IN.joy[1] & JOY_FIRE) != 0;
-    if (fire && !M2.fire_prev) { M2.fire_seen = 1; M2.fire_frame = M.frame; }
-    M2.fire_prev = fire;
+    uint8_t j = IN.joy[1], ny = (uint8_t)(j & ~M2.joy_prev);
+    if (ny & JOY_FIRE) { M2.fire_seen = 1; M2.fire_frame = M.frame; }
+    if (ny & (JOY_UP | JOY_DOWN)) { M2.dir_seen = ny & (JOY_UP | JOY_DOWN); M2.dir_frame = M.frame; }
+    M2.joy_prev = j;
 }
 
 static void set_players(int n)
@@ -521,7 +544,7 @@ static bool hook_title(void)
     M2.page = PAGE_TITLE;
     M2.redraw = 0;
     M2.pick = M2.pick_fire = 0;
-    M2.fire_seen = 0;                       /* et trykk fra spillet foer menyen */
+    M2.fire_seen = M2.dir_seen = 0;         /* trykk fra spillet foer menyen */
     in_menu = true;
     build_page();
     return false;

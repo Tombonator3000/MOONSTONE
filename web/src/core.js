@@ -148,9 +148,9 @@ const Kjerne = (() => {
     return {
         menyPaa: (on) => M._ms_menu_enable(on ? 1 : 0),
         menyHendelse: () => M._ms_menu_event(),
-        menyKlar: () => !!M._ms_menu_ready(),       /* tittelmenyen er naadd */
-        iIntro: () => !!M._ms_in_intro(),
-        iMeny: () => !!M._ms_in_menu(),             /* tittelmenyen eller en nettspillside er framme */
+        menyKlar: () => !!(M && M._ms_menu_ready()),     /* tittelmenyen er naadd (false mens kjernen lastes) */
+        iIntro: () => !!(M && M._ms_in_intro()),
+        iMeny: () => !!(M && M._ms_in_menu()),      /* tittelmenyen eller en nettspillside er framme */
         menyRad: (y) => M._ms_menu_row(y | 0),      /* raden paa linje y, -1 ikke i menyen, -2 ingen rad */
         menyKommando,
         /* hver for seg (port/src/hver.c) */
@@ -160,7 +160,7 @@ const Kjerne = (() => {
             M._ms_hver_cmd(k, arg | 0, p);
             M._free(p);
         },
-        hverKart: () => !!M._ms_hver_kart(),
+        hverKart: () => !!(M && M._ms_hver_kart()),
         hverRidder: (k) => { const p = M._ms_hver_ridder(k) >> 2; return [M.HEAP32[p], M.HEAP32[p + 1], M.HEAP32[p + 2], M.HEAP32[p + 3]]; },
         hverNavn: (k) => M.UTF8ToString(M._ms_hver_navn(k)),
         hverHendelse: () => M._ms_hver_hendelse(),   /* kode | plass << 8, 0 = ingen */
@@ -191,6 +191,17 @@ const Kjerne = (() => {
         portSpillere: () => [M._ms_port_player(0), M._ms_port_player(1)],
         tegneliste,
         ridderNavn: (k) => M.UTF8ToString(M._ms_knight_name(k)),
+        /* valgene paa kartet (tastene 1-9) og navnet som skrives etter Select a Knight (port/src/game.c) */
+        kartValg: () => {
+            const n = M._ms_valg_antall();
+            if (!n) return null;
+            const valg = [];
+            for (let i = 0; i < n; i++) valg.push(M.UTF8ToString(M._ms_valg_tekst(i)));
+            return { tittel: M.UTF8ToString(M._ms_valg_tittel()), valg };
+        },
+        navnAktiv: () => !!(M && M._ms_navn_aktiv()),
+        navnKlar: () => !!(M && M._ms_navn_klar()),     /* lokka leser tastene akkurat naa */
+        navn: () => M.UTF8ToString(M._ms_navn()),
         les8: (a) => M._ms_peek8(a),
         les16: (a) => M._ms_peek16(a),
     };

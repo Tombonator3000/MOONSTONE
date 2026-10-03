@@ -15,111 +15,132 @@
   <div id="touch" hidden>
     <div class="kors"></div>
     <div class="knapper">
-      <button data-knapp="40">Inventar</button>
-      <button data-knapp="12">Slutt tur</button>
-      <button data-knapp="45">Esc</button>
-      <button data-knapp="fire" class="fire">Fire</button>
+      <button data-knapp="40" aria-label="Inventar"><span class="pt">Inventar</span></button>
+      <button data-knapp="12" aria-label="Slutt tur"><span class="pt">Slutt tur</span></button>
+      <button data-knapp="45" aria-label="Esc"><span class="pt">Esc</span></button>
+      <button data-knapp="fire" class="fire" aria-label="Fire"><span class="pt">Fire</span></button>
     </div>
   </div>
-  <button id="meny-knapp" title="Meny (Home)">Meny</button>
+  <div id="valg" class="spillboks" hidden role="dialog" aria-label="Valg">
+    <div id="valg-tittel" class="pt"></div>
+    <div id="valg-liste"></div>
+  </div>
+  <button id="navn-knapp" class="knapp" hidden><span class="pt">Skriv navn</span></button>
+  <button id="meny-knapp" title="Meny (Home)" aria-label="Meny"><span class="pt">Meny</span></button>
   <div id="status"></div>
   <div id="hint" hidden></div>
   <div id="chatlinjer"></div>
   <div id="lasting" role="status"><h1>Moonstone</h1><p id="lasting-tekst">Laster spillet ...</p></div>
   <div id="navn-dialog" class="boks dialog" hidden>
-    <h3>Navnet ditt</h3>
+    <h3 class="pt">Navnet ditt</h3>
     <p class="hjelp">Vises for de andre i nettspillet.</p>
     <input id="navn-felt" maxlength="20" autocomplete="nickname" spellcheck="false" aria-label="Navnet ditt">
     <div class="rad">
-      <button id="navn-ok" class="knapp">OK</button>
-      <button id="navn-avbryt" class="knapp">Avbryt</button>
+      <button id="navn-ok" class="knapp"><span class="pt">OK</span></button>
+      <button id="navn-avbryt" class="knapp"><span class="pt">Avbryt</span></button>
+    </div>
+  </div>
+  <div id="ridder-dialog" class="boks dialog" hidden>
+    <h3 class="pt">Navnet til ridderen</h3>
+    <p class="hjelp">Bokstaver, tall og mellomrom, opptil 13 tegn.</p>
+    <input id="ridder-felt" maxlength="13" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Navnet til ridderen">
+    <div class="rad">
+      <button id="ridder-ok" class="knapp"><span class="pt">OK</span></button>
+      <button id="ridder-avbryt" class="knapp"><span class="pt">Avbryt</span></button>
     </div>
   </div>
   <div id="kode-dialog" class="boks dialog" hidden>
-    <h3>Bli med i et rom</h3>
+    <h3 class="pt">Bli med i et rom</h3>
     <p class="hjelp">Skriv romkoden (seks tegn) eller lim inn invitasjonslenken.</p>
     <input id="kode-felt" maxlength="300" autocomplete="off" spellcheck="false" aria-label="Romkode eller lenke">
     <div class="rad">
-      <button id="kode-ok" class="knapp">Bli med</button>
-      <button id="kode-avbryt" class="knapp">Avbryt</button>
+      <button id="kode-ok" class="knapp"><span class="pt">Bli med</span></button>
+      <button id="kode-avbryt" class="knapp"><span class="pt">Avbryt</span></button>
     </div>
   </div>
   <div id="meny" class="panel" hidden>
-    <div class="menytopp"><h2>Meny</h2><button id="lukk-meny" class="knapp liten">Tilbake til spillet</button></div>
+    <div class="menytopp">
+      <div id="meny-logo"><h2 class="pt2">Moonstone</h2></div>
+      <button id="lukk-meny" class="knapp"><span class="pt">Tilbake til spillet</span></button>
+    </div>
     <section class="boks">
-      <h3>Bilde og lyd</h3>
-      <div class="rad">
-        <label class="felt">Filter
-          <select id="filter"><option value="skarp">Skarp</option><option value="piksel">Rene piksler</option><option value="myk">Myk</option><option value="crt">CRT</option><option value="glatt">Glatt (Scale4x)</option></select>
-        </label>
-        <label class="felt">Format
-          <select id="format"><option value="pal">PAL (kvadratiske piksler)</option><option value="43">4:3</option></select>
-        </label>
-      </div>
-      <label class="avkryss"><input type="checkbox" id="helt"> Vis hele PAL-bildet (med kanter)</label>
-      <label class="felt">Lydstyrke <input type="range" id="volum" min="0" max="2" step="0.05"></label>
-      <label class="avkryss"><input type="checkbox" id="knappevent"> Vent på fire før kamp (ButtonWait, gir tid til å lese)</label>
-      <label class="avkryss"><input type="checkbox" id="skjermknapper"> Vis styrekors og knapper på skjermen også med mus</label>
+      <h3 class="pt">Bilde og lyd</h3>
+      <label class="valg"><span class="pt">Filter</span>
+        <select id="filter"><option value="skarp">Skarp</option><option value="piksel">Rene piksler</option><option value="myk">Myk</option><option value="crt">CRT</option><option value="glatt">Glatt (Scale4x)</option></select>
+        <span class="verdi pt" data-for="filter"></span></label>
+      <label class="valg"><span class="pt">Format</span>
+        <select id="format"><option value="pal">PAL (kvadratiske piksler)</option><option value="43">4:3</option></select>
+        <span class="verdi pt" data-for="format"></span></label>
+      <label class="valg"><span class="pt">Hele PAL-bildet (med kanter)</span><input type="checkbox" id="helt"><span class="verdi pt" data-for="helt"></span></label>
+      <label class="valg glider"><span class="pt">Lydstyrke</span><span class="verdi pt" data-for="volum"></span><input type="range" id="volum" min="0" max="2" step="0.05"></label>
+      <label class="valg"><span class="pt">Vent på fire før kamp</span><input type="checkbox" id="knappevent"><span class="verdi pt" data-for="knappevent"></span></label>
+      <p class="hjelp">ButtonWait: kampen venter på fire, så du får tid til å lese. Gjelder fra neste start.</p>
+      <label class="valg"><span class="pt">Styrekors og knapper også med mus</span><input type="checkbox" id="skjermknapper"><span class="verdi pt" data-for="skjermknapper"></span></label>
     </section>
     <section class="boks">
-      <h3>Effekter</h3>
+      <h3 class="pt">Effekter</h3>
       <p class="hjelp">Spillet tegnes i lag: bakgrunn, figurer og tekst hver for seg. Effektene bruker det.</p>
-      <label class="avkryss"><input type="checkbox" id="effekt-skygge"> Skygger under figurer og tekst</label>
-      <label class="avkryss"><input type="checkbox" id="effekt-dybde"> Litt uskarp bakgrunn, så figurene trer fram</label>
-      <label class="avkryss"><input type="checkbox" id="effekt-glod"> Glød rundt lyse ting (magi, ild, tekst)</label>
-      <label class="avkryss"><input type="checkbox" id="effekt-farger"> Sterkere og varmere farger</label>
-      <label class="avkryss"><input type="checkbox" id="effekt-vignett"> Mørkere hjørner (vignett)</label>
+      <label class="valg"><span class="pt">Skygger under figurer og tekst</span><input type="checkbox" id="effekt-skygge"><span class="verdi pt" data-for="effekt-skygge"></span></label>
+      <label class="valg"><span class="pt">Litt uskarp bakgrunn</span><input type="checkbox" id="effekt-dybde"><span class="verdi pt" data-for="effekt-dybde"></span></label>
+      <label class="valg"><span class="pt">Glød rundt lyse ting</span><input type="checkbox" id="effekt-glod"><span class="verdi pt" data-for="effekt-glod"></span></label>
+      <label class="valg"><span class="pt">Sterkere og varmere farger</span><input type="checkbox" id="effekt-farger"><span class="verdi pt" data-for="effekt-farger"></span></label>
+      <label class="valg"><span class="pt">Mørkere hjørner</span><input type="checkbox" id="effekt-vignett"><span class="verdi pt" data-for="effekt-vignett"></span></label>
     </section>
     <section class="boks">
-      <h3>HD-grafikk (eksperimentelt)</h3>
-      <p class="hjelp">Velg en mappe med PNG-er navngitt som <code>tools/gfx.py extract</code> gir dem (for eksempel <code>kn1.ob/000.png</code>), gjerne tegnet i høyere oppløsning. Figurene spillet tegner, vises da med dine bilder. Se docs/hd-grafikk.md.</p>
-      <label class="avkryss"><input type="checkbox" id="rammer"> Vis et gult felt der spillet tegner en figur uten HD-bilde</label>
+      <h3 class="pt">HD-grafikk</h3>
+      <label class="valg"><span class="pt">Grafikk</span>
+        <select id="hd-bryter"><option value="hd">HD der den finnes</option><option value="original">Original</option></select>
+        <span class="verdi pt" data-for="hd-bryter"></span></label>
+      <p class="hjelp">Velg en mappe med PNG-er navngitt som i <code>docs/grafikkliste.md</code> (for eksempel <code>KN1.ob/000.png</code>), gjerne tegnet i høyere oppløsning. Figurene spillet tegner, vises da med dine bilder. Se docs/hd-grafikk.md.</p>
+      <label class="valg"><span class="pt">Gult felt der HD-bilde mangler</span><input type="checkbox" id="rammer"><span class="verdi pt" data-for="rammer"></span></label>
       <p class="hjelp">Bakgrunner: lagre den som vises, tegn den i høyere oppløsning, og legg den i mappen <code>bg</code> i HD-pakken med samme navn.</p>
       <div class="rad">
-        <label class="knapp liten">Velg HD-mappe <input type="file" id="velg-hd" webkitdirectory multiple></label>
-        <button id="tom-hd" class="knapp liten">Fjern</button>
-        <button id="lagre-bg" class="knapp liten">Lagre bakgrunnen som PNG</button>
+        <label class="knapp"><span class="pt">Velg HD-mappe</span> <input type="file" id="velg-hd" webkitdirectory multiple></label>
+        <button id="tom-hd" class="knapp"><span class="pt">Fjern</span></button>
+        <button id="lagre-bg" class="knapp"><span class="pt">Lagre bakgrunnen</span></button>
       </div>
       <p class="hjelp" id="hd-status">Ingen HD-pakke.</p>
     </section>
     <section class="boks" id="lagring">
-      <h3>Lagring</h3>
+      <h3 class="pt">Lagring</h3>
       <p class="hjelp" id="lagring-hjelp">Tilstanden lagres i denne nettleseren.</p>
+      <label class="valg"><span class="pt">Plass</span><select id="plass"></select><span class="verdi pt" data-for="plass"></span></label>
       <div class="rad">
-        <label class="felt">Plass <select id="plass"></select></label>
-        <button id="lagre" class="knapp liten">Lagre</button>
-        <button id="last" class="knapp liten">Last</button>
+        <button id="lagre" class="knapp"><span class="pt">Lagre</span></button>
+        <button id="last" class="knapp"><span class="pt">Last</span></button>
       </div>
     </section>
     <section class="boks" id="nettspill" hidden>
-      <h3>Nettspill</h3>
+      <h3 class="pt">Nettspill</h3>
       <p id="rominfo"></p>
       <div class="rad" id="lenkerad">
         <input id="lenke" readonly>
-        <button id="kopier" class="knapp liten">Kopier lenken</button>
+        <button id="kopier" class="knapp"><span class="pt">Kopier lenken</span></button>
       </div>
       <table id="spillerliste"></table>
       <p class="hjelp" id="port-hjelp">Moonstone har to joystickporter. Joystick 1 (port 2) brukes på kartet, i kamp mellom to riddere brukes begge. Spillere på samme joystick deler den som ved et vanlig bord: den som har turen, styrer.</p>
       <div id="chat"><div id="chatlogg"></div><input id="chatfelt" placeholder="Skriv en melding og trykk Enter" maxlength="300"></div>
     </section>
     <section class="boks">
-      <h3>Spillfil og egne filer</h3>
+      <h3 class="pt">Spillfil og egne filer</h3>
       <p class="hjelp" id="spillfil-hjelp">Spillfilen (Moonstonecd32-AMIGA.zip) er bygget inn i siden. Vil du bruke en annen, f.eks. «Moonstone CD32.iso», velger du den her. Gjester i nettspill trenger ingen spillfil.</p>
-      <label class="knapp liten">Velg spillfil
-        <input type="file" id="velg-fil" accept=".zip,.iso,application/zip">
-      </label>
+      <div class="rad">
+        <label class="knapp"><span class="pt">Velg spillfil</span>
+          <input type="file" id="velg-fil" accept=".zip,.iso,application/zip"></label>
+      </div>
       <p class="hjelp">Filer laget med <code>tools/gfx.py build</code> (f.eks. bg1a.PIV) brukes i stedet for originalene i data/, og <code>tekster.txt</code> fra <code>tools/tekst.py</code> endrer tekstene i spillet. De brukes når spillet startes på nytt. I nettspill får gjestene dem fra verten.</p>
       <div class="rad">
-        <label class="knapp liten">Legg til filer <input type="file" id="velg-mod" multiple></label>
-        <button id="fjern-mod" class="knapp liten">Fjern alle</button>
+        <label class="knapp"><span class="pt">Legg til filer</span> <input type="file" id="velg-mod" multiple></label>
+        <button id="fjern-mod" class="knapp"><span class="pt">Fjern alle</span></button>
       </div>
       <p class="hjelp" id="mod-liste">Ingen egne filer.</p>
     </section>
     <section class="boks">
-      <h3>Taster</h3>
+      <h3 class="pt">Taster</h3>
       <ul class="taster">
         <li><b>Introen:</b> Esc, fire, Enter eller et trykk på skjermen hopper over den.</li>
         <li><b>Menyene i spillet:</b> klikk eller trykk på et valg, eller bruk piltastene og Enter (eller fire).</li>
+        <li><b>Valgene på kartet</b> (fire på et sted): trykk på et valg under bildet, bruk styrekorset og Fire, eller tastene 1-9.</li>
         <li><b>Musen:</b> utenfor menyene er venstre knapp fire. Hold den og dra for fire og retning (angrepene i kamp). Høyre knapp og dra er bare retning.</li>
         <li><b>Nettspill:</b> velg <b>Options</b> og <b>Online Game</b> i spillets meny.</li>
         <li><b>Kontrollene:</b> tastene og knappene under kan endres i spillets meny, under <b>Options</b> (Keyboard og Gamepad). Listen viser standardoppsettet.</li>
@@ -131,8 +152,8 @@
         <li>På spillkontroller: A = fire, B = mellomrom, Start = E, Back = Esc, LB RB X Y = 1 til 4.</li>
       </ul>
     </section>
-    <div class="rad"><button id="omstart" class="knapp">Start spillet på nytt</button></div>
-    <p class="smaa">Moonstone: A Hard Days Knight (Mindscape 1991), kjørt fra originalkoden på en emulert Amiga 500. Kjernen er skrevet i C (WebAssembly), bildet tegnes med three.js, nettspill går med PeerJS.</p>
+    <div class="rad midt"><button id="omstart" class="knapp"><span class="pt">Start spillet på nytt</span></button></div>
+    <p class="smaa">Moonstone: A Hard Days Knight (Mindscape 1991), kjørt fra originalkoden på en emulert Amiga 500. Kjernen er skrevet i C (WebAssembly), bildet tegnes med three.js, nettspill går med PeerJS. Menyen bruker spillets egen font og grafikk.</p>
   </div>
 </div>
 

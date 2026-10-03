@@ -199,7 +199,7 @@ void hver_kommando(int k, int arg, const char *text)
         if (arg < 1 || arg > 3 || !whd_mog_loaded || !(H.tatt & (1 << arg))) return;
         mem_write32(RIDDERE + (uint32_t)arg * RSTR + 0x36, 4);
         mem_write8(RIDDERE + (uint32_t)arg * RSTR + 0x0b, 4);
-        if (H.duell == arg + 1) H.duell = 0;
+        if (H.duell == arg + 1) { H.duell = 0; H.rulle = 0; }   /* spillet her svarer selv om rullen */
         break;
     case HVER_RIDDER: {
         int p, x, y, liv, figur;
@@ -248,7 +248,7 @@ void hver_frame(void)
     /* beskyttelsesrullen i en duell (hook_rulle): spillet venter paa fire i port 2 og
      * lar saa ridderen velge i inventaret med joysticken i port 2, men det er
      * forsvareren som spiller, og han har port 1. Port 1 flyttes dit saa lenge. */
-    if (H.rulle) { IN.joy[1] = IN.joy[0]; IN.joy[0] = 0; }
+    if (H.rulle && H.duell) { IN.joy[1] = IN.joy[0]; IN.joy[0] = 0; }
     if (!H.fjern || !whd_mog_loaded || !H.kart) return;
     for (int k = 1; k < 4; k++) {
         if (!(H.fjern & (1 << k)) || !H.har[k] || (H.kamp & (1 << k))) continue;

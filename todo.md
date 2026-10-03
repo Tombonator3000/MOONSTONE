@@ -1,6 +1,9 @@
 # todo.md
 
 ## Neste
+- [ ] HD-bakgrunner etter filnavn (bg1a.PIV/0.png) i tillegg til hash, for bildene som vises som de er.
+- [ ] Valgene paa kartet ogsaa i PC-versjonen med spillkontroller (i dag bare tastene 1-9).
+- [ ] Options paa mobil: oppsett av styrekorset og knappene (storrelse, venstrehendt).
 - [ ] Options-siden også i PC-versjonen (SDL): taster og knapper i spillets meny. PC slår ikke på menylappen i dag.
 - [ ] Options: velge spillkontroller nummer 2 og hvilken kontroller som er spiller 1.
 - [ ] Duell: la den som blir angrepet få se et kort varsel før kampen («Tom utfordrer deg») i spillets egen stil, ikke bare i statuslinjen.
@@ -24,6 +27,7 @@
 - [ ] Teste moonstone.exe på ekte Windows.
 
 ## Ferdig
+- [x] Mobil i spillets menyer: valgene paa kartet som knapper (trykk, styrekors og Fire, Enter), navnet til ridderen med tekstfelt. Sidemenyen, knappene og meldingene i spillets stil (font, pil, logo og nattehimmel fra spillfilen). Bryter mellom HD og original grafikk. docs/grafikkliste.md og .csv over all grafikken.
 - [x] Duell: beskyttelsesrullen ($080C1A) og inventaret etterpå styres av forsvareren (port 1 flyttes til port 2 mens spillet venter).
 - [x] Options i tittelmenyen (nettsiden): Online Game, Keyboard (fire og bevegelse for begge spillerne), Gamepad (fire, inventar, Pass, Esc), Default Controls. Lagres i nettleseren. Korte fire-trykk mens menyen tegnes, blir husket.
 - [x] Flerspiller «Hver for seg» steg 3: dueller over nettet (direkte forbindelse, den andre får maskinen og styrer port 1, tar ridderen med tilbake), hele ridderen sendes, datamaskinen tar over om den andre ikke kan.

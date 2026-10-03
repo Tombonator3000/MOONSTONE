@@ -53,6 +53,7 @@ const Visning = (() => {
      * uendret (tekst tegnes bare en gang); uten lag vises klyngen til det har gaatt
      * 50 bilder uten nye tegninger. */
     let hdGruppe = null, hdPakke = new Map(), visRammer = false;
+    let hdPaa = true;                       /* false: original grafikk, selv om en HD-pakke er lastet */
     let bildeNr = 0, sistTegnet = -99, klynger = [];
     let visteListe = [], visesFra = 0;
     let plasserte = new Map(), sisteBakHash = -1;    /* "x,y,b,h" -> { d, x, y, w, h, hash } */
@@ -452,7 +453,7 @@ const Visning = (() => {
     let hdLys = 1;                          /* fading for HD-bildene, fra paletten (lagene) */
     function tegnHd() {
         let n = 0;
-        if (visRammer || hdPakke.size) {
+        if (hdPaa && (visRammer || hdPakke.size)) {        /* «Original»: ingen HD-bilder og ingen gule felt */
             for (const d of visteListe) {
                 const nokkel = d.fil.toLowerCase() + '/' + String(d.bilde).padStart(3, '0');
                 const t = hdPakke.get(nokkel);
@@ -490,7 +491,7 @@ const Visning = (() => {
         const lx = diwNaa[0] / 2 - ux(), ly = diwNaa[1] - uy();
         if (lag) {
             const nokkel = 'bg/' + (lag.hash >>> 0).toString(16).padStart(8, '0');
-            const hd = hdPakke.get(nokkel);
+            const hd = hdPaa ? hdPakke.get(nokkel) : null;
             const maks = Math.max(lysMaks.get(lag.hash) || 0, lag.lys);
             lysMaks.set(lag.hash, maks);
             hdLys = maks ? lag.lys / maks : 1;
@@ -572,9 +573,12 @@ const Visning = (() => {
         viste: () => visteListe.length,             /* figurer som vises med HD-bilde eller gult felt */
         maaTegnes: () => maaTegnes,
         utsnitt: () => crop.slice(),                /* delen av rammebufferet som vises (x0, y0, x1, y1) */
-        brukerListe: () => hdPakke.size > 0 || visRammer,   /* trengs tegnelisten fra kjernen? */
+        brukerListe: () => hdPaa && (hdPakke.size > 0 || visRammer),   /* trengs tegnelisten fra kjernen? */
         /* trengs lagene fra kjernen? (HD-bakgrunner eller effekter som skiller lagene) */
-        trengerLag: () => hdPakke.size > 0 || effekter.skygge || effekter.dybde || tvungetLag,
+        trengerLag: () => (hdPaa && hdPakke.size > 0) || effekter.skygge || effekter.dybde || tvungetLag,
+        /* HD-grafikk eller originalen (bryteren i menyen) */
+        settHd: (on) => { hdPaa = !!on; maaTegnes = true; },
+        hdPaa: () => hdPaa,
         lagNaa: () => lagNaa,
         settTvungetLag: (on) => { tvungetLag = on; maaTegnes = true; },
     };

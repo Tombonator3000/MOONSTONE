@@ -23,7 +23,7 @@
     const $ = (id) => document.getElementById(id);
     const inn = Lager.innstillinger();
     const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false, knapper: false,
-        effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false }, spill: 'hver' }, inn);
+        effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false }, spill: 'hver', hd: 'hd' }, inn);
     const lagreInnst = () => Lager.lagreInnstillinger(innst);
     innst.kontroller = Inndata.settOppsett(innst.kontroller);
 
@@ -42,7 +42,7 @@
     /* ---------------------------------------------------------------- meldinger */
     function status(tekst) {
         const s = $('status');
-        s.textContent = tekst;
+        Spillgrafikk.sett(s, tekst);
         s.classList.add('vis');
         clearTimeout(statusTimer);
         statusTimer = setTimeout(() => s.classList.remove('vis'), 3500);
@@ -122,6 +122,7 @@
             if (spillfil === INNEBYGD) Kjerne.aapneInnebygd();
             else Kjerne.aapne(spillfil.slice());
             for (const [n, d] of Object.entries(modFiler)) Kjerne.leggInnFil('data/' + n, d);
+            if (!Spillgrafikk.klar() && Spillgrafikk.last(Kjerne.hentFil)) brukSpillgrafikk();
             Kjerne.start(innst.knappevent);
         }
         periode = 1 / Kjerne.hz();
@@ -259,7 +260,7 @@
         if (t + topp === sisteHint) return;
         sisteHint = t + topp;
         $('hint').hidden = !t;
-        $('hint').textContent = t;
+        Spillgrafikk.sett($('hint'), t);
         $('hint').classList.toggle('topp', topp);
     }
 
@@ -548,10 +549,223 @@
         });
     }
 
+    /* ---------------------------------------------------------------- valgene paa kartet
+     * Fire paa et sted med flere valg gir en brun boks i spillet («SIR GODBER may
+     * ...», «1 Enter Village», «2 Battle with KARI»), og spillet venter paa tastene
+     * 1-9 (port/src/game.c game_valg). Uten tastatur (mobil, spillkontroller) gikk
+     * det ikke. Valgene vises derfor ogsaa her, i samme brune boks: trykk paa et
+     * valg, eller flytt pilen med styrekorset (opp og ned) og trykk fire eller
+     * Enter. Tasten sendes til spillet som om den var trykket, saa nettspill og
+     * lagring er som foer. Mens boksen vises, gaar joysticken ikke til spillet. */
+    let valgNaa = null, valgMerket = 0, valgJoy = 0, valgStille = false;
+
+    function oppdaterValg() {
+        const v = Kjerne.kartValg();
+        const noekkel = v ? v.tittel + '|' + v.valg.join('|') : '';
+        oppdaterNavnKnapp();
+        /* tok ikke spillet tasten (den kom bort), kan man velge igjen */
+        if (valgNaa && valgNaa.valgt && performance.now() - valgNaa.valgt > 4000) valgNaa.valgt = 0;
+        if (noekkel === (valgNaa ? valgNaa.noekkel : '')) return;
+        const boks = $('valg');
+        if (!v) { valgNaa = null; boks.hidden = true; return; }
+        valgNaa = { noekkel, valg: v.valg, valgt: 0, aktiv: minTur() };
+        valgJoy = 0xff;                     /* fire som aapnet valgene, maa slippes forst */
+        boks.classList.toggle('venter', !valgNaa.aktiv);
+        Spillgrafikk.sett($('valg-tittel'), v.tittel);
+        const liste = $('valg-liste');
+        liste.textContent = '';
+        v.valg.forEach((t, i) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'valg-knapp';
+            b.setAttribute('aria-label', (i + 1) + ' ' + t);
+            const pil = document.createElement('span');
+            pil.className = 'pil';
+            const tekst = document.createElement('span');
+            b.append(pil, tekst);
+            Spillgrafikk.sett(tekst, (i + 1) + ' ' + t);
+            b.disabled = !valgNaa.aktiv;
+            b.addEventListener('click', () => velgValg(i));
+            b.addEventListener('pointerenter', () => merkValg(i));
+            liste.appendChild(b);
+        });
+        merkValg(0);
+        boks.hidden = false;
+        plasserOver(boks);
+    }
+
+    /* uten valgboks (duell, ny start): det som ble trykket der, glemmes */
+    function skjulValg() {
+        valgNaa = null;
+        valgStille = false;
+        valgJoy = 0;
+        $('valg').hidden = true;
+    }
+
+    function merkValg(i) {
+        if (!valgNaa) return;
+        valgMerket = (i + valgNaa.valg.length) % valgNaa.valg.length;
+        [...$('valg-liste').children].forEach((b, j) => b.classList.toggle('merket', j === valgMerket));
+    }
+
+    function velgValg(i) {
+        if (!valgNaa || !valgNaa.aktiv || valgNaa.valgt || i < 0 || i >= valgNaa.valg.length) return;
+        valgNaa.valgt = performance.now();   /* til spillet har tatt tasten og boksen er borte */
+        Inndata.trykk(0x01 + i);             /* tastene 1-9 paa Amigaen */
+        valgStille = true;
+    }
+
+    /* joysticken (tastatur, spillkontroller og styrekorset paa skjermen) mens valgene
+     * vises: opp og ned flytter pilen, fire velger. Sann = ikke send den til spillet. */
+    function valgJoystick(bits) {
+        if (valgStille) {
+            if (!(bits & FIRE) && (!valgNaa || !valgNaa.valgt)) valgStille = false;
+            valgJoy = bits;
+            return true;
+        }
+        if (!valgNaa || !valgNaa.aktiv) { valgJoy = bits; return false; }
+        const ny = bits & ~valgJoy;
+        valgJoy = bits;
+        if (ny & Inndata.OPP) merkValg(valgMerket - 1);
+        if (ny & Inndata.NED) merkValg(valgMerket + 1);
+        if (ny & FIRE) velgValg(valgMerket);
+        return true;
+    }
+
+    /* Enter og mellomrom velger der pilen staar; tallene gaar rett til spillet */
+    function valgTaster(taster) {
+        if (!valgNaa || !valgNaa.aktiv) return taster;
+        if (taster.some(([k, d]) => d && MENYTASTER.includes(k))) velgValg(valgMerket);
+        return taster.filter(([k, d]) => !(d && MENYTASTER.includes(k)));     /* slippene gaar videre */
+    }
+
+    /* Er det denne spilleren som velger? Alene og hver for seg alltid; i et rom tur
+     * for tur den som har joysticken i port 2 (ridderen som har turen). Ellers vises
+     * valgene bare, og tastene ville verten uansett ikke sluppet gjennom. */
+    function minTur() {
+        if (modus !== 'vert' && modus !== 'gjest') return true;
+        if (modus === 'vert' && !Nett.harGjester()) return true;
+        const eier = Kjerne.portSpillere()[1];
+        if (eier < 0) return modus === 'vert';
+        if (modus === 'vert') return eier === Nett.vertensSpiller();
+        const meg = sisteSpillere.find((x) => x.id === Nett.minId());   /* listen gjesten faar fra verten */
+        return !!meg && meg.spiller === eier;
+    }
+
+    /* boksen midt over spillets bilde, innenfor skjermen */
+    function plasserOver(el) {
+        const r = $('lerret').getBoundingClientRect();
+        el.style.left = el.style.top = '0px';        /* maal bredden uten forrige plassering */
+        const w = el.offsetWidth, h = el.offsetHeight;
+        const x = Math.max(8, Math.min(innerWidth - w - 8, r.left + (r.width - w) / 2));
+        const y = Math.max(8, Math.min(innerHeight - h - 8, r.top + (r.height - h) / 2));
+        el.style.left = x + 'px';
+        el.style.top = y + 'px';
+    }
+    window.addEventListener('resize', () => requestAnimationFrame(() => {      /* etter at fonten har ny storrelse */
+        if (!$('valg').hidden) plasserOver($('valg'));
+        if (!$('navn-knapp').hidden) plasserNavnKnapp();
+    }));
+
+    /* ---------------------------------------------------------------- navnet til ridderen
+     * Etter Select a Knight skriver man navnet med tastaturet (fire godtar det som
+     * staar). Paa mobil kommer en knapp under bildet som aapner et tekstfelt; navnet
+     * skrives saa inn i spillet tast for tast, og Return godtar det. */
+    function oppdaterNavnKnapp() {
+        navnSteg();
+        const vis = Kjerne.navnAktiv() && (beroering() || innst.knapper) && !menyApen && !dialogApen && !navnSending && minTur();
+        const k = $('navn-knapp');
+        if (k.hidden !== vis) return;
+        k.hidden = !vis;
+        if (vis) plasserNavnKnapp();
+    }
+
+    /* under bildet naar det er plass (staaende mobil), ellers nederst i bildet */
+    function plasserNavnKnapp() {
+        const k = $('navn-knapp'), r = $('lerret').getBoundingClientRect();
+        const t = $('touch'), tTopp = t.hidden ? innerHeight : t.querySelector('.knapper').getBoundingClientRect().top;
+        const under = r.bottom + 12;
+        k.style.left = Math.max(8, r.left + (r.width - k.offsetWidth) / 2) + 'px';
+        k.style.top = (under + k.offsetHeight + 8 <= tTopp ? under : Math.min(innerHeight - k.offsetHeight - 8, r.bottom - k.offsetHeight - 8)) + 'px';
+    }
+
+    $('navn-knapp').addEventListener('click', () => {
+        $('ridder-felt').value = Kjerne.navn().trim();
+        visDialog('ridder-dialog', true);
+        $('ridder-felt').focus();
+        $('ridder-felt').select();
+    });
+
+    /* Etter hver tast tegner spillet navnet paa nytt i 6-7 bilder, og en tast som
+     * kommer da, blir borte. Tastene sendes derfor en om gangen: neste naar lokka
+     * leser igjen (Kjerne.navnKlar) og navnet har endret seg (eller etter 1,5 s). */
+    let navnSending = null;                 /* { ko: [koder], forrige, frist } */
+
+    function navnSteg() {
+        const s = navnSending;
+        if (!s) return;
+        if (!Kjerne.navnAktiv()) { navnSending = null; return; }     /* godtatt, eller ute av navnet */
+        if (!Kjerne.navnKlar() || Inndata.venter()) return;
+        const naa = Kjerne.navn();
+        if (s.forrige !== null && naa === s.forrige && performance.now() < s.frist) return;
+        if (!s.ko.length) { navnSending = null; return; }
+        s.forrige = naa;
+        s.frist = performance.now() + 1500;
+        Inndata.trykk(s.ko.shift());
+    }
+
+    function ridderOk() {
+        const nytt = $('ridder-felt').value.toUpperCase().replace(/[ÆØÅ]/g, (c) => ({ Æ: 'AE', Ø: 'O', Å: 'A' }[c]))
+            .normalize('NFD').replace(/[^A-Z0-9 ]/g, '').replace(/\s+/g, ' ').trim().slice(0, 13);
+        visDialog('ridder-dialog', false);
+        if (!nytt || !Kjerne.navnAktiv()) return;
+        const ko = [];
+        for (let i = Kjerne.navn().length; i > 0; i--) ko.push(0x41);       /* Backspace */
+        for (const c of nytt) {
+            const kode = c === ' ' ? 0x40 : Inndata.kode(/[0-9]/.test(c) ? 'Digit' + c : 'Key' + c);
+            if (kode !== undefined) ko.push(kode);
+        }
+        ko.push(0x44);                          /* Return godtar navnet */
+        navnSending = { ko, forrige: null, frist: 0 };
+        $('navn-knapp').hidden = true;
+    }
+    $('ridder-ok').addEventListener('click', ridderOk);
+    $('ridder-felt').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') ridderOk();
+        if (e.key === 'Escape') visDialog('ridder-dialog', false);
+        e.stopPropagation();
+    });
+    $('ridder-avbryt').addEventListener('click', () => visDialog('ridder-dialog', false));
+
+    /* ---------------------------------------------------------------- spillets stil i menyen
+     * Tekstene med klassen pt tegnes med spillets font (grafikk.js), og verdiene
+     * til avkrysninger, valglister og lydstyrken vises til hoyre som i spillets
+     * egen meny («Gore On»). Uten spillets grafikk blir det vanlig tekst. */
+    function brukSpillgrafikk() {
+        Spillgrafikk.stil(document);
+        const logo = Spillgrafikk.logo(1);
+        if (logo) { const m = $('meny-logo'); m.textContent = ''; m.setAttribute('role', 'img'); m.setAttribute('aria-label', 'Moonstone'); m.appendChild(logo); }
+        oppdaterVerdier();
+    }
+
+    function oppdaterVerdier() {
+        for (const v of document.querySelectorAll('.verdi[data-for]')) {
+            const el = $(v.dataset.for);
+            if (!el) continue;
+            let t = '';
+            if (el.type === 'checkbox') t = el.checked ? 'På' : 'Av';
+            else if (el.type === 'range') t = Math.round(el.value * 100) + '%';
+            else if (el.tagName === 'SELECT') t = el.selectedOptions[0] ? el.selectedOptions[0].textContent : '';
+            Spillgrafikk.sett(v, t);
+        }
+    }
+    $('meny').addEventListener('change', oppdaterVerdier);
+    $('meny').addEventListener('input', oppdaterVerdier);
+
     /* ---------------------------------------------------------------- dialoger (navn og romkode) */
     function visDialog(id, on) {
         $(id).hidden = !on;
-        dialogApen = !$('kode-dialog').hidden || !$('navn-dialog').hidden;
+        dialogApen = !$('kode-dialog').hidden || !$('navn-dialog').hidden || !$('ridder-dialog').hidden;
         Inndata.paa(!menyApen && !dialogApen && !!modus);
     }
 
@@ -823,6 +1037,7 @@
         const id = rekkefolge[k - 1];
         if (!id || D || modus !== 'hver') { Kjerne.hverKmd(HVER.AI, k); return; }
         const d = D = { rolle: 'a', plass: k, id, status: 'venter', inn: 0, navn: navnTil(id), conn: null };
+        skjulValg();
         status('Utfordrer ' + d.navn + ' ...');
         d.tidsfrist = setTimeout(() => utenDuell(d, d.navn + ' svarte ikke.'), 15000);
         Nett.duellKoble(id).then((conn) => {
@@ -914,6 +1129,7 @@
             if (!egen) { conn.send({ t: 'nei' }); setTimeout(() => conn.close(), 500); return; }
             D = { rolle: 'b', conn, plass: p, status: 'venter', egen, rammer: [], navn: String(m.navn || 'Player').slice(0, 20),
                 motta: Nett.tilstandsMottaker(), sistInn: -1, sistInnTid: 0, akk: 0, sist: performance.now(), mine: new Map() };
+            skjulValg();                        /* kampen vises; valgene kommer tilbake etter den */
             Lyd.clear();
             status(D.navn + ' utfordrer deg til kamp!');
             conn.send({ t: 'ja', egne: egneFiler() });
@@ -1023,10 +1239,12 @@
     let nyttBilde = false;                  /* kjernen har laget et bilde siden sist det ble tegnet */
     function kjorEttBilde() {
         const lokalt = Inndata.les();
+        const joy = lokalt.a | lokalt.b;
         lokalt.a |= museBits();
         let taster = Inndata.hentTaster();
         if (Inndata.fanger()) { lokalt.a = lokalt.b = 0; taster = []; }     /* en tast skal velges i Options */
-        taster = menyTaster(taster);
+        if (valgJoystick(joy)) lokalt.a = lokalt.b = 0;                    /* valgene paa kartet bruker joysticken */
+        taster = menyTaster(valgTaster(taster));
         if ((lokalt.a | lokalt.b) && Kjerne.iMeny()) menyBrukt = true;
         let j0, j1;
         if (modus === 'vert') {
@@ -1054,6 +1272,7 @@
         nyttBilde = true;
         Visning.nyttBilde(Visning.brukerListe() ? Kjerne.tegneliste() : INGEN);
         Lyd.push(Kjerne.lyd());
+        oppdaterValg();
         const filer = Kjerne.brukteFiler();
         if (modus === 'vert' && Nett.harGjester()) {
             Nett.sendBilde(f, [j0, j1], taster, filer, Kjerne.hentFil, f % 120 === 0 ? Kjerne.sjekksum() : undefined, kommandoer);
@@ -1095,6 +1314,7 @@
         Visning.nyttBilde(Visning.brukerListe() ? Kjerne.tegneliste() : INGEN);
         Lyd.push(Kjerne.lyd());
         Kjerne.brukteFiler();
+        oppdaterValg();
         menyHendelser();
         if (m.h !== undefined) {
             if (Kjerne.sjekksum() === m.h) statistikk.sjekket++;
@@ -1127,8 +1347,10 @@
         if (modus === 'gjest') {
             /* send egne knapper til verten */
             const l = Inndata.les();
-            Nett.sendInn(l.a | l.b | museRetning | (museFire || performance.now() < klikkTil ? FIRE : 0));
-            for (const [k, d] of menyTaster(Inndata.hentTaster())) Nett.sendTast(k, d);
+            let inn = l.a | l.b | museRetning | (museFire || performance.now() < klikkTil ? FIRE : 0);
+            if (valgJoystick(l.a | l.b)) inn = 0;
+            Nett.sendInn(inn);
+            for (const [k, d] of menyTaster(valgTaster(Inndata.hentTaster()))) Nett.sendTast(k, d);
             const ko = Nett.rammer;
             while (ko.length && ko[0].f < Kjerne.bildeNr()) ko.shift();
             if (!venterSynk) {
@@ -1194,7 +1416,8 @@
         const nett = modus === 'vert' || modus === 'gjest' || modus === 'hver';
         $('nettspill').hidden = !nett;
         $('lagring').hidden = modus === 'gjest';
-        $('omstart').textContent = modus === 'hver' ? 'Forlat rommet' : nett ? 'Forlat nettspillet og start på nytt' : 'Start spillet på nytt';
+        Spillgrafikk.sett($('omstart').querySelector('.pt'), modus === 'hver' ? 'Forlat rommet' : nett ? 'Forlat nettspillet og start på nytt' : 'Start spillet på nytt');
+        oppdaterVerdier();
         $('lagring-hjelp').textContent = 'Tilstanden lagres i denne nettleseren.';
         if (modus === 'hver') {
             $('rominfo').textContent = (erVert() ? 'Du er vert for rom ' + Nett.kode() + '. Send lenken til opptil tre andre.' : 'Du er med i rom ' + Nett.kode() + '.')
@@ -1306,6 +1529,7 @@
             sel.appendChild(o);
         }
         sel.addEventListener('change', () => { plass = +sel.value; });
+        oppdaterVerdier();
     }
 
     async function lagre() {
@@ -1456,13 +1680,20 @@
         status(n + ' HD-bilder lastet');
     });
     $('tom-hd').addEventListener('click', () => { Visning.tomHdPakke(); $('hd-status').textContent = 'Ingen HD-pakke.'; });
+    /* HD-grafikk eller originalen, uten aa fjerne HD-pakken */
+    $('hd-bryter').addEventListener('change', (e) => {
+        innst.hd = e.target.value;
+        Visning.settHd(innst.hd !== 'original');
+        lagreInnst();
+        status(innst.hd === 'original' ? 'Original grafikk' : Visning.hdAntall() ? 'HD-grafikk der den finnes' : 'HD-grafikk når du har valgt en HD-mappe');
+    });
 
     Inndata.settHurtigtaster((e) => {
         if (e.code === 'Home') { if (!e.repeat) visMeny(!menyApen); return true; }
         if (e.repeat) return false;
         if (e.code === 'PageUp') { lagre(); return true; }
         if (e.code === 'PageDown') { last(); return true; }
-        if (e.code === 'End') { plass = plass % 9 + 1; $('plass').value = plass; status('Plass ' + plass); return true; }
+        if (e.code === 'End') { plass = plass % 9 + 1; $('plass').value = plass; oppdaterVerdier(); status('Plass ' + plass); return true; }
         if (e.code === 'Pause' && (modus === 'alene' || modus === 'hver') && !D) { pause = !pause; Lyd.clear(); status(pause ? 'Pause' : 'Fortsetter'); return true; }
         return false;
     });
@@ -1489,6 +1720,9 @@
     $('volum').value = innst.volum;
     $('knappevent').checked = innst.knappevent;
     $('skjermknapper').checked = innst.knapper;
+    $('hd-bryter').value = innst.hd === 'original' ? 'original' : 'hd';
+    Visning.settHd(innst.hd !== 'original');
+    Spillgrafikk.stil(document);                /* vanlig tekst til spillets grafikk er lastet */
     fyllPlasser();
     Inndata.lagTouch($('touch'));
     const rom = new URLSearchParams(location.search).get('rom');

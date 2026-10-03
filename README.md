@@ -174,6 +174,24 @@ spillet bruker det den finner. I nettleseren er musen derfor koblet inn slik:
   retning.
 - **Styrekors og knapper på skjermen** vises på mobil og nettbrett, og kan slås på for
   mus i menyen under «Bilde og lyd».
+- **Valgene på kartet.** Trykker du fire på et sted med flere valg, viser spillet en
+  brun boks («SIR GODBER may ...», «1 Enter Village», «2 Battle with KARI») og venter på
+  tastene 1-9. De samme valgene vises som knapper i samme boks over bildet: trykk eller
+  klikk på et valg, eller flytt pilen med styrekorset (eller piltastene og
+  spillkontrolleren) og trykk Fire eller Enter. Tallene virker som før. Slik kan hele
+  spillet spilles på mobil og med spillkontroller.
+- **Navnet til ridderen** etter Select a Knight: på mobil kommer knappen «Skriv navn»
+  under bildet, som åpner et tekstfelt. Fire godtar navnet som står.
+
+### Menyen på nettsiden
+
+Sidemenyen (Meny-knappen eller Home) er tegnet med spillets egen grafikk: logoen,
+fonten og pilen fra tittelmenyen og nattehimmelen med trærne bak. Den pakkes ut fra
+spillfilen når siden starter (`web/src/grafikk.js`). Fonten har ikke æ, ø, å,
+bindestrek, kolon og parenteser, så de er satt sammen av bokstavene som finnes, i samme
+stil. Avkrysninger og valglister vises som i spillets meny, med verdien til høyre
+(«Skygger under figurer og tekst  Av»); trykk på linjen for å endre. Knappene på
+skjermen og meldingene bruker også spillets font.
 
 ### Effekter og HD-grafikk i nettleseren
 
@@ -215,7 +233,8 @@ Første gang tittelmenyen vises, står det øverst at valgene kan klikkes.
 | Nettspill i spillet | «Online Game» under Options i tittelmenyen: lage rom, navnene på spillerne, kopiere lenke, offentlige rom, bli med. Testet med tre nettlesere. |
 | Kontroller | Options i tittelmenyen: velge taster for fire og bevegelse for begge spillerne og knappene på spillkontrolleren, i spillets egen meny. Lagres i nettleseren. |
 | Hver for seg | Mode Separate: alle spiller sitt eget spill og ser hverandre på kartet, også mens de går. Dueller over nettet med begge ved hver sin joystick. Testet med to nettlesere, begge veier. |
-| HD-grafikk | Eksperimentelt i nettleseren: figurer kan byttes med PNG-er i høyere oppløsning. Plassering og speiling er sjekket mot emulatorbildet i kamp og på kartet. Bakgrunner gjenstår. |
+| HD-grafikk | Eksperimentelt i nettleseren: figurer kan byttes med PNG-er i høyere oppløsning, bakgrunner etter hvordan de ser ut. Bryter mellom HD og originalen i menyen. Liste over all grafikken med mål og HD-navn: [docs/grafikkliste.md](docs/grafikkliste.md) (og .csv). |
+| Mobil | Hele spillet med styrekors og knapper på skjermen: menyene, valgene på kartet (som knapper), navnet til ridderen, inventar og kamp. Testet i Chromium som telefon. |
 | Lyd | Lydeffektene som WAV, musikken som ProTracker-moduler. |
 | Disassembly | 13 775 instruksjoner og 412 funksjoner i mog, styrt av relokeringer og kodedekning. |
 | Decomp | Hook-system med syklusregnskap. `les_joysticker` og `joydat_til_bits` er i C og gir samme spill som originalen. |
@@ -262,7 +281,14 @@ fra verten.
 Nettsiden kan tegne figurene med egne bilder i høyere oppløsning. Lag en mappe med
 samme navn som `tools/gfx.py extract` gir, f.eks. `kn1.ob/012.png`, tegn bildene i
 den størrelsen du vil, og velg mappen i menyen under «HD-grafikk». Spillet selv er
-uendret; HD-bildene legges oppå der spillet tegner figuren. `--tegneliste F[:N]` i
+uendret; HD-bildene legges oppå der spillet tegner figuren. «Grafikk: HD der den
+finnes / Original» i menyen bytter mellom HD-bildene og originalen.
+
+[docs/grafikkliste.md](docs/grafikkliste.md) er listen over all grafikken i spillet:
+hver fil, hva den er, hvert bilde med størrelse og navnet HD-bildet skal ha, og
+[docs/grafikkliste.csv](docs/grafikkliste.csv) det samme med ett bilde per linje (også
+et forslag til HD-størrelse i fire ganger originalen). Den lages på nytt med
+`python3 tools/grafikkliste.py Moonstonecd32-AMIGA.zip docs`. `--tegneliste F[:N]` i
 PC-versjonen viser hvilke figurer som tegnes hvor, og `tools/hd_sjekk.py` sjekker
 plasseringen. Mer i `docs/hd-grafikk.md`, og det vi vet om hvordan spillet er bygget
 står i `docs/slik-er-spillet-bygget.md`.
@@ -326,7 +352,7 @@ port/src/         emulatoren og PC-delen (C)
 port/ext/musashi  68000-kjernen (MIT)
 web/src/          nettsiden: core, render (three.js), audio, input, store, net (PeerJS), rooms (MQTT), app
 web/vendor/       three.js, PeerJS og MQTT.js (MIT)
-tools/            gfx.py, lyd.py, tekst.py, disasm.py, check_hooks.py, hd_sjekk.py, hd_skaler.py, moonfiles.py
+tools/            gfx.py, grafikkliste.py, lyd.py, tekst.py, disasm.py, check_hooks.py, hd_sjekk.py, hd_skaler.py, moonfiles.py
 disasm/           symbols.txt, functions.txt, coverage.bin
 docs/             hvordan spillet er bygget, HD-grafikk, flerspiller
 windows/          start.bat og LES_MEG.txt til Windows-pakken
