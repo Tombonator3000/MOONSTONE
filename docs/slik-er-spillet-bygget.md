@@ -143,6 +143,13 @@ Hver figurtype har sin egen `.a`-fil med 8SVX-lyder (steg, grynt, sverdslag, tre
 Navnene står i filene, f.eks. `knitestep3C`, `headchop`, `SwordClash3.snd`. Musikken er
 to ProTracker-moduler: `introx5` (introen) og `vict0ry6yy` (seier).
 
+Bare `program` (introen og sluttscenen) har en musikkspiller. Introen laster `music.cmp`
+først etter bildene ($085662), så de første ca. 32 sekundene er stille, og sangen åpner
+med 12 sekunder som nesten er stille. Hovedspillet (`mog`) har bare en driver for
+lydeffektene ($0AE0DA, fire kanaler med lydavbrudd). Porten spiller derfor introsangen
+selv når `mog` kjører (`port/src/musikk.c`, kan slås av), blandet inn i lyden ut, uten å
+røre emuleringen.
+
 ## Ting å se nærmere på
 
 - `.t`-filene: nøyaktig hvordan kampbakgrunnen bygges.

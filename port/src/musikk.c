@@ -101,8 +101,9 @@ static uint8_t *cmp_ut(const uint8_t *d, size_t n, size_t *ut_len)
 /* ---------------------------------------------------------------- modulen */
 typedef struct { const int8_t *data; uint32_t len, rep, replen; int fine, vol; } Instr;
 typedef struct {
-    const Instr *in;
-    uint32_t pos;                          /* 16.16 i sample */
+    const Instr *in;                       /* instrumentet (volum og finjustering) */
+    const int8_t *data;                    /* lyden som spilles; byttes bare ved en ny note */
+    uint64_t pos;                          /* 48.16 i sample (lyder kan vaere over 64 KB) */
     uint32_t slutt, lstart, llen;          /* bytes; llen 0 = ingen sloyfe */
     bool aktiv;
     int periode, base, maal, porta, vol, fine;
@@ -216,7 +217,8 @@ static void spill_note(Kanal *k)
     uint32_t slutt = in->len;
     if (in->rep) slutt = in->rep + in->replen;
     if (start >= slutt) { k->aktiv = false; return; }
-    k->pos = start << 16;
+    k->data = in->data;
+    k->pos = (uint64_t)start << 16;
     k->slutt = slutt;
     k->lstart = in->rep;
     k->llen = in->replen > 2 ? in->replen : 0;
@@ -387,16 +389,16 @@ static void tikk_steg(void)
 static int mikse(Kanal *k)
 {
     if (!k->aktiv || k->per_ut < 113 || !k->vol_ut) return 0;
-    uint32_t i = k->pos >> 16;
+    uint32_t i = (uint32_t)(k->pos >> 16);
     if (i >= k->slutt) {
         if (!k->llen) { k->aktiv = false; return 0; }
         k->slutt = k->lstart + k->llen;
         i = k->lstart + (i - k->lstart) % k->llen;
-        k->pos = (i << 16) | (k->pos & 0xffff);
+        k->pos = (uint64_t)i << 16 | (k->pos & 0xffff);
     }
-    int s = k->in->data[i] * k->vol_ut;
+    int s = k->data[i] * k->vol_ut;
     /* PAL: 3546895 / periode Hz, i 16.16 per sample paa 48 kHz */
-    k->pos += (uint32_t)(((uint64_t)3546895 << 16) / ((uint64_t)k->per_ut * AUDIO_RATE));
+    k->pos += ((uint64_t)3546895 << 16) / ((uint64_t)k->per_ut * AUDIO_RATE);
     return s;
 }
 

@@ -21,14 +21,16 @@
 - [ ] Spille gjennom mer av spillet med --coverage (kamper, byer, Stonehenge) for bedre disassembly.
 - [ ] Assembler-utgave av disassemblyen som bygger byte for byte like filer (vasm).
 - [ ] Teste nettspill (også «Online Game» i tittelmenyen) mot PeerJS Cloud og HiveMQ fra en vanlig nettleser (proxyen i skymiljøet stopper WebSocket; lokalt testet med egne servere).
-- [ ] Teste den nye oppstarten på en ekte mobil (lyd ved første trykk, trykk på skjermen hopper over introen, navnefeltet med skjermtastatur).
+- [ ] Teste den nye oppstarten på en ekte mobil (lyd ved første trykk, også med lydløs-bryteren på iPhone, trykk på skjermen hopper over introen, navnefeltet med skjermtastatur).
+- [ ] Musikk: velge sang (også seierssangen vmusic.cmp), og kanskje la musikken ta en pause i kampene.
 - [ ] Klikk i menyene også i PC-versjonen (meny_row_at finnes; PC slår ikke på menylappen i dag).
 - [ ] Mus på andre skjermer enn tittelmenyen: velge ridder, butikker og inventar med klikk (krever å finne valgvariablene for hver skjerm).
 - [ ] Teste moonstone.exe på ekte Windows.
-- [ ] Turns: teste beskyttelsesrullen og at datamaskinens ridder angriper et menneske headless (logikken er der, men bare kampen og plyndringen mellom to mennesker er testet).
 - [ ] Nettspill over et ekte nett med to maskiner: hvor mye forsinkelse gjesten og forsvareren i en duell merker i kamp, og om bufferen på tre bilder bør justeres.
 
 ## Ferdig
+- [x] Musikk i hele spillet: introsangen (music.cmp) spilles også i menyen, på kartet og i kampene (port/src/musikk.c), med bryter og styrke i sidemenyen. Originalen har musikk bare i introen og sluttscenen. Lyden startes i selve trykket på mobil og følger ikke lydløs-bryteren på iPhone.
+- [x] Turns testet headless: beskyttelsesrullen styres av den angrepne (og kampen unngås når den brukes), og når datamaskinens ridder angriper, styrer den angrepnes spiller ridderen med port 2.
 - [x] Nettspill tur for tur: joysticken følger rekkefølgen ridderne ble valgt i (ikke figuren), bare den som velger styrer Select a Knight og navnet, møtet mellom to riddere gir portene til riktig spiller (rullen, kampen, plyndringen), Players settes opp til antallet i rommet, og korte trykk fra nettet blir ikke borte.
 - [x] Mobil i spillets menyer: valgene paa kartet som knapper (trykk, styrekors og Fire, Enter), navnet til ridderen med tekstfelt. Sidemenyen, knappene og meldingene i spillets stil (font, pil, logo og nattehimmel fra spillfilen). Bryter mellom HD og original grafikk. docs/grafikkliste.md og .csv over all grafikken.
 - [x] Duell: beskyttelsesrullen ($080C1A) og inventaret etterpå styres av forsvareren (port 1 flyttes til port 2 mens spillet venter).

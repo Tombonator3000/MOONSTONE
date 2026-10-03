@@ -319,3 +319,14 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   bilde 2100), fire 2200, tasten 2 i 2300; forsvareren gaar med p2-right 62 og p2-down 42
   fra 2850 og slaar med p2-fire + p2-right (angriperen med HIT 1 via $8D604 i 2250).
 - Nettlesertest for Turns-kontrollene: $S/test35.js.
+- Rullen headless: gi plass 1 en rull med --skriv 2100:8d872:1:1 (tingtabellen til plass 1 er $8D860,
+  ting $12), angrip som over; fire i 2450 aapner inventaret, pekeren fra (160,100) til rullen ved ca.
+  (110,195) og fire bruker den (ting $12 blir 0, $8BEA4 = $12, ingen kamp).
+- Datamaskinen angriper: +$64 i datamaskinens ridder er maalet; sub_0AB6AE angriper (jsr $080AB8 paa
+  $0AB710) naar maalet er naer nok. Headless: E i 2200 og 2500 (turene til plass 0 og 1), og i plass 2
+  sin tur --skriv $8D720 = $8D5B4 (maalet) og begge posisjonene (160,20), hvert 5. bilde fra 2505.
+- Musikken: bare program har en musikkspiller (ProTracker-periodetabellen paa 0x2366 i filen). Introen
+  laster music.cmp ($085662) etter bildene, saa de foerste ca. 32 s er stille; sangen aapner med 12 s
+  nesten stille, slag til 23 s, hovedtema fra posisjon 4. mog har bare en driver for lydeffekter
+  ($0AE0DA, fire kanaler med avbrudd). musikk.c spiller music.cmp naar mog kjorer (ikke i emuleringen).
+- ffmpeg her har libopenmpt og kan spille .mod til WAV (sammenligning med egen spiller).
