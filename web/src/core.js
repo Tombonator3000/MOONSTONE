@@ -148,9 +148,9 @@ const Kjerne = (() => {
     return {
         menyPaa: (on) => M._ms_menu_enable(on ? 1 : 0),
         menyHendelse: () => M._ms_menu_event(),
-        menyKlar: () => !!M._ms_menu_ready(),       /* tittelmenyen er naadd */
-        iIntro: () => !!M._ms_in_intro(),
-        iMeny: () => !!M._ms_in_menu(),             /* tittelmenyen eller en nettspillside er framme */
+        menyKlar: () => !!(M && M._ms_menu_ready()),     /* tittelmenyen er naadd (false mens kjernen lastes) */
+        iIntro: () => !!(M && M._ms_in_intro()),
+        iMeny: () => !!(M && M._ms_in_menu()),      /* tittelmenyen eller en nettspillside er framme */
         menyRad: (y) => M._ms_menu_row(y | 0),      /* raden paa linje y, -1 ikke i menyen, -2 ingen rad */
         menyKommando,
         /* hver for seg (port/src/hver.c) */
@@ -160,7 +160,7 @@ const Kjerne = (() => {
             M._ms_hver_cmd(k, arg | 0, p);
             M._free(p);
         },
-        hverKart: () => !!M._ms_hver_kart(),
+        hverKart: () => !!(M && M._ms_hver_kart()),
         hverRidder: (k) => { const p = M._ms_hver_ridder(k) >> 2; return [M.HEAP32[p], M.HEAP32[p + 1], M.HEAP32[p + 2], M.HEAP32[p + 3]]; },
         hverNavn: (k) => M.UTF8ToString(M._ms_hver_navn(k)),
         hverHendelse: () => M._ms_hver_hendelse(),   /* kode | plass << 8, 0 = ingen */
