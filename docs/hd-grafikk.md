@@ -143,6 +143,59 @@ blir en HD-figur derfor stående så lenge forgrunnen der den ligger er uendret
 forsvinner når spillet tegner noe annet der eller bakgrunnen byttes. Uten lagene
 vises en klynge til det har gått 50 bilder uten nye tegninger, som før.
 
+### Figurer i flere deler
+
+Mange figurer tegnes i flere deler som overlapper: ridderen er føttene, kroppen og
+sverdet (`kn1.ob` og `kn4.ob`), og blod og sår tegnes oppå. HD-figurene tegnes i samme
+rekkefølge som i tegnelisten, så en senere figur ligger over en tidligere også når
+begge har HD-bilde.
+
+For hver piksel finner renderen eieren: den siste figuren i listen som har en
+ikke-gjennomsiktig piksel der i originalen. En figur får HD bare hvis hver piksel i
+rektangelet stemmer med eieren sin (samme fargeindeks i forgrunnen, eller lik
+bakgrunnen), og hvis ingen figur uten pålitelig kilde ligger i rektangelet. En
+forgrunnspiksel ingen figur eier, gir originalen. Bare piksler som eies av en figur med
+HD, fjernes fra forgrunnslaget. Piksler som eies av en senere figur uten HD, ligger
+foran HD-bildene under (vern), og piksler fra en tidligere figur uten HD blir stående
+under. `Visning.hdFigurer(true)` viser hvilke figurer som har HD i bildet som vises.
+
+### Farge fra paletten (masker)
+
+Ridderne deler figursett, og fargen kommer fra paletten: `kn*.ob` bruker indeksene
+6-8 og `he*.ob` 9-11 til rustningen, og spillet setter fargene etter hvilken ridder som
+kjemper. Spilleren i øvingskampen er blå (6-8) og motstanderen grønn (9-11); i en duell
+på kartet er motstanderen oransje eller rød med de samme `he1.ob`-bildene. Et HD-bilde
+med faste farger blir derfor feil for alle unntatt én ridder.
+
+Et HD-bilde kan ha en maske ved siden av seg, med samme navn og `.mask.png`, for
+eksempel `kn1.ob/012.png` og `kn1.ob/012.mask.png`. Masken legges over bildet med samme
+utsnitt (helst samme mål som bildet) og leses piksel for piksel uten utjevning:
+
+| Kanal | Betydning |
+|---|---|
+| R | 0 = behold fargen i bildet. 1-32 = palettindeks + 1 (7 betyr indeks 6) |
+| G | lysstyrke: 128 gir fargen i paletten, 0 svart, 255 nesten dobbelt så lyst |
+| B | hvor mye av palettfargen som brukes: 255 helt, 0 ingenting (myk overgang) |
+| A | brukes ikke (la den være 255) |
+
+Fargen hentes fra skjermens palett på den linjen pikselen ligger, mens spillet kjører,
+så den følger ridderfargen, hiet og toningen. Resten av bildet tones med lysstyrken som
+før. Bildets egen farge der masken er satt spiller ingen rolle når B er 255, så det går an
+å tegne rustningen i grått og la masken gi fargen, med skyggene i G. Uten gyldig
+skanout (HAM, hires, mer enn fem plan) vises figuren som originalen.
+
+`kn1.ob` og `he1.ob` er samme tegning med ulike indekser. Ett HD-bilde kan derfor
+brukes for begge: kopier PNG-en, og la masken ha R = 7-9 (indeks 6-8) for `kn*.ob` og
+R = 10-12 (indeks 9-11) for `he*.ob`. Prøvd med en syntetisk pakke (originalene 4x med
+rød rustning i PNG-en og maske): samme `he1.ob`-bilder ble grønne i øvingskampen og
+oransje og røde i dueller på kartet, og den blå ridderen ble blå.
+
+Posene i `poses.json` bruker samme palett, men uten egen maske: originalens indekser
+(lowres) er masken, og `palette` i posen er fargene bildet er tegnet med. Fargen flyttes
+fra den fargen til skjermens farge (forholdsvis, og som forskjell der referansen er nær
+null), så posene virker også når paletten er en annen enn i øvingskampen. I øvingskampen
+er fargene like, og bildet vises uendret.
+
 ### Glatt (Scale4x) og automatiske HD-pakker
 
 Filteret «Glatt (Scale4x)» runder av trappetrinnene i all grafikken uten HD-bilder:
@@ -157,13 +210,14 @@ fra paletten `gfx.py` velger, ikke alltid den skjermen bruker.
 
 ### Det som gjenstår
 
-- **HD-bilder med spillets palett.** Bilder med fargeindekser (PNG med palett) kunne
-  fått fargene fra skjermen når de tegnes, så de alltid passer.
+- **HD-bilder med spillets palett.** Masker (se over) gir farge fra paletten der de
+  er laget. Ingen ekte ridderbilder har maske ennå.
 - **Bakgrunner som endres litt.** Skriver spillet noe inn i selve bakgrunnskopien
   (for eksempel en markør som blir stående), får den en ny hash, og HD-bildet passer
   ikke lenger. Det kan løses med å godta små forskjeller og legge dem over.
-- **Ting som ligger foran figurene.** HD-figurene legges over forgrunnen. Tegner
-  spillet noe over en figur med en annen rutine, vil HD-figuren dekke det.
+- **Ting som ligger foran figurene.** Figurer fra tegnelisten ligger i riktig
+  rekkefølge. Tegner spillet noe over en figur med en annen rutine, er pikselen ikke eid
+  av noen figur, og figuren vises som originalen.
 - **Andre tegnerutiner.** Noe grafikk tegnes ikke med `tegn_figur` (f.eks. tekst og
   menyrammer). `--blit-log` viser hvor Blitteren startes fra, og er et godt sted å
   begynne for å finne dem.

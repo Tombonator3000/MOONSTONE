@@ -40,6 +40,7 @@ const Visning = (() => {
     let forData, forTex, forMat, skyggeMat, forMesh, skyggeMesh;
     let vernData, vernTex;                  /* senere originalfragmenter som skal dekke HD */
     let sceneVernData, sceneVernTex;
+    let palData, palTex, tomTex;            /* skjermens palett per linje (32 x H) til maskene, og en tom tekstur */
     let lagNaa = null;                      /* { hash, lys } for bildet som vises, eller null */
     const lysMaks = new Map();              /* bakgrunn -> lyseste paletten sett (fading av HD-bakgrunner) */
 
@@ -73,6 +74,9 @@ const Visning = (() => {
     let hdTekstMeta = new Map();
     let hdTegnbare = new Set();
     let hdFigurLys = new Map();             /* ruter med verifisert egen fading */
+    let hdFigurMaske = new Set();           /* godkjente figurer som farges fra paletten */
+    const hdMasker = new Map();             /* "kn1.ob/012" -> maske-PNG (navn.mask.png), se fragHd */
+    let palettKlar = false;                 /* palData er skjermens palett for dette bildet */
     const hdPoser = new Map(), hdPoseKontrakter = new Map(), indeksHasher = new WeakMap(), bankHasher = new WeakMap();
     let hdPoseViste = [], hdPoseFeil = [];
     let hdPoseLaster = false, hdPoseUgyldig = false;
@@ -91,14 +95,24 @@ const Visning = (() => {
             vUv = uv; vPos = (modelMatrix * vec4(position, 1.0)).xy;
             gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
         }`;
+    /* Farge fra skjermens palett (docs/hd-grafikk.md, «Farge fra paletten»):
+     *   maskeModus 1  maske-PNG ved siden av bildet (navn.mask.png), samme utsnitt som
+     *                 bildet: R = palettindeks + 1 (0 = behold bildets farge), G = lysstyrke
+     *                 (128 = fargen i paletten), B = hvor mye av palettfargen (255 = helt)
+     *   maskeModus 2  posene: originalens indekser i lowres (maske, maskeStr), og fargene
+     *                 bildet er tegnet med (ref). Fargen flyttes fra ref til skjermens farge.
+     * Paletten (pal) er skjermens farger per linje, 32 x palH, ogsaa under toning. */
     const fragHd = `
         precision highp float;
-        uniform sampler2D map, vern;
-        uniform vec2 lagPos;
-        uniform float lys;
+        uniform sampler2D map, vern, maske, pal, ref;
+        uniform vec2 lagPos, maskeStr;
+        uniform float lys, maskeModus, palTop, palH;
         uniform vec4 imageRegion;
         uniform float alphaCutoff;
         varying vec2 vUv, vPos;
+        vec3 palFarge(float i, float linje) {
+            return texture2D(pal, vec2((i + 0.5) / 32.0, (clamp(palTop + linje, 0.0, palH - 1.0) + 0.5) / palH)).rgb;
+        }
         void main() {
             vec2 p = vPos - lagPos;
             if (p.x >= 0.0 && p.y >= 0.0 && p.x < 320.0 && p.y < 200.0 &&
@@ -107,7 +121,23 @@ const Visning = (() => {
             if (uv.x < 0.0 || uv.y < 0.0 || uv.x > 1.0 || uv.y > 1.0) discard;
             vec4 c = texture2D(map, uv);
             if (c.a < alphaCutoff) discard;
-            gl_FragColor = vec4(c.rgb * lys, c.a);
+            vec3 rgb = c.rgb * lys;
+            if (maskeModus > 0.5 && maskeModus < 1.5) {
+                vec3 m = texture2D(maske, uv).rgb * 255.0;
+                float i = floor(m.r + 0.5) - 1.0;
+                if (i >= 0.0 && i < 32.0)
+                    rgb = mix(rgb, min(palFarge(i, floor(p.y)) * m.g / 128.0, vec3(1.0)), m.b / 255.0);
+            } else if (maskeModus > 1.5) {
+                float i = floor(texture2D(maske, (floor(vUv * maskeStr) + 0.5) / maskeStr).r * 255.0 + 0.5);
+                vec4 r = texture2D(ref, vec2((i + 0.5) / 32.0, 0.5));
+                if (i > 0.0 && r.a > 0.5) {
+                    // Lys og farge flyttes forholdsvis der referansen har farge, og som
+                    // forskjell der den nesten er null (blaa ridder: ingen roedt og groent).
+                    vec3 a = palFarge(i, floor(p.y)), w = smoothstep(0.0, 0.25, r.rgb);
+                    rgb = clamp(mix(c.rgb + a - r.rgb, c.rgb * a / max(r.rgb, vec3(0.004)), w), 0.0, 1.0);
+                }
+            }
+            gl_FragColor = vec4(rgb, c.a);
         }`;
 
     /* bakgrunnen: Amiga-laget eller et HD-bilde, med fading og eventuelt uskarphet */
@@ -310,6 +340,9 @@ const Visning = (() => {
         vernTex = dataTekstur(vernData, 320, 200);
         sceneVernData = new Uint8Array(320*200*4);
         sceneVernTex = dataTekstur(sceneVernData,320,200);
+        palData = new Uint8Array(32 * H * 4);
+        palTex = dataTekstur(palData, 32, H);
+        tomTex = dataTekstur(new Uint8Array(4), 1, 1);
         skyggeMat = amigaMat(forTex, 320, 200, 1, true, true);
         skyggeMesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), skyggeMat);
         skyggeMesh.renderOrder = 2;
@@ -841,14 +874,18 @@ const Visning = (() => {
                     if (!c) { if (faktisk !== 255) { gyldig = false; break; } continue; }
                     if (faktisk !== 255 && faktisk !== c) { gyldig = false; break; }
                     const rgba = faktisk === 255 ? lag.bak : lag.for, forventet = pose.palette[c];
-                    if (!forventet || forventet.some((v, n) => rgba[p * 4 + n] !== v)) { gyldig = false; palettFeil = true; break; }
+                    // Med skjermens palett farges bildet om fra posens farger (fragHd,
+                    // maskeModus 2), saa et hi eller en annen ridderfarge passer ogsaa.
+                    // Uten den kreves de eksakte fargene bildet er tegnet med.
+                    if (!forventet || (!palettKlar && forventet.some((v, n) => rgba[p * 4 + n] !== v))) { gyldig = false; palettFeil = true; break; }
                     if (faktisk !== 255) { fjern.push(p); sett.add(c); }
                 }
                 if (gyldig && pose.identity_indices.some((c) => !sett.has(c))) { gyldig = false; palettFeil = true; }
                 if (!gyldig || !fjern.length) { hdKontroll[palettFeil ? 'posePalett' : 'posePiksler']++; continue; }
                 // Samme indeks fra en ukjent tegner er fortsatt uten eget pikseleierskap.
                 // Ingen rektangler slettes: bare de kildepikslene som ble kontrollert over.
-                kandidater.push({ pose, x, y, speilet, fjern });
+                if (palettKlar) poseIndekser(pose, indeks);
+                kandidater.push({ pose, x, y, speilet, fjern, palett: palettKlar });
             }
         }
         for (const p of kandidater) {
@@ -859,6 +896,27 @@ const Visning = (() => {
             hdKontroll.poseGodkjent++; hdKontroll.godkjent++;
         }
         return reservert;
+    }
+
+    /* Originalens indekser for posen (lowres, uspeilet) og fargene posebildet er
+     * tegnet med, som teksturer til fragHd. Lages paa nytt bare naar de endres. */
+    function poseIndekser(pose, indeks) {
+        const t = pose.texture;
+        if (!pose.indeksData || pose.indeksData.length !== indeks.length || pose.indeksData.some((v, i) => v !== indeks[i])) {
+            pose.indeksData = indeks.slice();
+            const data = new Uint8Array(indeks.length * 4);
+            for (let i = 0; i < indeks.length; i++) { data[i * 4] = indeks[i]; data[i * 4 + 3] = 255; }
+            if (pose.indeksTex) pose.indeksTex.dispose();
+            pose.indeksTex = dataTekstur(data, pose.width, pose.height);
+        }
+        if (!pose.refTex) {
+            const ref = new Uint8Array(32 * 4);
+            for (const [k, rgba] of Object.entries(pose.palette)) ref.set([rgba[0], rgba[1], rgba[2], 255], +k * 4);
+            pose.refTex = dataTekstur(ref, 32, 1);
+        }
+        t.mat.uniforms.maske.value = pose.indeksTex;
+        t.mat.uniforms.ref.value = pose.refTex;
+        t.mat.uniforms.maskeStr.value.set(pose.width, pose.height);
     }
 
     /* Next Day fyller himmelen i forgrunnen; baklaget kan fortsatt inneholde
@@ -903,17 +961,47 @@ const Visning = (() => {
         hdKontroll.godkjent++;
     }
 
-    /* Gjenkjente figurer kan erstattes, med senere originalfragmenter foran seg.
-     * Listen har ikke pikseleierskap for andre tegnerutiner. Ved tvetydig overlapp,
-     * ukjente forgrunnspiksler eller feil maske beholder vi hele originalfiguren.
-     * $FF betyr at pikselen allerede er lik bakgrunnen; den slettes aldri her.
-     * Vi rydder bare kildepiksler som har samme indeks i den viste forgrunnen,
-     * ikke rektangelet og ikke pikslene fra en eksportert preview-palett. */
+    /* Pikseleierskap i tegnerekkefoelge: for hver piksel den siste figuren i listen
+     * som har en ikke-gjennomsiktig kildepiksel der (indeksen i figurNr), og hvilke
+     * piksler som ligger i rektangelet til en figur uten paalitelig kilde (ukjent).
+     * Speilingen og planmasken er de samme som i pikselkontrollen. */
+    function eierskap(lest) {
+        const eier = new Int16Array(320 * 200).fill(-1), ukjent = new Uint8Array(320 * 200);
+        const kilder = [];
+        for (let k = 0; k < visteListe.length && k < 32000; k++) {
+            const o = visteListe[k], ox = o.x - o.xoff, og = originalCel(o.fil, lest)?.[o.bilde];
+            const ok = !!og && og.w === o.w && og.h === o.h && Number.isInteger(ox) && Number.isInteger(o.y);
+            kilder.push(ok ? og : null);
+            const x0 = Math.floor(ox), y0 = Math.floor(o.y);
+            for (let j = Math.max(0, -y0); j < o.h && y0 + j < 200; j++) {
+                for (let i = Math.max(0, -x0); i < o.w && x0 + i < 320; i++) {
+                    const p = (y0 + j) * 320 + x0 + i;
+                    if (!ok) { ukjent[p] = 1; continue; }
+                    if (og.px[j * o.w + (o.speilet ? o.w - 1 - i : i)]) eier[p] = k;
+                }
+            }
+        }
+        const farge = (k, p) => {
+            const o = visteListe[k], g = kilder[k], i = p % 320 - (o.x - o.xoff), j = Math.floor(p / 320) - o.y;
+            return g.px[j * o.w + (o.speilet ? o.w - 1 - i : i)];
+        };
+        return { eier, ukjent, farge };
+    }
+
+    /* Gjenkjente figurer kan erstattes. HD-figurene tegnes i samme rekkefoelge som
+     * originalen, saa en senere figur (sverdet, kn4) ligger over en tidligere (kroppen,
+     * kn1), ogsaa naar begge har HD. Piksler som eies av en senere figur uten HD, vernes
+     * og ligger foran HD-bildene under. Hver piksel i rektangelet maa stemme med eieren
+     * sin (eller vaere lik bakgrunnen, $FF); en ukjent forgrunnspiksel, en figur uten
+     * paalitelig kilde i rektangelet eller feil indeks gir originalen for hele figuren.
+     * Vi rydder bare piksler som eies av en figur som faar HD, og som har samme indeks
+     * i den viste forgrunnen. Piksler som tilhoerer en figur uten HD, blir staaende. */
     function forberedHd(lag) {
         hdTegnbare = new Set();
         hdFigurLys = new Map();
+        hdFigurMaske = new Set();
         hdPoseViste = [];
-        hdKontroll = { godkjent: 0, utenLag: 0, kilde: 0, overlapp: 0, piksler: 0,
+        hdKontroll = { godkjent: 0, utenLag: 0, kilde: 0, overlapp: 0, piksler: 0, maske: 0, masket: 0,
             poseGodkjent: 0, poseGruppe: 0, poseKilde: 0, posePalett: 0, poseOverlapp: 0, posePiksler: 0,
             tekstGodkjent: 0, tekstAvvist: 0, tekstFeil: [] };
         hdKontroll.ikonGodkjent = 0; hdKontroll.ikonAvvist = 0;
@@ -922,74 +1010,91 @@ const Visning = (() => {
         vernTex.needsUpdate = true;
         if (!hdPaa || (!hdPakke.size && !hdPoser.size)) return;
         const lest = new Map();
+        palettKlar = oppdaterPalett();
         const reservert = forberedPoser(lag, lest);
         for (const d of forberedTekst(lag, lest)) reservert.add(d);
         forberedMarkor(lag,lest);
+        const harLag = lag && lag.forIdx && lag.forIdx.length === 320 * 200;
+        const eie = harLag ? eierskap(lest) : null;
+        const figurHd = new Set();
         for (let nr = 0; nr < visteListe.length; nr++) {
             const d = visteListe[nr];
             if (reservert.has(d)) continue;
-            if (!hdPakke.has(d.fil.toLowerCase() + '/' + String(d.bilde).padStart(3, '0'))) continue;
-            if (!lag || !lag.forIdx || lag.forIdx.length !== 320 * 200) { hdKontroll.utenLag++; continue; }
+            const ikey = d.fil.toLowerCase() + '/' + String(d.bilde).padStart(3, '0');
+            if (!hdPakke.has(ikey)) continue;
+            if (!harLag) { hdKontroll.utenLag++; continue; }
             const g = originalCel(d.fil, lest)?.[d.bilde], x = d.x - d.xoff, y = d.y;
+            // Gamle tegninger helt utenfor vinduet blir staaende i listen (tomt rektangel).
+            if (x >= 320 || y >= 200 || x + d.w <= 0 || y + d.h <= 0) continue;
             if (!g || g.w !== d.w || g.h !== d.h || !Number.isInteger(x) || !Number.isInteger(y)) { hdKontroll.kilde++; continue; }
-            const ikey = d.fil.toLowerCase() + '/' + String(d.bilde).padStart(3, '0'), ikon = hdIkoner.get(ikey);
+            const ikon = hdIkoner.get(ikey);
             if (ikon && (bankHash(originalCeler.get(d.fil.toLowerCase())).hash !== ikon.source.bank_sha256 ||
                 indeksHash(g) !== ikon.indices_sha256 || g.planmaske !== ikon.plane_mask ||
                 !fargeleggIkon(ikon, hdPakke.get(ikey), y))) { hdKontroll.ikonAvvist++; continue; }
-            const foran = [];
-            let tvetydig = false;
-            for (let k = 0; k < visteListe.length; k++) {
-                const o = visteListe[k], ox = o.x - o.xoff;
-                if (o === d || x >= ox + o.w || x + d.w <= ox || y >= o.y + o.h || y + d.h <= o.y) continue;
-                const og = originalCel(o.fil, lest)?.[o.bilde];
-                if (hdTegnbare.has(o) && hdTekstGlyfer.has(o.fil.toLowerCase() + '/' + String(o.bilde).padStart(3, '0')) && og) {
-                    foran.push({ d: o, g: og, x: ox, hdTekst: true }); continue;
-                }
-                if (k < nr || hdPakke.has(o.fil.toLowerCase() + '/' + String(o.bilde).padStart(3, '0')) || !og || og.w !== o.w || og.h !== o.h) { tvetydig = true; break; }
-                foran.push({ d: o, g: og, x: ox });
-            }
-            if (tvetydig) { hdKontroll.overlapp++; continue; }
+            if (hdPakke.get(ikey).maske && !palettKlar) { hdKontroll.maske++; continue; }
             if (d.fil.toLowerCase() === 'ki.cel' && d.bilde >= 45 && d.bilde <= 49) {
+                const foran = visteListe.filter((o) => o !== d && overlapper(x, y, d.w, d.h, o));
                 forberedMaane(d, g, lag, foran);
                 continue;
             }
-            const fjern = [], beskytt = [];
-            let gyldig = true;
+            let gyldig = true, tvetydig = false, egne = 0;
             for (let j = 0; gyldig && j < d.h; j++) {
                 if (y + j < 0 || y + j >= 200) continue;
                 for (let i = 0; i < d.w; i++) {
                     if (x + i < 0 || x + i >= 320) continue;
                     const p = (y + j) * 320 + x + i, indeks = lag.forIdx[p];
                     if (hdMarkor?.visible.has(p)) continue;
-                    let over = 0, hdOver = false;
-                    for (const o of foran) {
-                        const oi = x + i - o.x, oj = y + j - o.d.y;
-                        if (oi >= 0 && oj >= 0 && oi < o.d.w && oj < o.d.h) {
-                            const c = o.g.px[oj * o.d.w + (o.d.speilet ? o.d.w - 1 - oi : oi)];
-                            if (c) { over = c; hdOver = !!o.hdTekst; }
-                        }
-                    }
-                    if (over) {
-                        if (indeks !== 255 && indeks !== over) { gyldig = false; break; }
-                        if (!hdOver) beskytt.push(p);
-                        continue;
-                    }
+                    if (eie.ukjent[p]) { tvetydig = true; gyldig = false; break; }
+                    const e = eie.eier[p];
+                    if (e < 0) { if (indeks !== 255) { gyldig = false; break; } continue; }
                     if (indeks === 255) continue;
-                    const c = g.px[j * d.w + (d.speilet ? d.w - 1 - i : i)];
-                    if (!c || c !== indeks) { gyldig = false; break; }
-                    fjern.push(p);
+                    if (indeks !== eie.farge(e, p)) { gyldig = false; break; }
+                    if (e === nr) egne++;
                 }
             }
-            if (!gyldig || !fjern.length) { hdKontroll.piksler++; continue; }
-            for (const p of fjern) forData[p * 4 + 3] = 0;
-            for (const p of beskytt) vernData[p * 4 + 3] = 255;
+            if (tvetydig) { hdKontroll.overlapp++; continue; }
+            if (!gyldig || !egne) { hdKontroll.piksler++; continue; }
             hdTegnbare.add(d);
+            figurHd.add(nr);
+            if (hdPakke.get(ikey).maske) { hdFigurMaske.add(d); hdKontroll.masket++; }
             if (ikon) { hdFigurLys.set(d, 1); hdKontroll.ikonGodkjent++; }
             hdKontroll.godkjent++;
+        }
+        if (figurHd.size) {
+            // Den tidligste HD-figuren som dekker pikselen (rektangelet). Bare piksler
+            // fra senere figurer uten HD skal ligge foran et HD-bilde.
+            const forsteHd = new Int16Array(320 * 200).fill(32767);
+            visteListe.forEach((d, k) => {
+                if (!hdTegnbare.has(d)) return;
+                const x0 = d.x - d.xoff;
+                if (!Number.isInteger(x0) || !Number.isInteger(d.y)) return;
+                for (let j = Math.max(0, -d.y); j < d.h && d.y + j < 200; j++)
+                    for (let i = Math.max(0, -x0); i < d.w && x0 + i < 320; i++) {
+                        const p = (d.y + j) * 320 + x0 + i;
+                        if (forsteHd[p] > k) forsteHd[p] = k;
+                    }
+            });
+            for (let p = 0; p < 320 * 200; p++) {
+                const e = eie.eier[p];
+                if (e < 0) continue;
+                if (figurHd.has(e)) { if (lag.forIdx[p] !== 255 && !hdMarkor?.visible.has(p)) forData[p * 4 + 3] = 0; }
+                else if (forsteHd[p] < e && !hdTegnbare.has(visteListe[e])) vernData[p * 4 + 3] = 255;
+            }
         }
         if (hdMarkor) for (const p of hdMarkor.visible) vernData[p*4+3]=0;
         return (lag?.hash === 0x55bb9767 && visteListe.some(d => d.fil.toLowerCase() === 'bold.f' &&
             d.bilde === 73 && hdTegnbare.has(d))) || bevarTitteltekst(lag, lest);
+    }
+
+    /* Skjermens palett per linje til maskene og posene. Uten gyldig skanout (HAM,
+     * hires, flere plan) vises figurene med maske som originalen. */
+    function oppdaterPalett() {
+        if ((!hdMasker.size && !hdPoser.size) || typeof Kjerne === 'undefined') return false;
+        const s = Kjerne.skanout();
+        if (!s.gyldig || s.pal.length !== palData.length) return false;
+        palData.set(s.pal);
+        palTex.needsUpdate = true;
+        return true;
     }
 
     let hdLys = 1;                          /* fading for HD-bildene, fra paletten (lagene) */
@@ -1025,9 +1130,13 @@ const Visning = (() => {
                 const x = diwNaa[0] / 2 + d.x - d.xoff - ux(), y = diwNaa[1] + d.y - uy();
                 const m = flate(n++);
                 m.material = t ? t.mat : rammeMat;
+                // Samme rekkefoelge som originalen: en senere figur over en tidligere.
+                m.renderOrder = 4 + n / 100000;
                 if (t) {
                     t.mat.uniforms.lys.value = hdFigurLys.get(d) ?? hdLys;
                     t.mat.uniforms.lagPos.value.set(diwNaa[0] / 2 - ux(), diwNaa[1] - uy());
+                    t.mat.uniforms.maskeModus.value = hdFigurMaske.has(d) ? 1 : 0;
+                    t.mat.uniforms.palTop.value = diwNaa[1];
                 }
                 plasser(m, x, y, d.w, d.h);
                 if (d.speilet) m.scale.x = -d.w;           /* negativ bredde snur bildet */
@@ -1036,8 +1145,13 @@ const Visning = (() => {
             for (const p of hdPoseViste) {
                 const m = flate(n++), t = p.pose.texture;
                 m.material = t.mat;
-                // Varianten krever eksakt originalpalett. Den tones ikke en gang til.
-                t.mat.uniforms.lys.value = 1;
+                m.renderOrder = 4.5;
+                // Med skjermens palett foelger figuren fargene og toningen derfra, og bare
+                // kanten utenfor originalens piksler tones med lysstyrken. Uten den er
+                // fargene kontrollert eksakt, og de tones ikke en gang til.
+                t.mat.uniforms.maskeModus.value = p.palett ? 2 : 0;
+                t.mat.uniforms.palTop.value = diwNaa[1];
+                t.mat.uniforms.lys.value = p.palett ? hdLys : 1;
                 t.mat.uniforms.lagPos.value.set(diwNaa[0] / 2 - ux(), diwNaa[1] - uy());
                 plasser(m, diwNaa[0] / 2 + p.x - ux(), diwNaa[1] + p.y - uy(), p.pose.width, p.pose.height);
                 if (p.speilet) m.scale.x = -p.pose.width;
@@ -1045,7 +1159,7 @@ const Visning = (() => {
             }
             if (hdMarkor) {
                 const {x,y,meta,t}=hdMarkor,m=flate(n++);
-                m.material=t.mat;t.mat.uniforms.lys.value=1;
+                m.material=t.mat;m.renderOrder=4.6;t.mat.uniforms.lys.value=1;
                 t.mat.uniforms.lagPos.value.set(diwNaa[0]/2-ux(),diwNaa[1]-uy());
                 plasser(m,diwNaa[0]/2+x-ux(),diwNaa[1]+y-uy(),meta.width,meta.height);m.visible=true;
             }
@@ -1137,9 +1251,35 @@ const Visning = (() => {
         t.needsUpdate = true;
         return { tex: t, canvas: lerret, width: lerret.width, height: lerret.height, mat: new THREE.ShaderMaterial({
             uniforms: { map: { value: t }, vern: { value: vernTex }, lagPos: { value: new THREE.Vector2() }, lys: { value: 1 },
-                imageRegion: { value: region || new THREE.Vector4(0, 0, 1, 1) }, alphaCutoff: { value: 0 } },
+                imageRegion: { value: region || new THREE.Vector4(0, 0, 1, 1) }, alphaCutoff: { value: 0 },
+                maske: { value: tomTex }, pal: { value: palTex }, ref: { value: tomTex }, maskeStr: { value: new THREE.Vector2(1, 1) },
+                maskeModus: { value: 0 }, palTop: { value: 0 }, palH: { value: H } },
             vertexShader: vertHd, fragmentShader: fragHd, transparent: true, depthTest: false, depthWrite: false, side: THREE.DoubleSide,
         }) };
+    }
+
+    /* Masken leses uten fargestyring og uten forhaandsmultiplisert alfa, og med
+     * naermeste piksel, saa indeksene i R ikke blandes. */
+    async function maskeTekstur(f) {
+        const bilde = await createImageBitmap(f, { premultiplyAlpha: 'none', colorSpaceConversion: 'none' });
+        const lerret = document.createElement('canvas');
+        lerret.width = bilde.width; lerret.height = bilde.height;
+        lerret.getContext('2d').drawImage(bilde, 0, 0);
+        bilde.close();
+        const t = new THREE.Texture(lerret);
+        t.colorSpace = THREE.NoColorSpace;
+        t.flipY = false;
+        t.generateMipmaps = false;
+        t.magFilter = t.minFilter = THREE.NearestFilter;
+        t.needsUpdate = true;
+        return { tex: t, width: lerret.width, height: lerret.height };
+    }
+
+    function koblMaske(key, t) {
+        const m = hdMasker.get(key);
+        t.maske = m || null;
+        t.mat.uniforms.maske.value = m ? m.tex : tomTex;
+        if (!m) t.mat.uniforms.maskeModus.value = 0;
     }
 
     /* Konturikonene bruker skjermens virkelige palett, ogsaa ved fading og
@@ -1284,7 +1424,7 @@ const Visning = (() => {
         }
         const manifester = alle.filter((f) => /(^|\/)poses\.json$/i.test(stiFor(f)));
         if (manifester.length) {
-            for (const p of hdPoser.values()) { p.texture.tex.dispose(); p.texture.mat.dispose(); }
+            for (const p of hdPoser.values()) { p.texture.tex.dispose(); p.texture.mat.dispose(); p.indeksTex?.dispose(); p.refTex?.dispose(); }
             hdPoser.clear(); hdPoseKontrakter.clear(); hdPoseFeil = [];
             hdPoseLaster = true; hdPoseUgyldig = false;
         }
@@ -1326,6 +1466,16 @@ const Visning = (() => {
             if (sti.length < 2 || !/\.png$/i.test(sti[sti.length - 1])) continue;
             const nokkel = sti[sti.length - 2].toLowerCase() + '/' + sti[sti.length - 1].replace(/\.png$/i, '').toLowerCase();
             if (nokkel.startsWith('poses/')) continue;
+            if (/\.mask$/.test(nokkel)) {
+                try {
+                    const m = await maskeTekstur(f), base = nokkel.slice(0, -'.mask'.length);
+                    const old = hdMasker.get(base);
+                    if (old) old.tex.dispose();
+                    hdMasker.set(base, m);
+                    antall++;
+                } catch (e) { /* ikke et bilde */ }
+                continue;
+            }
             try {
                 const t = await hdTekstur(f);
                 const ikon=pakkeIkoner.get(nokkel);
@@ -1349,6 +1499,8 @@ const Visning = (() => {
             if (t && t.width===m.width*m.scale && t.height===m.height*m.scale) hdIkoner.set(key,m);
             else hdIkonFeil.push(key+': ikonbildet mangler eller har feil maal');
         }
+        // Maskene kobles til bildet med samme navn, uansett hvilken som kom foerst.
+        for (const [key, t] of hdPakke) koblMaske(key, t);
         antallBg = [...hdPakke.keys()].filter((k) => k.startsWith('bg/')).length;
         hdPoseLaster = false;
         for (const [navn, kilde] of originalCeler) forvarmPoseIndekser(navn, kilde.bilder);
@@ -1361,8 +1513,10 @@ const Visning = (() => {
         for (const v of hdPakke.values()) { v.tex.dispose(); v.mat.dispose(); }
         hdPakke.clear();
         hdTekstBanker.clear(); hdTekstGlyfer.clear(); hdTekstMeta.clear();
-        for (const p of hdPoser.values()) { p.texture.tex.dispose(); p.texture.mat.dispose(); }
+        for (const p of hdPoser.values()) { p.texture.tex.dispose(); p.texture.mat.dispose(); p.indeksTex?.dispose(); p.refTex?.dispose(); }
         hdPoser.clear(); hdPoseKontrakter.clear(); hdPoseViste = []; hdPoseFeil = [];
+        for (const m of hdMasker.values()) m.tex.dispose();
+        hdMasker.clear();
         hdPoseLaster = hdPoseUgyldig = false;
         originalCeler.clear();
         nyesteMenypil++;
@@ -1402,6 +1556,10 @@ const Visning = (() => {
         sceneIkonKlar: (m,diw) => !!ikonPalett(m,m.rect[1],diw),
         hdBakgrunner: () => antallBg,
         hdKontroll: () => ({ ...hdKontroll }),      /* hvorfor en figur eventuelt bruker originalen */
+        /* figurene som vises med HD-bilde naa, i tegnerekkefoelge (testene); alle: ogsaa de uten */
+        hdFigurer: (alle) => visteListe.filter((d) => alle || hdTegnbare.has(d)).map((d) => ({ fil: d.fil, bilde: d.bilde,
+            x: d.x - d.xoff, y: d.y, w: d.w, h: d.h, speilet: !!d.speilet, hd: hdTegnbare.has(d), maske: hdFigurMaske.has(d) })),
+        hdMasker: () => hdMasker.size,
         viste: () => visteListe.length,             /* figurer som vises med HD-bilde eller gult felt */
         maaTegnes: () => maaTegnes,
         utsnitt: () => crop.slice(),                /* delen av rammebufferet som vises (x0, y0, x1, y1) */
