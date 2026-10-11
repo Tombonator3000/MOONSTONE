@@ -15,6 +15,11 @@
     "invalid_expected_rejected",
     "missing_scene_rejected",
     "invalid_dynamic_rejected",
+    "missing_reference_rejected",
+    "invalid_rgb_rejected",
+    "overlapping_cycles_rejected",
+    "invalid_feather_rejected",
+    "feather_without_raster_rejected",
     "standard_restores_after_custom_and_invalid_manifests",
     "no_browser_errors"
   ],
@@ -22,5 +27,5 @@
   "url": "http://127.0.0.1:8769/moonstone.html",
   "magenta_pixels": 8775,
   "status": "passed",
-  "created_at": "2026-10-11T09:18:25.305Z"
+  "created_at": "2026-10-11T11:15:08.572Z"
 }
