@@ -1,0 +1,20 @@
+<!doctype html><html lang="nb"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Moonstone: Stonehenge-port som stedsmarkør</title>
+<style>body{background:#171b18;color:#eee6d6;font:18px system-ui;margin:24px;max-width:1100px}h1{font-size:28px}section{display:flex;gap:24px;flex-wrap:wrap}figure{margin:12px 0;flex:1;min-width:180px}figure img{height:260px;max-width:100%;object-fit:contain;background:#242b23}figcaption{margin-top:12px;max-width:300px}a{color:#d2c49c}.source{image-rendering:pixelated}.game{width:100%;height:auto}</style>
+<h1>Én Stonehenge-port ved hvert interaksjonssted</h1>
+<p>Brukerens siste foto presiserer formen: to oppreiste steinstøtter og én overligger med åpen passasje. Den enkeltstående søylen er erstattet ved alle 23 registrerte steder av denne typen. Math beholder loddrette runde vegger og brystning.</p>
+<p>Stedsportene er nå fem kartpiksler høye, mot elleve i forrige HD-versjon. Portmasteren skaleres proporsjonalt innen originalens 9x5-markørfelt med samme midtpunkt og fotpunkt.</p>
+<section>
+<figure><img class="source" src="../references/landmark-crops/tower1.png"><figcaption>Originalt kartutsnitt. Dette bestemmer plassering og størrelse.</figcaption></figure>
+<figure><img src="tower.png"><figcaption>Ny urørt tårnmaster. Det avviste kjegleutkastet er bevart i semantic-correction.</figcaption></figure>
+<figure><img class="source" src="original-place-marker.png"><figcaption>Opprinnelig stedsmarkør. Statusmønster og interaksjon beholdes.</figcaption></figure>
+<figure><img src="trilithon-reference.jpg"><figcaption>Brukerens foto bestemmer portformen og steinmaterialet.</figcaption></figure>
+<figure><img src="trilithon.png"><figcaption>Ny urørt portmaster, gjenbrukt ved 23 registrerte steder av samme type.</figcaption></figure>
+</section>
+<h2>Originalmodus, samme spilltilstand</h2>
+<img class="game source" src="../verification/original-map-size.png" alt="Originalkartet med de små stedsmarkørene">
+<h2>Faktisk spillbilde med HD valgt</h2>
+<img class="game" src="../verification/corrected-map-hd.png" alt="Kartet fra nettleserspillet med rundt Math-tårn og 23 Stonehenge-porter">
+<p>Portmasteren er laget med den innebygde ChatGPT-bildegeneratoren. <a href="trilithon.json">Prompt og opphav</a>. Kartet er tatt fra spillet etter integrasjon. Kontroller i verification dokumenterer åpen passasje, to støtter og overligger, at hvert bilde tegnes, at endret originalstatus beholder originalgrafikk, og at figurer foran porten beskyttes.</p>
+<p><a href="../README.md">Leveransestatus og gjentakbar pakking</a></p>
+</html>

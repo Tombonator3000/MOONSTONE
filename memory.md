@@ -1,6 +1,18 @@
+# Motivretting av HD-ikoner, 11. oktober 2026
+
+26 rasterruter er aktive: Math sitt taarn (map-landmarks/001), dalens steinsirkel med elv/fossefall (002), tre trilitter i skogklaring (003), og 23 steder (map-icons/000..022) med samme Stonehenge-port: to oppreiste stoetter og en overligger, aapen passasje. Brukerens siste foto presiserer denne formen; den enkeltstaaende soeylen var feil. Math har loddrette runde murvegger og brystning; den avviste kjeglen er bevart som eldre utkast. 49 ikonruter har fortsatt konturbehandlet originalgrafikk. Dette er fire motiver, ikke 26 forskjellige nytegninger. Detaljert motivgrunnlag: docs/hd-ikonmotiver.md.
+
+Stedsportene er redusert til originalens 9x5 kartpiksler, uten eget draw_rect. Portmasteren pakkes proporsjonalt i 72x40 PNG med transparent sidemarg, sentrert og med samme fotpunkt. Hoeyden er fem kartpiksler mot elleve i den forrige HD-leveransen. Opprinnelig rect, expected, indeks- og bankhash styrer fortsatt kildematching og fjerning av originalmarkoeren. Palett leses ved kilderektangelet; sceneVern beskytter figurer og andre avvik. Endret markoerstatus eller overlapp beholder originalgrafikk. Originalmodus er uendret.
+
 # memory.md
 
 Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
+
+## Korrigert HD-status, 11. oktober 2026
+
+Brukeren presiserte at HD skal være en trofast nytegning med naturtro detaljer. De 75 ikonrutene fra 11. oktober er kun kildebasert konturbehandling, ikke ferdige HD-nytegninger. Tidligere leveringsomtale av ferdige ikoner var misvisende. 26 kartmarkørruter bruker fire ulike kildemønstre. Fontene bruker andre skrifttyper enn originalen. Fem blå helposer erstatter begrensede kildekombinasjoner, ikke separat tegning av alle figurruter.
+
+docs/hd-status-2026-10-11.md og den tilhørende CSV-listen gir kontrollert status for alle 2361 originalruter ved main f446d32. Av 2291 ikke-tomme figur-/fontruter har 189 direkte PNG og 11 bare blå posekontrakter; 2091 mangler aktiv kobling. Ingen monsterbanker har aktive HD-bilder. Pakken har 292 PNG-ruter / 298 filer, ikke 292 ferdig konverterte originalruter. Offentlige manifest- og ikonfiler samt alle 75 ikon-PNG-er er kontrollert på nytt mot hash og lengde. Ingen nye bilder eller ny runtimegjennomspilling i denne vurderingen.
 
 ## Spillet og filene
 - Moonstone: A Hard Days Knight, Mindscape 1991. Laget av Rob Anderson, musikk og lyd
@@ -413,3 +425,15 @@ Dynamiske kartmarkører fjernes først fra originalforgrunnen når valgt HD-bakg
 - HD-masker: `<hd_fil uten .png>.mask.png`, R = palettindeks + 1 (0 = behold bildets farge), G = lysstyrke (128 = palettfargen), B = vekt. Ridderne: KN-settet indeks 6-8, HE-settet 9-11. tools/hd_bestilling.py --maske lager utgangspunktet.
 - HD-testene i tools/: CHROME=/opt/pw-browsers/chromium-1194/chrome-linux/chrome, MOONSTONE_HD_TEST_OUTPUT for standard-testen, og en server på 127.0.0.1:8769 som serverer web/build (python3 -m http.server 8769 i web/build). De skriver rapporter og skjermbilder i art/*/verification.
 - Figurer i flere deler: render.js avgjør eierskap per piksel (siste figur i tegnelisten eier pikselen); bare piksler som eies av en figur med HD fjernes fra forgrunnen.
+
+## Steds- og kampbakgrunner, 11. oktober 2026
+
+`art/hd-all-locations-2026-10-11/README.md` avløser tidligere pakkeantall: 327 PNG-ruter, 75 bakgrunner, 333 manifestfiler. Alle 56 sammensatte kampvarianter er koblet inn; de 24 lair-variantene er nytegnet mot original og tidligere materialutkast. Seks stedsskjermer er lagt til: hea.piv, mys.piv, WI2.P, WI1.P, hen1.p/bg5.piv og dice.piv. hen1.p og bg5.piv er samme originalhash og deler HD-rute. Aktive råbilder er uendret; 29 nye aktive genereringer og seks bevarte materialmastere, inkludert Stonehenge. Fem faste intro-/meldingsbilder har fått kildeindeksvern for tidligere påpekte motivavvik. En ekstra, erstattet Math-revisjon er arkivert. Hele original-/HD-oversikten finnes i coverage.json og index.html.
+
+Maths HD-master inneholder bare arkitektur. WI1.Ps originale figur bevares med preserve_regions, og avviksmasken bevarer originalens Wi1.C-animasjon. Ikke beskytt hele palettindeks 25; den er også brukt i bakgrunnen. PIV-identiteten beholdes i begge grafikkmoduser for å bevare engangstegnet HD-tekst. Kildebekreftet PIV-forgrunn er tillatt bak transparente glyffelt. Alle nye mastere bruker fullramme-UV, uavhengig av verneutsnittet. Kildegjenkjenning krever minst 90 prosent samsvar for å tåle bevegelige forgrunnsfigurer; detaljsamsvar og kildehash må også passe. WI1.P verneutsnitt slutter ved y181; helbreder/mystiker ved y161; terningbordets tekstfelt er vernet. tools/hd_math_sted_sjekk.cjs besøker original Math etter kontrollert ridderposisjon 220,27.
+
+Alle 56 kampvariantene er runtime-testet via tools/hd_alle_kampbakgrunner_sjekk.cjs med kontrollert originalt scenevalg. Det er ikke naturlig gjennomspilling. tools/hd_steder_bakgrunner_sjekk.cjs bruker tolv kilde-PIV-fixturer uten skriving til WASM-minnet. Renderers utsnitt bruker 25 tegninger før nytt vindu aksepteres; varm opp før eksakt PNG-sammenligning. tools/hd_steder_bakgrunner_bygg.py kobler bare eksisterende nye mastere. tools/hd_bakgrunnsgalleri.py dokumenterer alle 75 aktive ruter. PIV-flisbankene, rulling, rullende sluttsekvenser og figurer er fortsatt egne gjenstående oppgaver.
+
+SceneHd beregner kjent full lysstyrke fra PIV-palett og indekshistogram. Faktisk lysstyrke summeres over hele kildebildet, ikke bare y100. Visning bruker lag.lysMaks ved toning; dette forhindrer lyse HD-bilder under originalens første svarte fade og fungerer for message.piv med svart midtrad. bg2a.PIV og bg8.PIV vises i program-sluttgrenen, aktivert av bit7 i ordet på chip $3e0. Denne grenen testes med kontrollert flagg, ikke full gjennomspilling.
+
+BG2a har indeks0-hull til underlag/forgrunn. Kildematching ignorerer bare disse hullene og kontrollerer resten av hele rammen med 85 prosent minimum, inkludert den faste rustningen. Matching av bare venstresiden er avvist fordi en annen Stonehenge-scene kan ha samme venstre bakgrunn. Indeks0-underlaget og animerte avvik forblir originalgrafikk. Kjent PIV-lysMaks brukes direkte, saa en tidligere lys palett ikke senker senere foto permanent.

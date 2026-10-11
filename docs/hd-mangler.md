@@ -12,8 +12,8 @@ Skriptene og dumpene ligger i scratchpad for økten (`hdm/`), ikke i repoet. Lin
 
 Dette er rettet eller slått på siden oversikten under ble skrevet. Tabellene under beskriver tilstanden før, så les dette først.
 
-- **Slått på (data):** de 24 hulebakgrunnene (fol, gll, swl, wal 1-6), healeren (2e3c32ae), Mythrid (d8b4018a) og druidene (94c7f163). Utkastene er merket needs_revision for runene og detaljer; de er slått på etter ønske fra eieren og kan tas ut av `web/hd/manifest.json` igjen. Manifestet har nå 326 filer, 68 bakgrunner.
-- **Scener i introen:** steinsirkelen, portalen (begge gangene) og alteret blinker ikke lenger (målt bilde for bilde: 459 av 459, 302 av 302). Ny scene for bg3.PIV (c2501c17). Nye scener for lasteskjermen (ch.piv) og Prepare yourself (message.piv, men bg/931f9b1d.png finnes ikke ennå, så banneret har ikke HD).
+- **Bakgrunner:** eierens PR #26 (art/hd-all-locations-2026-10-11) har gitt alle 56 kampvarianter, healeren, Mythrid, Math ute og på balkongen, Stonehenge, terningbordet og faste intro- og meldingsbilder egne HD-bilder. Standardpakken har nå 327 PNG, av dem 75 bakgrunner. Utkastene fra art/photoreal som vi først slo på for de samme stedene, er erstattet.
+- **Scener i introen:** steinsirkelen, portalen (begge gangene) og alteret blinker ikke lenger (målt bilde for bilde: 459 av 459, 302 av 302). Ny scene for lasteskjermen (ch.piv, sammenlignet med skjermen). Steinsirkelen ovenfra og banneret i Prepare yourself har scener fra PR #26.
 - **Figurer i flere deler (punkt 4.1):** render.js avgjør nå eierskap per piksel. Sverdet over kroppen og andre figurer i flere deler kan få HD hver for seg; piksler fra figurer uten HD blir stående.
 - **Farge fra paletten (4.2):** en HD-PNG kan ha `<navn>.mask.png` (R = palettindeks + 1, G = lysstyrke, B = vekt, se docs/hd-grafikk.md). Ett sett ridderbilder viser da riktig farge for hver ridder. Prøvd med forstørrede originaler: blå, grønn, oransje og rød ble lik paletten. Posene følger også paletten, så de virker i dueller med annen palett.
 - **Tekst ved hashbytte (4.5):** bare figurer som ikke lenger står i forgrunnen fjernes.
@@ -21,7 +21,7 @@ Dette er rettet eller slått på siden oversikten under ble skrevet. Tabellene u
 - **Toning (4.7):** HD-bakgrunner, figurer og poser tones med skjermen; scenene har referanselys fra PIV-filen.
 - **Logoen:** vises med riktig sideforhold (fyller bredden, ikke flatklemt) til en ny tegning i 5,65:1 finnes. Den står i bestillingen.
 - **Arkivet:** enabled_in_game er rettet i art/photoreal/catalog.json, og bg/045a1ac5 (tom skjerm) nektes i standardpakken.
-- **Bestillingen:** docs/hd-bestilling-liste.csv (1871 rader, laget av tools/hd_bestilling.py) og en ferdig melding i docs/hd-bestilling-chatgpt.md.
+- **Bestillingen:** docs/hd-bestilling-liste.csv (1842 rader, laget av tools/hd_bestilling.py) og en ferdig melding i docs/hd-bestilling-chatgpt.md.
 
 Ikke målt ennå: monsterkamp i et ekte hi med HD-figurer, og kamp med fire riddere samtidig.
 

@@ -112,6 +112,7 @@ const Visning = (() => {
         uniform float lys, maskeModus, palTop, palH;
         uniform vec4 imageRegion;
         uniform float alphaCutoff;
+        uniform vec2 edgeFeather;
         varying vec2 vUv, vPos;
         vec3 palFarge(float i, float linje) {
             return texture2D(pal, vec2((i + 0.5) / 32.0, (clamp(palTop + linje, 0.0, palH - 1.0) + 0.5) / palH)).rgb;
@@ -124,6 +125,9 @@ const Visning = (() => {
             if (uv.x < 0.0 || uv.y < 0.0 || uv.x > 1.0 || uv.y > 1.0) discard;
             vec4 c = texture2D(map, uv);
             if (c.a < alphaCutoff) discard;
+            vec2 edge = min(vUv, 1.0 - vUv);
+            if (edgeFeather.x > 0.0) c.a *= smoothstep(0.0, edgeFeather.x, edge.x);
+            if (edgeFeather.y > 0.0) c.a *= smoothstep(0.0, edgeFeather.y, edge.y);
             vec3 rgb = c.rgb * lys;
             if (maskeModus > 0.5 && maskeModus < 1.5) {
                 vec3 m = texture2D(maske, uv).rgb * 255.0;
@@ -808,6 +812,9 @@ const Visning = (() => {
                 if (faktisk===254 && scan?.gyldig) faktisk=scan.idx[(diwNaa[1]+y+j)*720+diwNaa[0]+(x+i)*2];
                 if (c && faktisk === c) { fjern.push(p); continue; }
                 if (faktisk === 255 && (!c || lag.bakIdx?.[p] === c)) continue;
+                // Et kildefast PIV-motiv kan bevares foran HD-bakgrunnen.
+                // Slike originalpiksler bak tegnets transparente felt er underlag.
+                if (!c && lag.scene && faktisk === lag.bakIdx?.[p]) continue;
                 const dekket = over.some(o => {
                     const ox = x + i - o.x, oy = y + j - o.d.y;
                     return o.g && ox >= 0 && ox < o.g.w && oy >= 0 && oy < o.g.h &&
@@ -1133,7 +1140,7 @@ const Visning = (() => {
             hdTegnbare.add(d);
             figurHd.add(nr);
             if (hdPakke.get(ikey).maske) { hdFigurMaske.add(d); hdKontroll.masket++; }
-            if (ikon) { hdFigurLys.set(d, 1); hdKontroll.ikonGodkjent++; }
+            if (ikon) { hdFigurLys.set(d, hdPakke.get(ikey).ikonLys ?? 1); hdKontroll.ikonGodkjent++; }
             hdKontroll.godkjent++;
         }
         if (figurHd.size) {
@@ -1176,7 +1183,7 @@ const Visning = (() => {
     let hdLys = 1;                          /* fading for HD-bildene, fra paletten (lagene) */
 
     /* Lysstyrken til HD-bildene. Kjernen og SceneHd gir summen av fargene bakgrunnen
-     * bruker (lag.lys). Med lag.lysRef (scenene: samme sum med PIV-filens egen palett)
+     * bruker (lag.lys). Med lag.lysMaks (scenene: samme sum med PIV-filens egen palett)
      * er fullt lys kjent med en gang. Ellers er fullt lys det lyseste som har staatt
      * stille i minst ti bilder for denne bakgrunnen. Toner skjermen inn foer det er
      * kjent, vises originalen (lysUkjent), saa HD-bildene ikke lyser fullt over en
@@ -1184,7 +1191,7 @@ const Visning = (() => {
      * hver sin noekkel. */
     function beregnLys(lag) {
         lysUkjent = false;
-        if (lag.lysRef) { hdLys = Math.min(1, lag.lys / lag.lysRef); return; }
+        if (lag.lysMaks) { hdLys = Math.min(1, lag.lys / lag.lysMaks); return; }
         const nokkel = (lag.scene ? 's:' : 'k:') + (lag.hash >>> 0);
         if (lysForrige.nokkel !== nokkel || lysForrige.lys !== lag.lys) lysForrige = { nokkel, lys: lag.lys, fra: bildeNr };
         let maks = lysMaks.get(nokkel);
@@ -1204,7 +1211,7 @@ const Visning = (() => {
             for (const o of lagNaa.overlays) {
                 const t = hdPakke.get(o.key); if (!t) continue;
                 const ikon = hdIkoner.get(o.key);
-                if (ikon && !fargeleggIkon(ikon,t,o.rect[1])) continue;
+                if (ikon && !fargeleggIkon(ikon,t,ikon.dynamic ? ikon.rect[1] : o.rect[1])) continue;
                 if (!sceneFlater[i]) {
                     const m = new THREE.Mesh(new THREE.PlaneGeometry(1,1),t.mat);
                     hdGruppe.add(m); sceneFlater[i] = m;
@@ -1214,7 +1221,8 @@ const Visning = (() => {
                 m.material=t.mat; t.mat.uniforms.imageRegion.value.set(...o.uv_rect);
                 t.mat.uniforms.vern.value=o.foreground ? sceneVernTex : vernTex;
                 t.mat.uniforms.alphaCutoff.value=o.alpha_cutoff || 0;
-                t.mat.uniforms.lys.value=ikon ? 1 : hdLys;
+                t.mat.uniforms.edgeFeather.value.set(...(ikon?.edge_feather || [0,0]));
+                t.mat.uniforms.lys.value=ikon ? (t.ikonLys ?? 1) : hdLys;
                 t.mat.uniforms.lagPos.value.set(diwNaa[0]/2-ux(),diwNaa[1]-uy());
                 plasser(m,diwNaa[0]/2+x0-ux(),diwNaa[1]+y0-uy(),x1-x0,y1-y0);m.visible=true;
             }
@@ -1260,7 +1268,7 @@ const Visning = (() => {
             }
             if (hdMarkor) {
                 const {x,y,meta,t}=hdMarkor,m=flate(n++);
-                m.material=t.mat;m.renderOrder=4.6;t.mat.uniforms.lys.value=1;
+                m.material=t.mat;m.renderOrder=4.6;t.mat.uniforms.lys.value=t.ikonLys ?? 1;
                 t.mat.uniforms.lagPos.value.set(diwNaa[0]/2-ux(),diwNaa[1]-uy());
                 plasser(m,diwNaa[0]/2+x-ux(),diwNaa[1]+y-uy(),meta.width,meta.height);m.visible=true;
             }
@@ -1355,7 +1363,8 @@ const Visning = (() => {
             uniforms: { map: { value: t }, vern: { value: vernTex }, lagPos: { value: new THREE.Vector2() }, lys: { value: 1 },
                 imageRegion: { value: region || new THREE.Vector4(0, 0, 1, 1) }, alphaCutoff: { value: 0 },
                 maske: { value: tomTex }, pal: { value: palTex }, ref: { value: tomTex }, maskeStr: { value: new THREE.Vector2(1, 1) },
-                maskeModus: { value: 0 }, palTop: { value: 0 }, palH: { value: H } },
+                maskeModus: { value: 0 }, palTop: { value: 0 }, palH: { value: H },
+                edgeFeather: { value: new THREE.Vector2(0,0) } },
             vertexShader: vertHd, fragmentShader: fragHd, transparent: true, depthTest: false, depthWrite: false, side: THREE.DoubleSide,
         }) };
     }
@@ -1384,8 +1393,8 @@ const Visning = (() => {
         if (!m) t.mat.uniforms.maskeModus.value = 0;
     }
 
-    /* Konturikonene bruker skjermens virkelige palett, ogsaa ved fading og
-     * fargebytte. Vi lager ikke nye farger, teksturer, lys eller dekorasjoner. */
+    /* Konturer bruker skjermpaletten direkte. Rasterbilder kontrolleres mot
+     * sin kildepalett og tones med den beregnede fadestyrken. */
     function ikonPalett(m,y,diw=diwNaa) {
         if (!Kjerne.skanout().gyldig) return null;
         const pal = Kjerne.skanout().pal, top = diw[1] + y;
@@ -1399,12 +1408,52 @@ const Visning = (() => {
         return {colors,rgb};
     }
 
+    /* Nytegnede rasterikoner beholder bildefilens detaljer. En kjent
+     * kildepalett tillater vanlig Amiga-fading, men avviser andre fargevarianter.
+     * Avrunding i firebitsfargene kan avvike med ett trinn paa 17. */
+    function rasterIkonLys(m, palette) {
+        if (m.render_mode !== 'raster') return 1;
+        const sykluser=m.reference_palette_cycles||[];
+        const syklus=c=>sykluser.find(gruppe=>gruppe.includes(c));
+        let teller=0, nevner=0;
+        for (let i=0;i<palette.colors.length;i++) {
+            if (syklus(palette.colors[i])) continue;
+            const ref=m.reference_palette[palette.colors[i]], rgb=palette.rgb[i];
+            for (let c=0;c<3;c++) {teller+=ref[c]*rgb[c];nevner+=ref[c]*ref[c];}
+        }
+        const lys=nevner ? Math.max(0,Math.min(1,teller/nevner)) : 0;
+        for (let i=0;i<palette.colors.length;i++) {
+            const ref=m.reference_palette[palette.colors[i]], rgb=palette.rgb[i];
+            const gruppe=syklus(palette.colors[i]);
+            const mulige=gruppe ? gruppe.map(c=>m.reference_palette[c]) : [ref];
+            if (!mulige.some(f=>rgb.every((v,c)=>Math.abs(v-f[c]*lys)<=17.01))) return null;
+        }
+        return lys;
+    }
+
     function fargeleggIkon(m, t, y) {
         if (!t) return false;
         const palette=ikonPalett(m,y);if(!palette)return false;
         const {colors,rgb}=palette;
         const key=rgb.flat().join(',');
+        if (m.render_mode === 'raster') {
+            const lys=rasterIkonLys(m,palette);
+            if (lys===null) return false;
+            if (!t.ikonOriginal) {
+                t.ikonOriginal=document.createElement('canvas');
+                t.ikonOriginal.width=t.width;t.ikonOriginal.height=t.height;
+                t.ikonOriginal.getContext('2d').drawImage(t.canvas,0,0);
+            }
+            // Masken for hardware-pekeren kan ha skjult en annen del sist.
+            if (t.ikonPalett!==key) {
+                const ctx=t.canvas.getContext('2d');ctx.resetTransform();
+                ctx.clearRect(0,0,t.width,t.height);ctx.drawImage(t.ikonOriginal,0,0);
+                t.tex.needsUpdate=true;
+            }
+            t.ikonLys=lys;t.ikonPalett=key;return true;
+        }
         if (t.ikonPalett === key) return true;
+        t.ikonLys=1;
         const ctx=t.canvas.getContext('2d'), s=m.scale;
         ctx.resetTransform();ctx.clearRect(0,0,t.canvas.width,t.canvas.height);ctx.scale(s,s);
         ctx.save();ctx.clip(m.clipPath,'evenodd');
@@ -1496,6 +1545,29 @@ const Visning = (() => {
                             m.rect[2] - m.rect[0] !== m.width || m.rect[3] - m.rect[1] !== m.height) ||
                         m.dynamic && (!Array.isArray(m.expected) || m.expected.length !== m.width * m.height ||
                             m.expected.some(v=>!Number.isInteger(v) || v < 0 || v > 31))) throw new Error('Ugyldig ikonfelt');
+                    if (m.render_mode!==undefined && m.render_mode!=='raster' && m.render_mode!=='contours' ||
+                        m.render_mode==='raster' && (!m.reference_palette || typeof m.reference_palette!=='object' ||
+                            [...new Set([m.base_index,...m.paths.map(p=>p.index)])].some(c=>
+                                !Array.isArray(m.reference_palette[c]) || m.reference_palette[c].length!==3 ||
+                                m.reference_palette[c].some(v=>!Number.isInteger(v)||v<0||v>255)))) throw new Error('Ugyldig rasterikonpalett');
+                    if (m.reference_palette_cycles!==undefined &&
+                        (!Array.isArray(m.reference_palette_cycles) || m.render_mode!=='raster' ||
+                         m.reference_palette_cycles.some(g=>!Array.isArray(g)||g.length<2||g.length>32||
+                            new Set(g).size!==g.length||g.some(c=>!Number.isInteger(c)||c<0||c>31||
+                                !Array.isArray(m.reference_palette[c])||m.reference_palette[c].length!==3||
+                                m.reference_palette[c].some(v=>!Number.isInteger(v)||v<0||v>255))) ||
+                         new Set(m.reference_palette_cycles.flat()).size!==m.reference_palette_cycles.flat().length))
+                        throw new Error('Ugyldig palettsyklus');
+                    if (m.edge_feather!==undefined && (m.render_mode!=='raster' || !m.scene || m.dynamic ||
+                        !Array.isArray(m.edge_feather) || m.edge_feather.length!==2 ||
+                        m.edge_feather.some(v=>!Number.isFinite(v)||v<0||v>0.25)))
+                        throw new Error('Ugyldig terrengkant');
+                    // Visningsfeltet endrer bare HD-formen. Kildemoensteret beholder eget rect.
+                    if (m.draw_rect!==undefined && (!m.dynamic || m.render_mode!=='raster' ||
+                        !Array.isArray(m.draw_rect) || m.draw_rect.length!==4 || m.draw_rect.some(v=>!Number.isInteger(v)) ||
+                        m.draw_rect[0]<0 || m.draw_rect[1]<0 || m.draw_rect[2]>320 || m.draw_rect[3]>200 ||
+                        m.draw_rect[2]<=m.draw_rect[0] || m.draw_rect[3]<=m.draw_rect[1]))
+                        throw new Error('Ugyldig ikonvisningsfelt');
                     nyeIkoner.set(m.key,{...m,clipPath:new Path2D(m.clip),paths:m.paths.map(p=>({...p,path:new Path2D(p.d)}))});
                 }
                 for (const m of nyeIkoner.values()) if (!m.scene) {
@@ -1581,7 +1653,9 @@ const Visning = (() => {
             try {
                 const t = await hdTekstur(f);
                 const ikon=pakkeIkoner.get(nokkel);
-                if (ikon && (t.width!==ikon.width*ikon.scale || t.height!==ikon.height*ikon.scale)) {t.tex.dispose();t.mat.dispose();hdIkonFeil.push(nokkel+': feil maal');continue;}
+                const ikonRect=ikon?.draw_rect;
+                if (ikon && (t.width!==(ikonRect ? ikonRect[2]-ikonRect[0] : ikon.width)*ikon.scale ||
+                    t.height!==(ikonRect ? ikonRect[3]-ikonRect[1] : ikon.height)*ikon.scale)) {t.tex.dispose();t.mat.dispose();hdIkonFeil.push(nokkel+': feil maal');continue;}
                 const meta = hdTekstMeta.get(nokkel);
                 if (meta?.raw_rect_px) {
                     const [x,y,w,h] = meta.raw_rect_px;
@@ -1601,7 +1675,8 @@ const Visning = (() => {
         }
         for (const [key,m] of pakkeIkoner) {
             const t=hdPakke.get(key);
-            if (t && t.width===m.width*m.scale && t.height===m.height*m.scale) hdIkoner.set(key,m);
+            const r=m.draw_rect, w=r ? r[2]-r[0] : m.width, h=r ? r[3]-r[1] : m.height;
+            if (t && t.width===w*m.scale && t.height===h*m.scale) hdIkoner.set(key,m);
             else hdIkonFeil.push(key+': ikonbildet mangler eller har feil maal');
         }
         // Maskene kobles til bildet med samme navn, uansett hvilken som kom foerst.
@@ -1658,7 +1733,8 @@ const Visning = (() => {
             kandidater: visteListe.filter(d=>hdIkoner.has(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'))).map(d=>({...d,godkjent:hdTegnbare.has(d)})),
             viste: visteListe.filter(d=>hdTegnbare.has(d)&&hdIkoner.has(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'))).map(d=>({fil:d.fil,bilde:d.bilde,x:d.x,y:d.y})) }),
         sceneIkoner: id => [...hdIkoner.values()].filter(m=>m.scene===id&&m.dynamic&&hdPakke.has(m.key)),
-        sceneIkonKlar: (m,diw) => !!ikonPalett(m,m.rect[1],diw),
+        sceneIkonKlar: (m,diw) => {const p=ikonPalett(m,m.rect[1],diw);return !!p&&rasterIkonLys(m,p)!==null;},
+        sceneOverleggKlar: (key,diw) => {const m=hdIkoner.get(key);if(!m||m.render_mode!=='raster')return true;if(!m.scene||!m.rect)return false;const p=ikonPalett(m,m.rect[1],diw);return !!p&&rasterIkonLys(m,p)!==null;},
         hdBakgrunner: () => antallBg,
         /* bakgrunner (hash) som bare dekker en del av skjermen og trenger rektangelet fra en scene */
         settUtsnittBakgrunner: (liste) => { utsnittBg.clear(); for (const h of liste) utsnittBg.add(h >>> 0); maaTegnes = true; },

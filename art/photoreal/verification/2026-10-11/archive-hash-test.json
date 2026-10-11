@@ -2,7 +2,7 @@
   "status": "passed",
   "scope": "Alle katalogfiler er separat hashkontrollert av hd_katalog.py. Nettleser: første side, søk, aktiv-filter og mobil. Feiltest leverer PNG med original lengde, men ett bitavvik.",
   "catalog_entries": 616,
-  "enabled_plan_entries": 74,
+  "enabled_plan_entries": 48,
   "raw_png_files": 807,
   "failure": {
     "hd": {
@@ -12,10 +12,10 @@
       "feil": "Feil bilderevisjon",
       "bilder": 0,
       "bakgrunner": [],
-      "tilgjengelige": 320
+      "tilgjengelige": 327
     },
     "stopped": false
   },
   "errors": [],
-  "manifest_sha256": "806424357c834c92874b3215bf63f1eea79098c704217fdfd328353502e97bc8"
+  "manifest_sha256": "94836a1f79c6c0e8b6325f360d3203aa6e03504b87b8fa31e9d42fa3c92b6904"
 }

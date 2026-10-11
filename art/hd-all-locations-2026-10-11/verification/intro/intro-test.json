@@ -1,0 +1,333 @@
+{
+  "url": "http://127.0.0.1:8769/moonstone.html",
+  "scope": "Original intro uten hopp, starttur og Practice med vanlige tastetrykk. Sluttgrenen kjøres separat med kontrollert seiersflagg ved oppstart, uten full gjennomspilling.",
+  "scenes": {
+    "mindscape-logo": {
+      "frame": 125,
+      "scene": {
+        "id": "mindscape-logo",
+        "match": 1,
+        "preserved_pixels": 34176,
+        "hash": "46963198",
+        "hd_icons": 0
+      },
+      "scan": true,
+      "diw": [
+        70,
+        19,
+        710,
+        219
+      ],
+      "ending": false,
+      "exposure": 0.8470138710506037,
+      "mode": "journey",
+      "restored": true,
+      "state_unchanged": true
+    },
+    "stonehenge-overhead": {
+      "frame": 3325,
+      "scene": {
+        "id": "stonehenge-overhead",
+        "match": 0.987,
+        "preserved_pixels": 1968,
+        "hash": "c2501c17",
+        "hd_icons": 0
+      },
+      "scan": true,
+      "diw": [
+        70,
+        19,
+        710,
+        219
+      ],
+      "ending": false,
+      "exposure": 1,
+      "mode": "journey",
+      "restored": true,
+      "state_unchanged": true
+    },
+    "stonehenge-knight": {
+      "frame": 4775,
+      "scene": {
+        "id": "stonehenge-knight",
+        "match": 0.9112407862407862,
+        "preserved_pixels": 37358,
+        "hash": "a45a2508",
+        "hd_icons": 0
+      },
+      "scan": true,
+      "diw": [
+        70,
+        19,
+        710,
+        219
+      ],
+      "ending": false,
+      "exposure": 1,
+      "mode": "journey",
+      "restored": true,
+      "state_unchanged": true
+    },
+    "message-banner": {
+      "frame": 100,
+      "scene": {
+        "id": "message-banner",
+        "match": 0.93975,
+        "preserved_pixels": 59076,
+        "hash": "931f9b1d",
+        "hd_icons": 0
+      },
+      "scan": true,
+      "diw": [
+        70,
+        19,
+        710,
+        219
+      ],
+      "ending": true,
+      "exposure": 0.5067755795835498,
+      "mode": "ending",
+      "restored": true,
+      "state_unchanged": true
+    },
+    "intro-stars": {
+      "frame": 3450,
+      "scene": {
+        "id": "intro-stars",
+        "match": 1,
+        "preserved_pixels": 46167,
+        "hash": "d0f67acb",
+        "hd_icons": 0
+      },
+      "scan": true,
+      "diw": [
+        70,
+        19,
+        710,
+        219
+      ],
+      "ending": true,
+      "exposure": 0.9865387908888509,
+      "mode": "ending",
+      "restored": true,
+      "state_unchanged": true
+    }
+  },
+  "best_matches": {
+    "message-banner": {
+      "id": "message-banner",
+      "match": 0.9905,
+      "detail": 1,
+      "frame": 4200,
+      "mode": "ending"
+    },
+    "mindscape-logo": {
+      "id": "mindscape-logo",
+      "match": 1,
+      "detail": 1,
+      "frame": 125,
+      "mode": "journey"
+    },
+    "stonehenge-knight": {
+      "id": "stonehenge-knight",
+      "match": 1,
+      "detail": 1,
+      "frame": 400,
+      "mode": "ending"
+    },
+    "stonehenge-overhead": {
+      "id": "stonehenge-overhead",
+      "match": 1,
+      "detail": 1,
+      "frame": 850,
+      "mode": "ending"
+    },
+    "intro-stars": {
+      "id": "intro-stars",
+      "match": 1,
+      "detail": 1,
+      "frame": 3450,
+      "mode": "ending"
+    }
+  },
+  "max_exposure": {
+    "mindscape-logo": 1,
+    "stone-circle": 1,
+    "stonehenge-overhead": 1,
+    "altar": 1,
+    "portal": 1.3723911918587937,
+    "stonehenge-knight": 1.6542554627292727,
+    "world-map": 1.0001079114176754,
+    "message-banner": 0.5067755795835498,
+    "stonehenge": 1,
+    "intro-stars": 1
+  },
+  "used": [
+    "data/program",
+    "data/bold.f",
+    "data/message.piv",
+    "data/mindscape",
+    "data/bg1a.PIV",
+    "data/intro.stile",
+    "data/bg1c.PIV",
+    "data/bg1b.PIV",
+    "data/bg4.PIV",
+    "data/bg5a.PIV",
+    "data/bg3.PIV",
+    "data/bg2.PIV",
+    "data/bg2a.PIV",
+    "data/au1.cel",
+    "data/li1.cel",
+    "data/da1.cel",
+    "data/ha1.cel",
+    "data/dw1.cel",
+    "data/ov1.cel",
+    "data/music.cmp",
+    "data/mog",
+    "data/re.a",
+    "data/Small.font",
+    "data/ch.piv",
+    "data/collide.hit",
+    "data/ki.cel",
+    "data/mi.c",
+    "data/po.cel",
+    "data/KN1.ob",
+    "data/KN2.ob",
+    "data/KN3.ob",
+    "data/KN4.ob",
+    "data/blo.cel",
+    "data/kn.a",
+    "data/test",
+    "data/sel.cel",
+    "data/wa1.t",
+    "data/HE1.ob",
+    "data/HE2.ob",
+    "data/HE3.ob",
+    "data/bg5.piv",
+    "data/bg7.PIV",
+    "data/bg8.PIV",
+    "data/dg1.cel",
+    "data/co1.cel",
+    "data/Klift1.CEL",
+    "data/co.stile",
+    "data/vmusic.cmp"
+  ],
+  "fades": [
+    {
+      "frame": 225,
+      "mode": "journey",
+      "id": "mindscape-logo",
+      "exposure": 0.5455930516311328,
+      "shader_light": 0.5455930516311328
+    },
+    {
+      "frame": 250,
+      "mode": "journey",
+      "id": "mindscape-logo",
+      "exposure": 0,
+      "shader_light": 0
+    },
+    {
+      "frame": 125,
+      "mode": "ending",
+      "id": "message-banner",
+      "exposure": 0.5067755795835498,
+      "shader_light": 0.5067755795835498
+    },
+    {
+      "frame": 150,
+      "mode": "ending",
+      "id": "message-banner",
+      "exposure": 0.5067755795835498,
+      "shader_light": 0.5067755795835498
+    },
+    {
+      "frame": 175,
+      "mode": "ending",
+      "id": "message-banner",
+      "exposure": 0.5067755795835498,
+      "shader_light": 0.5067755795835498
+    },
+    {
+      "frame": 200,
+      "mode": "ending",
+      "id": "message-banner",
+      "exposure": 0.5067755795835498,
+      "shader_light": 0.5067755795835498
+    },
+    {
+      "frame": 225,
+      "mode": "ending",
+      "id": "message-banner",
+      "exposure": 0.5067755795835498,
+      "shader_light": 0.5067755795835498
+    },
+    {
+      "frame": 250,
+      "mode": "ending",
+      "id": "message-banner",
+      "exposure": 0.5067755795835498,
+      "shader_light": 0.5067755795835498
+    },
+    {
+      "frame": 275,
+      "mode": "ending",
+      "id": "message-banner",
+      "exposure": 0.5067755795835498,
+      "shader_light": 0.5067755795835498
+    },
+    {
+      "frame": 300,
+      "mode": "ending",
+      "id": "message-banner",
+      "exposure": 0.5067755795835498,
+      "shader_light": 0.5067755795835498
+    },
+    {
+      "frame": 325,
+      "mode": "ending",
+      "id": "message-banner",
+      "exposure": 0.5067755795835498,
+      "shader_light": 0.5067755795835498
+    },
+    {
+      "frame": 350,
+      "mode": "ending",
+      "id": "message-banner",
+      "exposure": 0.5067755795835498,
+      "shader_light": 0.5067755795835498
+    },
+    {
+      "frame": 375,
+      "mode": "ending",
+      "id": "message-banner",
+      "exposure": 0,
+      "shader_light": 0
+    },
+    {
+      "frame": 825,
+      "mode": "ending",
+      "id": "stonehenge-knight",
+      "exposure": 0.003175063771206457,
+      "shader_light": 0.003175063771206457
+    },
+    {
+      "frame": 2750,
+      "mode": "ending",
+      "id": "portal",
+      "exposure": 0,
+      "shader_light": 0
+    },
+    {
+      "frame": 4275,
+      "mode": "ending",
+      "id": "message-banner",
+      "exposure": 0,
+      "shader_light": 0
+    }
+  ],
+  "errors": [],
+  "not_seen": [],
+  "status": "passed",
+  "created_at": "2026-10-11T14:30:16.953Z"
+}

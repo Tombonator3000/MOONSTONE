@@ -18,7 +18,7 @@ Det viktigste: **samme motiv, samme form, samme plassering, bare skarpere.** Ikk
 
 ## 2. Listen
 
-`docs/hd-bestilling-liste.csv` har 1871 rader, skilt med semikolon. Kolonnene:
+`docs/hd-bestilling-liste.csv` har 1842 rader, skilt med semikolon. Kolonnene:
 
 | Kolonne | Hva |
 |---|---|
@@ -37,23 +37,22 @@ Antall per gruppe, i rekkefølgen du bør ta dem:
 
 | Pri | Gruppe | Rader | Filer |
 |---|---|---|---|
-| 1 | Hulekamp | 24 | Bakgrunner: fol1-6, gll1-6, swl1-6, wal1-6 (.t) |
 | 2 | Kartfigurer | 45 | mi.c |
-| 4 | Byskjermer | 3 | Butikken, inventaret, healeren (bakgrunner) |
+| 4 | Byskjermer | 2 | Butikken og inventaret (bakgrunner) |
 | 5 | Riddere | 196 | KN1-4.ob, HE1-3.ob |
 | 7 | Logo | 1 | bold.f/073, på nytt i riktig sideforhold |
 | 7 | Monstre | 1050 | Balok, beistet, Demon, DRAGON, Mudmen, RATMEN, TROGGAxe, TROGGSpear, TROLL |
-| 8 | Steder | 4 | Mythrid, druidene, Math inne og ute (bakgrunner) |
-| 8 | Taverna og by | 32 | dice.cel, mys.cel, bordet i terningspillet |
-| 9 | Introscener | 4 | bg3, bg1b, bg2a, mindscape (bakgrunner) |
+| 8 | Steder | 1 | Druidene ved Stonehenge (i bruk som utkast, tegnes på nytt) |
+| 8 | Taverna og by | 31 | dice.cel, mys.cel |
+| 9 | Introscener | 4 | bg1b, og på nytt: bg2a, bg3, mindscape (bakgrunner) |
 | 10 | Blod og sår | 106 | KN5.ob, blo.cel |
 | 10 | Stedsfigurer | 72 | Wi1.C, hen1.c |
 | 11 | Meny, tittelmeny, sluttscene | 5 | sel.cel/001, bold.f 074 og 075, bg7, bg8 |
 | senere | Intro og slutt | 329 | au1, co1, da1, dg1, dw1, ha1, li1, ov1 |
 
-Det er 38 bakgrunner og 1833 figurbilder. 156 rader trenger maske: ridderbildene og blodbildene som har rustningsfarger i seg (KN1 55, KN3 45, KN2 21, KN5 15, HE1 13, HE2 6, KN4 1). I tillegg kommer 101 masker til HE-kopiene (punkt 3.5). Prioritet 3 i oversikten vår (statusskjermen) er ikke med; den lager vi selv (punkt 7).
+Det er 9 bakgrunner og 1833 figurbilder. Hulekampene, healeren, Mythrid, Math og terningbordet har fått ferdige HD-bilder (art/hd-all-locations-2026-10-11) og er ikke med. 156 rader trenger maske: ridderbildene og blodbildene som har rustningsfarger i seg (KN1 55, KN3 45, KN2 21, KN5 15, HE1 13, HE2 6, KN4 1). I tillegg kommer 101 masker til HE-kopiene (punkt 3.5). Prioritet 3 i oversikten vår (statusskjermen) er ikke med; den lager vi selv (punkt 7).
 
-Rekkefølgen følger hvor ofte grafikken vises og hvor lite som skal til før den virker. Prioritet 1, 2 og 4 skal virke så snart filen ligger i en mappe du velger med «Velg HD-mappe» (punkt 6). For bakgrunnene er hashene målt i spillet, for mi.c er det lest ut av koden og ikke prøvd. I standardpakken på nettsiden (`web/hd/`) må hver fil i tillegg føres i `web/hd/manifest.json` med sha256 og størrelse, og bakgrunnene for Math, terningspillet og introen trenger en scene der. Det gjør vi når du leverer. Ridderne, monstrene og blodet får støtte i koden i en endring som pågår nå. Prioritet 6 i oversikten vår (lasteskjermen og bannerne) er ikke med, fordi den ikke kan bestilles ennå (punkt 7). Vi vet ikke hvilke monstre som er vanligst, så ta dem i den rekkefølgen listen har.
+Rekkefølgen følger hvor ofte grafikken vises og hvor lite som skal til før den virker. Prioritet 2 og 4 skal virke så snart filen ligger i en mappe du velger med «Velg HD-mappe» (punkt 6). For bakgrunnene er hashene målt i spillet, for mi.c er det lest ut av koden og ikke prøvd. I standardpakken på nettsiden (`web/hd/`) må hver fil i tillegg føres i `web/hd/manifest.json` med sha256 og størrelse, og bakgrunnene for Math, terningspillet og introen trenger en scene der. Det gjør vi når du leverer. Ridderne, monstrene og blodet har støtte i koden (figurer i flere deler, masker for farge). Prioritet 6 i oversikten vår (lasteskjermen og bannerne) er ikke med, fordi den ikke kan bestilles ennå (punkt 7). Vi vet ikke hvilke monstre som er vanligst, så ta dem i den rekkefølgen listen har.
 
 ## 3. Format
 
@@ -129,17 +128,15 @@ Det gir en mappe per fil med ett PNG per bilde, med samme navn som i hd_fil: `as
 
 Bakgrunner: merknaden på hver bakgrunnsrad sier hvor kilden ligger.
 
-- Hulekampene (prioritet 1): `art/photoreal/references/runtime_background/fol1.t.png` og så videre. De er satt sammen av spillet og finnes ikke som egen fil.
 - Butikken og inventaret: `art/photoreal/references/runtime_background/e868fda9.png` og `94e65527.png`, lagret fra emulatoren.
-- De andre er bildefiler i spillet: `assets/gfx/hea.piv/0.png`, `assets/gfx/mys.piv/0.png` og så videre etter kommandoen over.
+- De andre er bildefiler i spillet: `assets/gfx/hen1.p/0.png`, `assets/gfx/bg3.PIV/0.png` og så videre etter kommandoen over.
 
 Alle er 320 x 200. Det finnes også eldre utkast i `art/photoreal/candidates/` for mange rader (merknaden sier hvilke og hvilken status de har). Ingen av dem er godkjent. Bruk dem gjerne som utgangspunkt, men følg originalen der de avviker.
 
 ## 5. Det som skal tegnes på nytt
 
 - **Logoen** (`bold.f/073.png`, 1220 x 216). Dagens logo er fin, men har feil sideforhold. Behold uttrykket (gullmetall, MOONSTONE med de tre O-diamantene og «A Hard Days Knight» under), men tegn den så den fyller 305 x 54 ganger 4, som originalen.
-- **Hulekampene** (24 bakgrunner). Utkastene er teknisk i orden, men runene på steinene er tegnet om. Vil eieren ikke ha de nye runene, tegnes de på nytt etter originalen.
-- **Healeren, Mythrid, druidene, Math inne og ute og introscenene** har utkast med avvik som står i merknaden (endret bokdiagram, nye tegn, en stjerne for mye og så videre). Tegn dem på nytt der avviket er.
+- **Druidene og introscenene** (bg2a, bg3, mindscape, stjernene i bg8) er i bruk som eldre utkast der avvikene skjules med masker. Tegn dem på nytt der merknaden sier at de avviker.
 - **Trollet** er blått i spillet. Utkastene er brune og gylne.
 
 ## 6. Levering og test

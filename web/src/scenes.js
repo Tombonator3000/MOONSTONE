@@ -28,11 +28,15 @@ const SceneHd = (() => {
         const hist = new Uint32Array(32);
         for (const c of source.px) hist[c]++;
         const vanligst = hist.indexOf(Math.max(...hist));
-        kilder.set(row.id, { ...row, ...source, vanligst });
+        const lysMaks = source.pal.reduce((sum, rgb, c) =>
+            sum + hist[c] * (rgb[0] + rgb[1] + rgb[2]), 0);
+        kilder.set(row.id, { ...row, ...source, vanligst, lysMaks });
     }
     function korriger(fb, diw, lag) {
         sist = null;
-        if (!Visning.hdPaa() || !StandardHd.info().aktiv || !StandardHd.info().klar ||
+        // Samme PIV-identitet i Original og HD bevarer engangstegnet tekst
+        // ved bytte. Uten en aktiv standardpakke brukes vanlig originallag.
+        if (!StandardHd.info().aktiv || !StandardHd.info().klar ||
             diw[2] - diw[0] !== 640 || diw[3] - diw[1] !== 200 || diw[0] < 0 || diw[1] < 0) return lag;
         const scan = Kjerne.skanout();
         if (!scan.gyldig) return lag;
@@ -48,6 +52,7 @@ const SceneHd = (() => {
             if (skjerm && lag && (lag.hash >>> 0) === parseInt(s.hash, 16)) continue;
             let match = 0, n = 0, detalj = 0, detaljMatch = 0;
             for (let y = 2; y < 200; y += 4) for (let x = 2; x < 320; x += 4) {
+                if ((s.match_ignore_indices || []).includes(s.px[y * 320 + x])) continue;
                 const actual = lag?.bakIdx && !skjerm ? lag.bakIdx[y * 320 + x] : scan.idx[(diw[1] + y) * 720 + diw[0] + x * 2];
                 if (actual === s.px[y * 320 + x]) match++;
                 if (s.px[y * 320 + x] !== s.vanligst) { detalj++; if (actual === s.px[y * 320 + x]) detaljMatch++; }
@@ -65,8 +70,11 @@ const SceneHd = (() => {
         }
         if (!valgt) return lag;
         const rect = valgt.rect || [0, 0, 320, 200];
+        const faste = Visning.hdPaa() ? (valgt.overlays || []).filter(o=>Visning.sceneOverleggKlar(o.key,diw)) : [];
+        const originaleFelt = (valgt.overlays || []).filter(o=>!faste.includes(o));
+        const vernedeFelt = [...(valgt.protected || []),...originaleFelt.map(o=>o.rect)];
         // Originalmarkorene beholdes til bakgrunnen og HD-overlegg kan vises sammen.
-        const ikoner = (StandardHd.info().bakgrunner.includes(valgt.hash)
+        const ikoner = (Visning.hdPaa() && StandardHd.info().bakgrunner.includes(valgt.hash)
             ? Visning.sceneIkoner(valgt.id) : []).filter(m=>{
             if (m.source.bank_sha256!==valgt.source_sha256 || !m.expected || m.expected.length!==m.width*m.height || !Visning.sceneIkonKlar(m,diw)) return false;
             const [x,y]=m.rect;
@@ -76,20 +84,18 @@ const SceneHd = (() => {
             return true;
         });
         foran.fill(0); indeks.fill(255); maske.fill(0); avvik.fill(0);
-        let lys = 0, lysRef = 0;
+        let lys = 0;
         for (let y = 0; y < 200; y++) for (let x = 0; x < 320; x++) {
             const p = y * 320 + x, fp = (diw[1] + y) * 720 + diw[0] + x * 2, c = valgt.px[p];
             const pal = (diw[1] + y) * 32 * 4 + c * 4;
             for (let k=0;k<4;k++) bak[p*4+k]=scan.pal[pal+k];
-            if (y === 100) {
-                lys += scan.pal[pal] + scan.pal[pal + 1] + scan.pal[pal + 2];
-                // samme sum med filens egen palett: fullt lys, ogsaa foer skjermen har tonet inn
-                const ref = valgt.pal?.[c];
-                if (ref) lysRef += ref[0] + ref[1] + ref[2];
-            }
+            lys += scan.pal[pal] + scan.pal[pal + 1] + scan.pal[pal + 2];
             const actual = scan.idx[fp];
             const protectedPixel = x < rect[0] || y < rect[1] || x >= rect[2] || y >= rect[3] ||
-                (valgt.protected || []).some(r => x >= r[0] && y >= r[1] && x < r[2] && y < r[3]);
+                (valgt.protected_indices || []).includes(c) ||
+                vernedeFelt.some(r => x >= r[0] && y >= r[1] && x < r[2] && y < r[3]) ||
+                (valgt.preserve_regions || []).some(({rect:r,indices}) =>
+                    x >= r[0] && y >= r[1] && x < r[2] && y < r[3] && indices.includes(c));
             if (actual !== c || fb[fp*4]!==bak[p*4] || fb[fp*4+1]!==bak[p*4+1] ||
                 fb[fp*4+2]!==bak[p*4+2] || fb[fp*4+3]!==bak[p*4+3]) avvik[p] = 1;
             if (protectedPixel || avvik[p]) maske[p] = 1;
@@ -127,8 +133,9 @@ const SceneHd = (() => {
         }
         sist = { id: valgt.id, match: best, preserved_pixels: beholdt, hash: valgt.hash, hd_icons: ikoner.length };
         return { bak, for: foran, forIdx: indeks, bakIdx: valgt.px,
-            hash: parseInt(valgt.hash, 16), lys, lysRef, hdRect: rect, scene: valgt.id,
-            overlays: [...(valgt.overlays || []),...ikoner.map(m=>({key:m.key,rect:m.rect,uv_rect:[0,0,1,1],foreground:true}))], sceneVern: avvik };
+            hash: parseInt(valgt.hash, 16), lys, lysMaks: valgt.lysMaks,
+            hdRect: valgt.uv_rect || rect, scene: valgt.id,
+            overlays: [...faste,...ikoner.map(m=>({key:m.key,rect:m.draw_rect||m.rect,uv_rect:[0,0,1,1],foreground:true}))], sceneVern: avvik };
     }
     return { korriger, nullstill, info: () => sist, matcher: () => sisteMatcher.slice() };
 })();

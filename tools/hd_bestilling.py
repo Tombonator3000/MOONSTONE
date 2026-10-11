@@ -381,7 +381,7 @@ def main():
         if 'bg/' + h in utkast_i_bruk:
             merk = 'I bruk som utkast i spillet. ' + merk
         elif 'bg/' + h in har_hd:
-            raise SystemExit('bg/%s har allerede HD' % h)
+            continue        # ferdig HD i standardpakken: trengs ikke
         rader.append([pri, gruppe, fil, nr, 'bg/%s.png' % h, 320, 200, 320 * SKALA, 200 * SKALA,
                       'nei', 'nei', hvor, merk])
         teller[(pri, gruppe)] += 1
@@ -404,7 +404,8 @@ def main():
     print('Ikke bestilt, lages som konturikoner: %s' % ', '.join('%s/%03d' % (b[0], b[1]) for b in ikoner))
     print('Rader med maske: %d' % sum(r[10] == 'ja' for r in rader))
     print('Like bilder slått sammen: %d. HE-bilder som er KN med byttede indekser: %d' % (lik_n, he_n))
-    print('Rader: %d (figurer %d, bakgrunner %d)' % (len(rader), len(rader) - len(bg), len(bg)))
+    nbg = sum(1 for r in rader if r[4].startswith('bg/'))
+    print('Rader: %d (figurer %d, bakgrunner %d)' % (len(rader), len(rader) - nbg, nbg))
     for (pri, gruppe), n in sorted(teller.items(), key=lambda x: (99 if x[0][0] == 'senere' else x[0][0], x[0][1])):
         print('  %-7s %-16s %4d' % (pri, gruppe, n))
 

@@ -1,6 +1,10 @@
 # todo.md
 
 ## Neste
+- [x] HD-retting av Math og stedene: loddrett rundt murtaarn og 23 gjentatte Stonehenge-porter. Siste brukerfoto presiserer to stoetter og en overligger; enkeltstaaende soeyle er erstattet. Portene er skalert proporsjonalt ned til originalens fem kartpiksler i hoeyden. Originale posisjoner, statusmoenstre og spillregler beholdes.
+- [ ] HD-troskap: fullfoere ikonene etter motivkontroll. Tre landemerker og 23 gjentatte stedsporter er motivrettet; oevrige 49 ikonruter har fortsatt konturbehandling. Avklare Tower2, byetiketter og inventarrutenes betydning foer nye tegninger. Bakgrunner etter ikonene, figurer til sist. Se docs/hd-ikonmotiver.md.
+- [ ] HD-troskap: fullføre de resterende figurene og gjenskape originalens fontformer. 2091 av 2291 ikke-tomme figur-/fontruter mangler aktiv kobling; de 200 koblede rutene er heller ikke alle kunstnerisk ferdige. Se docs/hd-status-2026-10-11.md og rutelisten med alle 2361 originalruter.
+- [ ] HD-troskap: fullføre øvrige PIV-scener, 24 manglende sammensatte kampvarianter, rullegrafikk, underfliser og innebygd font. Vurdere genererte bakgrunner mot originalen før full ferdigstatus.
 - [ ] HD-bakgrunner etter filnavn (bg1a.PIV/0.png) i tillegg til hash, for bildene som vises som de er.
 - [ ] Valgene paa kartet i PC-versjonen: LB, RB, X og Y velger 1-4 i dag; mangler valg 5-9 og en liste paa skjermen. Nevn det i windows/LES_MEG.txt.
 - [ ] Options paa mobil: oppsett av styrekorset og knappene (storrelse, venstrehendt).
@@ -31,7 +35,7 @@
 
 ## HD: kodeendringer så bildene i docs/hd-bestilling-chatgpt.md blir brukt
 - [ ] Prøve HD-figurer i en ekte monsterkamp i et hi og i en kamp med fire riddere (ikke målt etter at figurer i flere deler kom).
-- [ ] Banneret i Prepare yourself: godkjenne utkastet til bg/931f9b1d.png (message.piv), scenen finnes.
+- [x] Banneret i Prepare yourself: bg/931f9b1d.png kom med PR #26.
 - [ ] Introen og slutten: tegneliste fra programmet program, så de 385 figurbildene kan få HD.
 - [ ] bg1b.PIV: sette sammen flisene til ett bilde og lage en scene.
 - [ ] Lasteren (render.js lastHdPakke) skal bare godta NAVN/NNN og bg/HHHHHHHH og si fra om resten (i dag tar den alt, ca 4 MB per ubrukt bilde).
@@ -113,3 +117,13 @@
 - [x] Avvise ugyldige scene-/mønsterfelt og kontrollere egne ikonbilder uten gamle standardkonturer.
 - [x] Bevare øvrige ikoners palett, kildekontroll og HD-peker ved delvis import og ødelagt PNG.
 - [x] Bevare originalmarkører under treg HD-kartlasting og kontrollere samlet bytte til HD.
+
+## Alle steders bakgrunner, 11. oktober 2026
+- [x] Nytegne og koble inn de 24 manglende kamp-/hulevariantene i skog, gressland, sump og fjell.
+- [x] Legge til helbreder, mystiker, Math utenfra/innenfra, druidenes Stonehenge og terningbord med beskyttet dialog/forgrunn.
+- [x] Kontrollere alle 56 sammensatte kampbakgrunner i faktisk WASM, og de tolv nye PIV-koblingene med originalfixturer.
+- [x] Bevare små kartporter, Original-valg, spilltilstand, originalfiler og fungerende HD-import/cache.
+- [x] Lage galleri, master-/promptarkiv og kildeoversikt for alle 75 aktive bakgrunner.
+- [ ] Fullføre selvstendige PIV-fliser/rulling og rullende sluttsekvenser; dette inngår ikke i de 56 faste kampvariantene.
+- [ ] Nytegne de resterende figurrutene separat etter bakgrunnsarbeidet, som avtalt med brukeren.
+- [x] Koble inn de fem øvrige faste intro-/meldingsbildene med bevarte originalfigurer, symboler, stjerner og logo.
