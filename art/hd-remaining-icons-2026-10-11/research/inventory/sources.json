@@ -1,0 +1,27 @@
+{
+  "checked_utc": "2026-10-11T15:06:36.949800+00:00",
+  "sources": [
+    {
+      "url": "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+      "role": "transkripsjon av originalmanual: gjenstandsnavn, scrollfunksjoner, utstyr og kartstatus"
+    },
+    {
+      "url": "https://www.lemonamiga.com/doc/moonstone-a-hard-days-knight/1109",
+      "role": "uavhengig vert for originalmanualen"
+    },
+    {
+      "url": "https://moonstonetavern.co.uk/magical-equipment/",
+      "role": "visuell kontroll med originale spillbilder av utstyr, ruller og talisman"
+    },
+    {
+      "url": "https://moonstonetavern.co.uk/quest-knights-dragons/",
+      "role": "Moonstone-, nøkkel-, ridder- og dragebeskrivelser og originale bilder"
+    },
+    {
+      "url": "https://moonstonetavern.co.uk/regions-sword-fodder/",
+      "role": "kartsteder og lair-bilder"
+    }
+  ],
+  "original_code": "disasm/mog.s; runtime CEL usage and item-label pointer assignments",
+  "reference_palette": "Original KI runtime inventory palette snapshot plus CEL noncontiguous planemask expansion. MI map test PIV palette plus mask expansion. MI index31 is runtime animated glow, not permanent magenta."
+}

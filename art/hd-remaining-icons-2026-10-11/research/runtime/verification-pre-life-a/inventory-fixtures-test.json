@@ -1,0 +1,17 @@
+{
+  "url": "http://127.0.0.1:8769/moonstone.html",
+  "checks": [
+    "all_requested_keys_selected",
+    "inventory_candidates_exist",
+    "candidate_import_has_no_errors",
+    "ki.cel/000_source_contract_found",
+    "ki.cel/000_HD_approved_false"
+  ],
+  "assets": [],
+  "errors": [],
+  "scope": "Originale CEL-/inventarpalettfixturer i faktisk WASM-side. Kandidat-PNG importeres bare i testnettleseren. Dette er ikke naturlig bruk av alle gjenstander.",
+  "candidate_icons_sha256": "a91e52db03ad713140934b258e7db5356aaf01fdb7a86cf2d1fd16846fba155b",
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: ki.cel/000_HD_changes_pixels_false",
+  "created_at": "2026-10-11T15:32:01.674Z"
+}

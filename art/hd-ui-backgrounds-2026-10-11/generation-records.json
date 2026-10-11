@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "assets": [
+    {
+      "key": "bg/e868fda9",
+      "source": "art/photoreal/references/runtime_background/e868fda9.png",
+      "note": "Three columns, two arches; shared centre column",
+      "raw": "raw/bg/e868fda9.png",
+      "prompt": "prompts/bg/e868fda9.txt",
+      "reference": "references/bg/e868fda9.png",
+      "tool": "builtin ChatGPT image generator",
+      "model": "tool did not expose exact model version",
+      "status": "visually_reviewed_for_runtime"
+    },
+    {
+      "key": "bg/94e65527",
+      "source": "art/photoreal/references/runtime_background/94e65527.png",
+      "note": "Two columns, single inventory arch",
+      "raw": "raw/bg/94e65527.png",
+      "prompt": "prompts/bg/94e65527.txt",
+      "reference": "references/bg/94e65527.png",
+      "tool": "builtin ChatGPT image generator",
+      "model": "tool did not expose exact model version",
+      "status": "visually_reviewed_for_runtime"
+    },
+    {
+      "key": "bg/d744b02e",
+      "source": "assets/gfx/bg1b.PIV/0.png",
+      "note": "BG1b coherent forest background, not all scrolling intro tiles",
+      "raw": "raw/bg/d744b02e.png",
+      "prompt": "prompts/bg/d744b02e.txt",
+      "reference": "references/bg/d744b02e.png",
+      "tool": "builtin ChatGPT image generator",
+      "model": "tool did not expose exact model version",
+      "status": "visually_reviewed_for_runtime"
+    },
+    {
+      "key": "bg/e2e904b2",
+      "source": "assets/gfx/bg7.PIV/0.png",
+      "note": "Flat water whirlpool at bottom; upper original region protected",
+      "raw": "raw/bg/e2e904b2.png",
+      "prompt": "prompts/bg/e2e904b2.txt",
+      "reference": "references/bg/e2e904b2.png",
+      "tool": "builtin ChatGPT image generator",
+      "model": "tool did not expose exact model version",
+      "status": "visually_reviewed_for_runtime"
+    },
+    {
+      "key": "mi.c/032",
+      "source": "art/hd-ui-followup-2026-10-11/references/mi.c/032.png",
+      "note": "Blank parchment panel, source silhouette",
+      "raw": "raw/mi.c/032.png",
+      "prompt": "prompts/mi.c/032.txt",
+      "reference": "references/mi.c/032.png",
+      "tool": "builtin ChatGPT image generator",
+      "model": "tool did not expose exact model version",
+      "status": "visually_reviewed_for_runtime"
+    },
+    {
+      "key": "ki.cel/034",
+      "source": "art/hd-ui-followup-2026-10-11/references/ki.cel/034.png",
+      "note": "Tall ivy fragment, source silhouette",
+      "raw": "raw/ki.cel/034.png",
+      "prompt": "prompts/ki.cel/034.txt",
+      "reference": "references/ki.cel/034.png",
+      "tool": "builtin ChatGPT image generator",
+      "model": "tool did not expose exact model version",
+      "status": "rejected_source_silhouette_loss"
+    },
+    {
+      "key": "ki.cel/035",
+      "source": "art/hd-ui-followup-2026-10-11/references/ki.cel/035.png",
+      "note": "Short ivy connector, source silhouette",
+      "raw": "raw/ki.cel/035.png",
+      "prompt": "prompts/ki.cel/035.txt",
+      "reference": "references/ki.cel/035.png",
+      "tool": "builtin ChatGPT image generator",
+      "model": "tool did not expose exact model version",
+      "status": "rejected_source_silhouette_loss"
+    },
+    {
+      "key": "ki.cel/036",
+      "source": "art/hd-ui-followup-2026-10-11/references/ki.cel/036.png",
+      "note": "Wide ivy fragment, source silhouette",
+      "raw": "raw/ki.cel/036.png",
+      "prompt": "prompts/ki.cel/036.txt",
+      "reference": "references/ki.cel/036.png",
+      "tool": "builtin ChatGPT image generator",
+      "model": "tool did not expose exact model version",
+      "status": "rejected_source_silhouette_loss"
+    }
+  ],
+  "rejected": [
+    {
+      "file": "exec-6a40ac60-b7c5-46e6-ba33-6bf5ad1b4a5e.png",
+      "reason": "Four columns. Original has three, including shared centre column."
+    },
+    {
+      "file": "exec-616be42c-3cd2-491c-8c5d-e153b42d8db0.png",
+      "reason": "Logo glyph geometry and subtitle ratio differ; not activated."
+    }
+  ]
+}

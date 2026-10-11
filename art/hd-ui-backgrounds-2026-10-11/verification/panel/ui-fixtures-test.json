@@ -1,0 +1,46 @@
+{
+  "url": "http://127.0.0.1:8773/moonstone.html",
+  "status": "passed",
+  "checks": [
+    "fragment_import_accepted",
+    "mi.c/032_approved_false",
+    "mi.c/032_HD_changes_pixels_false",
+    "mi.c/032_Original_exact_false",
+    "mi.c/032_HD_exact_false",
+    "mi.c/032_approved_true",
+    "mi.c/032_HD_changes_pixels_true",
+    "mi.c/032_Original_exact_true",
+    "mi.c/032_HD_exact_true",
+    "mi.c/032_changed_source_rejected",
+    "mi.c/032_restored_source_accepted",
+    "mi.c/032_unknown_foreground_rejected",
+    "emulated_state_unchanged",
+    "no_browser_errors"
+  ],
+  "assets": [
+    {
+      "key": "mi.c/032",
+      "quality_status": "source-contour-material-pending",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "f73cfb78e37e55a1e2965ad1a083bbf91165bf97577aa4592d53048b53df88e1",
+          "hd_sha256": "b6fb8a3c60ac842c2900840942bc19d8c49a8345bf28c9791315bca98a4815cd"
+        },
+        {
+          "mirror": true,
+          "original_sha256": "c62d8d075c9aa31675cfc3243a41c86097163c082d559c816f3d4831ce90ab36",
+          "hd_sha256": "66eb817288066c7e51b975a375c73a1ef2cfd1c2b0427d8abe401864cec34d4f"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "scope": "Originale CEL-fixturer i faktisk frontend, speiling, Original/HD-retur, levende valgpalett, kildevern. Ingen naturlig gjennomspilling eller fotografisk materialgodkjenning.",
+  "fragment_icons_sha256": "f07ee8b769bfb8d58e9375fb1c00e277b41560f9d1f2d6e066d08564c40c3615",
+  "production_code_sha256": {
+    "web/src/render.js": "9f257585a64ce4c36c3239b2dc4dc71f5843de53e0211bfe1ac5fea5ebbba85b",
+    "web/src/scenes.js": "6ff05b2f25ebb159a06efac64c65cab8e020f80a4d6c3038bb904fcf836a3c2f"
+  },
+  "created_at": "2026-10-11T17:04:56.640Z"
+}

@@ -1,0 +1,11 @@
+{
+  "url": "http://127.0.0.1:8769/moonstone.html",
+  "checks": [
+    "hd_restored_after_original_comparison"
+  ],
+  "errors": [],
+  "scope": "Naturlig karttur, faktisk teksturtegning, originalfallback og uendret spilltilstand.",
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: ki.cel/000_overlay_present",
+  "created_at": "2026-10-11T15:54:56.657Z"
+}

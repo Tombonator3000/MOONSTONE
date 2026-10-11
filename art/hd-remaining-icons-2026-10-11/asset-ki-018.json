@@ -1,0 +1,120 @@
+{
+  "id": "ki.cel/018",
+  "key": "ki.cel/018",
+  "raw": "raw/life/helmet-blue.png",
+  "source": "research/inventory/references-blue/ki.cel/018.png",
+  "prompt": "prompts/life/helmet-blue.json",
+  "review_status": "reviewed_for_runtime",
+  "placement": "source_bounds",
+  "name": "Knight helmet life icon, right panel",
+  "palette_variants": [
+    {
+      "id": "blue",
+      "raw": "raw/life/helmet-blue.png",
+      "indices": [
+        30,
+        31
+      ],
+      "colors": [
+        [
+          0,
+          51,
+          255
+        ],
+        [
+          0,
+          34,
+          136
+        ]
+      ],
+      "prompt": "prompts/life/helmet-blue.json"
+    },
+    {
+      "id": "orange",
+      "raw": "raw/life/helmet-orange.png",
+      "indices": [
+        30,
+        31
+      ],
+      "colors": [
+        [
+          255,
+          187,
+          0
+        ],
+        [
+          187,
+          102,
+          0
+        ]
+      ],
+      "prompt": "prompts/life/helmet-orange.json"
+    },
+    {
+      "id": "green",
+      "raw": "raw/life/helmet-green.png",
+      "indices": [
+        30,
+        31
+      ],
+      "colors": [
+        [
+          68,
+          204,
+          51
+        ],
+        [
+          17,
+          102,
+          0
+        ]
+      ],
+      "prompt": "prompts/life/helmet-green.json"
+    },
+    {
+      "id": "red",
+      "raw": "raw/life/helmet-red.png",
+      "indices": [
+        30,
+        31
+      ],
+      "colors": [
+        [
+          255,
+          0,
+          0
+        ],
+        [
+          136,
+          0,
+          0
+        ]
+      ],
+      "prompt": "prompts/life/helmet-red.json"
+    },
+    {
+      "id": "purple",
+      "raw": "raw/life/helmet-purple.png",
+      "indices": [
+        30,
+        31
+      ],
+      "colors": [
+        [
+          0,
+          34,
+          119
+        ],
+        [
+          0,
+          0,
+          51
+        ]
+      ],
+      "prompt": "prompts/life/helmet-purple.json"
+    }
+  ],
+  "review": "Original left/right shape is identical after28/29→30/31 remap. Five independently generated color images visually reviewed; cloth color or small belly stripe changes only. Runtime player palette selects variant; right panel is not hardcoded white.",
+  "geometry_evidence": "research/runtime/source-contracts.json; source pair-normalization confirmed by icon_route_audit",
+  "source_palette_note": "Right-panel source is decoded with the valid blue player pair in indices30/31; captured white-panel source remains preserved in research/inventory/references/."
+}

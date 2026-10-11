@@ -1,0 +1,11 @@
+{
+  "name": "Toad life icon, red",
+  "key": "life-toad-red",
+  "prompt": "Use case: precise-object-edit. Moonstone toad life/status icon color variant. Change ONLY the small blue vertical rectangular identifier stripe at center of the toad's lower chest/belly to the original game's red player color: top/lit portion approximately RGB255,0,0 and dark lower portion RGB136,0,0. Preserve the stripe's exact small size and position and its two-value rectangle. Keep the entire rest of the green toad unchanged: natural skin colors and textures, pale-gray eyes with horizontal dark pupils, neutral mouth, head, feet, anatomy, front-facing crouched pose, silhouette, dimensions and lighting. Do not color the whole animal red. No new clothes, props or other objects. Genuine transparent RGBA background exactly as source, no glow, scene, exterior shadow or text.",
+  "tool": "builtin_imagegen",
+  "transparent_background": true,
+  "reference": "raw/life/toad-blue.png",
+  "output_hint": "Generated images are saved to /home/tombonator3000t/.codex/generated_images/01a12b7a-1e1f-7fd3-b160-eb7eeeee10f5 as /home/tombonator3000t/.codex/generated_images/01a12b7a-1e1f-7fd3-b160-eb7eeeee10f5/exec-973875b7-c90c-4644-8086-d3d7f3bde40c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "review_status": "reviewed_for_runtime",
+  "review": "Visually checked only small belly identifier changes to red/darker red, preserving green toad, natural skin/eyes, anatomy, pose and silhouette. Exact original player palette pair retained in metadata."
+}

@@ -1,0 +1,14 @@
+{
+  "url": "http://127.0.0.1:8769/moonstone.html",
+  "checks": [
+    "all_requested_keys_selected",
+    "inventory_candidates_exist"
+  ],
+  "assets": [],
+  "errors": [],
+  "scope": "Originale CEL-/inventarpalettfixturer i faktisk WASM-side. Kandidat-PNG importeres bare i testnettleseren. Dette er ikke naturlig bruk av alle gjenstander.",
+  "candidate_icons_sha256": "a91e52db03ad713140934b258e7db5356aaf01fdb7a86cf2d1fd16846fba155b",
+  "status": "failed",
+  "failure": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8769/moonstone.html\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8769/moonstone.html\", waiting until \"load\"\u001b[22m\n",
+  "created_at": "2026-10-11T15:37:26.882Z"
+}

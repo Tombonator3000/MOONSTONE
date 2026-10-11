@@ -1,0 +1,11 @@
+{
+  "name": "Knight life icon, dark navy-purple",
+  "key": "life-helmet-purple",
+  "prompt": "Use case: precise-object-edit. This is a Moonstone knight life/status icon color variant. Change ONLY the blue woven fabric hood/cowl to the original game's fifth dark player color: very dark navy with a faint purple-black impression, highlight approximately RGB0,34,119 and shadow RGB0,0,51. It must be much darker than the blue original, not bright purple and not neutral gray. Keep the silver steel helmet unchanged: identical geometry, scratches, faceplate, eye slit, silver values and lighting. Preserve every cloth fold, textile texture, exact silhouette, viewpoint, framing and dimensions. No new design features or change to metal. Natural very dark dyed cloth with enough soft light to see its folds, genuine transparent RGBA background. No glow, scenery, cast shadow, text or extra objects.",
+  "tool": "builtin_imagegen",
+  "transparent_background": true,
+  "reference": "raw/life/helmet-blue.png",
+  "output_hint": "Generated images are saved to /home/tombonator3000t/.codex/generated_images/01a12b7a-1e1f-7fd3-b160-eb7eeeee10f5 as /home/tombonator3000t/.codex/generated_images/01a12b7a-1e1f-7fd3-b160-eb7eeeee10f5/exec-5a38ad83-8268-4434-b311-e7539eb6d0ef.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "review_status": "reviewed_for_runtime",
+  "review": "Visually checked fifth-player dark navy cloth change and same steel helmet design, folds, silhouette and perspective as blue master. Kept original dark navy pair rather than bright invented purple."
+}

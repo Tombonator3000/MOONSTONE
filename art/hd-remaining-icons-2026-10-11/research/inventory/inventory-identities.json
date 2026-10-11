@@ -1,0 +1,3609 @@
+{
+  "schema": 1,
+  "checked_utc": "2026-10-11T15:04:43Z",
+  "scope": "Alle ikke-tomme ruter i ki.cel og mi.c. Identitet, ikke produksjonsgodkjenning.",
+  "sources": {
+    "original": "Moonstonecd32-AMIGA.zip, originaldata/mog og CEL-filer",
+    "manual_url": "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+    "screenshots_url": "https://moonstonetavern.co.uk/magical-equipment/",
+    "knights_url": "https://moonstonetavern.co.uk/quest-knights-dragons/",
+    "note": "Originalkode bestemmer rutenummer; originalmanual og faktiske spillbilder paa nett bekrefter hva motivet betyr. Ingen genererte kandidater brukes som identitetskilde."
+  },
+  "palette_notes": {
+    "ki.cel": "Faktisk inventarpalett fra frame2150 i art/hd-icons-2026-10-11/source/inventory-palette.json; planmasker utvidet. Dynamiske ridderindekser er eksempelpalett, ikke permanent fargefasit.",
+    "mi.c": "Palett fra original test/PIV8 med utvidet planmaske. Indeks31 er originalens dynamiske gloefarge, bekreftet i runtime-ruteauditen; ikke tegn permanent rosa detaljer."
+  },
+  "counts": {
+    "ki.cel": 50,
+    "mi.c": 45,
+    "total_nonempty": 95,
+    "standalone_inventory_object_routes": 26,
+    "empty_placeholders": 2
+  },
+  "entries": [
+    {
+      "key": "ki.cel/000",
+      "source_file": "ki.cel",
+      "frame": 0,
+      "width": 15,
+      "height": 16,
+      "plane_mask": 23,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "c54874b47a3ede436997288d1ffa20da210d12a766d2bf82af84fb38fa17adb9",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        23
+      ],
+      "reference_png": "references/ki.cel/000.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/magical-equipment/"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b56e..$08b60a velger henholdsvis frame2=new,frame1=full,frame0=half fra bitene i tingtabell+$16.",
+        "mog $08c7ca..$08c7da kobler tekstene New moon Moonstone, Full Moonstone og Half Moonstone."
+      ],
+      "meaning": "Half Moonstone",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "Fire logiske Moonstones deler tre CEL-motiver. Begge halve bruker 000; ikke opprett en ny fjerde rute ved gjetning. Kodebit3 bruker samme frame0 og en inkonsistent tekstpeker til New moon; ikke endre spillregelen i grafikkarbeidet."
+    },
+    {
+      "key": "ki.cel/001",
+      "source_file": "ki.cel",
+      "frame": 1,
+      "width": 15,
+      "height": 16,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "bd3b525d670e51a128c6c3a926fb91063b78fdae800edab0e3e0240a4f30259c",
+      "source_indices": [
+        0,
+        1,
+        12,
+        13,
+        14,
+        15
+      ],
+      "reference_png": "references/ki.cel/001.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/magical-equipment/"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b56e..$08b60a velger henholdsvis frame2=new,frame1=full,frame0=half fra bitene i tingtabell+$16.",
+        "mog $08c7ca..$08c7da kobler tekstene New moon Moonstone, Full Moonstone og Half Moonstone."
+      ],
+      "meaning": "Full Moonstone",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "Fire logiske Moonstones deler tre CEL-motiver. Begge halve bruker 000; ikke opprett en ny fjerde rute ved gjetning. Kodebit3 bruker samme frame0 og en inkonsistent tekstpeker til New moon; ikke endre spillregelen i grafikkarbeidet."
+    },
+    {
+      "key": "ki.cel/002",
+      "source_file": "ki.cel",
+      "frame": 2,
+      "width": 15,
+      "height": 16,
+      "plane_mask": 27,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "0d7f542259c155ad2a374784f959106e38ae44057281178f21bd28e2095757d7",
+      "source_indices": [
+        0,
+        1,
+        2,
+        24,
+        25,
+        26,
+        27
+      ],
+      "reference_png": "references/ki.cel/002.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/magical-equipment/"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b56e..$08b60a velger henholdsvis frame2=new,frame1=full,frame0=half fra bitene i tingtabell+$16.",
+        "mog $08c7ca..$08c7da kobler tekstene New moon Moonstone, Full Moonstone og Half Moonstone."
+      ],
+      "meaning": "New Moon Moonstone",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "Fire logiske Moonstones deler tre CEL-motiver. Begge halve bruker 000; ikke opprett en ny fjerde rute ved gjetning. Kodebit3 bruker samme frame0 og en inkonsistent tekstpeker til New moon; ikke endre spillregelen i grafikkarbeidet."
+    },
+    {
+      "key": "ki.cel/003",
+      "source_file": "ki.cel",
+      "frame": 3,
+      "width": 7,
+      "height": 9,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "10b988eb08b107874cf2435e8590620ea7fe87af813be28322255b232d5fd938",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/003.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2017/03/ring_protection.png"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Ring of Protection",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast"
+    },
+    {
+      "key": "ki.cel/004",
+      "source_file": "ki.cel",
+      "frame": 4,
+      "width": 10,
+      "height": 12,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "6cef747e88a58267ad92d1b86b2615de8693a6066165b9655cf8436367c13367",
+      "source_indices": [
+        0,
+        1,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "reference_png": "references/ki.cel/004.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2017/03/potion_healing.png"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Potion of Healing",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast"
+    },
+    {
+      "key": "ki.cel/005",
+      "source_file": "ki.cel",
+      "frame": 5,
+      "width": 15,
+      "height": 16,
+      "plane_mask": 11,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "2e579923afa5cd67271291dfb68bb138f84f0b2efe86ddc57b5641bef96d5c66",
+      "source_indices": [
+        0,
+        1,
+        2,
+        9,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/005.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2024/10/keys.gif"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b45e..$08b53a bruker bit0..3 i tingtabell+$14 til frame005..008."
+      ],
+      "meaning": "Magic Key, triangulaer bit",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "Nettbildet keys.gif bekrefter de fire formene. Ingen regionnavn kobles til en form uten ytterligere bevis."
+    },
+    {
+      "key": "ki.cel/006",
+      "source_file": "ki.cel",
+      "frame": 6,
+      "width": 15,
+      "height": 16,
+      "plane_mask": 11,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "c8329cf7f309734857380e5709425ea2d803f8d8a9763cda7ed2bdd672647945",
+      "source_indices": [
+        0,
+        1,
+        2,
+        9,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/006.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2024/10/keys.gif"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b45e..$08b53a bruker bit0..3 i tingtabell+$14 til frame005..008."
+      ],
+      "meaning": "Magic Key, rund/rombeformet bit",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "Nettbildet keys.gif bekrefter de fire formene. Ingen regionnavn kobles til en form uten ytterligere bevis."
+    },
+    {
+      "key": "ki.cel/007",
+      "source_file": "ki.cel",
+      "frame": 7,
+      "width": 15,
+      "height": 16,
+      "plane_mask": 11,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "3eff62770e690a6d8b19360ab4b89ecc3dd36c4c682f17fceb1c904d7d87fd57",
+      "source_indices": [
+        0,
+        1,
+        2,
+        9,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/007.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2024/10/keys.gif"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b45e..$08b53a bruker bit0..3 i tingtabell+$14 til frame005..008."
+      ],
+      "meaning": "Magic Key, rektangulaer bit med innhakk",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "Nettbildet keys.gif bekrefter de fire formene. Ingen regionnavn kobles til en form uten ytterligere bevis."
+    },
+    {
+      "key": "ki.cel/008",
+      "source_file": "ki.cel",
+      "frame": 8,
+      "width": 15,
+      "height": 16,
+      "plane_mask": 11,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "7e75a791dcdfb4eb33674739b39a5e5bc3cbf3582c0eb8e269c046fc7e5ff0b7",
+      "source_indices": [
+        0,
+        1,
+        2,
+        9,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/008.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2024/10/keys.gif"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b45e..$08b53a bruker bit0..3 i tingtabell+$14 til frame005..008."
+      ],
+      "meaning": "Magic Key, avrundet rektangulaer bit",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "Nettbildet keys.gif bekrefter de fire formene. Ingen regionnavn kobles til en form uten ytterligere bevis."
+    },
+    {
+      "key": "ki.cel/009",
+      "source_file": "ki.cel",
+      "frame": 9,
+      "width": 13,
+      "height": 15,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "b669806d659c2a674565471c95eb0a7a13be89e5c66e46dffe69357a4faa5f2a",
+      "source_indices": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        12,
+        13,
+        14,
+        15
+      ],
+      "reference_png": "references/ki.cel/009.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/magical-equipment/"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Gem of Seeing",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast"
+    },
+    {
+      "key": "ki.cel/010",
+      "source_file": "ki.cel",
+      "frame": 10,
+      "width": 16,
+      "height": 27,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "03fc3802d5c1de05716aa6889fa413150689aff147fcf1139ed166d9ac2032bd",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        15
+      ],
+      "reference_png": "references/ki.cel/010.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2024/10/talisman_wyrm.png"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Talisman of the Wyrm",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast"
+    },
+    {
+      "key": "ki.cel/011",
+      "source_file": "ki.cel",
+      "frame": 11,
+      "width": 10,
+      "height": 16,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "508e1b639d8a56bab66562506f2bbf2bf31616db322dfb6d2347c652392ddb19",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        15
+      ],
+      "reference_png": "references/ki.cel/011.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b668..$08b6dc gaar gjennom tingtabell+$0a,+$0c,+$0e,+$10,+$12 med frame011..015.",
+        "mog $08c64e..$08c66e kobler Haste, Hawk, Acquisition, Wyrm og Protection til disse offsets."
+      ],
+      "meaning": "Scroll of Haste",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "CEL-rekkefølgen er Haste,Hawk,Acquisition,Wyrm,Protection. Ikke bruk nettartikkelens Acquisition-foer-Hawk rekkefølge til rutenumre."
+    },
+    {
+      "key": "ki.cel/012",
+      "source_file": "ki.cel",
+      "frame": 12,
+      "width": 10,
+      "height": 16,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "584f392b0fb916732ccf7c9a27c0da3ef025f07b5a292b81e845358350ea42db",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        15
+      ],
+      "reference_png": "references/ki.cel/012.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2017/03/scroll_hawk.png"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b668..$08b6dc gaar gjennom tingtabell+$0a,+$0c,+$0e,+$10,+$12 med frame011..015.",
+        "mog $08c64e..$08c66e kobler Haste, Hawk, Acquisition, Wyrm og Protection til disse offsets."
+      ],
+      "meaning": "Scroll of the Hawk",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "CEL-rekkefølgen er Haste,Hawk,Acquisition,Wyrm,Protection. Ikke bruk nettartikkelens Acquisition-foer-Hawk rekkefølge til rutenumre."
+    },
+    {
+      "key": "ki.cel/013",
+      "source_file": "ki.cel",
+      "frame": 13,
+      "width": 10,
+      "height": 16,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "7a04c11cec7fca81c9039ce5236f7f828ad1b701a721697a7ee2f1fd34f744da",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        15
+      ],
+      "reference_png": "references/ki.cel/013.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2017/03/scroll_acquisition.png"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b668..$08b6dc gaar gjennom tingtabell+$0a,+$0c,+$0e,+$10,+$12 med frame011..015.",
+        "mog $08c64e..$08c66e kobler Haste, Hawk, Acquisition, Wyrm og Protection til disse offsets."
+      ],
+      "meaning": "Scroll of Acquisition",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "CEL-rekkefølgen er Haste,Hawk,Acquisition,Wyrm,Protection. Ikke bruk nettartikkelens Acquisition-foer-Hawk rekkefølge til rutenumre."
+    },
+    {
+      "key": "ki.cel/014",
+      "source_file": "ki.cel",
+      "frame": 14,
+      "width": 10,
+      "height": 16,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "3cfe5d65d2e8ff39c5fe0ba5078879df6757184f7f09c6361c25064205d2ce89",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        15
+      ],
+      "reference_png": "references/ki.cel/014.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2017/03/scrfoll_wyrm.png"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b668..$08b6dc gaar gjennom tingtabell+$0a,+$0c,+$0e,+$10,+$12 med frame011..015.",
+        "mog $08c64e..$08c66e kobler Haste, Hawk, Acquisition, Wyrm og Protection til disse offsets."
+      ],
+      "meaning": "Scroll of the Wyrm",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "CEL-rekkefølgen er Haste,Hawk,Acquisition,Wyrm,Protection. Ikke bruk nettartikkelens Acquisition-foer-Hawk rekkefølge til rutenumre."
+    },
+    {
+      "key": "ki.cel/015",
+      "source_file": "ki.cel",
+      "frame": 15,
+      "width": 10,
+      "height": 16,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "c4e9c8f44b1260684179c3ffb0c8647fb533103cb1ded6951be7a5fec60eb3ab",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        15
+      ],
+      "reference_png": "references/ki.cel/015.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2017/03/scroll_protection.png"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b668..$08b6dc gaar gjennom tingtabell+$0a,+$0c,+$0e,+$10,+$12 med frame011..015.",
+        "mog $08c64e..$08c66e kobler Haste, Hawk, Acquisition, Wyrm og Protection til disse offsets."
+      ],
+      "meaning": "Scroll of Protection",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "CEL-rekkefølgen er Haste,Hawk,Acquisition,Wyrm,Protection. Ikke bruk nettartikkelens Acquisition-foer-Hawk rekkefølge til rutenumre."
+    },
+    {
+      "key": "ki.cel/016",
+      "source_file": "ki.cel",
+      "frame": 16,
+      "width": 4,
+      "height": 16,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "fefa4fffaf2a5127eaabc62fc6cc54129900d5c88ebbfcd601c3f640ae049248",
+      "source_indices": [
+        0,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "reference_png": "references/ki.cel/016.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "extra_copy_fragment_of",
+          "keys": [
+            "ki.cel/011",
+            "ki.cel/012",
+            "ki.cel/013",
+            "ki.cel/014",
+            "ki.cel/015"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $08b6e2..$08b730 tegner normalrullen, deretter frame016 som den smale bakre kopien ved flere ruller."
+      ],
+      "meaning": "Smal ekstra skriftrull i stabel",
+      "kind": "stack_fragment",
+      "recommended_treatment": "avled_fra_rullmaster",
+      "notes": "Dette er ikke en sjette navngitt skriftrull."
+    },
+    {
+      "key": "ki.cel/017",
+      "source_file": "ki.cel",
+      "frame": 17,
+      "width": 13,
+      "height": 15,
+      "plane_mask": 31,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "e1d27e5fac7aeb9bc9958adafea16556a22d55e509edae5a0733640753242230",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        28,
+        29
+      ],
+      "reference_png": "references/ki.cel/017.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b184..$08b1dc velger frame017+panel(0/1)+2 hvis ridder+$52 er paddeforvandlet."
+      ],
+      "meaning": "Livpoeng, ridderhjelm, venstre panel",
+      "kind": "life_status_icon",
+      "recommended_treatment": "nytegn_lite_statusikon_med_originalpalett",
+      "notes": "Panelene bruker ulike fargeindekser og faktisk ridderfarge styres via originalpalett; fanget hoeyre-panel ser hvitt ut, men skal ikke hardkodes hvitt."
+    },
+    {
+      "key": "ki.cel/018",
+      "source_file": "ki.cel",
+      "frame": 18,
+      "width": 13,
+      "height": 15,
+      "plane_mask": 31,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "a398887c93bae934615d2ee976df03043d749fb5918e54f4d091b813e19ad4f9",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        30,
+        31
+      ],
+      "reference_png": "references/ki.cel/018.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b184..$08b1dc velger frame017+panel(0/1)+2 hvis ridder+$52 er paddeforvandlet."
+      ],
+      "meaning": "Livpoeng, ridderhjelm, hoeyre panel",
+      "kind": "life_status_icon",
+      "recommended_treatment": "nytegn_lite_statusikon_med_originalpalett",
+      "notes": "Panelene bruker ulike fargeindekser og faktisk ridderfarge styres via originalpalett; fanget hoeyre-panel ser hvitt ut, men skal ikke hardkodes hvitt."
+    },
+    {
+      "key": "ki.cel/019",
+      "source_file": "ki.cel",
+      "frame": 19,
+      "width": 13,
+      "height": 15,
+      "plane_mask": 31,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "fca434245de771a9e010063ae9026771788f94d33707c2d156358838d07ef15d",
+      "source_indices": [
+        0,
+        2,
+        20,
+        21,
+        22,
+        23,
+        28,
+        29
+      ],
+      "reference_png": "references/ki.cel/019.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b184..$08b1dc velger frame017+panel(0/1)+2 hvis ridder+$52 er paddeforvandlet."
+      ],
+      "meaning": "Livpoeng, Math-forvandlet padde, venstre panel",
+      "kind": "life_status_icon",
+      "recommended_treatment": "nytegn_lite_statusikon_med_originalpalett",
+      "notes": "Panelene bruker ulike fargeindekser og faktisk ridderfarge styres via originalpalett; fanget hoeyre-panel ser hvitt ut, men skal ikke hardkodes hvitt."
+    },
+    {
+      "key": "ki.cel/020",
+      "source_file": "ki.cel",
+      "frame": 20,
+      "width": 13,
+      "height": 15,
+      "plane_mask": 31,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "8a64c7e895fcb29cd73d03ebb4e483fa272f51b398ec77822513e429d4a7fb2b",
+      "source_indices": [
+        0,
+        2,
+        20,
+        21,
+        22,
+        23,
+        30,
+        31
+      ],
+      "reference_png": "references/ki.cel/020.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b184..$08b1dc velger frame017+panel(0/1)+2 hvis ridder+$52 er paddeforvandlet."
+      ],
+      "meaning": "Livpoeng, Math-forvandlet padde, hoeyre panel",
+      "kind": "life_status_icon",
+      "recommended_treatment": "nytegn_lite_statusikon_med_originalpalett",
+      "notes": "Panelene bruker ulike fargeindekser og faktisk ridderfarge styres via originalpalett; fanget hoeyre-panel ser hvitt ut, men skal ikke hardkodes hvitt."
+    },
+    {
+      "key": "ki.cel/021",
+      "source_file": "ki.cel",
+      "frame": 21,
+      "width": 5,
+      "height": 12,
+      "plane_mask": 7,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "64eb8718c21e95eb660be731fa94bf17dc6790fa31d8f775b0d85299651843d6",
+      "source_indices": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "reference_png": "references/ki.cel/021.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Throwing Dagger",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast"
+    },
+    {
+      "key": "ki.cel/022",
+      "source_file": "ki.cel",
+      "frame": 22,
+      "width": 65,
+      "height": 9,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "8d14a2f088108225f5383f76619115349f7d4b504ff4f6ff40297659feb7a69c",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        12,
+        13,
+        14,
+        15
+      ],
+      "reference_png": "references/ki.cel/022.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b292..$08b2f8 bruker ridder+$58 som CEL-nummer022..025.",
+        "mog $08c5f6..$08c606 og $08c7aa..$08c7c2 navngir Long,Broad,Claymore,Sharpness."
+      ],
+      "meaning": "Long Sword",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast"
+    },
+    {
+      "key": "ki.cel/023",
+      "source_file": "ki.cel",
+      "frame": 23,
+      "width": 71,
+      "height": 11,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "feb1b0cadc7544f76cdb3713ffb4ee058f3294b5e7b522a6d9ec9fdc1c6e8c4b",
+      "source_indices": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/023.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b292..$08b2f8 bruker ridder+$58 som CEL-nummer022..025.",
+        "mog $08c5f6..$08c606 og $08c7aa..$08c7c2 navngir Long,Broad,Claymore,Sharpness."
+      ],
+      "meaning": "Broad Sword",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast"
+    },
+    {
+      "key": "ki.cel/024",
+      "source_file": "ki.cel",
+      "frame": 24,
+      "width": 82,
+      "height": 11,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "2222dad92ff8e986bef58a986105d79d134584315096a232a2d67e55f552e27e",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        12,
+        14,
+        15
+      ],
+      "reference_png": "references/ki.cel/024.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b292..$08b2f8 bruker ridder+$58 som CEL-nummer022..025.",
+        "mog $08c5f6..$08c606 og $08c7aa..$08c7c2 navngir Long,Broad,Claymore,Sharpness."
+      ],
+      "meaning": "Claymore Sword",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast"
+    },
+    {
+      "key": "ki.cel/025",
+      "source_file": "ki.cel",
+      "frame": 25,
+      "width": 85,
+      "height": 9,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "3a03f77822fadae2dbcce00bb016a86c3ee38875c744dbd772a15ef44f594e1a",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        12,
+        13,
+        14,
+        15
+      ],
+      "reference_png": "references/ki.cel/025.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2017/03/sword_sharpness.png"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b292..$08b2f8 bruker ridder+$58 som CEL-nummer022..025.",
+        "mog $08c5f6..$08c606 og $08c7aa..$08c7c2 navngir Long,Broad,Claymore,Sharpness."
+      ],
+      "meaning": "Sword of Sharpness",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast"
+    },
+    {
+      "key": "ki.cel/026",
+      "source_file": "ki.cel",
+      "frame": 26,
+      "width": 25,
+      "height": 117,
+      "plane_mask": 31,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "0ab8654a94ccdb308c860c2e9484232317cec230c5dd766e8bd694f5bf311392",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        12,
+        13,
+        21,
+        22,
+        23
+      ],
+      "reference_png": "references/ki.cel/026.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Soeyle i inventarrammen",
+      "kind": "ui_decoration_fragment",
+      "recommended_treatment": "nytegn_som_sammenhengende_inventarramme"
+    },
+    {
+      "key": "ki.cel/027",
+      "source_file": "ki.cel",
+      "frame": 27,
+      "width": 37,
+      "height": 27,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "ab027e50b83f098bfcb69642077cfaf6327e1234912b16b2b5a173dd48f9e26b",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/027.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b2fc..$08b34a bruker ridder+$5c som CEL-nummer027..030.",
+        "mog $08c5ce..$08c5e6 og $08c78a..$08c7a2 kobler Padded,Chain mail,Plate,Battle armour."
+      ],
+      "meaning": "Padded Armour",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "027 er polstret tekstilrustning, ikke brun metallbrystplate. 028 har synlige ringer; 029 og030 har metallplater i ulike former."
+    },
+    {
+      "key": "ki.cel/028",
+      "source_file": "ki.cel",
+      "frame": 28,
+      "width": 39,
+      "height": 30,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "0c7270b6f5778772b34ba1820438b0c04396ee14173d5aecbb28c31509d0fbb0",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/028.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b2fc..$08b34a bruker ridder+$5c som CEL-nummer027..030.",
+        "mog $08c5ce..$08c5e6 og $08c78a..$08c7a2 kobler Padded,Chain mail,Plate,Battle armour."
+      ],
+      "meaning": "Chainmail Armour",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "027 er polstret tekstilrustning, ikke brun metallbrystplate. 028 har synlige ringer; 029 og030 har metallplater i ulike former."
+    },
+    {
+      "key": "ki.cel/029",
+      "source_file": "ki.cel",
+      "frame": 29,
+      "width": 39,
+      "height": 34,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "8f3b54df352ee25957c55d3b8dfd23743e45ff8c15a00d0f7c97f4f925b91297",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/029.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b2fc..$08b34a bruker ridder+$5c som CEL-nummer027..030.",
+        "mog $08c5ce..$08c5e6 og $08c78a..$08c7a2 kobler Padded,Chain mail,Plate,Battle armour."
+      ],
+      "meaning": "Platemail Armour",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "027 er polstret tekstilrustning, ikke brun metallbrystplate. 028 har synlige ringer; 029 og030 har metallplater i ulike former."
+    },
+    {
+      "key": "ki.cel/030",
+      "source_file": "ki.cel",
+      "frame": 30,
+      "width": 43,
+      "height": 33,
+      "plane_mask": 7,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "e339d538b99cc6145cec6e8c7e2a076067bb298b01467af5657094a988b3f615",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "reference_png": "references/ki.cel/030.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b2fc..$08b34a bruker ridder+$5c som CEL-nummer027..030.",
+        "mog $08c5ce..$08c5e6 og $08c78a..$08c7a2 kobler Padded,Chain mail,Plate,Battle armour."
+      ],
+      "meaning": "Battleplate Armour",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast",
+      "notes": "027 er polstret tekstilrustning, ikke brun metallbrystplate. 028 har synlige ringer; 029 og030 har metallplater i ulike former."
+    },
+    {
+      "key": "ki.cel/031",
+      "source_file": "ki.cel",
+      "frame": 31,
+      "width": 18,
+      "height": 14,
+      "plane_mask": 31,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "5b3378e646294db3f9ebd7272ca69797b6d1ad5a376ee29a573f01e6908092c0",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        16
+      ],
+      "reference_png": "references/ki.cel/031.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "composes_with",
+          "keys": [
+            "ki.cel/032",
+            "ki.cel/033"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $08b822..$08b876 tegner 031 ved(58,46),032 ved(76,33),033 ved(58,60), pluss paneloffset150 i skattekisten.",
+        "chest-code-composite.png sammensatt ved originalkoordinatene."
+      ],
+      "meaning": "Skattkistens innvendige skraaflate",
+      "kind": "chest_fragment",
+      "recommended_treatment": "nytegn_sammenhengende_kiste_foer_deling"
+    },
+    {
+      "key": "ki.cel/032",
+      "source_file": "ki.cel",
+      "frame": 32,
+      "width": 41,
+      "height": 27,
+      "plane_mask": 31,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "9e3abd665f58cdaec1da4d546fafacb6ba63cc80ecb45a37ae540e4b4b7aec4f",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        13,
+        16,
+        25,
+        26,
+        27
+      ],
+      "reference_png": "references/ki.cel/032.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "composes_with",
+          "keys": [
+            "ki.cel/031",
+            "ki.cel/033"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $08b822..$08b876 tegner 031 ved(58,46),032 ved(76,33),033 ved(58,60), pluss paneloffset150 i skattekisten.",
+        "chest-code-composite.png sammensatt ved originalkoordinatene."
+      ],
+      "meaning": "Skattkistens aapne lokk",
+      "kind": "chest_fragment",
+      "recommended_treatment": "nytegn_sammenhengende_kiste_foer_deling"
+    },
+    {
+      "key": "ki.cel/033",
+      "source_file": "ki.cel",
+      "frame": 33,
+      "width": 46,
+      "height": 26,
+      "plane_mask": 31,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "671942f487c8d5f062876ff51f63e5faaf76e06731f4cce7366c1557927b5502",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        14,
+        15,
+        16,
+        25,
+        26,
+        27,
+        31
+      ],
+      "reference_png": "references/ki.cel/033.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "composes_with",
+          "keys": [
+            "ki.cel/031",
+            "ki.cel/032"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $08b822..$08b876 tegner 031 ved(58,46),032 ved(76,33),033 ved(58,60), pluss paneloffset150 i skattekisten.",
+        "chest-code-composite.png sammensatt ved originalkoordinatene."
+      ],
+      "meaning": "Skattkistens fremre kasse",
+      "kind": "chest_fragment",
+      "recommended_treatment": "nytegn_sammenhengende_kiste_foer_deling"
+    },
+    {
+      "key": "ki.cel/034",
+      "source_file": "ki.cel",
+      "frame": 34,
+      "width": 27,
+      "height": 60,
+      "plane_mask": 31,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "6f6cb423c062bfaf400a581c42f09c183a4453f912a14c4d454a16a0e1cc39f8",
+      "source_indices": [
+        0,
+        5,
+        8,
+        9,
+        20,
+        21,
+        22,
+        23
+      ],
+      "reference_png": "references/ki.cel/034.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Lang eføygren i inventarrammen",
+      "kind": "ui_decoration_fragment",
+      "recommended_treatment": "nytegn_som_sammenhengende_inventarramme"
+    },
+    {
+      "key": "ki.cel/035",
+      "source_file": "ki.cel",
+      "frame": 35,
+      "width": 15,
+      "height": 12,
+      "plane_mask": 31,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "39d713f93759029426bae4aebe87dc6141674535ff3cd581e86a20faea8c9303",
+      "source_indices": [
+        0,
+        8,
+        9,
+        20,
+        22,
+        23
+      ],
+      "reference_png": "references/ki.cel/035.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Kort eføygren i inventarrammen",
+      "kind": "ui_decoration_fragment",
+      "recommended_treatment": "nytegn_som_sammenhengende_inventarramme"
+    },
+    {
+      "key": "ki.cel/036",
+      "source_file": "ki.cel",
+      "frame": 36,
+      "width": 53,
+      "height": 19,
+      "plane_mask": 31,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "9fa974e60bfd150e8098af13e23a7bfaa968d31fdb74708379b7915ecaa75e8a",
+      "source_indices": [
+        0,
+        6,
+        8,
+        9,
+        20,
+        22,
+        23
+      ],
+      "reference_png": "references/ki.cel/036.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Eføybue i inventarrammen",
+      "kind": "ui_decoration_fragment",
+      "recommended_treatment": "nytegn_som_sammenhengende_inventarramme"
+    },
+    {
+      "key": "ki.cel/037",
+      "source_file": "ki.cel",
+      "frame": 37,
+      "width": 35,
+      "height": 25,
+      "plane_mask": 31,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "713d27fa506593d4394b7ac20f9876b2e69bd770c25b6bd09b6d2b3ccd480c12",
+      "source_indices": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        16,
+        24,
+        25,
+        26,
+        27,
+        30
+      ],
+      "reference_png": "references/ki.cel/037.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": true,
+      "relations": [],
+      "local_evidence": [
+        "mog $08b91c..$08b95a tegner frame037 ved gull i plyndring/skatt."
+      ],
+      "meaning": "Aapen sekk med gullmynter",
+      "kind": "inventory_object",
+      "recommended_treatment": "nytegn_trofast"
+    },
+    {
+      "key": "ki.cel/038",
+      "source_file": "ki.cel",
+      "frame": 38,
+      "width": 29,
+      "height": 5,
+      "plane_mask": 11,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "4a0dfb2ccc76589d4ed92800975cd8362f859223db0059154723e28c3eb6de05",
+      "source_indices": [
+        0,
+        9,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/038.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "Original CEL viser bokstavene, dette er ikke en fysisk gjenstand."
+      ],
+      "meaning": "STR :",
+      "kind": "ui_text",
+      "recommended_treatment": "bevar_originale_bokstavformer"
+    },
+    {
+      "key": "ki.cel/039",
+      "source_file": "ki.cel",
+      "frame": 39,
+      "width": 29,
+      "height": 5,
+      "plane_mask": 11,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "417447fce10e24e9563439109aa686d7007d3634495a234627faa91fd39850c7",
+      "source_indices": [
+        0,
+        9,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/039.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "Original CEL viser bokstavene, dette er ikke en fysisk gjenstand."
+      ],
+      "meaning": "CON :",
+      "kind": "ui_text",
+      "recommended_treatment": "bevar_originale_bokstavformer"
+    },
+    {
+      "key": "ki.cel/040",
+      "source_file": "ki.cel",
+      "frame": 40,
+      "width": 29,
+      "height": 5,
+      "plane_mask": 11,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "b3f306ad2cb1e08dbc418c31af60bff31988519354e0d8901f6ee604918deeef",
+      "source_indices": [
+        0,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/040.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "Original CEL viser bokstavene, dette er ikke en fysisk gjenstand."
+      ],
+      "meaning": "END :",
+      "kind": "ui_text",
+      "recommended_treatment": "bevar_originale_bokstavformer"
+    },
+    {
+      "key": "ki.cel/041",
+      "source_file": "ki.cel",
+      "frame": 41,
+      "width": 32,
+      "height": 5,
+      "plane_mask": 11,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "285fefb3551a28045028cc37be091599a7072cc566b46f7bd44fbe754eee4775",
+      "source_indices": [
+        0,
+        9,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/041.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "Original CEL viser bokstavene, dette er ikke en fysisk gjenstand."
+      ],
+      "meaning": "XP :",
+      "kind": "ui_text",
+      "recommended_treatment": "bevar_originale_bokstavformer"
+    },
+    {
+      "key": "ki.cel/042",
+      "source_file": "ki.cel",
+      "frame": 42,
+      "width": 43,
+      "height": 5,
+      "plane_mask": 11,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "6b586984726056b4ec6eb352fa81e0ffddb1124690edaf7b5882102b579a440c",
+      "source_indices": [
+        0,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/042.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "Original CEL viser bokstavene, dette er ikke en fysisk gjenstand."
+      ],
+      "meaning": "GOLD:",
+      "kind": "ui_text",
+      "recommended_treatment": "bevar_originale_bokstavformer"
+    },
+    {
+      "key": "ki.cel/043",
+      "source_file": "ki.cel",
+      "frame": 43,
+      "width": 56,
+      "height": 5,
+      "plane_mask": 11,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "a7c79c9cf92ffaa94a95650c2958af086019bbf9370dcd9f6fa956c91649a5bf",
+      "source_indices": [
+        0,
+        10,
+        11
+      ],
+      "reference_png": "references/ki.cel/043.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "Original CEL viser bokstavene, dette er ikke en fysisk gjenstand."
+      ],
+      "meaning": "HIT :",
+      "kind": "ui_text",
+      "recommended_treatment": "bevar_originale_bokstavformer"
+    },
+    {
+      "key": "ki.cel/044",
+      "source_file": "ki.cel",
+      "frame": 44,
+      "width": 28,
+      "height": 15,
+      "plane_mask": 31,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "e56f64a10d2ce8c4d43b715eeb87c2a326bd94e07d253994031215ef1e3e1d27",
+      "source_indices": [
+        0,
+        9,
+        10,
+        11,
+        20,
+        21,
+        22,
+        23
+      ],
+      "reference_png": "references/ki.cel/044.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "Original CEL viser bokstavene, dette er ikke en fysisk gjenstand."
+      ],
+      "meaning": "NEXT KNIGHT",
+      "kind": "ui_text",
+      "recommended_treatment": "bevar_originale_bokstavformer"
+    },
+    {
+      "key": "ki.cel/045",
+      "source_file": "ki.cel",
+      "frame": 45,
+      "width": 57,
+      "height": 44,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "f0f04ed9e3314a1e8414d4e1078ebcf66215d8954d70c556dd103ea039a3d82b",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        14
+      ],
+      "reference_png": "references/ki.cel/045.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2017/03/moon_phases.gif"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Maanefase, full",
+      "kind": "moon_phase_status",
+      "recommended_treatment": "nytegn_original_maaneskive_med_samme_fasemasker"
+    },
+    {
+      "key": "ki.cel/046",
+      "source_file": "ki.cel",
+      "frame": 46,
+      "width": 57,
+      "height": 44,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "40a2bec7d71c934c9dfbc1eda9b7b9f3e7a61f54a2ebe7e4bd00ec9c762ca0c3",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        14
+      ],
+      "reference_png": "references/ki.cel/046.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2017/03/moon_phases.gif"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Maanefase, trekvart",
+      "kind": "moon_phase_status",
+      "recommended_treatment": "nytegn_original_maaneskive_med_samme_fasemasker"
+    },
+    {
+      "key": "ki.cel/047",
+      "source_file": "ki.cel",
+      "frame": 47,
+      "width": 57,
+      "height": 44,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "b2ce77d3f7ea8ff2f783bcaff9305dda1890fd0f558992a671ad8eea4d762c41",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        14
+      ],
+      "reference_png": "references/ki.cel/047.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2017/03/moon_phases.gif"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Maanefase, halv",
+      "kind": "moon_phase_status",
+      "recommended_treatment": "nytegn_original_maaneskive_med_samme_fasemasker"
+    },
+    {
+      "key": "ki.cel/048",
+      "source_file": "ki.cel",
+      "frame": 48,
+      "width": 57,
+      "height": 44,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "d50159a2557aeb7f9dc24437c1005a4354d55fde32c4666ec31f09e050c8ae6d",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        14
+      ],
+      "reference_png": "references/ki.cel/048.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2017/03/moon_phases.gif"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Maanefase, kvart",
+      "kind": "moon_phase_status",
+      "recommended_treatment": "nytegn_original_maaneskive_med_samme_fasemasker"
+    },
+    {
+      "key": "ki.cel/049",
+      "source_file": "ki.cel",
+      "frame": 49,
+      "width": 57,
+      "height": 44,
+      "plane_mask": 15,
+      "source_bank_sha256": "02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104",
+      "source_indices_sha256": "b3f5d9da9819417955c922c40147735f8c9d680ac2a059e01c46d34312f479b3",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        14
+      ],
+      "reference_png": "references/ki.cel/049.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2017/03/moon_phases.gif"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Maanefase, ny",
+      "kind": "moon_phase_status",
+      "recommended_treatment": "nytegn_original_maaneskive_med_samme_fasemasker"
+    },
+    {
+      "key": "mi.c/000",
+      "source_file": "mi.c",
+      "frame": 0,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "401d84fe982d148012769200b8fa74183af744460e6609fde294e6cc3eca03b3",
+      "source_indices": [
+        0,
+        2,
+        3,
+        19,
+        30
+      ],
+      "reference_png": "references/mi.c/000.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "active_variant",
+          "key": "mi.c/005"
+        }
+      ],
+      "local_evidence": [
+        "mog $0aab0a..$0aab50 tegner andre levende riddere med ridder+$36 som frame0..4."
+      ],
+      "meaning": "Kart, ridderhjelm blaa, inaktiv",
+      "kind": "map_player_status",
+      "recommended_treatment": "en_helmetmaster_med_korrekte_fargevarianter",
+      "color_variant": 0
+    },
+    {
+      "key": "mi.c/001",
+      "source_file": "mi.c",
+      "frame": 1,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "3463583c9d05d007f844c15ba710990e1312c96399e4a989cc9fe021c2901441",
+      "source_indices": [
+        0,
+        2,
+        3,
+        19,
+        29
+      ],
+      "reference_png": "references/mi.c/001.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "active_variant",
+          "key": "mi.c/006"
+        }
+      ],
+      "local_evidence": [
+        "mog $0aab0a..$0aab50 tegner andre levende riddere med ridder+$36 som frame0..4."
+      ],
+      "meaning": "Kart, ridderhjelm oransje, inaktiv",
+      "kind": "map_player_status",
+      "recommended_treatment": "en_helmetmaster_med_korrekte_fargevarianter",
+      "color_variant": 1
+    },
+    {
+      "key": "mi.c/002",
+      "source_file": "mi.c",
+      "frame": 2,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 27,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "ec57e358810cf34e451913731f61e3101642d3f963f2ef59924d9d85f3572b76",
+      "source_indices": [
+        0,
+        2,
+        3,
+        8,
+        19
+      ],
+      "reference_png": "references/mi.c/002.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "active_variant",
+          "key": "mi.c/007"
+        }
+      ],
+      "local_evidence": [
+        "mog $0aab0a..$0aab50 tegner andre levende riddere med ridder+$36 som frame0..4."
+      ],
+      "meaning": "Kart, ridderhjelm groenn, inaktiv",
+      "kind": "map_player_status",
+      "recommended_treatment": "en_helmetmaster_med_korrekte_fargevarianter",
+      "color_variant": 2
+    },
+    {
+      "key": "mi.c/003",
+      "source_file": "mi.c",
+      "frame": 3,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "2a9087ca7db38a256d0d640529c8b149aa780a8d866ae87c6f8584b272e0ca79",
+      "source_indices": [
+        0,
+        2,
+        3,
+        19,
+        28
+      ],
+      "reference_png": "references/mi.c/003.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "active_variant",
+          "key": "mi.c/008"
+        }
+      ],
+      "local_evidence": [
+        "mog $0aab0a..$0aab50 tegner andre levende riddere med ridder+$36 som frame0..4."
+      ],
+      "meaning": "Kart, ridderhjelm roed, inaktiv",
+      "kind": "map_player_status",
+      "recommended_treatment": "en_helmetmaster_med_korrekte_fargevarianter",
+      "color_variant": 3
+    },
+    {
+      "key": "mi.c/004",
+      "source_file": "mi.c",
+      "frame": 4,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 27,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "1b52d184a4f1c8f95c64013087bac58ef3f161bdaeaba9bd761b66309aab6b77",
+      "source_indices": [
+        0,
+        2,
+        3,
+        19,
+        24
+      ],
+      "reference_png": "references/mi.c/004.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "active_variant",
+          "key": "mi.c/009"
+        }
+      ],
+      "local_evidence": [
+        "mog $0aab0a..$0aab50 tegner andre levende riddere med ridder+$36 som frame0..4."
+      ],
+      "meaning": "Kart, ridderhjelm svart/lilla, inaktiv",
+      "kind": "map_player_status",
+      "recommended_treatment": "en_helmetmaster_med_korrekte_fargevarianter",
+      "color_variant": 4
+    },
+    {
+      "key": "mi.c/005",
+      "source_file": "mi.c",
+      "frame": 5,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "3ac9b983ea951b85393fe14ebf49f9acb61789d79e13beba7e52cad41241ba4f",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        19,
+        30,
+        31
+      ],
+      "reference_png": "references/mi.c/005.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "inactive_variant",
+          "key": "mi.c/000"
+        }
+      ],
+      "local_evidence": [
+        "mog $0aaab0..$0aaae2 legger5 til ridderfargen foer vanlig aktiv karttegning."
+      ],
+      "meaning": "Kart, ridderhjelm blaa, aktiv med gloedd",
+      "kind": "map_player_status",
+      "recommended_treatment": "samme_helmetmaster_med_original_dynamisk_gloed",
+      "color_variant": 0
+    },
+    {
+      "key": "mi.c/006",
+      "source_file": "mi.c",
+      "frame": 6,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "38196924ae0c693f62a9e12ebd67056ff4a6059486f54e60f6ea2c61b6e8a754",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        19,
+        29,
+        31
+      ],
+      "reference_png": "references/mi.c/006.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "inactive_variant",
+          "key": "mi.c/001"
+        }
+      ],
+      "local_evidence": [
+        "mog $0aaab0..$0aaae2 legger5 til ridderfargen foer vanlig aktiv karttegning."
+      ],
+      "meaning": "Kart, ridderhjelm oransje, aktiv med gloedd",
+      "kind": "map_player_status",
+      "recommended_treatment": "samme_helmetmaster_med_original_dynamisk_gloed",
+      "color_variant": 1
+    },
+    {
+      "key": "mi.c/007",
+      "source_file": "mi.c",
+      "frame": 7,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "d53301b72fab458715cb48049b0261de0dabcc9b85a89ed71ead65778b7eb19b",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        8,
+        19,
+        31
+      ],
+      "reference_png": "references/mi.c/007.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "inactive_variant",
+          "key": "mi.c/002"
+        }
+      ],
+      "local_evidence": [
+        "mog $0aaab0..$0aaae2 legger5 til ridderfargen foer vanlig aktiv karttegning."
+      ],
+      "meaning": "Kart, ridderhjelm groenn, aktiv med gloedd",
+      "kind": "map_player_status",
+      "recommended_treatment": "samme_helmetmaster_med_original_dynamisk_gloed",
+      "color_variant": 2
+    },
+    {
+      "key": "mi.c/008",
+      "source_file": "mi.c",
+      "frame": 8,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "9780fc851134b669b0c27ce580158f72b008062a9499649e06118e49945b33e6",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        19,
+        28,
+        31
+      ],
+      "reference_png": "references/mi.c/008.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "inactive_variant",
+          "key": "mi.c/003"
+        }
+      ],
+      "local_evidence": [
+        "mog $0aaab0..$0aaae2 legger5 til ridderfargen foer vanlig aktiv karttegning."
+      ],
+      "meaning": "Kart, ridderhjelm roed, aktiv med gloedd",
+      "kind": "map_player_status",
+      "recommended_treatment": "samme_helmetmaster_med_original_dynamisk_gloed",
+      "color_variant": 3
+    },
+    {
+      "key": "mi.c/009",
+      "source_file": "mi.c",
+      "frame": 9,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "cfa0551a12f3c3fbf5de7f535dbe0a811ebab0a7d9d05f7be9b8974e553bc96d",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        19,
+        24,
+        31
+      ],
+      "reference_png": "references/mi.c/009.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "inactive_variant",
+          "key": "mi.c/004"
+        }
+      ],
+      "local_evidence": [
+        "mog $0aaab0..$0aaae2 legger5 til ridderfargen foer vanlig aktiv karttegning."
+      ],
+      "meaning": "Kart, ridderhjelm svart/lilla, aktiv med gloedd",
+      "kind": "map_player_status",
+      "recommended_treatment": "samme_helmetmaster_med_original_dynamisk_gloed",
+      "color_variant": 4
+    },
+    {
+      "key": "mi.c/010",
+      "source_file": "mi.c",
+      "frame": 10,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "9ee51f8529fb03e8a5a39b584ad789134a8a77159d0d994382ef0eaeb45d7f85",
+      "source_indices": [
+        0,
+        1,
+        19,
+        25,
+        26,
+        30,
+        31
+      ],
+      "reference_png": "references/mi.c/010.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $08bde2..$08bdf2 bruker tingoffset2 (Gem) og setter $08e7ae via $0ab4da.",
+        "mog $0aaab0..$0aaae2 legger grunn5 og ytterligere5 til ved $08e7ae."
+      ],
+      "meaning": "Kart, Gem of Seeing-krystallkule med blaa spillerfot",
+      "kind": "map_spell_status",
+      "recommended_treatment": "en_krystallkulemaster_med_fem_spillerfarger_og_gloed",
+      "color_variant": 0,
+      "notes": "Manualen beskriver samme kartfunksjon eksplisitt; dette er ikke en ekstra healingflaske."
+    },
+    {
+      "key": "mi.c/011",
+      "source_file": "mi.c",
+      "frame": 11,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "d8b9ed4fec5904b1635432f14842e8b5a89e87ec2d2ede190a182ebaec6e6c04",
+      "source_indices": [
+        0,
+        1,
+        19,
+        25,
+        26,
+        29,
+        31
+      ],
+      "reference_png": "references/mi.c/011.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $08bde2..$08bdf2 bruker tingoffset2 (Gem) og setter $08e7ae via $0ab4da.",
+        "mog $0aaab0..$0aaae2 legger grunn5 og ytterligere5 til ved $08e7ae."
+      ],
+      "meaning": "Kart, Gem of Seeing-krystallkule med oransje spillerfot",
+      "kind": "map_spell_status",
+      "recommended_treatment": "en_krystallkulemaster_med_fem_spillerfarger_og_gloed",
+      "color_variant": 1,
+      "notes": "Manualen beskriver samme kartfunksjon eksplisitt; dette er ikke en ekstra healingflaske."
+    },
+    {
+      "key": "mi.c/012",
+      "source_file": "mi.c",
+      "frame": 12,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "7a0750063a21f63046b42cef60c5e21412d85d20dac92e770e5de15c2326a5ff",
+      "source_indices": [
+        0,
+        1,
+        8,
+        19,
+        25,
+        26,
+        31
+      ],
+      "reference_png": "references/mi.c/012.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $08bde2..$08bdf2 bruker tingoffset2 (Gem) og setter $08e7ae via $0ab4da.",
+        "mog $0aaab0..$0aaae2 legger grunn5 og ytterligere5 til ved $08e7ae."
+      ],
+      "meaning": "Kart, Gem of Seeing-krystallkule med groenn spillerfot",
+      "kind": "map_spell_status",
+      "recommended_treatment": "en_krystallkulemaster_med_fem_spillerfarger_og_gloed",
+      "color_variant": 2,
+      "notes": "Manualen beskriver samme kartfunksjon eksplisitt; dette er ikke en ekstra healingflaske."
+    },
+    {
+      "key": "mi.c/013",
+      "source_file": "mi.c",
+      "frame": 13,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "28d7a3a0e73fd95c7a7aabe285d1d323aaf1981d805a914de3f9484c576f0c04",
+      "source_indices": [
+        0,
+        1,
+        19,
+        25,
+        26,
+        28,
+        31
+      ],
+      "reference_png": "references/mi.c/013.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $08bde2..$08bdf2 bruker tingoffset2 (Gem) og setter $08e7ae via $0ab4da.",
+        "mog $0aaab0..$0aaae2 legger grunn5 og ytterligere5 til ved $08e7ae."
+      ],
+      "meaning": "Kart, Gem of Seeing-krystallkule med roed spillerfot",
+      "kind": "map_spell_status",
+      "recommended_treatment": "en_krystallkulemaster_med_fem_spillerfarger_og_gloed",
+      "color_variant": 3,
+      "notes": "Manualen beskriver samme kartfunksjon eksplisitt; dette er ikke en ekstra healingflaske."
+    },
+    {
+      "key": "mi.c/014",
+      "source_file": "mi.c",
+      "frame": 14,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "8c34e989dd42550c0e8911a8683a2f10db8d3c5681f65565a31ea4f58e39baad",
+      "source_indices": [
+        0,
+        1,
+        12,
+        19,
+        25,
+        26,
+        31
+      ],
+      "reference_png": "references/mi.c/014.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $08bde2..$08bdf2 bruker tingoffset2 (Gem) og setter $08e7ae via $0ab4da.",
+        "mog $0aaab0..$0aaae2 legger grunn5 og ytterligere5 til ved $08e7ae."
+      ],
+      "meaning": "Kart, Gem of Seeing-krystallkule med olivengrønn sokkel",
+      "kind": "map_spell_status",
+      "recommended_treatment": "en_krystallkulemaster_med_fem_spillerfarger_og_gloed",
+      "color_variant": 4,
+      "notes": "Femte originale kartvariant har olivengrønn sokkel (indeks12), ikke svart/lilla som femte hjelmpalett. Manualen beskriver Gem of Seeing-kartfunksjonen; dette er ikke en ekstra healingflaske.",
+      "source_color": {
+        "index": 12,
+        "rgb": [
+          102,
+          119,
+          68
+        ]
+      }
+    },
+    {
+      "key": "mi.c/015",
+      "source_file": "mi.c",
+      "frame": 15,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "08211660315275b29e41297b027a416011be146a726ed4592b30bcb2236bd73c",
+      "source_indices": [
+        0,
+        30,
+        31
+      ],
+      "reference_png": "references/mi.c/015.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $08bdfe..$08be22 bruker tingoffset$c (Hawk) og setter $08e7a6 via $0ab512.",
+        "mog $0aaab0..$0aaae2 legger grunn5 og ytterligere10 til ved $08e7a6."
+      ],
+      "meaning": "Kart, Scroll of the Hawk-maalmarkoer blaa",
+      "kind": "map_spell_status",
+      "recommended_treatment": "bevar_korsform_og_original_dynamisk_gloed",
+      "color_variant": 0,
+      "notes": "Farget teleportkors. Ikke Talisman of the Wyrm og ikke et gravkors."
+    },
+    {
+      "key": "mi.c/016",
+      "source_file": "mi.c",
+      "frame": 16,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "a0c18fbaafd160b4cc945fdeda0fc463a88c706e93b0a075a483da2302ef3495",
+      "source_indices": [
+        0,
+        29,
+        31
+      ],
+      "reference_png": "references/mi.c/016.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $08bdfe..$08be22 bruker tingoffset$c (Hawk) og setter $08e7a6 via $0ab512.",
+        "mog $0aaab0..$0aaae2 legger grunn5 og ytterligere10 til ved $08e7a6."
+      ],
+      "meaning": "Kart, Scroll of the Hawk-maalmarkoer oransje",
+      "kind": "map_spell_status",
+      "recommended_treatment": "bevar_korsform_og_original_dynamisk_gloed",
+      "color_variant": 1,
+      "notes": "Farget teleportkors. Ikke Talisman of the Wyrm og ikke et gravkors."
+    },
+    {
+      "key": "mi.c/017",
+      "source_file": "mi.c",
+      "frame": 17,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "3ab56e19a537554c03f52802391369a728d430c26f9c2726063ac9318d9dc8f3",
+      "source_indices": [
+        0,
+        8,
+        31
+      ],
+      "reference_png": "references/mi.c/017.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $08bdfe..$08be22 bruker tingoffset$c (Hawk) og setter $08e7a6 via $0ab512.",
+        "mog $0aaab0..$0aaae2 legger grunn5 og ytterligere10 til ved $08e7a6."
+      ],
+      "meaning": "Kart, Scroll of the Hawk-maalmarkoer groenn",
+      "kind": "map_spell_status",
+      "recommended_treatment": "bevar_korsform_og_original_dynamisk_gloed",
+      "color_variant": 2,
+      "notes": "Farget teleportkors. Ikke Talisman of the Wyrm og ikke et gravkors."
+    },
+    {
+      "key": "mi.c/018",
+      "source_file": "mi.c",
+      "frame": 18,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "e9cf9667c28f9fbbd51aa0759ce786fb1a06d0f5b54a7a2ad95fada63dea3bd6",
+      "source_indices": [
+        0,
+        28,
+        31
+      ],
+      "reference_png": "references/mi.c/018.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $08bdfe..$08be22 bruker tingoffset$c (Hawk) og setter $08e7a6 via $0ab512.",
+        "mog $0aaab0..$0aaae2 legger grunn5 og ytterligere10 til ved $08e7a6."
+      ],
+      "meaning": "Kart, Scroll of the Hawk-maalmarkoer roed",
+      "kind": "map_spell_status",
+      "recommended_treatment": "bevar_korsform_og_original_dynamisk_gloed",
+      "color_variant": 3,
+      "notes": "Farget teleportkors. Ikke Talisman of the Wyrm og ikke et gravkors."
+    },
+    {
+      "key": "mi.c/020",
+      "source_file": "mi.c",
+      "frame": 20,
+      "width": 9,
+      "height": 5,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "64edbe34d394dc695891aec0a3234c0b8418df8b1bd8f8acc5e08d7b57700828",
+      "source_indices": [
+        0,
+        2,
+        13,
+        19
+      ],
+      "reference_png": "references/mi.c/020.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/regions-sword-fodder/",
+        "https://moonstonetavern.co.uk/wp-content/uploads/2024/10/lair.png"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "highlight_variant",
+          "key": "mi.c/031"
+        }
+      ],
+      "local_evidence": [
+        "mog $0aab60..$0aabb8 tegner frame020 for hver av24 lairs ved originale posisjoner."
+      ],
+      "meaning": "Kart, vanlig hulemarkoer/trilitt",
+      "kind": "map_location_marker",
+      "recommended_treatment": "gjenbruk_godkjent_liten_trilitt"
+    },
+    {
+      "key": "mi.c/021",
+      "source_file": "mi.c",
+      "frame": 21,
+      "width": 24,
+      "height": 19,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "a75df30f5254ee00346cb4cb9b4a31388fd7c84dadc3c98f1578851744016c5d",
+      "source_indices": [
+        0,
+        31
+      ],
+      "reference_png": "references/mi.c/021.png",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Kart, konturgloed for et sted, form1",
+      "kind": "map_location_highlight",
+      "recommended_treatment": "bevar_original_kontureffekt_inntil_stedskobling_er_kontrollert",
+      "notes": "Dette er en transparent kontureffekt med original dynamisk palettindeks31, ikke et fysisk objekt. Eksakt stedsidentitet er ikke fastslaatt i denne inventarundersoekelsen."
+    },
+    {
+      "key": "mi.c/022",
+      "source_file": "mi.c",
+      "frame": 22,
+      "width": 24,
+      "height": 14,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "37476e1e040ea4757954eea82e02232f98e26ddfa2373f98b66db54ee7267eaf",
+      "source_indices": [
+        0,
+        31
+      ],
+      "reference_png": "references/mi.c/022.png",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Kart, konturgloed for et sted, form2",
+      "kind": "map_location_highlight",
+      "recommended_treatment": "bevar_original_kontureffekt_inntil_stedskobling_er_kontrollert",
+      "notes": "Dette er en transparent kontureffekt med original dynamisk palettindeks31, ikke et fysisk objekt. Eksakt stedsidentitet er ikke fastslaatt i denne inventarundersoekelsen."
+    },
+    {
+      "key": "mi.c/023",
+      "source_file": "mi.c",
+      "frame": 23,
+      "width": 23,
+      "height": 11,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "acd848cc9f214f9ef4680cdccbf6f22256a0cda139550d701d296d83bc62bf84",
+      "source_indices": [
+        0,
+        31
+      ],
+      "reference_png": "references/mi.c/023.png",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Kart, konturgloed for et sted, form3",
+      "kind": "map_location_highlight",
+      "recommended_treatment": "bevar_original_kontureffekt_inntil_stedskobling_er_kontrollert",
+      "notes": "Dette er en transparent kontureffekt med original dynamisk palettindeks31, ikke et fysisk objekt. Eksakt stedsidentitet er ikke fastslaatt i denne inventarundersoekelsen."
+    },
+    {
+      "key": "mi.c/024",
+      "source_file": "mi.c",
+      "frame": 24,
+      "width": 15,
+      "height": 8,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "6f87989ac79fdbcdb11b2fd4210fb619a4f482504a0b9aad29d63597951f062c",
+      "source_indices": [
+        0,
+        31
+      ],
+      "reference_png": "references/mi.c/024.png",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Kart, konturgloed for et sted, form4",
+      "kind": "map_location_highlight",
+      "recommended_treatment": "bevar_original_kontureffekt_inntil_stedskobling_er_kontrollert",
+      "notes": "Dette er en transparent kontureffekt med original dynamisk palettindeks31, ikke et fysisk objekt. Eksakt stedsidentitet er ikke fastslaatt i denne inventarundersoekelsen."
+    },
+    {
+      "key": "mi.c/025",
+      "source_file": "mi.c",
+      "frame": 25,
+      "width": 25,
+      "height": 32,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "881e407e9799c818db0876a500eead90f43d942521aaeef39200670403e26dfb",
+      "source_indices": [
+        0,
+        31
+      ],
+      "reference_png": "references/mi.c/025.png",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Kart, konturgloed for et sted, form5",
+      "kind": "map_location_highlight",
+      "recommended_treatment": "bevar_original_kontureffekt_inntil_stedskobling_er_kontrollert",
+      "notes": "Dette er en transparent kontureffekt med original dynamisk palettindeks31, ikke et fysisk objekt. Eksakt stedsidentitet er ikke fastslaatt i denne inventarundersoekelsen."
+    },
+    {
+      "key": "mi.c/026",
+      "source_file": "mi.c",
+      "frame": 26,
+      "width": 32,
+      "height": 28,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "584100908ff35b3e20f15ad39169f7b684991aefef523fd6768e6de39118c2f1",
+      "source_indices": [
+        0,
+        31
+      ],
+      "reference_png": "references/mi.c/026.png",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Kart, konturgloed for et sted, form6",
+      "kind": "map_location_highlight",
+      "recommended_treatment": "bevar_original_kontureffekt_inntil_stedskobling_er_kontrollert",
+      "notes": "Dette er en transparent kontureffekt med original dynamisk palettindeks31, ikke et fysisk objekt. Eksakt stedsidentitet er ikke fastslaatt i denne inventarundersoekelsen."
+    },
+    {
+      "key": "mi.c/027",
+      "source_file": "mi.c",
+      "frame": 27,
+      "width": 18,
+      "height": 12,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "a9db6d6040ad8e9dd176ea23b979c932f6796b4a0ebd734d32d05fc22db192ad",
+      "source_indices": [
+        0,
+        31
+      ],
+      "reference_png": "references/mi.c/027.png",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Kart, konturgloed for et sted, form7",
+      "kind": "map_location_highlight",
+      "recommended_treatment": "bevar_original_kontureffekt_inntil_stedskobling_er_kontrollert",
+      "notes": "Dette er en transparent kontureffekt med original dynamisk palettindeks31, ikke et fysisk objekt. Eksakt stedsidentitet er ikke fastslaatt i denne inventarundersoekelsen."
+    },
+    {
+      "key": "mi.c/028",
+      "source_file": "mi.c",
+      "frame": 28,
+      "width": 13,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "760ea49b199ad399194d0308e48da2871dc7b720a21063da2f18cec3b34bc2aa",
+      "source_indices": [
+        0,
+        31
+      ],
+      "reference_png": "references/mi.c/028.png",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Kart, konturgloed for et sted, form8",
+      "kind": "map_location_highlight",
+      "recommended_treatment": "bevar_original_kontureffekt_inntil_stedskobling_er_kontrollert",
+      "notes": "Dette er en transparent kontureffekt med original dynamisk palettindeks31, ikke et fysisk objekt. Eksakt stedsidentitet er ikke fastslaatt i denne inventarundersoekelsen."
+    },
+    {
+      "key": "mi.c/030",
+      "source_file": "mi.c",
+      "frame": 30,
+      "width": 7,
+      "height": 20,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "50f1da1f5fc717b03100ec36600ff9ead6538c3e3a6627ff5a522474fed62632",
+      "source_indices": [
+        0,
+        31
+      ],
+      "reference_png": "references/mi.c/030.png",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [],
+      "meaning": "Kart, stor oppovervendt gloepil",
+      "kind": "map_effect",
+      "recommended_treatment": "bevar_original_dynamisk_gloed",
+      "notes": "Pilformen er sikker, konkret aktiveringssted er ikke fastslaatt her. Ikke erstatt den lille hardware-sverdpekeren po.cel med denne."
+    },
+    {
+      "key": "mi.c/031",
+      "source_file": "mi.c",
+      "frame": 31,
+      "width": 9,
+      "height": 5,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "f141b4b1f2244dc54124a3753fb3ecd6c72b8b76089f928eaeb54d6eab2bbfdc",
+      "source_indices": [
+        2,
+        13,
+        19,
+        31
+      ],
+      "reference_png": "references/mi.c/031.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "unhighlighted",
+          "key": "mi.c/020"
+        }
+      ],
+      "local_evidence": [],
+      "meaning": "Kart, gloedd rundt hulemarkoer/trilitt",
+      "kind": "map_location_highlight",
+      "recommended_treatment": "samme_trilitt_som020_med_original_dynamisk_gloed"
+    },
+    {
+      "key": "mi.c/032",
+      "source_file": "mi.c",
+      "frame": 32,
+      "width": 174,
+      "height": 51,
+      "plane_mask": 23,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "561af38379455aecca6405ed8748cf233d2c50055d85a9c246470bb7126e33b5",
+      "source_indices": [
+        0,
+        4,
+        5,
+        6,
+        7,
+        16,
+        17,
+        19
+      ],
+      "reference_png": "references/mi.c/032.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [],
+      "local_evidence": [
+        "mog $0abc5c..$0abc92 tegner frame032 ved(50,100) foer NAVNs turn og andre kartbeskjeder."
+      ],
+      "meaning": "Pergamentfelt bak kartets tur- og valgtekst",
+      "kind": "ui_background",
+      "recommended_treatment": "nytegn_flat_pergamentflate_med_opprinnelig_rektangel"
+    },
+    {
+      "key": "mi.c/033",
+      "source_file": "mi.c",
+      "frame": 33,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 19,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "ff67d48de50408eecf01c56e174a9ac0c4e02558fe6a2d1e203d2e2b8a886c0a",
+      "source_indices": [
+        0,
+        2,
+        3,
+        19
+      ],
+      "reference_png": "references/mi.c/033.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "highlight_variant",
+          "key": "mi.c/042"
+        }
+      ],
+      "local_evidence": [
+        "mog $0aab2c..$0aab44 velger frame033 ved liv<=0."
+      ],
+      "meaning": "Kart, gravkors for doed ridder",
+      "kind": "map_player_dead_status",
+      "recommended_treatment": "en_liten_steinkorsmaster_med_original_gloedvariant"
+    },
+    {
+      "key": "mi.c/034",
+      "source_file": "mi.c",
+      "frame": 34,
+      "width": 35,
+      "height": 14,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "5a74158c44247099a9297867370116cd6086aef09e299550ac952ed5dfddccba",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        16,
+        17,
+        18,
+        19,
+        28
+      ],
+      "reference_png": "references/mi.c/034.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "animation_sequence",
+          "keys": [
+            "mi.c/034",
+            "mi.c/035",
+            "mi.c/036",
+            "mi.c/037",
+            "mi.c/038",
+            "mi.c/039",
+            "mi.c/040",
+            "mi.c/041"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $096bc2..$096c3a tabell med8 sekvenspekere til CEL-frame$22..$29."
+      ],
+      "meaning": "Roed drage paa verdenskartet, flyanimasjon 1/8",
+      "kind": "map_dragon_animation",
+      "recommended_treatment": "tegn_alle_aatte_koherente_posene_separat_eller_bevar_hele_animasjonen",
+      "notes": "Ikke8 forskjellige inventargjenstander. Dette er animerte figurposer, tidligere prioritet figurer sist."
+    },
+    {
+      "key": "mi.c/035",
+      "source_file": "mi.c",
+      "frame": 35,
+      "width": 35,
+      "height": 16,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "3b98d43543fd212155b26df177775a4ea7d3ab1ad707782fd71f681304aa37d7",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        16,
+        17,
+        18,
+        19,
+        28
+      ],
+      "reference_png": "references/mi.c/035.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "animation_sequence",
+          "keys": [
+            "mi.c/034",
+            "mi.c/035",
+            "mi.c/036",
+            "mi.c/037",
+            "mi.c/038",
+            "mi.c/039",
+            "mi.c/040",
+            "mi.c/041"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $096bc2..$096c3a tabell med8 sekvenspekere til CEL-frame$22..$29."
+      ],
+      "meaning": "Roed drage paa verdenskartet, flyanimasjon 2/8",
+      "kind": "map_dragon_animation",
+      "recommended_treatment": "tegn_alle_aatte_koherente_posene_separat_eller_bevar_hele_animasjonen",
+      "notes": "Ikke8 forskjellige inventargjenstander. Dette er animerte figurposer, tidligere prioritet figurer sist."
+    },
+    {
+      "key": "mi.c/036",
+      "source_file": "mi.c",
+      "frame": 36,
+      "width": 34,
+      "height": 18,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "2fb57cd7bc94e6a804cdfc60425040ecc405262cf355361565154424d431accf",
+      "source_indices": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        16,
+        17,
+        18,
+        19,
+        28
+      ],
+      "reference_png": "references/mi.c/036.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "animation_sequence",
+          "keys": [
+            "mi.c/034",
+            "mi.c/035",
+            "mi.c/036",
+            "mi.c/037",
+            "mi.c/038",
+            "mi.c/039",
+            "mi.c/040",
+            "mi.c/041"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $096bc2..$096c3a tabell med8 sekvenspekere til CEL-frame$22..$29."
+      ],
+      "meaning": "Roed drage paa verdenskartet, flyanimasjon 3/8",
+      "kind": "map_dragon_animation",
+      "recommended_treatment": "tegn_alle_aatte_koherente_posene_separat_eller_bevar_hele_animasjonen",
+      "notes": "Ikke8 forskjellige inventargjenstander. Dette er animerte figurposer, tidligere prioritet figurer sist."
+    },
+    {
+      "key": "mi.c/037",
+      "source_file": "mi.c",
+      "frame": 37,
+      "width": 35,
+      "height": 23,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "2c23c3ed7aa22448ce6111c856458463255ce2adcec1ca9846db8f5c9696c12e",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        16,
+        17,
+        18,
+        19,
+        28
+      ],
+      "reference_png": "references/mi.c/037.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "animation_sequence",
+          "keys": [
+            "mi.c/034",
+            "mi.c/035",
+            "mi.c/036",
+            "mi.c/037",
+            "mi.c/038",
+            "mi.c/039",
+            "mi.c/040",
+            "mi.c/041"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $096bc2..$096c3a tabell med8 sekvenspekere til CEL-frame$22..$29."
+      ],
+      "meaning": "Roed drage paa verdenskartet, flyanimasjon 4/8",
+      "kind": "map_dragon_animation",
+      "recommended_treatment": "tegn_alle_aatte_koherente_posene_separat_eller_bevar_hele_animasjonen",
+      "notes": "Ikke8 forskjellige inventargjenstander. Dette er animerte figurposer, tidligere prioritet figurer sist."
+    },
+    {
+      "key": "mi.c/038",
+      "source_file": "mi.c",
+      "frame": 38,
+      "width": 36,
+      "height": 21,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "3b54f5fbe317b08d96a9887279d71f0b5b205b1408386332bf8422d5354c7495",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        16,
+        17,
+        18,
+        19,
+        28
+      ],
+      "reference_png": "references/mi.c/038.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "animation_sequence",
+          "keys": [
+            "mi.c/034",
+            "mi.c/035",
+            "mi.c/036",
+            "mi.c/037",
+            "mi.c/038",
+            "mi.c/039",
+            "mi.c/040",
+            "mi.c/041"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $096bc2..$096c3a tabell med8 sekvenspekere til CEL-frame$22..$29."
+      ],
+      "meaning": "Roed drage paa verdenskartet, flyanimasjon 5/8",
+      "kind": "map_dragon_animation",
+      "recommended_treatment": "tegn_alle_aatte_koherente_posene_separat_eller_bevar_hele_animasjonen",
+      "notes": "Ikke8 forskjellige inventargjenstander. Dette er animerte figurposer, tidligere prioritet figurer sist."
+    },
+    {
+      "key": "mi.c/039",
+      "source_file": "mi.c",
+      "frame": 39,
+      "width": 36,
+      "height": 20,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "edc6af26faac1eca8370ff02c62dc0c933a898c96041f62388729fc0867d4640",
+      "source_indices": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        16,
+        17,
+        18,
+        19,
+        28
+      ],
+      "reference_png": "references/mi.c/039.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "animation_sequence",
+          "keys": [
+            "mi.c/034",
+            "mi.c/035",
+            "mi.c/036",
+            "mi.c/037",
+            "mi.c/038",
+            "mi.c/039",
+            "mi.c/040",
+            "mi.c/041"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $096bc2..$096c3a tabell med8 sekvenspekere til CEL-frame$22..$29."
+      ],
+      "meaning": "Roed drage paa verdenskartet, flyanimasjon 6/8",
+      "kind": "map_dragon_animation",
+      "recommended_treatment": "tegn_alle_aatte_koherente_posene_separat_eller_bevar_hele_animasjonen",
+      "notes": "Ikke8 forskjellige inventargjenstander. Dette er animerte figurposer, tidligere prioritet figurer sist."
+    },
+    {
+      "key": "mi.c/040",
+      "source_file": "mi.c",
+      "frame": 40,
+      "width": 35,
+      "height": 18,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "732e4e6b4eddb9123a07eecad24a0166d228bc2cb35f7780e0743bc2e8e8bcda",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        16,
+        17,
+        18,
+        19,
+        28
+      ],
+      "reference_png": "references/mi.c/040.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "animation_sequence",
+          "keys": [
+            "mi.c/034",
+            "mi.c/035",
+            "mi.c/036",
+            "mi.c/037",
+            "mi.c/038",
+            "mi.c/039",
+            "mi.c/040",
+            "mi.c/041"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $096bc2..$096c3a tabell med8 sekvenspekere til CEL-frame$22..$29."
+      ],
+      "meaning": "Roed drage paa verdenskartet, flyanimasjon 7/8",
+      "kind": "map_dragon_animation",
+      "recommended_treatment": "tegn_alle_aatte_koherente_posene_separat_eller_bevar_hele_animasjonen",
+      "notes": "Ikke8 forskjellige inventargjenstander. Dette er animerte figurposer, tidligere prioritet figurer sist."
+    },
+    {
+      "key": "mi.c/041",
+      "source_file": "mi.c",
+      "frame": 41,
+      "width": 35,
+      "height": 15,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "e5b6eab82749e014be9a13699e49c2b7ed415ec56bf8f8aea21a70deea9ed2dc",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        16,
+        17,
+        18,
+        19,
+        28
+      ],
+      "reference_png": "references/mi.c/041.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "animation_sequence",
+          "keys": [
+            "mi.c/034",
+            "mi.c/035",
+            "mi.c/036",
+            "mi.c/037",
+            "mi.c/038",
+            "mi.c/039",
+            "mi.c/040",
+            "mi.c/041"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $096bc2..$096c3a tabell med8 sekvenspekere til CEL-frame$22..$29."
+      ],
+      "meaning": "Roed drage paa verdenskartet, flyanimasjon 8/8",
+      "kind": "map_dragon_animation",
+      "recommended_treatment": "tegn_alle_aatte_koherente_posene_separat_eller_bevar_hele_animasjonen",
+      "notes": "Ikke8 forskjellige inventargjenstander. Dette er animerte figurposer, tidligere prioritet figurer sist."
+    },
+    {
+      "key": "mi.c/042",
+      "source_file": "mi.c",
+      "frame": 42,
+      "width": 8,
+      "height": 10,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "c4732656b008d5b496c9b466930ea2bac24b9cfddbaa0694e7ab69d0f72f48e2",
+      "source_indices": [
+        0,
+        2,
+        3,
+        19,
+        31
+      ],
+      "reference_png": "references/mi.c/042.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+        "https://moonstonetavern.co.uk/quest-knights-dragons/"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "unhighlighted",
+          "key": "mi.c/033"
+        }
+      ],
+      "local_evidence": [
+        "mog $0aab2c..$0aab44 velger frame033 ved liv<=0."
+      ],
+      "meaning": "Kart, gravkors for doed ridder, gloedd",
+      "kind": "map_player_dead_status",
+      "recommended_treatment": "en_liten_steinkorsmaster_med_original_gloedvariant"
+    },
+    {
+      "key": "mi.c/043",
+      "source_file": "mi.c",
+      "frame": 43,
+      "width": 10,
+      "height": 12,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "f2fdf9c73632ba1b64aa951530c76d36495972bba08ac6c661375d586c675e51",
+      "source_indices": [
+        0,
+        2,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        18,
+        19,
+        30
+      ],
+      "reference_png": "references/mi.c/043.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "same_condition_inventory",
+          "keys": [
+            "ki.cel/019",
+            "ki.cel/020"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $0aab38..$0aab44 legger$2b (43) til ridderfargen ved ridder+$52."
+      ],
+      "meaning": "Kart, Math-forvandlet padde med blaa spillermerke",
+      "kind": "map_player_toad_status",
+      "color_variant": 0,
+      "recommended_treatment": "statisk_kartstatus_med_samme_paddegeometri_som_KI019_og_original_kartstripe",
+      "static_object_route": true,
+      "deferred_figure_animation": false,
+      "notes": "Statisk 10×12-kartstatus ved Math-forvandling, ikke en animasjonsrute. Kroppsgeometri samsvarer med KI019 uten tom kant. Kartstripens nederste rad er fast brun18, mens KI bruker mørk spillerfarge. Derfor egne minimale fargekorrigeringer av KI-masterne.",
+      "body_bounds": [
+        0,
+        0,
+        10,
+        12
+      ],
+      "preserve_indices": [],
+      "source_color_contract": {
+        "stripe_index": 30,
+        "stripe_rgb": [
+          0,
+          68,
+          255
+        ],
+        "fixed_brown_index": 18,
+        "fixed_brown_rgb": [
+          136,
+          102,
+          34
+        ]
+      },
+      "selected_production_record": "asset-mi_c-043.json"
+    },
+    {
+      "key": "mi.c/044",
+      "source_file": "mi.c",
+      "frame": 44,
+      "width": 10,
+      "height": 12,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "5fb95034a042080ec114f9e741aacf8971d161c203a77b67ae373f699540a268",
+      "source_indices": [
+        0,
+        2,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        18,
+        19,
+        29
+      ],
+      "reference_png": "references/mi.c/044.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "same_condition_inventory",
+          "keys": [
+            "ki.cel/019",
+            "ki.cel/020"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $0aab38..$0aab44 legger$2b (43) til ridderfargen ved ridder+$52."
+      ],
+      "meaning": "Kart, Math-forvandlet padde med oransje spillermerke",
+      "kind": "map_player_toad_status",
+      "color_variant": 1,
+      "recommended_treatment": "statisk_kartstatus_med_samme_paddegeometri_som_KI019_og_original_kartstripe",
+      "static_object_route": true,
+      "deferred_figure_animation": false,
+      "notes": "Statisk 10×12-kartstatus ved Math-forvandling, ikke en animasjonsrute. Kroppsgeometri samsvarer med KI019 uten tom kant. Kartstripens nederste rad er fast brun18, mens KI bruker mørk spillerfarge. Derfor egne minimale fargekorrigeringer av KI-masterne.",
+      "body_bounds": [
+        0,
+        0,
+        10,
+        12
+      ],
+      "preserve_indices": [],
+      "source_color_contract": {
+        "stripe_index": 29,
+        "stripe_rgb": [
+          255,
+          187,
+          0
+        ],
+        "fixed_brown_index": 18,
+        "fixed_brown_rgb": [
+          136,
+          102,
+          34
+        ]
+      },
+      "selected_production_record": "asset-mi_c-044.json"
+    },
+    {
+      "key": "mi.c/045",
+      "source_file": "mi.c",
+      "frame": 45,
+      "width": 10,
+      "height": 12,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "de6f3a7c3f4e9ac430054ed7f9caafbe879121a16955d23021fac948a8366aee",
+      "source_indices": [
+        0,
+        2,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        18,
+        19
+      ],
+      "reference_png": "references/mi.c/045.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "same_condition_inventory",
+          "keys": [
+            "ki.cel/019",
+            "ki.cel/020"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $0aab38..$0aab44 legger$2b (43) til ridderfargen ved ridder+$52."
+      ],
+      "meaning": "Kart, Math-forvandlet padde med groenn spillermerke",
+      "kind": "map_player_toad_status",
+      "color_variant": 2,
+      "recommended_treatment": "statisk_kartstatus_med_samme_paddegeometri_som_KI019_og_original_kartstripe",
+      "static_object_route": true,
+      "deferred_figure_animation": false,
+      "notes": "Statisk 10×12-kartstatus ved Math-forvandling, ikke en animasjonsrute. Kroppsgeometri samsvarer med KI019 uten tom kant. Kartstripens nederste rad er fast brun18, mens KI bruker mørk spillerfarge. Derfor egne minimale fargekorrigeringer av KI-masterne.",
+      "body_bounds": [
+        0,
+        0,
+        10,
+        12
+      ],
+      "preserve_indices": [],
+      "source_color_contract": {
+        "stripe_index": 8,
+        "stripe_rgb": [
+          102,
+          187,
+          51
+        ],
+        "fixed_brown_index": 18,
+        "fixed_brown_rgb": [
+          136,
+          102,
+          34
+        ]
+      },
+      "selected_production_record": "asset-mi_c-045.json"
+    },
+    {
+      "key": "mi.c/046",
+      "source_file": "mi.c",
+      "frame": 46,
+      "width": 10,
+      "height": 12,
+      "plane_mask": 31,
+      "source_bank_sha256": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+      "source_indices_sha256": "6a041da74763f4e17ff738fded0289a152aa6aae306b14d75e081d712427bc18",
+      "source_indices": [
+        0,
+        2,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        18,
+        19,
+        28
+      ],
+      "reference_png": "references/mi.c/046.png",
+      "confidence": "high",
+      "source_urls": [
+        "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual"
+      ],
+      "standalone_inventory_object": false,
+      "relations": [
+        {
+          "type": "same_condition_inventory",
+          "keys": [
+            "ki.cel/019",
+            "ki.cel/020"
+          ]
+        }
+      ],
+      "local_evidence": [
+        "mog $0aab38..$0aab44 legger$2b (43) til ridderfargen ved ridder+$52."
+      ],
+      "meaning": "Kart, Math-forvandlet padde med roed spillermerke",
+      "kind": "map_player_toad_status",
+      "color_variant": 3,
+      "recommended_treatment": "statisk_kartstatus_med_samme_paddegeometri_som_KI019_og_original_kartstripe",
+      "static_object_route": true,
+      "deferred_figure_animation": false,
+      "notes": "Statisk 10×12-kartstatus ved Math-forvandling, ikke en animasjonsrute. Kroppsgeometri samsvarer med KI019 uten tom kant. Kartstripens nederste rad er fast brun18, mens KI bruker mørk spillerfarge. Derfor egne minimale fargekorrigeringer av KI-masterne.",
+      "body_bounds": [
+        0,
+        0,
+        10,
+        12
+      ],
+      "preserve_indices": [],
+      "source_color_contract": {
+        "stripe_index": 28,
+        "stripe_rgb": [
+          204,
+          0,
+          0
+        ],
+        "fixed_brown_index": 18,
+        "fixed_brown_rgb": [
+          136,
+          102,
+          34
+        ]
+      },
+      "selected_production_record": "asset-mi_c-046.json"
+    }
+  ],
+  "excluded": [
+    {
+      "key": "mi.c/019",
+      "reason": "Tom plassholder. Ingen synlige kildeindekser.",
+      "width": 3,
+      "height": 3,
+      "plane_mask": 0
+    },
+    {
+      "key": "mi.c/029",
+      "reason": "Tom plassholder. Ingen synlige kildeindekser.",
+      "width": 2,
+      "height": 3,
+      "plane_mask": 0
+    }
+  ]
+}

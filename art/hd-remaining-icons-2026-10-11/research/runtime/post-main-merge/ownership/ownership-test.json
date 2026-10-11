@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "checks": [
+    "selected_helmet_intended_HD_approved",
+    "selected_helmet_pixel_ownership_exact",
+    "selected_helmet_mirrored_intended_HD_approved",
+    "selected_helmet_mirrored_pixel_ownership_exact",
+    "regular_helmet_intended_HD_approved",
+    "regular_helmet_pixel_ownership_exact",
+    "grave_selected_intended_HD_approved",
+    "grave_selected_pixel_ownership_exact",
+    "gold_two_source_pixels_intended_HD_approved",
+    "gold_two_source_pixels_pixel_ownership_exact",
+    "two_HD_owners_intended_HD_approved",
+    "two_HD_owners_pixel_ownership_exact",
+    "later_original_owner_intended_HD_approved",
+    "later_original_owner_pixel_ownership_exact",
+    "earlier_original_owner_intended_HD_approved",
+    "earlier_original_owner_pixel_ownership_exact",
+    "unknown_foreground_rejects_entire_icon"
+  ],
+  "cases": [
+    {
+      "name": "selected_helmet",
+      "protectedCount": 32,
+      "removedCount": 30,
+      "laterOriginalCount": 0
+    },
+    {
+      "name": "selected_helmet_mirrored",
+      "protectedCount": 32,
+      "removedCount": 30,
+      "laterOriginalCount": 0
+    },
+    {
+      "name": "regular_helmet",
+      "protectedCount": 32,
+      "removedCount": 30,
+      "laterOriginalCount": 0
+    },
+    {
+      "name": "grave_selected",
+      "protectedCount": 47,
+      "removedCount": 15,
+      "laterOriginalCount": 0
+    },
+    {
+      "name": "gold_two_source_pixels",
+      "protectedCount": 2,
+      "removedCount": 429,
+      "laterOriginalCount": 0
+    },
+    {
+      "name": "two_HD_owners",
+      "protectedCount": 21,
+      "removedCount": 51,
+      "laterOriginalCount": 0
+    },
+    {
+      "name": "later_original_owner",
+      "protectedCount": 21,
+      "removedCount": 22,
+      "laterOriginalCount": 20
+    },
+    {
+      "name": "earlier_original_owner",
+      "protectedCount": 32,
+      "removedCount": 30,
+      "laterOriginalCount": 0
+    }
+  ],
+  "production_code_sha256": {
+    "web/src/render.js": "554c11ef0f2cc379e7d6d6a76a3d6039f804a19a6109c92b5289578093315378",
+    "web/src/scenes.js": "129ea5655281c10c7ac4c69103acd38fb6780bd2fc5706bfb16df942182ee7ac"
+  },
+  "scope": "Faktisk eierskap/forberedHd fra sammenslaatt renderer, originale KI/MI-indekser, normale/speilede ruter, kildevern og overlapp. GPU, palettvalg og bildefiler testes separat."
+}

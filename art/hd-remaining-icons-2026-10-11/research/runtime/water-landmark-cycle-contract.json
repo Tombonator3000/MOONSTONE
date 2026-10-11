@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "only_changed_metadata": [
+    "map-landmarks/004",
+    "map-landmarks/005"
+  ],
+  "all_other_100_entries_identical": true,
+  "all_92_png_byteidentical_to_active": true,
+  "source_setup": [
+    "0aafe4:start21",
+    "0aafe8:end23",
+    "0aaff4:delay24"
+  ],
+  "source_rotation": "0abef0..0abf30 rotates inclusive21..23",
+  "diagnosis": "Waterdeep and river landmark raster palettes omitted known water rotation; white index21 rotating into22/23 rejected the HD raster."
+}

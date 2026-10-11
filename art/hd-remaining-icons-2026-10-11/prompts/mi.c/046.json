@@ -1,0 +1,16 @@
+{
+  "key": "mi.c/046",
+  "tool": "builtin_imagegen",
+  "operation": "color_only_edit",
+  "prompt": "Edit image 1 with one extremely small color-only correction for a faithful Moonstone game map-status sprite. Image 2 is the decoded ORIGINAL 10x12 map sprite, defining the identity marker only. Keep image 1's exact realistic green toad, every aspect of its body, face, feet, pose, skin texture, eye material, lighting, silhouette, camera and transparent canvas UNCHANGED. On its belly is a narrow vertical rectangular identification patch: change ONLY its upper two-thirds to a deep saturated red #cc0000, and its lowest one-third to fixed natural ochre brown #886622. The bottom brown is the SAME for all map knights and is NOT a dark red extension of the marker. Keep the patch's exact current size and position, with original pebble-skin texture showing through the dye. No other changes. No additions, no glow, no scenic background. Preserve true transparent alpha around and between the toes. The result remains the same small photographic toad icon as the first image.",
+  "referenced_image_paths": [
+    "raw/life/toad-red.png",
+    "research/runtime/references/mi.c/046.png"
+  ],
+  "transparent_background": true,
+  "generated_path": "/home/tombonator3000t/.codex/generated_images/01a12b7a-1e1f-7fd3-b160-eb7eeeee10f5/exec-37232c3a-a7f1-4a66-8678-cd03cc488de0.png",
+  "selected_raw": "raw/mi.c/046.png",
+  "raw_sha256": "9db876177141165251ecc6e1bc94a6e4c78b692853bddb0f66ac6106f38a1b22",
+  "review": "Visually compared with decoded original map toad and selected KI toad. Same frontal squat body, realistic green skin, eyes, feet and small belly marker. Map marker lower third is fixed brown instead of dark player color. Green top is muted to original map hue. No added objects or backdrop; true transparent alpha.",
+  "checked_utc": "2026-10-11T15:48:48.429591+00:00"
+}

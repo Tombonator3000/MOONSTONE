@@ -12,7 +12,12 @@ Skriptene og dumpene ligger i scratchpad for økten (`hdm/`), ikke i repoet. Lin
 
 Dette er rettet eller slått på siden oversikten under ble skrevet. Tabellene under beskriver tilstanden før, så les dette først.
 
-- **Bakgrunner:** eierens PR #26 (art/hd-all-locations-2026-10-11) har gitt alle 56 kampvarianter, healeren, Mythrid, Math ute og på balkongen, Stonehenge, terningbordet og faste intro- og meldingsbilder egne HD-bilder. Standardpakken har nå 327 PNG, av dem 75 bakgrunner. Utkastene fra art/photoreal som vi først slo på for de samme stedene, er erstattet.
+Siste oppfølging har398 PNG-ruter og404 manifestfiler:79 bakgrunner,124 ikonkontrakter (103 rasterbilder og21 kildefaste UI-konturer),144 originale fontformer og bevart logo. Fire nye bakgrunner dekker butikkens to buer med tre søyler, inventarbuen, bg1b-skogen og bg7-vannvirvelen. Ni MI-valgkonturer beholder palettindeks31-pulsen. Sju KI-tekstfragmenter, sel001 og fire MYS-knapper/piler følger originalformene. De tre KI-rankene ble avvist ved silhuettkontroll og er fortsatt bestilt. De to donasjonssekkene og seks DragonDice-symboler er også gjenstående ikonmaterialer. Fontene bruker nå originale glyfer og opphavsrettsfelt, ikke erstatningsskrifttyper.
+
+Gjeldende bestilling har1796 rader:11 ikonmaterialer, fem bakgrunnsrevisjoner, logoen og resterende figurer/animasjoner. Detaljer og bevis finnes i [oppfølgingsleveransen](../art/hd-ui-backgrounds-2026-10-11/README.md). De eldre tallene og kodemanglene nedenfor er historisk kartlegging, ikke dagens restliste.
+
+- **Bakgrunner:** eierens PR #26 (art/hd-all-locations-2026-10-11) ga alle56 kampvarianter, healeren, Mythrid, Math ute og på balkongen, Stonehenge, terningbordet og faste intro- og meldingsbilder egne HD-bilder. Den leveransen hadde75 bakgrunner. Utkastene fra art/photoreal som vi først slo på for de samme stedene, er erstattet.
+- **Statiske objektikoner:** art/hd-remaining-icons-2026-10-11 har 76 nytegnede ruter og 16 ekstra livpalettbilder. De 49 konturrutene er erstattet, og alle 27 statiske MI-ruter er lagt til, inkludert fire Math-paddemarkører. Totalt 102 rasterkontrakter. Identitet er kontrollert mot originalmanual, originale spillbilder og kode; Highwood/Waterdeep-navnene er korrigert. De gamle 55 manglende inventarrutene var 27 statiske MI, ti KI-tekst-/dekorfragmenter, ni valgkonturer, ett meldingsfelt og åtte dragebilder. De statiske MI-rutene er nå ferdige. KI045..049 var allerede aktive via måneposer.
 - **Scener i introen:** steinsirkelen, portalen (begge gangene) og alteret blinker ikke lenger (målt bilde for bilde: 459 av 459, 302 av 302). Ny scene for lasteskjermen (ch.piv, sammenlignet med skjermen). Steinsirkelen ovenfra og banneret i Prepare yourself har scener fra PR #26.
 - **Figurer i flere deler (punkt 4.1):** render.js avgjør nå eierskap per piksel. Sverdet over kroppen og andre figurer i flere deler kan få HD hver for seg; piksler fra figurer uten HD blir stående.
 - **Farge fra paletten (4.2):** en HD-PNG kan ha `<navn>.mask.png` (R = palettindeks + 1, G = lysstyrke, B = vekt, se docs/hd-grafikk.md). Ett sett ridderbilder viser da riktig farge for hver ridder. Prøvd med forstørrede originaler: blå, grønn, oransje og rød ble lik paletten. Posene følger også paletten, så de virker i dueller med annen palett.
@@ -21,7 +26,7 @@ Dette er rettet eller slått på siden oversikten under ble skrevet. Tabellene u
 - **Toning (4.7):** HD-bakgrunner, figurer og poser tones med skjermen; scenene har referanselys fra PIV-filen.
 - **Logoen:** vises med riktig sideforhold (fyller bredden, ikke flatklemt) til en ny tegning i 5,65:1 finnes. Den står i bestillingen.
 - **Arkivet:** enabled_in_game er rettet i art/photoreal/catalog.json, og bg/045a1ac5 (tom skjerm) nektes i standardpakken.
-- **Bestillingen:** docs/hd-bestilling-liste.csv (1842 rader, laget av tools/hd_bestilling.py) og en ferdig melding i docs/hd-bestilling-chatgpt.md.
+- **Bestillingen:** docs/hd-bestilling-liste.csv (1796 rader, laget av tools/hd_bestilling.py) og en ferdig melding i docs/hd-bestilling-chatgpt.md. Planmasker utvides før sammenligning og maskeflagg. HE3/031 er en palettkopi av KN3/031, så antallet selvstendige masker er156 og HE-kopier102.
 
 Ikke målt ennå: monsterkamp i et ekte hi med HD-figurer, og kamp med fire riddere samtidig.
 

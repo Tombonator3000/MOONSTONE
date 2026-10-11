@@ -2,9 +2,9 @@
 
 ## Neste
 - [x] HD-retting av Math og stedene: loddrett rundt murtaarn og 23 gjentatte Stonehenge-porter. Siste brukerfoto presiserer to stoetter og en overligger; enkeltstaaende soeyle er erstattet. Portene er skalert proporsjonalt ned til originalens fem kartpiksler i hoeyden. Originale posisjoner, statusmoenstre og spillregler beholdes.
-- [ ] HD-troskap: fullfoere ikonene etter motivkontroll. Tre landemerker og 23 gjentatte stedsporter er motivrettet; oevrige 49 ikonruter har fortsatt konturbehandling. Avklare Tower2, byetiketter og inventarrutenes betydning foer nye tegninger. Bakgrunner etter ikonene, figurer til sist. Se docs/hd-ikonmotiver.md.
-- [ ] HD-troskap: fullføre de resterende figurene og gjenskape originalens fontformer. 2091 av 2291 ikke-tomme figur-/fontruter mangler aktiv kobling; de 200 koblede rutene er heller ikke alle kunstnerisk ferdige. Se docs/hd-status-2026-10-11.md og rutelisten med alle 2361 originalruter.
-- [ ] HD-troskap: fullføre øvrige PIV-scener, 24 manglende sammensatte kampvarianter, rullegrafikk, underfliser og innebygd font. Vurdere genererte bakgrunner mot originalen før full ferdigstatus.
+- [ ] HD-troskap: fullføre de tre KI-rankene034-036, de to donasjonssekkene i mys.cel000-001 og seks DragonDice-symboler000-005. De tidligere49 konturikonene er nytegnet;102 gamle rasterruter er bevart. Ny pakke har124 ikonkontrakter, inkludert21 kildefaste UI-konturer og nytt pergament. Se docs/hd-bestilling-chatgpt.md.
+- [ ] HD-troskap: nytegne hver resterende figur-/animasjonsrute separat og kontrollere deler, eierskap og palettvarianter. Bestillingen har1796 rader etter deduplisering, inkludert11 ikonmaterialer, fem bakgrunnsrevisjoner og logoen. Hele ridderposer regnes ikke som ferdige separate ruter.
+- [ ] HD-troskap: revidere hen1/bg5, bg2a, bg3, mindscape, bg8 og logo073 mot originalen. Rullegrafikk, PIV-fliser og underlag gjenstår. Alle56 sammensatte kampvarianter er allerede aktive; nå79 bakgrunner totalt.
 - [ ] HD-bakgrunner etter filnavn (bg1a.PIV/0.png) i tillegg til hash, for bildene som vises som de er.
 - [ ] Valgene paa kartet i PC-versjonen: LB, RB, X og Y velger 1-4 i dag; mangler valg 5-9 og en liste paa skjermen. Nevn det i windows/LES_MEG.txt.
 - [ ] Options paa mobil: oppsett av styrekorset og knappene (storrelse, venstrehendt).
@@ -37,7 +37,7 @@
 - [ ] Prøve HD-figurer i en ekte monsterkamp i et hi og i en kamp med fire riddere (ikke målt etter at figurer i flere deler kom).
 - [x] Banneret i Prepare yourself: bg/931f9b1d.png kom med PR #26.
 - [ ] Introen og slutten: tegneliste fra programmet program, så de 385 figurbildene kan få HD.
-- [ ] bg1b.PIV: sette sammen flisene til ett bilde og lage en scene.
+- [x] bg1b.PIV: originalbundet skogsbilde og kildevalidert scene. Andre rullende introfliser gjenstår.
 - [ ] Lasteren (render.js lastHdPakke) skal bare godta NAVN/NNN og bg/HHHHHHHH og si fra om resten (i dag tar den alt, ca 4 MB per ubrukt bilde).
 - [ ] tools/hd_skaler.py skal hoppe over bildemappene (PIV) og test/, bare figurmapper og bg.
 - [ ] HD-pakken skal huskes (IndexedDB) og kunne være en zip.
@@ -100,6 +100,8 @@
 - [x] Introen og tittelmenyen kjører med grafikk og lyd.
 
 ## HD-integrasjon, 11. oktober 2026
+- [x]144 originale fontformer inklusive opphavsrettsfeltene,21 palettstyrte UI-konturer, pergamentpanel og fire nye bakgrunner koblet til standardpakken. Nye materialutkast som mister originalsilhuetten holdes utenfor.
+- [x] Rette bestillingens CEL-planmasker, grånormalisering, prioritering og mappeimport for kildevaliderte scener.
 - [x] Nytegne kart, byer og kro; aktivere tre bevarte introbakgrunner med kildevalidering og beskyttet originalforgrunn.
 - [x] HD-logo, 142 konturglyfer, 20 faste menytekster og seks separate kartlandemerker; Original-valget bevares.
 - [x] Kontrollere stor/liten font i tittel og inventar, naturlig intro/kart, PIV-fixturer og faktisk HTML-menys HD-bryter.
@@ -127,3 +129,13 @@
 - [ ] Fullføre selvstendige PIV-fliser/rulling og rullende sluttsekvenser; dette inngår ikke i de 56 faste kampvariantene.
 - [ ] Nytegne de resterende figurrutene separat etter bakgrunnsarbeidet, som avtalt med brukeren.
 - [x] Koble inn de fem øvrige faste intro-/meldingsbildene med bevarte originalfigurer, symboler, stjerner og logo.
+
+## Resterende objektikoner, 11. oktober 2026
+- [x] Identifisere inventar-/kart-/kroikoner mot nettmanual, originale bilder og originalkode.
+- [x] Nytegne inventargjenstander, statussymboler, bylandemerker, krosekker og pekere med original plassering og størrelse.
+- [x] Bevare de tidligere godkjente små 9x5-portene og Math-tårnet.
+- [x] Legge til manglende statiske ridder-, Gem of Seeing-, Hawk-, port-, grav- og paddemarkører.
+- [x] Fullføre samlet runtime-/import-/integrasjonskontroll for ikonpakken.
+- [x] Publisere ikonpakken via PR, grønn CI og offentlig kontroll.
+- [ ] Fullføre originaltro fontformer, vinranke-/rammefragmenter, meldingspaneler og valgkonturer som egne oppgaver.
+- [ ] Ta figur- og drageanimasjoner, separat forgrunn, effekter og rulling etter ikon-/bakgrunnsarbeidet.

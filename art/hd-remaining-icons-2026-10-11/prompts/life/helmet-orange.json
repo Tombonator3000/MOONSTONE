@@ -1,0 +1,11 @@
+{
+  "name": "Knight life icon, orange",
+  "key": "life-helmet-orange",
+  "prompt": "Use case: precise-object-edit. This is a Moonstone knight life/status icon color variant. Change ONLY the blue woven fabric hood/cowl to the original game's warm golden-orange player color, using highlight color approximately RGB255,187,0 and shadow color RGB187,102,0. Keep the silver steel helmet completely unchanged: same geometry, scratches, faceplate, eye slit, silver values and lighting. Preserve every cloth fold, textile texture, the exact silhouette, viewpoint, framing and dimensions of the source image. No new design features, no extra objects, no change to the metal. The cloth must read as orange-gold fabric with natural shading, not metallic gold. Keep genuine transparent RGBA background around the whole icon. No glow, scenery, cast shadow or text.",
+  "tool": "builtin_imagegen",
+  "transparent_background": true,
+  "reference": "raw/life/helmet-blue.png",
+  "output_hint": "Generated images are saved to /home/tombonator3000t/.codex/generated_images/01a12b7a-1e1f-7fd3-b160-eb7eeeee10f5 as /home/tombonator3000t/.codex/generated_images/01a12b7a-1e1f-7fd3-b160-eb7eeeee10f5/exec-1e7f33d8-40b0-4fd3-9121-43428613e62b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "review_status": "reviewed_for_runtime",
+  "review": "Visually checked orange-gold cloth change, preserved same steel helmet design, folds, silhouette and perspective as blue master. No additions. Exact original player palette pair retained in variant metadata."
+}

@@ -1,0 +1,29 @@
+{
+  "checks": [
+    "merged_renderer_matches_frozen_contract",
+    "merged_scene_matches_frozen_contract",
+    "generated_red_image_selected",
+    "same_red_palette_still_approved",
+    "new_variant_PNG_updates_actual_base_texture",
+    "new_variant_changes_display_pixels",
+    "new_variant_stays_stable",
+    "canonical_blue_image_preserved",
+    "returning_to_red_uses_imported_variant",
+    "HD_toggle_restores_imported_variant",
+    "Original_toggle_has_original_pixels",
+    "same_palette_can_restore_generated_red_PNG",
+    "restored_red_display_is_exact",
+    "emulated_state_unchanged",
+    "no_browser_errors"
+  ],
+  "errors": [],
+  "source_before_render_sha256": null,
+  "source_after_render_sha256": "554c11ef0f2cc379e7d6d6a76a3d6039f804a19a6109c92b5289578093315378",
+  "scene_code_sha256": "129ea5655281c10c7ac4c69103acd38fb6780bd2fc5706bfb16df942182ee7ac",
+  "scope": "Faktisk delvis variant-PNG-import ved stabil roed kildepalett. Testbildet er en ensfarget teknisk probe, aldri produksjonskunst. Ny regresjon mot den frosne sammenslaatte rendererbasen.",
+  "candidate_icons_sha256": "1e5daaafe915e47649d16631707c9d35f2d7fca402d44416d70102a4daa02094",
+  "custom_png_sha256": "d048bcb1da0421cc147bee7d24d43a7ca3e9462d215a835fb0b65b0244aef6d0",
+  "generated_red_png_sha256": "2e0c2f278fac7c2379d7dddfe8aabfd83ae8eaa812f4088be5c3c719bf8e5c9d",
+  "status": "passed",
+  "created_at": "2026-10-11T16:14:02.973Z"
+}

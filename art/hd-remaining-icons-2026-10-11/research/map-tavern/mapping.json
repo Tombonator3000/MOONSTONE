@@ -1,0 +1,361 @@
+{
+  "checked_at": "2026-10-11",
+  "scope": "3 landemerker,3 faste riddermarkører,6 kroikoner,2 pekere og 27 statiske MI-kartikonruter",
+  "sources": [
+    "https://www.freegameempire.com/games/Moonstone-A-Hard-Days-Knight/manual",
+    "https://moonstonetavern.co.uk/box-art-music-more/",
+    "https://spillhistorie.no/2024/12/11/interview-with-the-creator-of-moonstone/",
+    "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual"
+  ],
+  "entries": [
+    {
+      "key": "map-landmarks/000",
+      "identity": "Highwood",
+      "confidence": "high",
+      "role": "Besokbar by i nordvest, tidligere feiletikett Waterdeep"
+    },
+    {
+      "key": "map-landmarks/004",
+      "identity": "Unavngitt elvedekorasjon",
+      "confidence": "unresolved_motif",
+      "role": "Ikke separat besokbart sted. Tower2 er ubekreftet arbeidsnavn."
+    },
+    {
+      "key": "map-landmarks/005",
+      "identity": "Waterdeep",
+      "confidence": "high",
+      "role": "Besokbar by i sorost, tidligere feiletikett Highwood"
+    },
+    {
+      "key": "map-icons/023",
+      "identity": "Ridderhjelm",
+      "confidence": "high",
+      "role": "mi.c/009 kartikon, datamaskinfigur 4; ikke landsby"
+    },
+    {
+      "key": "map-icons/024",
+      "identity": "Ridderhjelm",
+      "confidence": "high",
+      "role": "mi.c/009 kartikon, datamaskinfigur 4; ikke landsby"
+    },
+    {
+      "key": "map-icons/025",
+      "identity": "Ridderhjelm",
+      "confidence": "high",
+      "role": "mi.c/009 kartikon, datamaskinfigur 4; ikke landsby"
+    },
+    {
+      "key": "scene-icons/000",
+      "identity": "Pengesekk med gulltellerfelt",
+      "confidence": "high",
+      "role": "Gullsum tegnes dynamisk ved x282,y14"
+    },
+    {
+      "key": "scene-icons/001",
+      "identity": "Pengesekk for innsats",
+      "confidence": "high",
+      "role": "Innsats 1 gull i Dragon Dice"
+    },
+    {
+      "key": "scene-icons/002",
+      "identity": "Pengesekk for innsats",
+      "confidence": "high",
+      "role": "Innsats 2 gull i Dragon Dice"
+    },
+    {
+      "key": "scene-icons/003",
+      "identity": "Pengesekk for innsats",
+      "confidence": "high",
+      "role": "Innsats 3 gull i Dragon Dice"
+    },
+    {
+      "key": "scene-icons/004",
+      "identity": "Pengesekk for innsats",
+      "confidence": "high",
+      "role": "Innsats 4 gull i Dragon Dice"
+    },
+    {
+      "key": "scene-icons/005",
+      "identity": "Pengesekk for innsats",
+      "confidence": "high",
+      "role": "Innsats 5 gull i Dragon Dice"
+    },
+    {
+      "key": "po.cel/000",
+      "identity": "Dolkpeker",
+      "confidence": "high",
+      "role": "Spiss overst venstre, korsvern og grep nederst hoyre"
+    },
+    {
+      "key": "sel.cel/000",
+      "identity": "Gullfarget hoyrepil",
+      "confidence": "high",
+      "role": "Bred menypil, samme originalformat38x19"
+    },
+    {
+      "key": "mi.c/000",
+      "identity": "Ridderhjelm",
+      "confidence": "high",
+      "role": "Øvrig ridder på kartet",
+      "variant": "blå",
+      "source_evidence": "0aaab0..0aab08 aktiv ridder;0aab0a..0aab5e øvrige riddere; ridder+$36 fargevariant",
+      "reuse": "Eksisterende hjelmlegeme kan gjenbrukes med korrekt farge og kroppsbounds. Original19-ytterkant og31-puls bevares der de finnes."
+    },
+    {
+      "key": "mi.c/001",
+      "identity": "Ridderhjelm",
+      "confidence": "high",
+      "role": "Øvrig ridder på kartet",
+      "variant": "gul/oransje",
+      "source_evidence": "0aaab0..0aab08 aktiv ridder;0aab0a..0aab5e øvrige riddere; ridder+$36 fargevariant",
+      "reuse": "Eksisterende hjelmlegeme kan gjenbrukes med korrekt farge og kroppsbounds. Original19-ytterkant og31-puls bevares der de finnes."
+    },
+    {
+      "key": "mi.c/002",
+      "identity": "Ridderhjelm",
+      "confidence": "high",
+      "role": "Øvrig ridder på kartet",
+      "variant": "grønn",
+      "source_evidence": "0aaab0..0aab08 aktiv ridder;0aab0a..0aab5e øvrige riddere; ridder+$36 fargevariant",
+      "reuse": "Eksisterende hjelmlegeme kan gjenbrukes med korrekt farge og kroppsbounds. Original19-ytterkant og31-puls bevares der de finnes."
+    },
+    {
+      "key": "mi.c/003",
+      "identity": "Ridderhjelm",
+      "confidence": "high",
+      "role": "Øvrig ridder på kartet",
+      "variant": "rød",
+      "source_evidence": "0aaab0..0aab08 aktiv ridder;0aab0a..0aab5e øvrige riddere; ridder+$36 fargevariant",
+      "reuse": "Eksisterende hjelmlegeme kan gjenbrukes med korrekt farge og kroppsbounds. Original19-ytterkant og31-puls bevares der de finnes."
+    },
+    {
+      "key": "mi.c/004",
+      "identity": "Ridderhjelm",
+      "confidence": "high",
+      "role": "Øvrig ridder på kartet",
+      "variant": "mørk plomme",
+      "source_evidence": "0aaab0..0aab08 aktiv ridder;0aab0a..0aab5e øvrige riddere; ridder+$36 fargevariant",
+      "reuse": "Eksisterende hjelmlegeme kan gjenbrukes med korrekt farge og kroppsbounds. Original19-ytterkant og31-puls bevares der de finnes."
+    },
+    {
+      "key": "mi.c/005",
+      "identity": "Ridderhjelm",
+      "confidence": "high",
+      "role": "Aktiv ridder med pulserende kant",
+      "variant": "blå",
+      "source_evidence": "0aaab0..0aab08 aktiv ridder;0aab0a..0aab5e øvrige riddere; ridder+$36 fargevariant",
+      "reuse": "Eksisterende hjelmlegeme kan gjenbrukes med korrekt farge og kroppsbounds. Original19-ytterkant og31-puls bevares der de finnes."
+    },
+    {
+      "key": "mi.c/006",
+      "identity": "Ridderhjelm",
+      "confidence": "high",
+      "role": "Aktiv ridder med pulserende kant",
+      "variant": "gul/oransje",
+      "source_evidence": "0aaab0..0aab08 aktiv ridder;0aab0a..0aab5e øvrige riddere; ridder+$36 fargevariant",
+      "reuse": "Eksisterende hjelmlegeme kan gjenbrukes med korrekt farge og kroppsbounds. Original19-ytterkant og31-puls bevares der de finnes."
+    },
+    {
+      "key": "mi.c/007",
+      "identity": "Ridderhjelm",
+      "confidence": "high",
+      "role": "Aktiv ridder med pulserende kant",
+      "variant": "grønn",
+      "source_evidence": "0aaab0..0aab08 aktiv ridder;0aab0a..0aab5e øvrige riddere; ridder+$36 fargevariant",
+      "reuse": "Eksisterende hjelmlegeme kan gjenbrukes med korrekt farge og kroppsbounds. Original19-ytterkant og31-puls bevares der de finnes."
+    },
+    {
+      "key": "mi.c/008",
+      "identity": "Ridderhjelm",
+      "confidence": "high",
+      "role": "Aktiv ridder med pulserende kant",
+      "variant": "rød",
+      "source_evidence": "0aaab0..0aab08 aktiv ridder;0aab0a..0aab5e øvrige riddere; ridder+$36 fargevariant",
+      "reuse": "Eksisterende hjelmlegeme kan gjenbrukes med korrekt farge og kroppsbounds. Original19-ytterkant og31-puls bevares der de finnes."
+    },
+    {
+      "key": "mi.c/009",
+      "identity": "Ridderhjelm",
+      "confidence": "high",
+      "role": "Aktiv ridder med pulserende kant",
+      "variant": "mørk plomme",
+      "source_evidence": "0aaab0..0aab08 aktiv ridder;0aab0a..0aab5e øvrige riddere; ridder+$36 fargevariant",
+      "reuse": "Eksisterende hjelmlegeme kan gjenbrukes med korrekt farge og kroppsbounds. Original19-ytterkant og31-puls bevares der de finnes."
+    },
+    {
+      "key": "mi.c/010",
+      "identity": "Gem of Seeing, krystallkule",
+      "confidence": "high",
+      "role": "Aktiv kartmarkør som undersøker innholdet i et monsterhi",
+      "variant": "blå",
+      "source_evidence": "08bde2 velger inventargjenstand2;0ab4da setter08e7ae;0aaac4 legger5 til aktiv hjelm og velger010..014",
+      "reuse": "Ny kulemaster med fem fargesokler. KI009 brukes ikke som formfasit. Indeks19 er intern brun hals ved y6,x2..5.",
+      "manual_url": "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual",
+      "manual_section": "Gem of Seeing"
+    },
+    {
+      "key": "mi.c/011",
+      "identity": "Gem of Seeing, krystallkule",
+      "confidence": "high",
+      "role": "Aktiv kartmarkør som undersøker innholdet i et monsterhi",
+      "variant": "gul/oransje",
+      "source_evidence": "08bde2 velger inventargjenstand2;0ab4da setter08e7ae;0aaac4 legger5 til aktiv hjelm og velger010..014",
+      "reuse": "Ny kulemaster med fem fargesokler. KI009 brukes ikke som formfasit. Indeks19 er intern brun hals ved y6,x2..5.",
+      "manual_url": "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual",
+      "manual_section": "Gem of Seeing"
+    },
+    {
+      "key": "mi.c/012",
+      "identity": "Gem of Seeing, krystallkule",
+      "confidence": "high",
+      "role": "Aktiv kartmarkør som undersøker innholdet i et monsterhi",
+      "variant": "grønn",
+      "source_evidence": "08bde2 velger inventargjenstand2;0ab4da setter08e7ae;0aaac4 legger5 til aktiv hjelm og velger010..014",
+      "reuse": "Ny kulemaster med fem fargesokler. KI009 brukes ikke som formfasit. Indeks19 er intern brun hals ved y6,x2..5.",
+      "manual_url": "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual",
+      "manual_section": "Gem of Seeing"
+    },
+    {
+      "key": "mi.c/013",
+      "identity": "Gem of Seeing, krystallkule",
+      "confidence": "high",
+      "role": "Aktiv kartmarkør som undersøker innholdet i et monsterhi",
+      "variant": "rød",
+      "source_evidence": "08bde2 velger inventargjenstand2;0ab4da setter08e7ae;0aaac4 legger5 til aktiv hjelm og velger010..014",
+      "reuse": "Ny kulemaster med fem fargesokler. KI009 brukes ikke som formfasit. Indeks19 er intern brun hals ved y6,x2..5.",
+      "manual_url": "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual",
+      "manual_section": "Gem of Seeing"
+    },
+    {
+      "key": "mi.c/014",
+      "identity": "Gem of Seeing, krystallkule",
+      "confidence": "high",
+      "role": "Aktiv kartmarkør som undersøker innholdet i et monsterhi",
+      "variant": "oliven",
+      "source_evidence": "08bde2 velger inventargjenstand2;0ab4da setter08e7ae;0aaac4 legger5 til aktiv hjelm og velger010..014",
+      "reuse": "Ny kulemaster med fem fargesokler. KI009 brukes ikke som formfasit. Indeks19 er intern brun hals ved y6,x2..5.",
+      "manual_url": "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual",
+      "manual_section": "Gem of Seeing"
+    },
+    {
+      "key": "mi.c/015",
+      "identity": "Scroll of the Hawk, teleporteringsmarkør",
+      "confidence": "high",
+      "role": "Asymmetrisk korsformet målmarkør når spilleren velger teleporteringssted",
+      "variant": "blå",
+      "source_evidence": "08bdfe velger inventargjenstand12;0ab512 setter08e7a6;0aaace legger10 til aktiv hjelm og velger015..018",
+      "reuse": "Ny kildetro målform med fire originalfarger. En fugl eller gravkors ville være feil motiv.",
+      "manual_url": "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual",
+      "manual_section": "Scroll of the Hawk"
+    },
+    {
+      "key": "mi.c/016",
+      "identity": "Scroll of the Hawk, teleporteringsmarkør",
+      "confidence": "high",
+      "role": "Asymmetrisk korsformet målmarkør når spilleren velger teleporteringssted",
+      "variant": "gul/oransje",
+      "source_evidence": "08bdfe velger inventargjenstand12;0ab512 setter08e7a6;0aaace legger10 til aktiv hjelm og velger015..018",
+      "reuse": "Ny kildetro målform med fire originalfarger. En fugl eller gravkors ville være feil motiv.",
+      "manual_url": "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual",
+      "manual_section": "Scroll of the Hawk"
+    },
+    {
+      "key": "mi.c/017",
+      "identity": "Scroll of the Hawk, teleporteringsmarkør",
+      "confidence": "high",
+      "role": "Asymmetrisk korsformet målmarkør når spilleren velger teleporteringssted",
+      "variant": "grønn",
+      "source_evidence": "08bdfe velger inventargjenstand12;0ab512 setter08e7a6;0aaace legger10 til aktiv hjelm og velger015..018",
+      "reuse": "Ny kildetro målform med fire originalfarger. En fugl eller gravkors ville være feil motiv.",
+      "manual_url": "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual",
+      "manual_section": "Scroll of the Hawk"
+    },
+    {
+      "key": "mi.c/018",
+      "identity": "Scroll of the Hawk, teleporteringsmarkør",
+      "confidence": "high",
+      "role": "Asymmetrisk korsformet målmarkør når spilleren velger teleporteringssted",
+      "variant": "rød",
+      "source_evidence": "08bdfe velger inventargjenstand12;0ab512 setter08e7a6;0aaace legger10 til aktiv hjelm og velger015..018",
+      "reuse": "Ny kildetro målform med fire originalfarger. En fugl eller gravkors ville være feil motiv.",
+      "manual_url": "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual",
+      "manual_section": "Scroll of the Hawk"
+    },
+    {
+      "key": "mi.c/020",
+      "identity": "Liten trilitt, steds-/interaksjonsmarkør",
+      "confidence": "high",
+      "role": "Vanlig",
+      "source_evidence": "0aab92 velger20;08107e velger31",
+      "reuse": "Godkjent liten trilittmaster fra place-correction, opprinnelig fotavtrykk9x5."
+    },
+    {
+      "key": "mi.c/031",
+      "identity": "Liten trilitt, steds-/interaksjonsmarkør",
+      "confidence": "high",
+      "role": "Aktiv/valgt stedsmarkør",
+      "source_evidence": "0aab92 velger20;08107e velger31",
+      "reuse": "Godkjent liten trilittmaster fra place-correction, opprinnelig fotavtrykk9x5."
+    },
+    {
+      "key": "mi.c/033",
+      "identity": "Gravkors",
+      "confidence": "high",
+      "role": "Død ridder, vanlig",
+      "source_evidence": "0aab2c tester ridder+$49 og0aab32 velger33;0810b0 tester aktiv+$49 og0810b6 velger42",
+      "reuse": "Én ny gravkorsmaster kan gjenbrukes med korrekt originalkant og puls."
+    },
+    {
+      "key": "mi.c/042",
+      "identity": "Gravkors",
+      "confidence": "high",
+      "role": "Død ridder, aktiv/valgt",
+      "source_evidence": "0aab2c tester ridder+$49 og0aab32 velger33;0810b0 tester aktiv+$49 og0810b6 velger42",
+      "reuse": "Én ny gravkorsmaster kan gjenbrukes med korrekt originalkant og puls."
+    },
+    {
+      "key": "mi.c/043",
+      "identity": "Math-forhekset padde, statisk kartmarkør",
+      "confidence": "high",
+      "role": "Ridder forvandlet til padde vises som egen kartmarkør mens andre riddere har tur",
+      "variant": "blå",
+      "source_evidence": "0aab38 tester ridder+$52;0aab3e legger 43 til ridderens fargevariant 0..3;0aab4a tegner den valgte statiske markøren. Kilden er 10x12; fargefeltet ved x4..5,y7..8 er blå/gul/grønn/rød.",
+      "reuse": "Gjenbruk de fire eksisterende fargede paddemasterne, med egne MI-kildekontrakter. Ingen ny figur-/animasjonsproduksjon er nødvendig.",
+      "manual_url": "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual",
+      "manual_section": "Wizards Tower"
+    },
+    {
+      "key": "mi.c/044",
+      "identity": "Math-forhekset padde, statisk kartmarkør",
+      "confidence": "high",
+      "role": "Ridder forvandlet til padde vises som egen kartmarkør mens andre riddere har tur",
+      "variant": "gul/oransje",
+      "source_evidence": "0aab38 tester ridder+$52;0aab3e legger 43 til ridderens fargevariant 0..3;0aab4a tegner den valgte statiske markøren. Kilden er 10x12; fargefeltet ved x4..5,y7..8 er blå/gul/grønn/rød.",
+      "reuse": "Gjenbruk de fire eksisterende fargede paddemasterne, med egne MI-kildekontrakter. Ingen ny figur-/animasjonsproduksjon er nødvendig.",
+      "manual_url": "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual",
+      "manual_section": "Wizards Tower"
+    },
+    {
+      "key": "mi.c/045",
+      "identity": "Math-forhekset padde, statisk kartmarkør",
+      "confidence": "high",
+      "role": "Ridder forvandlet til padde vises som egen kartmarkør mens andre riddere har tur",
+      "variant": "grønn",
+      "source_evidence": "0aab38 tester ridder+$52;0aab3e legger 43 til ridderens fargevariant 0..3;0aab4a tegner den valgte statiske markøren. Kilden er 10x12; fargefeltet ved x4..5,y7..8 er blå/gul/grønn/rød.",
+      "reuse": "Gjenbruk de fire eksisterende fargede paddemasterne, med egne MI-kildekontrakter. Ingen ny figur-/animasjonsproduksjon er nødvendig.",
+      "manual_url": "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual",
+      "manual_section": "Wizards Tower"
+    },
+    {
+      "key": "mi.c/046",
+      "identity": "Math-forhekset padde, statisk kartmarkør",
+      "confidence": "high",
+      "role": "Ridder forvandlet til padde vises som egen kartmarkør mens andre riddere har tur",
+      "variant": "rød",
+      "source_evidence": "0aab38 tester ridder+$52;0aab3e legger 43 til ridderens fargevariant 0..3;0aab4a tegner den valgte statiske markøren. Kilden er 10x12; fargefeltet ved x4..5,y7..8 er blå/gul/grønn/rød.",
+      "reuse": "Gjenbruk de fire eksisterende fargede paddemasterne, med egne MI-kildekontrakter. Ingen ny figur-/animasjonsproduksjon er nødvendig.",
+      "manual_url": "https://www.abandonwaredos.com/docawd.php?idg=957&sf=moonstone_manual.txt&sg=Moonstone%3A+A+Hard+Days+Knight&st=manual",
+      "manual_section": "Wizards Tower"
+    }
+  ]
+}

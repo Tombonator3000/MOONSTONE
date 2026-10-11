@@ -1,0 +1,45 @@
+{
+  "url": "http://127.0.0.1:8871/moonstone.html",
+  "status": "failed",
+  "checks": [
+    "served_production_source_web/src/render.js",
+    "served_production_source_web/src/scenes.js"
+  ],
+  "assets": [],
+  "errors": [
+    "Cannot read properties of null (reading '_ms_frame_no')"
+  ],
+  "scope": "Originale CEL-fixturer i faktisk frontend, speiling, Original/HD-retur, levende valgpalett, kildevern. Ingen naturlig gjennomspilling eller fotografisk materialgodkjenning.",
+  "fragment_icons_sha256": "06cab44da19a71d079f2b8c0bebb849342852825a75500417d154f5ec7c2ba80",
+  "source_contracts_sha256": "3d06e7d2bd7ecd724c24035bd2d557c5e3d85365fa72b3c0944b8abcc3c08bd3",
+  "packed_png_sha256": {
+    "mi.c/021": "c8265e1913180ad2aec0e3d0ed3ec34245ebf64da3035f285ba8602cc5c04d17",
+    "mi.c/022": "6e4bcb94373f0101e3998f8a74ab3e92bb3478cfbb0d5e1969c7fb0aab277057",
+    "mi.c/023": "0cfe41e4c0855f77426060fc80301907b1d0fcee90646bb2144ad3c7a6357609",
+    "mi.c/024": "5efd9a17be8c44dd1cbe279631f2145c50cd2f23c26dc467cf10062b6ef1e082",
+    "mi.c/025": "059df1229626d061a108835a2faee0f1c18e195bde22ce7141985fecb7af6953",
+    "mi.c/026": "f5d073eca99981cab6e51de3a14b3be9a656b70305809b128759c74cfc6a45a5",
+    "mi.c/027": "08ba1c0bcbda1826f7c361c250ac14ce3f92e060675f500009182cb45458c8cb",
+    "mi.c/028": "a150813e90380fc47e463481a66ee1741839767bdbfbab43f50d352d9df6386a",
+    "mi.c/030": "14c90e8a37cd5d6501e02efbaefaeba5efdd4cf139fb6f88a963457b6992fa8e",
+    "mi.c/032": "a2b8ba6dc2ae7440bb2a76e560edb9aae4ab64500012abf7e009e22f66f33feb",
+    "ki.cel/034": "b948175599ebf24e2cfa9d6be64c10e8b8fef203ea3c49a697957ac9ddd01839",
+    "ki.cel/035": "7be9d0b1371f75f9309a90af1bed6d8b229abe00e770328fda31642bc486e5e0",
+    "ki.cel/036": "9b1e00688d8a4828d85f5e12e3cb1794f1fca46065b0845e12b65418d2fd69cb",
+    "ki.cel/038": "65fba70db91e0e22075ef067b1385b7be8244d7d1e954394ff13d36140f1689c",
+    "ki.cel/039": "926b32e1c9bbbc185f9128cff4a3d703edc288a5d4b1c3b32c865edb35419c18",
+    "ki.cel/040": "16e500e8bed2aeb4479f68305bc237d870df79c5bcae6cd0300e6d6568e0a211",
+    "ki.cel/041": "b0c632d4067ad4117b1edb1280c6118bdbfa5c861b3df97cb89c81ff7e1d6cc3",
+    "ki.cel/042": "73ba1176a8d388dfe649f2554dcc19bb368843a2de2704d2d72bad31c712dee4",
+    "ki.cel/043": "328a73b703ebc55a8195820c5506dc7d62d76b6f7250a14dd1116f1eeedd32ce",
+    "ki.cel/044": "7f91551517ae72d925654a4d00a1765d45d00513d8bf639cb9142bf4068b85d4",
+    "sel.cel/001": "2a633e20b7ae0ecc405b3e6b36671a4a7bd7fdba0de650aa9ab665981a36eb11"
+  },
+  "production_code_sha256": {
+    "web/src/render.js": "9f257585a64ce4c36c3239b2dc4dc71f5843de53e0211bfe1ac5fea5ebbba85b",
+    "web/src/scenes.js": "6ff05b2f25ebb159a06efac64c65cab8e020f80a4d6c3038bb904fcf836a3c2f"
+  },
+  "served_html_sha256": "96707525d44b340679e4ca716aca366f96d47aafa99a853f3846ba2cf0334e3c",
+  "failure": "Error: page.waitForFunction: TypeError: Cannot read properties of null (reading '_ms_frame_no')\n    at Object.bildeNr (http://127.0.0.1:8871/moonstone.html:5312:26)\n    at eval (eval at predicate (eval at evaluate (:311:30)), <anonymous>:1:40)\n    at predicate (eval at evaluate (:311:30), <anonymous>:7:27)\n    at next (eval at evaluate (:311:30), <anonymous>:29:33)\n    at eval (eval at evaluate (:311:30), <anonymous>:42:13)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+  "created_at": "2026-10-11T17:11:26.187Z"
+}

@@ -1,0 +1,716 @@
+{
+  "url": "http://127.0.0.1:8773/moonstone.html",
+  "scope": "Naturlig WASM-navigasjon til inventar, nettverksport paa bg/94e65527.png, pikselproever av begge soeyler og Original-retur. Ingen emulert minneskriving.",
+  "checks": [
+    "inventory_background_request_is_held",
+    "inventory_HD_not_loaded_while_held",
+    "natural_inventory_source_hash",
+    "pending_uses_original_background",
+    "Original_left_column_pixels_present",
+    "pending_left_column_pixels_present",
+    "Original_right_column_pixels_present",
+    "pending_right_column_pixels_present",
+    "Original_returns_exactly_during_pending",
+    "loaded_uses_HD_background",
+    "loaded_HD_differs_from_pending",
+    "loaded_left_column_pixels_present",
+    "loaded_right_column_pixels_present",
+    "Original_returns_exactly_after_loading",
+    "HD_returns_exactly_after_Original",
+    "display_changes_preserve_emulated_state",
+    "no_browser_errors"
+  ],
+  "captures": [
+    {
+      "name": "original-before",
+      "state": 1697588080,
+      "hash": "94e65527",
+      "control": {
+        "godkjent": 0,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "bakgrunn": "original"
+      },
+      "standard": {
+        "aktiv": true,
+        "klar": true,
+        "laster": 1,
+        "feil": null,
+        "bilder": 322,
+        "bakgrunner": [
+          "46963198",
+          "55bb9767",
+          "2c1e0fa5"
+        ],
+        "tilgjengelige": 398
+      },
+      "sha256": "8d765b2bf568d2b8e2d97d66ad1fbddee23fa39194c14381143941d854b8b4ab",
+      "pixels": {
+        "width": 960,
+        "height": 600,
+        "regions": {
+          "left": {
+            "rect": [
+              228,
+              315,
+              54,
+              240
+            ],
+            "pixels": 12960,
+            "mean": 109.29976851851816,
+            "grayBright": 9819,
+            "grayBrightFraction": 0.7576388888888889,
+            "samples": [
+              [
+                85,
+                85,
+                85,
+                255
+              ],
+              [
+                136,
+                136,
+                136,
+                255
+              ],
+              [
+                204,
+                204,
+                204,
+                255
+              ]
+            ]
+          },
+          "right": {
+            "rect": [
+              672,
+              315,
+              54,
+              240
+            ],
+            "pixels": 12960,
+            "mean": 109.29976851851816,
+            "grayBright": 9819,
+            "grayBrightFraction": 0.7576388888888889,
+            "samples": [
+              [
+                85,
+                85,
+                85,
+                255
+              ],
+              [
+                136,
+                136,
+                136,
+                255
+              ],
+              [
+                204,
+                204,
+                204,
+                255
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "hd-pending",
+      "state": 1697588080,
+      "hash": "94e65527",
+      "control": {
+        "godkjent": 23,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 29,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 23,
+        "ikonAvvist": 0,
+        "markorGodkjent": 1,
+        "bakgrunn": "original"
+      },
+      "standard": {
+        "aktiv": true,
+        "klar": true,
+        "laster": 1,
+        "feil": null,
+        "bilder": 322,
+        "bakgrunner": [
+          "46963198",
+          "55bb9767",
+          "2c1e0fa5"
+        ],
+        "tilgjengelige": 398
+      },
+      "sha256": "14284b008d1ca43e9cd69e721fc62a66a9df33430364d47ee6f18bc1d868b629",
+      "pixels": {
+        "width": 960,
+        "height": 600,
+        "regions": {
+          "left": {
+            "rect": [
+              228,
+              315,
+              54,
+              240
+            ],
+            "pixels": 12960,
+            "mean": 109.29976851851816,
+            "grayBright": 9819,
+            "grayBrightFraction": 0.7576388888888889,
+            "samples": [
+              [
+                85,
+                85,
+                85,
+                255
+              ],
+              [
+                136,
+                136,
+                136,
+                255
+              ],
+              [
+                204,
+                204,
+                204,
+                255
+              ]
+            ]
+          },
+          "right": {
+            "rect": [
+              672,
+              315,
+              54,
+              240
+            ],
+            "pixels": 12960,
+            "mean": 109.29976851851816,
+            "grayBright": 9819,
+            "grayBrightFraction": 0.7576388888888889,
+            "samples": [
+              [
+                85,
+                85,
+                85,
+                255
+              ],
+              [
+                136,
+                136,
+                136,
+                255
+              ],
+              [
+                204,
+                204,
+                204,
+                255
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "original-while-pending",
+      "state": 1697588080,
+      "hash": "94e65527",
+      "control": {
+        "godkjent": 0,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "bakgrunn": "original"
+      },
+      "standard": {
+        "aktiv": true,
+        "klar": true,
+        "laster": 1,
+        "feil": null,
+        "bilder": 322,
+        "bakgrunner": [
+          "46963198",
+          "55bb9767",
+          "2c1e0fa5"
+        ],
+        "tilgjengelige": 398
+      },
+      "sha256": "8d765b2bf568d2b8e2d97d66ad1fbddee23fa39194c14381143941d854b8b4ab",
+      "pixels": {
+        "width": 960,
+        "height": 600,
+        "regions": {
+          "left": {
+            "rect": [
+              228,
+              315,
+              54,
+              240
+            ],
+            "pixels": 12960,
+            "mean": 109.29976851851816,
+            "grayBright": 9819,
+            "grayBrightFraction": 0.7576388888888889,
+            "samples": [
+              [
+                85,
+                85,
+                85,
+                255
+              ],
+              [
+                136,
+                136,
+                136,
+                255
+              ],
+              [
+                204,
+                204,
+                204,
+                255
+              ]
+            ]
+          },
+          "right": {
+            "rect": [
+              672,
+              315,
+              54,
+              240
+            ],
+            "pixels": 12960,
+            "mean": 109.29976851851816,
+            "grayBright": 9819,
+            "grayBrightFraction": 0.7576388888888889,
+            "samples": [
+              [
+                85,
+                85,
+                85,
+                255
+              ],
+              [
+                136,
+                136,
+                136,
+                255
+              ],
+              [
+                204,
+                204,
+                204,
+                255
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "hd-loaded",
+      "state": 1697588080,
+      "hash": "94e65527",
+      "control": {
+        "godkjent": 23,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 29,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 23,
+        "ikonAvvist": 0,
+        "markorGodkjent": 1,
+        "bakgrunn": "hd"
+      },
+      "standard": {
+        "aktiv": true,
+        "klar": true,
+        "laster": 0,
+        "feil": null,
+        "bilder": 323,
+        "bakgrunner": [
+          "46963198",
+          "55bb9767",
+          "2c1e0fa5",
+          "94e65527"
+        ],
+        "tilgjengelige": 398
+      },
+      "sha256": "8bb9809387eb0c90467230cc44b7fd4b34363e40b5aae03294aee5ce122a2257",
+      "pixels": {
+        "width": 960,
+        "height": 600,
+        "regions": {
+          "left": {
+            "rect": [
+              228,
+              315,
+              54,
+              240
+            ],
+            "pixels": 12960,
+            "mean": 113.32764917695428,
+            "grayBright": 9939,
+            "grayBrightFraction": 0.7668981481481482,
+            "samples": [
+              [
+                121,
+                121,
+                121,
+                255
+              ],
+              [
+                169,
+                169,
+                171,
+                255
+              ],
+              [
+                177,
+                173,
+                169,
+                255
+              ]
+            ]
+          },
+          "right": {
+            "rect": [
+              672,
+              315,
+              54,
+              240
+            ],
+            "pixels": 12960,
+            "mean": 118.60048868312798,
+            "grayBright": 10218,
+            "grayBrightFraction": 0.788425925925926,
+            "samples": [
+              [
+                85,
+                86,
+                88,
+                255
+              ],
+              [
+                132,
+                134,
+                136,
+                255
+              ],
+              [
+                139,
+                130,
+                123,
+                255
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "original-after",
+      "state": 1697588080,
+      "hash": "94e65527",
+      "control": {
+        "godkjent": 0,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "bakgrunn": "original"
+      },
+      "standard": {
+        "aktiv": true,
+        "klar": true,
+        "laster": 0,
+        "feil": null,
+        "bilder": 323,
+        "bakgrunner": [
+          "46963198",
+          "55bb9767",
+          "2c1e0fa5",
+          "94e65527"
+        ],
+        "tilgjengelige": 398
+      },
+      "sha256": "8d765b2bf568d2b8e2d97d66ad1fbddee23fa39194c14381143941d854b8b4ab",
+      "pixels": {
+        "width": 960,
+        "height": 600,
+        "regions": {
+          "left": {
+            "rect": [
+              228,
+              315,
+              54,
+              240
+            ],
+            "pixels": 12960,
+            "mean": 109.29976851851816,
+            "grayBright": 9819,
+            "grayBrightFraction": 0.7576388888888889,
+            "samples": [
+              [
+                85,
+                85,
+                85,
+                255
+              ],
+              [
+                136,
+                136,
+                136,
+                255
+              ],
+              [
+                204,
+                204,
+                204,
+                255
+              ]
+            ]
+          },
+          "right": {
+            "rect": [
+              672,
+              315,
+              54,
+              240
+            ],
+            "pixels": 12960,
+            "mean": 109.29976851851816,
+            "grayBright": 9819,
+            "grayBrightFraction": 0.7576388888888889,
+            "samples": [
+              [
+                85,
+                85,
+                85,
+                255
+              ],
+              [
+                136,
+                136,
+                136,
+                255
+              ],
+              [
+                204,
+                204,
+                204,
+                255
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "hd-restored",
+      "state": 1697588080,
+      "hash": "94e65527",
+      "control": {
+        "godkjent": 23,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 29,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 23,
+        "ikonAvvist": 0,
+        "markorGodkjent": 1,
+        "bakgrunn": "hd"
+      },
+      "standard": {
+        "aktiv": true,
+        "klar": true,
+        "laster": 0,
+        "feil": null,
+        "bilder": 323,
+        "bakgrunner": [
+          "46963198",
+          "55bb9767",
+          "2c1e0fa5",
+          "94e65527"
+        ],
+        "tilgjengelige": 398
+      },
+      "sha256": "8bb9809387eb0c90467230cc44b7fd4b34363e40b5aae03294aee5ce122a2257",
+      "pixels": {
+        "width": 960,
+        "height": 600,
+        "regions": {
+          "left": {
+            "rect": [
+              228,
+              315,
+              54,
+              240
+            ],
+            "pixels": 12960,
+            "mean": 113.32764917695428,
+            "grayBright": 9939,
+            "grayBrightFraction": 0.7668981481481482,
+            "samples": [
+              [
+                121,
+                121,
+                121,
+                255
+              ],
+              [
+                169,
+                169,
+                171,
+                255
+              ],
+              [
+                177,
+                173,
+                169,
+                255
+              ]
+            ]
+          },
+          "right": {
+            "rect": [
+              672,
+              315,
+              54,
+              240
+            ],
+            "pixels": 12960,
+            "mean": 118.60048868312798,
+            "grayBright": 10218,
+            "grayBrightFraction": 0.788425925925926,
+            "samples": [
+              [
+                85,
+                86,
+                88,
+                255
+              ],
+              [
+                132,
+                134,
+                136,
+                255
+              ],
+              [
+                139,
+                130,
+                123,
+                255
+              ]
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "manifest_sha256": "67a2ee3816498ec6a0a5c33b06b02c61d41d3b3e62163c2432d9bb56af0b824a",
+  "html_sha256": "96707525d44b340679e4ca716aca366f96d47aafa99a853f3846ba2cf0334e3c",
+  "status": "passed",
+  "created_at": "2026-10-11T17:10:51.844Z",
+  "disk_manifest_unchanged": true,
+  "disk_html_unchanged": true
+}

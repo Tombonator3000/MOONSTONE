@@ -176,6 +176,8 @@ høyden (ca. 59 i stedet for 54 linjer), uten å strekkes. En ny tegning i 5,65:
 
 ### Tekst i HD
 
+Oppfølging11.oktober bruker144 originale CEL-former ved8x:142 glyfer og bold.f074/075-opphavsrettsfeltene. `tools/hd_trofast_font_bygg.py` og `.cjs` bygger kildekontrakter og PNG; `hd_trofast_font_aktiver.py` bevarer logo073. Den eldre erstatningsfontbyggeren sperres mot å overskrive dette. Se `art/hd-faithful-text-2026-10-11/` for original-/kandidatsammenligning og kontroller.
+
 Bokstavene tegnes også av `tegn_figur`, som figurer i fontfilene `bold.f` (den store
 fonten; bilde 73 er hele MOONSTONE-logoen) og `Small.font` (den lille, på
 statusskjermene). HD-bilder for dem, f.eks. `bold.f/015.png`, gir derfor tekst i HD.
@@ -276,6 +278,8 @@ Nettspill: listen lages lokalt hos hver spiller (alle kjører samme maskin), så
 HD-pakken kan være forskjellig fra spiller til spiller.
 
 ## Standardgrafikk i nettutgaven
+
+Gjeldende pakke har398 PNG-ruter og404 manifestfiler, inkludert79 bakgrunner,124 ikonkontrakter og144 originale fontformer. Se [siste oppfølging](../art/hd-ui-backgrounds-2026-10-11/README.md); opptellingene i eldre avsnitt nedenfor er historiske. Egen mappeimport kan bruke utgivelsens kildevaliderte PIV-scener selv om standardlastingen er stoppet. Manglende egne overlegg beholder originalgrafikken. Logoens utsnitt valideres mot faktisk PNG-størrelse, og egen logo uten tekstmetadata får proporsjonal fullrammevisning.
 
 Nettutgaven laster standardgrafikken automatisk. Pakken har 320 PNG-ruter: 68 bakgrunner, 142 fontglyfer, HD-logo, 20 faste tekstfelt, seks kartlandemerker, fem blå stå-/gangposer, fire riddervalg, menypilen, fem månefaser og ikonene (se nederst). Bakgrunnene omfatter de 24 hulebakgrunnene (fol, gll, swl og wal 1-6), healeren, Mythrid og druidene. Kartet, Waterdeep, Highwood, kroen og fire introscener (steinsirkelen, alteret, portalen og steinringen sett ovenfra i bg3) er koblet til kildevaliderte PIV-lag, til sammen åtte scener. Bakgrunnen 045a1ac5 er en helt tom skjerm og får aldri HD (vakt i `web/src/hd.js` og `web/pakk.py`). Se [leveransen med bilder og kontroller](../art/hd-backgrounds-2026-10-11/README.md). Andre figurer, scener og animasjoner bruker originalgrafikk til deres nye deler er rettet og kontrollert.
 
