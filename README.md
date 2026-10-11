@@ -378,6 +378,8 @@ WHDLoad-slaven er laget av Wepl.
 
 ## Fotografisk HD-grafikk
 
-[Nettutgaven](https://tombonator3000.github.io/MOONSTONE/) laster fotografisk standardgrafikk automatisk: 33 bakgrunner, blå stå-/gangbevegelse, riddervalg, menypil og månefaser. Bytt mellom HD og original i sidemenyen. Øvrige animasjoner har fortsatt originalgrafikk.
+[Nettutgaven](https://tombonator3000.github.io/MOONSTONE/) laster fotografisk standardgrafikk automatisk: 40 bakgrunner, blå stå-/gangbevegelse, riddervalg, menypil og månefaser. Bytt mellom HD og original i sidemenyen. Øvrige animasjoner har fortsatt originalgrafikk.
 
 Råbilder, prompter, originalreferanser og dokumenterte rettingsbehov er bevart i [HD-arkivet](art/photoreal/README.md). Se [HD-dokumentasjonen](docs/hd-grafikk.md) for pakkeformat, lokale bygg og egne bilder.
+
+Nye HD-bakgrunner for verdenskartet, Waterdeep, Highwood og kroen er lagt inn sammen med HD-logo, stor/liten konturfont og faste menytekster. Tre eksisterende introbakgrunner er også aktivert. Alt styres av Grafikk > HD / Original. Se [bilder, prompter, lisenser og kontrollstatus](art/hd-backgrounds-2026-10-11/README.md).

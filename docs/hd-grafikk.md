@@ -173,7 +173,7 @@ HD-pakken kan være forskjellig fra spiller til spiller.
 
 ## Standardgrafikk i nettutgaven
 
-Nettutgaven laster nå standardgrafikken automatisk. Den inneholder 48 bilder: 33 bakgrunner, fem blå stå-/gangposer, fire riddervalg, menypilen og fem månefaser. Andre figurer og animasjoner bruker originalgrafikk til deres nye deler er rettet og kontrollert.
+Nettutgaven laster standardgrafikken automatisk. Pakken har 224 PNG-ruter: 40 bakgrunner, 142 fontglyfer, HD-logo, 20 faste tekstfelt, seks kartlandemerker, fem blå stå-/gangposer, fire riddervalg, menypilen og fem månefaser. Kartet, Waterdeep, Highwood, kroen og tre introscener er koblet til kildevaliderte PIV-lag. Se [leveransen med bilder og kontroller](../art/hd-backgrounds-2026-10-11/README.md). Andre figurer, scener og animasjoner bruker originalgrafikk til deres nye deler er rettet og kontrollert.
 
 Velg **Grafikk → Original** i sidemenyen for å sammenligne. Valget lagres. **Standardgrafikk** henter standardpakken igjen etter at egne filer er valgt eller HD er fjernet. Egne HD-mapper støttes fortsatt; de stopper automatisk innlasting slik at brukerens bilder får overta.
 

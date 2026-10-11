@@ -104,7 +104,7 @@ const StandardHd = (() => {
                 if (!aktiv || signal.aborted) return;
                 const n = await V.lastHdPakke(files);
                 const poser = V.hdPoseInfo();
-                if (n !== base.length - 1 || poser.antall !== 5 || poser.ugyldig || poser.feil.length)
+                if (n !== base.filter(f => f.path.endsWith('.png')).length || poser.antall !== 5 || poser.ugyldig || poser.feil.length)
                     throw new Error('Ufullstendig standardpakke');
                 klar = true;
                 oppdater(V.lagNaa()?.hash);
@@ -123,5 +123,5 @@ const StandardHd = (() => {
         cache.clear(); avvist.clear();
     }
 
-    return { start, stopp, oppdater, info };
+    return { start, stopp, oppdater, info, scener: () => manifest.scenes || [] };
 })();

@@ -114,6 +114,8 @@
     /* ---------------------------------------------------------------- oppstart */
     async function startKjerne(somGjest) {
         await Kjerne.last();
+        SceneHd.nullstill();
+        Visning.nullstillScene();
         Kjerne.menyPaa(true);               /* "Online Game" i spillets tittelmeny */
         if (somGjest) {
             Kjerne.startSomGjest();
@@ -1419,7 +1421,9 @@
             visHint();
             /* bare naar det er noe nytt aa vise (se Visning.tegn); lagene bare naar de trengs */
             if (nyttBilde || Visning.maaTegnes()) {
-                Visning.tegn(Kjerne.rammebuffer(), Kjerne.vindu(), Visning.trengerLag() ? Kjerne.lag() : null);
+                const fb = Kjerne.rammebuffer(), diw = Kjerne.vindu();
+                const lag = SceneHd.korriger(fb, diw, Visning.trengerLag() ? Kjerne.lag() : null);
+                Visning.tegn(fb, diw, lag);
                 StandardHd.oppdater(Visning.lagNaa()?.hash);
             }
             nyttBilde = false;
@@ -1788,7 +1792,7 @@
     const rom = new URLSearchParams(location.search).get('rom');
     if (rom && /^[A-Za-z0-9]{6}$/.test(rom)) invitasjon = rom.toUpperCase();
     Lager.hent('mod').then((m) => { if (m) { modFiler = m; visMod(); } }).finally(startSpillet);
-    window.moonDebug = { Kjerne, Nett, Visning, StandardHd, innst, statistikk, modus: () => modus, lyd: () => ({ ms: Lyd.bufferedMs(), hull: Lyd.hull() }),
+    window.moonDebug = { Kjerne, Nett, Visning, StandardHd, SceneHd, innst, statistikk, modus: () => modus, lyd: () => ({ ms: Lyd.bufferedMs(), hull: Lyd.hull() }),
         duell: () => (D ? { rolle: D.rolle, status: D.status, plass: D.plass, inn: D.inn, sistInn: D.sistInn } : null),
         duellStille: () => { if (D && D.conn) D.conn.send = () => {}; } };   /* test: forbindelsen henger */
 })();

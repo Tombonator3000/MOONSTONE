@@ -200,6 +200,8 @@ void     video_reg_change(unsigned reg, uint16_t v);  /* logg til fargeskift mid
 int      video_fetch_hpos(void);          /* CCK der bitplan-DMA starter paa denne linjen, -1 = ingen */
 void     video_frame_done(void);
 extern uint32_t video_fb[FB_W * FB_H];
+extern uint8_t video_idx[FB_W * FB_H];
+extern bool video_hd_valid;
 extern int      video_diw[4];             /* x0, y0, x1, y1 av spillets vindu i rammebufferet */
 
 /* lag.c: bildet delt i bakgrunn og forgrunn (HD-grafikk og effekter) */
@@ -207,6 +209,7 @@ extern int      video_diw[4];             /* x0, y0, x1, y1 av spillets vindu i 
 #define LAG_H 200
 extern bool     lag_paa, lag_gyldig;
 extern uint32_t lag_bak[LAG_H * LAG_W], lag_for[LAG_H * LAG_W];
+extern uint8_t lag_bak_idx[LAG_H * LAG_W];
 extern uint8_t  lag_for_idx[LAG_H * LAG_W];
 extern uint32_t lag_bak_hash, lag_bak_lys;
 extern int      lag_for_antall;
