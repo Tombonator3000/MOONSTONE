@@ -13,10 +13,11 @@ import sys
 import json
 import hashlib
 import shutil
+import base64
 from pathlib import Path
 
 HER = os.path.dirname(os.path.abspath(__file__))
-APP = ['core.js', 'audio.js', 'render.js', 'hd.js', 'input.js', 'store.js', 'net.js', 'rooms.js', 'grafikk.js', 'app.js']
+APP = ['core.js', 'audio.js', 'render.js', 'hd.js', 'scenes.js', 'input.js', 'store.js', 'net.js', 'rooms.js', 'grafikk.js', 'app.js']
 VENDOR = ['three.min.js', 'peerjs.min.js', 'mqtt.min.js']
 
 
@@ -37,6 +38,7 @@ def main():
     kjerne, ut = sys.argv[1], sys.argv[2]
     html = les(os.path.join(HER, 'src', 'index.html'))
     stil = les(os.path.join(HER, 'src', 'style.css'))
+    stil = stil.replace('%%HD_FONT%%', base64.b64encode((Path(HER) / 'hd/fonts/UncialAntiqua-Regular.ttf').read_bytes()).decode('ascii'))
     vendor = '\n;\n'.join(trygg(les(os.path.join(HER, 'vendor', f))) for f in VENDOR)
     hd = Path(HER) / 'hd'
     manifest = json.loads((hd / 'manifest.json').read_text())

@@ -24,6 +24,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('source', type=Path)
     args = parser.parse_args()
+    current = json.loads((ROOT / 'web/hd/manifest.json').read_text())
+    if current.get('scenes') or any(f['path'] == 'text.json' for f in current['files']):
+        parser.error('Historisk 48-bilders import kan ikke overskrive den utvidede HD-pakken. Bruk den bevarte produksjonsplanen som referanse.')
     old = args.source.resolve()
     art = ROOT / 'art/photoreal'
     art.mkdir(parents=True, exist_ok=True)

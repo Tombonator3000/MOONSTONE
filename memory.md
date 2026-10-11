@@ -366,6 +366,12 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 
 ## Standard-HD og råarkiv, 11. oktober 2026
 
+Utvidelsen i art/hd-backgrounds-2026-10-11/README.md avløser tallene i den opprinnelige 48-bilders leveransen nedenfor. Pakken har 224 PNG-ruter: 40 bakgrunner, 184 basisbilder. Bakgrunner for kart, Waterdeep, Highwood, kro og tre introscener gjenkjennes fra faktisk viste indekser og kilde-PIV med SHA-256. K.skanout() eksponerer kun analyseutdata: synlig indeks, hardware-sprite-flagg og per-linje-palett. HAM, dual-playfield, hires og over fem bitplan avvises. Dette endrer ikke emulert tilstand.
+
+web/src/scenes.js bygger et beskyttet forgrunnslag med originale markører og sceneavvik. Kartets seks statiske landemerker tegnes fra en transparent atlas under markørene. By/kro har egne bildeutsnitt og 20 faste konturtekstfelt; dynamiske avvik beskytter valgmarkeringer. text.json binder 142 fontglyfer og logoen til de originale fontbankene. Overlappende glyfer valideres som adskilte tekstfelt, og palettavvik $FE kontrolleres mot faktisk skanout. Small.font har mask 1; bold.f har mask 15. Ikke anta at preview-fargene eier tekstens spillpalett.
+
+tools/hd_tekst_bygg.py og hd_paneltekst_bygg.py gjenbygger tekst og oppdaterer manifest. tools/hd_integrer.py er en historisk 48-bilders import og nekter overskriving av den utvidede pakken. Alle råbilder, fonter, OFL-lisenser, prompter, revisjoner og verifikasjonsbilder er bevart. Full gjennomspilling, telefon-FPS og alle resterende figur-/PIV-ruter er ikke sluttgodkjent.
+
 web/hd/manifest.json binder48 bilder med SHA-256:33 bakgrunner,5 blå hele metodeposer,4 riddervalg,menypil og5 månefaser. web/src/hd.js henter basisbildene automatisk og bakgrunner ved behov, med høyst4 standardbakgrunner på GPU. Egne filer/Fjern venter på stopp av standardlasteren, så gamle forespørsler ikke skriver over brukervalg. Standardgrafikk-knappen gjenoppretter pakken. Ved file:// brukes originalgrafikk uten nettforespørsler; HTTP/Pages gir auto-HD.
 
 art/photoreal har807 urørte rå-PNG med revisjoner, prompter og616 selvstendige katalogoppføringer:506 valgte planutdata og110 nytegnede fliser.10 svarte konstante fliser er metadata. Katalogen bevarer faktisk palettreferanse eller tydelig preview-merking. Arkivruter er ikke automatisk aktive i spillet. Historisk produksjonsplan er bevart som production-plan-2026-10-03.json. De tidligere lokale spesialverktøyene og bildebevisene er bevart i moonstone-hd-arbeidsmappen.

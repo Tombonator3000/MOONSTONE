@@ -38,6 +38,13 @@ code { font-size: .85em; color: var(--gull); }
 .pt-tekst { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .pt:not(.pt-klar), .pt2:not(.pt-klar) { color: var(--gull); }
 
+/* Konturfonten er innebygd i HTML. Original-bryteren beholder pikselteksten. */
+@font-face { font-family: MoonstoneHD; src: url(data:font/ttf;base64,%%HD_FONT%%) format('truetype'); font-display: swap; }
+.hd-tekst .pt-klar { font-family: MoonstoneHD, Georgia, serif; font-size: calc(17 * var(--pe)); line-height: 1.35; }
+.hd-tekst .pt2.pt-klar { font-size: calc(30 * var(--pe)); }
+.hd-tekst .pt-klar canvas { display: none; }
+.hd-tekst .pt-klar .pt-tekst { position: static !important; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal; }
+
 /* ---------------------------------------------------------------- sidemenyen */
 .panel { max-width: 640px; margin: 0 auto; padding: 16px 16px 40px; }
 #meny { position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain; max-width: none; z-index: 4;

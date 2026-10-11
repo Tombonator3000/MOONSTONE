@@ -12,6 +12,9 @@
 #include <string.h>
 
 uint32_t video_fb[FB_W * FB_H];
+/* Analyseutdata. Bit 7 beskytter en synlig hardware-sprite mot HD-erstatning. */
+uint8_t video_idx[FB_W * FB_H];
+bool video_hd_valid;
 int      video_diw[4];
 uint32_t video_bpl_first[6];              /* bitplanpekerne paa forste linje i bildet (analyse, lag.c) */
 uint32_t video_line_pal[FB_H][32];        /* paletten (RGBA) ved starten av hver linje (lag.c) */
@@ -40,6 +43,8 @@ static uint8_t  spr_num[FB_W];            /* hvilket spritepar (0-3) */
 void video_reset(void)
 {
     memset(video_fb, 0, sizeof video_fb);
+    memset(video_idx, 0, sizeof video_idx);
+    video_hd_valid = false;
     n_changes = 0;
     fetch_done = false;
     video_diw[0] = (0x81 - FB_X0) * 2; video_diw[1] = 0x2c - FB_Y0;
@@ -152,9 +157,11 @@ void video_fetch(int vpos)
     fetch_bplcon1 = C.bplcon1;
     if (bpl_frame != M.frame) {
         bpl_frame = M.frame;
+        video_hd_valid = !hires && !(C.bplcon0 & 0x0c00) && planes <= 5;
         video_bpl_planes = planes;
         for (int p = 0; p < planes; p++) video_bpl_first[p] = C.bplpt[p];
     }
+    if (hires || (C.bplcon0 & 0x0c00) || planes > 5) video_hd_valid = false;
     for (int p = 0; p < planes; p++) {
         uint32_t pt = C.bplpt[p];
         for (int w = 0; w < words; w++) { fetch_data[p][w] = chip_r16(pt); pt += 2; }
@@ -272,6 +279,7 @@ void video_line_end(int vpos)
         int p1 = con2 & 7, p2 = (con2 >> 3) & 7;
         uint8_t v = pf[hx];
         uint8_t s = spr[hx];
+        uint8_t hd_index = v;
         uint32_t c;
         if (ham) {
             int ctl = (v >> 4) & 3, d = v & 15;
@@ -297,13 +305,14 @@ void video_line_end(int vpos)
         } else {
             int ks = s ? 4 * spr_num[hx] + 2 : 99;
             int kp = v ? 4 * p2 : 99;
-            if (ks < kp) c = pal[s];
+            if (ks < kp) { c = pal[s]; hd_index = (uint8_t)(0x80 | s); }
             else if (v >= 32 && ehb) {
                 uint16_t h = (col[v - 32] >> 1) & 0x777;
                 c = rgb12(h);
             } else c = pal[v & 31];
         }
         out[hx] = c;
+        video_idx[(size_t)y * FB_W + hx] = hd_index;
     }
     if (vdiw) {
         int vstart = C.diwstrt >> 8, vstop = C.diwstop >> 8;

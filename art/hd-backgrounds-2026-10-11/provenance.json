@@ -1,0 +1,59 @@
+{
+  "tool": "Innebygd ChatGPT-bildegenerator",
+  "model_version_confirmed": false,
+  "raw_files_unchanged": true,
+  "files": {
+    "tavern": {
+      "path": "art/hd-backgrounds-2026-10-11/tavern.png",
+      "bytes": 2704847,
+      "sha256": "a3941bfb2a57b7bcff3fdb9cf9785a0c9926bd8ea38c376847e5d424ef4e10f4"
+    },
+    "portal": {
+      "path": "art/hd-backgrounds-2026-10-11/portal.png",
+      "bytes": 2277663,
+      "sha256": "1c24cd110c0776811ff29402990647fd34e0e7653aee56443fa18c8fd89c67cd"
+    },
+    "world-map": {
+      "path": "art/hd-backgrounds-2026-10-11/world-map.png",
+      "bytes": 3751969,
+      "sha256": "9e787203f731b36c003d3cdef62012814eac4c296e79200b86d6219a677b3876"
+    },
+    "stone-circle": {
+      "path": "art/hd-backgrounds-2026-10-11/stone-circle.png",
+      "bytes": 1495229,
+      "sha256": "6b3ba1789a344702f265f739eebf37322e93b8e8bfe43cf3f835a30a7ce2047b"
+    },
+    "map-landmarks": {
+      "path": "art/hd-backgrounds-2026-10-11/map-landmarks.png",
+      "bytes": 2308375,
+      "sha256": "2e7747c7b95642827ed0a1891fcee06cda22d39519897585fc6ecfd18538faaf"
+    },
+    "waterdeep": {
+      "path": "art/hd-backgrounds-2026-10-11/waterdeep.png",
+      "bytes": 3083786,
+      "sha256": "022e33995b4cb30bd4f2140c8a20cf32bfbc61d342916ca7d1f8684a593e0660"
+    },
+    "highwood": {
+      "path": "art/hd-backgrounds-2026-10-11/highwood.png",
+      "bytes": 3230700,
+      "sha256": "6c093dbc22c17891ddc078cdf9cc3fda3cb41155df5fce13d53b9a82c399b8ea"
+    },
+    "world-map-v1": {
+      "path": "art/hd-backgrounds-2026-10-11/world-map-v1.png",
+      "bytes": 4116029,
+      "sha256": "31ea3ffacdc21c6f10c4f7b33d80d6891d8b9eb6550e2011850d05ab81fbdf72"
+    },
+    "altar": {
+      "path": "art/hd-backgrounds-2026-10-11/altar.png",
+      "bytes": 2535983,
+      "sha256": "906b6ac9bc3083db6d6350a88dd771e5c6642dc782eacdc9a86dce74965e0bae"
+    }
+  },
+  "glyph_builder": "tools/hd_tekst_bygg.py",
+  "panel_builder": "tools/hd_paneltekst_bygg.py",
+  "Pillow": "12.1.1",
+  "font_sources": [
+    "https://github.com/google/fonts/tree/main/ofl/uncialantiqua",
+    "https://github.com/google/fonts/tree/main/ofl/imfellenglish"
+  ]
+}
