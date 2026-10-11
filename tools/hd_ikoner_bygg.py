@@ -91,6 +91,9 @@ def make_entry(key, px, w, h, pal, source, **extras):
 
 
 def main():
+    active = json.loads((ROOT/'web/hd/icons.json').read_text())
+    if any(m.get('render_mode') == 'raster' for m in active['entries']):
+        raise SystemExit('Nytegnede rasterikoner er aktive. Konturbyggeren skal ikke overskrive dem.')
     game=mf.Spill(str(ROOT/'Moonstonecd32-AMIGA.zip'))
     palette=json.loads((ART/'source/inventory-palette.json').read_text())['palette']
     banks={};entries=[]

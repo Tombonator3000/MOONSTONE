@@ -1,6 +1,16 @@
+# Motivretting av HD-ikoner, 11. oktober 2026
+
+Tre rasterbilder erstatter naa konturene for Math sitt taarn (map-landmarks/001), dalens steinsirkel med elv/fossefall (002), og tre trilitter i skogklaring (003). Hele originalutsnitt brukes for dal og skog. Detaljert motivgrunnlag: docs/hd-ikonmotiver.md. Oevrige kandidater fra samme batch er trukket tilbake og er ikke godkjent kunst. Tidligere paastand om 75 ferdige HD-ikoner var feil; 72 ikonruter er fortsatt konturbehandlet originalgrafikk.
+
 # memory.md
 
 Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
+
+## Korrigert HD-status, 11. oktober 2026
+
+Brukeren presiserte at HD skal være en trofast nytegning med naturtro detaljer. De 75 ikonrutene fra 11. oktober er kun kildebasert konturbehandling, ikke ferdige HD-nytegninger. Tidligere leveringsomtale av ferdige ikoner var misvisende. 26 kartmarkørruter bruker fire ulike kildemønstre. Fontene bruker andre skrifttyper enn originalen. Fem blå helposer erstatter begrensede kildekombinasjoner, ikke separat tegning av alle figurruter.
+
+docs/hd-status-2026-10-11.md og den tilhørende CSV-listen gir kontrollert status for alle 2361 originalruter ved main f446d32. Av 2291 ikke-tomme figur-/fontruter har 189 direkte PNG og 11 bare blå posekontrakter; 2091 mangler aktiv kobling. Ingen monsterbanker har aktive HD-bilder. Pakken har 292 PNG-ruter / 298 filer, ikke 292 ferdig konverterte originalruter. Offentlige manifest- og ikonfiler samt alle 75 ikon-PNG-er er kontrollert på nytt mot hash og lengde. Ingen nye bilder eller ny runtimegjennomspilling i denne vurderingen.
 
 ## Spillet og filene
 - Moonstone: A Hard Days Knight, Mindscape 1991. Laget av Rob Anderson, musikk og lyd

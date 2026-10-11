@@ -8,6 +8,7 @@ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
  try{
   const p=await b.newPage(),data=JSON.parse(fs.readFileSync(root+'/web/hd/icons.json'));
   for(const m of data.entries){
+   if(m.render_mode==='raster')continue; // Bevar de nytegnede rastermasterne.
    const svg=fs.readFileSync(art+'/svg/'+m.key+'.svg','utf8');
    const result=await p.evaluate(async({svg,w,h})=>{const im=new Image();im.src='data:image/svg+xml;base64,'+btoa(svg);await im.decode();const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(im,0,0);return c.toDataURL('image/png').split(',')[1]},{svg,w:m.width*m.scale,h:m.height*m.scale});
    const target=root+'/web/hd/'+m.key+'.png';fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,Buffer.from(result,'base64'));

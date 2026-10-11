@@ -1,0 +1,1372 @@
+{
+  "utc": "2026-10-11T09:53:14.115913+00:00",
+  "scope": "Filkoblinger og kunstnerisk status. Ingen nye bilder eller runtimeendringer.",
+  "source_revision": "f446d320c753581bfe9154a7676824a12768fba1",
+  "catalog": {
+    "files": 74,
+    "rows": 2361,
+    "empty": 38
+  },
+  "source_counts": {
+    "piv_background_background": 8,
+    "piv_background_direct": 0,
+    "piv_background_nonempty": 32,
+    "piv_background_pose_only": 0,
+    "piv_background_unbound": 24,
+    "sprite_background": 0,
+    "sprite_direct": 189,
+    "sprite_empty": 38,
+    "sprite_nonempty": 2291,
+    "sprite_pose_only": 11,
+    "sprite_unbound": 2091
+  },
+  "package": {
+    "png_routes": 292,
+    "total_files": 298,
+    "local_hashes_verified": 298,
+    "routes_by_folder": {
+      "bg": 40,
+      "ki.cel": 40,
+      "poses": 5,
+      "sel.cel": 5,
+      "bold.f": 72,
+      "small.font": 71,
+      "scene-text": 20,
+      "map-icons": 26,
+      "map-landmarks": 6,
+      "po.cel": 1,
+      "scene-icons": 6
+    }
+  },
+  "contour_icons": {
+    "routes": 75,
+    "routes_by_folder": {
+      "ki.cel": 35,
+      "po.cel": 1,
+      "sel.cel": 1,
+      "scene-icons": 6,
+      "map-icons": 26,
+      "map-landmarks": 6
+    },
+    "map_marker_routes": 26,
+    "map_marker_source_patterns": 4,
+    "true_hd_redraw": false
+  },
+  "poses": {
+    "images": 5,
+    "unique_source_fragments": 11,
+    "separate_per_frame_redraw": false,
+    "color_scope": "blue practice palette"
+  },
+  "old_candidate_archive": {
+    "raw_png_files": 807,
+    "selected_entries": 616,
+    "statuses": {
+      "candidate_geometry_review": 121,
+      "needs_revision": 325,
+      "runtime_verified": 33,
+      "generated_pending_qa": 137
+    },
+    "warning": "Historiske statusetiketter og enabled_in_game-felt er ikke oppdatert mot dagens standardpakke."
+  },
+  "missing_runtime_backgrounds": [
+    "runtime_background:fol1.t",
+    "runtime_background:fol2.t",
+    "runtime_background:fol3.t",
+    "runtime_background:fol4.t",
+    "runtime_background:fol5.t",
+    "runtime_background:fol6.t",
+    "runtime_background:gll1.t",
+    "runtime_background:gll2.t",
+    "runtime_background:gll3.t",
+    "runtime_background:gll4.t",
+    "runtime_background:gll5.t",
+    "runtime_background:gll6.t",
+    "runtime_background:swl1.t",
+    "runtime_background:swl2.t",
+    "runtime_background:swl3.t",
+    "runtime_background:swl4.t",
+    "runtime_background:swl5.t",
+    "runtime_background:swl6.t",
+    "runtime_background:wal1.t",
+    "runtime_background:wal2.t",
+    "runtime_background:wal3.t",
+    "runtime_background:wal4.t",
+    "runtime_background:wal5.t",
+    "runtime_background:wal6.t"
+  ],
+  "live": {
+    "url": "https://tombonator3000.github.io/MOONSTONE/",
+    "manifest_identical": true,
+    "icons_manifest_identical": true,
+    "icon_pngs_verified": [
+      {
+        "path": "ki.cel/000.png",
+        "sha256": "caa2a70b60056e6d4bec17d7c835645a1d9227a4f14c3df0adb6ddb38bfc2293",
+        "bytes": 7203,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/001.png",
+        "sha256": "77d3a34d906a31a90508226e2357a57cf1fa27c27083de5b2cd0b0b74891c518",
+        "bytes": 7773,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/002.png",
+        "sha256": "cc76aeb71ecbcfb387d2ab5cb3beee79482f1cb8d33eb83d8757f57154049e8b",
+        "bytes": 7508,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/003.png",
+        "sha256": "3e92f5f8daa64a2709a36d9bc1bde3d9c2d34ebe314b6b3f218b233334fb720c",
+        "bytes": 3155,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/004.png",
+        "sha256": "3fa893609ccf1187f475d1aa1f474be7e47096d4cfd3844aaa3de3096608b0b9",
+        "bytes": 4282,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/005.png",
+        "sha256": "b95c18585b2d98bd79cb535b0449b22903a30e274a9248607d01a5cc4e6e014e",
+        "bytes": 4348,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/006.png",
+        "sha256": "2d802429c7d924ee243eb79e7cd19722bfd62e0d36a2aa408824d1d5516aae56",
+        "bytes": 5209,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/007.png",
+        "sha256": "02ee29462cca6c63e04601a76a4669e79aeb051e2b3952583926379c113a3a46",
+        "bytes": 3956,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/008.png",
+        "sha256": "9889a13f1e0caa9d8a1be23795efaf962915c2a818985b2744cedb5ee1983403",
+        "bytes": 4562,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/009.png",
+        "sha256": "2f875a76b471a4191e945a7913d6950a9f2ce98779a89cf836d75a5822f529b5",
+        "bytes": 7629,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/010.png",
+        "sha256": "27844d73e1f601062ce00943f5d6edeea51425476f4065d8354633832e0b496e",
+        "bytes": 10689,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/011.png",
+        "sha256": "1189c958b2a043847ee1f84dc073df53902e513f51fd1eb4c5ecb4bf8de5159e",
+        "bytes": 4829,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/012.png",
+        "sha256": "4595aaba4a96cb8e872f789cbbadce1e0f74b8cf46d2b8e0399c9eaebbc3002a",
+        "bytes": 5450,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/013.png",
+        "sha256": "941575a5fe7ab959ec0be19e05b2c62bd650603de32ff5dc3efe891a18b080b6",
+        "bytes": 5585,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/014.png",
+        "sha256": "ee23a3da651b45956268922d6ca9d3b6a84d3bd4ef2f800320f951400ef6eb91",
+        "bytes": 6332,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/015.png",
+        "sha256": "6847c0015428833f68f6fdc75dec4bbaab639645511cf7fecb33a252e1786e64",
+        "bytes": 5796,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/016.png",
+        "sha256": "deb24ef224e318c1a2351318234be18d1a9aeb619782346ee36563d2ea33d564",
+        "bytes": 1881,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/017.png",
+        "sha256": "4fd65dc462a9ced82c65ce026700f8bc40f77242015ff11edae37ca2b0bec9da",
+        "bytes": 6923,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/018.png",
+        "sha256": "bd0a3c012cb24b1327d391bd2547d1e59eaf1da44d9792796c3f3d955963b859",
+        "bytes": 5632,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/019.png",
+        "sha256": "f722049365dad1c1e52b0b3e8972dbda9e4d6f5494e9453fb5f3eb38fd912911",
+        "bytes": 4821,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/020.png",
+        "sha256": "eae7dc700524da92366999c755e3b6f0e26c658b3dbc20379caa2de5fbf9885a",
+        "bytes": 4871,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/021.png",
+        "sha256": "5605eb6c0e078df68d8e03ad4fe5a850b76af27a4b8aacee80adecaa6fab7e89",
+        "bytes": 1659,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/022.png",
+        "sha256": "9c6db7baef85fa28662dc60b7f10df7cd77ceb3fad735fd5a7cf87cb1e3e126f",
+        "bytes": 5448,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/023.png",
+        "sha256": "4a0068be4b9cefe3253393abfca2724e1896fd1dc6c417e960864b57bdd10eb1",
+        "bytes": 7202,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/024.png",
+        "sha256": "e7800989c75fded93cec8ab70717b023b25e0250fff93942e58af26286b2139a",
+        "bytes": 7899,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/025.png",
+        "sha256": "8ba4480b46336ba59c020468cdf0dc52c46c096fe99f8c4971c26e8d48c7873b",
+        "bytes": 5830,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/026.png",
+        "sha256": "30d0dea155273594a7d4b5714a8caacfcbfc3bdae41e254f1f0b294c2a163f3d",
+        "bytes": 38102,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/027.png",
+        "sha256": "2852cd5a97cbf2aaa95ebfe863e16297f609a04c7fe20f4e5950b1bdbb096815",
+        "bytes": 22216,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/028.png",
+        "sha256": "af0dfd14dbb6cf3aaa4677b54354e5b70f7605f25399517b864469af69186a66",
+        "bytes": 25521,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/029.png",
+        "sha256": "6687f0265904eca00cfa745f3a1c141369c701b23799185379cf18824b49aa61",
+        "bytes": 34273,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/030.png",
+        "sha256": "b37b0050f1d2842d9525ec0b018352592ab36f3be81438cd18c895a93588a4f5",
+        "bytes": 33034,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/031.png",
+        "sha256": "b8c37bc97a4db3bce04af1fd571b51b8f7cb862228fe9fc35724cf1c99cf8eea",
+        "bytes": 4789,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/032.png",
+        "sha256": "cb9609bab547cdbcefa106fa75ce502c3728b60c5be19385610ca1f475ee6fd9",
+        "bytes": 19313,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/033.png",
+        "sha256": "44d20dad99023cf7786450c922fc32072e6c7a90a42b829342985b629023f381",
+        "bytes": 23480,
+        "verified": true
+      },
+      {
+        "path": "ki.cel/037.png",
+        "sha256": "240ce03a36958699e13ae807a57f5cb0fee244d0611eb89d18f881d3c7bf4a58",
+        "bytes": 20502,
+        "verified": true
+      },
+      {
+        "path": "po.cel/000.png",
+        "sha256": "7b2c8a392917fead3a1e507664b277c5e311c1666b6248c455a0f019190c0ebc",
+        "bytes": 4747,
+        "verified": true
+      },
+      {
+        "path": "sel.cel/000.png",
+        "sha256": "41a313ce21f8ac81562b5cb6bdfb660732abc38ea57267fb6aad2e9aef7b619d",
+        "bytes": 6946,
+        "verified": true
+      },
+      {
+        "path": "scene-icons/000.png",
+        "sha256": "9c39393d2fa59962a660bd18b39173f006296fe7772170e889634484e37b3a2b",
+        "bytes": 9913,
+        "verified": true
+      },
+      {
+        "path": "scene-icons/001.png",
+        "sha256": "d0ce166cac96424b45cd6d4c3b9ad756dee02cd80d3a85addffa90cac1e5bdc2",
+        "bytes": 5651,
+        "verified": true
+      },
+      {
+        "path": "scene-icons/002.png",
+        "sha256": "04426d3fdffa3426b11d1acc5122267fe4afa70480ee361a3e84c3feeadab975",
+        "bytes": 5948,
+        "verified": true
+      },
+      {
+        "path": "scene-icons/003.png",
+        "sha256": "1e4294e8948300aeac1637026d9fa171570fe630bd112b1f41e8056224070760",
+        "bytes": 6186,
+        "verified": true
+      },
+      {
+        "path": "scene-icons/004.png",
+        "sha256": "8471f332197a4dff13dd9cbdc31448b7021b738b495185580cea4f11d2564ef8",
+        "bytes": 5771,
+        "verified": true
+      },
+      {
+        "path": "scene-icons/005.png",
+        "sha256": "13793c68f47b63a3bfd05f945ec5ff262025b287863ee91affdcbfe6d93da9f0",
+        "bytes": 6260,
+        "verified": true
+      },
+      {
+        "path": "map-icons/000.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/001.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/002.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/003.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/004.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/005.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/006.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/007.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/008.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/009.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/010.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/011.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/012.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/013.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/014.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/015.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/016.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/017.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/018.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/019.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/020.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/021.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/022.png",
+        "sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+        "bytes": 1326,
+        "verified": true
+      },
+      {
+        "path": "map-icons/023.png",
+        "sha256": "dea7d3e9b843c2f8af2e016702b2be3b0545bb7aeb0598f523cfbc20ac3f5206",
+        "bytes": 2875,
+        "verified": true
+      },
+      {
+        "path": "map-icons/024.png",
+        "sha256": "dc6b957a0b7fca92aa304247de6ab6d90e9728f31657223d7a4b3ae3a3634e9d",
+        "bytes": 2955,
+        "verified": true
+      },
+      {
+        "path": "map-icons/025.png",
+        "sha256": "c09dae3206d05030356cbd9ef198a2f586875dd50ae8b49d96530ceed4f9fc87",
+        "bytes": 3066,
+        "verified": true
+      },
+      {
+        "path": "map-landmarks/000.png",
+        "sha256": "fd9aaa20d8b71e2afd3b04326c0b694c2687e7973a10a3f713b164db02f127ea",
+        "bytes": 22102,
+        "verified": true
+      },
+      {
+        "path": "map-landmarks/001.png",
+        "sha256": "7cb37a2066519b4a67d9685f90e65bb724fe7d5d9e8ca65c46bfa9d6c979b18d",
+        "bytes": 3044,
+        "verified": true
+      },
+      {
+        "path": "map-landmarks/002.png",
+        "sha256": "76ad27e14b3a36c76eb8292ba66e3199eddbebbaa0f33ee0dc21883c32cd7894",
+        "bytes": 3409,
+        "verified": true
+      },
+      {
+        "path": "map-landmarks/003.png",
+        "sha256": "c696ec2c95f83683e6d85e1c4b1b5699002a4e53369ea260306bbf2876171f23",
+        "bytes": 4114,
+        "verified": true
+      },
+      {
+        "path": "map-landmarks/004.png",
+        "sha256": "bcc02c31c2f11b91d84a23b1f6343122f70c1097ca2e624b9a95884fe8d8fd86",
+        "bytes": 8366,
+        "verified": true
+      },
+      {
+        "path": "map-landmarks/005.png",
+        "sha256": "5a9c675ff7c124ebbb77c9c8f27a754901df6c834d2909d649155d69af8c5397",
+        "bytes": 21944,
+        "verified": true
+      }
+    ],
+    "limitation": "Nettfiler og hash kontrollert. Ingen ny nettlesergjennomspilling i denne vurderingen."
+  },
+  "files": [
+    {
+      "file": "au1.cel",
+      "kind": "sprite",
+      "group": "Kamp",
+      "total": 92,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 92
+    },
+    {
+      "file": "Balok1.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 70,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 70
+    },
+    {
+      "file": "Balok2.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 26,
+      "empty": 6,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 20
+    },
+    {
+      "file": "Balok3.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 60,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 60
+    },
+    {
+      "file": "be1.c",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 100,
+      "empty": 4,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 96
+    },
+    {
+      "file": "be2.c",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 34,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 34
+    },
+    {
+      "file": "bg1a.PIV",
+      "kind": "piv_background",
+      "group": "Kamp",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "bg1b.PIV",
+      "kind": "piv_background",
+      "group": "Kamp",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "bg1c.PIV",
+      "kind": "piv_background",
+      "group": "Kamp",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "bg2.PIV",
+      "kind": "piv_background",
+      "group": "Sted",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 1,
+      "unbound": 0
+    },
+    {
+      "file": "bg2a.PIV",
+      "kind": "piv_background",
+      "group": "Sted",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "bg3.PIV",
+      "kind": "piv_background",
+      "group": "Sted",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "bg4.PIV",
+      "kind": "piv_background",
+      "group": "Sted",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 1,
+      "unbound": 0
+    },
+    {
+      "file": "bg5.piv",
+      "kind": "piv_background",
+      "group": "Sted",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "bg5a.PIV",
+      "kind": "piv_background",
+      "group": "Sted",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 1,
+      "unbound": 0
+    },
+    {
+      "file": "bg7.PIV",
+      "kind": "piv_background",
+      "group": "Sted",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "bg8.PIV",
+      "kind": "piv_background",
+      "group": "Tittel",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "blo.cel",
+      "kind": "sprite",
+      "group": "Kamp",
+      "total": 41,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 41
+    },
+    {
+      "file": "bold.f",
+      "kind": "sprite",
+      "group": "Font",
+      "total": 76,
+      "empty": 2,
+      "direct": 72,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 2
+    },
+    {
+      "file": "ch.piv",
+      "kind": "piv_background",
+      "group": "Tittel",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 1,
+      "unbound": 0
+    },
+    {
+      "file": "co1.cel",
+      "kind": "sprite",
+      "group": "Kamp",
+      "total": 25,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 25
+    },
+    {
+      "file": "da1.cel",
+      "kind": "sprite",
+      "group": "Kamp",
+      "total": 52,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 52
+    },
+    {
+      "file": "Demon1.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 48,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 48
+    },
+    {
+      "file": "Demon2.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 99,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 99
+    },
+    {
+      "file": "Demon3.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 50,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 50
+    },
+    {
+      "file": "Demon4.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 27,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 27
+    },
+    {
+      "file": "dg1.cel",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 55,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 55
+    },
+    {
+      "file": "dice.cel",
+      "kind": "sprite",
+      "group": "Taverna",
+      "total": 23,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 23
+    },
+    {
+      "file": "dice.piv",
+      "kind": "piv_background",
+      "group": "Taverna",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "DRAGON1.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 22,
+      "empty": 6,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 16
+    },
+    {
+      "file": "DRAGON2.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 28,
+      "empty": 2,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 26
+    },
+    {
+      "file": "DRAGON5.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 44,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 44
+    },
+    {
+      "file": "dw1.cel",
+      "kind": "sprite",
+      "group": "Sted",
+      "total": 53,
+      "empty": 3,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 50
+    },
+    {
+      "file": "ha1.cel",
+      "kind": "sprite",
+      "group": "Sted",
+      "total": 22,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 22
+    },
+    {
+      "file": "HE1.ob",
+      "kind": "sprite",
+      "group": "Ridder",
+      "total": 60,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 60
+    },
+    {
+      "file": "HE2.ob",
+      "kind": "sprite",
+      "group": "Ridder",
+      "total": 24,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 24
+    },
+    {
+      "file": "HE3.ob",
+      "kind": "sprite",
+      "group": "Ridder",
+      "total": 64,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 64
+    },
+    {
+      "file": "hea.piv",
+      "kind": "piv_background",
+      "group": "By",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "hen1.c",
+      "kind": "sprite",
+      "group": "Sted",
+      "total": 55,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 55
+    },
+    {
+      "file": "hen1.p",
+      "kind": "piv_background",
+      "group": "Sted",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "HighWood.PIV",
+      "kind": "piv_background",
+      "group": "By",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 1,
+      "unbound": 0
+    },
+    {
+      "file": "ki.cel",
+      "kind": "sprite",
+      "group": "Inventar",
+      "total": 50,
+      "empty": 0,
+      "direct": 40,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 10
+    },
+    {
+      "file": "Klift1.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 55,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 55
+    },
+    {
+      "file": "KN1.ob",
+      "kind": "sprite",
+      "group": "Ridder",
+      "total": 60,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 10,
+      "background": 0,
+      "unbound": 50
+    },
+    {
+      "file": "KN2.ob",
+      "kind": "sprite",
+      "group": "Ridder",
+      "total": 24,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 24
+    },
+    {
+      "file": "KN3.ob",
+      "kind": "sprite",
+      "group": "Ridder",
+      "total": 64,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 64
+    },
+    {
+      "file": "KN4.ob",
+      "kind": "sprite",
+      "group": "Ridder",
+      "total": 26,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 1,
+      "background": 0,
+      "unbound": 25
+    },
+    {
+      "file": "KN5.ob",
+      "kind": "sprite",
+      "group": "Ridder",
+      "total": 65,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 65
+    },
+    {
+      "file": "li1.cel",
+      "kind": "sprite",
+      "group": "Magi",
+      "total": 30,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 30
+    },
+    {
+      "file": "message.piv",
+      "kind": "piv_background",
+      "group": "Melding",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "mi.c",
+      "kind": "sprite",
+      "group": "Inventar",
+      "total": 47,
+      "empty": 2,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 45
+    },
+    {
+      "file": "mindscape",
+      "kind": "piv_background",
+      "group": "Intro",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "Mudmen1.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 63,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 63
+    },
+    {
+      "file": "Mudmen2.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 66,
+      "empty": 7,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 59
+    },
+    {
+      "file": "mys.cel",
+      "kind": "sprite",
+      "group": "By",
+      "total": 8,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 8
+    },
+    {
+      "file": "mys.piv",
+      "kind": "piv_background",
+      "group": "By",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "ov1.cel",
+      "kind": "sprite",
+      "group": "Kamp",
+      "total": 4,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 4
+    },
+    {
+      "file": "po.cel",
+      "kind": "sprite",
+      "group": "Inventar",
+      "total": 1,
+      "empty": 0,
+      "direct": 1,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 0
+    },
+    {
+      "file": "RATMEN1.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 64,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 64
+    },
+    {
+      "file": "RATMEN2.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 64,
+      "empty": 1,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 63
+    },
+    {
+      "file": "sel.cel",
+      "kind": "sprite",
+      "group": "Meny",
+      "total": 6,
+      "empty": 0,
+      "direct": 5,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "Small.font",
+      "kind": "sprite",
+      "group": "Font",
+      "total": 72,
+      "empty": 1,
+      "direct": 71,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 0
+    },
+    {
+      "file": "tav.piv",
+      "kind": "piv_background",
+      "group": "Taverna",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 1,
+      "unbound": 0
+    },
+    {
+      "file": "test",
+      "kind": "piv_background",
+      "group": "Kart og kamp",
+      "total": 9,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 1,
+      "unbound": 8
+    },
+    {
+      "file": "TROGGAxe1.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 37,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 37
+    },
+    {
+      "file": "TROGGAxe2.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 80,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 80
+    },
+    {
+      "file": "TROGGSpear1.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 41,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 41
+    },
+    {
+      "file": "TROGGSpear2.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 67,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 67
+    },
+    {
+      "file": "TROLL1.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 48,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 48
+    },
+    {
+      "file": "TROLL2.CEL",
+      "kind": "sprite",
+      "group": "Monster",
+      "total": 16,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 16
+    },
+    {
+      "file": "WaterDeep.PIV",
+      "kind": "piv_background",
+      "group": "By",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 1,
+      "unbound": 0
+    },
+    {
+      "file": "Wi1.C",
+      "kind": "sprite",
+      "group": "Sted",
+      "total": 21,
+      "empty": 4,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 17
+    },
+    {
+      "file": "WI1.P",
+      "kind": "piv_background",
+      "group": "Sted",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    },
+    {
+      "file": "WI2.P",
+      "kind": "piv_background",
+      "group": "Sted",
+      "total": 1,
+      "empty": 0,
+      "direct": 0,
+      "pose_only": 0,
+      "background": 0,
+      "unbound": 1
+    }
+  ]
+}

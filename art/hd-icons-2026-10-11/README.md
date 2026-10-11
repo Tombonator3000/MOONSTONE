@@ -1,4 +1,6 @@
-# Trofaste HD-ikoner
+# Kildebaserte konturikoner, midlertidig grafikk
+
+**Statusrettelse:** Disse 75 rutene er konturbehandlet originalgrafikk, ikke ferdige HD-nytegninger. De oppfyller ikke brukerens krav om naturtro, trofast HD-grafikk. Se [faktisk HD-status og mangelliste](../../docs/hd-status-2026-10-11.md). Kontroller av kildefarger, plassering og integrasjon nedenfor bekrefter teknisk kildebevaring, ikke kunstnerisk ferdigstatus.
 
 [Åpne spillet](https://tombonator3000.github.io/MOONSTONE/) og velg **Grafikk > HD**. **Original** viser originalbildet. Dette settet erstatter den genererte menypilen og gir de små ikonene en kildefast konturbehandling. Bakgrunner, portretter og fotoposer fra de tidligere leveransene er beholdt.
 

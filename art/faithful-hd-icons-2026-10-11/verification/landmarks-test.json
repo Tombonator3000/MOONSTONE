@@ -1,0 +1,22 @@
+{
+  "url": "http://127.0.0.1:8769/moonstone.html",
+  "checks": [
+    "map-landmarks/001_overlay_present",
+    "map-landmarks/001_actually_drawn",
+    "map-landmarks/001_restored",
+    "map-landmarks/002_overlay_present",
+    "map-landmarks/002_actually_drawn",
+    "map-landmarks/002_restored",
+    "map-landmarks/003_overlay_present",
+    "map-landmarks/003_actually_drawn",
+    "map-landmarks/003_restored",
+    "unsupported_palette_keeps_full_original_region",
+    "palette_restore_exact",
+    "emulated_state_unchanged",
+    "no_page_errors"
+  ],
+  "errors": [],
+  "scope": "Naturlig karttur, faktisk teksturtegning, originalfallback og uendret spilltilstand.",
+  "status": "passed",
+  "created_at": "2026-10-11T11:11:03.287Z"
+}
