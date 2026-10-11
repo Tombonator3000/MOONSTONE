@@ -1,0 +1,331 @@
+{
+  "checks": [
+    {
+      "name": "all_49_package_files_match",
+      "passed": true
+    },
+    {
+      "name": "automatic_base_15_images",
+      "passed": true
+    },
+    {
+      "name": "starts_in_intro_without_landing",
+      "passed": true
+    },
+    {
+      "name": "title_original_restored",
+      "passed": true
+    },
+    {
+      "name": "title_photo_visible",
+      "passed": true
+    },
+    {
+      "name": "title_state_unchanged",
+      "passed": true
+    },
+    {
+      "name": "title_opaque",
+      "passed": true
+    },
+    {
+      "name": "practice_original_restored",
+      "passed": true
+    },
+    {
+      "name": "practice_photo_visible",
+      "passed": true
+    },
+    {
+      "name": "practice_state_unchanged",
+      "passed": true
+    },
+    {
+      "name": "practice_opaque",
+      "passed": true
+    },
+    {
+      "name": "standing_pose_active",
+      "passed": true
+    },
+    {
+      "name": "blue_walk_photos_active",
+      "passed": true
+    },
+    {
+      "name": "four_background_gpu_limit",
+      "passed": true
+    },
+    {
+      "name": "original_ui_switch",
+      "passed": true
+    },
+    {
+      "name": "original_preference_persists",
+      "passed": true
+    },
+    {
+      "name": "hd_switch_loads_standard",
+      "passed": true
+    },
+    {
+      "name": "remove_does_not_reload",
+      "passed": true
+    },
+    {
+      "name": "manual_package_takes_over",
+      "passed": true
+    },
+    {
+      "name": "restore_standard_button",
+      "passed": true
+    },
+    {
+      "name": "missing_keeps_original_game_running",
+      "passed": true
+    },
+    {
+      "name": "wrong-hash_keeps_original_game_running",
+      "passed": true
+    },
+    {
+      "name": "cancel_has_no_late_install",
+      "passed": true
+    },
+    {
+      "name": "file_open_works_with_original",
+      "passed": true
+    },
+    {
+      "name": "no_page_errors",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "scope": "Standardpakken i faktisk HTML med siste main-CI-kjerne. Ingen full gjennomspilling eller sluttgodkjenning av arkivruter.",
+  "title": [
+    {
+      "mode": "original",
+      "state": 2067376443,
+      "frame": 600,
+      "opaque": true,
+      "control": {
+        "godkjent": 0,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0
+      },
+      "path": "title-original.png",
+      "sha256": "68ddcb4556a061d4c9b56803553ccd04cd4282a562e25c3309dceadf6eca0d97"
+    },
+    {
+      "mode": "hd",
+      "state": 2067376443,
+      "frame": 600,
+      "opaque": true,
+      "control": {
+        "godkjent": 1,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0
+      },
+      "path": "title-hd.png",
+      "sha256": "5cf6cf467aad3087417984e98b633d725e50620bf994e74887a2d843f567af9b"
+    },
+    {
+      "mode": "restored",
+      "state": 2067376443,
+      "frame": 600,
+      "opaque": true,
+      "control": {
+        "godkjent": 0,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0
+      },
+      "path": "title-restored.png",
+      "sha256": "68ddcb4556a061d4c9b56803553ccd04cd4282a562e25c3309dceadf6eca0d97"
+    }
+  ],
+  "practice": [
+    {
+      "mode": "original",
+      "state": 2119549228,
+      "frame": 1200,
+      "opaque": true,
+      "control": {
+        "godkjent": 0,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0
+      },
+      "path": "practice-original.png",
+      "sha256": "d575f108c0bd9b17f75ba1b557a9f6531ec8b706288770fd798cf684f3298928"
+    },
+    {
+      "mode": "hd",
+      "state": 2119549228,
+      "frame": 1200,
+      "opaque": true,
+      "control": {
+        "godkjent": 1,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "poseGodkjent": 1,
+        "poseGruppe": 4,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0
+      },
+      "path": "practice-hd.png",
+      "sha256": "34de256ee08fa9987fd3c70ee798096db2aea721012ee15ce4c93434e094988c"
+    },
+    {
+      "mode": "restored",
+      "state": 2119549228,
+      "frame": 1200,
+      "opaque": true,
+      "control": {
+        "godkjent": 0,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0
+      },
+      "path": "practice-restored.png",
+      "sha256": "d575f108c0bd9b17f75ba1b557a9f6531ec8b706288770fd798cf684f3298928"
+    }
+  ],
+  "walk": {
+    "accepted": 71,
+    "frames": [
+      1201,
+      1202,
+      1203,
+      1204,
+      1205,
+      1206,
+      1207,
+      1208,
+      1209,
+      1210,
+      1211,
+      1212,
+      1213,
+      1214,
+      1215,
+      1216,
+      1217,
+      1218,
+      1219,
+      1220,
+      1221,
+      1222,
+      1223,
+      1224,
+      1225,
+      1226,
+      1227,
+      1228,
+      1229,
+      1230,
+      1231,
+      1232,
+      1233,
+      1234,
+      1235,
+      1236,
+      1237,
+      1238,
+      1239,
+      1240,
+      1241,
+      1242,
+      1243,
+      1244,
+      1245,
+      1246,
+      1247,
+      1248,
+      1249,
+      1250,
+      1251,
+      1252,
+      1253,
+      1254,
+      1255,
+      1256,
+      1257,
+      1258,
+      1259,
+      1260,
+      1261,
+      1262,
+      1263,
+      1264,
+      1265,
+      1266,
+      1267,
+      1268,
+      1269,
+      1270,
+      1271
+    ]
+  },
+  "cache": {
+    "aktiv": true,
+    "klar": true,
+    "laster": 0,
+    "feil": null,
+    "bilder": 19,
+    "bakgrunner": [
+      "2bbbb748",
+      "354c4fc5",
+      "3bf300f2",
+      "62d8d655"
+    ],
+    "tilgjengelige": 48
+  },
+  "status": "passed",
+  "created_at": "2026-10-11T07:31:20.790Z",
+  "html_sha256": "27cedf61849b53e0a8025458d078ae464bde17023ca63f7435ec585a43301587",
+  "renderer_sha256": "0e3a943c47cb11b9a05d18f49d45fa6bcae11f89b4ef7e3df1c7d46f69a1dd22",
+  "manifest_sha256": "eabd070ed4b9975e2f003031d317776e39c0dfb63639594f4d58a07985f7ada6"
+}

@@ -1,0 +1,2895 @@
+{
+  "schema": 2,
+  "bank": "bg1a.PIV",
+  "scope": "40 valgte råkandidater og 40 eksplisitte originalplassholdere. Ingen komplett bank, søm- eller runtimegodkjenning.",
+  "tiles": [
+    {
+      "id": "piv_tile:bg1a.PIV:000:000",
+      "local_tile": 0,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/000-v2.png",
+        "sha256": "d40c5771e9523ead5f383692cb33105b70c63444a97244564d20029ae3595496",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/000-v2.txt",
+        "prompt_sha256": "93139be08e833a7ad280c442936a77f63333dc557585fcd8faf2ae6bd20480bb",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-fb238dff-8d27-46e1-a0a0-fa7b34f86fae.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/sources/bg1a.PIV/000.png",
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/000.png",
+          "art/photoreal/candidates/piv-tiles/bg1a.PIV/000.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/sources/bg1a.PIV/000.png": "549649dbebc609bba2be859b0f58208d3b897647bb6590251583b1d0b0783604",
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/000.png": "8ed00148403ad1796bc597dae2115f263ce01b6e07542855e840bf670349fe3b",
+          "art/photoreal/candidates/piv-tiles/bg1a.PIV/000.png": "137c5d5680c9e65d82e5b26ba6f8587222fa04838f062cae37ad22c27eea6ab5"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/000.png",
+      "source_png_sha256": "549649dbebc609bba2be859b0f58208d3b897647bb6590251583b1d0b0783604",
+      "source_rectangle": [
+        0,
+        0,
+        32,
+        25
+      ],
+      "source_indices_sha256": "2bcc340d99636e03d3e04d30247ad1c64f7781db02b00a7c2ef6e3dc8092ce75",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/000.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:001",
+      "local_tile": 1,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/001.png",
+        "sha256": "c876d8159f08d99e0b524a67494ca9aa350add4f0b790a89d32d71d451bc8641",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/001.txt",
+        "prompt_sha256": "86597f4148225f76fc09aa2935eecd14d5898cbfe92c21989699c70088202c22",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-6ae184af-4b50-4647-b07b-ef2a9642f968.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/sources/bg1a.PIV/001.png",
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/001.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/sources/bg1a.PIV/001.png": "925dce9016cce8e3e3ae2ac3ffa9e7dd1380f1520b529537fb0e981050e7ba89",
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/001.png": "4bbc42404bcd694b09666602a43e8f5b0145c3f2724fdd5775fb98868fcda9dc"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/001.png",
+      "source_png_sha256": "925dce9016cce8e3e3ae2ac3ffa9e7dd1380f1520b529537fb0e981050e7ba89",
+      "source_rectangle": [
+        32,
+        0,
+        32,
+        25
+      ],
+      "source_indices_sha256": "6a5ab1f73c0e59aa94130e18fbb96c515eade67d1dcb85f13c10423b4b34c2c2",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/001.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:002",
+      "local_tile": 2,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/002.png",
+        "sha256": "8c8d8cb4a3f28ba94f4ae67421503446f8123babd06542925037c7771d6e5ec4",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/002.txt",
+        "prompt_sha256": "24f8979f8432a12dc00964ba8f53d3b6f2526b8f0e1b53c66c079b34b9862cbf",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-82032e4b-9a99-4378-9cfd-c07e9a74d937.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/sources/bg1a.PIV/002.png",
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/002.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/sources/bg1a.PIV/002.png": "55dd6477b3cb689310bdbfcbadd6f186edf543325085e651827511acc6053e5b",
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/002.png": "d7da8d92605fdbcf89bf87b5ad49bd2db070a5c9b8aa72e2e96e2805ddd61171"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/002.png",
+      "source_png_sha256": "55dd6477b3cb689310bdbfcbadd6f186edf543325085e651827511acc6053e5b",
+      "source_rectangle": [
+        64,
+        0,
+        32,
+        25
+      ],
+      "source_indices_sha256": "d2ce73b5d952cd758a11448640b6b16a37f92b57bad228714a7e583cc1cd9f69",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/002.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:003",
+      "local_tile": 3,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/003-v2.png",
+        "sha256": "53682ba005aff7ed659831e60a2777767c65c09dc2e257ff060b0399faada046",
+        "dimensions": [
+          1418,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/003-v2.txt",
+        "prompt_sha256": "77b9df5aac1d42a427709e3f3aef953e34c26b7755554e0770849aaa36962a7b",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-9ce7394a-2fba-4ae3-9546-4e690b65db52.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/003.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/003.png": "58a0f4727a19d7ef133bcde9902c6967fa0e078aa87c15613c98ce8951eb2b8f"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/003.png",
+      "source_png_sha256": "10fb957fafbe7c92d2b4addfdb7df6a30c1e6226882b60b40db84db9ed1afda1",
+      "source_rectangle": [
+        96,
+        0,
+        32,
+        25
+      ],
+      "source_indices_sha256": "da4894445b45ae51779e2f5526d8ef78d8d310e6a0f39503fcced7b48a234434",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/003.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:004",
+      "local_tile": 4,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/004-v2.png",
+        "sha256": "f5353760f266cae829e210894313de3a6d43416baccbe1afde5ffac5b4bc0b76",
+        "dimensions": [
+          1418,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/004-v2.txt",
+        "prompt_sha256": "47e8c89109a0b2db59acbc352b1bf5c3b0371d26dd55252a4aa68b7046834131",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-81cc387c-49af-4590-ba91-fc5009731d5c.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/004.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/004.png": "d464005d7439019e88952522448c7410c5739bd564230db8141c43762d42d25a"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/004.png",
+      "source_png_sha256": "37d3d1c912635df3559891db24a5dce6def896aa850643ba10ae47f7ba62f68a",
+      "source_rectangle": [
+        128,
+        0,
+        32,
+        25
+      ],
+      "source_indices_sha256": "a917249cb3a0e52976d6ec409f96ba2ae6f6fe0c88b8cf5f67c0245d1e973248",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/004.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:005",
+      "local_tile": 5,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/005-v2.png",
+        "sha256": "d5831b73bcc4caf72e2552ebd7d0b32c9a12ab164ae39562529e1e8fea2816ff",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/005-v2.txt",
+        "prompt_sha256": "974a88810b992b691ee4b5bb2b7d0597f6db86f8221012194c63c769948d59b8",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-f5bff9f4-3f62-4665-a87b-06a83a83eb2e.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/005.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/005.png": "0bd0f172d27596bfdfb22cb7d928dc254967647db57789e47c6503a321d6c16f"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/005.png",
+      "source_png_sha256": "4758150e2659a48c7155c5578ce59af4e33ed5e76acae590ffa3a49006487aed",
+      "source_rectangle": [
+        160,
+        0,
+        32,
+        25
+      ],
+      "source_indices_sha256": "d071eeabd4534a33734f675f9b6575d9f3abab319540d047c2d15491c13c7ead",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/005.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:006",
+      "local_tile": 6,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/006.png",
+        "sha256": "fbc82c27773e7fc7070a76b7f5101679d9ccefaa8410a33bf73088408bbf93aa",
+        "dimensions": [
+          1418,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/006.txt",
+        "prompt_sha256": "0da867e8105a8ffe14194e756750cd03bd0b5de7a16f646571d2ad4f8c5eeacb",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-c6a645ec-7db5-4b75-8faa-258e7670ea66.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/006.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/006.png": "67f207712fa549072d581942b648f8e33ea7e478bcc4db0de90ae3fb17b6242d"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/006.png",
+      "source_png_sha256": "f322c59dcab996d6f5263babd53c23f3a7b29678d15248fc5226bad9dc6c713f",
+      "source_rectangle": [
+        192,
+        0,
+        32,
+        25
+      ],
+      "source_indices_sha256": "c05e46700f6ab220448db85f7b5ada4cfb7463acfe8f3460518dc11aad658f06",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/006.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:007",
+      "local_tile": 7,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/007.png",
+        "sha256": "9d485f6d0b53825c43cf5d8f15a0f27919d9d8c9ba8a65997865473dd344024e",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/007.txt",
+        "prompt_sha256": "bb6dd87b42f52eb6f93fc9655e0cb777a039ca57d67dad03777311e0e512cd35",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-364f6095-8196-441c-aac8-ad05c40e3369.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/007.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/007.png": "c34d5b010945e4a86f73b44826a7db87c1712aae27eb120931d1b6c69cab4b39"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/007.png",
+      "source_png_sha256": "e6e89decd61b26d97d102d9aeca394e1e2af39bf47456ba819df4e0d0c762aee",
+      "source_rectangle": [
+        224,
+        0,
+        32,
+        25
+      ],
+      "source_indices_sha256": "ddd8cd84fde8909c21bd933fc202774321c928fadf65f7b7c2a05b647420b491",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/007.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:008",
+      "local_tile": 8,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/008.png",
+        "sha256": "d23cd062508c59134e55d5bb36832c50bf547faad67d648318c4b980bd689b2d",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/008.txt",
+        "prompt_sha256": "535d342e19a4bb230d82371a5fb29c8fa4f5807c26eb0f582094579a224cf66f",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-63917c74-8e50-4964-8f11-9a594caacdfe.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/008.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/008.png": "da01c798a10fa65e2c50237e94350b273a5f7873a53d75e1ac4f9744f7b378d4"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/008.png",
+      "source_png_sha256": "b3109a6b2409c58a757d7db43c9e9e1a490e94ce92d8b664562eb3b87e56acc3",
+      "source_rectangle": [
+        256,
+        0,
+        32,
+        25
+      ],
+      "source_indices_sha256": "30e866f81467881270fac0f699dc23c5e6b1574146ad4e6a7f9b3a4d608ac0fd",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/008.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:009",
+      "local_tile": 9,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/009.png",
+        "sha256": "626e40755dbaefbb50a6f434a32b1e95cdbee3a589f964875664766665c14b48",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/009.txt",
+        "prompt_sha256": "068b729943f4501de344f7847ba13fbb852952efa2f13d0167d0916d3ef2ef7e",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-772ece31-057d-4e58-b446-f55d21fc4681.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/009.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/009.png": "0da11f8e21f36cb729c57f6e69c3806e0a13ba13ea47d9e57f43184a28ea62ed"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/009.png",
+      "source_png_sha256": "804b6a486a07b88e90819a679c14ccadf2c6473a7503241df45d50fbf873d7ae",
+      "source_rectangle": [
+        288,
+        0,
+        32,
+        25
+      ],
+      "source_indices_sha256": "f2e0a837ba53d49a88f6b0cf15bd213f0efa5435905bda0ca2f9fc3a4f5c4b4d",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/009.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:010",
+      "local_tile": 10,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/010.png",
+        "sha256": "1d548348c2dfb74f57d5a231f2c4043e6d5d22d990c67ca163aa77e0df19c7eb",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/010.txt",
+        "prompt_sha256": "739b445dd5b0b47f085b68c64ba823631abc01a42b41be94bef81e1d1970caaa",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-15989411-42f7-4db0-8af5-293b94623f69.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/010.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/010.png": "e5e4376416f1feb4823b75d7a6ee4f7427ae7fa24d488acabc582b345bc02caf"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/010.png",
+      "source_png_sha256": "c1ed72af4d02f26139635b2f525aed6c84c0f29575f82504d6782c9c78ed8e91",
+      "source_rectangle": [
+        0,
+        25,
+        32,
+        25
+      ],
+      "source_indices_sha256": "a799657457c3d2c5dee9f8281523fdb861db1a8e7786fb4ddb799852b7f03e94",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/010.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:011",
+      "local_tile": 11,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/011.png",
+        "sha256": "2250952375cafeb89b3435aa031a3443f58c2bd0f17003e7e5d91dbbace5135f",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/011.txt",
+        "prompt_sha256": "07d141cf1f3106848684ca92860d6aa073ba004a76ba3c882bf0ea66507b6207",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-70a4aae0-ec00-4d55-b687-e1dce38fe610.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/011.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/011.png": "cd68aed17f7ac03801a7388fae32c448d187d0944413188b4dc7346031b9122e"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/011.png",
+      "source_png_sha256": "d41582dcb0a98f2bc5d8aee3a99bb968f4f4fb3009468a0d36c8bc6a55ad58e1",
+      "source_rectangle": [
+        32,
+        25,
+        32,
+        25
+      ],
+      "source_indices_sha256": "4033c19b44fe9f30e0478f85b509ac9b575ca5e07f3f0a67e9de0cdeffca85e1",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/011.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:012",
+      "local_tile": 12,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/012.png",
+        "sha256": "920a70ae7eb63b4c4449fe7cfd9adec0f6115ea97a56e797f08a168f820d6bff",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/012.txt",
+        "prompt_sha256": "8bf5100b825f908ed5ce7fe52bc58c27850c1a80853caecc6e4a429074864173",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-bcb8bc42-0f8e-4500-bd06-604257d5390b.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/012.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/012.png": "c124743ce9fdb8430ded9cb1ebb2bad1480c45655c5fd027c4bff102e87c556c"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/012.png",
+      "source_png_sha256": "9d9340f1bfb33515df277d2183739a9c77af0497de7d4e12009ec428820d18ef",
+      "source_rectangle": [
+        64,
+        25,
+        32,
+        25
+      ],
+      "source_indices_sha256": "c8df1508c8b996ea047961372980c5fb75536ecbc092dbad11ef1a251c1064b1",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/012.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:013",
+      "local_tile": 13,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/013.png",
+        "sha256": "5c1e6fa1360fc05e2ad0171f4a86d4061fa36d685fe38f2d67a17839ae030529",
+        "dimensions": [
+          1418,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/013.txt",
+        "prompt_sha256": "0b9ab5233907f571450f8b179a0ea402989fed1e8f5d7579c1bd4378e7294b8b",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-1604a7dc-dc86-4455-87ec-3904a64fbf7f.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/013.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/013.png": "647dc1d28799c25679c317bf9c0dea6a4d6ce1f9a6a7f646d8890d75b6f83645"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/013.png",
+      "source_png_sha256": "7edd2c40fdb7140d87169ea2dff00930b13390fd831bf451e697bde40f9631ed",
+      "source_rectangle": [
+        96,
+        25,
+        32,
+        25
+      ],
+      "source_indices_sha256": "dbdbf01930e49c3a841ca475992ccefbcd0da97a6009bcd4e3f558dbbcdcb149",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/013.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:014",
+      "local_tile": 14,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/014.png",
+        "sha256": "6ece4b5bb1b8d553b3ee790b4c8040340fcc1b56b2125b7cba5f572d22c0dbdf",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/014.txt",
+        "prompt_sha256": "5f6b263f2e60f8988c21dc9362a4069707ba3626d600c9126dd7923c50ef582f",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-b03843f9-f48c-4964-ae03-edd6eeacc5c9.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/014.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/014.png": "05f93ad905446a832b6964795f636a1781aa24ce5de5beb8f45d06510b087a2a"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/014.png",
+      "source_png_sha256": "7fb7f132c4be27322950aeb6a83cfa66c1bc8a89077ce577d202697d94077f94",
+      "source_rectangle": [
+        128,
+        25,
+        32,
+        25
+      ],
+      "source_indices_sha256": "615a53ee16ca427640964dede6b18e1bcf4b4de659e68de3aa280248556acb1e",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/014.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:015",
+      "local_tile": 15,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/015.png",
+        "sha256": "b17cd74c5796fac4c9debeda043362205d006ffcb91732f493e90bbd32f13eb6",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/015.txt",
+        "prompt_sha256": "e501424c5ec57131433be0fac14e8881d43e82158182b217db286dd069403be5",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-7afef4fc-d052-4862-979e-5c2f58736596.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/015.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/015.png": "5740d37b44f3d696a59bed1029771722604100bb4a4d2ce606d56a465b4e5bd4"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/015.png",
+      "source_png_sha256": "473116ca9828c38c0f97acf34e4f67e6a809a4bd43c4c9a17b381c81a693cb6e",
+      "source_rectangle": [
+        160,
+        25,
+        32,
+        25
+      ],
+      "source_indices_sha256": "61b2ab3482556986d73d42a95a0c55e27659f495a344051294c289af97dcc5a0",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/015.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:016",
+      "local_tile": 16,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/016.png",
+        "sha256": "50fc23c976068be771e328491d19e15dc2821d08dc8c240f4e0352a7c8115c37",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/016.txt",
+        "prompt_sha256": "82f01238f3598487701ece8c8f217230e53b3cdb8fd492ae5bbd9373a3fbce65",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-ab9464e9-a530-48c1-a5b4-26a12b0cd202.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/016.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/016.png": "55df82201a45dcd4a70cd2816de06107b038158a49551aae12b67dfa8744b2c6"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/016.png",
+      "source_png_sha256": "427ee4f0758b390efc5250810edc0349943199c428a6cc662f4c42002509633e",
+      "source_rectangle": [
+        192,
+        25,
+        32,
+        25
+      ],
+      "source_indices_sha256": "76e1b219a3ebb92f7fba1260e0eae89f45e69da572b742caec86623da7e83720",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/016.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:017",
+      "local_tile": 17,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/017.png",
+        "sha256": "75a9bf0c34d41e570ae10e3381e3ba7ae5679b2bfa553ffbd2eb66c33940fec9",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/017.txt",
+        "prompt_sha256": "e7a59186b04f45e405851bcee15af5abfec718041ec4d90a0beb83aff8a90ed3",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-7efa4504-69b5-4ae7-8a36-f6b4e3949de1.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/017.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/017.png": "5c68821acf443dd58e40239dce6ca51af1e6d91d752cc613717db02a759e8665"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/017.png",
+      "source_png_sha256": "296d25fdd47a0d3de05ce07931276bcef5cc031338ebf4adaa1f30604f3cc610",
+      "source_rectangle": [
+        224,
+        25,
+        32,
+        25
+      ],
+      "source_indices_sha256": "85bdcba71147f00b78d2f69a73e1a7271b7d718d5bedbd5e6fe4e30721fb304d",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/017.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:018",
+      "local_tile": 18,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/018.png",
+        "sha256": "0ebcfea37b0b4b22020f1c08f86e1cad5cb53e44e8e9a5102dd315ab615c78b0",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/018.txt",
+        "prompt_sha256": "5716096f211013eb621ac17a94b2520189aaca0d37b2649fe6a7d71787c2095e",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-9b3aa734-b03b-463e-a0a8-4909de82fe45.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/018.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/018.png": "32527fa7ab903376744df3fbf548e7051cf831a2292c17c4be8b42f0561eb03c"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/018.png",
+      "source_png_sha256": "ef5f73ce7471e042ca0f01b6cf1b18c32ec0ae070de4e083070f10c650f193a2",
+      "source_rectangle": [
+        256,
+        25,
+        32,
+        25
+      ],
+      "source_indices_sha256": "7d40124609716f69537d409f254348d74edde84fdd47dfbbce97c05006db1c5e",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/018.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:019",
+      "local_tile": 19,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/019.png",
+        "sha256": "e26e802a71ee7c573ffe46f1e786967406dec0562c2659f6c8a16c20bc3e6da0",
+        "dimensions": [
+          1418,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/019.txt",
+        "prompt_sha256": "2f04dd6a0a1d278930cc68612d18bcaa9074847f0903ac08c8ad85825eedf26f",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-c6feb3a5-cb71-400f-9211-095d5a238feb.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/019.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/019.png": "ded61829093853a06a5bbcbf83fe2ad82bb95e942ddc3f96a4c44ea4351d63b5"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/019.png",
+      "source_png_sha256": "d3deabf376312eb27785fb928d270092f3063d785d5c7ead2de7291ed29b6a5f",
+      "source_rectangle": [
+        288,
+        25,
+        32,
+        25
+      ],
+      "source_indices_sha256": "ac444da49d1abe576303da30601b22327a995806da0c952b2603df79cfef6cc9",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/019.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:020",
+      "local_tile": 20,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/020.png",
+        "sha256": "cbf8d2dcf120e2398b61f0e8fe349beeda1544736ec0284de1e8b864595c715c",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/020.txt",
+        "prompt_sha256": "e94b0941e11080d8f3680013785312b615f3350a8eba68aacc6230138f1ed0c4",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-4bddffa7-c6f5-4c68-a891-5cd861b7499b.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/020.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/020.png": "f9a3f4b3816e29c36ffd745d9a1d36048b1db5384423356add80e43da33a2cd9"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/020.png",
+      "source_png_sha256": "00a29f48cf958b2a4d2b3c2230b0e51d273e5506f98426ace9fdd0c67afbd9be",
+      "source_rectangle": [
+        0,
+        50,
+        32,
+        25
+      ],
+      "source_indices_sha256": "531ef177f3fb8c02569eab39a31c8c90e13aa2306c0fe032714b552f9931f251",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/020.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:021",
+      "local_tile": 21,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/021.png",
+        "sha256": "e03f7a4b10ee3a97111119177006fb4fb7b6b47741842b2c04e73c76b75c7741",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/021.txt",
+        "prompt_sha256": "5a8728584e4cde43a1d4d2eadb388e317566747c9e9a5bf381a409a9dea2025d",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-0a15dbc5-2417-4ac6-a8c1-023a10567cfe.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/021.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/021.png": "dc146641cc591a4acf04aff8a657e2e1420f2b8e3bc2fe06fa06ec6979e99edd"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/021.png",
+      "source_png_sha256": "0fee6e6d7cdfdaad2629553877663f7dc81eb86ab730dddfbde2572d860f800d",
+      "source_rectangle": [
+        32,
+        50,
+        32,
+        25
+      ],
+      "source_indices_sha256": "2ee9d273709e9ba7abb5b81fff46709459fd8d35da8f3dca2015e146e220a443",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/021.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:022",
+      "local_tile": 22,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/022.png",
+        "sha256": "621c82d1c49dbfd02b00b6c81385d4ebc723e599ca301686e8e419fad76649e4",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/022.txt",
+        "prompt_sha256": "04d3d119eb954e5ebcc763c462993e1db49f65bb1fca08e4999c7ac51f1d9946",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-e664c176-4dcf-49d4-8422-830d8e54e39d.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/022.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/022.png": "fea404ca610c63e894b8b69b6205017d6ccb75d88f9593812603f71e58c60d58"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/022.png",
+      "source_png_sha256": "95939f656d98a2a810e665370ae8c8dd3107a6f4cda3a4da2e6ce00eb91efc78",
+      "source_rectangle": [
+        64,
+        50,
+        32,
+        25
+      ],
+      "source_indices_sha256": "6f1a88224e6d23a2fd4896d97eb2b6051c9b77f0ff4a3fbd001ecc2280ccb6ba",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/022.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:023",
+      "local_tile": 23,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/023.png",
+        "sha256": "8f5ccd4d451e25cfed296b5165039604e8211dc66ea9a54dff153475c7306bd9",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/023.txt",
+        "prompt_sha256": "192180c39b370ee878a2ce6beb0c3ac4e7c6d4d5bca07c31a3bc10f78b1d8f96",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-4432dbb7-b8cc-4bc5-9830-73a6b4e27a6a.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/023.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/023.png": "ae2d397ab8ed36b32002eab24b8b3b11ea5555f79c8c2cb01e5faea82e085272"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/023.png",
+      "source_png_sha256": "d6783ae3f4bf5bbb0812a12c26162710a8ff08538d8a0efd784a4d78f4d63e3c",
+      "source_rectangle": [
+        96,
+        50,
+        32,
+        25
+      ],
+      "source_indices_sha256": "868f10a07ab8d71634fffc826fd396f427e7c2c36dcde85a39f0be5d23add13c",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/023.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:024",
+      "local_tile": 24,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/024.png",
+        "sha256": "901cd1bcbecc9218e8c6b129236cc2fd4716ce5dc7fe88ac8d760ae4140caed3",
+        "dimensions": [
+          1418,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/024.txt",
+        "prompt_sha256": "14888c5ace2b47f5c0f0d317c37ca4dcffa3635a43f08720a1759a19249b1c4e",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-e0a4fd98-5848-4840-bf6f-5790803a7222.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/024.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/024.png": "1fc6fb31c56cf1d6aee8cf55584b9ae228645d85addcab73a0ee64457d2e1855"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/024.png",
+      "source_png_sha256": "dc3ea3376933b94641718b677828ea001c329c37c216f6d7141d0ca9774f1eac",
+      "source_rectangle": [
+        128,
+        50,
+        32,
+        25
+      ],
+      "source_indices_sha256": "0eb21590d93ee2fc7e291f05c2edfdfaefe7dc2338a010c9071d33f37da4a27a",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/024.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:025",
+      "local_tile": 25,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/025.png",
+        "sha256": "689d6f655a7268266838a793f6eedacabea397b664b549e52ce3855dc638a79c",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/025.txt",
+        "prompt_sha256": "26d3ce3bd842b4b14d3ac70cf82a565d7f9f4523a6e7e7a88f67972674ea9c8a",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-49caba99-f908-40ef-bf09-a8cf00cc64f6.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/025.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/025.png": "3f3c107cf3c6fbc79efae8d2d480d92a63423226c6e3e1bb1da71e7a1727c9a3"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/025.png",
+      "source_png_sha256": "569895ccc46c8d20237977fd841ffca1d8988cd32b6fbf18656d0a4a0f175cdc",
+      "source_rectangle": [
+        160,
+        50,
+        32,
+        25
+      ],
+      "source_indices_sha256": "05a984f75141bf57c210af25db165377000646e52a5aa66341687ca380d4fed3",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/025.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:026",
+      "local_tile": 26,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/026.png",
+        "sha256": "564dee0b41fafc805beb9b9e6041d6b717f460e77218c8d845081b2f330f8312",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/026.txt",
+        "prompt_sha256": "636ea93e86d13c2e4a8895c452c08365e5aa51a0e04c55f4f6ce747f97309f3f",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-fd4109b3-a35b-43d7-8515-f9838953d428.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/026.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/026.png": "1cfb63373679ee89474d62c88a81daeedccb4e30c7f55a6d511552e794dafd22"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/026.png",
+      "source_png_sha256": "0b8e431418b273c3b7b5ef9762b4b87025442fd7ffde11cbfd8af03a9e91a5fa",
+      "source_rectangle": [
+        192,
+        50,
+        32,
+        25
+      ],
+      "source_indices_sha256": "f245dd36a85a51a09cd2296d721dd65694f2b2960107feea76f8c3692514b139",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/026.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:027",
+      "local_tile": 27,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/027.png",
+        "sha256": "efabdacbd264dd0765d75011b7f0512a8ac483590cc7ddb6dad4758f50042ce7",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/027.txt",
+        "prompt_sha256": "287fc8ee7bead20d52bc46a882f0939cafbe638a1e2fea15f6674d9a266b7dd8",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-51497760-1d4d-4ab2-9471-56e302cac572.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/027.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/027.png": "cd47c253a28edfcc988c3680e6aa7a0f93c15b36382972ea525b53451cb8f40c"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/027.png",
+      "source_png_sha256": "da2df30812994d921e14a5cbe43ccfb62dd5363dae2a959aa6ec1201a82d9a66",
+      "source_rectangle": [
+        224,
+        50,
+        32,
+        25
+      ],
+      "source_indices_sha256": "ad82d2c8c7cb0ae7e1d56db09f184e8cfbd0f41ca231b9c79f2bfd9746829689",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/027.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:028",
+      "local_tile": 28,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/028.png",
+        "sha256": "8c71319421317183e6d838e278e687d4b246218739f0d6b8254073ea0388404c",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/028.txt",
+        "prompt_sha256": "9677b70214c17a6cee8de2839bd364e763eb3d0f3f69c0833ecedf7617e182c5",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-c2e6e240-2679-4124-8267-e008597f84d2.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/028.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/028.png": "4e71a44d290e7e44fe06ca469f86645f58057fe74e8158a4aad7fe39ac6a7d1b"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/028.png",
+      "source_png_sha256": "1efc23d0f8eac4475ef72542dcba7a8d1836bb898e725363f0e2b8ed82e81a93",
+      "source_rectangle": [
+        256,
+        50,
+        32,
+        25
+      ],
+      "source_indices_sha256": "626115d8e47cb82d7cf5f6cdc6990c4226248aeeecdf984d556c9b158b81541e",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/028.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:029",
+      "local_tile": 29,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/029.png",
+        "sha256": "0095a82755507da9f208e498d54e7b5b6c400b0bad2d62f731a4782026be9ad5",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/029.txt",
+        "prompt_sha256": "1edfe8963246e5ff836c2ef65cb36c950fc793bd6193e50a10ebeefa3835cc09",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-ebd36a67-79ff-482b-b943-50322a3903ba.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/029.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/029.png": "c0884bc1264dbfcae200391c9f1d43321f869968facbf78ea6dfc751a72a2285"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/029.png",
+      "source_png_sha256": "6ec4789a59d9b6faad412eb86a9125775d7c73c3b756475e45664d0992fc328f",
+      "source_rectangle": [
+        288,
+        50,
+        32,
+        25
+      ],
+      "source_indices_sha256": "09314565237b097bfc6f3fb8796fbe6cd82fd35c3c90195e4ba0e0d10ac842e6",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/029.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:030",
+      "local_tile": 30,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/030.png",
+        "sha256": "d5bafd1a5a7ac001245c07c8ae0b4953bb08790a509aa9e08399cfc5b489b004",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/030.txt",
+        "prompt_sha256": "85929106dad46a663b82fec15e84b2db861e35fd7564e6d8f08c6db4ed0b6bc0",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-4e477259-9513-4562-a368-de2a423f9a87.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/030.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/030.png": "6022bcbdeb568c5a12ac8d549feb8685c0cfbb336402fba45ea30c4d794baa3c"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/030.png",
+      "source_png_sha256": "d0274cf080203aa49814f69594fc995b44cc598628aa3ccba554d608c11553c7",
+      "source_rectangle": [
+        0,
+        75,
+        32,
+        25
+      ],
+      "source_indices_sha256": "c1d0b58136c61395f1f5ce9af24ffd20241b47ff34d67ce0cfc366a1a1c70c06",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/030.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:031",
+      "local_tile": 31,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/031.png",
+        "sha256": "121ffb89104b5acbe1c184b6e791bb140f8020f7bec1186390c27eb2d1cd29f4",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/031.txt",
+        "prompt_sha256": "cd346cc20f9036bd2c47ec797b65ce0b6a1ba92a2d49fcd4f1b51473b83f0632",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-5b335033-1541-4622-ba9a-edf3d68ad663.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/031.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/031.png": "4a116f6c75d192ee50f2197d205eaef67667685d256d725e183e2cc97dbeacf5"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/031.png",
+      "source_png_sha256": "731ed5cdbbb8c2bc84a82ecf92606cc55ceb21957fe00482af02cdfef96c1095",
+      "source_rectangle": [
+        32,
+        75,
+        32,
+        25
+      ],
+      "source_indices_sha256": "9228eb0a37deec9fb530905b782387fd9c8f46b3cf47636047881e58a64d1c29",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/031.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:032",
+      "local_tile": 32,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/032.png",
+        "sha256": "760717db53578aa191e4dbe9e862a60d955ac012a48725f2e18cf420415080c4",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/032.txt",
+        "prompt_sha256": "afd6e91cae04734a057397aafd7f1ca6d884b2e7a08267cd243731ea628472d4",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-44a7aaf4-77c5-4c3f-a94e-1ac04ea07f37.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/032.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/032.png": "6a6bd05cf181d5fbe8d57dddf950eba07c316ade31d708c342f1c2687ae2445b"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/032.png",
+      "source_png_sha256": "25330a56182a98e33a1faac25a7c14e772b77f60da7dd21593310b413f363a7f",
+      "source_rectangle": [
+        64,
+        75,
+        32,
+        25
+      ],
+      "source_indices_sha256": "382d71d16469577043ed1b6c87c0cac39970e58a9ed1d7365962059b0af1d252",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/032.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:033",
+      "local_tile": 33,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/033.png",
+        "sha256": "bf98b6821f9049a14306e51245b297aa5a71729129a402d11318f5eec0450919",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/033.txt",
+        "prompt_sha256": "6a5b7afdab47fd52ddc8d8ed403c3315dcf055745d5c71b43de411f6bfec34ec",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-be47caf8-36b9-490d-8726-3d99004b5d3f.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/033.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/033.png": "0b70a6af3d2e1e3f7eef88f2d80f0a3bbcf22b97f82715c769ca7f06539ae4ce"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/033.png",
+      "source_png_sha256": "e57c59b2e4c8579e4d5f92e6d69352abd1d80f7d33e9ac4595ebbfafec000d45",
+      "source_rectangle": [
+        96,
+        75,
+        32,
+        25
+      ],
+      "source_indices_sha256": "b4c75889e2bf0408357a59a7dcf5152370e0a9ea7bcaa79008c54031101a5bfe",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/033.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:034",
+      "local_tile": 34,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/034.png",
+        "sha256": "a248a4baba3f03232f9b0f010c17ba2e51e0c125e230d3c8b3533dead2d5a8dd",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/034.txt",
+        "prompt_sha256": "51b1898ca981811cde62ba931b2316e1025a22513ed1b74b8f2807f619c1977f",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-b12544b0-ce89-465f-80a0-6ce6a34b3d61.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/034.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/034.png": "6bda5cc0f9b338da5848a820b7fa6d8e1cbccbad5b3e6af8c9e05fcbefafd976"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/034.png",
+      "source_png_sha256": "6a2b4612a46cc5a79148abe6de84ff46e2d489b985b44862bc91625624593d7d",
+      "source_rectangle": [
+        128,
+        75,
+        32,
+        25
+      ],
+      "source_indices_sha256": "0bb1de3c69d09a58d8504925cbb32f0d65d2dfb1951947321e00539d6c4040f1",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/034.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:035",
+      "local_tile": 35,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/035.png",
+        "sha256": "3cef09236731e87c8ef05e1bbccb45714f863a750d898b41ed93f62b80fd953e",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/035.txt",
+        "prompt_sha256": "34a3c690420d9e21df89473fec9bf38d020584077dc162274ddd05ee39f0d674",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-c2a6fca9-cd0b-4291-8d7b-479ac95e3428.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/035.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/035.png": "9af1d0690c5913166cdb8f65aab56e1614fcb5299fccf1aa5422d863dd38fd86"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/035.png",
+      "source_png_sha256": "6cc70ebc5957a26b7adae6f013d89ed333391154555b05e0c00d8c6289d0a4c3",
+      "source_rectangle": [
+        160,
+        75,
+        32,
+        25
+      ],
+      "source_indices_sha256": "93881ab2b792bfd600e1ef07a2f6cf7ff7a0288eddd523244b32f0aa94eb400f",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/035.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:036",
+      "local_tile": 36,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/036.png",
+        "sha256": "108bb940cbf6c87cdac373d8568e6eaddd205418d637b40d75ab43f48836e1c7",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/036.txt",
+        "prompt_sha256": "e974bd6e921a60c7bd25dd4a665406c5fe3648c4a8af4bc487d583dd47b80178",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-a34d9322-d485-46f9-b195-182b7fa5fab2.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/036.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/036.png": "cad4fd27176341b3e6aada17e86a8494d59519ff5c70fe5bbe552abe46645370"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/036.png",
+      "source_png_sha256": "0b91cd0434ed777777ec5da7960769e4c588503c019198ca2bacae82fa56049d",
+      "source_rectangle": [
+        192,
+        75,
+        32,
+        25
+      ],
+      "source_indices_sha256": "2c00a9359379ae1687975e4ec621e152b37f5948cdaf63cdf6c115685c1eaa2f",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/036.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:037",
+      "local_tile": 37,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/037.png",
+        "sha256": "475eaac0315f8da39ed7370b16f68e7931099dbb7a6e52716931dff08bc2f969",
+        "dimensions": [
+          1420,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/037.txt",
+        "prompt_sha256": "3cfe11fdb805d1817a42be1751f2f39fb2d417eb45fdb85e770576fee56b086e",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-8c9a131d-91ce-4f31-86f6-26dbc35d666f.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/037.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/037.png": "1d772956cbc8914ce5e2764b98d17a6894805f5c13e706f964efa152735e43b4"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/037.png",
+      "source_png_sha256": "dcc00d8fdbad5166c74e66d09a24fde56670d8928d8a46b943e034d0d171e2fd",
+      "source_rectangle": [
+        224,
+        75,
+        32,
+        25
+      ],
+      "source_indices_sha256": "9bae6c2ff8dff0fce30788064d6885117d8d914c1c1e99c090a06e6f3bbc17be",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/037.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:038",
+      "local_tile": 38,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/038.png",
+        "sha256": "ad391ec89b6f05bd9e185cea12a20a037e0942a1bac2434a37bf7f5b14068cf4",
+        "dimensions": [
+          1419,
+          1108
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/038.txt",
+        "prompt_sha256": "8e839d572814e9c4702bcc415d1dcb116e24c17be6023cbe3cc9f75eb906b94b",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-d307ee4c-7037-4012-bfc0-70499074ecc3.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/038.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/038.png": "d75a4c6045e10cc8028ca53c18967efb052c39cb28f5e1ff32229aab03d5b4db"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/038.png",
+      "source_png_sha256": "6f9ea13803a9cd8f0564e822ed2a0272714c8bab10fd45693293b99cfc667985",
+      "source_rectangle": [
+        256,
+        75,
+        32,
+        25
+      ],
+      "source_indices_sha256": "52509e812a4ec7251d8755eeeb62ff46861b579b79879dfd44fc1820a42dfaab",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/038.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:039",
+      "local_tile": 39,
+      "selected": {
+        "path": "art/photoreal/candidates/piv-tiles/bg1a.PIV/039.png",
+        "sha256": "15ae1615ccfa00bdca8fcb0508fca1dd71ab490f94a029c1192650bca6d334b2",
+        "dimensions": [
+          1419,
+          1109
+        ],
+        "mode": "RGB",
+        "alpha_extrema": [
+          255,
+          255
+        ],
+        "prompt_path": "art/photoreal/prompts/piv-tiles/bg1a.PIV/039.txt",
+        "prompt_sha256": "0646cc363d453ddb37d973dd6e54af08451d5fe8b826f71aee37a0fc5094136c",
+        "generator": "built-in image_gen",
+        "exact_model_version": "not exposed by tool",
+        "generator_path": "/home/tombonator3000t/.codex/generated_images/01a10205-ac78-7db1-b6fd-b39999a9fd04/exec-0f8258d6-1365-4470-b824-0e66d9f74ea2.png",
+        "raw_output_unchanged": true,
+        "transparent_background_requested": false,
+        "reference_images": [
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/039.png"
+        ],
+        "reference_sha256": {
+          "art/photoreal/review/piv-tiles/source-views/bg1a.PIV/039.png": "ddf8878dffbb6057772aba3a349dfca57834c9bfa8cc1f012999ff01d042c688"
+        }
+      },
+      "generated": true,
+      "status": "needs_revision",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/039.png",
+      "source_png_sha256": "02b9d0ebdc421649d3d4cd9ca66689a1c76d0dcd6745d105f5b1ca5a6e2d2779",
+      "source_rectangle": [
+        288,
+        75,
+        32,
+        25
+      ],
+      "source_indices_sha256": "1f81d043107f8933d481b364baed1b61a5ba50ffe371e7e25758d38821584866",
+      "qa_path": "art/photoreal/review/piv-tiles/bg1a.PIV/039.json",
+      "source_compared": true,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:040",
+      "local_tile": 40,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/040.png",
+        "sha256": "52fb939f9226dda840a1263e6efbc383b4eae0f731d9d5f3c269458d2f4f4bec",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/040.png",
+      "source_png_sha256": "52fb939f9226dda840a1263e6efbc383b4eae0f731d9d5f3c269458d2f4f4bec",
+      "source_rectangle": [
+        0,
+        100,
+        32,
+        25
+      ],
+      "source_indices_sha256": "074254080d73f03ce05fb9042046de6c6ea5f93f3a11bd4dccc16ba77bc0d2fd",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:041",
+      "local_tile": 41,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/041.png",
+        "sha256": "490e5ee87babef725a8191440e305e5fc93bd2bd306d6a9a5a0c5e316543c244",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/041.png",
+      "source_png_sha256": "490e5ee87babef725a8191440e305e5fc93bd2bd306d6a9a5a0c5e316543c244",
+      "source_rectangle": [
+        32,
+        100,
+        32,
+        25
+      ],
+      "source_indices_sha256": "e22088b7a38bee780eeca56e647978f63c14adefe11de8da273e7ee40e4a021a",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:042",
+      "local_tile": 42,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/042.png",
+        "sha256": "ed169e5c700bdcba4200508df6a5bc94cf7658b2ec802531f23ec0593e9ec363",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/042.png",
+      "source_png_sha256": "ed169e5c700bdcba4200508df6a5bc94cf7658b2ec802531f23ec0593e9ec363",
+      "source_rectangle": [
+        64,
+        100,
+        32,
+        25
+      ],
+      "source_indices_sha256": "af1783f2da203c04c2a82128567a0fc90be39d2e0baa38f9bf3d7e05b8f785db",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:043",
+      "local_tile": 43,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/043.png",
+        "sha256": "4ae84290647a4de0cb873635a3b894b9452d75e70967024798efe425750117fc",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/043.png",
+      "source_png_sha256": "4ae84290647a4de0cb873635a3b894b9452d75e70967024798efe425750117fc",
+      "source_rectangle": [
+        96,
+        100,
+        32,
+        25
+      ],
+      "source_indices_sha256": "1615739c66f484b78015aea67f784df3b1e732087ba00fce154f048a75cc69f4",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:044",
+      "local_tile": 44,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/044.png",
+        "sha256": "f17d3473152d47866d47cce8febbf8f853d48abc73f4fab20ee487863fd8da99",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/044.png",
+      "source_png_sha256": "f17d3473152d47866d47cce8febbf8f853d48abc73f4fab20ee487863fd8da99",
+      "source_rectangle": [
+        128,
+        100,
+        32,
+        25
+      ],
+      "source_indices_sha256": "bb006189c28d497c0e669dae3a5b691601d7c3fdf69ad1f4a1a97403c8f9d3a9",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:045",
+      "local_tile": 45,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/045.png",
+        "sha256": "7e4b482924212508fb54eada654a196a74725d73126236d39da153ee447ade86",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/045.png",
+      "source_png_sha256": "7e4b482924212508fb54eada654a196a74725d73126236d39da153ee447ade86",
+      "source_rectangle": [
+        160,
+        100,
+        32,
+        25
+      ],
+      "source_indices_sha256": "769731f3e82fa91c87480d7bfb74efc02c3915829e4c1207147b2828d57da154",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:046",
+      "local_tile": 46,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/046.png",
+        "sha256": "1502b5414e037446e9f415fa93c88638a10f5ddd144b745f2cbc868266e4beb1",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/046.png",
+      "source_png_sha256": "1502b5414e037446e9f415fa93c88638a10f5ddd144b745f2cbc868266e4beb1",
+      "source_rectangle": [
+        192,
+        100,
+        32,
+        25
+      ],
+      "source_indices_sha256": "1811ef38dbaa3ef6a5c2e0ae3787c94ced6896817a072b6483d7b7e75b6f35a8",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:047",
+      "local_tile": 47,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/047.png",
+        "sha256": "933bd94432ac7abf0d5bd0f382c28471215004e35332173bec06d60db0fa539d",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/047.png",
+      "source_png_sha256": "933bd94432ac7abf0d5bd0f382c28471215004e35332173bec06d60db0fa539d",
+      "source_rectangle": [
+        224,
+        100,
+        32,
+        25
+      ],
+      "source_indices_sha256": "916436c8e85c167bdb5638f0138491f5c2ca40e28031e4c7c8f2cbf9956ab4a4",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:048",
+      "local_tile": 48,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/048.png",
+        "sha256": "3a98e45d0f235f0a799161fb3d794fb04191adc65e34c5dea9d474651f6c4a9e",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/048.png",
+      "source_png_sha256": "3a98e45d0f235f0a799161fb3d794fb04191adc65e34c5dea9d474651f6c4a9e",
+      "source_rectangle": [
+        256,
+        100,
+        32,
+        25
+      ],
+      "source_indices_sha256": "0acb24cd548313da39a827df5c49ae94002c93d277d8b9cd4052bf1c9b9d543e",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:049",
+      "local_tile": 49,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/049.png",
+        "sha256": "913891a7a23aeb5a54699df242c9618c44b3da482a80a7fdc982110fba76004e",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/049.png",
+      "source_png_sha256": "913891a7a23aeb5a54699df242c9618c44b3da482a80a7fdc982110fba76004e",
+      "source_rectangle": [
+        288,
+        100,
+        32,
+        25
+      ],
+      "source_indices_sha256": "ded2a8961744a8e6f32d465223b9e95af7bbf3cf70b20e04b6bf66d8a899ee48",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:050",
+      "local_tile": 50,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/050.png",
+        "sha256": "8a9ff9e23f53eda2c1a0c9949943e5a15dfb72a14dc7ac3d4096f1409a1ef573",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/050.png",
+      "source_png_sha256": "8a9ff9e23f53eda2c1a0c9949943e5a15dfb72a14dc7ac3d4096f1409a1ef573",
+      "source_rectangle": [
+        0,
+        125,
+        32,
+        25
+      ],
+      "source_indices_sha256": "a420ea6c507639a363958e4349aead6c97408c559ae0fd6e0bfb07f6a20a7916",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:051",
+      "local_tile": 51,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/051.png",
+        "sha256": "7d28cdd80b36ea55f5cfe5acb63272af6ca81602d8198fe2952b5454373399fa",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/051.png",
+      "source_png_sha256": "7d28cdd80b36ea55f5cfe5acb63272af6ca81602d8198fe2952b5454373399fa",
+      "source_rectangle": [
+        32,
+        125,
+        32,
+        25
+      ],
+      "source_indices_sha256": "efbee3e9f3d894344437a5318bcf509c301c82df358ce11173bd280eb3159209",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:052",
+      "local_tile": 52,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/052.png",
+        "sha256": "0717b3393d7d47104ab17a2e0274b979a4a162d61e6194dcb02ef008c11a1e3d",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/052.png",
+      "source_png_sha256": "0717b3393d7d47104ab17a2e0274b979a4a162d61e6194dcb02ef008c11a1e3d",
+      "source_rectangle": [
+        64,
+        125,
+        32,
+        25
+      ],
+      "source_indices_sha256": "d658b082d463e5841b6571ab6e1be2de843a4f8f01a12a479e5a6c5ad8249440",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:053",
+      "local_tile": 53,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/053.png",
+        "sha256": "c102003da67840fab2e293014f32f1efff8fd61eb3dd54d10d9d1a406861cc49",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/053.png",
+      "source_png_sha256": "c102003da67840fab2e293014f32f1efff8fd61eb3dd54d10d9d1a406861cc49",
+      "source_rectangle": [
+        96,
+        125,
+        32,
+        25
+      ],
+      "source_indices_sha256": "d7947f8b945b308d899746052c1aac1c127fbcec86c9432271b8eceb61cfad41",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:054",
+      "local_tile": 54,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/054.png",
+        "sha256": "edbcf8116a2552246bbec054e5fed39ab0568034b874a723be1142fb29cfc185",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/054.png",
+      "source_png_sha256": "edbcf8116a2552246bbec054e5fed39ab0568034b874a723be1142fb29cfc185",
+      "source_rectangle": [
+        128,
+        125,
+        32,
+        25
+      ],
+      "source_indices_sha256": "0ce5a72c246ec7a88a7f31607019f01963068ff58554300ab9dbd2128e88b4ad",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:055",
+      "local_tile": 55,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/055.png",
+        "sha256": "91abf120900e116baa94e1135fd762bae4cc563139088650fd1fcb6577a67333",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/055.png",
+      "source_png_sha256": "91abf120900e116baa94e1135fd762bae4cc563139088650fd1fcb6577a67333",
+      "source_rectangle": [
+        160,
+        125,
+        32,
+        25
+      ],
+      "source_indices_sha256": "596144ad1dd78477239ab1e411e015545ce027eb7e85fa271c259934684eda19",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:056",
+      "local_tile": 56,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/056.png",
+        "sha256": "08c5839a35167cbdbdd47389f7ed430957c425d7255b38a2bbff0b3148b703e0",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/056.png",
+      "source_png_sha256": "08c5839a35167cbdbdd47389f7ed430957c425d7255b38a2bbff0b3148b703e0",
+      "source_rectangle": [
+        192,
+        125,
+        32,
+        25
+      ],
+      "source_indices_sha256": "1ffcdc05e8792c11b90d1e239b2335dd997c293d86d617ff0d78e465addf7d75",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:057",
+      "local_tile": 57,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/057.png",
+        "sha256": "c458475e784cb1f122566727b969ea5edf36c853cc494c7536b4b69ade5226e6",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/057.png",
+      "source_png_sha256": "c458475e784cb1f122566727b969ea5edf36c853cc494c7536b4b69ade5226e6",
+      "source_rectangle": [
+        224,
+        125,
+        32,
+        25
+      ],
+      "source_indices_sha256": "6430b78704fc498f75c3c60c7b066a84302317db737e7f099b1b1a2233b9d821",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:058",
+      "local_tile": 58,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/058.png",
+        "sha256": "8a285c97232e166a634c2c422effe80327a673c8f7ebcc9292e64c3a7f9e6335",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/058.png",
+      "source_png_sha256": "8a285c97232e166a634c2c422effe80327a673c8f7ebcc9292e64c3a7f9e6335",
+      "source_rectangle": [
+        256,
+        125,
+        32,
+        25
+      ],
+      "source_indices_sha256": "18b39989bd4e2b360732629e8165ce2995ab17679abcfc2387fc3f4bf58bb137",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:059",
+      "local_tile": 59,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/059.png",
+        "sha256": "7c10b2213c9263c090bdeaa5aeee956145aa429c92cd93b0ee7d6b54a8e98c9b",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/059.png",
+      "source_png_sha256": "7c10b2213c9263c090bdeaa5aeee956145aa429c92cd93b0ee7d6b54a8e98c9b",
+      "source_rectangle": [
+        288,
+        125,
+        32,
+        25
+      ],
+      "source_indices_sha256": "a5670ad68eb324559490fb208f8962c26869d4de44b476ef01e874a566dc833b",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:060",
+      "local_tile": 60,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/060.png",
+        "sha256": "ffb418f09c257b75bcc79faf9a4e49dacb08755c4ff23dd7b172e690f46ddf59",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/060.png",
+      "source_png_sha256": "ffb418f09c257b75bcc79faf9a4e49dacb08755c4ff23dd7b172e690f46ddf59",
+      "source_rectangle": [
+        0,
+        150,
+        32,
+        25
+      ],
+      "source_indices_sha256": "f52a03d88c79c97533a14c7fb694e446174396514896b4252f0a6f53e5aa075e",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:061",
+      "local_tile": 61,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/061.png",
+        "sha256": "a06d6c3286529ca3e57f3cb4bd000a106cdfa77d9daaffb50df6b4b9fc5bf4bc",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/061.png",
+      "source_png_sha256": "a06d6c3286529ca3e57f3cb4bd000a106cdfa77d9daaffb50df6b4b9fc5bf4bc",
+      "source_rectangle": [
+        32,
+        150,
+        32,
+        25
+      ],
+      "source_indices_sha256": "7b44290f93fad1b5dc50265b4a76886b1912f15a3c56c80eb0e40edb84fd2b3f",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:062",
+      "local_tile": 62,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/062.png",
+        "sha256": "3b60ac38fed27b790fe00152cd5d0984f5c177d93ffa5ca41040361f1af7d126",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/062.png",
+      "source_png_sha256": "3b60ac38fed27b790fe00152cd5d0984f5c177d93ffa5ca41040361f1af7d126",
+      "source_rectangle": [
+        64,
+        150,
+        32,
+        25
+      ],
+      "source_indices_sha256": "8a8dbd8b9141872b9485525f7a9e68e8009177b1f4e19a776773163fa708107c",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:063",
+      "local_tile": 63,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/063.png",
+        "sha256": "97969ad8eb4b1980d796c81c7dd9f168f319172887c0d3287ac10dcb37b8bc96",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/063.png",
+      "source_png_sha256": "97969ad8eb4b1980d796c81c7dd9f168f319172887c0d3287ac10dcb37b8bc96",
+      "source_rectangle": [
+        96,
+        150,
+        32,
+        25
+      ],
+      "source_indices_sha256": "8535485db228db66ace6a790132dd6c3f06fc94261a9b9078e8f645baeb0d2c7",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:064",
+      "local_tile": 64,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/064.png",
+        "sha256": "b6400ddb8707f1b848526a3e2f8aa9aa7078a4316783b2722ddd6b6b1bfb2b24",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/064.png",
+      "source_png_sha256": "b6400ddb8707f1b848526a3e2f8aa9aa7078a4316783b2722ddd6b6b1bfb2b24",
+      "source_rectangle": [
+        128,
+        150,
+        32,
+        25
+      ],
+      "source_indices_sha256": "a0d463541c075921212107ad58a110a96626b45a1e59917bbf9eb271bc96985f",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:065",
+      "local_tile": 65,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/065.png",
+        "sha256": "362030e71b3b768872ccc8050045fa181a192ea675600658d84541c2a568f977",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/065.png",
+      "source_png_sha256": "362030e71b3b768872ccc8050045fa181a192ea675600658d84541c2a568f977",
+      "source_rectangle": [
+        160,
+        150,
+        32,
+        25
+      ],
+      "source_indices_sha256": "1e806eb365dee7dcef7fee52bcc715509c4633ffef479694e11544f328f5831c",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:066",
+      "local_tile": 66,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/066.png",
+        "sha256": "9d9529a2eb466e0584d627066bb25440d1a688faefc03d4fe73e43db5707f218",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/066.png",
+      "source_png_sha256": "9d9529a2eb466e0584d627066bb25440d1a688faefc03d4fe73e43db5707f218",
+      "source_rectangle": [
+        192,
+        150,
+        32,
+        25
+      ],
+      "source_indices_sha256": "90259e57c3e4a2abb919f1b6620b549cd7c8b3f9164027489828b1f4f2531b6e",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:067",
+      "local_tile": 67,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/067.png",
+        "sha256": "2a2b6abcea969f43398067841b8ac25f8c7cd123932954c27fe83ad0ede43572",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/067.png",
+      "source_png_sha256": "2a2b6abcea969f43398067841b8ac25f8c7cd123932954c27fe83ad0ede43572",
+      "source_rectangle": [
+        224,
+        150,
+        32,
+        25
+      ],
+      "source_indices_sha256": "6d1140a958b9d320e65deb584b5e1d851a7d647a1fcaa72079f22cec930363d4",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:068",
+      "local_tile": 68,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/068.png",
+        "sha256": "182f1641bfba8d7a5f75a3c3a972f67c1b4bd373f2f01cf8a964c498bedb8519",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/068.png",
+      "source_png_sha256": "182f1641bfba8d7a5f75a3c3a972f67c1b4bd373f2f01cf8a964c498bedb8519",
+      "source_rectangle": [
+        256,
+        150,
+        32,
+        25
+      ],
+      "source_indices_sha256": "bc24e9d5e013f5bf803071cdb75151261543c6fdfe8af38bac9cebdf88bbc313",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:069",
+      "local_tile": 69,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/069.png",
+        "sha256": "d121f74129e3882b42cedda0205d26818c1ce01b6e6e6deec7dc4baaf34af1b8",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/069.png",
+      "source_png_sha256": "d121f74129e3882b42cedda0205d26818c1ce01b6e6e6deec7dc4baaf34af1b8",
+      "source_rectangle": [
+        288,
+        150,
+        32,
+        25
+      ],
+      "source_indices_sha256": "7ec774707180f147858aa0ff375a408a0f5457a2e1a11593310f3f111414dc3a",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:070",
+      "local_tile": 70,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/070.png",
+        "sha256": "3016101606af8f3bf0d280429eda1bf604ebc4119dfbed3cd0da2df234ebcd01",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/070.png",
+      "source_png_sha256": "3016101606af8f3bf0d280429eda1bf604ebc4119dfbed3cd0da2df234ebcd01",
+      "source_rectangle": [
+        0,
+        175,
+        32,
+        25
+      ],
+      "source_indices_sha256": "1d464f974943d6eccb760750dca6325476a743742b734e19313be4f04b340d5c",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:071",
+      "local_tile": 71,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/071.png",
+        "sha256": "a37910463ff5717a1c8cb6afee50cac306b1a5b6e0a6930bb60c34490880f9f8",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/071.png",
+      "source_png_sha256": "a37910463ff5717a1c8cb6afee50cac306b1a5b6e0a6930bb60c34490880f9f8",
+      "source_rectangle": [
+        32,
+        175,
+        32,
+        25
+      ],
+      "source_indices_sha256": "0f86ce1d9f8630edb06d020103eeca7b0bdca31269d3727d0f3a37b3721876c2",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:072",
+      "local_tile": 72,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/072.png",
+        "sha256": "a3bf6ebbe5bc56d89395caa8aecb798389d9073a31a4716491ec41ea7031b980",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/072.png",
+      "source_png_sha256": "a3bf6ebbe5bc56d89395caa8aecb798389d9073a31a4716491ec41ea7031b980",
+      "source_rectangle": [
+        64,
+        175,
+        32,
+        25
+      ],
+      "source_indices_sha256": "7d8081c311ded1ac9ba945debd6ee65e44fe105f8863b961a6cc395d4a85a579",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:073",
+      "local_tile": 73,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/073.png",
+        "sha256": "bfe2cc499d3f70fad9cb782338116f0adddc462977d0a0ed828e769a2093bd32",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/073.png",
+      "source_png_sha256": "bfe2cc499d3f70fad9cb782338116f0adddc462977d0a0ed828e769a2093bd32",
+      "source_rectangle": [
+        96,
+        175,
+        32,
+        25
+      ],
+      "source_indices_sha256": "a5cfd4050d9f50ac9090e3f48b00ba76e2076afb6bb64de0ba9fc25e1a737169",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:074",
+      "local_tile": 74,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/074.png",
+        "sha256": "f2f52e035c713199890aac3ff54d9c0433da45cb2f81645e6b304cd6008db09d",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/074.png",
+      "source_png_sha256": "f2f52e035c713199890aac3ff54d9c0433da45cb2f81645e6b304cd6008db09d",
+      "source_rectangle": [
+        128,
+        175,
+        32,
+        25
+      ],
+      "source_indices_sha256": "b3b151ca5ae1d417864444bac2be05ff1148c33752435b9aef4d1d49238d087a",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:075",
+      "local_tile": 75,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/075.png",
+        "sha256": "978505fb5a6e1ca74d8922bc51da8bb081576f348b3637b28f5e8fcff0b722eb",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/075.png",
+      "source_png_sha256": "978505fb5a6e1ca74d8922bc51da8bb081576f348b3637b28f5e8fcff0b722eb",
+      "source_rectangle": [
+        160,
+        175,
+        32,
+        25
+      ],
+      "source_indices_sha256": "82ae4289e11abf83401849589a23b2e10a5799ee5d6a78e7337e2176155bc238",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:076",
+      "local_tile": 76,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/076.png",
+        "sha256": "f5c459231f094dbf157349de4f835cc89f33ebb82f7b0ba6af7a41accfb31685",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/076.png",
+      "source_png_sha256": "f5c459231f094dbf157349de4f835cc89f33ebb82f7b0ba6af7a41accfb31685",
+      "source_rectangle": [
+        192,
+        175,
+        32,
+        25
+      ],
+      "source_indices_sha256": "e1be0e5e63a358c804fb8369e3c188d7312c8ece2ad06a0205b952519e748959",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:077",
+      "local_tile": 77,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/077.png",
+        "sha256": "5291313cf7fbc45858992249764a5289243933993dde2400ee98c03d2ada8212",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/077.png",
+      "source_png_sha256": "5291313cf7fbc45858992249764a5289243933993dde2400ee98c03d2ada8212",
+      "source_rectangle": [
+        224,
+        175,
+        32,
+        25
+      ],
+      "source_indices_sha256": "baeb1915f44d7448d4730d042c858f170b4801bb1eba9326ef16a3ff93540ae6",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:078",
+      "local_tile": 78,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/078.png",
+        "sha256": "d027c5b0b692b20a5b0964b5d4064477c3a0ec1421530419ac331ed99966987b",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/078.png",
+      "source_png_sha256": "d027c5b0b692b20a5b0964b5d4064477c3a0ec1421530419ac331ed99966987b",
+      "source_rectangle": [
+        256,
+        175,
+        32,
+        25
+      ],
+      "source_indices_sha256": "199331f5495e06f0ea775e7fe807d5f35cd963adcf80bc7a902492db6e56fe0b",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    },
+    {
+      "id": "piv_tile:bg1a.PIV:000:079",
+      "local_tile": 79,
+      "selected": {
+        "path": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/079.png",
+        "sha256": "ab76420d31b9b82e977bfc1c341386b91512baeeac5cdeb175de582d7b054edb",
+        "dimensions": [
+          32,
+          25
+        ]
+      },
+      "generated": false,
+      "status": "pending_photoreal",
+      "source_png": "art/photoreal/review/piv-tiles/sources/bg1a.PIV/079.png",
+      "source_png_sha256": "ab76420d31b9b82e977bfc1c341386b91512baeeac5cdeb175de582d7b054edb",
+      "source_rectangle": [
+        288,
+        175,
+        32,
+        25
+      ],
+      "source_indices_sha256": "27ea435e58c1c8c8df8e527f5711748b969340b4d2c5186e690ff50cdda28232",
+      "qa_path": null,
+      "source_compared": false,
+      "seams_verified": false,
+      "runtime_verified": false
+    }
+  ]
+}

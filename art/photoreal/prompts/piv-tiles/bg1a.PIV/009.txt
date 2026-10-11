@@ -1,0 +1,7 @@
+Use case: photorealistic-natural
+Asset type: Moonstone intro STILE fragment bg1a.PIV/009. One opaque 32:25 tile, approximately1419x1109 pixels.
+Input image: The provided image is an enlarged nearest-neighbor view of the exact original32x25 source tile, not a new composition. Redraw only this exact rectangle. All neighboring tiles exist outside the crop.
+Primary request: Severely underexposed photographic sparse night sky with naturally shaped tiny optical points, not square pixels.
+Exact geometry: Exactly eight DIM DARK TEAL points on a uniform navy field: centers(70.3125%,6%),(1.5625%,30%),(92.1875%,50%),(39.0625%,54%),(67.1875%,58%),(10.9375%,66%),(10.9375%,74%),(48.4375%,86%). Original points aroundRGB0,51,68. All four edges same navyRGB0,0,34. Preserve clipped left point. No moon.
+Background: Flat almost-black navyRGB0,0,34. No gradient, vignette, cloud, haze or new texture in the empty sky. Original stars remain extremely dim dark teal, no white-hot core, spike or halo, no extra stars. Each stays inside its original1/32 by1/25 footprint.
+Constraints: Match the entire original crop and four border crossings. Never add objects or fill in unseen portions. Full bleed opaque, no padding, no border, no text, no layout, no transparency. Output only this one tile.

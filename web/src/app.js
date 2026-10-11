@@ -184,6 +184,7 @@
         if (!Visning.klar) {
             Visning.init($('lerret'), Kjerne.bredde(), Kjerne.hoyde());
             Visning.klar = true;
+            StandardHd.start(Visning, tekst => { $('hd-status').textContent = tekst; });
         }
         Visning.settFilter(innst.filter);
         Visning.settFormat(innst.format);
@@ -1417,7 +1418,10 @@
             if (sisteModus === 'auto') visTur();
             visHint();
             /* bare naar det er noe nytt aa vise (se Visning.tegn); lagene bare naar de trengs */
-            if (nyttBilde || Visning.maaTegnes()) Visning.tegn(Kjerne.rammebuffer(), Kjerne.vindu(), Visning.trengerLag() ? Kjerne.lag() : null);
+            if (nyttBilde || Visning.maaTegnes()) {
+                Visning.tegn(Kjerne.rammebuffer(), Kjerne.vindu(), Visning.trengerLag() ? Kjerne.lag() : null);
+                StandardHd.oppdater(Visning.lagNaa()?.hash);
+            }
             nyttBilde = false;
             Kjerne.lagPaa(Visning.trengerLag());
         }
@@ -1700,19 +1704,32 @@
         }
     });
     $('velg-hd').addEventListener('change', async (e) => {
+        await StandardHd.stopp();
         const n = await Visning.lastHdPakke(e.target.files);
         e.target.value = '';                    /* samme mappe kan velges igjen etter endringer */
         const bg = Visning.hdBakgrunner();
         $('hd-status').textContent = Visning.hdAntall() + ' bilder i HD-pakken' + (bg ? ', av dem ' + bg + ' bakgrunner.' : '.');
         status(n + ' HD-bilder lastet');
     });
-    $('tom-hd').addEventListener('click', () => { Visning.tomHdPakke(); $('hd-status').textContent = 'Ingen HD-pakke.'; });
+    $('tom-hd').addEventListener('click', async () => {
+        await StandardHd.stopp();
+        Visning.tomHdPakke();
+        $('hd-status').textContent = 'HD-grafikken er fjernet.';
+    });
+    $('standard-hd').addEventListener('click', async () => {
+        await StandardHd.stopp();
+        Visning.tomHdPakke();
+        innst.hd = 'hd'; lagreInnst();
+        $('hd-bryter').value = 'hd'; Visning.settHd(true);
+        StandardHd.start(Visning);
+    });
     /* HD-grafikk eller originalen, uten aa fjerne HD-pakken */
     $('hd-bryter').addEventListener('change', (e) => {
         innst.hd = e.target.value;
         Visning.settHd(innst.hd !== 'original');
+        if (innst.hd !== 'original' && !Visning.hdAntall()) StandardHd.start(Visning);
         lagreInnst();
-        status(innst.hd === 'original' ? 'Original grafikk' : Visning.hdAntall() ? 'HD-grafikk der den finnes' : 'HD-grafikk når du har valgt en HD-mappe');
+        status(innst.hd === 'original' ? 'Original grafikk' : Visning.hdAntall() ? 'HD-grafikk der den finnes' : 'HD-grafikken lastes automatisk');
     });
 
     Inndata.settHurtigtaster((e) => {
@@ -1771,7 +1788,7 @@
     const rom = new URLSearchParams(location.search).get('rom');
     if (rom && /^[A-Za-z0-9]{6}$/.test(rom)) invitasjon = rom.toUpperCase();
     Lager.hent('mod').then((m) => { if (m) { modFiler = m; visMod(); } }).finally(startSpillet);
-    window.moonDebug = { Kjerne, Nett, Visning, innst, statistikk, modus: () => modus, lyd: () => ({ ms: Lyd.bufferedMs(), hull: Lyd.hull() }),
+    window.moonDebug = { Kjerne, Nett, Visning, StandardHd, innst, statistikk, modus: () => modus, lyd: () => ({ ms: Lyd.bufferedMs(), hull: Lyd.hull() }),
         duell: () => (D ? { rolle: D.rolle, status: D.status, plass: D.plass, inn: D.inn, sistInn: D.sistInn } : null),
         duellStille: () => { if (D && D.conn) D.conn.send = () => {}; } };   /* test: forbindelsen henger */
 })();

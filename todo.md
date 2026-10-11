@@ -58,3 +58,10 @@
 - [x] Pakket ut ISO-en og funnet ut hvordan WHDLoad-slaven starter spillet.
 - [x] Emulatorkjerne: 68000, Copper, Blitter, bitplan og sprites, Paula, CIA, WHDLoad-funksjoner.
 - [x] Introen og tittelmenyen kjører med grafikk og lyd.
+
+## HD-integrasjon, 11. oktober 2026
+- [x] Legge produserte råbilder, revisjoner, prompter og selvstendig original-/fotokatalog i repoet.
+- [x] Aktivere48 kildevaliderte standardbilder i nettspillet uten manuelt mappevalg.
+- [x] Beholde Original-valg og egen mappeimport, avbryte lasting sikkert og begrense bakgrunnscachen.
+- [x] Kontrollere auto-HD i tittel/Practice og71 gangbilder samt lasting/feil/gjenoppretting i faktisk HTML.
+- [ ] Fullføre nytegning og dokumenterte feil i resterende figurruter, palettvarianter og PIV-fliser før videre spillaktivering.

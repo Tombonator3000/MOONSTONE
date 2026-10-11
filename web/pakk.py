@@ -10,9 +10,13 @@ paa GitHub Pages uten noe annet.
 """
 import os
 import sys
+import json
+import hashlib
+import shutil
+from pathlib import Path
 
 HER = os.path.dirname(os.path.abspath(__file__))
-APP = ['core.js', 'audio.js', 'render.js', 'input.js', 'store.js', 'net.js', 'rooms.js', 'grafikk.js', 'app.js']
+APP = ['core.js', 'audio.js', 'render.js', 'hd.js', 'input.js', 'store.js', 'net.js', 'rooms.js', 'grafikk.js', 'app.js']
 VENDOR = ['three.min.js', 'peerjs.min.js', 'mqtt.min.js']
 
 
@@ -34,7 +38,17 @@ def main():
     html = les(os.path.join(HER, 'src', 'index.html'))
     stil = les(os.path.join(HER, 'src', 'style.css'))
     vendor = '\n;\n'.join(trygg(les(os.path.join(HER, 'vendor', f))) for f in VENDOR)
+    hd = Path(HER) / 'hd'
+    manifest = json.loads((hd / 'manifest.json').read_text())
+    assert manifest['schema'] == 1 and manifest['images'] == sum(f['path'].endswith('.png') for f in manifest['files'])
+    assert len({f['path'] for f in manifest['files']}) == len(manifest['files'])
+    for f in manifest['files']:
+        path = hd / f['path']
+        assert path.resolve().is_relative_to(hd.resolve()) and path.is_file()
+        raw = path.read_bytes()
+        assert len(raw) == f['bytes'] and hashlib.sha256(raw).hexdigest() == f['sha256'], path
     app = '\n'.join('/* ---- %s ---- */\n%s' % (f, trygg(les(os.path.join(HER, 'src', f)))) for f in APP)
+    app = app.replace('%%HD_MANIFEST%%', json.dumps(manifest, ensure_ascii=False, separators=(',', ':')))
     html = html.replace('%%STIL%%', stil)
     html = html.replace('%%VENDOR%%', vendor)
     html = html.replace('%%KJERNE%%', trygg(les(kjerne)))
@@ -42,6 +56,14 @@ def main():
     os.makedirs(os.path.dirname(os.path.abspath(ut)), exist_ok=True)
     with open(ut, 'w', encoding='utf-8') as f:
         f.write(html)
+    # Nettutgaven laster bildene ved behov. Lokale filer beholder originalgrafikk.
+    target = Path(ut).resolve().parent / 'hd'
+    for p in hd.rglob('*'):
+        if p.is_file():
+            dest = target / p.relative_to(hd)
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            if p.resolve() != dest.resolve():
+                shutil.copyfile(p, dest)
     print('%s: %d kB' % (ut, os.path.getsize(ut) // 1024))
 
 
