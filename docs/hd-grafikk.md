@@ -128,8 +128,45 @@ et bilde på 1280 x 800 gir fire ganger så skarp bakgrunn. Slik får du bakgrun
   `MAPPE/HASH.png` når den har stått i 50 bilder (og på nytt hvis den blir lysere).
   `--lag F:PREFIKS` skriver begge lagene i bilde F.
 
-Når spillet toner ut med paletten, tones HD-bakgrunnen og HD-figurene like mye
-(lysstyrken til fargene bakgrunnen bruker, mot den lyseste som er sett).
+Når spillet toner med paletten, tones HD-bakgrunnen, HD-figurene og posene like mye:
+lysstyrken til fargene bakgrunnen bruker, mot fullt lys. For en scene (se under) er fullt
+lys summen med PIV-filens egen palett, så det er kjent fra første bilde, også når
+skjermen toner inn. Ellers er fullt lys det lyseste som har stått stille i minst ti
+bilder for den bakgrunnen. Toner skjermen inn før det er kjent, vises originalen til
+lyset har stått stille (ellers ville HD-bildene lyst fullt over en mørk skjerm). Posene
+avvises ikke lenger mens skjermen toner: uten skjermens palett godtas fargene når de er
+posens farger ganger lysstyrken (med ett 4-bits Amiga-trinn slingringsmonn).
+
+**Utsnitt.** Noen bakgrunner dekker bare en del av skjermen: Highwood og kroen
+(`bg/438c8bc2`, `bg/44898895`, venstre 256 kolonner) og Waterdeep (`bg/d097d0ff`,
+kolonne 66-319). De vises bare når en scene har gitt rektangelet (`rect` i scenen). Står
+bakgrunnskopien på en av dem uten scenetreff (en meldingsskjerm over byen), vises
+originalbakgrunnen i stedet for at bildet strekkes over hele skjermen. Hvilke bakgrunner
+som er utsnitt, leses av scenene i `manifest.json` (et `rect` mindre enn 320 x 200), eller
+av `"partial": true` på filoppføringen (`StandardHd.utsnitt()`,
+`Visning.settUtsnittBakgrunner`).
+
+### Scener som bare finnes på skjermen
+
+En scene (`manifest.scenes`, `web/src/scenes.js`) kjenner igjen en PIV ut fra indeksene.
+Vanligvis sammenlignes med bakgrunnskopien. Med `"compare": "screen"` sammenlignes med
+det skjermen viser, for bilder spillet tegner rett på skjermen uten å legge dem i
+kopien. En slik scene går foran en som bare stemmer med kopien, og brukes ikke når kopien
+selv er bildet (da gjelder den vanlige bakgrunnen). Alt som avviker fra PIV-en (teksten),
+blir forgrunn med sine indekser, så tekst og logo kan få HD over scenen.
+
+Målt med `--tegneliste` og `LAG_SPOR=1` (11. oktober 2026):
+
+| Skjerm | Bakgrunnskopien | Det som vises | HD |
+|---|---|---|---|
+| Lasteskjermen etter introen (også med Esc i introen) | portalen 6e5a5c07, eller månen 8dbce956 | `ch.piv` (trærne fra tittelen) som forgrunn, logoen `bold.f` 73 (y 20), copyrightlinjene `bold.f` 74 og 75, «created by Rob Anderson» og «Loading...» i `bold.f` | Scene `loading` (ch.piv, `bg/55bb9767`). Tekst og logo er figurer. Copyrightlinjene mangler PNG |
+| Prepare yourself (før hver kamp) | tittelen 55bb9767, så tom (045a1ac5) | banneret `message.piv` (Stonehenge i lilla) og teksten i `bold.f`, tegnet 44-52 bilder etter valget i tittelmenyen | Scene `message` (931f9b1d) er lagt inn, men `bg/931f9b1d.png` finnes ikke. Utkastet `art/photoreal` message er ikke godkjent. Teksten er figurer og får HD |
+| Select a Knight | tom (045a1ac5) | «Select a Knight» i `bold.f` (y 5) og portrettene `sel.cel` 1-5 | Alt er figurer. Det finnes ikke noe eget banner |
+
+Logoen `bold.f/073.png` er 2172 x 724 med tom kant. Innholdet er 2172 x 414 (5,2:1), mens
+kilden er 305 x 54 (5,65:1), så beskjæring retter ikke sideforholdet. I `text.json` har den
+`"fit": "width"` og et utsnitt rundt innholdet: den fyller figurens bredde og sentreres i
+høyden (ca. 59 i stedet for 54 linjer), uten å strekkes. En ny tegning i 5,65:1 er bestilt.
 
 ### Tekst i HD
 
@@ -140,8 +177,68 @@ statusskjermene). HD-bilder for dem, f.eks. `bold.f/015.png`, gir derfor tekst i
 Tekst tegnes bare én gang, mens figurene i kamp tegnes på nytt hele tiden. Med lagene
 blir en HD-figur derfor stående så lenge forgrunnen der den ligger er uendret
 (sammenlignet med fargeindeksene, så fading ikke teller som en endring), og den
-forsvinner når spillet tegner noe annet der eller bakgrunnen byttes. Uten lagene
-vises en klynge til det har gått 50 bilder uten nye tegninger, som før.
+forsvinner når spillet tegner noe annet der. For bokstavene sjekkes det hvert bilde om
+de fortsatt står der, og det samme gjelder alle figurer når bakgrunnen byttes: hver
+kildepiksel må ha samme indeks, være lik bakgrunnen, eller være dekket av en annen
+plassert figur med den indeksen (nabobokstaven over skyggen). Figurene som står, beholdes. Det trengs fordi Prepare yourself tegner teksten mens kopien ennå er
+tittelen, og bytter kopien 35 bilder senere. Uten lagene vises en klynge til det har
+gått 50 bilder uten nye tegninger, som før.
+
+En tekstrad kan stikke en linje under vinduet («Loading...» på y 182, 19 høy). Da
+kontrolleres bare linjene som vises.
+
+### Figurer i flere deler
+
+Mange figurer tegnes i flere deler som overlapper: ridderen er føttene, kroppen og
+sverdet (`kn1.ob` og `kn4.ob`), og blod og sår tegnes oppå. HD-figurene tegnes i samme
+rekkefølge som i tegnelisten, så en senere figur ligger over en tidligere også når
+begge har HD-bilde.
+
+For hver piksel finner renderen eieren: den siste figuren i listen som har en
+ikke-gjennomsiktig piksel der i originalen. En figur får HD bare hvis hver piksel i
+rektangelet stemmer med eieren sin (samme fargeindeks i forgrunnen, eller lik
+bakgrunnen), og hvis ingen figur uten pålitelig kilde ligger i rektangelet. En
+forgrunnspiksel ingen figur eier, gir originalen. Bare piksler som eies av en figur med
+HD, fjernes fra forgrunnslaget. Piksler som eies av en senere figur uten HD, ligger
+foran HD-bildene under (vern), og piksler fra en tidligere figur uten HD blir stående
+under. `Visning.hdFigurer(true)` viser hvilke figurer som har HD i bildet som vises.
+
+### Farge fra paletten (masker)
+
+Ridderne deler figursett, og fargen kommer fra paletten: `kn*.ob` bruker indeksene
+6-8 og `he*.ob` 9-11 til rustningen, og spillet setter fargene etter hvilken ridder som
+kjemper. Spilleren i øvingskampen er blå (6-8) og motstanderen grønn (9-11); i en duell
+på kartet er motstanderen oransje eller rød med de samme `he1.ob`-bildene. Et HD-bilde
+med faste farger blir derfor feil for alle unntatt én ridder.
+
+Et HD-bilde kan ha en maske ved siden av seg, med samme navn og `.mask.png`, for
+eksempel `kn1.ob/012.png` og `kn1.ob/012.mask.png`. Masken legges over bildet med samme
+utsnitt (helst samme mål som bildet) og leses piksel for piksel uten utjevning:
+
+| Kanal | Betydning |
+|---|---|
+| R | 0 = behold fargen i bildet. 1-32 = palettindeks + 1 (7 betyr indeks 6) |
+| G | lysstyrke: 128 gir fargen i paletten, 0 svart, 255 nesten dobbelt så lyst |
+| B | hvor mye av palettfargen som brukes: 255 helt, 0 ingenting (myk overgang) |
+| A | brukes ikke (la den være 255) |
+
+Fargen hentes fra skjermens palett på den linjen pikselen ligger, mens spillet kjører,
+så den følger ridderfargen, hiet og toningen. Resten av bildet tones med lysstyrken som
+før. Bildets egen farge der masken er satt spiller ingen rolle når B er 255, så det går an
+å tegne rustningen i grått og la masken gi fargen, med skyggene i G. Uten gyldig
+skanout (HAM, hires, mer enn fem plan) vises figuren som originalen.
+
+`kn1.ob` og `he1.ob` er samme tegning med ulike indekser. Ett HD-bilde kan derfor
+brukes for begge: kopier PNG-en, og la masken ha R = 7-9 (indeks 6-8) for `kn*.ob` og
+R = 10-12 (indeks 9-11) for `he*.ob`. Prøvd med en syntetisk pakke (originalene 4x med
+rød rustning i PNG-en og maske): samme `he1.ob`-bilder ble grønne i øvingskampen og
+oransje og røde i dueller på kartet, og den blå ridderen ble blå.
+
+Posene i `poses.json` bruker samme palett, men uten egen maske: originalens indekser
+(lowres) er masken, og `palette` i posen er fargene bildet er tegnet med. Fargen flyttes
+fra den fargen til skjermens farge (forholdsvis, og som forskjell der referansen er nær
+null), så posene virker også når paletten er en annen enn i øvingskampen. I øvingskampen
+er fargene like, og bildet vises uendret.
 
 ### Glatt (Scale4x) og automatiske HD-pakker
 
@@ -157,13 +254,14 @@ fra paletten `gfx.py` velger, ikke alltid den skjermen bruker.
 
 ### Det som gjenstår
 
-- **HD-bilder med spillets palett.** Bilder med fargeindekser (PNG med palett) kunne
-  fått fargene fra skjermen når de tegnes, så de alltid passer.
+- **HD-bilder med spillets palett.** Masker (se over) gir farge fra paletten der de
+  er laget. Ingen ekte ridderbilder har maske ennå.
 - **Bakgrunner som endres litt.** Skriver spillet noe inn i selve bakgrunnskopien
   (for eksempel en markør som blir stående), får den en ny hash, og HD-bildet passer
   ikke lenger. Det kan løses med å godta små forskjeller og legge dem over.
-- **Ting som ligger foran figurene.** HD-figurene legges over forgrunnen. Tegner
-  spillet noe over en figur med en annen rutine, vil HD-figuren dekke det.
+- **Ting som ligger foran figurene.** Figurer fra tegnelisten ligger i riktig
+  rekkefølge. Tegner spillet noe over en figur med en annen rutine, er pikselen ikke eid
+  av noen figur, og figuren vises som originalen.
 - **Andre tegnerutiner.** Noe grafikk tegnes ikke med `tegn_figur` (f.eks. tekst og
   menyrammer). `--blit-log` viser hvor Blitteren startes fra, og er et godt sted å
   begynne for å finne dem.

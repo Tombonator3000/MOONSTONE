@@ -72,8 +72,10 @@ def main():
         shutil.copyfile(logo, target)
         manifest['glyphs'].append({'file': 'bold.f', 'frame': 73,
             'character': 'Moonstone / A Hard Days Knight', 'width': 304, 'height': 52,
-            'path': 'bold.f/073.png', 'raw_rect_px': [0, 145, 2172, 425],
-            'alpha_cutoff': 0.15, 'sha256': sha(target.read_bytes())})
+            'path': 'bold.f/073.png', 'raw_rect_px': [0, 172, 2172, 422],
+            'alpha_cutoff': 0.15, 'sha256': sha(target.read_bytes()),
+            # logo-v2 er 5,15:1, kilden 5,65:1. Fyll bredden uten aa strekke (render.js).
+            'fit': 'width'})
     (ROOT / 'web/hd/text.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
     (ART / 'glyphs.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
     sheet = Image.new('RGB', (1080, ((len(previews) + 11) // 12) * 158), '#18232a')
