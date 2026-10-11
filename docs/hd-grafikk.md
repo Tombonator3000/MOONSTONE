@@ -182,3 +182,5 @@ Bildene ligger i `web/hd/`, og alle filstørrelser og SHA-256-hasher er bundet i
 `web/pakk.py` kontrollerer manifestet og kopierer HD-filene ved siden av den bygde HTML-filen. Pages og web-artifaktet inneholder begge deler. Ved direkte `file://`-åpning virker originalspillet; åpne mappen gjennom en lokal HTTP-server for automatisk HD, for eksempel `python3 -m http.server 8000 --directory web/build`.
 
 Alle produserte råbilder og tidligere revisjoner ligger under `art/photoreal/candidates`, med prompter og et lokalt original-/fotogalleri. Arkivets 616 valgte oppføringer er ikke det samme som 616 ferdige spillruter. Se `art/photoreal/README.md` for status og kreditering.
+
+Trofaste ikoner: [kilder, metode og kontroll](../art/hd-icons-2026-10-11/README.md). Den oppdaterte standardpakken har292 PNG-ruter;69 ikonruter bygger direkte på originalens fargeflater og faktiske palett.

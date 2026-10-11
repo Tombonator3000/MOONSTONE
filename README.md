@@ -394,3 +394,5 @@ WHDLoad-slaven er laget av Wepl.
 Råbilder, prompter, originalreferanser og dokumenterte rettingsbehov er bevart i [HD-arkivet](art/photoreal/README.md). Se [HD-dokumentasjonen](docs/hd-grafikk.md) for pakkeformat, lokale bygg og egne bilder.
 
 Nye HD-bakgrunner for verdenskartet, Waterdeep, Highwood og kroen er lagt inn sammen med HD-logo, stor/liten konturfont og faste menytekster. Tre eksisterende introbakgrunner er også aktivert. Alt styres av Grafikk > HD / Original. Se [bilder, prompter, lisenser og kontrollstatus](art/hd-backgrounds-2026-10-11/README.md).
+
+HD-ikonene er oppdatert med [trofaste originalkonturer](art/hd-icons-2026-10-11/README.md). Velg Grafikk > HD i sidemenyen; Original beholder originalgrafikken.

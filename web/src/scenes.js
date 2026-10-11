@@ -56,6 +56,16 @@ const SceneHd = (() => {
         }
         if (!valgt) return lag;
         const rect = valgt.rect || [0, 0, 320, 200];
+        // Originalmarkorene beholdes til bakgrunnen og HD-overlegg kan vises sammen.
+        const ikoner = (StandardHd.info().bakgrunner.includes(valgt.hash)
+            ? Visning.sceneIkoner(valgt.id) : []).filter(m=>{
+            if (m.source.bank_sha256!==valgt.source_sha256 || !m.expected || m.expected.length!==m.width*m.height || !Visning.sceneIkonKlar(m,diw)) return false;
+            const [x,y]=m.rect;
+            for (let j=0;j<m.height;j++) for (let i=0;i<m.width;i++) {
+                if (scan.idx[(diw[1]+y+j)*720+diw[0]+(x+i)*2]!==m.expected[j*m.width+i]) return false;
+            }
+            return true;
+        });
         foran.fill(0); indeks.fill(255); maske.fill(0); avvik.fill(0);
         let lys = 0;
         for (let y = 0; y < 200; y++) for (let x = 0; x < 320; x++) {
@@ -77,6 +87,14 @@ const SceneHd = (() => {
                 for (let x=0;x<320;x++) { sum+=maske[y*320+x]; summer[(y+1)*321+x+1]=summer[y*321+x+1]+sum; }
             }
         }
+        // Bare et helt, eksakt markoermoenster faar ny kontur. En markoer
+        // under en ridder eller en ny status beholder hele originalbildet.
+        for (const m of ikoner) {
+            const [x,y]=m.rect;
+            for (let j=0;j<m.height;j++) for (let i=0;i<m.width;i++) {
+                const p=(y+j)*320+x+i;maske[p]=0;avvik[p]=0;
+            }
+        }
         // En liten sikkerhetskant bevarer svarte hull og kanter i forgrunnsfigurer.
         let beholdt = 0;
         for (let y = 0; y < 200; y++) for (let x = 0; x < 320; x++) {
@@ -93,9 +111,10 @@ const SceneHd = (() => {
             indeks[p] = scan.idx[fp] & 31;
             beholdt++;
         }
-        sist = { id: valgt.id, match: best, preserved_pixels: beholdt, hash: valgt.hash };
+        sist = { id: valgt.id, match: best, preserved_pixels: beholdt, hash: valgt.hash, hd_icons: ikoner.length };
         return { bak, for: foran, forIdx: indeks, bakIdx: valgt.px,
-            hash: parseInt(valgt.hash, 16), lys, hdRect: rect, scene: valgt.id, overlays: valgt.overlays || [], sceneVern: avvik };
+            hash: parseInt(valgt.hash, 16), lys, hdRect: rect, scene: valgt.id,
+            overlays: [...(valgt.overlays || []),...ikoner.map(m=>({key:m.key,rect:m.rect,uv_rect:[0,0,1,1],foreground:true}))], sceneVern: avvik };
     }
     return { korriger, nullstill, info: () => sist, matcher: () => sisteMatcher.slice() };
 })();

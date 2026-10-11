@@ -1,0 +1,1685 @@
+{
+  "checks": [
+    "title_restored_exactly",
+    "title_HD_differs",
+    "title_state_unchanged",
+    "full_title_text",
+    "no_rejected_title_rows",
+    "changed_player_count_HD",
+    "pending_background_keeps_original_map_markers",
+    "journey-frame2000_restored_exactly",
+    "journey-frame2000_HD_differs",
+    "journey-frame2000_state_unchanged",
+    "all_map_markers_HD",
+    "nonuniform_palette_keeps_original_marker",
+    "inventory_restored_exactly",
+    "inventory_HD_differs",
+    "inventory_state_unchanged",
+    "inventory_icons_loaded",
+    "no_icon_loading_error",
+    "inventory_icons_visible",
+    "hardware_cursor_HD",
+    "no_rejected_inventory_icons",
+    "changed_source_bank_rejected",
+    "original_source_restores_icons",
+    {
+      "intro": {
+        "frame": 2940,
+        "scene": {
+          "id": "stone-circle",
+          "match": 0.574,
+          "preserved_pixels": 30490,
+          "hash": "93153ff2",
+          "hd_icons": 0
+        },
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0
+        },
+        "scan": true,
+        "matches": [
+          {
+            "id": "waterdeep",
+            "match": 0.02825,
+            "detail": 0.022560796952827426
+          },
+          {
+            "id": "stone-circle",
+            "match": 0.574,
+            "detail": 0.9712351945854484
+          },
+          {
+            "id": "altar",
+            "match": 0.17175,
+            "detail": 0.25977410947002605
+          },
+          {
+            "id": "portal",
+            "match": 0.038,
+            "detail": 0.0497275204359673
+          },
+          {
+            "id": "world-map",
+            "match": 0.05175,
+            "detail": 0.05720633157456262
+          },
+          {
+            "id": "highwood",
+            "match": 0.0655,
+            "detail": 0.0770135214579659
+          },
+          {
+            "id": "tavern",
+            "match": 0.022,
+            "detail": 0.021148036253776436
+          }
+        ],
+        "menu": false,
+        "select": false,
+        "name": false,
+        "map": null
+      }
+    },
+    "intro-stone-circle_restored_exactly",
+    "intro-stone-circle_HD_differs",
+    "intro-stone-circle_state_unchanged",
+    {
+      "intro": {
+        "frame": 4240,
+        "scene": {
+          "id": "altar",
+          "match": 0.9385,
+          "preserved_pixels": 5787,
+          "hash": "64e5c054",
+          "hd_icons": 0
+        },
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0
+        },
+        "scan": true,
+        "matches": [
+          {
+            "id": "waterdeep",
+            "match": 0.02875,
+            "detail": 0.03369469674772927
+          },
+          {
+            "id": "stone-circle",
+            "match": 0.12,
+            "detail": 0.20304568527918782
+          },
+          {
+            "id": "altar",
+            "match": 0.9385,
+            "detail": 0.9456993918331885
+          },
+          {
+            "id": "portal",
+            "match": 0.00625,
+            "detail": 0.0034059945504087193
+          },
+          {
+            "id": "world-map",
+            "match": 0.06025,
+            "detail": 0.06692585392946404
+          },
+          {
+            "id": "highwood",
+            "match": 0.04425,
+            "detail": 0.05202821869488536
+          },
+          {
+            "id": "tavern",
+            "match": 0.01375,
+            "detail": 0.00785498489425982
+          }
+        ],
+        "menu": false,
+        "select": false,
+        "name": false,
+        "map": null
+      }
+    },
+    "intro-altar_restored_exactly",
+    "intro-altar_HD_differs",
+    "intro-altar_state_unchanged",
+    {
+      "intro": {
+        "frame": 4480,
+        "scene": {
+          "id": "portal",
+          "match": 0.8715,
+          "preserved_pixels": 10981,
+          "hash": "6e5a5c07",
+          "hd_icons": 0
+        },
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0
+        },
+        "scan": true,
+        "matches": [
+          {
+            "id": "waterdeep",
+            "match": 0.03475,
+            "detail": 0.02724875476120715
+          },
+          {
+            "id": "stone-circle",
+            "match": 0.03625,
+            "detail": 0.06133671742808799
+          },
+          {
+            "id": "altar",
+            "match": 0.00525,
+            "detail": 0.009122502172024326
+          },
+          {
+            "id": "portal",
+            "match": 0.8715,
+            "detail": 0.9220027247956403
+          },
+          {
+            "id": "world-map",
+            "match": 0.02425,
+            "detail": 0.026936961955012495
+          },
+          {
+            "id": "highwood",
+            "match": 0.0355,
+            "detail": 0.031452087007642564
+          },
+          {
+            "id": "tavern",
+            "match": 0.025,
+            "detail": 0.02447129909365559
+          }
+        ],
+        "menu": false,
+        "select": false,
+        "name": false,
+        "map": null
+      }
+    },
+    "intro-portal_restored_exactly",
+    "intro-portal_HD_differs",
+    "intro-portal_state_unchanged",
+    "waterdeep_source_match",
+    "fixture-waterdeep_restored_exactly",
+    "fixture-waterdeep_HD_differs",
+    "fixture-waterdeep_state_unchanged",
+    "waterdeep_black_frame_rejected",
+    "world-map_source_match",
+    "fixture-world-map_restored_exactly",
+    "fixture-world-map_HD_differs",
+    "fixture-world-map_state_unchanged",
+    "world-map_black_frame_rejected",
+    "highwood_source_match",
+    "fixture-highwood_restored_exactly",
+    "fixture-highwood_HD_differs",
+    "fixture-highwood_state_unchanged",
+    "highwood_black_frame_rejected",
+    "tavern_source_match",
+    "fixture-tavern_restored_exactly",
+    "fixture-tavern_HD_differs",
+    "fixture-tavern_state_unchanged",
+    "tavern_black_frame_rejected",
+    "mobile_no_horizontal_overflow",
+    "HTML_HD_font_loaded",
+    "HTML_HD_text_visible",
+    "HTML_original_text_restored",
+    "no_browser_errors"
+  ],
+  "captures": [
+    {
+      "name": "title",
+      "synthetic": false,
+      "samples": [
+        {
+          "mode": "original",
+          "state": 346086543,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "title-original.png",
+          "sha256": "e2e762b4eb3b0daa4f3f802c204989642ab5707b9eb8f7c4397348864f925d46"
+        },
+        {
+          "mode": "hd",
+          "state": 346086543,
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 42,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "title-hd.png",
+          "sha256": "1c1f2e800cca24d2397571caaac2b1722714255dcee259a48c09581657965c67"
+        },
+        {
+          "mode": "restored",
+          "state": 346086543,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "title-restored.png",
+          "sha256": "e2e762b4eb3b0daa4f3f802c204989642ab5707b9eb8f7c4397348864f925d46"
+        }
+      ]
+    },
+    {
+      "name": "journey-frame2000",
+      "synthetic": false,
+      "samples": [
+        {
+          "mode": "original",
+          "state": 1575726986,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "journey-frame2000-original.png",
+          "sha256": "14e17999efcb8d2e11cdaa31e1383055dd6a143ba9194d7ac82ac57097e242ad"
+        },
+        {
+          "mode": "hd",
+          "state": 1575726986,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": {
+            "id": "world-map",
+            "match": 0.9855,
+            "preserved_pixels": 165,
+            "hash": "2c1e0fa5",
+            "hd_icons": 26
+          },
+          "file": "journey-frame2000-hd.png",
+          "sha256": "b215e78294874fe1ca6e7e0d0768ebe31fbfc35d20d4185bf5f13902ab8d67e9"
+        },
+        {
+          "mode": "restored",
+          "state": 1575726986,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "journey-frame2000-restored.png",
+          "sha256": "14e17999efcb8d2e11cdaa31e1383055dd6a143ba9194d7ac82ac57097e242ad"
+        }
+      ]
+    },
+    {
+      "name": "inventory",
+      "synthetic": false,
+      "samples": [
+        {
+          "mode": "original",
+          "state": 1697588080,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "inventory-original.png",
+          "sha256": "8d765b2bf568d2b8e2d97d66ad1fbddee23fa39194c14381143941d854b8b4ab"
+        },
+        {
+          "mode": "hd",
+          "state": 1697588080,
+          "control": {
+            "godkjent": 17,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 29,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 17,
+            "ikonAvvist": 0,
+            "markorGodkjent": 1
+          },
+          "scene": null,
+          "file": "inventory-hd.png",
+          "sha256": "35c6beb1ab4a9b32dc57ec49fc11872102585e42a090722f2c0457418fbee19f"
+        },
+        {
+          "mode": "restored",
+          "state": 1697588080,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "inventory-restored.png",
+          "sha256": "8d765b2bf568d2b8e2d97d66ad1fbddee23fa39194c14381143941d854b8b4ab"
+        }
+      ]
+    },
+    {
+      "name": "intro-stone-circle",
+      "synthetic": false,
+      "samples": [
+        {
+          "mode": "original",
+          "state": 3663095694,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "intro-stone-circle-original.png",
+          "sha256": "c5367d074c9ae2178f9c60d395756a3ec52cf6b2fd92342ae249f26e845ae308"
+        },
+        {
+          "mode": "hd",
+          "state": 3663095694,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": {
+            "id": "stone-circle",
+            "match": 0.574,
+            "preserved_pixels": 30490,
+            "hash": "93153ff2",
+            "hd_icons": 0
+          },
+          "file": "intro-stone-circle-hd.png",
+          "sha256": "632e5b1b3e09c07a938f28cb932568222b452d824fbea04e0a6fa9446761cfee"
+        },
+        {
+          "mode": "restored",
+          "state": 3663095694,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "intro-stone-circle-restored.png",
+          "sha256": "c5367d074c9ae2178f9c60d395756a3ec52cf6b2fd92342ae249f26e845ae308"
+        }
+      ]
+    },
+    {
+      "name": "intro-altar",
+      "synthetic": false,
+      "samples": [
+        {
+          "mode": "original",
+          "state": 1170580377,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "intro-altar-original.png",
+          "sha256": "944a8325da3ccd0c620aa87ed90d1d1bf5740e51d1709369a706a3532b2a8ac0"
+        },
+        {
+          "mode": "hd",
+          "state": 1170580377,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": {
+            "id": "altar",
+            "match": 0.9385,
+            "preserved_pixels": 5787,
+            "hash": "64e5c054",
+            "hd_icons": 0
+          },
+          "file": "intro-altar-hd.png",
+          "sha256": "a27d7b66a08bd0a8ed7354e362cefaca31eea750803ce6510e91457a261e3df4"
+        },
+        {
+          "mode": "restored",
+          "state": 1170580377,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "intro-altar-restored.png",
+          "sha256": "944a8325da3ccd0c620aa87ed90d1d1bf5740e51d1709369a706a3532b2a8ac0"
+        }
+      ]
+    },
+    {
+      "name": "intro-portal",
+      "synthetic": false,
+      "samples": [
+        {
+          "mode": "original",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "intro-portal-original.png",
+          "sha256": "8ec2612bb50e47b920edd5efab6151fad37a1e3a13519ab785af53863edb9fb7"
+        },
+        {
+          "mode": "hd",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": {
+            "id": "portal",
+            "match": 0.8715,
+            "preserved_pixels": 10981,
+            "hash": "6e5a5c07",
+            "hd_icons": 0
+          },
+          "file": "intro-portal-hd.png",
+          "sha256": "a6e77dbcb122c615a5287d308b983e0ef67c62f2ba673e966400e2802e76420e"
+        },
+        {
+          "mode": "restored",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "intro-portal-restored.png",
+          "sha256": "8ec2612bb50e47b920edd5efab6151fad37a1e3a13519ab785af53863edb9fb7"
+        }
+      ]
+    },
+    {
+      "name": "fixture-waterdeep",
+      "synthetic": true,
+      "samples": [
+        {
+          "mode": "original",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "fixture-waterdeep-original.png",
+          "sha256": "61efef03d1deba018eb55c36d37769e24da2bce6e444e983a97c2c87ced77ae5"
+        },
+        {
+          "mode": "hd",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": {
+            "id": "waterdeep",
+            "match": 1,
+            "preserved_pixels": 13200,
+            "hash": "d097d0ff",
+            "hd_icons": 0
+          },
+          "file": "fixture-waterdeep-hd.png",
+          "sha256": "68715e7b5785c5a3a2c515ab826660a8f57dd621c36c0eddee899df37caa1f68"
+        },
+        {
+          "mode": "restored",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "fixture-waterdeep-restored.png",
+          "sha256": "61efef03d1deba018eb55c36d37769e24da2bce6e444e983a97c2c87ced77ae5"
+        }
+      ]
+    },
+    {
+      "name": "fixture-world-map",
+      "synthetic": true,
+      "samples": [
+        {
+          "mode": "original",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "fixture-world-map-original.png",
+          "sha256": "1373dfd493d32d03a78023c3abbb30f40b57939dda186a6de575ee278bd3d026"
+        },
+        {
+          "mode": "hd",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": {
+            "id": "world-map",
+            "match": 1,
+            "preserved_pixels": 0,
+            "hash": "2c1e0fa5",
+            "hd_icons": 0
+          },
+          "file": "fixture-world-map-hd.png",
+          "sha256": "093e36c0ed0b1d057f9fd89bb5cd6d238431737253584a68c34fbd76b9109747"
+        },
+        {
+          "mode": "restored",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "fixture-world-map-restored.png",
+          "sha256": "1373dfd493d32d03a78023c3abbb30f40b57939dda186a6de575ee278bd3d026"
+        }
+      ]
+    },
+    {
+      "name": "fixture-highwood",
+      "synthetic": true,
+      "samples": [
+        {
+          "mode": "original",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "fixture-highwood-original.png",
+          "sha256": "1a7de1b48bb7e1c09093bc812988fd7aa2480f291c8c76f0a3666499e18de0bb"
+        },
+        {
+          "mode": "hd",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": {
+            "id": "highwood",
+            "match": 1,
+            "preserved_pixels": 12800,
+            "hash": "438c8bc2",
+            "hd_icons": 0
+          },
+          "file": "fixture-highwood-hd.png",
+          "sha256": "874c1f18bf64bd245a44417f79129fe38d66065f165f190e6e790d758d822834"
+        },
+        {
+          "mode": "restored",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "fixture-highwood-restored.png",
+          "sha256": "1a7de1b48bb7e1c09093bc812988fd7aa2480f291c8c76f0a3666499e18de0bb"
+        }
+      ]
+    },
+    {
+      "name": "fixture-tavern",
+      "synthetic": true,
+      "samples": [
+        {
+          "mode": "original",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "fixture-tavern-original.png",
+          "sha256": "7e93e6f9dd74e85d469af73e95d5fa30ec961988b13031a4789cf1a9a69c5347"
+        },
+        {
+          "mode": "hd",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": {
+            "id": "tavern",
+            "match": 1,
+            "preserved_pixels": 12800,
+            "hash": "44898895",
+            "hd_icons": 0
+          },
+          "file": "fixture-tavern-hd.png",
+          "sha256": "7672e9268e4ef7bba1b0594dee597328a33003bd12281e29ca4fa6ea8d85c24a"
+        },
+        {
+          "mode": "restored",
+          "state": 934714144,
+          "control": {
+            "godkjent": 0,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0
+          },
+          "scene": null,
+          "file": "fixture-tavern-restored.png",
+          "sha256": "7e93e6f9dd74e85d469af73e95d5fa30ec961988b13031a4789cf1a9a69c5347"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "scope": "Naturlig intro og inndata til kartet; byer/kro er dessuten kontrollert med originale PIV-data som eksplisitte visningsfixturer. Ingen skriving i emulert minne.",
+  "updated": {
+    "control": {
+      "godkjent": 1,
+      "utenLag": 0,
+      "kilde": 0,
+      "overlapp": 0,
+      "piksler": 0,
+      "poseGodkjent": 0,
+      "poseGruppe": 0,
+      "poseKilde": 0,
+      "posePalett": 0,
+      "poseOverlapp": 0,
+      "posePiksler": 0,
+      "tekstGodkjent": 42,
+      "tekstAvvist": 0,
+      "tekstFeil": [],
+      "ikonGodkjent": 1,
+      "ikonAvvist": 0
+    },
+    "glyphs": [
+      {
+        "fil": "bold.f",
+        "bilde": 54,
+        "x": 214,
+        "y": 83,
+        "w": 11,
+        "h": 19,
+        "xoff": 0,
+        "speilet": false
+      }
+    ]
+  },
+  "pending_map": {
+    "frame": 2000,
+    "scene": {
+      "id": "world-map",
+      "match": 0.9855,
+      "preserved_pixels": 1312,
+      "hash": "2c1e0fa5",
+      "hd_icons": 0
+    },
+    "control": {
+      "godkjent": 0,
+      "utenLag": 0,
+      "kilde": 0,
+      "overlapp": 0,
+      "piksler": 0,
+      "poseGodkjent": 0,
+      "poseGruppe": 0,
+      "poseKilde": 0,
+      "posePalett": 0,
+      "poseOverlapp": 0,
+      "posePiksler": 0,
+      "tekstGodkjent": 0,
+      "tekstAvvist": 0,
+      "tekstFeil": [],
+      "ikonGodkjent": 0,
+      "ikonAvvist": 0
+    },
+    "scan": true,
+    "matches": [
+      {
+        "id": "waterdeep",
+        "match": 0.02225,
+        "detail": 0.022560796952827426
+      },
+      {
+        "id": "stone-circle",
+        "match": 0.0845,
+        "detail": 0.08587140439932318
+      },
+      {
+        "id": "altar",
+        "match": 0.061,
+        "detail": 0.07993049522154648
+      },
+      {
+        "id": "portal",
+        "match": 0.024,
+        "detail": 0.027588555858310628
+      },
+      {
+        "id": "world-map",
+        "match": 0.9855,
+        "detail": 0.9861149680644266
+      },
+      {
+        "id": "highwood",
+        "match": 0.025,
+        "detail": 0.023809523809523808
+      },
+      {
+        "id": "tavern",
+        "match": 0.0255,
+        "detail": 0.026283987915407855
+      }
+    ],
+    "hash": 790419865,
+    "menu": false,
+    "select": false,
+    "name": false,
+    "map": null
+  },
+  "journey": {
+    "frame": 2000,
+    "scene": {
+      "id": "world-map",
+      "match": 0.9855,
+      "preserved_pixels": 165,
+      "hash": "2c1e0fa5",
+      "hd_icons": 26
+    },
+    "control": {
+      "godkjent": 0,
+      "utenLag": 0,
+      "kilde": 0,
+      "overlapp": 0,
+      "piksler": 0,
+      "poseGodkjent": 0,
+      "poseGruppe": 0,
+      "poseKilde": 0,
+      "posePalett": 0,
+      "poseOverlapp": 0,
+      "posePiksler": 0,
+      "tekstGodkjent": 0,
+      "tekstAvvist": 0,
+      "tekstFeil": [],
+      "ikonGodkjent": 0,
+      "ikonAvvist": 0
+    },
+    "scan": true,
+    "matches": [
+      {
+        "id": "waterdeep",
+        "match": 0.02225,
+        "detail": 0.022560796952827426
+      },
+      {
+        "id": "stone-circle",
+        "match": 0.0845,
+        "detail": 0.08587140439932318
+      },
+      {
+        "id": "altar",
+        "match": 0.061,
+        "detail": 0.07993049522154648
+      },
+      {
+        "id": "portal",
+        "match": 0.024,
+        "detail": 0.027588555858310628
+      },
+      {
+        "id": "world-map",
+        "match": 0.9855,
+        "detail": 0.9861149680644266
+      },
+      {
+        "id": "highwood",
+        "match": 0.025,
+        "detail": 0.023809523809523808
+      },
+      {
+        "id": "tavern",
+        "match": 0.0255,
+        "detail": 0.026283987915407855
+      }
+    ],
+    "hash": 790419865,
+    "menu": false,
+    "select": false,
+    "name": false,
+    "map": null
+  },
+  "inventory": {
+    "frame": 2150,
+    "scene": null,
+    "control": {
+      "godkjent": 17,
+      "utenLag": 0,
+      "kilde": 0,
+      "overlapp": 0,
+      "piksler": 0,
+      "poseGodkjent": 0,
+      "poseGruppe": 0,
+      "poseKilde": 0,
+      "posePalett": 0,
+      "poseOverlapp": 0,
+      "posePiksler": 0,
+      "tekstGodkjent": 29,
+      "tekstAvvist": 0,
+      "tekstFeil": [],
+      "ikonGodkjent": 17,
+      "ikonAvvist": 0,
+      "markorGodkjent": 1
+    },
+    "scan": true,
+    "matches": [
+      {
+        "id": "waterdeep",
+        "match": 0.0485,
+        "detail": 0.05684148842660416
+      },
+      {
+        "id": "stone-circle",
+        "match": 0.3745,
+        "detail": 0.0021150592216582064
+      },
+      {
+        "id": "altar",
+        "match": 0.0125,
+        "detail": 0.0013032145960034753
+      },
+      {
+        "id": "portal",
+        "match": 0.0115,
+        "detail": 0
+      },
+      {
+        "id": "world-map",
+        "match": 0.05525,
+        "detail": 0.061371841155234655
+      },
+      {
+        "id": "highwood",
+        "match": 0.08775,
+        "detail": 0.10317460317460317
+      },
+      {
+        "id": "tavern",
+        "match": 0.10075,
+        "detail": 0.12175226586102719
+      }
+    ],
+    "hash": 2498123047,
+    "menu": false,
+    "select": false,
+    "name": false,
+    "map": null
+  },
+  "icons": {
+    "antall": 75,
+    "feil": [],
+    "markor": {
+      "x": 160,
+      "y": 100,
+      "synlige": 82
+    },
+    "kandidater": [
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 115,
+        "y": 59,
+        "w": 13,
+        "h": 15,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 134,
+        "y": 59,
+        "w": 13,
+        "h": 15,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 153,
+        "y": 59,
+        "w": 13,
+        "h": 15,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 172,
+        "y": 59,
+        "w": 13,
+        "h": 15,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 191,
+        "y": 59,
+        "w": 13,
+        "h": 15,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 112,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 122,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 132,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 142,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 152,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 162,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 172,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 182,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 192,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 202,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 22,
+        "x": 117,
+        "y": 95,
+        "w": 65,
+        "h": 9,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 27,
+        "x": 103,
+        "y": 112,
+        "w": 37,
+        "h": 27,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      }
+    ],
+    "viste": [
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 115,
+        "y": 59
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 134,
+        "y": 59
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 153,
+        "y": 59
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 172,
+        "y": 59
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 191,
+        "y": 59
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 112,
+        "y": 78
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 122,
+        "y": 78
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 132,
+        "y": 78
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 142,
+        "y": 78
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 152,
+        "y": 78
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 162,
+        "y": 78
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 172,
+        "y": 78
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 182,
+        "y": 78
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 192,
+        "y": 78
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 202,
+        "y": 78
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 22,
+        "x": 117,
+        "y": 95
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 27,
+        "x": 103,
+        "y": 112
+      }
+    ]
+  },
+  "status": "passed",
+  "created_at": "2026-10-11T09:28:11.304Z",
+  "manifest_sha256": "2fcf2f43bfda51c57bbd78fe0c4bc13116aa65f19e2832936af5fd7ff3564061",
+  "html_sha256": "4c4423454f9863b6c4eec7a44f49e36eb3722e0403f1725f6fe729cce674f7e3"
+}
