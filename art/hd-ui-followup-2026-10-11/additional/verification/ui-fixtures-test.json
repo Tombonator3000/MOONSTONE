@@ -1,0 +1,160 @@
+{
+  "url": "http://127.0.0.1:8871/moonstone.html",
+  "status": "passed",
+  "checks": [
+    "fragment_import_accepted",
+    "requested_keys_found",
+    "mys.cel/002_approved_false",
+    "mys.cel/002_HD_changes_pixels_false",
+    "mys.cel/002_Original_exact_false",
+    "mys.cel/002_HD_exact_false",
+    "mys.cel/002_approved_true",
+    "mys.cel/002_HD_changes_pixels_true",
+    "mys.cel/002_Original_exact_true",
+    "mys.cel/002_HD_exact_true",
+    "mys.cel/002_palette_mys_approved",
+    "mys.cel/002_palette_mys_texture_exact",
+    "mys.cel/002_palette_hea_approved",
+    "mys.cel/002_palette_hea_texture_exact",
+    "mys.cel/002_changed_source_rejected",
+    "mys.cel/002_restored_source_accepted",
+    "mys.cel/002_unknown_foreground_rejected",
+    "mys.cel/003_approved_false",
+    "mys.cel/003_HD_changes_pixels_false",
+    "mys.cel/003_Original_exact_false",
+    "mys.cel/003_HD_exact_false",
+    "mys.cel/003_approved_true",
+    "mys.cel/003_HD_changes_pixels_true",
+    "mys.cel/003_Original_exact_true",
+    "mys.cel/003_HD_exact_true",
+    "mys.cel/003_palette_mys_approved",
+    "mys.cel/003_palette_mys_texture_exact",
+    "mys.cel/003_palette_hea_approved",
+    "mys.cel/003_palette_hea_texture_exact",
+    "mys.cel/003_changed_source_rejected",
+    "mys.cel/003_restored_source_accepted",
+    "mys.cel/003_unknown_foreground_rejected",
+    "mys.cel/004_approved_false",
+    "mys.cel/004_HD_changes_pixels_false",
+    "mys.cel/004_Original_exact_false",
+    "mys.cel/004_HD_exact_false",
+    "mys.cel/004_approved_true",
+    "mys.cel/004_HD_changes_pixels_true",
+    "mys.cel/004_Original_exact_true",
+    "mys.cel/004_HD_exact_true",
+    "mys.cel/004_palette_mys_approved",
+    "mys.cel/004_palette_mys_texture_exact",
+    "mys.cel/004_palette_hea_approved",
+    "mys.cel/004_palette_hea_texture_exact",
+    "mys.cel/004_changed_source_rejected",
+    "mys.cel/004_restored_source_accepted",
+    "mys.cel/004_unknown_foreground_rejected",
+    "mys.cel/005_approved_false",
+    "mys.cel/005_HD_changes_pixels_false",
+    "mys.cel/005_Original_exact_false",
+    "mys.cel/005_HD_exact_false",
+    "mys.cel/005_approved_true",
+    "mys.cel/005_HD_changes_pixels_true",
+    "mys.cel/005_Original_exact_true",
+    "mys.cel/005_HD_exact_true",
+    "mys.cel/005_palette_mys_approved",
+    "mys.cel/005_palette_mys_texture_exact",
+    "mys.cel/005_palette_hea_approved",
+    "mys.cel/005_palette_hea_texture_exact",
+    "mys.cel/005_changed_source_rejected",
+    "mys.cel/005_restored_source_accepted",
+    "mys.cel/005_unknown_foreground_rejected",
+    "emulated_state_unchanged",
+    "no_browser_errors"
+  ],
+  "assets": [
+    {
+      "key": "mys.cel/002",
+      "quality_status": "source-bound-ui-contours",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "fad81299115b73fa9aba4ed954afbcf781e65e7c8d03d3aeb4b0fba23bf8d78c",
+          "hd_sha256": "fa07ec8950d625dd3dd641ee9d8f7dbe6a9133929bc6a836718576b1246bb165"
+        },
+        {
+          "mirror": true,
+          "original_sha256": "76690eac1bc000f914e1dad380bfd8de6ff64f0cee02b4e174280cb79bcf6906",
+          "hd_sha256": "5f2df1faf078fb63dfde087865f27951fb3f2ae755787873a8adbd831c2a4c71"
+        }
+      ],
+      "palette_variants": [
+        "mys",
+        "hea"
+      ]
+    },
+    {
+      "key": "mys.cel/003",
+      "quality_status": "source-bound-ui-contours",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "d9ffb2bcfc3ef492451a845b6444a2ad03712b16d7588b402a0c90004800e745",
+          "hd_sha256": "9ac3ad3786e1ee87f89be4b0a15c2699fc425f13305e5128598f7a525bd5270a"
+        },
+        {
+          "mirror": true,
+          "original_sha256": "19a044128c8af62f11a39de3be963d0c64dfaa84d9f517ab9e22cccd74ede736",
+          "hd_sha256": "af253543bc40e6e4163ef685b4274ba30d14c304d6517d4a17e295d25f0d34a2"
+        }
+      ],
+      "palette_variants": [
+        "mys",
+        "hea"
+      ]
+    },
+    {
+      "key": "mys.cel/004",
+      "quality_status": "source-bound-ui-contours",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "e649326e443722d7a885a679fd487388dbe8b1b4c2b59a035de7320e92503f92",
+          "hd_sha256": "bf263b6b5e8fbfa8b58dc74df62800bd227fb56f6562a0f9d88b5d2a01f1a781"
+        },
+        {
+          "mirror": true,
+          "original_sha256": "bb5cb86f17180043e87eedc22ca53f52b1a19c78f5ae0a0c88cef095477bdf1e",
+          "hd_sha256": "0c33d3322b074ab969fc9df795e15d09b062050552bcdf51e9fbea0fc5cc42cf"
+        }
+      ],
+      "palette_variants": [
+        "mys",
+        "hea"
+      ]
+    },
+    {
+      "key": "mys.cel/005",
+      "quality_status": "source-bound-ui-contours",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "bb5cb86f17180043e87eedc22ca53f52b1a19c78f5ae0a0c88cef095477bdf1e",
+          "hd_sha256": "1939ef619964f8a06a86463ddd06a6756198d5bd10a145857f5c5f9b7db2e2ba"
+        },
+        {
+          "mirror": true,
+          "original_sha256": "e649326e443722d7a885a679fd487388dbe8b1b4c2b59a035de7320e92503f92",
+          "hd_sha256": "75f8262d5e302bc8a4322363fb5d6a3df49954f550f6aa67e1a5a1044debff7c"
+        }
+      ],
+      "palette_variants": [
+        "mys",
+        "hea"
+      ]
+    }
+  ],
+  "errors": [],
+  "scope": "Originale CEL-fixturer i faktisk frontend, speiling, Original/HD-retur, levende valgpalett, kildevern. Ingen naturlig gjennomspilling eller fotografisk materialgodkjenning.",
+  "fragment_icons_sha256": "f893207ce81ec99bbb175ac23c0999f5a1752c8f7c86b6ec714e61fc151c52d7",
+  "production_code_sha256": {
+    "web/src/render.js": "9f257585a64ce4c36c3239b2dc4dc71f5843de53e0211bfe1ac5fea5ebbba85b",
+    "web/src/scenes.js": "6ff05b2f25ebb159a06efac64c65cab8e020f80a4d6c3038bb904fcf836a3c2f"
+  },
+  "created_at": "2026-10-11T17:01:58.697Z"
+}

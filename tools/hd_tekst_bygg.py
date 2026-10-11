@@ -16,6 +16,9 @@ def sha(data):
 
 
 def main():
+    active_text = ROOT/'web/hd/text.json'
+    if active_text.is_file() and json.loads(active_text.read_text()).get('method') == 'original-source-contours':
+        raise SystemExit('Originaltro fontformer er aktive. Denne eldre fontbyggeren ville erstatte dem med andre skrifttyper. Bruk hd_trofast_font_bygg.py og hd_trofast_font_aktiver.py.')
     game = mf.Spill(str(ROOT / 'Moonstonecd32-AMIGA.zip'))
     manifest = {'schema': 1, 'scale': SCALE, 'banks': {}, 'glyphs': []}
     characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?.,#$% '

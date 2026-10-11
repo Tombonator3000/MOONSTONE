@@ -4,6 +4,7 @@ hd_bestilling.py - lager bestillingslisten over HD-bildene som skal tegnes.
 
     python3 tools/hd_bestilling.py Moonstonecd32-AMIGA.zip docs/hd-bestilling-liste.csv
     python3 tools/hd_bestilling.py --maske assets/gfx/KN1.ob/012.png hd/KN1.ob/012.mask.png [hd/KN1.ob/012.png]
+    python3 tools/hd_bestilling.py --maske assets/gfx/HE3.ob/031.png hd/HE3.ob/031.mask.png hd/HE3.ob/031.png --graa-referanse 128
 
 Listen har en rad per bilde som må tegnes eller tegnes på nytt, i prioritert
 rekkefølge, med eksakt sti i HD-pakken og størrelse. Den bygger på
@@ -12,14 +13,15 @@ emulatoren), spillfilen (størrelser, tomme bilder og like bilder), web/hd/manif
 (det som allerede har HD) og art/photoreal/catalog.json (utkast som finnes).
 
 Regler:
-  - Tomme bilder (ingen bitplan) og bilder som allerede har HD, tas ikke med.
+  - Tomme bilder (ingen bitplan) og bilder med egen bank-PNG i manifestet tas ikke
+    med. Poser som dekker flere originalruter er egne metodeprøver, ikke ferdige
+    separate ruter; de utelater derfor ikke nytegningene i bestillingen.
   - Like bilder (samme størrelse og samme fargeindekser) får en rad. Merknaden sier
     hvor tegningen også skal ligge.
   - HE1-3.ob er ofte KN1-3.ob med indeksene 6, 7, 8 byttet til 9, 10, 11. Da er det
     samme tegning, og bare masken er forskjellig. Slike HE-bilder får ingen egen rad.
-  - ki.cel 034-044 bestilles ikke. De lages som konturikoner med tools/hd_ikoner_bygg.py
-    (8x og en oppføring i icons.json), som resten av ki.cel; render.js godtar bare
-    scale 8 for ikonene.
+  - Ikoner og UI tas først, deretter alle bakgrunner og logoen. Figurer og
+    animasjoner tas til slutt, hver rute for seg.
   - Filer som bare lastes av programmet `program` (intro og slutt) får prioritet
     «senere». De kan ikke vises i HD ennå (docs/hd-mangler.md punkt 4).
   - Skala 4 ganger originalen i begge retninger (se docs/hd-bestilling-chatgpt.md).
@@ -36,8 +38,10 @@ rustningen blir med.
 Skriver også en oppsummering per gruppe til stdout, så tallene kan sjekkes mot
 docs/hd-mangler.md.
 """
+import argparse
 import collections
 import csv
+import hashlib
 import json
 import os
 import sys
@@ -56,8 +60,6 @@ HE_BYTTE = {6: 9, 7: 10, 8: 11}
 # Indeksene spillet farger etter hvilken ridder som kjemper: 6-8 (kn) og 9-11 (he).
 # Bare de faar maske; resten av tegningen beholder fargene sine.
 RIDDERFARGER = set(range(6, 12))
-# Bestilles ikke: lages som konturikoner (tools/hd_ikoner_bygg.py), se docstringen.
-IKKE_BESTILL = {'ki.cel'}
 # Har HD i dag, men skal tegnes paa nytt.
 PAA_NYTT = {('bold.f', 73)}
 
@@ -67,57 +69,67 @@ MONSTRE = {
     'TROGGSpear': 'troggen med spyd', 'TROLL': 'trollet',
 }
 
-# Figurer i hovedspillet: prioritet, gruppe, hvor, merknad. Prioriteten er den i
-# docs/hd-mangler.md punkt 2. KN5.ob står der både under ridderne og under blod;
-# her ligger den under blod (10), fordi kroppene er viktigere enn sårene.
+# Figurer i hovedspillet: prioritet, gruppe, hvor, merknad. Brukerens rekkefølge
+# gjelder foran den eldre frekvensbaserte listen i docs/hd-mangler.md.
 def figur_info(fil, nr):
     f = fil.lower()
     if f == 'mi.c':
         if 34 <= nr <= 41:
-            return 2, 'Kartfigurer', 'Kartet: drageanimasjon, åtte ruter', \
-                'Figuranimasjon, tas etter statiske ikoner. Sammenlign hver rute, bevegelse og overlapping med originalen.'
+            return 4, 'Drageanimasjon', 'Kartet: drageanimasjon, åtte ruter', \
+                'Figuranimasjon, tas til slutt. Nytegn hver rute separat og kontroller bevegelse og overlapping mot originalen.'
         if nr == 32:
-            return 2, 'Kartfigurer', 'Kartet: meldingsfelt eller valgrull (032)', \
+            return 1, 'Kart-UI', 'Kartet: meldingsfelt eller valgrull (032)', \
                 'UI-fragment. Bevar originalens tekst, plassering og visningstid.'
-        return 2, 'Kartfigurer', 'Kartet: valgkontur eller områdeomriss', \
+        return 1, 'Kart-UI', 'Kartet: valgkontur eller områdeomriss', \
             'UI-fragment. Bevar originalens form og levende palett; ikke tegn en ny gjenstand.'
+    if f == 'ki.cel':
+        return 1, 'Inventar-UI', 'Inventaret: tekst- eller rammefragment', \
+            'Bevar originalens bokstavform, ramme, plassering og levende palett. Kontroller delene samlet i inventaret.'
     if f in ('kn1.ob', 'kn2.ob', 'kn3.ob', 'he1.ob', 'he2.ob', 'he3.ob'):
         farge = 'gylden i grafikklisten, indeksene 9-11' if f.startswith('he') else 'indeksene 6-8'
-        return 5, 'Riddere', 'Alle kamper: ridderens kropp (%s), tegnes ti ganger i sekundet' % farge, \
+        return 3, 'Riddere', 'Alle kamper: ridderens kropp (%s), tegnes ti ganger i sekundet' % farge, \
             'Koden støtter figurer i flere deler og farge fra paletten. Hver ny rute og overlapping må prøves.'
     if f == 'kn4.ob':
-        return 5, 'Riddere', 'Alle kamper: ridderens våpen (sverd, lanse) over kroppen', \
+        return 3, 'Riddere', 'Alle kamper: ridderens våpen (sverd, lanse) over kroppen', \
             'Koden støtter flere deler. Sverdet tegnes over kroppen i KN1-3; ny grafikk må prøves med kroppen.'
     if f == 'kn5.ob':
-        return 10, 'Blod og sår', 'Kamp: blod og sår på ridderen', \
+        return 4, 'Blod og sår', 'Kamp: blod og sår på ridderen', \
             'Ikke sett i tegnelisten ennå (antatt i bruk). Overlapper ridderen.'
     if f == 'blo.cel':
-        return 10, 'Blod og sår', 'Kamp: blodsprut over ridder og monster', \
+        return 4, 'Blod og sår', 'Kamp: blodsprut over ridder og monster', \
             'Faste farger. Ikke sett i tegnelisten ennå (antatt i bruk). Overlapper figuren under.'
     for start, navn in MONSTRE.items():
         if fil.lower().startswith(start.lower()):
-            return 7, 'Monstre', 'Kamp i hi og ute: %s' % navn, \
+            return 3, 'Monstre', 'Kamp i hi og ute: %s' % navn, \
                 ('Koden støtter eierskap per piksel for deler som overlapper. '
                  'Ny grafikk og animerte overlappinger må prøves; bare TroggSpear er målt i den eldre kartleggingen.')
     if f == 'bold.f':
         if nr == 73:
-            return 7, 'Logo', 'Tittelmenyen: MOONSTONE-logoen', \
+            return 2, 'Logo', 'Tittelmenyen: MOONSTONE-logoen', \
                 ('Tegnes på nytt. Dagens web/hd/bold.f/073.png er 2172 x 724 (3,0:1) mot kildens 305 x 54 '
                  '(5,65:1). Visningen bevarer nå sideforholdet, men en trofast nytegning gjenstår. '
-                 'Utkastet art/photoreal/candidates/bold.f/073.png har riktig '
-                 'forhold i kjernen, men står i candidate_geometry_review.')
-        return 11, 'Tittelmeny', 'Tittelmenyen: copyrightlinjene', 'Klar, ikke prøvd. Tegn teksten nøyaktig som i originalen.'
+                 'Originalens 305 x 54 er fasit. Logoens tekstmetadata må tilpasses 1220 x 216-leveransen. '
+                 'Eldre avviste utkast er bare dokumentasjon av feil, ikke tegnereferanser.')
+        return 1, 'Tittelmeny', 'Tittelmenyen: copyrightlinjene', 'Klar, ikke prøvd. Tegn teksten nøyaktig som i originalen.'
     if f == 'sel.cel':
-        return 11, 'Meny', 'Trolig Select a Knight: en tom ramme (ikke menypilen)', 'Klar, ikke prøvd. Hvor den vises er antatt.'
+        return 1, 'Meny', 'Trolig Select a Knight: en tom ramme (ikke menypilen)', 'Klar, ikke prøvd. Hvor den vises er antatt.'
     if f == 'dice.cel':
-        return 8, 'Taverna og by', 'Tavernaen: terningspillet (terninger, beger, hender)', \
-            'Klar. Bilde 6 og 7 er sett i tegnelisten, resten er ikke prøvd.'
+        if nr <= 5:
+            return 1, 'Kro- og byikoner', 'Tavernaen: seks faste terningsutfall', \
+                'Statiske utfallsbilder. Originalkoden velger 0-5 i vis_gull_vunnet ($08a600-$08a690). Bevar hvert symbol.'
+        return 4, 'Kroanimasjoner', 'Tavernaen: hender og terningkast', \
+            'Animasjonsruter, tas til slutt. Bilde 6 og 7 er sett i tegnelisten. Nytegn og kontroller hver rute separat.'
     if f == 'mys.cel':
-        return 8, 'Taverna og by', 'Waterdeep: Mythrid the Mystic (knapper og ting)', 'Klar, ikke prøvd.'
+        if nr >= 6:
+            hvor = 'Healeren: begge øyne lukket' if nr == 6 else 'Mystikeren: ett øye lukket'
+            return 3, 'Stedsfigurer', hvor, \
+                'Figuranimasjon, tas etter ikonene og bakgrunnene. 006 bruker HEA-paletten, 007 MYS-paletten. Kontroller mot hele originalscenen.'
+        return 1, 'Kro- og byikoner', 'Mystikeren og healeren: donasjonsknapper, tekst og piler', \
+            'Statisk UI. donasjon ($08a002-$08a07e) tegner knappene 0-5. Bevar originalens tekst og symboler.'
     if f == 'wi1.c':
-        return 10, 'Stedsfigurer', 'Tårnet i fjellene: trollmannen Math', 'Klar, ikke prøvd.'
+        return 3, 'Stedsfigurer', 'Tårnet i fjellene: trollmannen Math', 'Klar, ikke prøvd.'
     if f == 'hen1.c':
-        return 10, 'Stedsfigurer', 'Stonehenge og tempelet i slutten: ting og flammer', 'Klar, ikke prøvd.'
+        return 3, 'Stedsfigurer', 'Stonehenge og tempelet i slutten: ting og flammer', 'Klar, ikke prøvd.'
     raise SystemExit('Ingen prioritet for %s' % fil)
 
 
@@ -154,28 +166,28 @@ BAKGRUNNER = [
     (8, 'Steder', 'mys.piv', 0, 'd8b4018a', 'Mythrid the Mystic i Waterdeep',
      'Klar. Utkast finnes (needs_revision: nye tegn). Tegnes på nytt.'),
     (8, 'Steder', 'hen1.p', 0, '94c7f163', 'Druidene ved Stonehenge og tempelet i slutten',
-     'Klar. hen1.p og bg5.piv er like, ett bilde dekker begge. Utkast finnes (candidate_geometry_review).'),
+     'Har scene. hen1.p og bg5.piv er like, ett bilde dekker begge. Aktiv eldre master skal revideres direkte mot originalen.'),
     (8, 'Steder', 'WI1.P', 0, '71970806', 'Trollmannen Math i tårnet',
-     ('Trenger en scene i manifest.json, fordi spillet skriver tekst inn i bakgrunnen (målt 4d4fb3f3, 27ddabfe, '
-      '7e2863f2). Tegn bildet uten tekst. Utkast finnes (needs_revision: synlig skjøt).')),
+     ('Har scene i manifest.json fordi spillet skriver tekst inn i bakgrunnen. Tegn uten tekst og bevar '
+      'originalfiguren. Eldre avvist utkast er bare feilarkiv (synlig skjøt).')),
     (8, 'Steder', 'WI2.P', 0, 'da1dc997', 'Tårnet til Math sett utenfra',
-     ('Trenger en scene. Hashen er regnet fra PIV-filen, skjermen uten tekst er aldri sett i spillet. '
-      'Utkast finnes (needs_revision: en stjerne for mye og to mangler).')),
+     ('Har scene. Tegn tårn, stjerner og bakgrunn direkte etter original-PIV. '
+      'Eldre avvist utkast er bare feilarkiv (feil stjerner).')),
     (8, 'Taverna og by', 'dice.piv', 0, 'c6a4a00e', 'Tavernaen: bordet i terningspillet',
-     ('Trenger en scene: hvert spill gir en ny hash (10 målt). Tegn det rene bordet. Utkastet er bare en '
-      'treflate (candidate_geometry_review).')),
+     ('Har scene: spillets tekst og terninger endrer skjermhashen. Tegn det rene bordet. '
+      'Eldre avvist utkast er bare feilarkiv (manglende motiv).')),
     (9, 'Introscener', 'bg3.PIV', 0, 'c2501c17', 'Introen: steinsirkelen sett ovenfra',
-     'Scene (samsvar 1,0 målt). Utkast finnes (needs_revision: alteret og bakkelinjene).'),
+     'Har scene. Aktiv eldre master revideres mot originalens alter og bakkelinjer. Eldre avvist kandidat er bare feilarkiv.'),
     (9, 'Introscener', 'bg1b.PIV', 0, 'd744b02e', 'Introen: skog med tykke stammer',
      'Scene (samsvar 0,92-0,99 målt). Flisutkastene i art/photoreal er ikke satt sammen.'),
     (9, 'Introscener', 'bg2a.PIV', 0, 'a45a2508', 'Introen: ridderen foran Stonehenge',
-     'Scene, men samsvaret er bare 0,74 målt. Utkast finnes (needs_revision: slyngen).'),
+     'Har scene med beskyttet originalforgrunn. Revider aktiv master mot originalens slyng og arkitektur; bevar figuren.'),
     (9, 'Introscener', 'mindscape', 0, '46963198', 'Introen: Mindscape-logoen',
-     'Scene, men samsvaret er bare 0,77 målt. Utkast finnes (en gullflate, candidate_geometry_review).'),
+     'Har scene. Bevar logoens eksakte originalform. Eldre avvist gullflate er bare feilarkiv, ikke tegnereferanse.'),
     (11, 'Sluttscene', 'bg7.PIV', 0, 'e2e904b2', 'Slutten: virvel over vann',
      'Scene. 16 farger (fire plan). Ingen utkast finnes.'),
     (11, 'Sluttscene', 'bg8.PIV', 0, 'd0f67acb', 'Slutten: to figurer under stjernehimmelen',
-     'Scene. Utkast finnes (needs_revision: for mange og for lyse stjerner).'),
+     'Har scene. Revider aktiv master mot originalens antall, plassering og lysstyrke på stjernene; bevar figurene.'),
 ]
 
 
@@ -205,7 +217,68 @@ def lys(r, g, b):
     return 0.299 * r + 0.587 * g + 0.114 * b
 
 
-def lag_maske(kilde, ut, tegning=None):
+def utvid_indekser(pakket, maske):
+    """Pakkede CEL-planer til de faktiske fargeindeksene som Amigaen tegner."""
+    bits = [1 << p for p in range(8) if maske & (1 << p)]
+    grense = 1 << len(bits)
+    if pakket and max(pakket) >= grense:
+        raise ValueError('PNG-indekser passer ikke CEL-planmasken %02x' % maske)
+    tabell = bytes(sum(bit for p, bit in enumerate(bits) if i & (1 << p)) for i in range(grense))
+    return bytes(tabell[i] for i in pakket)
+
+
+def kilde_planmaske(kilde, im, spill_sti=None):
+    """Les maske fra extract-sidecar eller originalbanken, aldri gjett av PNG-fargen."""
+    mappe = os.path.dirname(os.path.abspath(kilde))
+    bank = os.path.basename(mappe)
+    fil = os.path.basename(kilde)
+    sidecar = os.path.join(os.path.dirname(mappe), 'index.json')
+    info = None
+    if not spill_sti and os.path.isfile(sidecar):
+        with open(sidecar, encoding='utf-8') as f:
+            indeks = json.load(f)
+        for sti, data in indeks.get('filer', {}).items():
+            if sti.split('/')[-1].lower() != bank.lower() or data.get('type') != 'figurer':
+                continue
+            info = next((b for b in data['bilder'] if b['fil'].lower() == fil.lower()), None)
+            break
+        if info is None:
+            raise SystemExit('Ingen original-CEL-rute for %s i %s' % (kilde, sidecar))
+        try:
+            utvid_indekser(im.tobytes(), info['maske'])
+        except ValueError as e:
+            raise SystemExit(str(e))
+        plan = bin(info['maske']).count('1')
+        data = mf.indeks_til_plan(im.tobytes(), plan, *im.size)
+        if not info.get('sha1') or hashlib.sha1(data).hexdigest() != info['sha1']:
+            raise SystemExit('%s stemmer ikke med originalhashen i %s' % (kilde, sidecar))
+    else:
+        spill_sti = spill_sti or os.path.join(ROT, 'Moonstonecd32-AMIGA.zip')
+        if not os.path.isfile(spill_sti):
+            raise SystemExit('Mangler originalbank for %s. Behold extract-index.json eller bruk --spill STI.' % kilde)
+        spill = mf.Spill(spill_sti)
+        sti = next((s for s in spill.data_filer() if s.split('/')[-1].lower() == bank.lower()), None)
+        try:
+            nr = int(os.path.splitext(fil)[0])
+            data = spill.les(sti) if sti else b''
+            bilder = mf.cel_les(data)[0] if mf.er_cel(data) else []
+            if nr < 0:
+                raise IndexError
+            b = bilder[nr]
+        except (ValueError, IndexError, TypeError, KeyError):
+            raise SystemExit('Ukjent original-CEL-rute %s. Bruk originalens bankmappe og bildenummer.' % kilde)
+        pakket = mf.plan_til_indeks(b['data'], b['plan'], b['bredde'], b['hoyde'])
+        if im.size != (b['bredde'], b['hoyde']) or im.tobytes() != pakket:
+            raise SystemExit('%s stemmer ikke med den uendrede originalruten i %s' % (kilde, spill_sti))
+        info = b
+    if im.size != (info['bredde'], info['hoyde']):
+        raise SystemExit('%s har feil størrelse for originalruten' % kilde)
+    if info['maske'] & ~31:
+        raise SystemExit('CEL-planmasken %02x bruker indekser utenfor spillets 32 farger' % info['maske'])
+    return info['maske']
+
+
+def lag_maske(kilde, ut, tegning=None, spill_sti=None, graa_referanse=None):
     from PIL import Image
     im = Image.open(kilde)
     if im.mode != 'P':
@@ -213,10 +286,19 @@ def lag_maske(kilde, ut, tegning=None):
     w, h = im.size
     hd = Image.open(tegning).convert('RGB') if tegning else None
     maal = hd.size if hd else (w * SKALA, h * SKALA)
-    ind = Image.frombytes('L', (w, h), im.tobytes()).resize(maal, Image.NEAREST)
+    maske = kilde_planmaske(kilde, im, spill_sti)
+    try:
+        indekser = utvid_indekser(im.tobytes(), maske)
+    except ValueError as e:
+        raise SystemExit(str(e))
+    ind = Image.frombytes('L', (w, h), indekser).resize(maal, Image.NEAREST)
     pal = im.getpalette() or []
     pal += [0] * (96 - len(pal))
     ref = [lys(*pal[i * 3:i * 3 + 3]) for i in range(32)]
+    if graa_referanse is not None:
+        if hd is None or not 1 <= graa_referanse <= 255:
+            raise SystemExit('--graa-referanse krever tegning og et grånivå fra 1 til 255')
+        ref = [graa_referanse] * 32
     ip = ind.load()
     hp = hd.load() if hd else None
     m = Image.new('RGBA', maal, (0, 0, 0, 255))
@@ -238,8 +320,15 @@ def lag_maske(kilde, ut, tegning=None):
 
 
 def main():
-    if len(sys.argv) in (4, 5) and sys.argv[1] == '--maske':
-        lag_maske(*sys.argv[2:])
+    if len(sys.argv) > 1 and sys.argv[1] == '--maske':
+        parser = argparse.ArgumentParser(description='Lag palettmaske fra uendret, pakket original-PNG.')
+        parser.add_argument('kilde')
+        parser.add_argument('ut')
+        parser.add_argument('tegning', nargs='?')
+        parser.add_argument('--spill', help='Original-ZIP når extract-index.json ikke brukes.')
+        parser.add_argument('--graa-referanse', type=int, help='Grånivå i tegningen som skal gi G=128.')
+        args = parser.parse_args(sys.argv[2:])
+        lag_maske(args.kilde, args.ut, args.tegning, args.spill, args.graa_referanse)
         return
     if len(sys.argv) != 3:
         print(__doc__)
@@ -271,7 +360,8 @@ def main():
             if b['plan'] == 0:
                 tomme += 1
                 continue
-            ind = mf.plan_til_indeks(b['data'], b['plan'], b['bredde'], b['hoyde'])
+            pakket = mf.plan_til_indeks(b['data'], b['plan'], b['bredde'], b['hoyde'])
+            ind = utvid_indekser(pakket, b['maske'])
             bilder.append((fil, nr, b['bredde'], b['hoyde'], ind))
 
     def bare_intro(fil):
@@ -286,8 +376,6 @@ def main():
         return (p, 0 if fil.startswith('KN') else 1, fil.lower(), nr)
 
     mangler = [b for b in bilder if '%s/%03d' % (b[0].lower(), b[1]) not in har_hd or (b[0], b[1]) in PAA_NYTT]
-    ikoner = [b for b in mangler if b[0].lower() in IKKE_BESTILL]
-    mangler = [b for b in mangler if b[0].lower() not in IKKE_BESTILL]
     mangler.sort(key=rang)
 
     # like bilder: første i rekkefølgen tegnes, de andre nevnes i merknaden
@@ -361,7 +449,8 @@ def main():
                           '10, 11, 12 (G og B som før).' % (a[0], a[1], a[0], a[1]))
         s = utk.get((fil.lower(), nr))
         if s and 'candidates' not in merk:
-            ekstra.append('Utkast i art/photoreal/candidates/%s (%s), ikke godkjent.' % (fil, s))
+            ekstra.append('Eldre utkast i art/photoreal/candidates/%s (%s), ikke godkjent. '
+                          'Bare feilarkiv; bruk originalen som tegnereferanse.' % (fil, s))
             if fil.upper().startswith('TROLL'):
                 ekstra.append('Trollet er blått i spillet, utkastene er brune og gylne.')
         rader.append([pri, gruppe, fil, nr, hd_fil, w, h, w * SKALA, h * SKALA, palett, palett, hvor,
@@ -373,7 +462,7 @@ def main():
     for kort, (navn, hashes) in LAIR_HASH.items():
         for i, h in enumerate(hashes):
             fil = '%s%d.t' % (kort, i + 1)
-            bg.append((1, 'Hulekamp', fil, '', h, 'Kamp etter Enter Lair: %s' % navn,
+            bg.append((2, 'Hulekamp', fil, '', h, 'Kamp etter Enter Lair: %s' % navn,
                        ('Klar. Utkast finnes (art/photoreal/candidates, needs_revision: runene). Godtar eieren ikke '
                         'runene, tegnes det på nytt. Kilde: art/photoreal/references/runtime_background/%s.png.' % fil)))
     for r in BAKGRUNNER:
@@ -383,7 +472,7 @@ def main():
             if regnet != h:
                 raise SystemExit('Hashen til %s er %s, ikke %s' % (fil, regnet, h))
             merk += ' Kilde: assets/gfx/%s/%d.png (tools/gfx.py extract).' % (fil, nr)
-        bg.append(r[:6] + (merk,))
+        bg.append((2,) + r[1:6] + (merk,))
     for pri, gruppe, fil, nr, h, hvor, merk in bg:
         if 'bg/' + h in utkast_i_bruk:
             merk = 'I bruk som utkast i spillet. ' + merk
@@ -403,12 +492,12 @@ def main():
 
     # oppsummering
     print('Figurbilder i spillet: %d, tomme %d, med innhold %d' % (len(bilder) + tomme, tomme, len(bilder)))
-    ny = [b for b in mangler + ikoner if (b[0], b[1]) not in PAA_NYTT]
-    print('Med innhold uten HD: %d (hovedspillet %d, bare intro/slutt %d). Tegnes på nytt: %d'
+    ny = [b for b in mangler if (b[0], b[1]) not in PAA_NYTT]
+    print('Med innhold uten egen bank-PNG: %d (hovedspillet %d, bare intro/slutt %d). Tegnes på nytt: %d'
           % (len(ny), sum(not bare_intro(b[0]) for b in ny), sum(bare_intro(b[0]) for b in ny), len(PAA_NYTT)))
+    print('Hele poseprøver er ikke talt som ferdige separate figurruter.')
     lik_n = sum(len(v) for v in like.values())
     he_n = sum(len(v) for v in he_kopi.values())
-    print('Ikke bestilt, lages som konturikoner: %s' % ', '.join('%s/%03d' % (b[0], b[1]) for b in ikoner))
     print('Rader med maske: %d' % sum(r[10] == 'ja' for r in rader))
     print('Like bilder slått sammen: %d. HE-bilder som er KN med byttede indekser: %d' % (lik_n, he_n))
     nbg = sum(1 for r in rader if r[4].startswith('bg/'))

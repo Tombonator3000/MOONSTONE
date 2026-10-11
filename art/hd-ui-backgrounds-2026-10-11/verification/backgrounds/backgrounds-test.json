@@ -1,0 +1,73 @@
+{
+  "url": "http://127.0.0.1:8773/moonstone.html",
+  "checks": [
+    "e868fda9_background_ready",
+    "e868fda9_loaded",
+    "e868fda9_HD_changes_pixels",
+    "e868fda9_HD_restored_exactly",
+    "e868fda9_moving_foreground_preserved",
+    "e868fda9_foreground_restored",
+    "e868fda9_Original_restored_exactly",
+    "94e65527_background_ready",
+    "94e65527_loaded",
+    "94e65527_HD_changes_pixels",
+    "94e65527_HD_restored_exactly",
+    "94e65527_moving_foreground_preserved",
+    "94e65527_foreground_restored",
+    "94e65527_Original_restored_exactly",
+    "d744b02e_background_ready",
+    "d744b02e_loaded",
+    "d744b02e_trusted_source_scene",
+    "d744b02e_HD_changes_pixels",
+    "d744b02e_HD_restored_exactly",
+    "d744b02e_protected_source_regions",
+    "d744b02e_moving_foreground_preserved",
+    "d744b02e_foreground_restored",
+    "d744b02e_Original_restored_exactly",
+    "e2e904b2_background_ready",
+    "e2e904b2_loaded",
+    "e2e904b2_trusted_source_scene",
+    "e2e904b2_HD_changes_pixels",
+    "e2e904b2_HD_restored_exactly",
+    "e2e904b2_protected_source_regions",
+    "e2e904b2_moving_foreground_preserved",
+    "e2e904b2_foreground_restored",
+    "e2e904b2_Original_restored_exactly",
+    "emulated_state_unchanged",
+    "no_browser_errors"
+  ],
+  "assets": [
+    {
+      "hash": "e868fda9",
+      "source_sha256": "e17f95d8f8195c4af8541f8cac4000c6cc75bcf87203bd546321a6c0b8a6e86d",
+      "hd_sha256": "7e33869db1940eb8213932b557e5c2963e6cee3da9faf20e89f5277b6c4e3e89",
+      "original_sha256": "2e70cfb5e4bfca33c5533f1a1e4a27378d99d852c9ad58eb016cccf075b2fb40"
+    },
+    {
+      "hash": "94e65527",
+      "source_sha256": "7b2deb7f7659d2573c6559a5514fb1240d6db8f4573eeeb3d86728a52b1b38b0",
+      "hd_sha256": "27c836053024c2aa54fd60a083fcc746c61f9917261cd6446ac58432c064dc8b",
+      "original_sha256": "9ad8f9b9e56d251124f857ff4e33192f0835f35e0ee709cab4cb51504169acbd"
+    },
+    {
+      "hash": "d744b02e",
+      "id": "intro-forest",
+      "source_sha256": "9382f71449f09e864380e0f23f6ce8809232f25e8d4a46c361f65b977bf5dd0c",
+      "hd_sha256": "455ea2bbbeff369880e46bbaaa29ee900701c41b8600a7bd53e3631ec9168aa6",
+      "original_sha256": "45edc2cb2f0abd46ff2424bf517bbd9deaac523938e8f0a38240c4f127e999fe"
+    },
+    {
+      "hash": "e2e904b2",
+      "id": "intro-water",
+      "source_sha256": "806d6b3cc4456e17e7433b18ec4408cb6df13a2214b3c5ba1849c3b59b773c91",
+      "hd_sha256": "718c6716d21e07e9a4c0bc6359f6805b7529bc07b156ff0d7f0307fc285bd7a3",
+      "original_sha256": "a380f35d7aee218ea19fd86285f95a3162f6393eb955553df2afe972e04d5401"
+    }
+  ],
+  "errors": [],
+  "scope": "Originale kilde-PIV og kilde-PNG som frontend-fixturer. Ingen emulert minneskriving, naturlig navigasjon eller full gjennomspilling.",
+  "status": "passed",
+  "created_at": "2026-10-11T17:07:04.420Z",
+  "manifest_sha256": "67a2ee3816498ec6a0a5c33b06b02c61d41d3b3e62163c2432d9bb56af0b824a",
+  "html_sha256": "96707525d44b340679e4ca716aca366f96d47aafa99a853f3846ba2cf0334e3c"
+}
