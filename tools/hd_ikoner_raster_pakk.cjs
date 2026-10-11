@@ -27,7 +27,9 @@ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
     let both=0,either=0,ink=0;for(let i=3;i<aa.length;i+=4){const a=aa[i]>=128,b=bb[i]>=128;both+=a&&b;either+=a||b;ink+=a;}
     return{png:out.toDataURL().split(',')[1],master_size:[master.width,master.height],raw_ink_bounds:from,target_ink_bounds:dest,
      silhouette_iou:both/either,opaque_pixels:ink,texture_size:[w,h]};
-   },{raw:raw.toString('base64'),source:source.toString('base64'),w:m.width*m.scale,h:m.height*m.scale,placement:a.placement});
+   },{raw:raw.toString('base64'),source:source.toString('base64'),
+    w:(m.draw_rect ? m.draw_rect[2]-m.draw_rect[0] : m.width)*m.scale,
+    h:(m.draw_rect ? m.draw_rect[3]-m.draw_rect[1] : m.height)*m.scale,placement:a.placement});
    const png=Buffer.from(result.png,'base64');delete result.png;
    const packed=art+'/packed/'+a.key+'.png';fs.mkdirSync(path.dirname(packed),{recursive:true});fs.writeFileSync(packed,png);
    report.push({...a,...result,raw_sha256:sha(raw),source_sha256:sha(source),packed_sha256:sha(png),packed_bytes:png.length,

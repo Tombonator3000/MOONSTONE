@@ -117,7 +117,7 @@ const SceneHd = (() => {
         sist = { id: valgt.id, match: best, preserved_pixels: beholdt, hash: valgt.hash, hd_icons: ikoner.length };
         return { bak, for: foran, forIdx: indeks, bakIdx: valgt.px,
             hash: parseInt(valgt.hash, 16), lys, hdRect: rect, scene: valgt.id,
-            overlays: [...faste,...ikoner.map(m=>({key:m.key,rect:m.rect,uv_rect:[0,0,1,1],foreground:true}))], sceneVern: avvik };
+            overlays: [...faste,...ikoner.map(m=>({key:m.key,rect:m.draw_rect||m.rect,uv_rect:[0,0,1,1],foreground:true}))], sceneVern: avvik };
     }
     return { korriger, nullstill, info: () => sist, matcher: () => sisteMatcher.slice() };
 })();

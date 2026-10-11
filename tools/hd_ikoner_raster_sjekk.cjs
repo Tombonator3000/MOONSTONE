@@ -23,7 +23,8 @@ const code=source.slice(source.indexOf('    function ikonPalett('),source.indexO
      const ref=cycle ? m.reference_palette[cycle[(cycle.indexOf(+c)+shift)%cycle.length]] : rgb;
      pal.set(ref.map(v=>Math.round(v/17*level/15)*17),(y*32+(+c)+(m.palette_offset||0))*4);
     }};
-    check('originale_bildemaal',im.width===m.width*m.scale&&im.height===m.height*m.scale);
+    const r=m.draw_rect,w=r ? r[2]-r[0] : m.width,h=r ? r[3]-r[1] : m.height;
+    check('avtalte_bildemaal',im.width===w*m.scale&&im.height===h*m.scale);
     let previous=-1;
     for(let n=0;n<=15;n++){
      set(n);check('fade_'+n,api.fargeleggIkon(m,t,0)&&t.ikonLys>=previous&&Math.abs(t.ikonLys-n/15)<.06);

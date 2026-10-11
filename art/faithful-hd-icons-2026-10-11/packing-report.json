@@ -2,22 +2,850 @@
   "schema": 1,
   "assets": [
     {
-      "id": "tower1",
-      "key": "map-landmarks/001",
-      "raw": "semantic-correction/tower.png",
-      "source": "references/landmark-crops/tower1.png",
-      "review_status": "reviewed_for_runtime",
-      "review_note": "Motiv kontrollert mot brukerens retting, hele originalutsnitt og manual. Troskap i plassering og motiv; ikke pikselidentisk.",
+      "id": "stedsøyle-000",
+      "key": "map-icons/000",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
       "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
       "master_size": [
-        916,
-        1717
+        1145,
+        1374
       ],
       "raw_ink_bounds": [
-        181,
-        13,
-        569,
-        1681
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-001",
+      "key": "map-icons/001",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-002",
+      "key": "map-icons/002",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-003",
+      "key": "map-icons/003",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-004",
+      "key": "map-icons/004",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-005",
+      "key": "map-icons/005",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-006",
+      "key": "map-icons/006",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-007",
+      "key": "map-icons/007",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-008",
+      "key": "map-icons/008",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-009",
+      "key": "map-icons/009",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-010",
+      "key": "map-icons/010",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-011",
+      "key": "map-icons/011",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-012",
+      "key": "map-icons/012",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-013",
+      "key": "map-icons/013",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-014",
+      "key": "map-icons/014",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-015",
+      "key": "map-icons/015",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-016",
+      "key": "map-icons/016",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-017",
+      "key": "map-icons/017",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-018",
+      "key": "map-icons/018",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-019",
+      "key": "map-icons/019",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-020",
+      "key": "map-icons/020",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-021",
+      "key": "map-icons/021",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "stedsøyle-022",
+      "key": "map-icons/022",
+      "raw": "place-correction/standing-stone.png",
+      "source": "place-correction/original-place-marker.png",
+      "placement": "full_rect",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: én oppreist Stonehenge-steinsøyle. Samme gjentatte stedstype, opprinnelig fotpunkt og kildemønster.",
+      "master_size": [
+        1145,
+        1374
+      ],
+      "raw_ink_bounds": [
+        340,
+        126,
+        497,
+        1169
+      ],
+      "target_ink_bounds": [
+        0,
+        0,
+        40,
+        112
+      ],
+      "silhouette_iou": 0.8647099289153863,
+      "opaque_pixels": 3908,
+      "texture_size": [
+        40,
+        112
+      ],
+      "raw_sha256": "4dd47da18298cba977c7dbfb7f837d25cc30f11b5960cc9483916f5f8f0584eb",
+      "source_sha256": "bbf0a8054d95d833a38fb90c9092ed3531ab37287ce1b3a1a50c89c53069e3f3",
+      "packed_sha256": "c8bdea69046255be785af377988f7bd07b834f568f8d8038b68968d9e9432845",
+      "packed_bytes": 14212,
+      "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
+    },
+    {
+      "id": "tower1",
+      "key": "map-landmarks/001",
+      "raw": "place-correction/tower.png",
+      "source": "references/landmark-crops/tower1.png",
+      "review_status": "reviewed_for_runtime",
+      "review_note": "Brukerretting: rundt tårn med loddrette vegger, balkong og lav brystning. Erstatter avvist kjegle.",
+      "placement": "full_rect",
+      "master_size": [
+        918,
+        1714
+      ],
+      "raw_ink_bounds": [
+        239,
+        11,
+        447,
+        1670
       ],
       "target_ink_bounds": [
         0,
@@ -25,16 +853,16 @@
         80,
         224
       ],
-      "silhouette_iou": 0.6176339285714286,
-      "opaque_pixels": 11068,
+      "silhouette_iou": 0.9166852678571429,
+      "opaque_pixels": 16427,
       "texture_size": [
         80,
         224
       ],
-      "raw_sha256": "bb765ea147f61d6bb7943bc8e3bfcaa488beebf064db8f80efe4de7d603f25ca",
+      "raw_sha256": "2b6fe5f5d07e75a4057e59f07e77a61c106314ef789ad1eacb8db3905a834ff1",
       "source_sha256": "342a9a83209065cad1673b4d311097465dc0cdd8f2ac131d178a26ad652551bc",
-      "packed_sha256": "5bf31f2c89d0f30302a1faf61b58ae1ca2e3e6f11a87acab65970eda5ad50e63",
-      "packed_bytes": 39567,
+      "packed_sha256": "e5c627d222c9dca241f43b7a124ab7d323181ba3d5a491047600ed246b4b4d81",
+      "packed_bytes": 57490,
       "warning": "Silhuettmaal er en diagnose. Det godkjenner ikke motiv, proporsjoner eller materialer."
     },
     {
