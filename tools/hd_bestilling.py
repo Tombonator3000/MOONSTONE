@@ -3,7 +3,7 @@
 hd_bestilling.py - lager bestillingslisten over HD-bildene som skal tegnes.
 
     python3 tools/hd_bestilling.py Moonstonecd32-AMIGA.zip docs/hd-bestilling-liste.csv
-    python3 tools/hd_bestilling.py --maske assets/gfx/KN1.ob/012.png hd/KN1.ob/012.mask.png
+    python3 tools/hd_bestilling.py --maske assets/gfx/KN1.ob/012.png hd/KN1.ob/012.mask.png [hd/KN1.ob/012.png]
 
 Listen har en rad per bilde som må tegnes eller tegnes på nytt, i prioritert
 rekkefølge, med eksakt sti i HD-pakken og størrelse. Den bygger på
@@ -17,14 +17,21 @@ Regler:
     hvor tegningen også skal ligge.
   - HE1-3.ob er ofte KN1-3.ob med indeksene 6, 7, 8 byttet til 9, 10, 11. Da er det
     samme tegning, og bare masken er forskjellig. Slike HE-bilder får ingen egen rad.
+  - ki.cel 034-044 bestilles ikke. De lages som konturikoner med tools/hd_ikoner_bygg.py
+    (8x og en oppføring i icons.json), som resten av ki.cel; render.js godtar bare
+    scale 8 for ikonene.
   - Filer som bare lastes av programmet `program` (intro og slutt) får prioritet
     «senere». De kan ikke vises i HD ennå (docs/hd-mangler.md punkt 4).
   - Skala 4 ganger originalen i begge retninger (se docs/hd-bestilling-chatgpt.md).
 
---maske lager et utgangspunkt for masken til en figur som får fargen fra paletten:
-kildebildet fra tools/gfx.py extract forstørret 4 ganger med nærmeste nabo, med
-palettindeksen i rødkanalen (grønn og blå 0) og alfa 255 der figuren er. Formatet
-kan bli justert når visningskoden er ferdig.
+--maske lager masken til en figur som får fargen fra paletten, i formatet visningen
+leser (docs/hd-grafikk.md, «Farge fra paletten»): R = palettindeks + 1 for
+ridderfargene (indeks 6-11), ellers 0 (behold tegningens farge); G = lysstyrke
+(128 = palettfargen); B = 255 der R er satt; alfa 255. Kilden er det indekserte
+bildet fra tools/gfx.py extract, forstørret med nærmeste nabo til 4x, eller til
+målene på HD-tegningen når den er gitt. Med tegningen regnes G ut av lysstyrken i
+tegningen mot lysstyrken til forhåndsvisningsfargen i kilden, så skyggene i
+rustningen blir med.
 
 Skriver også en oppsummering per gruppe til stdout, så tallene kan sjekkes mot
 docs/hd-mangler.md.
@@ -46,6 +53,11 @@ FIGURER = ('.cel', '.c', '.ob', '.f', '.font')
 PALETT = {'KN1.ob', 'KN2.ob', 'KN3.ob', 'KN4.ob', 'KN5.ob', 'HE1.ob', 'HE2.ob', 'HE3.ob'}
 HE_TIL_KN = {'HE1.ob': 'KN1.ob', 'HE2.ob': 'KN2.ob', 'HE3.ob': 'KN3.ob'}
 HE_BYTTE = {6: 9, 7: 10, 8: 11}
+# Indeksene spillet farger etter hvilken ridder som kjemper: 6-8 (kn) og 9-11 (he).
+# Bare de faar maske; resten av tegningen beholder fargene sine.
+RIDDERFARGER = set(range(6, 12))
+# Bestilles ikke: lages som konturikoner (tools/hd_ikoner_bygg.py), se docstringen.
+IKKE_BESTILL = {'ki.cel'}
 # Har HD i dag, men skal tegnes paa nytt.
 PAA_NYTT = {('bold.f', 73)}
 
@@ -63,15 +75,6 @@ def figur_info(fil, nr):
     if f == 'mi.c':
         hvor = 'Kartet hele tiden: ridderhodet i ridderfarger, områdeomrisset, valgrullen (032) og dragen'
         return 2, 'Kartfigurer', hvor, 'Klar (fil/bilde), ikke prøvd. Hodene i ridderfarger er egne bilder, så faste farger går.'
-    if f == 'ki.cel':
-        if nr in (34, 35, 36):
-            hvor = 'Statusskjermen: rankene på buen'
-        elif nr == 44:
-            hvor = 'Statusskjermen: NEXT KNIGHT'
-        else:
-            hvor = 'Statusskjermen: STR, CON, END, XP, GOLD, HIT'
-        return 3, 'Statusskjerm', hvor, ('Klar. Lag den som konturikon som resten av ki.cel (tools/hd_ikoner_bygg.py). '
-                                         'Fotoutkastene i art/photoreal passer ikke med konturikonene.')
     if f in ('kn1.ob', 'kn2.ob', 'kn3.ob', 'he1.ob', 'he2.ob', 'he3.ob'):
         farge = 'gylden i grafikklisten, indeksene 9-11' if f.startswith('he') else 'indeksene 6-8'
         return 5, 'Riddere', 'Alle kamper: ridderens kropp (%s), tegnes ti ganger i sekundet' % farge, \
@@ -191,23 +194,45 @@ def utkast(katalog):
     return ut
 
 
-def lag_maske(kilde, ut):
+def lys(r, g, b):
+    return 0.299 * r + 0.587 * g + 0.114 * b
+
+
+def lag_maske(kilde, ut, tegning=None):
     from PIL import Image
     im = Image.open(kilde)
     if im.mode != 'P':
         raise SystemExit('%s er ikke et indeksert PNG fra tools/gfx.py extract' % kilde)
     w, h = im.size
-    r = Image.frombytes('L', (w, h), im.tobytes()).resize((w * SKALA, h * SKALA), Image.NEAREST)
-    null = Image.new('L', r.size, 0)
-    alfa = r.point(lambda v: 255 if v else 0)
+    hd = Image.open(tegning).convert('RGB') if tegning else None
+    maal = hd.size if hd else (w * SKALA, h * SKALA)
+    ind = Image.frombytes('L', (w, h), im.tobytes()).resize(maal, Image.NEAREST)
+    pal = im.getpalette() or []
+    pal += [0] * (96 - len(pal))
+    ref = [lys(*pal[i * 3:i * 3 + 3]) for i in range(32)]
+    ip = ind.load()
+    hp = hd.load() if hd else None
+    m = Image.new('RGBA', maal, (0, 0, 0, 255))
+    mp = m.load()
+    satt = 0
+    for y in range(maal[1]):
+        for x in range(maal[0]):
+            i = ip[x, y]
+            if i not in RIDDERFARGER:
+                continue
+            g = 128
+            if hp and ref[i] > 8:
+                g = max(0, min(255, round(128 * lys(*hp[x, y]) / ref[i])))
+            mp[x, y] = (i + 1, g, 255, 255)
+            satt += 1
     os.makedirs(os.path.dirname(ut) or '.', exist_ok=True)
-    Image.merge('RGBA', (r, null, null, alfa)).save(ut)
-    print('%s: %d x %d' % (ut, r.size[0], r.size[1]))
+    m.save(ut)
+    print('%s: %d x %d, %d piksler med ridderfarge' % (ut, maal[0], maal[1], satt))
 
 
 def main():
-    if len(sys.argv) == 4 and sys.argv[1] == '--maske':
-        lag_maske(sys.argv[2], sys.argv[3])
+    if len(sys.argv) in (4, 5) and sys.argv[1] == '--maske':
+        lag_maske(*sys.argv[2:])
         return
     if len(sys.argv) != 3:
         print(__doc__)
@@ -248,6 +273,8 @@ def main():
         return (p, 0 if fil.startswith('KN') else 1, fil.lower(), nr)
 
     mangler = [b for b in bilder if '%s/%03d' % (b[0].lower(), b[1]) not in har_hd or (b[0], b[1]) in PAA_NYTT]
+    ikoner = [b for b in mangler if b[0].lower() in IKKE_BESTILL]
+    mangler = [b for b in mangler if b[0].lower() not in IKKE_BESTILL]
     mangler.sort(key=rang)
 
     # like bilder: første i rekkefølgen tegnes, de andre nevnes i merknaden
@@ -300,7 +327,8 @@ def main():
         if (fil, nr) in dubletter:
             continue
         hd_fil = '%s/%03d.png' % (fil, nr)
-        palett = 'ja' if fil in PALETT else 'nei'
+        # bare bilder med ridderfargene trenger maske (noen vaapen i KN4.ob har ingen)
+        palett = 'ja' if fil in PALETT and RIDDERFARGER & set(b[4]) else 'nei'
         if bare_intro(fil):
             pri, gruppe, hvor, merk = 'senere', 'Intro og slutt', INTRO_HVOR[fil], INTRO_MERKNAD
         else:
@@ -316,8 +344,8 @@ def main():
                 ekstra.append('Kopien hos monsteret vises med tegningens egne farger, uten maske.')
         for a in he_kopi.get((fil, nr), []):
             ekstra.append('Samme tegning skal også ligge som %s/%03d.png. Der er indeksene 6, 7, 8 byttet til '
-                          '9, 10, 11, så masken %s/%03d.mask.png er denne masken med de tre verdiene byttet.'
-                          % (a[0], a[1], a[0], a[1]))
+                          '9, 10, 11, så masken %s/%03d.mask.png er denne masken med R byttet fra 7, 8, 9 til '
+                          '10, 11, 12 (G og B som før).' % (a[0], a[1], a[0], a[1]))
         s = utk.get((fil.lower(), nr))
         if s and 'candidates' not in merk:
             ekstra.append('Utkast i art/photoreal/candidates/%s (%s), ikke godkjent.' % (fil, s))
@@ -360,11 +388,13 @@ def main():
 
     # oppsummering
     print('Figurbilder i spillet: %d, tomme %d, med innhold %d' % (len(bilder) + tomme, tomme, len(bilder)))
-    ny = [b for b in mangler if (b[0], b[1]) not in PAA_NYTT]
+    ny = [b for b in mangler + ikoner if (b[0], b[1]) not in PAA_NYTT]
     print('Med innhold uten HD: %d (hovedspillet %d, bare intro/slutt %d). Tegnes på nytt: %d'
           % (len(ny), sum(not bare_intro(b[0]) for b in ny), sum(bare_intro(b[0]) for b in ny), len(PAA_NYTT)))
     lik_n = sum(len(v) for v in like.values())
     he_n = sum(len(v) for v in he_kopi.values())
+    print('Ikke bestilt, lages som konturikoner: %s' % ', '.join('%s/%03d' % (b[0], b[1]) for b in ikoner))
+    print('Rader med maske: %d' % sum(r[10] == 'ja' for r in rader))
     print('Like bilder slått sammen: %d. HE-bilder som er KN med byttede indekser: %d' % (lik_n, he_n))
     print('Rader: %d (figurer %d, bakgrunner %d)' % (len(rader), len(rader) - len(bg), len(bg)))
     for (pri, gruppe), n in sorted(teller.items(), key=lambda x: (99 if x[0][0] == 'senere' else x[0][0], x[0][1])):
