@@ -240,9 +240,15 @@ def main():
     spill = mf.Spill(sys.argv[1])
     ut_sti = sys.argv[2]
     with open(os.path.join(ROT, 'web/hd/manifest.json')) as f:
-        har_hd = {x['path'][:-4].lower() for x in json.load(f)['files'] if x['path'].endswith('.png')}
+        filer = json.load(f)['files']
+    har_hd = {x['path'][:-4].lower() for x in filer if x['path'].endswith('.png')}
     with open(os.path.join(ROT, 'art/photoreal/catalog.json')) as f:
-        utk = utkast(json.load(f))
+        katalog = json.load(f)
+    utk = utkast(katalog)
+    # bakgrunner som er slaatt paa som utkast (ikke godkjent i arkivet): i bruk, men skal
+    # fortsatt tegnes paa nytt, saa de blir staaende i bestillingen
+    uferdig = {r['photo_sha256'] for r in katalog['rows'] if r['status'] != 'runtime_verified'}
+    utkast_i_bruk = {x['path'][:-4].lower() for x in filer if x.get('kind') == 'background' and x['sha256'] in uferdig}
     program = spill.les('data/program').lower()
     mog = spill.les('data/mog').lower()
 
@@ -372,7 +378,9 @@ def main():
             merk += ' Kilde: assets/gfx/%s/%d.png (tools/gfx.py extract).' % (fil, nr)
         bg.append(r[:6] + (merk,))
     for pri, gruppe, fil, nr, h, hvor, merk in bg:
-        if 'bg/' + h in har_hd:
+        if 'bg/' + h in utkast_i_bruk:
+            merk = 'I bruk som utkast i spillet. ' + merk
+        elif 'bg/' + h in har_hd:
             raise SystemExit('bg/%s har allerede HD' % h)
         rader.append([pri, gruppe, fil, nr, 'bg/%s.png' % h, 320, 200, 320 * SKALA, 200 * SKALA,
                       'nei', 'nei', hvor, merk])
