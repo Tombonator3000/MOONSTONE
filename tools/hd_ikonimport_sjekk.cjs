@@ -25,5 +25,12 @@ async function step(p,end){await p.evaluate(async end=>{const{Kjerne:K,Visning:V
  for(const[name,change]of Object.entries(cases)){
   const m=JSON.parse(JSON.stringify(original));m.key='invalid-icons/000';change(m);const result=await p.evaluate(async m=>{const f=new File([JSON.stringify({schema:1,entries:[m]})],'icons.json',{type:'application/json'});await moonDebug.Visning.lastHdPakke([f]);return moonDebug.Visning.hdIkonInfo();},m);check(name+'_rejected',result.antall===74&&result.feil.length===1);await render(p);
  }
+ const raster=normal.find(m=>m.render_mode==='raster');
+ const rasterCases={missing_reference:m=>delete m.reference_palette,invalid_rgb:m=>m.reference_palette[m.base_index]=[256,0,0],overlapping_cycles:m=>m.reference_palette_cycles=[[m.base_index,0],[0,1]],invalid_feather:m=>m.edge_feather=[0.3,0],feather_without_raster:m=>{delete m.render_mode;m.edge_feather=[0.1,0.1];}};
+ for(const[name,change]of Object.entries(rasterCases)){
+  const m=JSON.parse(JSON.stringify(raster));m.key='invalid-icons/001';change(m);
+  const result=await p.evaluate(async m=>{await moonDebug.Visning.lastHdPakke([new File([JSON.stringify({schema:1,entries:[m]})],'icons.json')]);return moonDebug.Visning.hdIkonInfo();},m);
+  check(name+'_rejected',result.antall===74&&result.feil.length===1);
+ }
  await p.keyboard.press('Home');await p.locator('#standard-hd').click();await p.waitForFunction(()=>moonDebug.StandardHd.info().klar,null,{timeout:60000});icons=await render(p);check('standard_restores_after_custom_and_invalid_manifests',icons.antall===75&&icons.viste.filter(d=>d.fil==='ki.cel').length===17);check('no_browser_errors',report.errors.length===0);report.status='passed';
 })().catch(e=>{report.status='failed';report.failure=String(e);console.error(e);process.exitCode=1;}).finally(async()=>{report.created_at=new Date().toISOString();fs.mkdirSync(out,{recursive:true});fs.writeFileSync(out+'/import-test.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({status:report.status,checks:report.checks.length,errors:report.errors}));if(browser)await browser.close();});

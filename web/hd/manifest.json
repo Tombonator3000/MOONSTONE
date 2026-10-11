@@ -1337,12 +1337,6 @@
       "kind": "base"
     },
     {
-      "path": "icons.json",
-      "bytes": 954378,
-      "sha256": "fb01ce5f4d9a48bff52e08640be7e29c79daa6af7814a05504bb6c59a816bc16",
-      "kind": "base"
-    },
-    {
       "path": "ki.cel/000.png",
       "bytes": 7203,
       "sha256": "caa2a70b60056e6d4bec17d7c835645a1d9227a4f14c3df0adb6ddb38bfc2293",
@@ -1715,24 +1709,6 @@
       "kind": "base"
     },
     {
-      "path": "map-landmarks/001.png",
-      "bytes": 3044,
-      "sha256": "7cb37a2066519b4a67d9685f90e65bb724fe7d5d9e8ca65c46bfa9d6c979b18d",
-      "kind": "base"
-    },
-    {
-      "path": "map-landmarks/002.png",
-      "bytes": 3409,
-      "sha256": "76ad27e14b3a36c76eb8292ba66e3199eddbebbaa0f33ee0dc21883c32cd7894",
-      "kind": "base"
-    },
-    {
-      "path": "map-landmarks/003.png",
-      "bytes": 4114,
-      "sha256": "c696ec2c95f83683e6d85e1c4b1b5699002a4e53369ea260306bbf2876171f23",
-      "kind": "base"
-    },
-    {
       "path": "map-landmarks/004.png",
       "bytes": 8366,
       "sha256": "bcc02c31c2f11b91d84a23b1f6343122f70c1097ca2e624b9a95884fe8d8fd86",
@@ -1790,6 +1766,30 @@
       "path": "sel.cel/000.png",
       "bytes": 6946,
       "sha256": "41a313ce21f8ac81562b5cb6bdfb660732abc38ea57267fb6aad2e9aef7b619d",
+      "kind": "base"
+    },
+    {
+      "path": "icons.json",
+      "bytes": 1107518,
+      "sha256": "0c60f0da39ee39bfcaea9841a18adbb998c8286bfb0c60afa62fe12b1dd04c72",
+      "kind": "base"
+    },
+    {
+      "path": "map-landmarks/001.png",
+      "bytes": 39567,
+      "sha256": "5bf31f2c89d0f30302a1faf61b58ae1ca2e3e6f11a87acab65970eda5ad50e63",
+      "kind": "base"
+    },
+    {
+      "path": "map-landmarks/002.png",
+      "bytes": 275293,
+      "sha256": "07630e93d59fab84f16e4213ab985e9cadf9feadaeccacf53a8d15425f7145a7",
+      "kind": "base"
+    },
+    {
+      "path": "map-landmarks/003.png",
+      "bytes": 158499,
+      "sha256": "e4c01911b434420f9da1ae5ee03ff976b632ce904de56b9b3c878f6fcc29e06e",
       "kind": "base"
     }
   ],
@@ -2004,10 +2004,10 @@
         {
           "key": "map-landmarks/001",
           "rect": [
-            216,
-            14,
-            224,
-            33
+            215,
+            8,
+            225,
+            36
           ],
           "uv_rect": [
             0,
@@ -2019,10 +2019,10 @@
         {
           "key": "map-landmarks/002",
           "rect": [
-            150,
-            96,
-            166,
-            108
+            140,
+            84,
+            180,
+            119
           ],
           "uv_rect": [
             0,
@@ -2034,10 +2034,10 @@
         {
           "key": "map-landmarks/003",
           "rect": [
-            88,
-            151,
-            108,
-            168
+            84,
+            146,
+            113,
+            173
           ],
           "uv_rect": [
             0,

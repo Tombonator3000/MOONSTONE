@@ -8,6 +8,7 @@ const root=path.resolve(__dirname,'..'),art=root+'/art/hd-icons-2026-10-11';
  try{
   const p=await b.newPage(),data=JSON.parse(fs.readFileSync(root+'/web/hd/icons.json'));
   for(const m of data.entries){
+   if(m.render_mode==='raster')continue; // Nytegning kontrolleres visuelt og i egen rastertest.
    const original=fs.readFileSync(art+'/source/'+m.key+'.svg').toString('base64'),hd=fs.readFileSync(root+'/web/hd/'+m.key+'.png').toString('base64');
    const result=await p.evaluate(async({original,hd,w,h,s})=>{
     const load=async(src)=>{const im=new Image();im.src=src;await im.decode();const c=document.createElement('canvas');c.width=w*s;c.height=h*s;c.getContext('2d').drawImage(im,0,0);return c.getContext('2d').getImageData(0,0,c.width,c.height).data;};

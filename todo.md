@@ -1,6 +1,9 @@
 # todo.md
 
 ## Neste
+- [ ] HD-troskap: fullfoere ikonene etter motivkontroll. Tre landemerker (Math sitt taarn, Valley of the Gods, tre trilitter i skog) er motivrettet; oevrige 72 ikonruter har fortsatt konturbehandling. Avklare Tower2, byetiketter og inventarrutenes betydning foer nye tegninger. Se docs/hd-ikonmotiver.md.
+- [ ] HD-troskap: fullføre de resterende figurene og gjenskape originalens fontformer. 2091 av 2291 ikke-tomme figur-/fontruter mangler aktiv kobling; de 200 koblede rutene er heller ikke alle kunstnerisk ferdige. Se docs/hd-status-2026-10-11.md og rutelisten med alle 2361 originalruter.
+- [ ] HD-troskap: fullføre øvrige PIV-scener, 24 manglende sammensatte kampvarianter, rullegrafikk, underfliser og innebygd font. Vurdere genererte bakgrunner mot originalen før full ferdigstatus.
 - [ ] HD-bakgrunner etter filnavn (bg1a.PIV/0.png) i tillegg til hash, for bildene som vises som de er.
 - [ ] Valgene paa kartet i PC-versjonen: LB, RB, X og Y velger 1-4 i dag; mangler valg 5-9 og en liste paa skjermen. Nevn det i windows/LES_MEG.txt.
 - [ ] Options paa mobil: oppsett av styrekorset og knappene (storrelse, venstrehendt).

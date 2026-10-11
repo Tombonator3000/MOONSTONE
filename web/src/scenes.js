@@ -56,6 +56,9 @@ const SceneHd = (() => {
         }
         if (!valgt) return lag;
         const rect = valgt.rect || [0, 0, 320, 200];
+        const faste = (valgt.overlays || []).filter(o=>Visning.sceneOverleggKlar(o.key,diw));
+        const originaleFelt = (valgt.overlays || []).filter(o=>!faste.includes(o));
+        const vernedeFelt = [...(valgt.protected || []),...originaleFelt.map(o=>o.rect)];
         // Originalmarkorene beholdes til bakgrunnen og HD-overlegg kan vises sammen.
         const ikoner = (StandardHd.info().bakgrunner.includes(valgt.hash)
             ? Visning.sceneIkoner(valgt.id) : []).filter(m=>{
@@ -75,7 +78,7 @@ const SceneHd = (() => {
             if (y === 100) lys += scan.pal[pal] + scan.pal[pal + 1] + scan.pal[pal + 2];
             const actual = scan.idx[fp];
             const protectedPixel = x < rect[0] || y < rect[1] || x >= rect[2] || y >= rect[3] ||
-                (valgt.protected || []).some(r => x >= r[0] && y >= r[1] && x < r[2] && y < r[3]);
+                vernedeFelt.some(r => x >= r[0] && y >= r[1] && x < r[2] && y < r[3]);
             if (actual !== c || fb[fp*4]!==bak[p*4] || fb[fp*4+1]!==bak[p*4+1] ||
                 fb[fp*4+2]!==bak[p*4+2] || fb[fp*4+3]!==bak[p*4+3]) avvik[p] = 1;
             if (protectedPixel || avvik[p]) maske[p] = 1;
@@ -114,7 +117,7 @@ const SceneHd = (() => {
         sist = { id: valgt.id, match: best, preserved_pixels: beholdt, hash: valgt.hash, hd_icons: ikoner.length };
         return { bak, for: foran, forIdx: indeks, bakIdx: valgt.px,
             hash: parseInt(valgt.hash, 16), lys, hdRect: rect, scene: valgt.id,
-            overlays: [...(valgt.overlays || []),...ikoner.map(m=>({key:m.key,rect:m.rect,uv_rect:[0,0,1,1],foreground:true}))], sceneVern: avvik };
+            overlays: [...faste,...ikoner.map(m=>({key:m.key,rect:m.rect,uv_rect:[0,0,1,1],foreground:true}))], sceneVern: avvik };
     }
     return { korriger, nullstill, info: () => sist, matcher: () => sisteMatcher.slice() };
 })();
