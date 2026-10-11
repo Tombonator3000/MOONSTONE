@@ -56,7 +56,9 @@ const SceneHd = (() => {
         }
         if (!valgt) return lag;
         const rect = valgt.rect || [0, 0, 320, 200];
-        const ikoner = Visning.sceneIkoner(valgt.id).filter(m=>{
+        // Originalmarkorene beholdes til bakgrunnen og HD-overlegg kan vises sammen.
+        const ikoner = (StandardHd.info().bakgrunner.includes(valgt.hash)
+            ? Visning.sceneIkoner(valgt.id) : []).filter(m=>{
             if (m.source.bank_sha256!==valgt.source_sha256 || !m.expected || m.expected.length!==m.width*m.height || !Visning.sceneIkonKlar(m,diw)) return false;
             const [x,y]=m.rect;
             for (let j=0;j<m.height;j++) for (let i=0;i<m.width;i++) {

@@ -24,7 +24,7 @@ Sverdpekeren bruker hardware-spritefargene 17..19 og finnes derfor ikke i `tegn_
 
 ## Kontroll
 
-[Kildefiltesten](verification/source-test.json) sammenligner eksportert PNG med uavhengige pikselriktige originalvisninger. Alle 75 bilder og 26 557 kildepikselmidtpunkter har identisk farge og alfa. [Nettlesertesten](verification/background-text-test.json) består 58 kontroller og dekker naturlig inventar, kart og intro, Original > HD > Original, endret originalbank, tekstoverlapp, mobilmenyen og eksplisitte PIV-visningsfixturer for byer/kro. Det er ingen full gjennomspilling eller måling på fysisk telefon i denne leveransen.
+[Kildefiltesten](verification/source-test.json) sammenligner eksportert PNG med uavhengige pikselriktige originalvisninger. Alle 75 bilder og 26 557 kildepikselmidtpunkter har identisk farge og alfa. [Nettlesertesten](verification/background-text-test.json) består 59 kontroller og dekker naturlig inventar, kart og intro, Original > HD > Original, endret originalbank, forsinket kartlasting med bevarte originalmarkører, tekstoverlapp, mobilmenyen og eksplisitte PIV-visningsfixturer for byer/kro. Det er ingen full gjennomspilling eller måling på fysisk telefon i denne leveransen.
 
 [Inventar](verification/inventory-hd.png), [kart](verification/journey-frame2000-hd.png) og [kro](verification/fixture-tavern-hd.png) er faktiske nettleserbilder. Krobildet er en tydelig avgrenset visningsfixtur. Kildene og de gamle genererte kandidatene er bevart.
 
