@@ -150,9 +150,13 @@ const SceneHd = (() => {
             if (!s) continue;
             // compare "screen": bildet ligger bare paa skjermen, ikke i bakgrunnskopien
             // (lasteskjermen viser ch.piv over en annen kopi, banneret i Prepare yourself
-            // er message.piv). Er kopien selv bildet, gjelder den vanlige bakgrunnen.
-            const skjerm = s.compare === 'screen';
-            if (skjerm && lag && (lag.hash >>> 0) === parseInt(s.hash, 16)) continue;
+            // er message.piv). Er kopien selv bildet, gjelder den vanlige bakgrunnen, eller
+            // med "copy_scene" scenen sammenlignet med kopien (banneret i en melding).
+            let skjerm = s.compare === 'screen';
+            if (skjerm && lag && (lag.hash >>> 0) === parseInt(s.hash, 16)) {
+                if (!s.copy_scene) continue;
+                skjerm = false;
+            }
             let match = 0, n = 0, detalj = 0, detaljMatch = 0;
             for (let y = 2; y < 200; y += 4) for (let x = 2; x < 320; x += 4) {
                 if ((s.match_ignore_indices || []).includes(s.px[y * 320 + x])) continue;
