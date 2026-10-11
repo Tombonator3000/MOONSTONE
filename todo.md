@@ -60,6 +60,9 @@
 - [x] Introen og tittelmenyen kjører med grafikk og lyd.
 
 ## HD-integrasjon, 11. oktober 2026
+- [x] Nytegne kart, byer og kro; aktivere tre bevarte introbakgrunner med kildevalidering og beskyttet originalforgrunn.
+- [x] HD-logo, 142 konturglyfer, 20 faste menytekster og seks separate kartlandemerker; Original-valget bevares.
+- [x] Kontrollere stor/liten font i tittel og inventar, naturlig intro/kart, PIV-fixturer og faktisk HTML-menys HD-bryter.
 - [x] Legge produserte råbilder, revisjoner, prompter og selvstendig original-/fotokatalog i repoet.
 - [x] Aktivere48 kildevaliderte standardbilder i nettspillet uten manuelt mappevalg.
 - [x] Beholde Original-valg og egen mappeimport, avbryte lasting sikkert og begrense bakgrunnscachen.

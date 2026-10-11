@@ -1,2 +1,5 @@
 # Arkivpromptene bevares byteidentisk, også når de opprinnelig slutter med blank linje.
 art/photoreal/prompts/** whitespace=-blank-at-eof
+# Fontlisensene bevares med leverandorens opprinnelige linjeskift og mellomrom.
+art/hd-text-2026-10-11/fonts/*-OFL.txt -whitespace
+web/hd/fonts/*-OFL.txt -whitespace

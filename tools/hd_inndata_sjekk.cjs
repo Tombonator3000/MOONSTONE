@@ -1,0 +1,15 @@
+/* Faktisk musevalg av Practice og sidemenyens HD-bryter. */
+'use strict';
+const fs=require('fs'),path=require('path'),assert=require('assert/strict'),{chromium}=require('playwright');
+const root=path.resolve(__dirname,'..'),out=root+'/art/hd-backgrounds-2026-10-11/verification';
+let b;const report={checks:[],errors:[],url:process.env.MOONSTONE_URL||'http://127.0.0.1:8769/moonstone.html'};
+(async()=>{
+ b=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});const p=await b.newPage({viewport:{width:960,height:700}});p.on('pageerror',e=>report.errors.push(e.message));await p.goto(report.url);await p.waitForFunction(()=>{try{return window.moonDebug&&moonDebug.Kjerne.bildeNr()>2}catch(_){return false}});await p.keyboard.press('Pause');await p.waitForFunction(()=>moonDebug.StandardHd.info().klar,null,{timeout:60000});
+ await p.evaluate(async()=>{const{Kjerne:K,Visning:V}=moonDebug;K.start(false);K.menyPaa(true);K.lagPaa(true);V.nullstillScene();while(K.bildeNr()<600){let n=K.bildeNr();if(n===100)K.tast(0x45,true);if(n===104)K.tast(0x45,false);K.bilde();V.nyttBilde(K.tegneliste());if(n%10===0)V.tegn(K.rammebuffer(),K.vindu(),K.lag());if(n%100===0)await new Promise(r=>setTimeout(r,0));}});
+ await p.keyboard.press('Pause');
+ const point=await p.evaluate(()=>{const r=document.getElementById('lerret').getBoundingClientRect(),c=moonDebug.Visning.utsnitt(),d=moonDebug.Kjerne.vindu();return{x:r.x+r.width/2,y:r.y+r.height*(d[1]+136-c[1])/(c[3]-c[1])};});await p.mouse.click(point.x,point.y);await p.waitForFunction(()=>moonDebug.Kjerne.bildeNr()>1000&&!moonDebug.Kjerne.iMeny()&&moonDebug.Visning.hdKontroll().poseGodkjent===1,null,{timeout:30000});report.checks.push('Practice valgt med faktisk museklikk; original ridder får HD-pose');
+ await p.keyboard.down('ArrowLeft');await p.waitForTimeout(700);await p.keyboard.up('ArrowLeft');report.checks.push('Bevegelse med faktisk tastatur i Practice');await p.keyboard.press('Pause');await p.keyboard.press('Home');
+ await p.locator('#hd-bryter').selectOption('original');assert(await p.evaluate(()=>!moonDebug.Visning.hdPaa()&&!document.documentElement.classList.contains('hd-tekst')));report.checks.push('Original valgt gjennom sidemenyen');
+ await p.locator('#hd-bryter').selectOption('hd');assert(await p.evaluate(()=>moonDebug.Visning.hdPaa()&&document.documentElement.classList.contains('hd-tekst')));report.checks.push('HD valgt gjennom sidemenyen');
+ await p.keyboard.press('Home');await p.screenshot({path:out+'/real-input-practice.png'});report.hd=await p.evaluate(()=>moonDebug.StandardHd.info());assert.deepEqual(report.errors,[]);report.status='passed';
+})().catch(e=>{report.status='failed';report.failure=String(e);console.error(e);process.exitCode=1}).finally(async()=>{fs.mkdirSync(out,{recursive:true});const file=process.env.MOONSTONE_URL?'live-input-test.json':'input-test.json';fs.writeFileSync(out+'/'+file,JSON.stringify({...report,created_at:new Date().toISOString()},null,2)+'\n');console.log(JSON.stringify(report));if(b)await b.close()});

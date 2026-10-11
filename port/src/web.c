@@ -88,10 +88,15 @@ EMSCRIPTEN_KEEPALIVE void ms_lag_bygg(void) { lag_bygg(); }     /* lag paa nytt 
 EMSCRIPTEN_KEEPALIVE uint32_t *ms_lag_bak(void) { return lag_bak; }
 EMSCRIPTEN_KEEPALIVE uint32_t *ms_lag_for(void) { return lag_for; }
 EMSCRIPTEN_KEEPALIVE uint8_t *ms_lag_for_idx(void) { return lag_for_idx; }
+EMSCRIPTEN_KEEPALIVE uint8_t *ms_lag_bak_idx(void) { return lag_bak_idx; }
 EMSCRIPTEN_KEEPALIVE uint32_t ms_lag_hash(void) { return lag_bak_hash; }
 EMSCRIPTEN_KEEPALIVE uint32_t ms_lag_lys(void) { return lag_bak_lys; }
 
 EMSCRIPTEN_KEEPALIVE uint32_t *ms_fb(void) { return video_fb; }
+extern uint32_t video_line_pal[FB_H][32];
+EMSCRIPTEN_KEEPALIVE uint8_t *ms_video_idx(void) { return video_idx; }
+EMSCRIPTEN_KEEPALIVE uint32_t *ms_video_pal(void) { return &video_line_pal[0][0]; }
+EMSCRIPTEN_KEEPALIVE int ms_video_hd_valid(void) { return video_hd_valid ? 1 : 0; }
 EMSCRIPTEN_KEEPALIVE int ms_fb_w(void) { return FB_W; }
 EMSCRIPTEN_KEEPALIVE int ms_fb_h(void) { return FB_H; }
 EMSCRIPTEN_KEEPALIVE int *ms_diw(void) { return video_diw; }

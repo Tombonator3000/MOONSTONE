@@ -31,6 +31,7 @@ extern uint32_t video_line_pal[FB_H][32];
 bool     lag_paa;                          /* frontenden vil ha lagene */
 bool     lag_gyldig;                       /* lagene under passer til siste bilde */
 uint32_t lag_bak[LAG_H * LAG_W];           /* RGBA */
+uint8_t  lag_bak_idx[LAG_H * LAG_W];       /* uendrede kildeindekser for PIV-gjenkjenning */
 uint32_t lag_for[LAG_H * LAG_W];           /* RGBA, 0 = gjennomsiktig */
 uint8_t  lag_for_idx[LAG_H * LAG_W];       /* fargeindeksen i forgrunnen, $FF = ingen, $FE = bare fargen er annerledes */
 uint32_t lag_bak_hash;                     /* innholdet i bakgrunnen (bitplanene) */
@@ -95,6 +96,7 @@ void lag_bygg(void)
                 uint32_t cb = pal[ib[i]];
                 uint32_t vist = fb[x * 2];
                 ob[x] = cb;
+                lag_bak_idx[(size_t)y * LAG_W + x] = ib[i];
                 brukt |= 1u << ib[i];
                 if (is[i] != ib[i]) { of[x] = vist; oi[x] = is[i]; n++; }
                 else if (vist != cb) { of[x] = vist; oi[x] = 0xfe; n++; }
