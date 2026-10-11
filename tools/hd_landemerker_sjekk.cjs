@@ -1,4 +1,4 @@
-/* Tre nytegnede motiver i en faktisk karttur; kildebilde ved feil palett. */
+/* Nytegnede motiver og stedsoeyler i faktisk karttur; kildesikring og forgrunn. */
 'use strict';
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),{chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),out=root+'/art/faithful-hd-icons-2026-10-11/verification';
@@ -43,6 +43,24 @@ async function render(p){return p.evaluate(()=>{const{Kjerne:K,Visning:V,SceneHd
   return{pixels:n,overlay:lag.overlays.some(o=>o.key===m.key)};},m);
  check('unsupported_palette_keeps_full_original_region',fallback.pixels===m.width*m.height&&!fallback.overlay);
  await p.evaluate(()=>{moonDebug.Kjerne.skanout=landmarkScan;delete window.landmarkScan;});check('palette_restore_exact',await render(p)===full);
+ const pillar=metas.find(m=>m.key==='map-icons/018');
+ if(pillar){
+  const overlays=await p.evaluate(()=>moonDebug.Visning.lagNaa().overlays);
+  check('23_standing_stones_present',metas.filter(m=>m.draw_rect).every(m=>overlays.some(o=>o.key===m.key&&o.rect.join()===m.draw_rect.join())));
+  // Statusendring i den gamle markoeren skal bevare originalen og skjule soeylen.
+  await p.evaluate(m=>{const K=moonDebug.Kjerne;window.pillarScan=K.skanout;const s=K.skanout(),idx=s.idx.slice(),d=K.vindu();
+   const p=(d[1]+m.rect[1])*720+d[0]+m.rect[0]*2;idx[p]=(idx[p]+1)%32;K.skanout=()=>({...s,idx});},pillar);
+  await render(p);check('changed_marker_keeps_original',await p.evaluate(m=>{const l=moonDebug.Visning.lagNaa(),d=moonDebug.Kjerne.vindu(),s=moonDebug.Kjerne.skanout();
+   return !l.overlays.some(o=>o.key===m.key)&&l.forIdx[m.rect[1]*320+m.rect[0]]===s.idx[(d[1]+m.rect[1])*720+d[0]+m.rect[0]*2];},pillar));
+  await p.evaluate(()=>{moonDebug.Kjerne.skanout=pillarScan;delete window.pillarScan;});check('marker_restore_exact',await render(p)===full);
+  // En figur over kilderektangelet maa ikke skjules av den hoeyere HD-soeylen.
+  const point=[pillar.draw_rect[0]+2,pillar.draw_rect[1]+3];
+  await p.evaluate(([x,y])=>{const K=moonDebug.Kjerne;window.pillarScan=K.skanout;const s=K.skanout(),idx=s.idx.slice(),d=K.vindu(),p=(d[1]+y)*720+d[0]+x*2;
+   idx[p]=(idx[p]+1)%32;K.skanout=()=>({...s,idx});},point);
+  await render(p);check('foreground_above_marker_is_protected',await p.evaluate(({key,point:[x,y]})=>{const l=moonDebug.Visning.lagNaa();
+   return l.overlays.some(o=>o.key===key)&&l.sceneVern[y*320+x]===1&&l.forIdx[y*320+x]!==255;},{key:pillar.key,point}));
+  await p.evaluate(()=>{moonDebug.Kjerne.skanout=pillarScan;delete window.pillarScan;});check('foreground_restore_exact',await render(p)===full);
+ }
  check('emulated_state_unchanged',await p.evaluate(()=>moonDebug.Kjerne.sjekksum())===state);
  check('no_page_errors',report.errors.length===0);report.status='passed';
 })().catch(e=>{report.status='failed';report.failure=String(e);console.error(e);process.exitCode=1;}).finally(async()=>{report.created_at=new Date().toISOString();fs.writeFileSync(out+'/landmarks-test.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));if(b)await b.close();});

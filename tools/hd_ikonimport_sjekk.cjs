@@ -26,7 +26,11 @@ async function step(p,end){await p.evaluate(async end=>{const{Kjerne:K,Visning:V
   const m=JSON.parse(JSON.stringify(original));m.key='invalid-icons/000';change(m);const result=await p.evaluate(async m=>{const f=new File([JSON.stringify({schema:1,entries:[m]})],'icons.json',{type:'application/json'});await moonDebug.Visning.lastHdPakke([f]);return moonDebug.Visning.hdIkonInfo();},m);check(name+'_rejected',result.antall===74&&result.feil.length===1);await render(p);
  }
  const raster=normal.find(m=>m.render_mode==='raster');
- const rasterCases={missing_reference:m=>delete m.reference_palette,invalid_rgb:m=>m.reference_palette[m.base_index]=[256,0,0],overlapping_cycles:m=>m.reference_palette_cycles=[[m.base_index,0],[0,1]],invalid_feather:m=>m.edge_feather=[0.3,0],feather_without_raster:m=>{delete m.render_mode;m.edge_feather=[0.1,0.1];}};
+ const rasterCases={missing_reference:m=>delete m.reference_palette,invalid_rgb:m=>m.reference_palette[m.base_index]=[256,0,0],overlapping_cycles:m=>m.reference_palette_cycles=[[m.base_index,0],[0,1]],invalid_feather:m=>m.edge_feather=[0.3,0],feather_without_raster:m=>{delete m.render_mode;m.edge_feather=[0.1,0.1];},
+  draw_without_dynamic:m=>{m.dynamic=false;m.draw_rect=[0,0,5,14];},
+  draw_without_raster:m=>{delete m.render_mode;m.draw_rect=[0,0,5,14];},
+  draw_fraction:m=>m.draw_rect=[0,0,5.5,14],draw_outside:m=>m.draw_rect=[-1,0,5,14],
+  draw_empty:m=>m.draw_rect=[5,0,5,14]};
  for(const[name,change]of Object.entries(rasterCases)){
   const m=JSON.parse(JSON.stringify(raster));m.key='invalid-icons/001';change(m);
   const result=await p.evaluate(async m=>{await moonDebug.Visning.lastHdPakke([new File([JSON.stringify({schema:1,entries:[m]})],'icons.json')]);return moonDebug.Visning.hdIkonInfo();},m);

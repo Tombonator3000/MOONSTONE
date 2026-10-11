@@ -1,6 +1,8 @@
 # Motivretting av HD-ikoner, 11. oktober 2026
 
-Tre rasterbilder erstatter naa konturene for Math sitt taarn (map-landmarks/001), dalens steinsirkel med elv/fossefall (002), og tre trilitter i skogklaring (003). Hele originalutsnitt brukes for dal og skog. Detaljert motivgrunnlag: docs/hd-ikonmotiver.md. Oevrige kandidater fra samme batch er trukket tilbake og er ikke godkjent kunst. Tidligere paastand om 75 ferdige HD-ikoner var feil; 72 ikonruter er fortsatt konturbehandlet originalgrafikk.
+26 rasterruter er aktive: Math sitt taarn (map-landmarks/001), dalens steinsirkel med elv/fossefall (002), tre trilitter i skogklaring (003), og 23 steder (map-icons/000..022) med samme enkle oppreiste steinsoeyle. Math har loddrette runde murvegger og brystning etter brukerens siste retting; den avviste kjeglen er bevart som eldre utkast. 49 ikonruter har fortsatt konturbehandlet originalgrafikk. Dette er fire motiver, ikke 26 forskjellige nytegninger. Detaljert motivgrunnlag: docs/hd-ikonmotiver.md.
+
+Stedsoeylene har draw_rect som bare angir HD-visningsfelt og teksturmaal. Opprinnelig rect, expected, indeks- og bankhash styrer fortsatt kildematching og fjerning av originalmarkoeren. Palett leses ved kilderektangelet; sceneVern beskytter figurer og andre avvik ogsaa over den gamle markoeren. Endret markoerstatus eller overlapp beholder originalgrafikk. Originalmodus bruker ikke disse visningsfeltene.
 
 # memory.md
 

@@ -1006,7 +1006,7 @@ const Visning = (() => {
             for (const o of lagNaa.overlays) {
                 const t = hdPakke.get(o.key); if (!t) continue;
                 const ikon = hdIkoner.get(o.key);
-                if (ikon && !fargeleggIkon(ikon,t,o.rect[1])) continue;
+                if (ikon && !fargeleggIkon(ikon,t,ikon.dynamic ? ikon.rect[1] : o.rect[1])) continue;
                 if (!sceneFlater[i]) {
                     const m = new THREE.Mesh(new THREE.PlaneGeometry(1,1),t.mat);
                     hdGruppe.add(m); sceneFlater[i] = m;
@@ -1317,6 +1317,12 @@ const Visning = (() => {
                         !Array.isArray(m.edge_feather) || m.edge_feather.length!==2 ||
                         m.edge_feather.some(v=>!Number.isFinite(v)||v<0||v>0.25)))
                         throw new Error('Ugyldig terrengkant');
+                    // Visningsfeltet endrer bare HD-formen. Kildemoensteret beholder eget rect.
+                    if (m.draw_rect!==undefined && (!m.dynamic || m.render_mode!=='raster' ||
+                        !Array.isArray(m.draw_rect) || m.draw_rect.length!==4 || m.draw_rect.some(v=>!Number.isInteger(v)) ||
+                        m.draw_rect[0]<0 || m.draw_rect[1]<0 || m.draw_rect[2]>320 || m.draw_rect[3]>200 ||
+                        m.draw_rect[2]<=m.draw_rect[0] || m.draw_rect[3]<=m.draw_rect[1]))
+                        throw new Error('Ugyldig ikonvisningsfelt');
                     nyeIkoner.set(m.key,{...m,clipPath:new Path2D(m.clip),paths:m.paths.map(p=>({...p,path:new Path2D(p.d)}))});
                 }
                 for (const m of nyeIkoner.values()) if (!m.scene) {
@@ -1392,7 +1398,9 @@ const Visning = (() => {
             try {
                 const t = await hdTekstur(f);
                 const ikon=pakkeIkoner.get(nokkel);
-                if (ikon && (t.width!==ikon.width*ikon.scale || t.height!==ikon.height*ikon.scale)) {t.tex.dispose();t.mat.dispose();hdIkonFeil.push(nokkel+': feil maal');continue;}
+                const ikonRect=ikon?.draw_rect;
+                if (ikon && (t.width!==(ikonRect ? ikonRect[2]-ikonRect[0] : ikon.width)*ikon.scale ||
+                    t.height!==(ikonRect ? ikonRect[3]-ikonRect[1] : ikon.height)*ikon.scale)) {t.tex.dispose();t.mat.dispose();hdIkonFeil.push(nokkel+': feil maal');continue;}
                 const meta = hdTekstMeta.get(nokkel);
                 if (meta?.raw_rect_px) {
                     const [x,y,w,h] = meta.raw_rect_px;
@@ -1409,7 +1417,8 @@ const Visning = (() => {
         }
         for (const [key,m] of pakkeIkoner) {
             const t=hdPakke.get(key);
-            if (t && t.width===m.width*m.scale && t.height===m.height*m.scale) hdIkoner.set(key,m);
+            const r=m.draw_rect, w=r ? r[2]-r[0] : m.width, h=r ? r[3]-r[1] : m.height;
+            if (t && t.width===w*m.scale && t.height===h*m.scale) hdIkoner.set(key,m);
             else hdIkonFeil.push(key+': ikonbildet mangler eller har feil maal');
         }
         antallBg = [...hdPakke.keys()].filter((k) => k.startsWith('bg/')).length;
