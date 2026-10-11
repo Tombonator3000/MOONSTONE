@@ -1,9 +1,1777 @@
 {
   "url": "http://127.0.0.1:8769/moonstone.html",
-  "scenes": [],
+  "scenes": [
+    {
+      "source": "data/fo1.t",
+      "route": "bg/5847ed29.png",
+      "source_sha256": "48c8a553ea6fb205429d50b1d7c4cff7db4e977e727c22cf74d963cc305dbd5a",
+      "hd_sha256": "916cea3047f6bcd3be458bd8a209818994fbddf08204a86cf3965d811287a6a4",
+      "original_rgba": "e113b205836bc5c67c5b664de52fddeca493a76904fa6127390aac42b65a5898",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 0,
+        "counter_bytes": 1
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "b148b2982563ee8fcb1b6fd631e27431617ca1e485668ce141c187f1fe109000",
+        "expected": "b148b2982563ee8fcb1b6fd631e27431617ca1e485668ce141c187f1fe109000"
+      },
+      "state": {
+        "hash": 1930337287,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/fo2.t",
+      "route": "bg/4035f361.png",
+      "source_sha256": "5b3fa0bed0217ab186380fc470b689237097620171490860cec64655f7c14aac",
+      "hd_sha256": "3d9a67fda1b65a0f6c9fe60b6af13ff5d34eb9ceb133c7a0d52141627a4789ee",
+      "original_rgba": "f71aa8b1f5b5ee93047cd98acd9cf7a9ff8d4cffde4441e4e8cf6a3b0bee918b",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 1,
+        "counter_bytes": 1
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "472b87ae485fe54062a8a602e97748283c524eb07e3e0dc6c976283eb96f75f9",
+        "expected": "472b87ae485fe54062a8a602e97748283c524eb07e3e0dc6c976283eb96f75f9"
+      },
+      "state": {
+        "hash": 2357192023,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/fo3.t",
+      "route": "bg/e3876748.png",
+      "source_sha256": "f460bec019f637279e817d039403d92f727d2fd51a8e6f2a108d17e486d440f3",
+      "hd_sha256": "d7eac2032cbd9ea90c425e1fcde69ac761a94a05c852b639fd325b245338d006",
+      "original_rgba": "8b3b848e87c37827947ca19cdc9f9e1e3e5fc2730b7812920cc45ed90cfc7734",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 2,
+        "counter_bytes": 1
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "ddf1e494f3722cdb0a65ebb122827f61c2ff5bc184e2a03e30048d9ce125ffcd",
+        "expected": "ddf1e494f3722cdb0a65ebb122827f61c2ff5bc184e2a03e30048d9ce125ffcd"
+      },
+      "state": {
+        "hash": 2264197162,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/fo4.t",
+      "route": "bg/3e773c83.png",
+      "source_sha256": "4fa445ebc7ae8c8fada16871b8900ccd5c2a8265335103500ebbe68671e52de0",
+      "hd_sha256": "be86faf2e245e2c98e311cba28a489c7a159ffbe33232276c7437c1fd77f668a",
+      "original_rgba": "84b15d5e8c75d78200feace3cd58dc67c99dc5a01c991cb6a1da1148d2d556ac",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 3,
+        "counter_bytes": 1
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "6a2cf4fb50240c8422cbdb77a0fb2a3b423b3505e78f7e863036d07cc29f3a11",
+        "expected": "6a2cf4fb50240c8422cbdb77a0fb2a3b423b3505e78f7e863036d07cc29f3a11"
+      },
+      "state": {
+        "hash": 2613090492,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/fo5.t",
+      "route": "bg/fc7a454e.png",
+      "source_sha256": "649db769f4123bb991dfa8413c5e0122e0b033e427114cb9624fddf2cbec1789",
+      "hd_sha256": "55ad105bc0b8650af9f76d86aebd3e225b04449babcd810949ef55b925d0dcdb",
+      "original_rgba": "0b76ea8fac5a30575cab6c01b8bb87d5be6b5ded3abc2111f4f2f0432cfd7671",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 4,
+        "counter_bytes": 1
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "510c01439a3e09842ec48dd42d40c3bed294078f449d4c978309492799fa15ef",
+        "expected": "510c01439a3e09842ec48dd42d40c3bed294078f449d4c978309492799fa15ef"
+      },
+      "state": {
+        "hash": 2326933920,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/fo6.t",
+      "route": "bg/df2273a5.png",
+      "source_sha256": "16af9293fe383f9cb4e9022f4f9d71f92732dc07722a9c48bcee0b0658e79f30",
+      "hd_sha256": "a8679c2ea6bd8a6214cb23929da590606220adb11b08cabf69203ad9c5017148",
+      "original_rgba": "79a34c8aff1c485eb1dda11f7bb32970e6df0990aabbb6aff17a03b9388d01ea",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 5,
+        "counter_bytes": 1
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "50a63ced5f02771064f5dc49793fd88d6426ca9d6a5bcf47e7fc285cf0940d4e",
+        "expected": "50a63ced5f02771064f5dc49793fd88d6426ca9d6a5bcf47e7fc285cf0940d4e"
+      },
+      "state": {
+        "hash": 3865395537,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/fo7.t",
+      "route": "bg/a1b0c591.png",
+      "source_sha256": "536f40e5e2588b9902a890299cdd41152d243f72a4ff34a6ada348cd8d573e77",
+      "hd_sha256": "219630b36293f59a74c8ca962c2d618af722d290ddf232ef330ddbad09d527fe",
+      "original_rgba": "704a76eddd60c4e94ba1533a2502c7a99e9c8095ac8a19a2d860acd37b9140e5",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 6,
+        "counter_bytes": 1
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "1d8c9134d3781a9d6e393d820f7c233812cf7a14262dbf3305f3c7346039f155",
+        "expected": "1d8c9134d3781a9d6e393d820f7c233812cf7a14262dbf3305f3c7346039f155"
+      },
+      "state": {
+        "hash": 3286647410,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/fo8.t",
+      "route": "bg/be1046fc.png",
+      "source_sha256": "7faffb06392e98d1189db8a077cb9bfa6203b0031163faf85b5f0b810c45842a",
+      "hd_sha256": "70303e617783eaa75720f685427c231563e7e9f7aa818147faf90a292fc0a008",
+      "original_rgba": "031c5c0df4d19f131b3fb6c70b53abd28e599ad5f7b8c7df3c57057d4f9ae7a5",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 7,
+        "counter_bytes": 1
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "d84dd501944d4fb135022773e0f4df047d2b84c25734c057470aa0fb441526d6",
+        "expected": "d84dd501944d4fb135022773e0f4df047d2b84c25734c057470aa0fb441526d6"
+      },
+      "state": {
+        "hash": 2143606957,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/fol1.t",
+      "route": "bg/3a38d016.png",
+      "source_sha256": "ee86fef494bfebcddfd0419eb8c2bca0373ae0bf1437b7baff6967d450d8dd32",
+      "hd_sha256": "a5a122a989ba143ca2bfde1bfc86bb37891bb3b1dec73cefa6e333500e59388a",
+      "original_rgba": "61906ac987c565954bd1450c226b3826876aaa359804c30cf640467083c9e813",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8ffd2"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "47c52a24a7fb5c8a57b667e1135bc628333b408dc7b49e2a93c0f9ded33d5cc5",
+        "expected": "47c52a24a7fb5c8a57b667e1135bc628333b408dc7b49e2a93c0f9ded33d5cc5"
+      },
+      "state": {
+        "hash": 538382317,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/fol2.t",
+      "route": "bg/5ecac111.png",
+      "source_sha256": "ad9426763e21f6dbf9dc54526c48449601080e5d4150580a6545bd931c6dce74",
+      "hd_sha256": "57a8da47623406e3c75bb62c0ff3638d24b7df00816ff54540d54490479baea9",
+      "original_rgba": "0edde843cbd43e0c411babc7e63ca10b3978b258b60cd42644d94a8b318c156a",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8ffd9"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "38f0715a045d5fad04fcea61ed468f0899875084c74dbad85d7b8dad015877f9",
+        "expected": "38f0715a045d5fad04fcea61ed468f0899875084c74dbad85d7b8dad015877f9"
+      },
+      "state": {
+        "hash": 4134641528,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/fol3.t",
+      "route": "bg/5e1dc378.png",
+      "source_sha256": "656df3f9d7769154b80baae85b06fc20bdf70a28587e226c057b7043a537323a",
+      "hd_sha256": "4a9f5164865884289236f8ac78b6bb6c75286ee7665d382e9b73dfa95ed34826",
+      "original_rgba": "46078254a72b415b9f7adea0bc716fb10aa48237cf49949eb3750ceaf2eab3cf",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8ffe0"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "659962b9b67bc1e2bf21c96e5da9622457dfcb7da60bcb02a4c5ba0fc48d9ff1",
+        "expected": "659962b9b67bc1e2bf21c96e5da9622457dfcb7da60bcb02a4c5ba0fc48d9ff1"
+      },
+      "state": {
+        "hash": 639264170,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/fol4.t",
+      "route": "bg/5c6a3697.png",
+      "source_sha256": "7b9ae309f28b601566c3a57b8a3d8075018efe509d91d3ff09bb43a81a2f6a8a",
+      "hd_sha256": "a39b382f71948da6c15910718721d9f4be5802d0cfad737ec6ea1b5e9bc15903",
+      "original_rgba": "6304ac8407bdff74db9c7bf086008434d0c46b2a065d73e128ce677299abae6e",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8ffe7"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "13435d29e2a0a337e840a7468de33ee59ab19ccec5e63880ac8f8565b46c058b",
+        "expected": "13435d29e2a0a337e840a7468de33ee59ab19ccec5e63880ac8f8565b46c058b"
+      },
+      "state": {
+        "hash": 2947401594,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/fol5.t",
+      "route": "bg/954ee2f9.png",
+      "source_sha256": "8f14def45c0106eb26e4be1fed19a78b9189c26dafc1e1c5853d2485d299a83c",
+      "hd_sha256": "98795efac4f34c3d3f86bdb72106b15c07289878b074cefd635199989a86e8a1",
+      "original_rgba": "67bead13fb6ce6dcd9800df6b01907edcf67b58ffe1872ea3c9c56d41567ef98",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8ffee"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "e95eaaf8ae00aa1ac5db45c856b6b41b8d8bab09f763bd0ea273f4c989762077",
+        "expected": "e95eaaf8ae00aa1ac5db45c856b6b41b8d8bab09f763bd0ea273f4c989762077"
+      },
+      "state": {
+        "hash": 2033544297,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/fol6.t",
+      "route": "bg/db6fc7ba.png",
+      "source_sha256": "2811fdb320be72687fba5565036dd250ab1e5fc4486423b88ced0a9190527410",
+      "hd_sha256": "46fdcbd9d9ff2d8d38a5f3483fb7656d9410bcd298ea69db857bd58e7d1643c2",
+      "original_rgba": "2423a60c1d20c7d2982f6b200f756fe3917064f4898c7891d18918a77616cbc4",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8fff5"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "bd5270b5968f2030f4a4b95e4e41a8b9c2cee65dd80677d4cb5b787e6b9d1e72",
+        "expected": "bd5270b5968f2030f4a4b95e4e41a8b9c2cee65dd80677d4cb5b787e6b9d1e72"
+      },
+      "state": {
+        "hash": 1658303392,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gl1.t",
+      "route": "bg/bae52e65.png",
+      "source_sha256": "ecc0442bf591a4ce609d8c34c0319db4bdb464f2bcf5f4fbc8154bf9cc10ce29",
+      "hd_sha256": "88b97c338c0c6f4158d0d6f821b4a4c34f6a27b53695199d4adf2ea9c01a1e84",
+      "original_rgba": "b231ac5ccfc342c77ed27fe58b0d56fc7669d872dfc4fc44930de9052184748e",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 0,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "135ab8ed2a12f618dbc06727bdd3232b37f2fd7fb372bd2d78a0828adecd032f",
+        "expected": "135ab8ed2a12f618dbc06727bdd3232b37f2fd7fb372bd2d78a0828adecd032f"
+      },
+      "state": {
+        "hash": 2015954867,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gl2.t",
+      "route": "bg/a154a2e3.png",
+      "source_sha256": "a52903fa8a495050afe4adf11b1880eca6cc2470c4b7a08363e8ff6b305be1aa",
+      "hd_sha256": "a21f628e0fc6e01cc34b9a0a9e5224f78b8c5e2f1346f3aa0ab9ddf3ca247f49",
+      "original_rgba": "b422f5d45dd8a56b73661c599daae10afb84f7b5579461581cdda706018af322",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 1,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "86630c053acb5ca2f3597fe5a128f4bf6254b394202020b29b82b09a205d832d",
+        "expected": "86630c053acb5ca2f3597fe5a128f4bf6254b394202020b29b82b09a205d832d"
+      },
+      "state": {
+        "hash": 69907400,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gl3.t",
+      "route": "bg/92934a24.png",
+      "source_sha256": "2b4abc84cc3f16beecc0e3d6ea2c4ed61449f08ad4b695fa25a08727b3f02da7",
+      "hd_sha256": "ee290ed06d42f80d691f5e4da85348df315f33420518a23d0f158eba08ac06aa",
+      "original_rgba": "89dff6d82dd96bd1fdbcd7ea24fdda8dd9fd2f519794f1c7e95bfddf92602c9e",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 2,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "082ace3120fb7eba8fb76036444d4e66d2bd0c49b57d6b9065222db06615c946",
+        "expected": "082ace3120fb7eba8fb76036444d4e66d2bd0c49b57d6b9065222db06615c946"
+      },
+      "state": {
+        "hash": 2912246236,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gl4.t",
+      "route": "bg/c6493055.png",
+      "source_sha256": "51d0bdd4591955f6a9953af8be0a4c9189574cda8cda6a4d13b23d43235d55b1",
+      "hd_sha256": "16acd3fd96d7efd1906db9588af280ec0cdc4c8af925faaff5e827e1470abc50",
+      "original_rgba": "62c7736b46e132dcbf2218d2829f795dc0539ab765447c57100320fd3843b33e",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 3,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "d446e8699bb992899b60a5560bd1f639c8897383d90e59aa4372e3d7acda0570",
+        "expected": "d446e8699bb992899b60a5560bd1f639c8897383d90e59aa4372e3d7acda0570"
+      },
+      "state": {
+        "hash": 2131781014,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gl5.t",
+      "route": "bg/3bf300f2.png",
+      "source_sha256": "f26fc92144daa6fc25565e5cae3027ca78ce31bbf24d364de1537ddc523f48db",
+      "hd_sha256": "b0408dd8b357c4b9b51c23f3a4f71483900cdb4bb7ce648ab0b1ba33ea32ac6d",
+      "original_rgba": "bfed359c44d05b3a7744209ae73a5acccfb517de9267341c33ed45964149ef07",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 4,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "e20b334e6ed09955a4057e53043f73d395b7dd60c8fa30213c098a62e7e2e424",
+        "expected": "e20b334e6ed09955a4057e53043f73d395b7dd60c8fa30213c098a62e7e2e424"
+      },
+      "state": {
+        "hash": 98989427,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gl6.t",
+      "route": "bg/1d517809.png",
+      "source_sha256": "20fccc795a8e74644e7e8bd5605e49ef8cc8e8e58173d2065b4a71566036ac22",
+      "hd_sha256": "714e4461790c06f2f785ba8c9da10ca37940fea89f8e22d0b62cc6b2a3996ab8",
+      "original_rgba": "cba422fd87b8772e740fffd98b1ce784f640431207ad34a8fccd53348939fd0a",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 5,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "9a3b09a0fc423f9e8463f6f32c08890d13966f93e626cf9f14374bc3b7f3faa2",
+        "expected": "9a3b09a0fc423f9e8463f6f32c08890d13966f93e626cf9f14374bc3b7f3faa2"
+      },
+      "state": {
+        "hash": 1978568085,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gl7.t",
+      "route": "bg/78b34d44.png",
+      "source_sha256": "43481e8262f4366ce8fbbf981e9e766aab78072254ed625c515650283ed8e07c",
+      "hd_sha256": "563bb4378393f14836480f953fb83f174a48154b4b38fdca239be99f941623d0",
+      "original_rgba": "13c7584315c47408b30d443e2919828e3cc9562aa21a7052b522fbbd94056af0",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 6,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "36adca7a15e8515049adddaeadb3414d6122223bc2f9715de9e73b0c8a3766f2",
+        "expected": "36adca7a15e8515049adddaeadb3414d6122223bc2f9715de9e73b0c8a3766f2"
+      },
+      "state": {
+        "hash": 2387691324,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gl8.t",
+      "route": "bg/57a0be97.png",
+      "source_sha256": "43270061c28921fad3cd59535a382eb8ec3706aea3b77390fb41e921ea1c78dc",
+      "hd_sha256": "f1830e33eb77aab5a0b0bdcce987b9e4fcb7b2d34aa95fbaae45e2c8bd3acfdd",
+      "original_rgba": "412adb30a4211b7aa30f932a0a0006c827b16ccec45fcdd348a14aaf7ce9c240",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 7,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "90d0ea599fe8ebd5e562f1fa79cf77cab7a69cb3b776036a30510c0166f39fce",
+        "expected": "90d0ea599fe8ebd5e562f1fa79cf77cab7a69cb3b776036a30510c0166f39fce"
+      },
+      "state": {
+        "hash": 2003979503,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gll1.t",
+      "route": "bg/4b68f426.png",
+      "source_sha256": "9af516be1b92c73c9008140125f49371bc384fa0bb972f7994ab66c2e5cd56c1",
+      "hd_sha256": "fb09a55e0e97fdc458bcd94702c864c51f4a561686d3a6c916cb913ff2939c13",
+      "original_rgba": "41a59f208c0491f033884df23a6e7b929b2fe9915df64009d022d19b40b104fe",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90050"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "0135ebf78033b5dd8f34800eca3026d1c8740c7c9e839b254753f514bc4d5888",
+        "expected": "0135ebf78033b5dd8f34800eca3026d1c8740c7c9e839b254753f514bc4d5888"
+      },
+      "state": {
+        "hash": 3434906212,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gll2.t",
+      "route": "bg/8feef9f5.png",
+      "source_sha256": "811b827621f17cc1f3825a2a5c2c6fd35b00a6da371fe00c02da0ba96bbf74a0",
+      "hd_sha256": "5ece5dc5d3d6f9a44918dd7c2a641c4a7637e1612ed2427a7748a4a54f574fb7",
+      "original_rgba": "e045dd59f89bac8ba4f11a6b5347da6f7c7c7d67367c1e23a61fa763d07d3278",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90057"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "1154490122bbff384a9f2035f2cbdef1fed696170c5e1aedb6407ddf37bb5572",
+        "expected": "1154490122bbff384a9f2035f2cbdef1fed696170c5e1aedb6407ddf37bb5572"
+      },
+      "state": {
+        "hash": 3406759908,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gll3.t",
+      "route": "bg/6113f65e.png",
+      "source_sha256": "e8e8ac9fb7cb143ebb7597f044d28df87cae2f6aefc6dc7c8d03ccc3b59f479a",
+      "hd_sha256": "3d73765b9a463367933fe8ead9c3f27683b2fc34235bda57911426a1e2d7ddfc",
+      "original_rgba": "92d358e849e2ad9191401f8c528245ae07e4705473b003f6b711cb3a9d08b44f",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x9005e"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "0eb47200cd465764e0c03b3e1b8e734de28c438a29c463d81cf85abcd477ef9c",
+        "expected": "0eb47200cd465764e0c03b3e1b8e734de28c438a29c463d81cf85abcd477ef9c"
+      },
+      "state": {
+        "hash": 1085322509,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gll4.t",
+      "route": "bg/6b05bdcd.png",
+      "source_sha256": "a5c28e686848fc8894e1eae411f6b9e8eeae0ae6399da28febe71a3e649c14f0",
+      "hd_sha256": "2abefa5faac991b8a6e38b5fec2fee231b534a2e9d24a53448c6998365364c4f",
+      "original_rgba": "67bf272893f8470a448df57fb79eb7cf5ec97f43d83048ece49fbd7fdad680be",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90065"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "d595bb1daee49cca8d02a2c9d984fc889d25f524fea3ff5ed8d743f81d002983",
+        "expected": "d595bb1daee49cca8d02a2c9d984fc889d25f524fea3ff5ed8d743f81d002983"
+      },
+      "state": {
+        "hash": 3654564870,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gll5.t",
+      "route": "bg/b95b11e9.png",
+      "source_sha256": "c8cf2dbab033cdff4b20f445450f65d0e9ba126ede5fb870001d52015b5d5c4d",
+      "hd_sha256": "7ed99b2190d2890a87128c1582b00d1c6b82644c23f0c812fa1c8ab49174d19f",
+      "original_rgba": "ff5054f88c9f56844e7446646570bef6fce94b47bd6aacf2f8b355e68b3ad205",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x9006c"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "0efff5f17bfaa2141c785c81b666ef7bde852b41d2f32b44816cb93c641ae37a",
+        "expected": "0efff5f17bfaa2141c785c81b666ef7bde852b41d2f32b44816cb93c641ae37a"
+      },
+      "state": {
+        "hash": 1089416420,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/gll6.t",
+      "route": "bg/73c7f5c1.png",
+      "source_sha256": "496a6b4c008371207da176ae325931478bb6b421033e53cbba797c39c229a476",
+      "hd_sha256": "5c611e5b32a4d234dd991a3c9666960c41c9a97dee92f24a26f7e29cae048ece",
+      "original_rgba": "823b64ad1811088d3354840646929fa5b66ed2464739b735c0e4c72b30d7897a",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90073"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "84b2698a113ab7c76c959bf856e8560fab284e3326fd422b811051d1a0eac9a0",
+        "expected": "84b2698a113ab7c76c959bf856e8560fab284e3326fd422b811051d1a0eac9a0"
+      },
+      "state": {
+        "hash": 2933019547,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/sw1.t",
+      "route": "bg/c12077ae.png",
+      "source_sha256": "21f33c843dba9523768d449f3af9ecd4824f6a02555d1cae1fe29781ad504ece",
+      "hd_sha256": "4706499825dc6f73cf81f5bd745ffb0e14ae5e3e525bc87eaef47c0ead0a7f25",
+      "original_rgba": "18d384052cf37b8d632740ecd2e930d9f64f5c6d1d8eb728959c16c8b1b21de2",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 0,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "ae95c3d35963609a29073fa8a42d1ad9625629decfda6e0423d5de9abf74c530",
+        "expected": "ae95c3d35963609a29073fa8a42d1ad9625629decfda6e0423d5de9abf74c530"
+      },
+      "state": {
+        "hash": 1805861316,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/sw2.t",
+      "route": "bg/013ee13a.png",
+      "source_sha256": "09518117c9ea142ef5c92a197dbd782b0b6dee050deee26a0d48e4b5b1b57270",
+      "hd_sha256": "5fcc58338321690099b335f8c2d4bb52499405bf21a08a695e85ada81990fbe9",
+      "original_rgba": "404ba4286baf7f33678b5a98432720b3abb4967299402fdbf9789f6d101d2834",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 1,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "6801595c6a87ec1b227db2be230ecd38544c7b814fe73fde2e24393e85974f04",
+        "expected": "6801595c6a87ec1b227db2be230ecd38544c7b814fe73fde2e24393e85974f04"
+      },
+      "state": {
+        "hash": 3306849587,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/sw3.t",
+      "route": "bg/e7920704.png",
+      "source_sha256": "1f4addb6c4ec8c067e24b4d04104a9df2a4172457a9829ff2ff5c0affcb2447b",
+      "hd_sha256": "6aab847d433f1ccd3cd331d093c43fd949fb1a95724b1bd1c8660e09792899c4",
+      "original_rgba": "25450318681bf06307a16193645751af0584cf49b23591be6ee597cea1b736d4",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 2,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "e6aafdf9531690f3eb5a71402c977cffa475d12c6e6d66c80a5f88765fd80021",
+        "expected": "e6aafdf9531690f3eb5a71402c977cffa475d12c6e6d66c80a5f88765fd80021"
+      },
+      "state": {
+        "hash": 1984835970,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/sw4.t",
+      "route": "bg/c83d312d.png",
+      "source_sha256": "8fbdb7e8a27289f5302386ef187d361524b58a05d614323787a16a570cc21667",
+      "hd_sha256": "26a6851ad892e58cb5b20645188cd16cf9f308bc7449a4bb2c5df61aa83e8923",
+      "original_rgba": "f346988e6e213bbd8f73d60bd487f83342c96071b1fbe915ca5a7652b93df4ac",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 3,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "4b1ce7e83b2325a30e6ba6c477bceb641b898460b0a70c20774ee9addcfef476",
+        "expected": "4b1ce7e83b2325a30e6ba6c477bceb641b898460b0a70c20774ee9addcfef476"
+      },
+      "state": {
+        "hash": 1874747149,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/sw5.t",
+      "route": "bg/1be5b7a8.png",
+      "source_sha256": "39fac4f64eb9147f57cbb6b9b0d836fd66f55770923b7a512b56d6f56384e210",
+      "hd_sha256": "b9a3b601b1cafa301cbe030a034dc5281398d321ef854c9e8a287f445ba580aa",
+      "original_rgba": "e8d8e63b634a9358caa7dd51b7fb8ce69837d3e54fead42ddc4dbc3b3f0dd689",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 4,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "bbfd18e439ebf5ab928ab2d0cabe83193bc58ac52c1223aef486dca4e61b9238",
+        "expected": "bbfd18e439ebf5ab928ab2d0cabe83193bc58ac52c1223aef486dca4e61b9238"
+      },
+      "state": {
+        "hash": 3030392791,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/sw6.t",
+      "route": "bg/aac884f0.png",
+      "source_sha256": "41be43b2cd73b05cfa48db312faaf193a5d408547851d597dd32780795e76bab",
+      "hd_sha256": "5202ee49d385cec90cb7fd696758631a64253f2049c06df69aae36cb5955b4b9",
+      "original_rgba": "71dbc8cac35069065c73772b724e203a910cbaa49603e1d64f09c77b36816065",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 5,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "4173432fa95ddb3aa4078e7c31a9f9f16ce0619a12b30657c7bcaaca4e9b8aa5",
+        "expected": "4173432fa95ddb3aa4078e7c31a9f9f16ce0619a12b30657c7bcaaca4e9b8aa5"
+      },
+      "state": {
+        "hash": 3660192291,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/sw7.t",
+      "route": "bg/a529be52.png",
+      "source_sha256": "c9c00a8a327aaa0625732ae38d6c2a7ebc32d96a21683dea1de9768cc5945650",
+      "hd_sha256": "fb217c48e7178e4152e3516d6ac49e438d5dbfe06cdbc4d590afc1916a26dadd",
+      "original_rgba": "af5caf4b717bd1096b1ddbb7e7ce2d1d32c757b6be4219cb9a3789a36daee0aa",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 6,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "a21c02317f76343882dee5cae0c970d6bf752c695a18f1fa38567ae245627c8d",
+        "expected": "a21c02317f76343882dee5cae0c970d6bf752c695a18f1fa38567ae245627c8d"
+      },
+      "state": {
+        "hash": 1270828603,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/sw8.t",
+      "route": "bg/354c4fc5.png",
+      "source_sha256": "dcf35f2207e5d455edb297ffd751cd92a95c2274eac03beb89fdb37e8c9c3350",
+      "hd_sha256": "b81fa011a7faa35176afde0b1d0e3efca1f0d95033ee65e944857396718a37c4",
+      "original_rgba": "2394c14b9943fece49d52284bcd2a205511eea062d36e478cba785702315fb08",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 7,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "4036032949168d87d0364776ed6c02aa4029e4dd0f6e9019390b40b0653ea8aa",
+        "expected": "4036032949168d87d0364776ed6c02aa4029e4dd0f6e9019390b40b0653ea8aa"
+      },
+      "state": {
+        "hash": 3449766880,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/swl1.t",
+      "route": "bg/14a894c2.png",
+      "source_sha256": "1169a89377fa6fa47bbf93d5b1880c5f70bd0aedbca41381f02faef7a81095eb",
+      "hd_sha256": "0a57a8aaff530551850766ee86fd3e0722c8089f3080d393dbe089965fa18d28",
+      "original_rgba": "38c6f2d59fed88a2dffc7737bf7287089932122a69c257485ea6fd95e2f695d8",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90026"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "92f50625b66ec1af42a022d58ba87b2dcc1a8139b6fc6d907735fc676c9201a1",
+        "expected": "92f50625b66ec1af42a022d58ba87b2dcc1a8139b6fc6d907735fc676c9201a1"
+      },
+      "state": {
+        "hash": 724893739,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/swl2.t",
+      "route": "bg/b7afa780.png",
+      "source_sha256": "8e18af9722e5c4321e55ae0b6281aeda55b089e494ec7e5823fd9baad40b8b05",
+      "hd_sha256": "180ca8a988027e87c688d95a52657ab60fddb9f9ec4ee490cacd962b80da0c0b",
+      "original_rgba": "3dfb6b96b07ba98fc23488eeb3b0b309c0976c1f18676203daedcd2979c1e192",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x9002d"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "35e6d7e763fe0dbc97f178131923ab4bb9fa8e602feb33f71a554acfdeccb8c4",
+        "expected": "35e6d7e763fe0dbc97f178131923ab4bb9fa8e602feb33f71a554acfdeccb8c4"
+      },
+      "state": {
+        "hash": 1083350321,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/swl3.t",
+      "route": "bg/df1460be.png",
+      "source_sha256": "92029253a6810d21afd8fbdc9fdbeb0e26a51e2c7a9b4464693904b4fcb8e2e1",
+      "hd_sha256": "7f6a884058db7242ff38d7b56b2cf9e44edb2d1bce09ec1776ed7434c36e25c7",
+      "original_rgba": "c4917224f0e1d85d0fb2876bad7f6c8b7cd116923bc65e6ebac25620738305b5",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90034"
+      },
+      "texture": {
+        "size": [
+          1585,
+          992
+        ],
+        "actual": "7c8864e2a986b7deee48750b9f3825e012a2cf48ae4b2bf321c1ac53109b4c87",
+        "expected": "7c8864e2a986b7deee48750b9f3825e012a2cf48ae4b2bf321c1ac53109b4c87"
+      },
+      "state": {
+        "hash": 21871637,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/swl4.t",
+      "route": "bg/4aca74c6.png",
+      "source_sha256": "c615707c3d23789e0aac2896258f22e7c16b52deaf1acb270d0614422eaf11c5",
+      "hd_sha256": "9cc2b0240a41f608c69313156ce5b485c634eb4b3f5a7fcf72255b9ec80ae06d",
+      "original_rgba": "5413ae27c98b54ff2a1a0b7d2df80e8c2c3817e24377bcc33545fee4baa2e9a2",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x9003b"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "87b4be2f8784e67d0270bf13dca8f1a1160a3452de8fa027d9496a75d35cb7cf",
+        "expected": "87b4be2f8784e67d0270bf13dca8f1a1160a3452de8fa027d9496a75d35cb7cf"
+      },
+      "state": {
+        "hash": 3490142783,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/swl5.t",
+      "route": "bg/09b477b7.png",
+      "source_sha256": "5d95298e51647964157a3e26c80bc62281ebe58b3a39a1212dbbcff2f0ee94c9",
+      "hd_sha256": "667ed3ce1395fe410efc0008befdfa82b62e0335029a023550727f22acff961c",
+      "original_rgba": "017d5217555937b36ff43ea8fb05060d5b2647ec9755a1d95bdedd66de9cad5a",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90042"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "585623e219c043b526860c57dcb796f695fee2c7490890e0deea2907716b8995",
+        "expected": "585623e219c043b526860c57dcb796f695fee2c7490890e0deea2907716b8995"
+      },
+      "state": {
+        "hash": 3273194590,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/swl6.t",
+      "route": "bg/b33ce188.png",
+      "source_sha256": "bb772c13faaa799d32b5c252fbf8fc3828323c610c0730bed22b29d21adea4dc",
+      "hd_sha256": "b128c33c6dcb1bab46d41db72cf19f08ffb6a8d8c16602885968f67b0c1ec2b8",
+      "original_rgba": "662626d26eb2467e33141072e810ffaa3c26b6b8b85f008c0fa11eed86fc9827",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90049"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "bb54240fece42b33f4dddf2893ca616c0458d8f404401d3945eb639987c44fcf",
+        "expected": "bb54240fece42b33f4dddf2893ca616c0458d8f404401d3945eb639987c44fcf"
+      },
+      "state": {
+        "hash": 1126994461,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wa1.t",
+      "route": "bg/62d8d655.png",
+      "source_sha256": "388ea4621929bceb99b1d23bbd95530a72e31822b3592f971ef2d2ff60a8ad19",
+      "hd_sha256": "d85b04c9f5e2e9300fd94f077fd4e38092d59674014502c662372479a1d46f8a",
+      "original_rgba": "92d2dc578831938ca5c26b74ebc3c24643623d9817fa2dd08ec52044c8febece",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 0,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "2880d41ff266120792422f4da27eaa43c22d9c7669ca8177bef8b6742765361a",
+        "expected": "2880d41ff266120792422f4da27eaa43c22d9c7669ca8177bef8b6742765361a"
+      },
+      "state": {
+        "hash": 2119549228,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wa2.t",
+      "route": "bg/e8ac7fc2.png",
+      "source_sha256": "7efdfdf2e8d53264ba56e1a089b193c208adf559495376e0108f4118e3ec127c",
+      "hd_sha256": "6402cf48f10da626bcc1ab0bce0a19dace3772b00ea5e3a067709d6f28dd9f2c",
+      "original_rgba": "ecd0abf4ef70310a335b5bc5045bbdf100ecb70604fd4e98dcaa06e4f58095bc",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 1,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "f4bf90ea53750f8839089f58977f3a5b76b6b75d8e2f464a95b9cc84199cc974",
+        "expected": "f4bf90ea53750f8839089f58977f3a5b76b6b75d8e2f464a95b9cc84199cc974"
+      },
+      "state": {
+        "hash": 2454379921,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wa3.t",
+      "route": "bg/ab7792c8.png",
+      "source_sha256": "ace6c13aa8ae464c25439e1b15fc6f2f25e5951b02d681354427e8ab0e088b2e",
+      "hd_sha256": "7f0ef97cc6dd9810a950508e89fbf63fd8d99596fca6c7e85a291d6a31b6f4e8",
+      "original_rgba": "4d5af56c1d90e03e93b3c5e39a2ca39cadee6cab3af64d13cf22cca6cf67075b",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 2,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "6b62a966d30fafb38398348b0287f6a1a61dfd8f5cfe229902a53b26f4da696f",
+        "expected": "6b62a966d30fafb38398348b0287f6a1a61dfd8f5cfe229902a53b26f4da696f"
+      },
+      "state": {
+        "hash": 493234406,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wa4.t",
+      "route": "bg/4596c7a5.png",
+      "source_sha256": "f2d432ed854bc9da3d6e06f70b7c72f52b19cf24f9d4d180d67c95e8cc5973cc",
+      "hd_sha256": "30981b1e727fa0fbc543afb763fd8bef402a5ef93f66fb3d1a4ce14db0e790fd",
+      "original_rgba": "62180bfbd58a53d1a662795a71ef30dbcdfb16fa27863d037716e8c3416d9850",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 3,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "c373642cd86a2728c7c08df34b67a8a296faead7f09f559b1693fe0e2025e718",
+        "expected": "c373642cd86a2728c7c08df34b67a8a296faead7f09f559b1693fe0e2025e718"
+      },
+      "state": {
+        "hash": 606341587,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wa5.t",
+      "route": "bg/86052b52.png",
+      "source_sha256": "ad4698ae3a1aa0e533230b7ce76876e92f2468c6c88686e872ce7b596104ced8",
+      "hd_sha256": "b38498757dea3a546707173fbd23b820f5d6be9bebe8f547c02120b9b33ae8bb",
+      "original_rgba": "918469509b6a195d7195fd03743b859705cd5b08ce43e0644c0655d18aaeb1ae",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 4,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "fce5114dc0917b4e06c7106624e1c5e03f7cd96f007407dc187483a9bb2b3315",
+        "expected": "fce5114dc0917b4e06c7106624e1c5e03f7cd96f007407dc187483a9bb2b3315"
+      },
+      "state": {
+        "hash": 613845576,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wa6.t",
+      "route": "bg/50bee2c7.png",
+      "source_sha256": "c56dc853bb8a0572faf904c58ed66577e6cfb0f17bbc1ad0b450cd50f089fdce",
+      "hd_sha256": "74eaad5017752f0e7de71af47ad83da854c7eb6551dd61472708e2c530ebe511",
+      "original_rgba": "fbdb969e932e7fb6ad0e09d981dcc4d0b0db1276e1266236f3d8dafc7797a9e9",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 5,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "0c482b8dd2432f1bc5ddf6c38f38c6b72d59c1086ed6ad2e21276fa107ad44ed",
+        "expected": "0c482b8dd2432f1bc5ddf6c38f38c6b72d59c1086ed6ad2e21276fa107ad44ed"
+      },
+      "state": {
+        "hash": 3596853530,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wa7.t",
+      "route": "bg/5e409196.png",
+      "source_sha256": "289e0e01c6297e94e1fc2792cdbd7caa3f771b6d6f1038d182167c9280996fcc",
+      "hd_sha256": "541d7991b92acf61f8bd0a1e81f4b54117b4717c47f0ddbd348a04aa450603d7",
+      "original_rgba": "03cf08ae170479b79a8f2b560b3f17c4e83f4ed823048ce2d3ca9d6c253c7ee9",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 6,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "64bd835174c7037b90d422548299d5a072a4151252381f07749ac3c6f1866fe0",
+        "expected": "64bd835174c7037b90d422548299d5a072a4151252381f07749ac3c6f1866fe0"
+      },
+      "state": {
+        "hash": 593444688,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wa8.t",
+      "route": "bg/2bbbb748.png",
+      "source_sha256": "ea77beaff196d7098331a050df6bd8a7a88631eb644baa9fd09b924e5fd0ec07",
+      "hd_sha256": "faab57dafc43229139af1fbc16c49a6d6371591b4424c10048f42b2fc23ec83c",
+      "original_rgba": "22b72494c33e42658bd0ddc6f81877432f797c116725acd06d0cfa97ea7b98a6",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 7,
+        "counter_bytes": 2
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "e0de0e2fbb33a79939beea982e2ac2ab752405f6e85fbbc8f264d977b1fea2e2",
+        "expected": "e0de0e2fbb33a79939beea982e2ac2ab752405f6e85fbbc8f264d977b1fea2e2"
+      },
+      "state": {
+        "hash": 3983231568,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wal1.t",
+      "route": "bg/ed554452.png",
+      "source_sha256": "c1618140b2337755231a6a44db7f3f03d892e0962948d7d8fde55cc3a06de3a4",
+      "hd_sha256": "c71708e069eefa741cf10591445a921da57266f8e58625f8b6e7f18a812233c7",
+      "original_rgba": "28e801d02b110916c4d561623e29604b13840f8dc64a4da5a748dcdad3876f62",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8fffc"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "60171aec7a7df7d08d7f840fcaee690b9178c6705f9bde048affe617177e34b5",
+        "expected": "60171aec7a7df7d08d7f840fcaee690b9178c6705f9bde048affe617177e34b5"
+      },
+      "state": {
+        "hash": 3479585185,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wal2.t",
+      "route": "bg/756408ca.png",
+      "source_sha256": "0c413f25233c27ac69af896c56c2bfee5872ad20d5ad758b910b200f02151726",
+      "hd_sha256": "8b1511e922f1471485be62cfbf44b6a7479804794dff1e8642b0d886299aa5a1",
+      "original_rgba": "45e2dcd4fbbac0243cbf1327b669509e12f60571d4f6f129dab6b01404e4d306",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90003"
+      },
+      "texture": {
+        "size": [
+          1585,
+          992
+        ],
+        "actual": "952bfc2378931ed30c19c2a727a88d0f5037e1bde43ebe5072770d5dd159a956",
+        "expected": "952bfc2378931ed30c19c2a727a88d0f5037e1bde43ebe5072770d5dd159a956"
+      },
+      "state": {
+        "hash": 2945335890,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wal3.t",
+      "route": "bg/850cdd99.png",
+      "source_sha256": "8d7c165ccd2522e12f9d097686e2f545672fb737166f2f9efb867d2346ceb3c5",
+      "hd_sha256": "c77241f8d98bbed42aedfa1f04b007ef640013f3c50d2e7335add728d3b36bbc",
+      "original_rgba": "971410abafc7163bf4fd10221889be4d3d881b2f24f68f6b7b5ba266c4f20e54",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x9000a"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "b48250c3efd95113a049b3ce838dd9d678ff97611942438272dd09e2e34d5c1d",
+        "expected": "b48250c3efd95113a049b3ce838dd9d678ff97611942438272dd09e2e34d5c1d"
+      },
+      "state": {
+        "hash": 1932115841,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wal4.t",
+      "route": "bg/93d40a06.png",
+      "source_sha256": "800beaf201b63215356e64dec292fb9c59037d1922dc7fdbd011e6403be76fc5",
+      "hd_sha256": "919005d02b5d7320fa6a72fd37eb28e2124d3ff602e43f018e491720ee1b2a21",
+      "original_rgba": "4c6bebe97bdadcd2c31aaaff2a8ee1b8669dbcda7506fb9702a3f87b05fbac05",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90011"
+      },
+      "texture": {
+        "size": [
+          1585,
+          992
+        ],
+        "actual": "cd8a51a8202e895c368f36f6714a141afd59115498fbc65729a0aa69dfdc1b4d",
+        "expected": "cd8a51a8202e895c368f36f6714a141afd59115498fbc65729a0aa69dfdc1b4d"
+      },
+      "state": {
+        "hash": 3881052544,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wal5.t",
+      "route": "bg/75c0760c.png",
+      "source_sha256": "7cbedb0297426a8432daaf5c53ff2397f349920e60426ef431e569d54359d2d0",
+      "hd_sha256": "fd1ee3df5df2ae9ce6ca5141b97cf50643ca880e47fcf26fab33e6760c0810f9",
+      "original_rgba": "0ba0bd0039fff6a8920bf4ea8f9f54aa071fe6a485c3138bfacafae5818a5f23",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90018"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "b0a03ca21dcacbb9b793713f8120746374d3281c73a8b9655582ff36728db77c",
+        "expected": "b0a03ca21dcacbb9b793713f8120746374d3281c73a8b9655582ff36728db77c"
+      },
+      "state": {
+        "hash": 2721503062,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    },
+    {
+      "source": "data/wal6.t",
+      "route": "bg/5c5085b2.png",
+      "source_sha256": "9ab47846fee0ae4e2ea299010aba60818a8f657de4d3f49ad9ed3e1268c6d6a9",
+      "hd_sha256": "55e65b739c8b6b727cf2560ae64e5217b99d4b55e5e600ed4e61a99c1e6df71c",
+      "original_rgba": "64d45ac9d8721e4bce5b95264f65347ddb915d062c21f4177bdfad4e147c9538",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x9001f"
+      },
+      "texture": {
+        "size": [
+          1586,
+          992
+        ],
+        "actual": "b87d327174a4c01e6502801f5d6df037872732c3037168a7f8b7b7351e5d3051",
+        "expected": "b87d327174a4c01e6502801f5d6df037872732c3037168a7f8b7b7351e5d3051"
+      },
+      "state": {
+        "hash": 2899310611,
+        "frame": 1200
+      },
+      "restored": true,
+      "status": "passed"
+    }
+  ],
   "errors": [],
   "scope": "Faktisk originalt scenevalg i WASM ved bilde 1200 med kontrollerte terreng/teller/filpekere, ikke naturlig besøk til alle steder. HD hentes gjennom standardpakkens vanlige rute.",
-  "status": "failed",
-  "failure": "Error: page.evaluate: Error: HD-teksturen vises ikke\n    at eval (eval at evaluate (:290:30), <anonymous>:1:202)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
-  "created_at": "2026-10-11T15:10:09.301Z"
+  "status": "passed",
+  "created_at": "2026-10-11T15:26:36.631Z"
 }
