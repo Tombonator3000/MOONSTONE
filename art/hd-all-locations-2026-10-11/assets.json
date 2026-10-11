@@ -1,0 +1,629 @@
+{
+  "schema": 1,
+  "assets": [
+    {
+      "id": "healer",
+      "kind": "place",
+      "source": "hea.piv",
+      "frame": 0,
+      "reference": "references/healer.png",
+      "raw": "raw/healer.png",
+      "route": "bg/2e3c32ae.png",
+      "source_sha256": "47929169ea706558285782364875cc20ffd8eb86051b78ca6c8247156817f3ff",
+      "raw_sha256": "9fccb1dcefb3cecee4aff7df7ba1654ee9d9bb60001091da2fad0ca4bd24168b",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/healer.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "mystic",
+      "kind": "place",
+      "source": "mys.piv",
+      "frame": 0,
+      "reference": "references/mystic.png",
+      "raw": "raw/mystic.png",
+      "route": "bg/d8b4018a.png",
+      "source_sha256": "4a274a788b08f83b8c3d7210ac8fa04aa01c38447ab7d01be3c6afa40ede1643",
+      "raw_sha256": "a4763df3dc9a50ae5053f7d9315f894c79cd5770610d9afccbcbadcec507e9f3",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/mystic.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "math-tower",
+      "kind": "place",
+      "source": "WI2.P",
+      "frame": 0,
+      "reference": "references/math-tower.png",
+      "raw": "raw/math-tower.png",
+      "route": "bg/da1dc997.png",
+      "source_sha256": "5ff02cd3b6b7e07e736684f3b238b5b7b167b4370eab467e1a815911aab3513f",
+      "raw_sha256": "d576b69a2b201b7f6585491099d23753facb71ea7fbb2f9f5274971f73fe91a5",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/math-tower.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "math-balcony",
+      "kind": "place",
+      "source": "WI1.P",
+      "frame": 0,
+      "reference": "references/math-balcony.png",
+      "raw": "raw/math-balcony-architecture.png",
+      "route": "bg/71970806.png",
+      "source_sha256": "134168ade4635c9fa6f66954fb91fcf7571c6e4db422b4c5a2f61eb0753317fb",
+      "raw_sha256": "28a03830009889115222fe6f07d417e17aabbfb183e59ed70636a6290310622a",
+      "dimensions": [
+        1585,
+        992
+      ],
+      "prompt": "prompts/math-balcony-architecture.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "stonehenge",
+      "kind": "place",
+      "source": "hen1.p",
+      "frame": 0,
+      "reference": "references/stonehenge.png",
+      "raw": "raw/stonehenge.png",
+      "route": "bg/94c7f163.png",
+      "source_sha256": "b67ec5d59178d79814a837776252bcf75c1f7a97f06249ed71d2afaef72b737a",
+      "raw_sha256": "fb97f2abccc033ad2086737b6bdb26d25696f585bbe69a76fea131d6aa5b6206",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/stonehenge.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "stonehenge-intro",
+      "kind": "place",
+      "source": "bg5.piv",
+      "frame": 0,
+      "reference": "references/stonehenge-intro.png",
+      "raw": "raw/stonehenge.png",
+      "route": "bg/94c7f163.png",
+      "source_sha256": "b67ec5d59178d79814a837776252bcf75c1f7a97f06249ed71d2afaef72b737a",
+      "raw_sha256": "fb97f2abccc033ad2086737b6bdb26d25696f585bbe69a76fea131d6aa5b6206",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/stonehenge.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "dice",
+      "kind": "place",
+      "source": "dice.piv",
+      "frame": 0,
+      "reference": "references/dice.png",
+      "raw": "raw/dice.png",
+      "route": "bg/c6a4a00e.png",
+      "source_sha256": "8987fa584d8858b74dee663d6440326d21d6f3875ceeb0b1098efd0c7a398188",
+      "raw_sha256": "a2a0908015abeea146a1fac0fabb9a8e319d9da5dfbd06f8c596a3ea59be9670",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/dice.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "stonehenge-knight",
+      "kind": "place",
+      "source": "bg2a.PIV",
+      "frame": 0,
+      "reference": "references/stonehenge-knight.png",
+      "raw": "raw/stonehenge-knight.png",
+      "route": "bg/a45a2508.png",
+      "source_sha256": "441dee3daf975ce3157e84202233e26cc1ed1b004292f7cff777df4f2f05ff78",
+      "raw_sha256": "6a3a6c47cd1b767e99368b40d0730a92adf554855d426f74c881e6479665157a",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/stonehenge-knight.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "stonehenge-overhead",
+      "kind": "place",
+      "source": "bg3.PIV",
+      "frame": 0,
+      "reference": "references/stonehenge-overhead.png",
+      "raw": "raw/stonehenge-overhead.png",
+      "route": "bg/c2501c17.png",
+      "source_sha256": "b61d3911c4a2b9b3148672cdce1ab0324cb9122841f152f889ea72bcc5c6320d",
+      "raw_sha256": "ea29f60302df43b5df94d6ef8aabcd11ef53dc6fd641e07b40f538231d3a56d5",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/stonehenge-overhead.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "intro-stars",
+      "kind": "place",
+      "source": "bg8.PIV",
+      "frame": 0,
+      "reference": "references/intro-stars.png",
+      "raw": "raw/intro-stars.png",
+      "route": "bg/d0f67acb.png",
+      "source_sha256": "90b305790381cc464393d1ac16a5f7f7091f6b0d26cc1ce355ce6d8f8fb39973",
+      "raw_sha256": "d019300e508953a5a86b467a446114677323a0150dbf34addc06d85fa8ae3772",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/intro-stars.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "message-banner",
+      "kind": "place",
+      "source": "message.piv",
+      "frame": 0,
+      "reference": "references/message-banner.png",
+      "raw": "raw/message-banner.png",
+      "route": "bg/931f9b1d.png",
+      "source_sha256": "4633b51167960dc8562ae2e3cf2be522b35d4ef7ad2126d214db2c69745be94c",
+      "raw_sha256": "859320435e83d2e9674968258564ae7176093d5afad5fb0c1701e7d6c1bf8c15",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/message-banner.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "mindscape-logo",
+      "kind": "place",
+      "source": "mindscape",
+      "frame": 0,
+      "reference": "references/mindscape-logo.png",
+      "raw": "raw/mindscape-logo.png",
+      "route": "bg/46963198.png",
+      "source_sha256": "08429a0b903a635d7870102f09a702ad9b643fb835b14a935ca86f0893f81337",
+      "raw_sha256": "52a1d913bad5ee93b06db8c1c3fccf41fd464a2c2ccdaac82c787d1043c477a0",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/mindscape-logo.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "fol1.t",
+      "kind": "combat",
+      "source": "fol1.t",
+      "reference": "references/fol1.t.png",
+      "raw": "raw/fol1.t.png",
+      "route": "bg/3a38d016.png",
+      "source_sha256": "ee86fef494bfebcddfd0419eb8c2bca0373ae0bf1437b7baff6967d450d8dd32",
+      "raw_sha256": "a5a122a989ba143ca2bfde1bfc86bb37891bb3b1dec73cefa6e333500e59388a",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/fol1.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "fol2.t",
+      "kind": "combat",
+      "source": "fol2.t",
+      "reference": "references/fol2.t.png",
+      "raw": "raw/fol2.t.png",
+      "route": "bg/5ecac111.png",
+      "source_sha256": "ad9426763e21f6dbf9dc54526c48449601080e5d4150580a6545bd931c6dce74",
+      "raw_sha256": "57a8da47623406e3c75bb62c0ff3638d24b7df00816ff54540d54490479baea9",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/fol2.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "fol3.t",
+      "kind": "combat",
+      "source": "fol3.t",
+      "reference": "references/fol3.t.png",
+      "raw": "raw/fol3.t.png",
+      "route": "bg/5e1dc378.png",
+      "source_sha256": "656df3f9d7769154b80baae85b06fc20bdf70a28587e226c057b7043a537323a",
+      "raw_sha256": "4a9f5164865884289236f8ac78b6bb6c75286ee7665d382e9b73dfa95ed34826",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/fol3.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "fol4.t",
+      "kind": "combat",
+      "source": "fol4.t",
+      "reference": "references/fol4.t.png",
+      "raw": "raw/fol4.t.png",
+      "route": "bg/5c6a3697.png",
+      "source_sha256": "7b9ae309f28b601566c3a57b8a3d8075018efe509d91d3ff09bb43a81a2f6a8a",
+      "raw_sha256": "a39b382f71948da6c15910718721d9f4be5802d0cfad737ec6ea1b5e9bc15903",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/fol4.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "fol5.t",
+      "kind": "combat",
+      "source": "fol5.t",
+      "reference": "references/fol5.t.png",
+      "raw": "raw/fol5.t.png",
+      "route": "bg/954ee2f9.png",
+      "source_sha256": "8f14def45c0106eb26e4be1fed19a78b9189c26dafc1e1c5853d2485d299a83c",
+      "raw_sha256": "98795efac4f34c3d3f86bdb72106b15c07289878b074cefd635199989a86e8a1",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/fol5.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "fol6.t",
+      "kind": "combat",
+      "source": "fol6.t",
+      "reference": "references/fol6.t.png",
+      "raw": "raw/fol6.t.png",
+      "route": "bg/db6fc7ba.png",
+      "source_sha256": "2811fdb320be72687fba5565036dd250ab1e5fc4486423b88ced0a9190527410",
+      "raw_sha256": "46fdcbd9d9ff2d8d38a5f3483fb7656d9410bcd298ea69db857bd58e7d1643c2",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/fol6.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "gll1.t",
+      "kind": "combat",
+      "source": "gll1.t",
+      "reference": "references/gll1.t.png",
+      "raw": "raw/gll1.t.png",
+      "route": "bg/4b68f426.png",
+      "source_sha256": "9af516be1b92c73c9008140125f49371bc384fa0bb972f7994ab66c2e5cd56c1",
+      "raw_sha256": "fb09a55e0e97fdc458bcd94702c864c51f4a561686d3a6c916cb913ff2939c13",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/gll1.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "gll2.t",
+      "kind": "combat",
+      "source": "gll2.t",
+      "reference": "references/gll2.t.png",
+      "raw": "raw/gll2.t.png",
+      "route": "bg/8feef9f5.png",
+      "source_sha256": "811b827621f17cc1f3825a2a5c2c6fd35b00a6da371fe00c02da0ba96bbf74a0",
+      "raw_sha256": "5ece5dc5d3d6f9a44918dd7c2a641c4a7637e1612ed2427a7748a4a54f574fb7",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/gll2.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "gll3.t",
+      "kind": "combat",
+      "source": "gll3.t",
+      "reference": "references/gll3.t.png",
+      "raw": "raw/gll3.t.png",
+      "route": "bg/6113f65e.png",
+      "source_sha256": "e8e8ac9fb7cb143ebb7597f044d28df87cae2f6aefc6dc7c8d03ccc3b59f479a",
+      "raw_sha256": "3d73765b9a463367933fe8ead9c3f27683b2fc34235bda57911426a1e2d7ddfc",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/gll3.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "gll4.t",
+      "kind": "combat",
+      "source": "gll4.t",
+      "reference": "references/gll4.t.png",
+      "raw": "raw/gll4.t.png",
+      "route": "bg/6b05bdcd.png",
+      "source_sha256": "a5c28e686848fc8894e1eae411f6b9e8eeae0ae6399da28febe71a3e649c14f0",
+      "raw_sha256": "2abefa5faac991b8a6e38b5fec2fee231b534a2e9d24a53448c6998365364c4f",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/gll4.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "gll5.t",
+      "kind": "combat",
+      "source": "gll5.t",
+      "reference": "references/gll5.t.png",
+      "raw": "raw/gll5.t.png",
+      "route": "bg/b95b11e9.png",
+      "source_sha256": "c8cf2dbab033cdff4b20f445450f65d0e9ba126ede5fb870001d52015b5d5c4d",
+      "raw_sha256": "7ed99b2190d2890a87128c1582b00d1c6b82644c23f0c812fa1c8ab49174d19f",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/gll5.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "gll6.t",
+      "kind": "combat",
+      "source": "gll6.t",
+      "reference": "references/gll6.t.png",
+      "raw": "raw/gll6.t.png",
+      "route": "bg/73c7f5c1.png",
+      "source_sha256": "496a6b4c008371207da176ae325931478bb6b421033e53cbba797c39c229a476",
+      "raw_sha256": "5c611e5b32a4d234dd991a3c9666960c41c9a97dee92f24a26f7e29cae048ece",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/gll6.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "swl1.t",
+      "kind": "combat",
+      "source": "swl1.t",
+      "reference": "references/swl1.t.png",
+      "raw": "raw/swl1.t.png",
+      "route": "bg/14a894c2.png",
+      "source_sha256": "1169a89377fa6fa47bbf93d5b1880c5f70bd0aedbca41381f02faef7a81095eb",
+      "raw_sha256": "0a57a8aaff530551850766ee86fd3e0722c8089f3080d393dbe089965fa18d28",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/swl1.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "swl2.t",
+      "kind": "combat",
+      "source": "swl2.t",
+      "reference": "references/swl2.t.png",
+      "raw": "raw/swl2.t.png",
+      "route": "bg/b7afa780.png",
+      "source_sha256": "8e18af9722e5c4321e55ae0b6281aeda55b089e494ec7e5823fd9baad40b8b05",
+      "raw_sha256": "180ca8a988027e87c688d95a52657ab60fddb9f9ec4ee490cacd962b80da0c0b",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/swl2.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "swl3.t",
+      "kind": "combat",
+      "source": "swl3.t",
+      "reference": "references/swl3.t.png",
+      "raw": "raw/swl3.t.png",
+      "route": "bg/df1460be.png",
+      "source_sha256": "92029253a6810d21afd8fbdc9fdbeb0e26a51e2c7a9b4464693904b4fcb8e2e1",
+      "raw_sha256": "7f6a884058db7242ff38d7b56b2cf9e44edb2d1bce09ec1776ed7434c36e25c7",
+      "dimensions": [
+        1585,
+        992
+      ],
+      "prompt": "prompts/swl3.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "swl4.t",
+      "kind": "combat",
+      "source": "swl4.t",
+      "reference": "references/swl4.t.png",
+      "raw": "raw/swl4.t.png",
+      "route": "bg/4aca74c6.png",
+      "source_sha256": "c615707c3d23789e0aac2896258f22e7c16b52deaf1acb270d0614422eaf11c5",
+      "raw_sha256": "9cc2b0240a41f608c69313156ce5b485c634eb4b3f5a7fcf72255b9ec80ae06d",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/swl4.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "swl5.t",
+      "kind": "combat",
+      "source": "swl5.t",
+      "reference": "references/swl5.t.png",
+      "raw": "raw/swl5.t.png",
+      "route": "bg/09b477b7.png",
+      "source_sha256": "5d95298e51647964157a3e26c80bc62281ebe58b3a39a1212dbbcff2f0ee94c9",
+      "raw_sha256": "667ed3ce1395fe410efc0008befdfa82b62e0335029a023550727f22acff961c",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/swl5.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "swl6.t",
+      "kind": "combat",
+      "source": "swl6.t",
+      "reference": "references/swl6.t.png",
+      "raw": "raw/swl6.t.png",
+      "route": "bg/b33ce188.png",
+      "source_sha256": "bb772c13faaa799d32b5c252fbf8fc3828323c610c0730bed22b29d21adea4dc",
+      "raw_sha256": "b128c33c6dcb1bab46d41db72cf19f08ffb6a8d8c16602885968f67b0c1ec2b8",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/swl6.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "wal1.t",
+      "kind": "combat",
+      "source": "wal1.t",
+      "reference": "references/wal1.t.png",
+      "raw": "raw/wal1.t.png",
+      "route": "bg/ed554452.png",
+      "source_sha256": "c1618140b2337755231a6a44db7f3f03d892e0962948d7d8fde55cc3a06de3a4",
+      "raw_sha256": "c71708e069eefa741cf10591445a921da57266f8e58625f8b6e7f18a812233c7",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/wal1.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "wal2.t",
+      "kind": "combat",
+      "source": "wal2.t",
+      "reference": "references/wal2.t.png",
+      "raw": "raw/wal2.t.png",
+      "route": "bg/756408ca.png",
+      "source_sha256": "0c413f25233c27ac69af896c56c2bfee5872ad20d5ad758b910b200f02151726",
+      "raw_sha256": "8b1511e922f1471485be62cfbf44b6a7479804794dff1e8642b0d886299aa5a1",
+      "dimensions": [
+        1585,
+        992
+      ],
+      "prompt": "prompts/wal2.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "wal3.t",
+      "kind": "combat",
+      "source": "wal3.t",
+      "reference": "references/wal3.t.png",
+      "raw": "raw/wal3.t.png",
+      "route": "bg/850cdd99.png",
+      "source_sha256": "8d7c165ccd2522e12f9d097686e2f545672fb737166f2f9efb867d2346ceb3c5",
+      "raw_sha256": "c77241f8d98bbed42aedfa1f04b007ef640013f3c50d2e7335add728d3b36bbc",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/wal3.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "wal4.t",
+      "kind": "combat",
+      "source": "wal4.t",
+      "reference": "references/wal4.t.png",
+      "raw": "raw/wal4.t.png",
+      "route": "bg/93d40a06.png",
+      "source_sha256": "800beaf201b63215356e64dec292fb9c59037d1922dc7fdbd011e6403be76fc5",
+      "raw_sha256": "919005d02b5d7320fa6a72fd37eb28e2124d3ff602e43f018e491720ee1b2a21",
+      "dimensions": [
+        1585,
+        992
+      ],
+      "prompt": "prompts/wal4.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "wal5.t",
+      "kind": "combat",
+      "source": "wal5.t",
+      "reference": "references/wal5.t.png",
+      "raw": "raw/wal5.t.png",
+      "route": "bg/75c0760c.png",
+      "source_sha256": "7cbedb0297426a8432daaf5c53ff2397f349920e60426ef431e569d54359d2d0",
+      "raw_sha256": "fd1ee3df5df2ae9ce6ca5141b97cf50643ca880e47fcf26fab33e6760c0810f9",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/wal5.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    },
+    {
+      "id": "wal6.t",
+      "kind": "combat",
+      "source": "wal6.t",
+      "reference": "references/wal6.t.png",
+      "raw": "raw/wal6.t.png",
+      "route": "bg/5c5085b2.png",
+      "source_sha256": "9ab47846fee0ae4e2ea299010aba60818a8f657de4d3f49ad9ed3e1268c6d6a9",
+      "raw_sha256": "55e65b739c8b6b727cf2560ae64e5217b99d4b55e5e600ed4e61a99c1e6df71c",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "prompt": "prompts/wal6.t.txt",
+      "tool": "ChatGPT built-in image generator",
+      "exact_model_version": null
+    }
+  ]
+}

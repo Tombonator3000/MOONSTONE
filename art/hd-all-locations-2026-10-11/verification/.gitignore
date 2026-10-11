@@ -1,0 +1,22 @@
+# Historiske forsøk og duplikate prøvebilder beholdes lokalt.
+/*.png
+/places-test.json
+/math-animated-test.json
+/combat-test-fol1.t.json
+/standard/
+/regression/*.log
+/regression/places/
+/regression/math/
+/regression/combat/
+# Åtte representative kampbilder følger rapporten for alle 56 varianter.
+/combat/*.png
+!/combat/fol1.t-original.png
+!/combat/fol1.t-hd.png
+!/combat/gll1.t-original.png
+!/combat/gll1.t-hd.png
+!/combat/swl1.t-original.png
+!/combat/swl1.t-hd.png
+!/combat/wal1.t-original.png
+!/combat/wal1.t-hd.png
+/combat/combat-test-fol1.t.json
+/*.log

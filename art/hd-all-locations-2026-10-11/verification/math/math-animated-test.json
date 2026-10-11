@@ -1,0 +1,94 @@
+{
+  "url": "http://127.0.0.1:8769/moonstone.html",
+  "scope": "Original kartnavigasjon og Math-animasjon etter kontrollert flytting av aktiv ridder til kartposisjon 220,27. Ikke naturlig reise fra startstedet.",
+  "errors": [],
+  "visit": {
+    "seen": [
+      {
+        "id": "world-map",
+        "match": 0.9855,
+        "preserved_pixels": 1285,
+        "hash": "2c1e0fa5",
+        "hd_icons": 0,
+        "frame": 2026
+      },
+      {
+        "id": "math-tower",
+        "match": 0.979,
+        "preserved_pixels": 63918,
+        "hash": "da1dc997",
+        "hd_icons": 0,
+        "frame": 2351
+      },
+      {
+        "id": "math-balcony",
+        "match": 0.98125,
+        "preserved_pixels": 25763,
+        "hash": "71970806",
+        "hd_icons": 0,
+        "frame": 2551
+      }
+    ],
+    "used": [
+      "data/WI2.P",
+      "data/WI1.P",
+      "data/Wi1.C",
+      "data/wz.a"
+    ],
+    "frame": 3000
+  },
+  "text": {
+    "godkjent": 0,
+    "utenLag": 0,
+    "kilde": 0,
+    "overlapp": 0,
+    "piksler": 0,
+    "poseGodkjent": 0,
+    "poseGruppe": 0,
+    "poseKilde": 0,
+    "posePalett": 0,
+    "poseOverlapp": 0,
+    "posePiksler": 0,
+    "tekstGodkjent": 84,
+    "tekstAvvist": 0,
+    "tekstFeil": [],
+    "ikonGodkjent": 0,
+    "ikonAvvist": 0
+  },
+  "foreground": {
+    "pixels": 8705,
+    "exact": 8705
+  },
+  "restored": true,
+  "diagnostic": {
+    "scene": {
+      "id": "math-balcony",
+      "match": 0.98125,
+      "preserved_pixels": 19779,
+      "hash": "71970806",
+      "hd_icons": 0
+    },
+    "cache": {
+      "aktiv": true,
+      "klar": true,
+      "laster": 0,
+      "feil": null,
+      "bilder": 255,
+      "bakgrunner": [
+        "2c1e0fa5",
+        "da1dc997",
+        "71970806"
+      ],
+      "tilgjengelige": 327
+    },
+    "crop": [
+      70,
+      19,
+      710,
+      219
+    ]
+  },
+  "original_matches_native": true,
+  "status": "passed",
+  "created_at": "2026-10-11T14:31:32.158Z"
+}

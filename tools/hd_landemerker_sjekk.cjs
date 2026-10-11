@@ -1,7 +1,7 @@
 /* Nytegnede motiver og stedsporter i faktisk karttur; kildesikring og forgrunn. */
 'use strict';
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),{chromium}=require('playwright');
-const root=path.resolve(__dirname,'..'),out=root+'/art/faithful-hd-icons-2026-10-11/verification';
+const root=path.resolve(__dirname,'..'),out=path.resolve(root,process.env.MOONSTONE_HD_TEST_OUTPUT||'art/faithful-hd-icons-2026-10-11/verification');
 const url=process.env.MOONSTONE_URL||'http://127.0.0.1:8769/moonstone.html';
 const metas=JSON.parse(fs.readFileSync(root+'/web/hd/icons.json')).entries.filter(m=>m.render_mode==='raster');
 const report={url,checks:[],errors:[],scope:'Naturlig karttur, faktisk teksturtegning, originalfallback og uendret spilltilstand.'};

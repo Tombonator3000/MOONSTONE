@@ -113,3 +113,13 @@
 - [x] Avvise ugyldige scene-/mønsterfelt og kontrollere egne ikonbilder uten gamle standardkonturer.
 - [x] Bevare øvrige ikoners palett, kildekontroll og HD-peker ved delvis import og ødelagt PNG.
 - [x] Bevare originalmarkører under treg HD-kartlasting og kontrollere samlet bytte til HD.
+
+## Alle steders bakgrunner, 11. oktober 2026
+- [x] Nytegne og koble inn de 24 manglende kamp-/hulevariantene i skog, gressland, sump og fjell.
+- [x] Legge til helbreder, mystiker, Math utenfra/innenfra, druidenes Stonehenge og terningbord med beskyttet dialog/forgrunn.
+- [x] Kontrollere alle 56 sammensatte kampbakgrunner i faktisk WASM, og de tolv nye PIV-koblingene med originalfixturer.
+- [x] Bevare små kartporter, Original-valg, spilltilstand, originalfiler og fungerende HD-import/cache.
+- [x] Lage galleri, master-/promptarkiv og kildeoversikt for alle 75 aktive bakgrunner.
+- [ ] Fullføre selvstendige PIV-fliser/rulling og rullende sluttsekvenser; dette inngår ikke i de 56 faste kampvariantene.
+- [ ] Nytegne de resterende figurrutene separat etter bakgrunnsarbeidet, som avtalt med brukeren.
+- [x] Koble inn de fem øvrige faste intro-/meldingsbildene med bevarte originalfigurer, symboler, stjerner og logo.

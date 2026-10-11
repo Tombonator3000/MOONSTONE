@@ -1,7 +1,7 @@
 /* HD-tekst, naturlig intro/kart og kildebaserte byscener i faktisk WASM-side. */
 'use strict';
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),crypto=require('crypto'),{chromium}=require('playwright');
-const root=path.resolve(__dirname,'..'),out=root+'/art/hd-backgrounds-2026-10-11/verification';
+const root=path.resolve(__dirname,'..'),out=path.resolve(root,process.env.MOONSTONE_HD_TEST_OUTPUT||'art/hd-backgrounds-2026-10-11/verification');
 const url=process.env.MOONSTONE_URL||'http://127.0.0.1:8769/moonstone.html';
 const report={checks:[],captures:[],errors:[],scope:'Naturlig intro og inndata til kartet; byer/kro er dessuten kontrollert med originale PIV-data som eksplisitte visningsfixturer. Ingen skriving i emulert minne.'};
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');

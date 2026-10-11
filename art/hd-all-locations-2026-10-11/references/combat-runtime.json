@@ -1,0 +1,933 @@
+{
+  "schema": 1,
+  "scenes": [
+    {
+      "source": "data/fo1.t",
+      "source_sha256": "48c8a553ea6fb205429d50b1d7c4cff7db4e977e727c22cf74d963cc305dbd5a",
+      "png_sha256": "c4cbcb5743468bc69e6c4c3d04d106fbca996f5b8b1c4ac7f7ce6916361d276c",
+      "background_hash": "5847ed29",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 0,
+        "counter_bytes": 1
+      }
+    },
+    {
+      "source": "data/fo2.t",
+      "source_sha256": "5b3fa0bed0217ab186380fc470b689237097620171490860cec64655f7c14aac",
+      "png_sha256": "bc19ddf89f9831bb6ab7ffd5437e13d69305cc1840767e19e6248c7040f6f88f",
+      "background_hash": "4035f361",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 1,
+        "counter_bytes": 1
+      }
+    },
+    {
+      "source": "data/fo3.t",
+      "source_sha256": "f460bec019f637279e817d039403d92f727d2fd51a8e6f2a108d17e486d440f3",
+      "png_sha256": "ce64220cc4c76f02fccc7406692abf30b33404cc4e44a0a0d3ef3c247513f437",
+      "background_hash": "e3876748",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 2,
+        "counter_bytes": 1
+      }
+    },
+    {
+      "source": "data/fo4.t",
+      "source_sha256": "4fa445ebc7ae8c8fada16871b8900ccd5c2a8265335103500ebbe68671e52de0",
+      "png_sha256": "c21b6f448d6c309b227b8c1e7a9da90eeabbb9cef9094fbbd184c71e3504ec8a",
+      "background_hash": "3e773c83",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 3,
+        "counter_bytes": 1
+      }
+    },
+    {
+      "source": "data/fo5.t",
+      "source_sha256": "649db769f4123bb991dfa8413c5e0122e0b033e427114cb9624fddf2cbec1789",
+      "png_sha256": "7288dc0fa36fa711cd93ed1025715b4e9db3bef8ed3e7f7c1562f3af4f2b0289",
+      "background_hash": "fc7a454e",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 4,
+        "counter_bytes": 1
+      }
+    },
+    {
+      "source": "data/fo6.t",
+      "source_sha256": "16af9293fe383f9cb4e9022f4f9d71f92732dc07722a9c48bcee0b0658e79f30",
+      "png_sha256": "30cb4947265bbe17a542fe719648616516965b3fc11c259b0eba49711a0be5b7",
+      "background_hash": "df2273a5",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 5,
+        "counter_bytes": 1
+      }
+    },
+    {
+      "source": "data/fo7.t",
+      "source_sha256": "536f40e5e2588b9902a890299cdd41152d243f72a4ff34a6ada348cd8d573e77",
+      "png_sha256": "504bcd293532c3fd50a3708efbf2ea13c213ce117104f6e7feb0b8d5a9fb1bb0",
+      "background_hash": "a1b0c591",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 6,
+        "counter_bytes": 1
+      }
+    },
+    {
+      "source": "data/fo8.t",
+      "source_sha256": "7faffb06392e98d1189db8a077cb9bfa6203b0031163faf85b5f0b810c45842a",
+      "png_sha256": "d9eaf059fa9406665c65cf1c6f7b615c2e2e3fa4351a733ff8d88cc152a40a0b",
+      "background_hash": "be1046fc",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb8",
+        "counter": 7,
+        "counter_bytes": 1
+      }
+    },
+    {
+      "source": "data/fol1.t",
+      "source_sha256": "ee86fef494bfebcddfd0419eb8c2bca0373ae0bf1437b7baff6967d450d8dd32",
+      "png_sha256": "7afea5b5e9200dd79d57b8beec0942e2bcf3c6c6b13bb997d75fb1d3e10cba42",
+      "background_hash": "3a38d016",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8ffd2"
+      }
+    },
+    {
+      "source": "data/fol2.t",
+      "source_sha256": "ad9426763e21f6dbf9dc54526c48449601080e5d4150580a6545bd931c6dce74",
+      "png_sha256": "e67723d2e0076547e40ff07c38126d9b3539178e22891f35b05cacb0234edd75",
+      "background_hash": "5ecac111",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8ffd9"
+      }
+    },
+    {
+      "source": "data/fol3.t",
+      "source_sha256": "656df3f9d7769154b80baae85b06fc20bdf70a28587e226c057b7043a537323a",
+      "png_sha256": "78c00ad59f162d5b7577d5eca0eac8c3a38ba62182622d09c7abba074b6d31cc",
+      "background_hash": "5e1dc378",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8ffe0"
+      }
+    },
+    {
+      "source": "data/fol4.t",
+      "source_sha256": "7b9ae309f28b601566c3a57b8a3d8075018efe509d91d3ff09bb43a81a2f6a8a",
+      "png_sha256": "2def81282ac1fc9bddc97acc0f3e530a60a08e959ef826593f397f880d6a3147",
+      "background_hash": "5c6a3697",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8ffe7"
+      }
+    },
+    {
+      "source": "data/fol5.t",
+      "source_sha256": "8f14def45c0106eb26e4be1fed19a78b9189c26dafc1e1c5853d2485d299a83c",
+      "png_sha256": "98c5ceef61dc926d91e35943644fc6fc6741f7a1b4877acd79a419991e578349",
+      "background_hash": "954ee2f9",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8ffee"
+      }
+    },
+    {
+      "source": "data/fol6.t",
+      "source_sha256": "2811fdb320be72687fba5565036dd250ab1e5fc4486423b88ced0a9190527410",
+      "png_sha256": "d3c0b13a9f5d385518a9c69351ee5bb4841e5aaab632f72fc5f58cc73181511b",
+      "background_hash": "db6fc7ba",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 4,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8fff5"
+      }
+    },
+    {
+      "source": "data/gl1.t",
+      "source_sha256": "ecc0442bf591a4ce609d8c34c0319db4bdb464f2bcf5f4fbc8154bf9cc10ce29",
+      "png_sha256": "70956c237bd50bde5e0339ef0c5e8259e0304a70efe3e988fcff5ecb49ddc6dd",
+      "background_hash": "bae52e65",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 0,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/gl2.t",
+      "source_sha256": "a52903fa8a495050afe4adf11b1880eca6cc2470c4b7a08363e8ff6b305be1aa",
+      "png_sha256": "20a7b123da3604fad499d2fee59a20ca27737e117d12479c6a8b373b68f1580c",
+      "background_hash": "a154a2e3",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 1,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/gl3.t",
+      "source_sha256": "2b4abc84cc3f16beecc0e3d6ea2c4ed61449f08ad4b695fa25a08727b3f02da7",
+      "png_sha256": "416a8435c6858aaad184eb71636edbd1be3d3de1442bd3ba010ffd95228a22a3",
+      "background_hash": "92934a24",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 2,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/gl4.t",
+      "source_sha256": "51d0bdd4591955f6a9953af8be0a4c9189574cda8cda6a4d13b23d43235d55b1",
+      "png_sha256": "58305e8a9cd450553ba7f677d8c5d49c86f0f8a99971fdecaa91f0cbd78f3a11",
+      "background_hash": "c6493055",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 3,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/gl5.t",
+      "source_sha256": "f26fc92144daa6fc25565e5cae3027ca78ce31bbf24d364de1537ddc523f48db",
+      "png_sha256": "e083fb0d086565d48aa7ad51f03f82d20ed9f0b9bb200a41df2ab7309965082a",
+      "background_hash": "3bf300f2",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 4,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/gl6.t",
+      "source_sha256": "20fccc795a8e74644e7e8bd5605e49ef8cc8e8e58173d2065b4a71566036ac22",
+      "png_sha256": "9b032d1a2fb1e2212bcec5f8026ad87483dfc20209afd1f4fa7b70ca9a6c0c27",
+      "background_hash": "1d517809",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 5,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/gl7.t",
+      "source_sha256": "43481e8262f4366ce8fbbf981e9e766aab78072254ed625c515650283ed8e07c",
+      "png_sha256": "46b1a6b44d49e047ebbbc998723ff1f2c3e48d99192f5a1965585f901a2eb9f3",
+      "background_hash": "78b34d44",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 6,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/gl8.t",
+      "source_sha256": "43270061c28921fad3cd59535a382eb8ec3706aea3b77390fb41e921ea1c78dc",
+      "png_sha256": "c1f6e0ce1dd3dca5dcc0231daad33c421440d8bb0be9b570e2a348419392f0c4",
+      "background_hash": "57a0be97",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb6",
+        "counter": 7,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/gll1.t",
+      "source_sha256": "9af516be1b92c73c9008140125f49371bc384fa0bb972f7994ab66c2e5cd56c1",
+      "png_sha256": "de6b0582eda85e68a3da373d8e6cd43f27fb34d85e63f5cad0fb74febac87a0b",
+      "background_hash": "4b68f426",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90050"
+      }
+    },
+    {
+      "source": "data/gll2.t",
+      "source_sha256": "811b827621f17cc1f3825a2a5c2c6fd35b00a6da371fe00c02da0ba96bbf74a0",
+      "png_sha256": "bd93b5131614184d89784958fd84d4534cf11cbadf07a96c3e70137454d90f2d",
+      "background_hash": "8feef9f5",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90057"
+      }
+    },
+    {
+      "source": "data/gll3.t",
+      "source_sha256": "e8e8ac9fb7cb143ebb7597f044d28df87cae2f6aefc6dc7c8d03ccc3b59f479a",
+      "png_sha256": "389ed100d48f365203db8e9292d08f50d10523b84649db6fd3c4becd344c30b8",
+      "background_hash": "6113f65e",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x9005e"
+      }
+    },
+    {
+      "source": "data/gll4.t",
+      "source_sha256": "a5c28e686848fc8894e1eae411f6b9e8eeae0ae6399da28febe71a3e649c14f0",
+      "png_sha256": "2e3ee7f631d9ad72a3c98b45318066f49caadd9e765c46f0e5edb0dff61556a6",
+      "background_hash": "6b05bdcd",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90065"
+      }
+    },
+    {
+      "source": "data/gll5.t",
+      "source_sha256": "c8cf2dbab033cdff4b20f445450f65d0e9ba126ede5fb870001d52015b5d5c4d",
+      "png_sha256": "11f428d53f68b77d4fae9ff0dc9ee432272984d79361297e8226430ff9251def",
+      "background_hash": "b95b11e9",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x9006c"
+      }
+    },
+    {
+      "source": "data/gll6.t",
+      "source_sha256": "496a6b4c008371207da176ae325931478bb6b421033e53cbba797c39c229a476",
+      "png_sha256": "269ff075ea80c5ed7bb789a5ffc9a32162384550dbad5844e9881fc74bd5ded4",
+      "background_hash": "73c7f5c1",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 0,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90073"
+      }
+    },
+    {
+      "source": "data/sw1.t",
+      "source_sha256": "21f33c843dba9523768d449f3af9ecd4824f6a02555d1cae1fe29781ad504ece",
+      "png_sha256": "2e50e0ba86dcd33c70eb99318bd04ceea3273c62c4adddff4338c026618d1858",
+      "background_hash": "c12077ae",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 0,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/sw2.t",
+      "source_sha256": "09518117c9ea142ef5c92a197dbd782b0b6dee050deee26a0d48e4b5b1b57270",
+      "png_sha256": "d5c937a336850e7afb0b786c530a59e87aaa8dccf91ea4ced53cf4965383ebb6",
+      "background_hash": "013ee13a",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 1,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/sw3.t",
+      "source_sha256": "1f4addb6c4ec8c067e24b4d04104a9df2a4172457a9829ff2ff5c0affcb2447b",
+      "png_sha256": "6069531aaf6e8bf303fa74e0d1cf306f232558b4f2bb90a53033b5a58f95b612",
+      "background_hash": "e7920704",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 2,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/sw4.t",
+      "source_sha256": "8fbdb7e8a27289f5302386ef187d361524b58a05d614323787a16a570cc21667",
+      "png_sha256": "27ceed3102dec39837e73651ebd33ac6d4a09cc1dc9c0295e1c800a2f7923e36",
+      "background_hash": "c83d312d",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 3,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/sw5.t",
+      "source_sha256": "39fac4f64eb9147f57cbb6b9b0d836fd66f55770923b7a512b56d6f56384e210",
+      "png_sha256": "071943880dfa902d15965244148f1c557b11555be3c8ede15596c21e57b682e4",
+      "background_hash": "1be5b7a8",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 4,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/sw6.t",
+      "source_sha256": "41be43b2cd73b05cfa48db312faaf193a5d408547851d597dd32780795e76bab",
+      "png_sha256": "f356ec0536d22482bf118226819bd0ca17fbb7a25b042595737e2bd7851c3130",
+      "background_hash": "aac884f0",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 5,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/sw7.t",
+      "source_sha256": "c9c00a8a327aaa0625732ae38d6c2a7ebc32d96a21683dea1de9768cc5945650",
+      "png_sha256": "51df4b41dfeab9e8cf699ccd1935df5f8558768fd63267b34c47adedb337814f",
+      "background_hash": "a529be52",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 6,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/sw8.t",
+      "source_sha256": "dcf35f2207e5d455edb297ffd751cd92a95c2274eac03beb89fdb37e8c9c3350",
+      "png_sha256": "84af3f0737064239974b7a8141f5098fbd290ce44161decbdfa0e263ce73df9b",
+      "background_hash": "354c4fc5",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb2",
+        "counter": 7,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/swl1.t",
+      "source_sha256": "1169a89377fa6fa47bbf93d5b1880c5f70bd0aedbca41381f02faef7a81095eb",
+      "png_sha256": "c7c02f41f8ba0d8ef78852f3d8ed2f9b347fb5557de9c8991a306fc6fe277f8e",
+      "background_hash": "14a894c2",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90026"
+      }
+    },
+    {
+      "source": "data/swl2.t",
+      "source_sha256": "8e18af9722e5c4321e55ae0b6281aeda55b089e494ec7e5823fd9baad40b8b05",
+      "png_sha256": "64b886a9ab62ce883cc9930e2ad50aa31d9da45ce34fb9ec183bf47fbf50a668",
+      "background_hash": "b7afa780",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x9002d"
+      }
+    },
+    {
+      "source": "data/swl3.t",
+      "source_sha256": "92029253a6810d21afd8fbdc9fdbeb0e26a51e2c7a9b4464693904b4fcb8e2e1",
+      "png_sha256": "5364647fa357283258454ba3318a0dc09f407c6ce15e863ab430cf17ff365d31",
+      "background_hash": "df1460be",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90034"
+      }
+    },
+    {
+      "source": "data/swl4.t",
+      "source_sha256": "c615707c3d23789e0aac2896258f22e7c16b52deaf1acb270d0614422eaf11c5",
+      "png_sha256": "a2f2cb9354e66bf78ae47b58e96e0827f0dfe7ec25c8c7de46f1a87b1424128d",
+      "background_hash": "4aca74c6",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x9003b"
+      }
+    },
+    {
+      "source": "data/swl5.t",
+      "source_sha256": "5d95298e51647964157a3e26c80bc62281ebe58b3a39a1212dbbcff2f0ee94c9",
+      "png_sha256": "438e2df09d0dcdd93d6d467f83687874664286d6fada1476cac02be2b25b243a",
+      "background_hash": "09b477b7",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90042"
+      }
+    },
+    {
+      "source": "data/swl6.t",
+      "source_sha256": "bb772c13faaa799d32b5c252fbf8fc3828323c610c0730bed22b29d21adea4dc",
+      "png_sha256": "82ea75d4eddd18c594036301a1a99024a42bf572f7230c42f0c3227659341eec",
+      "background_hash": "b33ce188",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 8,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90049"
+      }
+    },
+    {
+      "source": "data/wa1.t",
+      "source_sha256": "388ea4621929bceb99b1d23bbd95530a72e31822b3592f971ef2d2ff60a8ad19",
+      "png_sha256": "d248e7deb8342e57b00c0ed7df79359836dfac139409fa074ad73e7abccd6955",
+      "background_hash": "62d8d655",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 0,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/wa2.t",
+      "source_sha256": "7efdfdf2e8d53264ba56e1a089b193c208adf559495376e0108f4118e3ec127c",
+      "png_sha256": "71b48658cd82fe9ae037ab1899ccfb0a1a547e8193ccbd8811c10294b22afeed",
+      "background_hash": "e8ac7fc2",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 1,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/wa3.t",
+      "source_sha256": "ace6c13aa8ae464c25439e1b15fc6f2f25e5951b02d681354427e8ab0e088b2e",
+      "png_sha256": "98bdcbb519547d0b1213d07c64c6c26f687fa4c84e963d3b7b9a054603877570",
+      "background_hash": "ab7792c8",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 2,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/wa4.t",
+      "source_sha256": "f2d432ed854bc9da3d6e06f70b7c72f52b19cf24f9d4d180d67c95e8cc5973cc",
+      "png_sha256": "dfe3e276a27b258a9cc3df957305c321b14eb5ec59d8a2acc0b63d19edb5f705",
+      "background_hash": "4596c7a5",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 3,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/wa5.t",
+      "source_sha256": "ad4698ae3a1aa0e533230b7ce76876e92f2468c6c88686e872ce7b596104ced8",
+      "png_sha256": "dac82d292870a36de0006e88ef1b885a0416506f2899ec26a6a93b0f590ba184",
+      "background_hash": "86052b52",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 4,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/wa6.t",
+      "source_sha256": "c56dc853bb8a0572faf904c58ed66577e6cfb0f17bbc1ad0b450cd50f089fdce",
+      "png_sha256": "8f74ea7b419f91ab3d82312f27de712777cdd22d36318b9f8208a617ded2792b",
+      "background_hash": "50bee2c7",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 5,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/wa7.t",
+      "source_sha256": "289e0e01c6297e94e1fc2792cdbd7caa3f771b6d6f1038d182167c9280996fcc",
+      "png_sha256": "d7dcbfaf8087512babce3d1d9695ad6b35d170188b37102bd19a56d3148a6e1d",
+      "background_hash": "5e409196",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 6,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/wa8.t",
+      "source_sha256": "ea77beaff196d7098331a050df6bd8a7a88631eb644baa9fd09b924e5fd0ec07",
+      "png_sha256": "8e26042a7269129569bb51a62f84a05f815a367da232a3ff92e951f1199b6099",
+      "background_hash": "2bbbb748",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 0,
+        "selection_frame": 907,
+        "lair": false,
+        "counter_address": "0x8cfb4",
+        "counter": 7,
+        "counter_bytes": 2
+      }
+    },
+    {
+      "source": "data/wal1.t",
+      "source_sha256": "c1618140b2337755231a6a44db7f3f03d892e0962948d7d8fde55cc3a06de3a4",
+      "png_sha256": "1f0832b0583710975493e51504c13ffb0c733fe6145dc303949f1c7c38fa5868",
+      "background_hash": "ed554452",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x8fffc"
+      }
+    },
+    {
+      "source": "data/wal2.t",
+      "source_sha256": "0c413f25233c27ac69af896c56c2bfee5872ad20d5ad758b910b200f02151726",
+      "png_sha256": "73c80bb65bd86882bfe6b5a8fd38837080c6ff5f3a96c757a5fca7c63b5ccf55",
+      "background_hash": "756408ca",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90003"
+      }
+    },
+    {
+      "source": "data/wal3.t",
+      "source_sha256": "8d7c165ccd2522e12f9d097686e2f545672fb737166f2f9efb867d2346ceb3c5",
+      "png_sha256": "1e054dfdaa8601450125be9a9a9808f878c2342811b786b772f4e945da72c5fb",
+      "background_hash": "850cdd99",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x9000a"
+      }
+    },
+    {
+      "source": "data/wal4.t",
+      "source_sha256": "800beaf201b63215356e64dec292fb9c59037d1922dc7fdbd011e6403be76fc5",
+      "png_sha256": "edf2e72e103f002c835827b38d4c0c0477a0809aad36ab24a340cebb1ac7987f",
+      "background_hash": "93d40a06",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90011"
+      }
+    },
+    {
+      "source": "data/wal5.t",
+      "source_sha256": "7cbedb0297426a8432daaf5c53ff2397f349920e60426ef431e569d54359d2d0",
+      "png_sha256": "871977da198eea0c0fa932550ad953b82a3b7b9a1cbe0df047518c94d832751a",
+      "background_hash": "75c0760c",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x90018"
+      }
+    },
+    {
+      "source": "data/wal6.t",
+      "source_sha256": "9ab47846fee0ae4e2ea299010aba60818a8f657de4d3f49ad9ed3e1268c6d6a9",
+      "png_sha256": "c4a8eac366c0fa206fb477a034db223754f855911dc197d533e82f09959cd282",
+      "background_hash": "5c5085b2",
+      "selection": {
+        "terrain_address": "0x95f12",
+        "terrain": 12,
+        "mode_address": "0x8fb4e",
+        "mode": 2,
+        "selection_frame": 907,
+        "lair": true,
+        "filename_pointer_address": "0x8fb52",
+        "filename_pointer": "0x9001f"
+      }
+    }
+  ]
+}
