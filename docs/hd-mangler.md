@@ -8,6 +8,14 @@ Oversikt per 11. oktober 2026. Den bygger på målinger med headless-emulatoren 
 
 Skriptene og dumpene ligger i scratchpad for økten (`hdm/`), ikke i repoet. Linjenumre i `disasm/*.s` gjelder disassemblyen som lages lokalt.
 
+## Gjeldende produksjonsstatus, 11. oktober kl.20:40 UTC
+
+Standardpakken har nå718 PNG-filer i724 manifestfiler og81 bakgrunner. Siden PR #33 er237 PNG-filer lagt til:129 KN3-/HE3-/RATMEN-ruter,90 levende palettmasker,16 TROLL-ruter og to MYS-øyefragmenter. Dette håndterer81 selvstendige kilderuter:77 har nytt fotografisk materiale, fire er rene svarte originalskygger som bevares uten fotonytegningspåstand. Hver materialmaster har eget råbilde og prompt fra den innebygde bildegeneratoren.
+
+CSV-listen er regenerert til1654 gjenstående selvstendige mastere og1824 konkrete ruter. Den har118 mastermasker i tillegg til de resterende HE-maskene. Math og tavernaspilleren som er bakt inn i PIV-bakgrunner, må også fullføres; de er ekstra oppgaver utenfor CEL-tellingen. Kartdragen og terningkastet er kandidater, ikke aktivert. Bakgrunnene finnes, men dette betyr ikke at deres separate figurer og animasjoner er ferdige.
+
+Kilde-/rutekontroller og to faktiske KN3-kampposer er bestått. Automatisk standardlasting viser KN3-kropp/blod/sverd med15 kontroller og alle16 TROLL-ruter med84. Original/HD-returer er eksakte og emulert tilstand uendret. Dette er dokumenterte kontrollerte scenestarter; full naturlig gjennomspilling av alle animasjoner er ikke påstått. [Andre figurleveranse](../art/hd-completion-figures-2026-10-11/delivery-progress-002.json) binder bildehasher og bevis. De eldre tallene nedenfor er historikk.
+
 ## 0. Gjort etter kartleggingen (11. oktober, ettermiddag)
 
 Dette er rettet eller slått på siden oversikten under ble skrevet. Tabellene under beskriver tilstanden før, så les dette først.

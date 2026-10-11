@@ -3,7 +3,7 @@
 const fs=require('fs'),path=require('path'),crypto=require('crypto'),assert=require('assert/strict');
 const {chromium}=require('playwright'),root=path.resolve(__dirname,'../../..'),art=__dirname;
 const mode=process.env.MOONSTONE_HEN_CONTEXT||'ending',bank=mode==='ending'?'klift1.cel':'hen1.c';
-const out=path.join(art,'verification',mode==='ending'?'standard-ending':'standard-stonehenge'),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const out=process.env.MOONSTONE_HD_TEST_OUTPUT||path.join(art,'verification',mode==='ending'?'standard-ending':'standard-stonehenge'),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const report={status:'running',scope:'Kontrollert originalt seiersflagg, faktisk programtrace og18 Klift-flammer. Ingen full gjennomspilling eller hen1-stedsbesoek.',checks:[],errors:[],routes:{},source_files:{},assets:{}};
 if(mode!=='ending')report.scope='Kontrollert originalkall fra080170 til stonehenge_druider08a802 ved900, aktiv ridderpeker08d5b4. Original kode laster Hen1.p/Hen1.c og palett. Ingen naturlig kartreise eller palettskriving.';
 for(const f of ['web/build/moonstone-core.js','web/src/core.js','web/src/render.js','web/src/scenes.js','Moonstonecd32-AMIGA.zip'])report.source_files[f]=sha(fs.readFileSync(root+'/'+f));
@@ -13,7 +13,7 @@ let browser;
  browser=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  const p=await browser.newPage({viewport:{width:960,height:700}});p.on('pageerror',e=>report.errors.push(e.message));
  await p.addInitScript(()=>localStorage.setItem('moonstone.innstillinger',JSON.stringify({hd:'hd',hdValgt:true})));
- const url='http://127.0.0.1:8773/moonstone.html';await p.goto(url);
+ const url=process.env.MOONSTONE_URL||'http://127.0.0.1:8773/moonstone.html';await p.goto(url);
  await p.waitForFunction(()=>{try{return window.moonDebug&&moonDebug.Kjerne.bildeNr()>1;}catch(e){return false;}});
  await p.keyboard.press('Pause');await p.waitForFunction(()=>moonDebug.StandardHd.info().klar);
  report.html_sha256=sha(await(await p.request.get(url)).body());

@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "status": "first_pair_runtime_and_visual_checked",
+  "source_contracts_sha256": "120e8cae44b54e28292ad160abc865abcc96012fe25fa8a32207098647f03e13",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "63a93d15ee0d36cf0eec6f0ad6b4be5d251f984e13b2634077bd0a9385f2881b",
+    "web/src/scenes.js": "05e7336cd4f92d17ec4dc2172761e7720f80f1532b343a06453f54c505c13c9f"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "html_sha256": "c3a51a59c4fcc554142609b9387c182c84a17bd180a62c9b882ee6720a651ad2",
+  "entries": [
+    {
+      "key": "KN3.ob/000.png",
+      "source_bank": {
+        "path": "data/KN3.ob",
+        "sha256": "eb304d99b1e6a1c50e4ee8e0949c6551a4cb81a583170611a6f7ffca7001edf8",
+        "bytes": 11113,
+        "frames": 64
+      },
+      "frame": 0,
+      "source_size": [
+        40,
+        60
+      ],
+      "target_size": [
+        160,
+        240
+      ],
+      "original": {
+        "path": "references/original/KN3.ob/000.png",
+        "sha256": "7bff93927b2f85c1f9b1854e0d6b25efeb3c018487b910835a9895439b06bd3d",
+        "width": 40,
+        "height": 60
+      },
+      "indices_sha256": "ce095528df3b273bb958a65ed3c3d47bf73e1704fbce353cc5f9cb134a0a402e",
+      "candidate_png": "packed/KN3.ob/000.png",
+      "png_sha256": "aaf464031ae62bd4d43a4df4b3c16f27b923e4c97face4c2eb2ff5830b94f72e",
+      "raw_png": "raw/KN3.ob/000.png",
+      "raw_sha256": "e5eb0f92f5594667d94e28c7d590a8c3b41df139aa781543a61de749ccddfeff",
+      "prompt": "prompts/KN3-000.txt",
+      "mask_png": "packed/KN3.ob/000.mask.png",
+      "mask_sha256": "e17eebf25335d3f607a5a8f7da497827ae09db9df8bae80064ac495c2c9a94f5"
+    },
+    {
+      "key": "KN3.ob/001.png",
+      "source_bank": {
+        "path": "data/KN3.ob",
+        "sha256": "eb304d99b1e6a1c50e4ee8e0949c6551a4cb81a583170611a6f7ffca7001edf8",
+        "bytes": 11113,
+        "frames": 64
+      },
+      "frame": 1,
+      "source_size": [
+        23,
+        23
+      ],
+      "target_size": [
+        92,
+        92
+      ],
+      "original": {
+        "path": "references/original/KN3.ob/001.png",
+        "sha256": "41745e73f66fe842d3d19b396e3477a1eb2310803db8cd7a5d8a2b7038035dd7",
+        "width": 23,
+        "height": 23
+      },
+      "indices_sha256": "f6e80d8f6c2478310d3da1ff71548db5493ddb002601f1ba06d2f969dd2cb3ea",
+      "candidate_png": "packed/KN3.ob/001.png",
+      "png_sha256": "873c9b20c254ef89da0d7857c923ab0dab7e3946bac56b24e54d393da4a0ac8b",
+      "raw_png": "raw/KN3.ob/001.png",
+      "raw_sha256": "fba37ef492172a5f0aa5e47a017f859f4c3677dc8d98a46c1e9590e1fe1004b0",
+      "prompt": "prompts/KN3-001.txt",
+      "mask_png": "packed/KN3.ob/001.mask.png",
+      "mask_sha256": "578dd46c9d4cc9aa2d4a28f97280ec2a42e9bb066baafe5676beecb1390f9381"
+    }
+  ],
+  "aliases": [
+    {
+      "key": "HE3.ob/000.png",
+      "master_key": "KN3.ob/000.png",
+      "sha256": "aaf464031ae62bd4d43a4df4b3c16f27b923e4c97face4c2eb2ff5830b94f72e",
+      "source_bank_sha256": "43f05a245ed226b58d7803f399a9a9b077596b3f63eb90fa599beea31a4a5c42"
+    },
+    {
+      "key": "HE3.ob/001.png",
+      "master_key": "KN3.ob/001.png",
+      "sha256": "873c9b20c254ef89da0d7857c923ab0dab7e3946bac56b24e54d393da4a0ac8b",
+      "source_bank_sha256": "43f05a245ed226b58d7803f399a9a9b077596b3f63eb90fa599beea31a4a5c42"
+    }
+  ],
+  "packed_png_sha256": {
+    "KN3.ob/000.png": "aaf464031ae62bd4d43a4df4b3c16f27b923e4c97face4c2eb2ff5830b94f72e",
+    "KN3.ob/001.png": "873c9b20c254ef89da0d7857c923ab0dab7e3946bac56b24e54d393da4a0ac8b",
+    "HE3.ob/000.png": "aaf464031ae62bd4d43a4df4b3c16f27b923e4c97face4c2eb2ff5830b94f72e",
+    "HE3.ob/001.png": "873c9b20c254ef89da0d7857c923ab0dab7e3946bac56b24e54d393da4a0ac8b",
+    "KN3.ob/000.mask.png": "e17eebf25335d3f607a5a8f7da497827ae09db9df8bae80064ac495c2c9a94f5",
+    "KN3.ob/001.mask.png": "578dd46c9d4cc9aa2d4a28f97280ec2a42e9bb066baafe5676beecb1390f9381",
+    "HE3.ob/000.mask.png": "afbbb8ee57dbaf76687154fd4a7d89796b883fb17fad598d2ce643219792fea6",
+    "HE3.ob/001.mask.png": "26ec5bf687cef0db07d88b8ae1981e964248e9a69fe83c92b146d80c0ce39375"
+  },
+  "packing_test": {
+    "path": "verification/first-pair-packing-test.json",
+    "sha256": "7cd7bb4e0b478bba6a375817e2db6067343b44e7fbf085d4f6e34bb765961811",
+    "checks": 96885
+  },
+  "fixtures": {
+    "path": "verification/first-pair-fixtures/test.json",
+    "sha256": "e659d099b8214075a79be68eea73619b704864eea0cedd444ac9d1770b949e9c",
+    "checks": 77
+  },
+  "composed": {
+    "path": "verification/first-pair-composed/test.json",
+    "sha256": "a7cadb5418ffe630dc842fb30d03c430ee1a72f780d7542af5173a7815b6e0ca",
+    "checks": 14
+  },
+  "scope": "000 kropp med haand,001 blod/draktfragment. To separate builtin-mastere, toHE3-kopier med egne indeksmasker. Ingen aktivering. Blodindeks15 faar bare faktisk roedt materiale fra samme nye generering, alle42 blodcentere kontrollert.",
+  "remaining_masters": 62
+}

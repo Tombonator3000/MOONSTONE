@@ -2,7 +2,7 @@
 'use strict';
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),crypto=require('crypto'),{chromium}=require('playwright');
 const route=Number(process.env.KN4_ROUTE||0),id=String(route).padStart(3,'0');
-const art=__dirname,root=path.resolve(art,'../../../..'),out=art+'/verification/'+('standard-contact-'+id),url=process.env.MOONSTONE_URL||'http://127.0.0.1:8773/moonstone.html';
+const art=__dirname,root=path.resolve(art,'../../../..'),out=process.env.MOONSTONE_HD_TEST_OUTPUT||art+'/verification/'+('standard-contact-'+id),url=process.env.MOONSTONE_URL||'http://127.0.0.1:8773/moonstone.html';
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex'),check=(name,v)=>{assert(v,name);report.checks.push(name);};
 const host=root+'/web/build';
 const png=fs.readFileSync(art+'/packed/KN4.ob/'+id+'.png'),source=fs.readFileSync(art+'/source-contracts.json'),contract=JSON.parse(source).entries.find(c=>c.frame===route);
@@ -14,6 +14,7 @@ let browser;
  report.production_code_sha256=production;
  fs.mkdirSync(out,{recursive:true});browser=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});const p=await browser.newPage({viewport:{width:960,height:700}});p.on('pageerror',e=>report.errors.push(e.message));
  await p.addInitScript(()=>localStorage.setItem('moonstone.innstillinger',JSON.stringify({hd:'hd',hdValgt:true})));await p.goto(url);await p.waitForFunction(()=>{try{return window.moonDebug&&moonDebug.Kjerne.bildeNr()>1;}catch(e){return false;}});await p.keyboard.press('Pause');await p.waitForFunction(()=>moonDebug.StandardHd.info().klar,null,{timeout:60000});
+ report.html_sha256=sha(await(await p.request.get(url)).body());
  const result=await p.evaluate(async({bytes,combat,contract,route,id})=>{
   const {Kjerne:K,Visning:V,StandardHd:H,SceneHd:S}=moonDebug,M=await K.last();
   const imported=0;

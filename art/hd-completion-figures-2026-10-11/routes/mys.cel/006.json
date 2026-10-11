@@ -1,0 +1,115 @@
+{
+  "key": "mys.cel/006.png",
+  "master_key": "mys.cel/006.png",
+  "role": "redraw",
+  "package": "03-steder-effekter-intro",
+  "order_group": "Stedsfigurer",
+  "order_priority": "3",
+  "identity": "Healeren: begge øyne lukket",
+  "master_usage": "Healeren: begge øyne lukket",
+  "identity_limit": "Kildebank og brukssted. Ingen udokumentert handlingsetikett per rute.",
+  "bank": "mys.cel",
+  "frame": 6,
+  "width": 39,
+  "height": 12,
+  "target_width": 156,
+  "target_height": 48,
+  "source_bank": {
+    "path": "data/mys.cel",
+    "sha256": "d7fe9eefbde25950db349b4b3f202fcd6bd96195dbe0e61c289a5c662e31a04a",
+    "bytes": 1698,
+    "frames": 8
+  },
+  "bitplane_sha256": "b931a779dfb1042274faa1e2fc51564e5c0dc5cd511ae021f035f4a3af56cb8f",
+  "packed_indices_sha256": "37730bb1646e77137aff47bf83e9601aa501b52d237c3f735416f5849c10872e",
+  "indices_sha256": "37730bb1646e77137aff47bf83e9601aa501b52d237c3f735416f5849c10872e",
+  "plane_mask": 31,
+  "packed_planes": 5,
+  "source_flag": 1,
+  "source_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    14,
+    15,
+    18,
+    28
+  ],
+  "index_remap": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+    "10": 10,
+    "14": 14,
+    "15": 15,
+    "18": 18,
+    "28": 28
+  },
+  "source_neighbors": [
+    "mys.cel/007.png"
+  ],
+  "neighbor_limit": "Nærliggende kilde-ID-er, ikke en bekreftet animasjonsrekkefølge",
+  "alpha_bounds": [
+    0,
+    0,
+    39,
+    12
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "placement": "Originalens tegnerektangel; ingen ny sentrering eller justering av fotpunkt",
+  "palette_id": "hea.piv",
+  "palette_status": "original_scene_palette; verify_the_route_in_this_scene",
+  "palette_source_sha256": "47929169ea706558285782364875cc20ffd8eb86051b78ca6c8247156817f3ff",
+  "palette_file_sha256": "7432a50b8026a1323ff7e9fc5ab01310c39469a8162dccc3de2a1ac7cccaf8d9",
+  "original": {
+    "path": "references/original/mys.cel/006.png",
+    "sha256": "77c0a8d4546bffddeaa04ae4dc012d9a3d6f9a13f1ed349088e39be9ac7a9e39",
+    "width": 39,
+    "height": 12
+  },
+  "nearest4x_reference": {
+    "path": "references/nearest4x/mys.cel/006.png",
+    "sha256": "4a740e70f35dead2e2042074b0576e192f2828ecb9b71d3c8b54b6c43dc5dcce",
+    "width": 156,
+    "height": 48
+  },
+  "packed_original": {
+    "path": "source/packed/mys.cel/006.png",
+    "sha256": "95f13afcfe833993360d03a95dbbcb6ff84a78ac8a2ced2956ba8d4e7510bbf7",
+    "width": 39,
+    "height": 12
+  },
+  "silhouette": {
+    "path": "source/alpha/mys.cel/006.png",
+    "sha256": "7500271abc774b315509f8ff56ca8e1d3248b11261f2ba7c43809570cf22af96",
+    "width": 39,
+    "height": 12
+  },
+  "needs_mask": false,
+  "neutral_mask_template": null,
+  "live_palette_indices": [],
+  "source_order_mask_override": null,
+  "mask_warning": null,
+  "intro_only": false,
+  "runtime_gate": "new_art_requires_route_runtime_check",
+  "art_status": "pending_individual_redraw",
+  "target_png": "hd/mys.cel/006.png",
+  "target_mask": null,
+  "source_order_note": "Figuranimasjon, tas etter ikonene og bakgrunnene. 006 bruker HEA-paletten, 007 MYS-paletten. Kontroller mot hele originalscenen."
+}

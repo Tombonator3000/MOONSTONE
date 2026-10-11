@@ -74,7 +74,7 @@ def maskefarger(bank, frame):
     if bank.lower() == 'wi1.c' and 15 <= frame <= 20:
         return set(range(6, 11))
     # Tavernaen: $08a3b2 sender tav-palett+12 til samme originale setter.
-    # Bare006/007 har levende draktindekser;008..022 er stålhanske/bord.
+    # Bare006/007 har levende draktindekser;008/009 er hanske,010..022 er terninger.
     if bank.lower() == 'dice.cel' and frame in (6, 7):
         return set(range(6, 11))
     return set()
@@ -147,6 +147,11 @@ def figur_info(fil, nr):
         if nr <= 5:
             return 1, 'Kro- og byikoner', 'Tavernaen: seks faste terningsutfall', \
                 'Statiske utfallsbilder. Originalkoden velger 0-5 i vis_gull_vunnet ($08a600-$08a690). Bevar hvert symbol.'
+        if nr >= 10:
+            return 4, 'Kroanimasjoner', 'Tavernaen: tre kastede Dragon Dice over bordet', \
+                ('Animasjonsruter, tas til slutt.010..022 bruker tav.piv-paletten. '
+                 'Originalsekvens0ad76e tegner hanske009 på fast posisjon mellom terningrutene. '
+                 'Nytegn de tre grå terningene med nøyaktig original plassering, rotasjon og størrelse.')
         return 4, 'Kroanimasjoner', 'Tavernaen: ridderens stålhanske og arm over bordet', \
             ('Animasjonsruter, tas til slutt.006..022 bruker tav.piv-paletten, ikke dice.piv. '
              '006/007 bruker levende draktindekser6..10 fra aktiv ridder ($08a3b2→$08a9b6). '

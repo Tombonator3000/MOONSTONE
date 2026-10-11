@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "checks": 96885,
+  "assets": [
+    {
+      "key": "KN3.ob/000.png",
+      "png_sha256": "aaf464031ae62bd4d43a4df4b3c16f27b923e4c97face4c2eb2ff5830b94f72e",
+      "covered_source_centers": 1344,
+      "transparent_source_centers": 1056,
+      "material_colors": 5585,
+      "final_alpha_iou": 1.0,
+      "preserved_dark_centers": 160,
+      "mask": {
+        "sha256": "e17eebf25335d3f607a5a8f7da497827ae09db9df8bae80064ac495c2c9a94f5",
+        "live_indices": [
+          6,
+          7,
+          8
+        ],
+        "colored_pixels": 12064
+      }
+    },
+    {
+      "key": "KN3.ob/001.png",
+      "png_sha256": "873c9b20c254ef89da0d7857c923ab0dab7e3946bac56b24e54d393da4a0ac8b",
+      "covered_source_centers": 84,
+      "transparent_source_centers": 445,
+      "material_colors": 773,
+      "final_alpha_iou": 1.0,
+      "preserved_dark_centers": 0,
+      "mask": {
+        "sha256": "578dd46c9d4cc9aa2d4a28f97280ec2a42e9bb066baafe5676beecb1390f9381",
+        "live_indices": [
+          6,
+          7,
+          8
+        ],
+        "colored_pixels": 672
+      }
+    }
+  ],
+  "aliases": [
+    {
+      "key": "HE3.ob/000.png",
+      "master_key": "KN3.ob/000.png",
+      "sha256": "aaf464031ae62bd4d43a4df4b3c16f27b923e4c97face4c2eb2ff5830b94f72e",
+      "source_bank_sha256": "43f05a245ed226b58d7803f399a9a9b077596b3f63eb90fa599beea31a4a5c42"
+    },
+    {
+      "key": "HE3.ob/001.png",
+      "master_key": "KN3.ob/001.png",
+      "sha256": "873c9b20c254ef89da0d7857c923ab0dab7e3946bac56b24e54d393da4a0ac8b",
+      "source_bank_sha256": "43f05a245ed226b58d7803f399a9a9b077596b3f63eb90fa599beea31a4a5c42"
+    }
+  ],
+  "source_contracts_sha256": "120e8cae44b54e28292ad160abc865abcc96012fe25fa8a32207098647f03e13",
+  "scope": "Original-PNG-SHA, rawkvittering, 4xmaal, alle kildepikselmidtpunkter, sluttalfa-IoU >= 0.90, moerke4/5-felt, palettmaske og eksakte kopier. Visuell kontroll og faktisk runtime kreves separat."
+}

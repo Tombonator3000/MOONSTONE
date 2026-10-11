@@ -1,0 +1,122 @@
+{
+  "key": "HE3.ob/006.png",
+  "master_key": "KN3.ob/006.png",
+  "role": "he_mask_copy",
+  "package": "02-riddere",
+  "order_group": "Riddere",
+  "order_priority": "3",
+  "identity": "Ridderens separate kropp-, våpen- eller blodfragment fra HE3.ob",
+  "master_usage": "Alle kamper: ridderens kropp (indeksene 6-8), tegnes ti ganger i sekundet",
+  "identity_limit": "Kildebank og brukssted. Ingen udokumentert handlingsetikett per rute.",
+  "bank": "HE3.ob",
+  "frame": 6,
+  "width": 11,
+  "height": 25,
+  "target_width": 44,
+  "target_height": 100,
+  "source_bank": {
+    "path": "data/HE3.ob",
+    "sha256": "43f05a245ed226b58d7803f399a9a9b077596b3f63eb90fa599beea31a4a5c42",
+    "bytes": 11161,
+    "frames": 64
+  },
+  "bitplane_sha256": "670e49c3516286229a42120a0f524d63c53f15724991c997f1e6d0ff972747c1",
+  "packed_indices_sha256": "721cfdd27851a462603d3ba4ea37a632cf12d6f5326ee4da054bac62e33b6f7f",
+  "indices_sha256": "721cfdd27851a462603d3ba4ea37a632cf12d6f5326ee4da054bac62e33b6f7f",
+  "plane_mask": 15,
+  "packed_planes": 4,
+  "source_flag": 1,
+  "source_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    9,
+    10,
+    11,
+    15
+  ],
+  "index_remap": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 9,
+    "7": 10,
+    "8": 11,
+    "15": 15
+  },
+  "source_neighbors": [
+    "HE3.ob/004.png",
+    "HE3.ob/005.png",
+    "HE3.ob/007.png",
+    "HE3.ob/008.png"
+  ],
+  "neighbor_limit": "Nærliggende kilde-ID-er, ikke en bekreftet animasjonsrekkefølge",
+  "alpha_bounds": [
+    0,
+    0,
+    11,
+    25
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "placement": "Originalens tegnerektangel; ingen ny sentrering eller justering av fotpunkt",
+  "palette_id": "combat-preview",
+  "palette_status": "preview_only_not_a_monster_or_player_color_approval",
+  "palette_source_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+  "palette_file_sha256": "9e0b9b6c5798bc2706a91487b5fae02b840c95c20235a5886f0bdba34bbcef35",
+  "original": {
+    "path": "references/original/HE3.ob/006.png",
+    "sha256": "5b514ce6a72662b57749f48d538a26413d3eb6ebc0ff220464952785bfb96bcb",
+    "width": 11,
+    "height": 25
+  },
+  "nearest4x_reference": {
+    "path": "references/nearest4x/HE3.ob/006.png",
+    "sha256": "844f7a5a7d61852aeb78b7689426367aa6dcc4d7e895e02c522f01a6213dbd9e",
+    "width": 44,
+    "height": 100
+  },
+  "packed_original": {
+    "path": "source/packed/HE3.ob/006.png",
+    "sha256": "bedb08f2f17bd398cc34a8ccc561555e2aa429293cf0c502d7d5da47a6dfd212",
+    "width": 11,
+    "height": 25
+  },
+  "silhouette": {
+    "path": "source/alpha/HE3.ob/006.png",
+    "sha256": "326ccc5513760ad32d92968f0351720e76d77d568ec7ef4eb495b966191a903c",
+    "width": 11,
+    "height": 25
+  },
+  "needs_mask": true,
+  "neutral_mask_template": {
+    "path": "mask-templates/HE3.ob/006.mask.png",
+    "sha256": "2eb9101ed44b8f9446d36d15198515ee975916afc15bbf733a3f3882daa70490",
+    "width": 44,
+    "height": 100
+  },
+  "live_palette_indices": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "source_order_mask_override": null,
+  "mask_warning": null,
+  "intro_only": false,
+  "runtime_gate": "new_art_requires_route_runtime_check",
+  "art_status": "pending_master_redraw",
+  "target_png": "hd/HE3.ob/006.png",
+  "target_mask": "hd/HE3.ob/006.mask.png",
+  "source_order_note": "Koden støtter figurer i flere deler og farge fra paletten. Hver ny rute og overlapping må prøves. Samme tegning skal også ligge som HE3.ob/006.png. Der er indeksene 6, 7, 8 byttet til 9, 10, 11, så masken HE3.ob/006.mask.png er denne masken med R byttet fra 7, 8, 9 til 10, 11, 12 (G og B som før). Eldre utkast i art/photoreal/candidates/KN3.ob (generated_pending_qa), ikke godkjent. Bare feilarkiv; bruk originalen som tegnereferanse."
+}

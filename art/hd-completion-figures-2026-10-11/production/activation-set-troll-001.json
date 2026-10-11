@@ -1,0 +1,159 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "63a93d15ee0d36cf0eec6f0ad6b4be5d251f984e13b2634077bd0a9385f2881b",
+    "web/src/scenes.js": "05e7336cd4f92d17ec4dc2172761e7720f80f1532b343a06453f54c505c13c9f"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json",
+      "sha256": "8451aef6f7b183630fc44049969d41308155da5228ec233ef489c7513bb82abd",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/loaded.html",
+      "html_sha256": "c3a51a59c4fcc554142609b9387c182c84a17bd180a62c9b882ee6720a651ad2"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/asset-bindings.json",
+      "sha256": "e29dd95d051ec286f6eca0a4bf83298ca444df0a3a563015df85e2c2b4d081d7",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/loaded.html",
+      "html_sha256": "c3a51a59c4fcc554142609b9387c182c84a17bd180a62c9b882ee6720a651ad2"
+    }
+  ],
+  "scope": "Seks separate TROLL-ruter. Kontrollert originalkamp, to speilede sammenstillinger og eksakt Original/HD-retur. Original flat fotskygge beholdt. Ingen full animasjonsdekning eller naturlig kartreise.",
+  "source_delivery": {
+    "path": "art/hd-completion-figures-2026-10-11/production/delivery.json",
+    "sha256": "277c3eb3827fbff843824c2a93717224ce3962a7c2ad41c6f5a452780b79ceeb"
+  },
+  "entries": [
+    {
+      "key": "TROLL1.CEL/000.png",
+      "bank": "TROLL1.CEL",
+      "frame": 0,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "e82118b239894360201233ec63833562ae6191ac4bf197ab4ae34215c68f40d0",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/000/0659f945cb262709/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "c37215a311d03237a0f2a80efe19e6d530367bccf883d9c3755d3dd8660ccc3f",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-000-v2.png",
+      "raw_sha256": "0659f945cb262709d3d76ebdd74a63f29368aff8a366a875b90cad98a9ad5eb3",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-000-v2.txt",
+      "prompt_sha256": "ad5d7a1ef10c3884034ab0090cfd93d32f0f31a8947a0ebeef2237aae9b00bdb",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/asset-bindings.json",
+      "runtime_asset_sha256": "c37215a311d03237a0f2a80efe19e6d530367bccf883d9c3755d3dd8660ccc3f",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/000/0659f945cb262709/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "2cedb6fb9cbd28de1e1ce26355b1d7df096c8fd75f5913cd085e2dc3edcd965c",
+      "frozen_runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json"
+    },
+    {
+      "key": "TROLL1.CEL/001.png",
+      "bank": "TROLL1.CEL",
+      "frame": 1,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "cbe319d9ea87feabbe6a63de6f3388b56aab9356c2be4ca64fb7e3e7072e54b6",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/001/6d7b19ece13a7453/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "d9082c3cf85dc0d068ef5be4207a94ad7d9e3ca427f929b409a677bb512c8d15",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-001-v2.png",
+      "raw_sha256": "6d7b19ece13a74532c3f9889d68dfa05d4fcf21d29cd19c478acc4f3c7d5f9a8",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-001-v2.txt",
+      "prompt_sha256": "4d47aaea7c7718348c4dd940bfd6b71eab1b752bca16e89d52f856d8128eca1b",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/asset-bindings.json",
+      "runtime_asset_sha256": "d9082c3cf85dc0d068ef5be4207a94ad7d9e3ca427f929b409a677bb512c8d15",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/001/6d7b19ece13a7453/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "83b6f4a71a512ffb8e17c0170c0dfd2746c4a9f89fd25e697e9b30a7cefe685f",
+      "frozen_runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json"
+    },
+    {
+      "key": "TROLL1.CEL/003.png",
+      "bank": "TROLL1.CEL",
+      "frame": 3,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "5e8068ea419453481dcd432bcfc8ec88775da4fd947f648be5861b5b6e26b95a",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/003/15fc3928c6f09406/separate-shadow-bottom8-v7/candidate.png",
+      "png_sha256": "170aa7e90cceaacd9e175ca58f28188fa1da9c4afc0800c8184e59f470066eda",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-003-v3.png",
+      "raw_sha256": "15fc3928c6f094060aa8afbccffa088e1cfa272d2d3796d586cbf50be803a36d",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-003-v3.txt",
+      "prompt_sha256": "168211f904b57279f93ae5b2c5d48b2fad24f02a478b3dca3833fd75a6c435ad",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/asset-bindings.json",
+      "runtime_asset_sha256": "170aa7e90cceaacd9e175ca58f28188fa1da9c4afc0800c8184e59f470066eda",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/003/15fc3928c6f09406/separate-shadow-bottom8-v7/art-record.json",
+      "art_record_sha256": "7ed98f0c2b3d4aaeeb419e3562be1369c2e1bd892b0542316d5f50f980f13e19",
+      "frozen_runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json"
+    },
+    {
+      "key": "TROLL1.CEL/007.png",
+      "bank": "TROLL1.CEL",
+      "frame": 7,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "c4281d6b95c7eacc6b55ba16739f7e83741d57d306429cdf9f28ac36d7b5a7f4",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/007/c7f366e4a98bbb88/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "68a35a4aa9ea6a4b0635503ff17b6accd25e7df1b816ad2f4d151a479c7c9398",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-007-v1.png",
+      "raw_sha256": "c7f366e4a98bbb888b7cfb9aa806b1f87056212d985dd19a428817bcf691d3c6",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-007-v1.txt",
+      "prompt_sha256": "fa995a314dbb874e1b53dc36b410744e7c1c379fb82d2c555d0efe8a4055ca50",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/asset-bindings.json",
+      "runtime_asset_sha256": "68a35a4aa9ea6a4b0635503ff17b6accd25e7df1b816ad2f4d151a479c7c9398",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/007/c7f366e4a98bbb88/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "111bff86bce3301585d2889c5279b0de498824be012e502f45b64805138542d4",
+      "frozen_runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json"
+    },
+    {
+      "key": "TROLL1.CEL/006.png",
+      "bank": "TROLL1.CEL",
+      "frame": 6,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "d9ca2d5c066ef89aa0ac94e68fdbd6c2b213265953a3475a0ed1059576ea6f65",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/006/016e0c8d247b24dc/rounded-source-edge-v5/source-eye-v10-photo-skin/candidate.png",
+      "png_sha256": "0e407cb43bb2835488ec2e5e7459c05d9e30cc978a24c5ec0e8a7e3d985770fb",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-006-v4.png",
+      "raw_sha256": "016e0c8d247b24dc7e300a7d26ae8caf95cce1712789c8659434246d77a507bb",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-006-v4.txt",
+      "prompt_sha256": "d6fffd3b2878ad0b54abec277ebb57cc86c059e6cc9e6bc6f6319b3893bcc338",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/asset-bindings.json",
+      "runtime_asset_sha256": "0e407cb43bb2835488ec2e5e7459c05d9e30cc978a24c5ec0e8a7e3d985770fb",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/006/016e0c8d247b24dc/rounded-source-edge-v5/source-eye-v10-photo-skin/art-record.json",
+      "art_record_sha256": "b5e385b824ba559828566a7887f089e41e1a07405dc05190bf7d0e7bdc1cd9b8",
+      "additional_generated_material": {
+        "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-006-v6-eyeless-material.png",
+        "raw_sha256": "028fa1a9c13741b2babffe685b1c1e11f2e1ef4b000dbd1f1c563f460ad2b63f",
+        "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-006-v6-eyeless-material.txt",
+        "prompt_sha256": "5a785c3bd5a88db798e3f7f2b12d8a765657310da20b61bc4b577f3c0957e212",
+        "used_region": [
+          110,
+          0,
+          128,
+          15
+        ],
+        "method": "Only the generated eyeless photo skin patch is packed; all other RGB and all alpha retain the original candidate. Two HD pixels feather the patch boundary."
+      },
+      "frozen_runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json"
+    },
+    {
+      "key": "TROLL1.CEL/008.png",
+      "bank": "TROLL1.CEL",
+      "frame": 8,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "823a9e9d5390c50563cc1835c5d9a4b75785d4a965802f502ec769eb0ca72565",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/008/23d8792257615802/separate-shadow-feet-v9-original-flat/candidate.png",
+      "png_sha256": "507071bce80fc1ef15c141c251bb376eff710362480c77077428e8f3406dfb29",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-008-v1.png",
+      "raw_sha256": "23d8792257615802e5617b32e085972163ec4dffeec1c958ed1416466bb9994e",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-008-v1.txt",
+      "prompt_sha256": "ddfef6a61ccc82aac7e4dec42740b96e370e88543d968530e2fc00ad8c6fe7aa",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/asset-bindings.json",
+      "runtime_asset_sha256": "507071bce80fc1ef15c141c251bb376eff710362480c77077428e8f3406dfb29",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/008/23d8792257615802/separate-shadow-feet-v9-original-flat/art-record.json",
+      "art_record_sha256": "a1c999a187d0312ea1184676ad67f87c74f83c857fb3af518e98666cd39848de",
+      "frozen_runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json"
+    }
+  ]
+}

@@ -145,8 +145,13 @@
 ## Separate figurruter, 11. oktober 2026
 - [x] Nytegne og kontrollere alle26 KN4-sverd-/bevegelsesruter,7 identiske kopier og025-masken.
 - [x] Nytegne18 flammer separat og kontrollere dem i original Stonehenge-scene og sluttsekvens;18 identiske Klift-kopier.
-- [ ] Publisere og kontrollere den første figurruteleveransen etter grønn CI.
-- [ ] Fullføre1735 resterende figurmastere/1971 konkrete ruter, inkludert265 masker.
+- [x] Publisere og kontrollere den første figurruteleveransen etter grønn CI (PR #33, offentlig70PNG, faktisk kamp og Stonehenge).
+- [ ] Fullføre1654 resterende figurmastere/1824 konkrete ruter;118 mastermasker og57 HE-kopier står på restlisten.
 - [ ] Gjøre Math-ansikt, kropp, hår og kappe visuelt sammenhengende i statisk WI1.P-plate og separate Wi1.C-ruter.
-- [ ] Fjerne hudskjøter fra de to separate MYS-øyefragmentene før aktivering.
-- [ ] Kontrollere alle nye TROLL-ruter, inklusive øyefarge og adskilt fotskygge, før aktivering.
+- [x] Fjerne hudskjøter fra de to separate MYS-øyefragmentene før aktivering; aktivert lokalt etter14 scene- og30 rutekontroller.
+- [ ] Publisere og kontrollere MYS006/007 i standardpakken.
+- [ ] Fullføre tavernahansker006..009 og tre kastede terninger010..022; rette også innbygd TAV-figur med aktiv spillerfarge.
+- [x] Kontrollere og aktivere16 TROLL-ruter, inklusive øyefarge og adskilt fotskygge.
+- [x] Aktivere129 KN3-/HE3-/RATMEN-ruter og90 masker etter1928 rutekontroller og visuell sammenligning. Fire rene svarte skygger bevart.
+- [ ] Publisere og kontrollere den andre figurleveransen med237 nye PNG-filer.
+- [ ] Fullføre øvrige TROLL- og KN1-ruter med samme separate bilde-/runtimekrav.
