@@ -48,10 +48,9 @@
 - [ ] CI: actions på Node 20 er utfaset.
 - [ ] Separate: et rom som forsvinner kan ikke samles igjen, og en død forbindelse blir stående som ridder på kartet.
 - [ ] Et lagret Turns-spill fordeler ridderne etter rekkefølgen gjestene kommer inn i.
-- [ ] Fast test av sluttscenen. --skriv leser heks uten 0x som 0 uten melding.
-- [ ] Rette memory.md (STATE_VERSION 8) og README (mappen spill/).
 
 ## Ferdig
+- [x] --skriv avviser verdier som ikke kan leses; test av sluttscenen (slutt1.js, lagring laget med --skriv).
 - [x] Mobil: fullskjermknapp, ikon og manifest for hjemskjermen, Wake Lock.
 - [x] Tur for tur: en gjest med skjult fane fjernes etter ett minutt (verten får beskjed i chatten).
 - [x] Sluttscenen kjennes igjen på nettsiden (\$080190 bit 7) og hoppes ikke over av et trykk.
