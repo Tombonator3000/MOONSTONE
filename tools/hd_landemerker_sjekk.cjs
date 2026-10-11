@@ -10,10 +10,10 @@ let b;
 async function render(p){return p.evaluate(()=>{const{Kjerne:K,Visning:V,SceneHd:S,StandardHd:H}=moonDebug;const fb=K.rammebuffer(),d=K.vindu();V.tegn(fb,d,S.korriger(fb,d,K.lag()));H.oppdater(V.lagNaa()?.hash);return V.bildeTilPng();});}
 (async()=>{
  fs.mkdirSync(out,{recursive:true});
- b=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+ b=await chromium.launch({headless:true,executablePath:process.env.CHROME||'/usr/bin/google-chrome',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  const p=await b.newPage({viewport:{width:960,height:700}});p.on('pageerror',e=>report.errors.push(e.message));
  await p.addInitScript(()=>localStorage.setItem('moonstone.innstillinger',JSON.stringify({hd:'hd',hdValgt:true})));
- await p.goto(url);await p.waitForFunction(()=>window.moonDebug&&moonDebug.Kjerne.bildeNr()>1);await p.keyboard.press('Pause');
+ await p.goto(url);await p.waitForFunction(()=>{/* bildeNr kaster til kjernen er lastet */try{return window.moonDebug&&moonDebug.Kjerne.bildeNr()>1;}catch(e){return false;}});await p.keyboard.press('Pause');
  await p.waitForFunction(()=>moonDebug.StandardHd.info().klar,null,{timeout:60000});
  await p.evaluate(async()=>{const{Kjerne:K,Visning:V,SceneHd:S}=moonDebug;K.start(false);K.menyPaa(true);K.lagPaa(true);V.nullstillScene();S.nullstill();V.settHd(true);
   while(K.bildeNr()<2000){const n=K.bildeNr();if(n===100)K.tast(0x45,true);if(n===104)K.tast(0x45,false);

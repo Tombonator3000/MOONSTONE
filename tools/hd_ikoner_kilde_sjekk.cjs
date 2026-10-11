@@ -3,7 +3,7 @@
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),{chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),art=root+'/art/hd-icons-2026-10-11';
 (async()=>{
- const b=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',args:['--no-sandbox']});
+ const b=await chromium.launch({headless:true,executablePath:process.env.CHROME||'/usr/bin/google-chrome',args:['--no-sandbox']});
  const report={assets:[],errors:[],scope:'Pikselmidtpunkter i original og faktisk eksportert PNG. Dette er kilde-/eksportkontroll, ikke naturlig spillreise.'};
  try{
   const p=await b.newPage(),data=JSON.parse(fs.readFileSync(root+'/web/hd/icons.json'));

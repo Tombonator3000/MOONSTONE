@@ -5,7 +5,7 @@ const root=path.resolve(__dirname,'..'),out=root+'/art/faithful-hd-icons-2026-10
 const source=fs.readFileSync(root+'/web/src/render.js','utf8');
 const code=source.slice(source.indexOf('    function ikonPalett('),source.indexOf('    /* po.cel blir brukt'));
 (async()=>{
- const b=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',args:['--no-sandbox']});
+ const b=await chromium.launch({headless:true,executablePath:process.env.CHROME||'/usr/bin/google-chrome',args:['--no-sandbox']});
  const report={scope:'Originale rendererfunksjoner i nettleser, bildefilbevaring, 16 fadingnivaaer, vannsyklus, feil farge og ulik linjepalett. Ingen kunstnerisk godkjenning.',assets:[]};
  try{
   const p=await b.newPage();

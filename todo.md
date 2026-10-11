@@ -14,7 +14,7 @@
 - [ ] Hver for seg, steg 4: motstanderen er opptatt (by, kamp), to utfordrer hverandre samtidig, årstidene går hver for seg.
 - [ ] Hver for seg: vise navnet til spilleren (ikke bare riddernavnet) når man står ved siden av, og en melding når noen kommer inn på kartet.
 - [ ] Veien mot en native port (brukeren sa ja 2026-10-02): 1) grafikken ut i lag (bakgrunn og forgrunn er ferdig; gjenstår menyrammer i HD og bakgrunner som endres litt), 2) logikken til C del for del (kamp og kart først) med check_hooks, 3) fjerne 68000 og Amiga-brikkene når originalkoden ikke kjører lenger.
-- [ ] HD-bilder med fargeindekser (PNG med palett) som får fargene fra skjermen.
+- [x] HD-bilder som får fargene fra skjermen: maske <navn>.mask.png (docs/hd-grafikk.md), 2026-10-11.
 - [ ] HD-bakgrunner som tåler små endringer i bakgrunnskopien (legg forskjellene over).
 - [ ] Effektene og HD-laget også i PC-versjonen: trenger en PNG-leser (png.c kan bare skrive) og HD-tegningen skrevet i C (SDL_Renderer holder).
 - [ ] Prøve «Run workflow» for hånd én gang (rettelsen a998217 er på main, men ikke prøvd).
@@ -34,13 +34,17 @@
 - [ ] Et trykk på kartet blir fire og kan åpne et sted; la det bare gi retning når man drar (observatør på \$0AACFA).
 
 ## HD: kodeendringer så bildene i docs/hd-bestilling-chatgpt.md blir brukt
+- [ ] Prøve HD-figurer i en ekte monsterkamp i et hi og i en kamp med fire riddere (ikke målt etter at figurer i flere deler kom).
+- [x] Banneret i Prepare yourself: bg/931f9b1d.png kom med PR #26.
+- [ ] Introen og slutten: tegneliste fra programmet program, så de 385 figurbildene kan få HD.
+- [ ] bg1b.PIV: sette sammen flisene til ett bilde og lage en scene.
 - [ ] Lasteren (render.js lastHdPakke) skal bare godta NAVN/NNN og bg/HHHHHHHH og si fra om resten (i dag tar den alt, ca 4 MB per ubrukt bilde).
 - [ ] tools/hd_skaler.py skal hoppe over bildemappene (PIV) og test/, bare figurmapper og bg.
 - [ ] HD-pakken skal huskes (IndexedDB) og kunne være en zip.
 - [ ] --lag-dump skal lage mappen eller si fra, og prøve igjen når en bakgrunn ikke ble skrevet.
 - [ ] Et skript som spiller gjennom spillet med --lag-dump og knytter hver bakgrunnshash til et skjermnavn.
 - [ ] Sjekke CEL-navnene med --tegneliste (sti foran?) og om MAX_CELS glemmer filer som fortsatt tegnes.
-- [ ] Inntoning av HD-bakgrunnen første gang den vises (render.js lysMaks).
+- [x] Inntoning av HD-bakgrunnen første gang den vises (beregnLys, lysRef i scenene), 2026-10-11.
 - [ ] Rette docs/hd-grafikk.md (knappens navn, skala høyst 4) og grafikklisten (hen1.p = bg5.piv, Klift1.CEL = hen1.c).
 
 ## Fra gjennomgangen 2026-10-11 (docs/hva-mangler.md)

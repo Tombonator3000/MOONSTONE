@@ -5,8 +5,14 @@ const StandardHd = (() => {
     'use strict';
     const manifest = %%HD_MANIFEST%%;
     const base = manifest.files.filter(f => f.kind === 'base');
+    /* 045a1ac5 er hashen av en helt tom bakgrunnskopi (40000 nullbyte). Den staar
+     * paa alle tomme skjermer og i alle overganger, saa et bilde der ville dekke
+     * meldinger, lasteskjermen og toningene. Den faar aldri HD, heller ikke om
+     * noen legger den i manifestet. pakk.py nekter den ogsaa. */
+    const TOM_BAKGRUNN = '045a1ac5';
     const bakgrunner = new Map(manifest.files.filter(f => f.kind === 'background')
-        .map(f => [f.path.slice(3, -4), f]));
+        .map(f => [f.path.slice(3, -4), f]).filter(([hash]) => hash !== TOM_BAKGRUNN));
+    const scener = (manifest.scenes || []).filter(s => s.hash !== TOM_BAKGRUNN);
     const cache = new Map(), avvist = new Set(), oppdrag = new Set();
     let V = null, meld = () => {}, aktiv = false, klar = false, lasterBakgrunn = false;
     let kontroller = null, sistHash = null, feil = null;
@@ -125,5 +131,18 @@ const StandardHd = (() => {
         cache.clear(); avvist.clear();
     }
 
-    return { start, stopp, oppdater, info, status, scener: () => manifest.scenes || [] };
+    /* Bakgrunner som bare dekker en del av skjermen: scenene med et mindre rektangel
+     * (byene og kroen), eller "partial": true i filoppfoeringen. De vises bare med
+     * rektangelet fra et scenetreff (render.js). */
+    function utsnitt() {
+        const liste = new Set();
+        for (const s of scener) {
+            const r = s.rect || [0, 0, 320, 200];
+            if (r[0] > 0 || r[1] > 0 || r[2] < 320 || r[3] < 200) liste.add(parseInt(s.hash, 16));
+        }
+        for (const f of bakgrunner.values()) if (f.partial) liste.add(parseInt(f.path.slice(3, -4), 16));
+        return [...liste];
+    }
+
+    return { start, stopp, oppdater, info, status, utsnitt, scener: () => scener };
 })();
