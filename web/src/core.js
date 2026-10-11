@@ -41,7 +41,7 @@ const Kjerne = (() => {
     /* spillfila som er bygget inn i kjernen (port/bin2c.py) */
     function harInnebygd() { return !!M._ms_has_embedded(); }
     function aapneInnebygd() {
-        if (!M._ms_open_embedded()) throw new Error(M.UTF8ToString(M._ms_error()) || 'Den innebygde spillfilen kan ikke leses.');
+        if (!M._ms_open_embedded()) throw new Error(M.UTF8ToString(M._ms_error()) || 'Den innebygde spillfilen kan ikke leses.');      /* oversettes der den vises (T) */
     }
 
     /* andre spillfiler (zip eller ISO); kjernen tar over bufferet */

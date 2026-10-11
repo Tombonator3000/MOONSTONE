@@ -62,8 +62,11 @@ async function nettleser() {
 async function side(b, o = {}) {
   const ctx = await b.newContext(Object.assign({ viewport: { width: 800, height: 560 } }, o.ctx || {}));
   if (o.utklipp) await ctx.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: ORIGIN });
-  if (o.innst) await ctx.addInitScript((s) => { try { localStorage.setItem('moonstone.innstillinger', s); } catch (e) {} }, JSON.stringify(o.innst));
-  if (o.innstHvisTom) await ctx.addInitScript((s) => { try { if (!localStorage.getItem('moonstone.innstillinger')) localStorage.setItem('moonstone.innstillinger', s); } catch (e) {} }, JSON.stringify(o.innstHvisTom));
+  /* testene leser norske meldinger: norsk er valgt med mindre testen sier noe annet */
+  const innst = o.innst ? Object.assign({ sprak: 'no' }, o.innst) : null;
+  const hvisTom = Object.assign({ sprak: 'no' }, o.innstHvisTom || {});
+  if (innst) await ctx.addInitScript((s) => { try { localStorage.setItem('moonstone.innstillinger', s); } catch (e) {} }, JSON.stringify(innst));
+  else await ctx.addInitScript((s) => { try { if (!localStorage.getItem('moonstone.innstillinger')) localStorage.setItem('moonstone.innstillinger', s); } catch (e) {} }, JSON.stringify(hvisTom));
   const p = await ctx.newPage();
   merk(p, o.navn, o.konsoll);
   return p;
