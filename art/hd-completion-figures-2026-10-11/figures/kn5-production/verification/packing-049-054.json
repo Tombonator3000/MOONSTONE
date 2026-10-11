@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "checks": 1489,
+  "assets": [
+    {
+      "key": "KN5.ob/049.png",
+      "png_sha256": "bd0e2b3f907dff709131369e838c5f8206348dcd21cb5f8713a80399fa313181",
+      "covered_source_centers": 35,
+      "transparent_source_centers": 405,
+      "material_colors": 252,
+      "final_alpha_iou": 1.0,
+      "preserved_dark_centers": 0,
+      "mask": null
+    },
+    {
+      "key": "KN5.ob/050.png",
+      "png_sha256": "4b10fc1d5481a7df9f42a4bf041d798e966aaa190de897e4b6876436346edf6d",
+      "covered_source_centers": 13,
+      "transparent_source_centers": 83,
+      "material_colors": 119,
+      "final_alpha_iou": 1.0,
+      "preserved_dark_centers": 0,
+      "mask": null
+    },
+    {
+      "key": "KN5.ob/051.png",
+      "png_sha256": "85e8788529d29ea78c9ccfd7f050e91115c239a0762746216d944aefef00825f",
+      "covered_source_centers": 42,
+      "transparent_source_centers": 33,
+      "material_colors": 281,
+      "final_alpha_iou": 1.0,
+      "preserved_dark_centers": 0,
+      "mask": null
+    },
+    {
+      "key": "KN5.ob/052.png",
+      "png_sha256": "ff8d4140847e7e2e17fd52333f16c8ef6b2b4060d42214a9937a505528949b49",
+      "covered_source_centers": 110,
+      "transparent_source_centers": 30,
+      "material_colors": 1201,
+      "final_alpha_iou": 1.0,
+      "preserved_dark_centers": 5,
+      "mask": null
+    },
+    {
+      "key": "KN5.ob/053.png",
+      "png_sha256": "a188a969c50fe639983011108fea45bca5474e7a6e122ec3b7117a624654e48b",
+      "covered_source_centers": 52,
+      "transparent_source_centers": 98,
+      "material_colors": 408,
+      "final_alpha_iou": 1.0,
+      "preserved_dark_centers": 0,
+      "mask": null
+    },
+    {
+      "key": "KN5.ob/054.png",
+      "png_sha256": "b4b50f2768f89295188cbdf67f12a3cf98d4bcaa2b319e3582190324a813b705",
+      "covered_source_centers": 85,
+      "transparent_source_centers": 203,
+      "material_colors": 648,
+      "final_alpha_iou": 1.0,
+      "preserved_dark_centers": 0,
+      "mask": null
+    }
+  ],
+  "aliases": [],
+  "source_contracts_sha256": "530869e0e8dc6a5f151aac8392d5a86387c5d88f38d2d52f55110f2217f152fd",
+  "scope": "Original-PNG-SHA, rawkvittering, 4xmaal, alle kildepikselmidtpunkter, sluttalfa-IoU >= 0.90, moerke4/5-felt, palettmaske og eksakte kopier. Visuell kontroll og faktisk runtime kreves separat."
+}

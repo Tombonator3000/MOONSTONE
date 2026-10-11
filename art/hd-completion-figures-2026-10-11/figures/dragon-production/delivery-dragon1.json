@@ -1,0 +1,548 @@
+{
+  "schema": 1,
+  "status": "ready_for_sequential_integration",
+  "scope": "16 separate fotografiske DRAGON1-mastere006..021: hode, horn, kjever og membraner.16PNG, ingen levende riddermasker eller aliaser. Ingen aktive metadata endret.",
+  "visible_photo_material_masters": 16,
+  "preserved_opaque_black_shadow_masters": 0,
+  "preserved_shadow_keys": [],
+  "source_contracts_sha256": "aefbbd24a93d27db95939ae2b00b0febc727e2987e62562385c610c483802699",
+  "queue_subset_sha256": "c811ac2d815da055ae43c1cb34a8fda398ee1d62fa313cc39bbbdb551d67a53e",
+  "source_color_contract": {
+    "path": "identity/source-color-contract.json",
+    "sha256": "cf38ab02168650296730ec18b82def4019172bbb35fe923e42c36a215a5f2734"
+  },
+  "package_ledger": {
+    "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/runtime-baseline-dragon1/package-ledger.json",
+    "sha256": "0ce3e54b00f6825068a38a525bedd4cadb46771c87857f3e10295217c86606b7"
+  },
+  "generation_records_sha256": "9d4d1b5b3c349936774229ec8997d5403d311c29d979da450ca29bb19ec3fc4d",
+  "packing_test_sha256": "8f42b7008c692eef5f1c12dc5600d886a0b13ae542b079a29fe6b034c99c8e99",
+  "activation_set_sha256": "ce132b2796dcb268c129ed586f8b8529ab8e7d50bb5b6984272e5c6c3e6c5215",
+  "visual_review_sha256": "bf4c69b32474438717b9dc60263a50487fb999abff8a9f02380b952164eb3806",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+    "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "html_sha256": "112f620b1f2bc71e787dfb279a9a2d4516338bd6e34f3b148e030464c810864c",
+  "runtime": {
+    "dragon1-all-routes-final": {
+      "path": "verification/dragon1-all-routes-final/test.json",
+      "sha256": "886f343b80fa4a60d429820838fca2f2da230d80ff651d86b748b377ec560f4b",
+      "checks": 237
+    },
+    "dragon1-actual-final": {
+      "path": "verification/dragon1-actual-final/test.json",
+      "sha256": "def6b6e78d5beaf7f2f5435f7c7f4084f5e06fa198e9432640d54b01a0d4a3c9",
+      "checks": 39
+    }
+  },
+  "entries": [
+    {
+      "key": "DRAGON1.CEL/006.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 6,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "22f529b7856b2a81b65665e55a9487e364d0785b6b1e470a158bae8aa588f9fe",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/006.png",
+      "png_sha256": "0600ace6d890c9038a9c9b40aa370b846163d8bff926e5d6ba233675b669563c",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "0600ace6d890c9038a9c9b40aa370b846163d8bff926e5d6ba233675b669563c",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/006.png",
+      "raw_sha256": "d09308ed8c5f8955c4099c7100096edc9b471b6eb2a037e2e0da1dd43a3989a5",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-006.txt",
+      "prompt_sha256": "ded004f710a59bc0528e38470af77d2e19d20ebbff67c35180f648856fdb1e2e",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        122,
+        39
+      ],
+      "target_size": [
+        488,
+        156
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/006.png",
+        "sha256": "65e4d7e062f2541401afeb528f394747ad86c618a20bbc6b4ccb2a582c1390fb",
+        "width": 122,
+        "height": 39
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/007.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 7,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "c30974b3bc28c49b859fd01bc3dd426f108c4528feaf91db4ca05ab97f667ee6",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/007.png",
+      "png_sha256": "45f43ddec6ec80348e4221f3cfc4d73b9ab129ff052063fecba852688be7a7ab",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "45f43ddec6ec80348e4221f3cfc4d73b9ab129ff052063fecba852688be7a7ab",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/007.png",
+      "raw_sha256": "ca3d1e7a586abee47ed509358e01fb6b29ffc5e9810756cc7b446f88cc3e5450",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-007.txt",
+      "prompt_sha256": "a5736c10227d24da2c203b54e328ff5a12d3b98fb83849969722e753b07aec64",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        74,
+        34
+      ],
+      "target_size": [
+        296,
+        136
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/007.png",
+        "sha256": "294e080e83cb128ecf62b4af75103043bb70bdd31c02cc816a1535e11eca60b6",
+        "width": 74,
+        "height": 34
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/008.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 8,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "0670552a6224e6a5fe7c93d24f7066a3e0ed1c083df393060dc33b16e4e69185",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/008.png",
+      "png_sha256": "40f2f2780d27c719c7b6d8980de85a459445ff3d6ed13718454e290ca75a316a",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "40f2f2780d27c719c7b6d8980de85a459445ff3d6ed13718454e290ca75a316a",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/008.png",
+      "raw_sha256": "622cc00873acef12d3647dd8bfc00eda6932dea42275360606c251bc4f5e1953",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-008.txt",
+      "prompt_sha256": "43252797ee753a0941e4ed49e8261227bc954c1ec10c023699fd4b6b675f6cd5",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        46,
+        23
+      ],
+      "target_size": [
+        184,
+        92
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/008.png",
+        "sha256": "187f8a4c69d35cc37707fcbc9748436d0f731817553a4c144e35fec053276033",
+        "width": 46,
+        "height": 23
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/009.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 9,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "986c4415ffc4549ca386f78fe2f2b449c75533e2e7d7b9f8843e5d9cf2164f1d",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/009.png",
+      "png_sha256": "3e4572a8c764acce448ab661fa2d1801381a460bde758334ef1615bcc072f9dc",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "3e4572a8c764acce448ab661fa2d1801381a460bde758334ef1615bcc072f9dc",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/009.png",
+      "raw_sha256": "3a285be6ea598f9c69abbd7b2d3d97137c04182f99042d28329e5580079948d6",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-009.txt",
+      "prompt_sha256": "8156e6d340c9d62c2ff1bf257e6751cb4eb174fbe5f3463d9d75e9d9983b7565",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        73,
+        56
+      ],
+      "target_size": [
+        292,
+        224
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/009.png",
+        "sha256": "fd27ec1893d4fa38a966d44bb9afe4eaa94c966469f8e6f26e409250f41242b9",
+        "width": 73,
+        "height": 56
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/010.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 10,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "ef35e2a332353308423a196d1e04f4a78c243b9d639ab973f594b4836bd8ae7e",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/010.png",
+      "png_sha256": "2160b22eb109c2e553894e4730e4b20418b7a83c06dcf47010decc27d1110ab8",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "2160b22eb109c2e553894e4730e4b20418b7a83c06dcf47010decc27d1110ab8",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/010.png",
+      "raw_sha256": "824ddcd29210826c5c0ebc7ccee487e8e2ae1f3dfd06dc8aa84d8edbfac338d4",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-010.txt",
+      "prompt_sha256": "019de78ea6c96e048d0aaf55947faa84f1dea8031534938b2c85e92367470343",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        59,
+        41
+      ],
+      "target_size": [
+        236,
+        164
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/010.png",
+        "sha256": "b9a7d154b32a5dff26c0d355b2f0fe1f00ba8f7b58be1cc61bd4a6cd610e6680",
+        "width": 59,
+        "height": 41
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/011.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 11,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "f71f1b15f22e5f0f36840528ad4e9ef8e3be26ea0198926ef0ba218c7448562c",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/011.png",
+      "png_sha256": "faac793cbf1778386de0a16b266f48f9e7af50dd07437d1e1e819f4966571ae2",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "faac793cbf1778386de0a16b266f48f9e7af50dd07437d1e1e819f4966571ae2",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/011.png",
+      "raw_sha256": "839d22d5bd622633314dc370d783931b9ba492bdc2e544b9bbc3126e8c306af9",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-011.txt",
+      "prompt_sha256": "3752b5f363b2a894b207e884b6364ca1c938f5a13aa50fe5a0192da5da38a3af",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        26,
+        25
+      ],
+      "target_size": [
+        104,
+        100
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/011.png",
+        "sha256": "f5f5351d267ada288cdbe74e58245f796a36909f0159f1ce7d18d77154d49fe0",
+        "width": 26,
+        "height": 25
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/012.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 12,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "7a9a831c09682bc6ea7d4e51abd0674deb1e6ee8b6ded823cb57a61ce67a9d8c",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/012.png",
+      "png_sha256": "366c3ffaebb305a251121e2954dc5a7c68c179298a84a4ca76b3f3ab6e6eba88",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "366c3ffaebb305a251121e2954dc5a7c68c179298a84a4ca76b3f3ab6e6eba88",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/012.png",
+      "raw_sha256": "9225dc89d1247f82aa6f84dc5890a3f708fd5069b70d393e8d505b2f61218cc8",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-012.txt",
+      "prompt_sha256": "0a13a3791c93adecb0b42da89cfb7defa9f09bb6d9e4aadc096a3096614fb6eb",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        64,
+        53
+      ],
+      "target_size": [
+        256,
+        212
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/012.png",
+        "sha256": "928e4b24f27a52cdc2b6f09f4447052c8e7f8a025ee217523a18dc05c344808b",
+        "width": 64,
+        "height": 53
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/013.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 13,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "ec688faf5bc06b2fb0814c7ef5a3670b2c5407e94b9fd636fc6f45e5a2be89f6",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/013.png",
+      "png_sha256": "5763ef43b7212ee2cfc79a85618e5a57e4b94c4cfcb27afe78230810a8494780",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "5763ef43b7212ee2cfc79a85618e5a57e4b94c4cfcb27afe78230810a8494780",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/013.png",
+      "raw_sha256": "bdfee824ed48691717cce6f9a49a8c77a38349bffd12ba10a5ba0bc7188cadc7",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-013.txt",
+      "prompt_sha256": "be4a4b4c40e7433c26ab0e4f7b233c55918cc0146294f0df2d8773c3ec5f22fb",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        48,
+        62
+      ],
+      "target_size": [
+        192,
+        248
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/013.png",
+        "sha256": "f82aacdfe79858a84f4d4c937ab447e772f95d7d9cc62086543501339c5434fc",
+        "width": 48,
+        "height": 62
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/014.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 14,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "e90b43d25bf9a4be12be8ac8266b4d5d6b764c2096ff958b70ce79bb261a7071",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/014.png",
+      "png_sha256": "598dc9e0271ca3d7d05361b1b405f333d74c2423b4723d2c9623bd6db130a30e",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "598dc9e0271ca3d7d05361b1b405f333d74c2423b4723d2c9623bd6db130a30e",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/014.png",
+      "raw_sha256": "75f847a1a8449f9bf92d08192635ef32757919d2b37ad55a38cc949352c89b6d",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-014.txt",
+      "prompt_sha256": "ad97b6531124c2293c3f56b6d48307d04706f24286ed2b3d0ccbfea9bb88139d",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        43,
+        86
+      ],
+      "target_size": [
+        172,
+        344
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/014.png",
+        "sha256": "c03fa19622de653d1e64dc9a77e92b514594d0fd275c20570380208bf95c3bd4",
+        "width": 43,
+        "height": 86
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/015.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 15,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "222825ceeecf1cb33e254b99316a38dc6f0e0a3bd591a900ede4f396129005ba",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/015.png",
+      "png_sha256": "4af868b163fac8ced7f1579eb0ec8ab67ee9667142f54432d4acd3a9e400427d",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "4af868b163fac8ced7f1579eb0ec8ab67ee9667142f54432d4acd3a9e400427d",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/015.png",
+      "raw_sha256": "5c66b6d220eed9e5416dc866ac9efebac550fef0a89f6e3ac0e957a75e10e96b",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-015.txt",
+      "prompt_sha256": "a37a0a4e8c7ac8389ef07622a9bff3c809b2fb6a604e7570b88fba8dd9b52847",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        24,
+        53
+      ],
+      "target_size": [
+        96,
+        212
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/015.png",
+        "sha256": "d63662e306b3c8637f4103893d4152a9983b2adcb207a6e645af516b8ca68a68",
+        "width": 24,
+        "height": 53
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/016.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 16,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "48e1b7b8e9b2a4d64465145837768e7580735108a616a30f821878aabbd7190f",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/016.png",
+      "png_sha256": "94d92482a2793769e804fe34043d78c01d302403e48bd7ab79528d6950b47105",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "94d92482a2793769e804fe34043d78c01d302403e48bd7ab79528d6950b47105",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/016.png",
+      "raw_sha256": "524fe9d0e0942fc25f4529256952e9d27517a8f0f5c8312656d828616dbfc16f",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-016.txt",
+      "prompt_sha256": "656923897e7290e780aa1dc51f6fe85baf536dc1b48c65b18ad1460c35adb89c",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        44,
+        40
+      ],
+      "target_size": [
+        176,
+        160
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/016.png",
+        "sha256": "b1b72e09c20268b40ebfdfde70eb0e3433a922e9c306c87edb265cde639b9506",
+        "width": 44,
+        "height": 40
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/017.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 17,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "8895ebe04a5ea29c6d0971a92e79cc4231ccd15e3a589b4da5849c23e3790a42",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/017.png",
+      "png_sha256": "0c648e5c01ac4db7cfb8b439afd037bf128a2e18224aa33e9f635c1cd0669863",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "0c648e5c01ac4db7cfb8b439afd037bf128a2e18224aa33e9f635c1cd0669863",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/017.png",
+      "raw_sha256": "7fb1266b695231323724d59fa8716f4da7921d9d95284cf67307e22077cd183f",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-017.txt",
+      "prompt_sha256": "9ddfea08ed1a642d7c22c75b4ff57296a37cb5cb40e12a5690562ca60b2b4d39",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        65,
+        50
+      ],
+      "target_size": [
+        260,
+        200
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/017.png",
+        "sha256": "ac5ee68236cb4db46083222bab1608160cdbba00a48cb3b2a7563a1a41cf1a06",
+        "width": 65,
+        "height": 50
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/018.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 18,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "8bd6e53093205859dcf50de0061cc3cfa72863c8424e80da0daf650213dd267c",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/018.png",
+      "png_sha256": "3307190c4eeb1fc5a0022ab9c73d934bf3bcb119c26ddf10081c51f6ed4c3f6b",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "3307190c4eeb1fc5a0022ab9c73d934bf3bcb119c26ddf10081c51f6ed4c3f6b",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/018.png",
+      "raw_sha256": "6b32d516e81f6cd1c4f666a037f5f0260328204e13a075a3feecd967fde322b9",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-018.txt",
+      "prompt_sha256": "d9bd9bc73eb60cfe662a34ac30b8f0452dbdbfa6208fcece964fdd6d8e441d70",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        59,
+        43
+      ],
+      "target_size": [
+        236,
+        172
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/018.png",
+        "sha256": "4ba2150e9c48b6db5a0c358ab4045e667b1e5952c54fce617a9a06d9256081b0",
+        "width": 59,
+        "height": 43
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/019.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 19,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "a0ffc9453ded16f706aa6dfb1217b266a72d0f9c842765a8140a8e64055624a8",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/019.png",
+      "png_sha256": "af9485a744f6ee7c182764336c08efbacb6000a0eeccbe6ebbe8eae73a066687",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "af9485a744f6ee7c182764336c08efbacb6000a0eeccbe6ebbe8eae73a066687",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/019.png",
+      "raw_sha256": "95ba36d4aff7d639d53b94581a5d86a7de97f47aaecdf7c5c7abae182f715eca",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-019.txt",
+      "prompt_sha256": "83203feeb312f8de018266a2415016ac8ac433f55b03029de22d760b4881bdc2",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        30,
+        19
+      ],
+      "target_size": [
+        120,
+        76
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/019.png",
+        "sha256": "57952b2b20944ac94821e3227fd97e4845e3d14c3539aff9b6f9cbcaa7d01034",
+        "width": 30,
+        "height": 19
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/020.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 20,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "eb17058898d96b4900395fad9295344af28effbea8449edb044f47e49db8e710",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/020.png",
+      "png_sha256": "57c104d414135865735d8ce88c822edb4d1b55c29395eb108c88a2cb77929633",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "57c104d414135865735d8ce88c822edb4d1b55c29395eb108c88a2cb77929633",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/020.png",
+      "raw_sha256": "9367df2fcc524e24a46569b47dd8445267f9c225f9757a7e9a745f1bb76dcbb6",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-020.txt",
+      "prompt_sha256": "8f1fe510a40df95f45a58a1ed2c37ac4a0f451499f3aa335dece6fecde31e775",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        22,
+        16
+      ],
+      "target_size": [
+        88,
+        64
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/020.png",
+        "sha256": "c1c8ddbd0b7ec18b6581507e9264b9f0e9257b0de422e550c81b547b071d9e1f",
+        "width": 22,
+        "height": 16
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    },
+    {
+      "key": "DRAGON1.CEL/021.png",
+      "bank": "DRAGON1.CEL",
+      "frame": 21,
+      "source_bank_sha256": "72fef22da64e20e799a9f8849604607b16a091224ca9f188b67dcbd483de0fe9",
+      "indices_sha256": "604287270c0a605c5c17c189ec97364fd69b6d9799b648cd1b7cf448c9dc6eeb",
+      "png": "art/hd-completion-figures-2026-10-11/figures/dragon-production/packed/DRAGON1.CEL/021.png",
+      "png_sha256": "2c94fbd9df5aca540902ddb39bea472ac1f5d9333082f5ffd61457d1ed3ffbf5",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "runtime_asset_sha256": "2c94fbd9df5aca540902ddb39bea472ac1f5d9333082f5ffd61457d1ed3ffbf5",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/dragon-production/raw/DRAGON1.CEL/021.png",
+      "raw_sha256": "23a09af1e02baad237384dc9cce2752dcbde6d0ded18b8e21aa9b0644517aa4a",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/dragon-production/prompts/DRAGON1.CEL-021.txt",
+      "prompt_sha256": "137f41741327bf68d32424d570d347a1a087de2b4504a575178bdb84a60fed85",
+      "generation_tool": "builtin_image_gen",
+      "source_size": [
+        41,
+        36
+      ],
+      "target_size": [
+        164,
+        144
+      ],
+      "original": {
+        "path": "references/original/DRAGON1.CEL/021.png",
+        "sha256": "13540c175a764bf51fe1477c6a96eb15f786a450cdd8ac4f010bf8983a2c32e7",
+        "width": 41,
+        "height": 36
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material"
+    }
+  ],
+  "aliases": [],
+  "limitations": [
+    "Alle16ruter normal/speilet i kildebaserte WASM-frontend-fixturer; dette er ikke naturlig gameplay for hver rute.",
+    "Original CPU-dragekamp med tre scenestartskrivinger viser007+008 sammen med uendrede originaldeler ved1252. Ingen palett- eller tegnelisteskriving.",
+    "Original bakgrunn beholdes for figurkontroll. Andre standardfigurer beholdes og posekontrakter er0.",
+    "Alle16mastere har separat builtin-bildegenkall.009v1 er avvist;009v2 bevarer det skyggefulle midthornet som bein.",
+    "Dragon2/5 produseres videre separat og er ikke del av denne frosne banken."
+  ]
+}

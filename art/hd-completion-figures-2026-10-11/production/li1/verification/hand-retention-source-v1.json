@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "status": "source_cause_confirmed",
+  "scope": "Read-only diagnostic of prior eea5 renderer; production never edited by diagnostic. V1 passed22. V2 PNG/CPU comparisons passed but its final current-source hash assertion failed because root advanced renderer to da074 while it was running. V2 is historical source evidence, not a passing delivery runtime.",
+  "source_bank_sha256": "bd9459d60300d9972b65ebaf10c0213fed1086e9559c755564a1e90e8416691d",
+  "original_frame": 12,
+  "diagnostic_base_html_sha256": "2fbacb546b0e322f4c7097ab722e6c6bdfb583d2fc80e99112308af8445590a9",
+  "diagnostic_loaded_html_sha256": "4b8bb221d43b56ce4a089b0041056f1025947109e9e37f4796348ac0700daf7b",
+  "before_production_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "eea5eaec6e00fd2f68401341d81bd1cc4bfe6f27979b666e7dc99ea6dea08414",
+    "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "event": {
+    "frame": 4512,
+    "key": "72,84,25,64",
+    "stored_hash": 408066911,
+    "current_hash": 682573777,
+    "deleted": true,
+    "still": true,
+    "mismatch": [],
+    "cell_changes": [
+      {
+        "x": 92,
+        "y": 84,
+        "source": 0,
+        "old": 18,
+        "current": 255
+      },
+      {
+        "x": 93,
+        "y": 84,
+        "source": 0,
+        "old": 17,
+        "current": 255
+      },
+      {
+        "x": 94,
+        "y": 84,
+        "source": 0,
+        "old": 16,
+        "current": 255
+      },
+      {
+        "x": 96,
+        "y": 84,
+        "source": 0,
+        "old": 26,
+        "current": 255
+      },
+      {
+        "x": 93,
+        "y": 85,
+        "source": 0,
+        "old": 18,
+        "current": 255
+      },
+      {
+        "x": 96,
+        "y": 85,
+        "source": 0,
+        "old": 16,
+        "current": 255
+      },
+      {
+        "x": 94,
+        "y": 86,
+        "source": 0,
+        "old": 18,
+        "current": 255
+      },
+      {
+        "x": 95,
+        "y": 86,
+        "source": 0,
+        "old": 17,
+        "current": 255
+      },
+      {
+        "x": 96,
+        "y": 86,
+        "source": 0,
+        "old": 17,
+        "current": 255
+      },
+      {
+        "x": 95,
+        "y": 87,
+        "source": 0,
+        "old": 18,
+        "current": 255
+      },
+      {
+        "x": 96,
+        "y": 87,
+        "source": 0,
+        "old": 18,
+        "current": 255
+      }
+    ],
+    "source_transparent_changes": 11,
+    "source_opaque_changes": 0,
+    "cluster": [
+      {
+        "start": 4509,
+        "vis": 4513,
+        "frames": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22
+        ]
+      }
+    ],
+    "draw": {
+      "fil": "li1.cel",
+      "bilde": 12,
+      "x": 72,
+      "y": 84,
+      "w": 25,
+      "h": 64,
+      "xoff": 0,
+      "speilet": false,
+      "target": 441850,
+      "caller": 549914
+    }
+  },
+  "diagnostics": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/li1/verification/hand-trace-v1/test.json",
+      "sha256": "112d53d9491934611e889f808dad5d7acf733b10839a47c118bc7134d7d47193",
+      "status": "passed"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/li1/verification/hand-trace-v2/test.json",
+      "sha256": "5a980b3729cea8f5bb0e3dd072a6e89a076264e2861cb75c3303e2df034339bf",
+      "status": "failed"
+    }
+  ],
+  "corrected_production_render_sha256": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+  "assertion": "Only11 source-transparent pixels change when lightning disappears; every source-opaque cell is unchanged. staarFortsatt=true; old rectangle hash GC nonetheless deletes LI1/012 at4512."
+}

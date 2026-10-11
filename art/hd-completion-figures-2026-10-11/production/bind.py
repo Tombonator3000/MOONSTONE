@@ -42,13 +42,13 @@ def main():
  original4x=original.resize((r['target_width'],r['target_height']),Image.Resampling.NEAREST)
  body_original=original.copy();shadow_positions=[]
  if args.separate_shadow:
-  assert args.palette_case=='troll' and pal['colors'][5]==[0,0,0]
+  assert args.palette_case in {'troll','balok'} and pal['colors'][5]==[0,0,0]
   troll2_shadow={'TROLL2.CEL/000.png':0,'TROLL2.CEL/001.png':38,'TROLL2.CEL/002.png':0,'TROLL2.CEL/006.png':0,'TROLL2.CEL/010.png':0,'TROLL2.CEL/011.png':0,'TROLL2.CEL/012.png':39,'TROLL2.CEL/014.png':0}
-  assert args.key in {f'TROLL1.CEL/{n:03}.png' for n in [2,3,4,5,8,11,13,19,29,34,40]} or args.key in troll2_shadow,'Indeks5 er ikke generelt en fotskygge'
+  assert args.key in {'Balok1.CEL/003.png','Balok1.CEL/006.png','Balok1.CEL/011.png','Balok1.CEL/020.png','Balok1.CEL/027.png','Balok1.CEL/028.png','Balok1.CEL/033.png','Balok1.CEL/036.png','Balok1.CEL/040.png','Balok1.CEL/043.png'} or args.key in {f'TROLL1.CEL/{n:03}.png' for n in [2,3,4,5,8,11,13,19,29,34,40]} or args.key in troll2_shadow,'Indeks5 er ikke generelt en fotskygge'
   packed=Image.open(FIGURES/r['packed_original']['path'])
   bits=[1<<n for n in range(5) if r['plane_mask']&(1<<n)]
   source_indices=[sum(bit for n,bit in enumerate(bits) if v&(1<<n)) for v in packed.getdata()]
-  shadow_top=troll2_shadow[args.key] if args.key in troll2_shadow else 0 if args.key.startswith('TROLL2.CEL/') or args.key in {'TROLL1.CEL/008.png','TROLL1.CEL/019.png','TROLL1.CEL/029.png','TROLL1.CEL/034.png','TROLL1.CEL/040.png'} else original.height-(10 if args.key=='TROLL1.CEL/013.png' else 9 if args.key=='TROLL1.CEL/002.png' else 8)
+  shadow_top=29 if args.key=='Balok1.CEL/028.png' else 63 if args.key=='Balok1.CEL/027.png' else 29 if args.key=='Balok1.CEL/006.png' else 0 if args.key in {'Balok1.CEL/003.png','Balok1.CEL/011.png','Balok1.CEL/020.png','Balok1.CEL/033.png','Balok1.CEL/036.png','Balok1.CEL/040.png','Balok1.CEL/043.png'} else troll2_shadow[args.key] if args.key in troll2_shadow else 0 if args.key.startswith('TROLL2.CEL/') or args.key in {'TROLL1.CEL/008.png','TROLL1.CEL/019.png','TROLL1.CEL/029.png','TROLL1.CEL/034.png','TROLL1.CEL/040.png'} else original.height-(10 if args.key=='TROLL1.CEL/013.png' else 9 if args.key=='TROLL1.CEL/002.png' else 8)
   for y in range(original.height):
    for x in range(original.width):
     if source_indices[y*original.width+x]==5 and y>=shadow_top:
@@ -97,6 +97,7 @@ def main():
  bank,frame=args.key.split('/')
  path=ART/'bound'/bank/frame.replace('.png','')/sha(args.raw.read_bytes())[:16]/('diagnostic-unapproved' if args.diagnostic else ('separate-shadow-troll2-v1-original-flat' if args.key.startswith('TROLL2.CEL/') else 'separate-shadow-feet-v23-original-flat' if args.key=='TROLL1.CEL/040.png' else 'separate-shadow-feet-v21-original-flat' if args.key=='TROLL1.CEL/034.png' else 'separate-shadow-feet-v18-original-flat' if args.key=='TROLL1.CEL/029.png' else 'separate-shadow-bottom10-v13' if args.key=='TROLL1.CEL/013.png' else 'separate-shadow-feet-v12-original-flat' if args.key=='TROLL1.CEL/011.png' else 'separate-shadow-feet-v9-original-flat' if args.key=='TROLL1.CEL/008.png' else 'separate-shadow-bottom8-v7') if args.separate_shadow else 'rounded-source-edge-v5')
  if args.exact_flat_shadow and not args.diagnostic:path=path.parent/'separate-shadow-walk-v8-original-flat'
+ if args.palette_case=='balok' and args.separate_shadow and not args.diagnostic:path=path.parent/'separate-shadow-balok-v1-original-flat'
  path.mkdir(parents=True,exist_ok=True)
  # Only a small whole-fragment placement correction is allowed. It preserves
  # generated anatomy and natural alpha edges; no per-row body deformation and
@@ -151,7 +152,7 @@ def main():
   shadow_shape=source_contours(shadow_bits,original.width,original.height,lambda a:a>0)
   shadow_svg=path/'shadow.svg';shadow_svg.write_text(f'<svg xmlns="http://www.w3.org/2000/svg" width="{r["target_width"]}" height="{r["target_height"]}" viewBox="0 0 {r["width"]} {r["height"]}"><path d="{shadow_shape}" fill="black" fill-rule="evenodd"/></svg>\n')
   subprocess.run([node,str(ART/'mask.cjs'),str(shadow_svg),str(path/'shadow.png'),str(r['target_width']),str(r['target_height'])],env=env,check=True)
-  if args.exact_flat_shadow or args.key.startswith('TROLL2.CEL/') or args.key in {'TROLL1.CEL/008.png','TROLL1.CEL/019.png','TROLL1.CEL/011.png','TROLL1.CEL/013.png','TROLL1.CEL/029.png','TROLL1.CEL/034.png','TROLL1.CEL/040.png'}:
+  if args.exact_flat_shadow or args.key in {'Balok1.CEL/003.png','Balok1.CEL/006.png','Balok1.CEL/011.png','Balok1.CEL/020.png','Balok1.CEL/027.png','Balok1.CEL/028.png','Balok1.CEL/033.png','Balok1.CEL/036.png','Balok1.CEL/040.png','Balok1.CEL/043.png'} or args.key.startswith('TROLL2.CEL/') or args.key in {'TROLL1.CEL/008.png','TROLL1.CEL/019.png','TROLL1.CEL/011.png','TROLL1.CEL/013.png','TROLL1.CEL/029.png','TROLL1.CEL/034.png','TROLL1.CEL/040.png'}:
    # Spredte opprinnelige skyggeprikker beholdes eksakt, ikke nytegnet.
    original_shadow=Image.new('RGBA',original.size);original_shadow.putdata([(0,0,0,v) for v in shadow_bits]);original_shadow.resize(result.size,Image.Resampling.NEAREST).save(path/'shadow.png')
   result=Image.alpha_composite(Image.open(path/'shadow.png').convert('RGBA'),result)
@@ -183,6 +184,8 @@ def main():
   status='unapproved_geometry_diagnostic' if args.diagnostic else 'source_guided_candidate_not_activated')
  if args.exact_flat_shadow or args.key=='TROLL1.CEL/019.png':
   review['original_flat_shadow_packing']['method']='Originalt flatt svart indeks5-fotskyggefelt bevares med eksakt naermeste4x-alfa i sitt kildebekreftede rektangel. Bare kropp/fot inneholder separat generert fotomateriale. Ingen nytegning av skyggen paastaas.'
+ if shadow_positions and args.palette_case=='balok':
+  review['original_flat_shadow_packing']['method']='Originalt flatt svart indeks5-fotskyggefelt innen det oppgitte kilderektangelet bevares med eksakt naermeste4x-alfa. Indeks5 utenfor rektangelet er generert kropp eller manke. Ingen nytegning av skyggen paastaas.'
  (path/'art-record.json').write_text(json.dumps(review,ensure_ascii=False,indent=2)+'\n')
  sheet=Image.new('RGB',(900,580),'#222222');draw=ImageDraw.Draw(sheet)
  for x,title,im in [(15,'Original correct palette',original4x),(310,'Generated before packing',generated),(605,'Aligned candidate',result)]:

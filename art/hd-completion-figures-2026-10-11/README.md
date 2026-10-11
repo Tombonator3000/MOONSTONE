@@ -92,7 +92,7 @@ Bruk `--gray-reference 128` bare når grå rustning bruker grånivå 128 som nø
 
 Pakkeren avviser feil størrelse, feil PNG-modus, feil kilde-/kandidatbevis, for stor silhuettendring og en ren nærmeste-nabo-forstørrelse. Den måler formtreff, kopierer masteren til de dokumenterte aliasene og lager masker med kandidatens skyggedetaljer. Dette beviser ikke fotografisk kvalitet eller faktisk animasjonsflyt. Gjennomgå kilde og kandidat visuelt, og kjør original/HD, speiling, lys, palettbytte og overlapp i faktisk WASM-spill før en separat aktivator får endre produksjonspakken.
 
-`KN5.ob` og `blo.cel` har ennå ikke full scenemåling. Noen KN5-fragmenter bruker indeks 9/11; dagens bestilling og maskeflagg bevares, men disse må undersøkes i faktisk kamp før endelig fargegodkjenning. Vanlig PNG-pakking beviser ikke korrekt program-overlegg, palett eller animasjonsforløp i introen.
+KN5 har nå en egen originalkode-/palettkontrakt og65 separate HD-mastere. Draktfelt6..8 er levende; faste drage-/ildfarger følger sin kildepalett. Alle ruter har normal-/speilfixturer og de sju brennende ridderrutene er sett i faktisk original dragekamp. Dette gir fortsatt ikke naturlig animasjonsdekning av alle65 ruter. `blo.cel` gjenstår.
 
 ## Tredje figurleveranse, 12. oktober 2026
 
@@ -101,3 +101,11 @@ Pakkeren avviser feil størrelse, feil PNG-modus, feil kilde-/kandidatbevis, for
 Standardlasting er kontrollert i de leverte scenene uten kandidatimport. TAV/DICE følger alle fire spillerpaletter. HA1 har sju naturlig observerte introruter og44 normal-/speilfixturer; øvrig dekning og begrensninger står i de frosne bevisene. Original/HD-returer og emulert tilstand er kontrollert. Full naturlig reise gjennom alle animasjoner er ikke påstått.
 
 Original-PNG-er, bankeksporter, kildeindeks-/maskebinærfiler og kompilert HTML er regenererbare lokale data. De sjekkes ikke inn. Bruk de relevante `prepare.py`-/`prepare-static.py`-skriptene, original-ZIP-en og `web/pakk.py` ved reproduksjon. Rå genererte bilder, prompts, kildekontrakter, pakkemetoder og bevis beholder egne hasher. Gamle avviste forsøk er lokale diagnosefiler og er ikke aktive spillassets.
+
+## Fjerde figurleveranse, 12. oktober 2026
+
+`delivery-progress-004.json` binder178 nye, separat genererte fotomastere til215 originalruter og68 masker. Dette gir283 nye PNG-filer: KN5/65, Balok1/28, TROLL2/2, HEN/Klift/74, LI1/30 og DRAGON1/16 ruter. Standardpakken har1428PNG/1434filer og81 bakgrunner. CSV-restlisten er1270 selvstendige mastere/1340 konkrete ruter, fordelt på monstre956, blod41 og intro/slutt273 mastere.
+
+LI1 og den oppstigende HEN-ridderen bruker kildebekreftede fullindeksmasker for normalfarger, lynblink og svart toning. En ny fotoimport får aldri en gammel maske. LI1/012 beholdes gjennom originalens kopier over transparente hull; ukjent forgrunn avvises fortsatt. Tre eksakt identifiserte TROLL2-likfragmenter kan følge originalens bakgrunnsbuffer, også etter at tegnelisten blir tom. Ukjent kilde, kall, buffer eller pikseleierskap gir originalgrafikk.
+
+Den ferdige standardpakken har egne faktisk kjørte intro-/sluttprøver uten privat import, nøyaktige Original/HD-returer og uendret emulert tilstand. Historiske bevis beholder sine opprinnelige kodehash; de eksakte presentasjonskildene er bevart i `verification/source-freezes-004`. Nye totaler og begrensninger står i kvitteringene. Guardian-kandidater og andre uferdige animasjoner er ikke med i denne leveransen.

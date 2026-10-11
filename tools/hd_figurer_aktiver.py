@@ -69,6 +69,8 @@ def validate(delivery):
     for path, digest in delivery['production_code_sha256'].items():
         checked(path, digest)
     checked('web/build/moonstone-core.js', delivery['wasm_core_sha256'])
+    for companion in delivery.get('companion_derivations', []):
+        checked(companion['path'], companion['sha256'])
     proofs = {}
     for proof in delivery['proofs']:
         data = checked(proof['path'], proof['sha256']).read_bytes()

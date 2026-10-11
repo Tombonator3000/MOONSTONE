@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "66ec11d9a007834b172f721a6eccfe9be2f0a5a27ecbfc7ea40531a92cfe771a",
+    "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-f5f459bfbd6d06c7-d21380f6/test.json",
+      "sha256": "b6b1f50034f38c891dc23135b334b564f7097007b0e5e3f5ce75c20e973662fd",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-f5f459bfbd6d06c7-d21380f6/loaded.html",
+      "html_sha256": "d083dda93f48e0d695952b3bcebae79a94328a5e427c65ff9a232788afd04eae"
+    }
+  ],
+  "scope": "Separate individuelt genererte ruter, sammenliknet med original og sett samlet i kontrollert originalkamp. Eksakte Original/HD-returer. Original flat skygge beholdes uten nytegningspaastand. Ingen full animasjonsdekning eller naturlig kartreise.",
+  "entries": [
+    {
+      "key": "Balok1.CEL/018.png",
+      "bank": "Balok1.CEL",
+      "frame": 18,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "8c7af2e4a6b47f6c533e6e26e9fbd73a5f26009e4072dc0687c36bb681d6dd4d",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/018/c82d1f2c66fdb9fe/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "39fa9cb20ee3814868ae9f5f2ca8234deebb323c7be62520e985ce707ed98f2a",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/018-v1.png",
+      "raw_sha256": "c82d1f2c66fdb9fe18d195392a50a4519cb491e808e48d86a2670af4609fe304",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/018-v1.txt",
+      "prompt_sha256": "5885f993e96ad0bddbfeb293183395518630500adda0540a9116315153a94fbe",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-f5f459bfbd6d06c7-d21380f6/test.json",
+      "runtime_asset_sha256": "39fa9cb20ee3814868ae9f5f2ca8234deebb323c7be62520e985ce707ed98f2a",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/018/c82d1f2c66fdb9fe/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "3cab93ad0eea822eb0b8aef3cde883b20e8823f19c320a38f93bf9bbc8260591",
+      "qa": {
+        "frame": 1355,
+        "mirrored": false,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "Balok1.CEL/019.png",
+      "bank": "Balok1.CEL",
+      "frame": 19,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "c11089a8dd6b443328ff7922f88fa3a8980cedb2ad5c4e5728e45ae82cd5534c",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/019/f24759aa03059861/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "d07dda6c0a1da94eab69b3640b869f7430f712494f5341beb949b249eecdc86e",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/019-v1.png",
+      "raw_sha256": "f24759aa03059861b2bacc06384f1086ba1d2f7cd9bb4780dda2f6b66c69fc62",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/019-v1.txt",
+      "prompt_sha256": "26f2f7149592ef1feb6d20ae4070efbce2d4c117b4f752411bd455d13bad7332",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-f5f459bfbd6d06c7-d21380f6/test.json",
+      "runtime_asset_sha256": "d07dda6c0a1da94eab69b3640b869f7430f712494f5341beb949b249eecdc86e",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/019/f24759aa03059861/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "76bd9a67445da7390f8831c06f914fb330bb0801914ea2efe74e928b4317f639",
+      "qa": {
+        "frame": 1355,
+        "mirrored": false,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "Balok1.CEL/020.png",
+      "bank": "Balok1.CEL",
+      "frame": 20,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "ffddcad9b1cf6d3aa55560059c17eed1a5d8b38d1c42a3270eae4b8b29096449",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/020/bd4260d4def57007/separate-shadow-balok-v1-original-flat/candidate.png",
+      "png_sha256": "9db63108cce36379abced4830dc990e8f32f20bb8463100d727100e497dd382a",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/020-v1.png",
+      "raw_sha256": "bd4260d4def57007338c92bedcec42bbf0302098c3989efdaf036fbbcf9cb28c",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/020-v1.txt",
+      "prompt_sha256": "f46caedfc58a66069116d9ef94b0e8bea10c8e985f4ee631d7f670ec4b690d5c",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-f5f459bfbd6d06c7-d21380f6/test.json",
+      "runtime_asset_sha256": "9db63108cce36379abced4830dc990e8f32f20bb8463100d727100e497dd382a",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/020/bd4260d4def57007/separate-shadow-balok-v1-original-flat/art-record.json",
+      "art_record_sha256": "4e3dbfe9f20422bff7289c124108206832710b564d8b8c07f5b77ccc817d54e1",
+      "qa": {
+        "frame": 1355,
+        "mirrored": false,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": "original_flat_retained_not_redrawn"
+      }
+    }
+  ]
+}

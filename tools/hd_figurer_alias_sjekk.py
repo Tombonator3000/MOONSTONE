@@ -56,10 +56,11 @@ extra_path = root / 'art/hd-completion-figures-2026-10-11/production/activation-
 old_extra = json.loads(extra_path.read_text())
 # Nye negative proever starter med en gyldig leveranse paa gjeldende renderer.
 # Ellers kunne en urelatert gammel kodehash gi falskt bestaaende avvisning.
-current = json.loads((root/'art/hd-completion-figures-2026-10-11/production/ov1/activation-set-001.json').read_text())
+current = json.loads((root/'art/hd-completion-figures-2026-10-11/production/activation-set-balok-008-attack-seven-ankle-v5.json').read_text())
+current_count = len(gate.validate(current))
 extra_delivery = copy.deepcopy(current)
 extra_delivery['entries'][0]['additional_generated_material'] = next(e['additional_generated_material'] for e in old_extra['entries'] if e.get('additional_generated_material'))
-assert len(gate.validate(extra_delivery)) == 4
+assert len(gate.validate(extra_delivery)) == current_count
 checks.append('Tilleggsmaterialproeve er gyldig foer negativ mutasjon')
 bad = copy.deepcopy(extra_delivery)
 next(e for e in bad['entries'] if e.get('additional_generated_material'))['additional_generated_material']['raw_sha256'] = '0'*64
@@ -70,7 +71,7 @@ rejects('Endret materialproveniens avvises', lambda: gate.validate(bad), 'Endret
 old_many = json.loads((root / 'art/hd-completion-figures-2026-10-11/production/activation-set-troll-005-join-v1.json').read_text())
 many_delivery = copy.deepcopy(current)
 many_delivery['entries'][0]['additional_generated_materials'] = next(e['additional_generated_materials'] for e in old_many['entries'] if e.get('additional_generated_materials'))
-assert len(gate.validate(many_delivery)) == 4
+assert len(gate.validate(many_delivery)) == current_count
 checks.append('Materiallisteproeve er gyldig foer negativ mutasjon')
 bad = copy.deepcopy(many_delivery)
 next(e for e in bad['entries'] if e.get('additional_generated_materials'))['additional_generated_materials'][-1]['raw_sha256'] = '0'*64
