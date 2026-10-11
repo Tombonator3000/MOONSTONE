@@ -1,0 +1,32 @@
+{
+  "id": "mi.c/043",
+  "key": "mi.c/043",
+  "raw": "raw/mi.c/043.png",
+  "source": "research/runtime/references/mi.c/043.png",
+  "prompt": "prompts/mi.c/043.json",
+  "review_status": "reviewed_for_runtime",
+  "placement": "source_bounds",
+  "name": "Math-transformed toad map status, blue marker",
+  "preserve_indices": [],
+  "body_bounds": [
+    0,
+    0,
+    10,
+    12
+  ],
+  "review_notes": "Visually compared with decoded original map toad and selected KI toad. Same frontal squat body, realistic green skin, eyes, feet and small belly marker. Map marker lower third is fixed brown instead of dark player color. Green top is muted to original map hue. No added objects or backdrop; true transparent alpha. Original index19 is internal eye/mouth shading, not an external contour; original31 is absent.",
+  "source_color_contract": {
+    "stripe_index": 30,
+    "stripe_rgb": [
+      0,
+      68,
+      255
+    ],
+    "fixed_brown_rgb": [
+      136,
+      102,
+      34
+    ]
+  },
+  "related_master": "raw/life/toad-blue.png"
+}

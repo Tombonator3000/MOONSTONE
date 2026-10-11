@@ -1,0 +1,32 @@
+/* Kildepalettprøve for begge livpaneler. Rasterprober er originalgrafikk,
+ * ikke ny HD-kunst. De separate bildefilene må velges eksakt i renderer. */
+'use strict';
+const fs=require('fs'),path=require('path'),assert=require('assert/strict'),{chromium}=require('playwright');
+const {render,stable,fixture}=require('./hd_resterende_ikoner_fixture.cjs');
+const root=path.resolve(__dirname,'..'),dir=root+'/art/hd-remaining-icons-2026-10-11/research/runtime',contracts=JSON.parse(fs.readFileSync(dir+'/source-contracts.json'));
+const pairs={blue:[[0,51,255],[0,34,136]],orange:[[255,187,0],[187,102,0]],green:[[68,204,51],[17,102,0]],red:[[255,0,0],[136,0,0]],purple:[[0,34,119],[0,0,51]]};
+const metas=JSON.parse(fs.readFileSync(root+'/web/hd/icons.json')).entries.filter(m=>['ki.cel/017','ki.cel/018','ki.cel/019','ki.cel/020'].includes(m.key)).map(m=>{
+ m.render_mode='raster';m.reference_palette=structuredClone(contracts.entries.find(c=>c.key===m.key).reference_palette);const side=m.key.endsWith('017')||m.key.endsWith('019')?[28,29]:[30,31];side.forEach((c,i)=>m.reference_palette[c]=pairs.blue[i]);
+ m.palette_variants=Object.entries(pairs).map(([id,colors])=>({id,key:id==='blue'?m.key:'ki-palettes/'+m.key.slice(-3)+'-'+id,indices:side,colors}));return m;
+});
+const report={scope:'Teknisk originalrasterprobe, ikke kunstleveranse. Begge paneler og alle fem dokumenterte ridderpaletter, eksakt bildefil, feil kildepalett og manglende bilde.',checks:[],samples:[],errors:[]},check=(n,v=true)=>{assert(v,n);report.checks.push(n);};let browser;
+(async()=>{
+ browser=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});const p=await browser.newPage({viewport:{width:960,height:700}});p.on('pageerror',e=>report.errors.push(e.message));
+ await p.addInitScript(()=>localStorage.setItem('moonstone.innstillinger',JSON.stringify({hd:'hd',hdValgt:true})));
+ await p.goto(process.env.MOONSTONE_URL||'http://127.0.0.1:8769/moonstone.html');await p.waitForFunction(()=>window.moonDebug&&moonDebug.Kjerne.bildeNr()>1);await p.keyboard.press('Pause');await p.waitForFunction(()=>moonDebug.StandardHd.info().klar,null,{timeout:60000});const state=await p.evaluate(()=>moonDebug.Kjerne.sjekksum());
+ const images=await p.evaluate(({metas,contracts})=>{const images=[];for(const m of metas){const orig=contracts.entries.find(c=>c.key===m.key);for(const v of m.palette_variants){const colors=structuredClone(contracts.palettes.inventory.palette);v.indices.forEach((c,i)=>colors[c]=v.colors[i]);const canvas=document.createElement('canvas');canvas.width=m.width*8;canvas.height=m.height*8;const ctx=canvas.getContext('2d');for(let y=0;y<m.height;y++)for(let x=0;x<m.width;x++){const col=orig.indices[y*m.width+x];if(!col)continue;ctx.fillStyle='rgb('+colors[col].slice(0,3).join(',')+')';ctx.fillRect(x*8,y*8,8,8);}images.push({key:v.key,png:canvas.toDataURL()});}}return images;},{metas,contracts});
+ await p.evaluate(async({images,metas})=>{const files=images.map(im=>{const f=new File([Uint8Array.from(atob(im.png.split(',')[1]),c=>c.charCodeAt(0))],im.key.split('/').pop()+'.png');Object.defineProperty(f,'webkitRelativePath',{value:im.key+'.png'});return f;});files.push(new File([JSON.stringify({schema:1,entries:metas})],'icons.json'));await moonDebug.Visning.lastHdPakke(files);},{images,metas});check('probe_import_accepted',await p.evaluate(()=>moonDebug.Visning.hdIkonInfo().feil.length===0));
+ for(const m of metas){const c=contracts.entries.find(c=>c.key===m.key);
+  for(const v of m.palette_variants){const colors=structuredClone(contracts.palettes.inventory.palette);v.indices.forEach((n,i)=>colors[n]=v.colors[i]);await fixture(p,c,false,colors);await stable(p);check(m.key+'_'+v.id+'_accepted',await p.evaluate(()=>moonDebug.Visning.hdIkonInfo().viste.length===1));
+   const expected=images.find(im=>im.key===v.key).png;
+   const exact=await p.evaluate(({expected,w,h})=>{let found=false;moonDebug.Visning.scene().traverse(m=>{const im=m.material?.uniforms?.map?.value?.image;if(m.visible&&im?.width===w&&im?.height===h&&im.toDataURL&&im.toDataURL()===expected)found=true;});return found;},{expected,w:m.width*8,h:m.height*8});check(m.key+'_'+v.id+'_exact_image_selected',exact);report.samples.push({key:m.key,id:v.id,selected_image:v.key});
+  }
+  // Unknown knight colours and changed metal/toad colours cannot select a variant.
+  const colors=structuredClone(contracts.palettes.inventory.palette),side=m.palette_variants[0].indices;side.forEach((n,i)=>colors[n]=pairs.blue[i]);colors[side[0]]=[17,255,255];await fixture(p,c,false,colors);await stable(p);check(m.key+'_unknown_knight_pair_rejected',await p.evaluate(()=>moonDebug.Visning.hdIkonInfo().viste.length===0));
+  side.forEach((n,i)=>colors[n]=pairs.blue[i]);colors[2]=[255,0,255];await fixture(p,c,false,colors);await stable(p);check(m.key+'_unknown_other_palette_rejected',await p.evaluate(()=>moonDebug.Visning.hdIkonInfo().viste.length===0));
+ }
+ // Deleting one actual image must preserve the original instead of reusing blue.
+ await p.evaluate(()=>moonDebug.Visning.fjernHdBilde('ki-palettes/017-red'));const c=contracts.entries.find(c=>c.key==='ki.cel/017'),colors=structuredClone(contracts.palettes.inventory.palette);[28,29].forEach((n,i)=>colors[n]=pairs.red[i]);await fixture(p,c,false,colors);await stable(p);check('missing_red_image_rejects_HD',await p.evaluate(()=>moonDebug.Visning.hdIkonInfo().viste.length===0));
+ const bad=structuredClone(metas[0]);bad.palette_variants[0].colors[0]=[0,255,255];await p.evaluate(async bad=>moonDebug.Visning.lastHdPakke([new File([JSON.stringify({schema:1,entries:[bad]})],'icons.json')]),bad);check('undocumented_variant_metadata_rejected',await p.evaluate(()=>moonDebug.Visning.hdIkonInfo().feil.includes('Ugyldig ridderpalettvariant')));
+ check('emulated_state_unchanged',await p.evaluate(()=>moonDebug.Kjerne.sjekksum())===state);check('no_browser_errors',report.errors.length===0);report.status='passed';
+})().catch(e=>{report.status='failed';report.failure=String(e);console.error(e);process.exitCode=1;}).finally(async()=>{report.created_at=new Date().toISOString();fs.writeFileSync(dir+'/palette-variant-test.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({status:report.status,checks:report.checks.length,errors:report.errors,failure:report.failure}));if(browser)await browser.close();});

@@ -1,0 +1,11 @@
+{
+  "name": "Toad life icon, dark navy-purple",
+  "key": "life-toad-purple",
+  "prompt": "Use case: precise-object-edit. Moonstone toad life/status icon fifth-player color variant. Change ONLY the small blue vertical rectangular identifier stripe at center of the toad's lower chest/belly to the original game's dark navy player color: top/lit portion approximately RGB0,34,119 and dark lower portion RGB0,0,51. It should read as very dark navy with a faint purple-black impression, much darker than the blue source stripe, not bright purple or neutral gray. Preserve exact stripe size, position and two-value rectangle. Keep the rest of the green toad unchanged: natural skin colors/textures, pale-gray eyes with horizontal dark pupils, neutral mouth, head, feet, anatomy, front-facing crouched pose, outline, dimensions and lighting. No new clothes, props or other objects. Genuine transparent RGBA background exactly as source, no glow, scenery, exterior shadow or text.",
+  "tool": "builtin_imagegen",
+  "transparent_background": true,
+  "reference": "raw/life/toad-blue.png",
+  "output_hint": "Generated images are saved to /home/tombonator3000t/.codex/generated_images/01a12b7a-1e1f-7fd3-b160-eb7eeeee10f5 as /home/tombonator3000t/.codex/generated_images/01a12b7a-1e1f-7fd3-b160-eb7eeeee10f5/exec-bc8d3b21-c1f8-4f28-a4f7-679469b403d2.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "review_status": "reviewed_for_runtime",
+  "review": "Visually checked fifth-player dark navy belly mark with darker lower end, preserving same green toad form, natural skin/eyes, anatomy and pose. Original fifth pair retained rather than bright invented purple."
+}

@@ -3,7 +3,7 @@
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),{chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),out=path.resolve(root,process.env.MOONSTONE_HD_TEST_OUTPUT||'art/faithful-hd-icons-2026-10-11/verification');
 const url=process.env.MOONSTONE_URL||'http://127.0.0.1:8769/moonstone.html';
-const metas=JSON.parse(fs.readFileSync(root+'/web/hd/icons.json')).entries.filter(m=>m.render_mode==='raster');
+const metas=JSON.parse(fs.readFileSync(root+'/web/hd/icons.json')).entries.filter(m=>m.render_mode==='raster'&&m.scene==='world-map');
 const report={url,checks:[],errors:[],scope:'Naturlig karttur, faktisk teksturtegning, originalfallback og uendret spilltilstand.'};
 const check=(n,ok)=>{assert(ok,n);report.checks.push(n);};
 let b;
@@ -38,18 +38,26 @@ async function render(p){return p.evaluate(()=>{const{Kjerne:K,Visning:V,SceneHd
   check(m.key+'_restored',await render(p)===full);
  }
  const m=metas.find(m=>m.key==='map-landmarks/002');
- await p.evaluate(m=>{const K=moonDebug.Kjerne;window.landmarkScan=K.skanout;const s=K.skanout(),pal=s.pal.slice(),c=+Object.keys(m.reference_palette).find(c=>!(m.reference_palette_cycles||[]).flat().includes(+c)&&m.reference_palette[c].some(v=>v>50));
-  for(let y=0;y<288;y++)pal[(y*32+c)*4]=(pal[(y*32+c)*4]+85)%256;K.skanout=()=>({...s,pal});},m);
+ await p.evaluate(m=>{const K=moonDebug.Kjerne;window.landmarkScan=K.skanout;window.landmarkFramebuffer=K.rammebuffer;const s=K.skanout(),pal=s.pal.slice(),fb=K.rammebuffer().slice(),c=+Object.keys(m.reference_palette).find(c=>!(m.reference_palette_cycles||[]).flat().includes(+c)&&m.reference_palette[c].some(v=>v>50));
+  // Rammebufferens RGB maa foelge samme palett som skanout i et ekte originalbilde.
+  for(let y=0;y<288;y++){pal[(y*32+c)*4]=(pal[(y*32+c)*4]+85)%256;for(let x=0;x<720;x++)if(s.idx[y*720+x]===c)fb.set(pal.subarray((y*32+c)*4,(y*32+c)*4+4),(y*720+x)*4);}
+  K.skanout=()=>({...s,pal});K.rammebuffer=()=>fb;},m);
  await render(p);
  const fallback=await p.evaluate(m=>{const lag=moonDebug.Visning.lagNaa(),s=moonDebug.Kjerne.skanout(),d=moonDebug.Kjerne.vindu();let n=0;
   for(let y=m.rect[1];y<m.rect[3];y++)for(let x=m.rect[0];x<m.rect[2];x++)if(lag.forIdx[y*320+x]===s.idx[(d[1]+y)*720+d[0]+x*2])n++;
   return{pixels:n,overlay:lag.overlays.some(o=>o.key===m.key)};},m);
  check('unsupported_palette_keeps_full_original_region',fallback.pixels===m.width*m.height&&!fallback.overlay);
- await p.evaluate(()=>{moonDebug.Kjerne.skanout=landmarkScan;delete window.landmarkScan;});check('palette_restore_exact',await render(p)===full);
+ await p.evaluate(()=>{moonDebug.Kjerne.skanout=landmarkScan;moonDebug.Kjerne.rammebuffer=landmarkFramebuffer;delete window.landmarkScan;delete window.landmarkFramebuffer;});
+ let restored=await render(p),settle=0;
+ // Utsnittet godtar et nytt vindu etter 25 tegninger. Logg eventuell stabilisering.
+ while(restored!==full&&settle<30){restored=await render(p);settle++;}
+ report.palette_restore={settle_frames:settle,exact:restored===full,crop:await p.evaluate(()=>moonDebug.Visning.utsnitt())};
+ if(restored!==full)fs.writeFileSync(out+'/palette-restore-failed.png',Buffer.from(restored.split(',')[1],'base64'));
+ check('palette_restore_exact',restored===full);
  const pillar=metas.find(m=>m.key==='map-icons/018');
  if(pillar){
   const overlays=await p.evaluate(()=>moonDebug.Visning.lagNaa().overlays);
-  const sites=metas.filter(m=>m.dynamic);
+  const sites=metas.filter(m=>m.dynamic&&/^map-icons\/\d{3}$/.test(m.key)&&+m.key.slice(-3)<23);
   check('23_gateways_with_original_size',sites.length===23&&sites.every(m=>!m.draw_rect&&m.width===9&&m.height===5&&overlays.some(o=>o.key===m.key&&o.rect.join()===m.rect.join())));
   // Statusendring i originalmarkoeren skal bevare originalen og skjule porten.
   await p.evaluate(m=>{const K=moonDebug.Kjerne;window.pillarScan=K.skanout;const s=K.skanout(),idx=s.idx.slice(),d=K.vindu();

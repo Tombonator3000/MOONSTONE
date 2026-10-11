@@ -1,0 +1,610 @@
+{
+  "checked_utc": "2026-10-11T15:49:49.981522+00:00",
+  "scope": "14 KI routes plus 4 static MI map-toad routes, 24 selected independent raw PNG outputs. Visual authoring review only; runtime integration and publishing handled separately.",
+  "tool": "builtin_imagegen",
+  "records": [
+    {
+      "key": "ki.cel/000",
+      "record": "asset-ki-000.json",
+      "selected_raw": "raw/ki.cel/000.png",
+      "prompt": "prompts/ki.cel/000.json",
+      "source": "research/inventory/references/ki.cel/000.png",
+      "variants": []
+    },
+    {
+      "key": "ki.cel/001",
+      "record": "asset-ki-001.json",
+      "selected_raw": "raw/ki.cel/001.png",
+      "prompt": "prompts/ki.cel/001.json",
+      "source": "research/inventory/references/ki.cel/001.png",
+      "variants": []
+    },
+    {
+      "key": "ki.cel/002",
+      "record": "asset-ki-002.json",
+      "selected_raw": "raw/ki.cel/002.png",
+      "prompt": "prompts/ki.cel/002.json",
+      "source": "research/inventory/references/ki.cel/002.png",
+      "variants": []
+    },
+    {
+      "key": "ki.cel/004",
+      "record": "asset-ki-004.json",
+      "selected_raw": "raw/ki.cel/004.png",
+      "prompt": "prompts/ki.cel/004.json",
+      "source": "research/inventory/references/ki.cel/004.png",
+      "variants": []
+    },
+    {
+      "key": "ki.cel/005",
+      "record": "asset-ki-005.json",
+      "selected_raw": "raw/ki.cel/005.png",
+      "prompt": "prompts/ki.cel/005.json",
+      "source": "research/inventory/references/ki.cel/005.png",
+      "variants": []
+    },
+    {
+      "key": "ki.cel/006",
+      "record": "asset-ki-006.json",
+      "selected_raw": "raw/ki.cel/006.png",
+      "prompt": "prompts/ki.cel/006.json",
+      "source": "research/inventory/references/ki.cel/006.png",
+      "variants": []
+    },
+    {
+      "key": "ki.cel/007",
+      "record": "asset-ki-007.json",
+      "selected_raw": "raw/ki.cel/007.png",
+      "prompt": "prompts/ki.cel/007.json",
+      "source": "research/inventory/references/ki.cel/007.png",
+      "variants": []
+    },
+    {
+      "key": "ki.cel/008",
+      "record": "asset-ki-008.json",
+      "selected_raw": "raw/ki.cel/008.png",
+      "prompt": "prompts/ki.cel/008.json",
+      "source": "research/inventory/references/ki.cel/008.png",
+      "variants": []
+    },
+    {
+      "key": "ki.cel/009",
+      "record": "asset-ki-009.json",
+      "selected_raw": "raw/ki.cel/009.png",
+      "prompt": "prompts/ki.cel/009.json",
+      "source": "research/inventory/references/ki.cel/009.png",
+      "variants": []
+    },
+    {
+      "key": "ki.cel/010",
+      "record": "asset-ki-010.json",
+      "selected_raw": "raw/ki.cel/010.png",
+      "prompt": "prompts/ki.cel/010.json",
+      "source": "research/inventory/references/ki.cel/010.png",
+      "variants": []
+    },
+    {
+      "key": "ki.cel/017",
+      "record": "asset-ki-017.json",
+      "selected_raw": "raw/life/helmet-blue.png",
+      "prompt": "prompts/life/helmet-blue.json",
+      "source": "research/inventory/references/ki.cel/017.png",
+      "variants": [
+        {
+          "id": "blue",
+          "raw": "raw/life/helmet-blue.png",
+          "indices": [
+            28,
+            29
+          ],
+          "colors": [
+            [
+              0,
+              51,
+              255
+            ],
+            [
+              0,
+              34,
+              136
+            ]
+          ],
+          "prompt": "prompts/life/helmet-blue.json"
+        },
+        {
+          "id": "orange",
+          "raw": "raw/life/helmet-orange.png",
+          "indices": [
+            28,
+            29
+          ],
+          "colors": [
+            [
+              255,
+              187,
+              0
+            ],
+            [
+              187,
+              102,
+              0
+            ]
+          ],
+          "prompt": "prompts/life/helmet-orange.json"
+        },
+        {
+          "id": "green",
+          "raw": "raw/life/helmet-green.png",
+          "indices": [
+            28,
+            29
+          ],
+          "colors": [
+            [
+              68,
+              204,
+              51
+            ],
+            [
+              17,
+              102,
+              0
+            ]
+          ],
+          "prompt": "prompts/life/helmet-green.json"
+        },
+        {
+          "id": "red",
+          "raw": "raw/life/helmet-red.png",
+          "indices": [
+            28,
+            29
+          ],
+          "colors": [
+            [
+              255,
+              0,
+              0
+            ],
+            [
+              136,
+              0,
+              0
+            ]
+          ],
+          "prompt": "prompts/life/helmet-red.json"
+        },
+        {
+          "id": "purple",
+          "raw": "raw/life/helmet-purple.png",
+          "indices": [
+            28,
+            29
+          ],
+          "colors": [
+            [
+              0,
+              34,
+              119
+            ],
+            [
+              0,
+              0,
+              51
+            ]
+          ],
+          "prompt": "prompts/life/helmet-purple.json"
+        }
+      ]
+    },
+    {
+      "key": "ki.cel/018",
+      "record": "asset-ki-018.json",
+      "selected_raw": "raw/life/helmet-blue.png",
+      "prompt": "prompts/life/helmet-blue.json",
+      "source": "research/inventory/references-blue/ki.cel/018.png",
+      "variants": [
+        {
+          "id": "blue",
+          "raw": "raw/life/helmet-blue.png",
+          "indices": [
+            30,
+            31
+          ],
+          "colors": [
+            [
+              0,
+              51,
+              255
+            ],
+            [
+              0,
+              34,
+              136
+            ]
+          ],
+          "prompt": "prompts/life/helmet-blue.json"
+        },
+        {
+          "id": "orange",
+          "raw": "raw/life/helmet-orange.png",
+          "indices": [
+            30,
+            31
+          ],
+          "colors": [
+            [
+              255,
+              187,
+              0
+            ],
+            [
+              187,
+              102,
+              0
+            ]
+          ],
+          "prompt": "prompts/life/helmet-orange.json"
+        },
+        {
+          "id": "green",
+          "raw": "raw/life/helmet-green.png",
+          "indices": [
+            30,
+            31
+          ],
+          "colors": [
+            [
+              68,
+              204,
+              51
+            ],
+            [
+              17,
+              102,
+              0
+            ]
+          ],
+          "prompt": "prompts/life/helmet-green.json"
+        },
+        {
+          "id": "red",
+          "raw": "raw/life/helmet-red.png",
+          "indices": [
+            30,
+            31
+          ],
+          "colors": [
+            [
+              255,
+              0,
+              0
+            ],
+            [
+              136,
+              0,
+              0
+            ]
+          ],
+          "prompt": "prompts/life/helmet-red.json"
+        },
+        {
+          "id": "purple",
+          "raw": "raw/life/helmet-purple.png",
+          "indices": [
+            30,
+            31
+          ],
+          "colors": [
+            [
+              0,
+              34,
+              119
+            ],
+            [
+              0,
+              0,
+              51
+            ]
+          ],
+          "prompt": "prompts/life/helmet-purple.json"
+        }
+      ]
+    },
+    {
+      "key": "ki.cel/019",
+      "record": "asset-ki-019.json",
+      "selected_raw": "raw/life/toad-blue.png",
+      "prompt": "prompts/life/toad-blue.json",
+      "source": "research/inventory/references/ki.cel/019.png",
+      "variants": [
+        {
+          "id": "blue",
+          "raw": "raw/life/toad-blue.png",
+          "indices": [
+            28,
+            29
+          ],
+          "colors": [
+            [
+              0,
+              51,
+              255
+            ],
+            [
+              0,
+              34,
+              136
+            ]
+          ],
+          "prompt": "prompts/life/toad-blue.json"
+        },
+        {
+          "id": "orange",
+          "raw": "raw/life/toad-orange.png",
+          "indices": [
+            28,
+            29
+          ],
+          "colors": [
+            [
+              255,
+              187,
+              0
+            ],
+            [
+              187,
+              102,
+              0
+            ]
+          ],
+          "prompt": "prompts/life/toad-orange.json"
+        },
+        {
+          "id": "green",
+          "raw": "raw/life/toad-green.png",
+          "indices": [
+            28,
+            29
+          ],
+          "colors": [
+            [
+              68,
+              204,
+              51
+            ],
+            [
+              17,
+              102,
+              0
+            ]
+          ],
+          "prompt": "prompts/life/toad-green.json"
+        },
+        {
+          "id": "red",
+          "raw": "raw/life/toad-red.png",
+          "indices": [
+            28,
+            29
+          ],
+          "colors": [
+            [
+              255,
+              0,
+              0
+            ],
+            [
+              136,
+              0,
+              0
+            ]
+          ],
+          "prompt": "prompts/life/toad-red.json"
+        },
+        {
+          "id": "purple",
+          "raw": "raw/life/toad-purple.png",
+          "indices": [
+            28,
+            29
+          ],
+          "colors": [
+            [
+              0,
+              34,
+              119
+            ],
+            [
+              0,
+              0,
+              51
+            ]
+          ],
+          "prompt": "prompts/life/toad-purple.json"
+        }
+      ]
+    },
+    {
+      "key": "ki.cel/020",
+      "record": "asset-ki-020.json",
+      "selected_raw": "raw/life/toad-blue.png",
+      "prompt": "prompts/life/toad-blue.json",
+      "source": "research/inventory/references-blue/ki.cel/020.png",
+      "variants": [
+        {
+          "id": "blue",
+          "raw": "raw/life/toad-blue.png",
+          "indices": [
+            30,
+            31
+          ],
+          "colors": [
+            [
+              0,
+              51,
+              255
+            ],
+            [
+              0,
+              34,
+              136
+            ]
+          ],
+          "prompt": "prompts/life/toad-blue.json"
+        },
+        {
+          "id": "orange",
+          "raw": "raw/life/toad-orange.png",
+          "indices": [
+            30,
+            31
+          ],
+          "colors": [
+            [
+              255,
+              187,
+              0
+            ],
+            [
+              187,
+              102,
+              0
+            ]
+          ],
+          "prompt": "prompts/life/toad-orange.json"
+        },
+        {
+          "id": "green",
+          "raw": "raw/life/toad-green.png",
+          "indices": [
+            30,
+            31
+          ],
+          "colors": [
+            [
+              68,
+              204,
+              51
+            ],
+            [
+              17,
+              102,
+              0
+            ]
+          ],
+          "prompt": "prompts/life/toad-green.json"
+        },
+        {
+          "id": "red",
+          "raw": "raw/life/toad-red.png",
+          "indices": [
+            30,
+            31
+          ],
+          "colors": [
+            [
+              255,
+              0,
+              0
+            ],
+            [
+              136,
+              0,
+              0
+            ]
+          ],
+          "prompt": "prompts/life/toad-red.json"
+        },
+        {
+          "id": "purple",
+          "raw": "raw/life/toad-purple.png",
+          "indices": [
+            30,
+            31
+          ],
+          "colors": [
+            [
+              0,
+              34,
+              119
+            ],
+            [
+              0,
+              0,
+              51
+            ]
+          ],
+          "prompt": "prompts/life/toad-purple.json"
+        }
+      ]
+    },
+    {
+      "key": "mi.c/043",
+      "record": "asset-mi_c-043.json",
+      "selected_raw": "raw/mi.c/043.png",
+      "prompt": "prompts/mi.c/043.json",
+      "source": "research/runtime/references/mi.c/043.png",
+      "variants": []
+    },
+    {
+      "key": "mi.c/044",
+      "record": "asset-mi_c-044.json",
+      "selected_raw": "raw/mi.c/044.png",
+      "prompt": "prompts/mi.c/044.json",
+      "source": "research/runtime/references/mi.c/044.png",
+      "variants": []
+    },
+    {
+      "key": "mi.c/045",
+      "record": "asset-mi_c-045.json",
+      "selected_raw": "raw/mi.c/045.png",
+      "prompt": "prompts/mi.c/045.json",
+      "source": "research/runtime/references/mi.c/045.png",
+      "variants": []
+    },
+    {
+      "key": "mi.c/046",
+      "record": "asset-mi_c-046.json",
+      "selected_raw": "raw/mi.c/046.png",
+      "prompt": "prompts/mi.c/046.json",
+      "source": "research/runtime/references/mi.c/046.png",
+      "variants": []
+    }
+  ],
+  "raw_sha256": {
+    "raw/ki.cel/000.png": "54c464c163b6d66e11d8e0dc356a3bb5e5fb8b173aaaac9844f17dccc87e3885",
+    "raw/ki.cel/001.png": "528f81db4862abc05667cfd035c5ecde11a1a2eece8d859a7af765b4c8df7f4a",
+    "raw/ki.cel/002.png": "e931f56927c9f4ed7380c0084524e0f33d5d7c0788482f6ef3baba9f19526a70",
+    "raw/ki.cel/004.png": "2a45662942835233ca0e3cbbabd7c189a13edca30fa6db376d0505b4484d81e1",
+    "raw/ki.cel/005.png": "a9ae3d7d3d13a7d1026bbd884ab34cf8c82c5c0546e62d6a9a264bebefddbb97",
+    "raw/ki.cel/006.png": "0bf96f041ae3ad68feffa9b1de6ecfdef6db7bf9e0d2b293376d672f71690b6e",
+    "raw/ki.cel/007.png": "25514ab638dbb032dfdcb36a9d4edbd45e1dd7b514ca94d62d4c35fab188f7f8",
+    "raw/ki.cel/008.png": "1ecd6087930e1b9ff12676ed502353aac315116f3039085edab8538e1e15a364",
+    "raw/ki.cel/009.png": "7f9ad0f743d89b822db105d9dac541dcf35ee55cb67fa8303736dbf91a66ffdd",
+    "raw/ki.cel/010.png": "7657c09be05a2c10d2de9731335ea30aa802ae3ddb4781d3d12bcd299665107d",
+    "raw/life/helmet-blue.png": "e6f4895d272620e89319573fb64e35a3e49683bc468bbdbc79451bdb9d1c26da",
+    "raw/life/helmet-green.png": "720f6be7d38042b63e97e31061f46929a12b707b0e3d812816ec0e2e453d2789",
+    "raw/life/helmet-orange.png": "7267dbfe859999404a0577ccd45c468590715057c0a4bc402f1d98e72af49396",
+    "raw/life/helmet-purple.png": "0b2c9ddc755a44c8490dc2f1098b59c40440cbd7221bd711cd20e720adb9838a",
+    "raw/life/helmet-red.png": "13f6f80410dc70f19bb9b1ba95241bbcecf4aecd6cb87a1663b745c9dc7e244b",
+    "raw/life/toad-blue.png": "5f75d28c58a7ca0ea301a666b956f2bccee1e5687172ceee23ce48246797fbc0",
+    "raw/life/toad-green.png": "2eb3653734f1d2c23345d688105e58a0ce946642b6c66afd05db6bfd5befea8c",
+    "raw/life/toad-orange.png": "14f4ab6143f2e4ac1a6a9771d90ff7771e2ca457e82999a605b0b403749603a2",
+    "raw/life/toad-purple.png": "d382dbbed6a2fbc897df5f8ea214ef6e50c4b86810f0c087f5cc20ac4624bbc7",
+    "raw/life/toad-red.png": "834edd07e715ef226d074231da7b16f3841ae2ae66ba72cc88d1892b7bc2d2e9",
+    "raw/mi.c/043.png": "c98aa70ee664da6cdcdb23a58b66694b199d267a712fe415b4ae1779487bdca1",
+    "raw/mi.c/044.png": "77fa32781e5f8ce909f9582beebadac7865a78cfde6fec1b16e97451e06a1c1a",
+    "raw/mi.c/045.png": "f2a4a6709010e71426c9cca4d07a7201c6adf5dd53bc5fed5315ad9188869a3e",
+    "raw/mi.c/046.png": "9db876177141165251ecc6e1bc94a6e4c78b692853bddb0f66ac6106f38a1b22"
+  },
+  "discarded_intermediates": [
+    "raw/ki.cel/005-v1.png",
+    "raw/ki.cel/006-v1.png",
+    "raw/ki.cel/007-v1.png",
+    "raw/ki.cel/008-v1.png",
+    "raw/ki.cel/010-v1.png",
+    "raw/life/toad-blue-v1.png",
+    "raw/life/toad-blue-v2.png"
+  ]
+}

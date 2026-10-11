@@ -123,3 +123,13 @@
 - [ ] Fullføre selvstendige PIV-fliser/rulling og rullende sluttsekvenser; dette inngår ikke i de 56 faste kampvariantene.
 - [ ] Nytegne de resterende figurrutene separat etter bakgrunnsarbeidet, som avtalt med brukeren.
 - [x] Koble inn de fem øvrige faste intro-/meldingsbildene med bevarte originalfigurer, symboler, stjerner og logo.
+
+## Resterende objektikoner, 11. oktober 2026
+- [x] Identifisere inventar-/kart-/kroikoner mot nettmanual, originale bilder og originalkode.
+- [x] Nytegne inventargjenstander, statussymboler, bylandemerker, krosekker og pekere med original plassering og størrelse.
+- [x] Bevare de tidligere godkjente små 9x5-portene og Math-tårnet.
+- [x] Legge til manglende statiske ridder-, Gem of Seeing-, Hawk-, port-, grav- og paddemarkører.
+- [x] Fullføre samlet runtime-/import-/integrasjonskontroll for ikonpakken.
+- [ ] Publisere ikonpakken via PR, grønn CI og offentlig kontroll.
+- [ ] Fullføre originaltro fontformer, vinranke-/rammefragmenter, meldingspaneler og valgkonturer som egne oppgaver.
+- [ ] Ta figur- og drageanimasjoner, separat forgrunn, effekter og rulling etter ikon-/bakgrunnsarbeidet.

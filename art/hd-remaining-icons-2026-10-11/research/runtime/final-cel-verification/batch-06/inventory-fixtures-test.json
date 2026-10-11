@@ -1,0 +1,521 @@
+{
+  "url": "http://127.0.0.1:8769/moonstone.html",
+  "checks": [
+    "all_requested_keys_selected",
+    "inventory_candidates_exist",
+    "candidate_import_has_no_errors",
+    "mi.c/005_source_contract_found",
+    "mi.c/005_HD_approved_false",
+    "mi.c/005_HD_changes_pixels_false",
+    "mi.c/005_Original_exact_false",
+    "mi.c/005_HD_exact_false",
+    "mi.c/005_HD_approved_true",
+    "mi.c/005_HD_changes_pixels_true",
+    "mi.c/005_Original_exact_true",
+    "mi.c/005_HD_exact_true",
+    "mi.c/005_modified_source_rejected",
+    "mi.c/005_source_restores_HD",
+    "mi.c/005_unknown_foreground_rejects_HD",
+    "mi.c/006_source_contract_found",
+    "mi.c/006_HD_approved_false",
+    "mi.c/006_HD_changes_pixels_false",
+    "mi.c/006_Original_exact_false",
+    "mi.c/006_HD_exact_false",
+    "mi.c/006_HD_approved_true",
+    "mi.c/006_HD_changes_pixels_true",
+    "mi.c/006_Original_exact_true",
+    "mi.c/006_HD_exact_true",
+    "mi.c/006_modified_source_rejected",
+    "mi.c/006_source_restores_HD",
+    "mi.c/006_unknown_foreground_rejects_HD",
+    "mi.c/007_source_contract_found",
+    "mi.c/007_HD_approved_false",
+    "mi.c/007_HD_changes_pixels_false",
+    "mi.c/007_Original_exact_false",
+    "mi.c/007_HD_exact_false",
+    "mi.c/007_HD_approved_true",
+    "mi.c/007_HD_changes_pixels_true",
+    "mi.c/007_Original_exact_true",
+    "mi.c/007_HD_exact_true",
+    "mi.c/007_modified_source_rejected",
+    "mi.c/007_source_restores_HD",
+    "mi.c/007_unknown_foreground_rejects_HD",
+    "mi.c/008_source_contract_found",
+    "mi.c/008_HD_approved_false",
+    "mi.c/008_HD_changes_pixels_false",
+    "mi.c/008_Original_exact_false",
+    "mi.c/008_HD_exact_false",
+    "mi.c/008_HD_approved_true",
+    "mi.c/008_HD_changes_pixels_true",
+    "mi.c/008_Original_exact_true",
+    "mi.c/008_HD_exact_true",
+    "mi.c/008_modified_source_rejected",
+    "mi.c/008_source_restores_HD",
+    "mi.c/008_unknown_foreground_rejects_HD",
+    "mi.c/009_source_contract_found",
+    "mi.c/009_HD_approved_false",
+    "mi.c/009_HD_changes_pixels_false",
+    "mi.c/009_Original_exact_false",
+    "mi.c/009_HD_exact_false",
+    "mi.c/009_HD_approved_true",
+    "mi.c/009_HD_changes_pixels_true",
+    "mi.c/009_Original_exact_true",
+    "mi.c/009_HD_exact_true",
+    "mi.c/009_modified_source_rejected",
+    "mi.c/009_source_restores_HD",
+    "mi.c/009_unknown_foreground_rejects_HD",
+    "mi.c/010_source_contract_found",
+    "mi.c/010_HD_approved_false",
+    "mi.c/010_HD_changes_pixels_false",
+    "mi.c/010_Original_exact_false",
+    "mi.c/010_HD_exact_false",
+    "mi.c/010_HD_approved_true",
+    "mi.c/010_HD_changes_pixels_true",
+    "mi.c/010_Original_exact_true",
+    "mi.c/010_HD_exact_true",
+    "mi.c/010_modified_source_rejected",
+    "mi.c/010_source_restores_HD",
+    "mi.c/010_unknown_foreground_rejects_HD",
+    "mi.c/011_source_contract_found",
+    "mi.c/011_HD_approved_false",
+    "mi.c/011_HD_changes_pixels_false",
+    "mi.c/011_Original_exact_false",
+    "mi.c/011_HD_exact_false",
+    "mi.c/011_HD_approved_true",
+    "mi.c/011_HD_changes_pixels_true",
+    "mi.c/011_Original_exact_true",
+    "mi.c/011_HD_exact_true",
+    "mi.c/011_modified_source_rejected",
+    "mi.c/011_source_restores_HD",
+    "mi.c/011_unknown_foreground_rejects_HD",
+    "mi.c/012_source_contract_found",
+    "mi.c/012_HD_approved_false",
+    "mi.c/012_HD_changes_pixels_false",
+    "mi.c/012_Original_exact_false",
+    "mi.c/012_HD_exact_false",
+    "mi.c/012_HD_approved_true",
+    "mi.c/012_HD_changes_pixels_true",
+    "mi.c/012_Original_exact_true",
+    "mi.c/012_HD_exact_true",
+    "mi.c/012_modified_source_rejected",
+    "mi.c/012_source_restores_HD",
+    "mi.c/012_unknown_foreground_rejects_HD",
+    "emulated_state_unchanged",
+    "no_browser_errors"
+  ],
+  "assets": [
+    {
+      "key": "mi.c/005",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "90984f2ad98788375d14a7750a60f267e32b098ce20a0b15d4e82cd1e05f7a87",
+          "hd_sha256": "6839401af2c970a92ef503d7218f3dc0d9fbed815f61c088903797c9df9407b0",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        },
+        {
+          "mirror": true,
+          "original_sha256": "efa2ca07ed2ad31a59c37e3e08d7569d32ae75f5ec67952aae6ae8af2ea07728",
+          "hd_sha256": "7e82b1d641e3f3334d6c2b5ef958669b2bfdfc20c204b8b48c7a48da0a9dc1e5",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        }
+      ]
+    },
+    {
+      "key": "mi.c/006",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "b642718a98aa6c34391e7299899ab092c4e58f950d454b2b2e82b5c945d8b702",
+          "hd_sha256": "e76294f2882693f63e71b14694c4c8bca3e1dde6e10badc30e0e7f2e8f946590",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        },
+        {
+          "mirror": true,
+          "original_sha256": "9fd169a9e4396602dddb6c69858a1c194c95e8c090a3afabf098de22b02a590d",
+          "hd_sha256": "773e984da002f04cd7856442657166406d760f3f4d1c2a8be39be77e275e2aac",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        }
+      ]
+    },
+    {
+      "key": "mi.c/007",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "cb9a909664cd5eceab29ce060a06f5cb8e6fbb2b34c73110c842d5cac9975277",
+          "hd_sha256": "377f638345084d547574dac19b1339c72ebdc411ec6e3dbd560b2c0c7115f186",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        },
+        {
+          "mirror": true,
+          "original_sha256": "a736367b2b409a537da71e126cee5545d0a2be1978042caf84f14ae364541464",
+          "hd_sha256": "803be2ddf8d3634118ba82612e09686b2e963dec864c6e3cfe08e0c6f6344a61",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        }
+      ]
+    },
+    {
+      "key": "mi.c/008",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "725ab312f2671d3530d399ed30fa2559d7d37c1b91b2af86bf2bbf40085a120b",
+          "hd_sha256": "03659a1ad646b2696f393bbf342505fb84f7c5b3a8b9cc602bd9a5070bd19aeb",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        },
+        {
+          "mirror": true,
+          "original_sha256": "e4e79804c071ff7d0e6a1903ea5d90cd6c95fa4b1f504d2e04aec9d8f4fbf1f2",
+          "hd_sha256": "97728609e12a71c28e8f9b20c6307e45c2fcb441bbed08e27136db96072f6158",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        }
+      ]
+    },
+    {
+      "key": "mi.c/009",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "fb06477c2626cee74721f183937045c90c419e515715f94118888a9a1efd5519",
+          "hd_sha256": "4794d701c3ab67ecb379582420a4dccb0fb0d01b59f6e03513c5e7a82fb840ca",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        },
+        {
+          "mirror": true,
+          "original_sha256": "16c24a656f33de5730febe151f90a9c6e584033ae0f23c1be02ef487156f7cd3",
+          "hd_sha256": "c8bcfb093918affd8d2c19712d7f6eafc3f1428da513aa4e5efe08c39edcdedc",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        }
+      ]
+    },
+    {
+      "key": "mi.c/010",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "63b60bb37cba47a4d45762e3b30a0d381ec9a3b25edf414eec93b1ac54256f07",
+          "hd_sha256": "b33df8826b40e1e52c93d4889e7edee3a6769afae93c7062809866b61632bedc",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        },
+        {
+          "mirror": true,
+          "original_sha256": "2e57839a3c61b7336bd06030881ebf7682ce3de76844e676e5ac581dffc66136",
+          "hd_sha256": "83aa9cf04385b65338abbee4b45cb96462c4efd2efe30b4049ad5de70be45952",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        }
+      ]
+    },
+    {
+      "key": "mi.c/011",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "32abe9f70f0972b13e48cb9ab3bef1cdcd55cec5e7726459690d8c65efb4e4c9",
+          "hd_sha256": "9820c02ec3edd3a99f8a682aade281cddc8141400fadfa27076145cb2ff65036",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        },
+        {
+          "mirror": true,
+          "original_sha256": "37d2a259ad214a05f662b3d542b7edb8c45fb22ae9729b8071fd1b116105573c",
+          "hd_sha256": "a665548c37d00eeea296688d565a827f376c0331e2872f00eb8a695e927e614e",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        }
+      ]
+    },
+    {
+      "key": "mi.c/012",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "ba3daa21119116fda7651499e01b3d7e606e05dd8e23f35cf87b0c832f5503cc",
+          "hd_sha256": "f892a7833789342e81d8d6425346cec93763ba40d9db0753e052c12b7bf79293",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        },
+        {
+          "mirror": true,
+          "original_sha256": "c668f66fa0ac81d6b6f183d1866b99d893304de2659ff05935d1cc6757e7f1d1",
+          "hd_sha256": "de2ef1b26ddfdcc730ebb665ea2b9423c48baca72f56e79c0c7538232a374f84",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "scope": "Originale CEL-/inventarpalettfixturer i faktisk WASM-side. Kandidat-PNG importeres bare i testnettleseren. Dette er ikke naturlig bruk av alle gjenstander.",
+  "candidate_icons_sha256": "474f6bee2375e523f97a43f7ea71aec71dc05d414d3b73046fc9b8aaaf0ccfac",
+  "status": "passed",
+  "created_at": "2026-10-11T15:48:58.053Z"
+}

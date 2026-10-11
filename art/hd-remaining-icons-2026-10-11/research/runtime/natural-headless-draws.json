@@ -1,0 +1,556 @@
+{
+  "scope": "Naturlig headless-reise til kart og inventar med originale inndata. Ingen skriving i spillminnet. Ingen visuell HD-verifisering.",
+  "command": "port/moonstone-headless --headless --frames 2300 --press 100:esc:4 --press 700:down:4 --press 760:down:4 --press 820:down:4 --press 880:fire:4 --press 1100:fire:4 --press 1200:fire:4 --press 2000:space:4 --tegneliste 1400:901 --log 0",
+  "routes": {
+    "mi.c/021": {
+      "first": {
+        "frame": 1400,
+        "x": 18,
+        "y": 11,
+        "width": 24,
+        "height": 19,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "080f46"
+      },
+      "last": {
+        "frame": 2000,
+        "x": 18,
+        "y": 11,
+        "width": 24,
+        "height": 19,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "080f46"
+      },
+      "draw_count": 301,
+      "positions": [
+        [
+          18,
+          11,
+          0
+        ]
+      ]
+    },
+    "mi.c/005": {
+      "first": {
+        "frame": 1400,
+        "x": 10,
+        "y": 10,
+        "width": 8,
+        "height": 10,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "0aaae8"
+      },
+      "last": {
+        "frame": 2000,
+        "x": 10,
+        "y": 10,
+        "width": 8,
+        "height": 10,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "0aaae8"
+      },
+      "draw_count": 301,
+      "positions": [
+        [
+          10,
+          10,
+          0
+        ]
+      ]
+    },
+    "ki.cel/026": {
+      "first": {
+        "frame": 2076,
+        "x": 74,
+        "y": 83,
+        "width": 25,
+        "height": 117,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08aea4"
+      },
+      "last": {
+        "frame": 2077,
+        "x": 222,
+        "y": 83,
+        "width": 25,
+        "height": 117,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08aea4"
+      },
+      "draw_count": 2,
+      "positions": [
+        [
+          74,
+          83,
+          0
+        ],
+        [
+          222,
+          83,
+          0
+        ]
+      ]
+    },
+    "ki.cel/034": {
+      "first": {
+        "frame": 2077,
+        "x": 80,
+        "y": 23,
+        "width": 27,
+        "height": 60,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08aea4"
+      },
+      "last": {
+        "frame": 2077,
+        "x": 80,
+        "y": 23,
+        "width": 27,
+        "height": 60,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08aea4"
+      },
+      "draw_count": 1,
+      "positions": [
+        [
+          80,
+          23,
+          0
+        ]
+      ]
+    },
+    "ki.cel/035": {
+      "first": {
+        "frame": 2078,
+        "x": 107,
+        "y": 29,
+        "width": 15,
+        "height": 12,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08aea4"
+      },
+      "last": {
+        "frame": 2078,
+        "x": 107,
+        "y": 29,
+        "width": 15,
+        "height": 12,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08aea4"
+      },
+      "draw_count": 1,
+      "positions": [
+        [
+          107,
+          29,
+          0
+        ]
+      ]
+    },
+    "ki.cel/036": {
+      "first": {
+        "frame": 2078,
+        "x": 107,
+        "y": 10,
+        "width": 53,
+        "height": 19,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08aea4"
+      },
+      "last": {
+        "frame": 2078,
+        "x": 107,
+        "y": 10,
+        "width": 53,
+        "height": 19,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08aea4"
+      },
+      "draw_count": 1,
+      "positions": [
+        [
+          107,
+          10,
+          0
+        ]
+      ]
+    },
+    "ki.cel/038": {
+      "first": {
+        "frame": 2081,
+        "x": 115,
+        "y": 35,
+        "width": 29,
+        "height": 5,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "last": {
+        "frame": 2081,
+        "x": 115,
+        "y": 35,
+        "width": 29,
+        "height": 5,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "draw_count": 1,
+      "positions": [
+        [
+          115,
+          35,
+          0
+        ]
+      ]
+    },
+    "ki.cel/040": {
+      "first": {
+        "frame": 2081,
+        "x": 115,
+        "y": 49,
+        "width": 29,
+        "height": 5,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "last": {
+        "frame": 2081,
+        "x": 115,
+        "y": 49,
+        "width": 29,
+        "height": 5,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "draw_count": 1,
+      "positions": [
+        [
+          115,
+          49,
+          0
+        ]
+      ]
+    },
+    "ki.cel/039": {
+      "first": {
+        "frame": 2081,
+        "x": 115,
+        "y": 42,
+        "width": 29,
+        "height": 5,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "last": {
+        "frame": 2081,
+        "x": 115,
+        "y": 42,
+        "width": 29,
+        "height": 5,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "draw_count": 1,
+      "positions": [
+        [
+          115,
+          42,
+          0
+        ]
+      ]
+    },
+    "ki.cel/042": {
+      "first": {
+        "frame": 2082,
+        "x": 163,
+        "y": 42,
+        "width": 43,
+        "height": 5,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "last": {
+        "frame": 2082,
+        "x": 163,
+        "y": 42,
+        "width": 43,
+        "height": 5,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08aea4"
+      },
+      "draw_count": 2,
+      "positions": [
+        [
+          163,
+          42,
+          0
+        ]
+      ]
+    },
+    "ki.cel/041": {
+      "first": {
+        "frame": 2082,
+        "x": 163,
+        "y": 35,
+        "width": 32,
+        "height": 5,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08aea4"
+      },
+      "last": {
+        "frame": 2082,
+        "x": 163,
+        "y": 35,
+        "width": 32,
+        "height": 5,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08aea4"
+      },
+      "draw_count": 1,
+      "positions": [
+        [
+          163,
+          35,
+          0
+        ]
+      ]
+    },
+    "ki.cel/043": {
+      "first": {
+        "frame": 2082,
+        "x": 163,
+        "y": 49,
+        "width": 56,
+        "height": 5,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08aea4"
+      },
+      "last": {
+        "frame": 2082,
+        "x": 163,
+        "y": 49,
+        "width": 56,
+        "height": 5,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08aea4"
+      },
+      "draw_count": 1,
+      "positions": [
+        [
+          163,
+          49,
+          0
+        ]
+      ]
+    },
+    "ki.cel/017": {
+      "first": {
+        "frame": 2083,
+        "x": 115,
+        "y": 59,
+        "width": 13,
+        "height": 15,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "last": {
+        "frame": 2083,
+        "x": 191,
+        "y": 59,
+        "width": 13,
+        "height": 15,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "draw_count": 5,
+      "positions": [
+        [
+          115,
+          59,
+          0
+        ],
+        [
+          134,
+          59,
+          0
+        ],
+        [
+          153,
+          59,
+          0
+        ],
+        [
+          172,
+          59,
+          0
+        ],
+        [
+          191,
+          59,
+          0
+        ]
+      ]
+    },
+    "ki.cel/021": {
+      "first": {
+        "frame": 2084,
+        "x": 112,
+        "y": 78,
+        "width": 5,
+        "height": 12,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "last": {
+        "frame": 2084,
+        "x": 202,
+        "y": 78,
+        "width": 5,
+        "height": 12,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "draw_count": 10,
+      "positions": [
+        [
+          112,
+          78,
+          0
+        ],
+        [
+          122,
+          78,
+          0
+        ],
+        [
+          132,
+          78,
+          0
+        ],
+        [
+          142,
+          78,
+          0
+        ],
+        [
+          152,
+          78,
+          0
+        ],
+        [
+          162,
+          78,
+          0
+        ],
+        [
+          172,
+          78,
+          0
+        ],
+        [
+          182,
+          78,
+          0
+        ],
+        [
+          192,
+          78,
+          0
+        ],
+        [
+          202,
+          78,
+          0
+        ]
+      ]
+    },
+    "ki.cel/022": {
+      "first": {
+        "frame": 2085,
+        "x": 117,
+        "y": 95,
+        "width": 65,
+        "height": 9,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "last": {
+        "frame": 2085,
+        "x": 117,
+        "y": 95,
+        "width": 65,
+        "height": 9,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "draw_count": 1,
+      "positions": [
+        [
+          117,
+          95,
+          0
+        ]
+      ]
+    },
+    "ki.cel/027": {
+      "first": {
+        "frame": 2085,
+        "x": 103,
+        "y": 112,
+        "width": 37,
+        "height": 27,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "last": {
+        "frame": 2085,
+        "x": 103,
+        "y": 112,
+        "width": 37,
+        "height": 27,
+        "xoff": 0,
+        "buffer": "0a2cd6",
+        "return_pc": "08b77e"
+      },
+      "draw_count": 1,
+      "positions": [
+        [
+          103,
+          112,
+          0
+        ]
+      ]
+    }
+  }
+}

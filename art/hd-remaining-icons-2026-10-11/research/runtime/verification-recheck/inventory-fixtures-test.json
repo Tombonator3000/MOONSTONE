@@ -1,0 +1,80 @@
+{
+  "url": "http://127.0.0.1:8769/moonstone.html",
+  "checks": [
+    "all_requested_keys_selected",
+    "inventory_candidates_exist",
+    "candidate_import_has_no_errors",
+    "ki.cel/000_source_contract_found",
+    "ki.cel/000_HD_approved_false",
+    "ki.cel/000_HD_changes_pixels_false",
+    "ki.cel/000_Original_exact_false",
+    "ki.cel/000_HD_exact_false",
+    "ki.cel/000_HD_approved_true",
+    "ki.cel/000_HD_changes_pixels_true",
+    "ki.cel/000_Original_exact_true",
+    "ki.cel/000_HD_exact_true",
+    "ki.cel/000_modified_source_rejected",
+    "ki.cel/000_source_restores_HD",
+    "ki.cel/000_unknown_foreground_rejects_HD",
+    "emulated_state_unchanged",
+    "no_browser_errors"
+  ],
+  "assets": [
+    {
+      "key": "ki.cel/000",
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "2f48e22162417fa45479502ca790d4309670bee9af8a71af0f13686514ffa5d4",
+          "hd_sha256": "cf282dacb60238bb6dbdc8d421b10807f740c2535c7f0b76a8a170bdaff180f3",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        },
+        {
+          "mirror": true,
+          "original_sha256": "ae2038ecdbe4c33bee50bf0b18799f02c9dd651d81f8790799e7743eb5210e35",
+          "hd_sha256": "1aa71183f4069f66a0cef70542245647dff5a4a43443b10658c68d9f8bb91359",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "ikonGodkjent": 1,
+            "ikonAvvist": 0
+          }
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "scope": "Originale CEL-/inventarpalettfixturer i faktisk WASM-side. Kandidat-PNG importeres bare i testnettleseren. Dette er ikke naturlig bruk av alle gjenstander.",
+  "candidate_icons_sha256": "a91e52db03ad713140934b258e7db5356aaf01fdb7a86cf2d1fd16846fba155b",
+  "status": "passed",
+  "created_at": "2026-10-11T15:34:02.863Z"
+}
