@@ -708,6 +708,9 @@ const Visning = (() => {
                 if (faktisk===254 && scan?.gyldig) faktisk=scan.idx[(diwNaa[1]+y+j)*720+diwNaa[0]+(x+i)*2];
                 if (c && faktisk === c) { fjern.push(p); continue; }
                 if (faktisk === 255 && (!c || lag.bakIdx?.[p] === c)) continue;
+                // Et kildefast PIV-motiv kan bevares foran HD-bakgrunnen.
+                // Slike originalpiksler bak tegnets transparente felt er underlag.
+                if (!c && lag.scene && faktisk === lag.bakIdx?.[p]) continue;
                 const dekket = over.some(o => {
                     const ox = x + i - o.x, oy = y + j - o.d.y;
                     return o.g && ox >= 0 && ox < o.g.w && oy >= 0 && oy < o.g.h &&
@@ -1083,7 +1086,9 @@ const Visning = (() => {
         if (lag) {
             const nokkel = 'bg/' + (lag.hash >>> 0).toString(16).padStart(8, '0');
             const hd = hdPaa ? hdPakke.get(nokkel) : null;
-            const maks = Math.max(lysMaks.get(lag.hash) || 0, lag.lys);
+            // PIV-kilden gir kjent full lysstyrke, ogsaa paa foerste svarte
+            // inn-/uttoningsbilde og naar midtraden i bildet er helt svart.
+            const maks = lag.lysMaks || Math.max(lysMaks.get(lag.hash) || 0, lag.lys);
             lysMaks.set(lag.hash, maks);
             /* helt svart bakgrunn (riddervalget): ingen fading aa lese, HD-bildene vises fullt */
             hdLys = maks ? lag.lys / maks : 1;
