@@ -28,8 +28,12 @@ T.kjor(async () => {
   await gml.waitForFunction(() => window.moonDebug && window.moonDebug.Kjerne.iIntro(), null, { timeout: 30000 });
   await gml.evaluate(() => { Kjerne.formatId = () => 12345; });
   await gml.waitForTimeout(1500);
-  await gml.mouse.click(400, 280);
-  await gml.waitForFunction(() => window.moonDebug.Kjerne.menyKlar(), null, { timeout: 30000 });
+  /* ett trykk hopper ikke alltid over introen (den gjoer ferdig en overgang foerst) */
+  for (let i = 0; ; i++) {
+    await gml.mouse.click(400, 280);
+    try { await gml.waitForFunction(() => window.moonDebug.Kjerne.menyKlar(), null, { timeout: 12000 }); break; }
+    catch (e) { if (i >= 3) throw e; }
+  }
   await gml.waitForTimeout(1500);
   console.log('join-siden:', await T.rad(gml, 0), '|', await T.rad(gml, 1), '|', await T.rad(gml, 2), 'valg', await T.valg(gml));
   await T.trykk(gml, 'ControlLeft', 120);

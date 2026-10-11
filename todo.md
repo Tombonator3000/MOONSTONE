@@ -40,11 +40,9 @@
 - [ ] Separate: hverKart() er sann hele spillet (hver.c setter H.kart = 0 bare i tittelmenyen), så en spiller i by eller monsterkamp sier ja til dueller automatisk.
 - [ ] Turns: gjesten kan ikke lagre, og mister kopien når verten forsvinner.
 - [ ] Trykk og klikk i inventar, by, butikker og Select Knight gir fire der spillets peker står ($098092/$098094), ikke der man trykker.
-- [ ] Utgivelser for PC (GitHub Releases) i stedet for Actions-artefakter, og krav (libSDL2, glibc 2.34) i README.
 - [ ] PC: innstillinger i spillet (volum, beskjeder som vises i fullskjerm), spiller 2 uten talltastatur. --online-meny blir stående på «Creating Room...».
 - [ ] Nettspill på PC, eller et vedtak om å la det være.
-- [ ] check_hooks.py i CI, og kanskje noen av nettlesertestene (tests/kjor.sh) i en egen jobb.
-- [ ] CI: actions på Node 20 er utfaset.
+- [ ] Noen av nettlesertestene (tests/kjor.sh) i en egen CI-jobb, og de nye testene fra 11. oktober inn i tests/nettleser (slutt1, skjult1, fs1, gl1; de ligger i scratchpad).
 - [ ] Separate: et rom som forsvinner kan ikke samles igjen, og en død forbindelse blir stående som ridder på kartet.
 - [ ] Et lagret Turns-spill fordeler ridderne etter rekkefølgen gjestene kommer inn i.
 
