@@ -395,3 +395,4 @@ Dynamiske kartmarkører fjernes først fra originalforgrunnen når valgt HD-bakg
   eierens port; byen ($081242/$0813B2) og tavernaen leser port 2 selv; tavernaen ser etter fire hvert 14. bilde.
   MENY_CMD_PEKER (14, arg x | y << 16) og game_frame (fire 16 bilder paa begge portene). Test: peker1.js; by.sav i
   $S/peker/agent_b. --save-state F er antall bilder fra start av kjoringen (ikke bildenummeret).
+- HD-lysstyrke: lag.c lag_bak_lys er summen av fargene bakgrunnen bruker. Er bakgrunnen helt svart (riddervalget), brukes hele paletten i stedet; render.js gir hdLys = 1 om maks er 0. Uten dette ble HD-portrettene og HD-teksten svarte.
