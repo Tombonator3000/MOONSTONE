@@ -410,3 +410,6 @@ Dynamiske kartmarkører fjernes først fra originalforgrunnen når valgt HD-bakg
   MENY_CMD_PEKER (14, arg x | y << 16) og game_frame (fire 16 bilder paa begge portene). Test: peker1.js; by.sav i
   $S/peker/agent_b. --save-state F er antall bilder fra start av kjoringen (ikke bildenummeret).
 - HD-lysstyrke: lag.c lag_bak_lys er summen av fargene bakgrunnen bruker. Er bakgrunnen helt svart (riddervalget), brukes hele paletten i stedet; render.js gir hdLys = 1 om maks er 0. Uten dette ble HD-portrettene og HD-teksten svarte.
+- HD-masker: `<hd_fil uten .png>.mask.png`, R = palettindeks + 1 (0 = behold bildets farge), G = lysstyrke (128 = palettfargen), B = vekt. Ridderne: KN-settet indeks 6-8, HE-settet 9-11. tools/hd_bestilling.py --maske lager utgangspunktet.
+- HD-testene i tools/: CHROME=/opt/pw-browsers/chromium-1194/chrome-linux/chrome, MOONSTONE_HD_TEST_OUTPUT for standard-testen, og en server på 127.0.0.1:8769 som serverer web/build (python3 -m http.server 8769 i web/build). De skriver rapporter og skjermbilder i art/*/verification.
+- Figurer i flere deler: render.js avgjør eierskap per piksel (siste figur i tegnelisten eier pikselen); bare piksler som eies av en figur med HD fjernes fra forgrunnen.
