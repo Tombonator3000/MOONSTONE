@@ -21,6 +21,30 @@ def checked(path, digest):
     return source
 
 
+def alias_indices(master, entry, master_indices, indices):
+    """HE bruker samme geometri, men originalen flytter draktindekser6..8 til9..11."""
+    if entry.get('index_remap'):
+        assert master['bank'].startswith('KN')
+        assert entry['bank'] == 'HE' + master['bank'][2:], 'Ulovlig HE-bankalias'
+        assert entry['frame'] == master['frame'], 'HE-alias har annen rute'
+        expected = {str(i): i + 3 if 6 <= i <= 8 else i for i in set(master_indices)}
+        assert entry['index_remap'] == expected, 'Annen original HE-indeksflytting'
+        assert bytes(expected[str(i)] for i in master_indices) == indices, 'HE-geometrien avviker'
+    else:
+        assert master_indices == indices, 'Aliasgeometrien avviker'
+
+
+def checked_active(key, source):
+    """En allerede levert master er bare kontekst og skal ikke aktiveres igjen."""
+    manifest = json.loads((ROOT / 'web/hd/manifest.json').read_text())
+    active = next((r for r in manifest['files'] if r['path'].lower() == key.lower()), None)
+    assert active, 'Kontekstmaster er ikke aktiv: ' + key
+    target = ROOT / 'web/hd' / active['path']
+    data = source.read_bytes()
+    assert active['sha256'] == sha(data) and active['bytes'] == len(data), 'Annen aktiv kontekstmaster: ' + key
+    assert target.read_bytes() == data, 'Aktiv kontekstmaster er endret: ' + key
+
+
 def validate(delivery):
     assert delivery['schema'] == 1
     assert delivery['visual_status'] == 'reviewed_original_and_runtime'
@@ -41,7 +65,7 @@ def validate(delivery):
             assert code in html, 'Runtime-HTML inneholder annen kode: ' + path
         proofs[proof['path']] = data.decode()
     assert proofs
-    files = {}
+    files, seen_keys = {}, set()
     for entry in delivery['entries']:
         key = entry['key']
         bank, name = key.split('/')
@@ -59,17 +83,35 @@ def validate(delivery):
         assert entry['runtime_asset_sha256'] == entry['png_sha256'], 'Runtimebevis gjelder annet bilde: ' + key
         assert entry['runtime_proof'] in proofs
         assert entry['runtime_asset_sha256'] in proofs[entry['runtime_proof']], 'PNG mangler bindende runtimebevis: ' + key
+        if entry.get('art_record'):
+            record = json.loads(checked(entry['art_record'], entry['art_record_sha256']).read_text())
+            assert record['candidate_sha256'] == entry['png_sha256'], 'Materialproveniens gjelder annet bilde: ' + key
+        if entry.get('additional_generated_material'):
+            material = entry['additional_generated_material']
+            checked(material['raw'], material['raw_sha256'])
+            checked(material['prompt'], material['prompt_sha256'])
         if entry.get('master_key'):
             assert entry['master_key'] in {r['key'] for r in delivery['entries']}
             master = next(r for r in delivery['entries'] if r['key'] == entry['master_key'])
-            assert master['indices_sha256'] == entry['indices_sha256']
+            master_bank = game.les('data/' + master['bank'])
+            master_source = mf.cel_les(master_bank)[0][master['frame']]
+            master_packed = mf.plan_til_indeks(master_source['data'], master_source['plan'], master_source['bredde'], master_source['hoyde'])
+            master_indices = bestilling.utvid_indekser(master_packed, master_source['maske'])
+            alias_indices(master, entry, master_indices, indices)
             assert master['png_sha256'] == entry['png_sha256']
         else:
             checked(entry['raw'], entry['raw_sha256'])
             checked(entry['prompt'], entry['prompt_sha256'])
             assert entry['generation_tool'] == 'builtin_image_gen'
-        assert key.lower() not in {p.lower() for p in files}, 'Duplikat: ' + key
-        files[key] = source
+        assert key.lower() not in seen_keys, 'Duplikat: ' + key
+        seen_keys.add(key.lower())
+        existing = entry.get('existing_master', False)
+        assert isinstance(existing, bool)
+        if existing:
+            assert not entry.get('master_key'), 'Eksisterende kontekst skal vaere en selvstendig master'
+            checked_active(key, source)
+        else:
+            files[key] = source
         live = bestilling.maskefarger(bank, entry['frame'])
         if live.intersection(indices):
             mask = checked(entry['mask'], entry['mask_sha256'])
@@ -83,7 +125,11 @@ def validate(delivery):
                         assert red == (index + 1 if index in live else 0), 'Feil levende indeks: ' + key
                         assert alpha == 255 and (blue == 255 if red else blue == 0)
             assert entry['mask_sha256'] in proofs[entry['runtime_proof']], 'Masken mangler runtimebevis'
-            files[key.replace('.png', '.mask.png')] = mask
+            mask_key = key.replace('.png', '.mask.png')
+            if existing:
+                checked_active(mask_key, mask)
+            else:
+                files[mask_key] = mask
         else:
             assert not entry.get('mask'), 'Uventet levende maske: ' + key
     return files
@@ -116,7 +162,9 @@ def main():
     if args.activate:
         activate(delivery, files)
     print(json.dumps(dict(status='activated' if args.activate else 'checked_not_activated',
-                          routes=len(delivery['entries']), png_files=len(files))))
+                          routes=sum(not r.get('existing_master') for r in delivery['entries']),
+                          existing_context_masters=sum(bool(r.get('existing_master')) for r in delivery['entries']),
+                          png_files=len(files))))
 
 
 if __name__ == '__main__':

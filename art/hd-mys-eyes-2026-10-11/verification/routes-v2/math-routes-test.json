@@ -1,0 +1,181 @@
+{
+  "status": "passed",
+  "scope": "Originale CEL-ruter som frontend-fixturer; naturlige stedsbesoek testes separat. Ingen emulert minneskriving.",
+  "bank": "mys.cel",
+  "checks": [
+    "served_current_web/src/core.js",
+    "served_current_web/src/render.js",
+    "served_current_web/src/scenes.js",
+    "6_approved_false",
+    "6_HD_changes_false",
+    "6_Original_exact_false",
+    "6_HD_exact_false",
+    "6_approved_true",
+    "6_HD_changes_true",
+    "6_Original_exact_true",
+    "6_HD_exact_true",
+    "6_unknown_foreground_preserved",
+    "7_approved_false",
+    "7_HD_changes_false",
+    "7_Original_exact_false",
+    "7_HD_exact_false",
+    "7_approved_true",
+    "7_HD_changes_true",
+    "7_Original_exact_true",
+    "7_HD_exact_true",
+    "7_unknown_foreground_preserved",
+    "state_unchanged",
+    "no_page_errors",
+    "frozen_web/build/moonstone-core.js",
+    "frozen_web/src/core.js",
+    "frozen_web/src/render.js",
+    "frozen_web/src/scenes.js",
+    "frozen_Moonstonecd32-AMIGA.zip",
+    "packed_frozen_006.png",
+    "packed_frozen_007.png"
+  ],
+  "assets": [
+    {
+      "frame": 6,
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "cd44fa7f532af6c15c8aabd267eb073da452151cb8c5650da294aa62e33753a7",
+          "hd_sha256": "288ff566e51a8bfafbbd407267e2fda5571edff487a563a22cad7f43634c3723",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "maske": 0,
+            "masket": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "lys": 0,
+            "lysUkjent": false,
+            "hdLys": 1,
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0,
+            "bakgrunn": "original"
+          }
+        },
+        {
+          "mirror": true,
+          "original_sha256": "a878302954de7d92219804e6e1b0cfabb86c98a5cd5d1940d8b2d78261bffb09",
+          "hd_sha256": "4631466587eb43234539aa0beb08a7a2678abefc4f9926e2ea261033d076c639",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "maske": 0,
+            "masket": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "lys": 0,
+            "lysUkjent": false,
+            "hdLys": 1,
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0,
+            "bakgrunn": "original"
+          }
+        }
+      ]
+    },
+    {
+      "frame": 7,
+      "samples": [
+        {
+          "mirror": false,
+          "original_sha256": "8921786dad8040953392dd983ccd26b78daf6cd3ccf48022de77ad4c33c5b024",
+          "hd_sha256": "7a1155e78f08d54f681bd090307cdbba59075b28181a851b37a13c769905c862",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "maske": 0,
+            "masket": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "lys": 0,
+            "lysUkjent": false,
+            "hdLys": 1,
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0,
+            "bakgrunn": "original"
+          }
+        },
+        {
+          "mirror": true,
+          "original_sha256": "48c5c27bce2397965893cdb0c6fe23f770d16f62be0580474238b02b87f4b785",
+          "hd_sha256": "0d8f3a2d0304175f53f5bb4c80ff4c929f5ad1a866a223b85073f18e0e8a6e09",
+          "control": {
+            "godkjent": 1,
+            "utenLag": 0,
+            "kilde": 0,
+            "overlapp": 0,
+            "piksler": 0,
+            "maske": 0,
+            "masket": 0,
+            "poseGodkjent": 0,
+            "poseGruppe": 0,
+            "poseKilde": 0,
+            "posePalett": 0,
+            "poseOverlapp": 0,
+            "posePiksler": 0,
+            "tekstGodkjent": 0,
+            "tekstAvvist": 0,
+            "tekstFeil": [],
+            "lys": 0,
+            "lysUkjent": false,
+            "hdLys": 1,
+            "ikonGodkjent": 0,
+            "ikonAvvist": 0,
+            "bakgrunn": "original"
+          }
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "source_contract_sha256": "abdd66713cf88317577300000c8cd1bfe7197fba9898ef4d84cf79b5177ce16f",
+  "files": {
+    "006.png": "032d4a194959577b4bfab84c2905ddc153fb43e695b1b9fdc0416ff280900b42",
+    "007.png": "583e18fa785b848938175c5c852ed666cea819d119a2c2e173d30ba119ad85be"
+  },
+  "sources": {
+    "web/build/moonstone-core.js": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "63a93d15ee0d36cf0eec6f0ad6b4be5d251f984e13b2634077bd0a9385f2881b",
+    "web/src/scenes.js": "05e7336cd4f92d17ec4dc2172761e7720f80f1532b343a06453f54c505c13c9f",
+    "Moonstonecd32-AMIGA.zip": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02"
+  },
+  "html_sha256": "d90dc81fe056bbd6fad7850c2e1628ac695f9b816a0a4ef9cc4b6be8887b9c27",
+  "import": 2,
+  "created_at": "2026-10-11T19:44:39.337Z"
+}

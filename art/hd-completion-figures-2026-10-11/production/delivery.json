@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "source_queue_sha256": "a8ae68c394b7fe25dd7dfbf52bae83c4bf9a4b2f065a5818f7952072a88fa503",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "source_banks": {
+    "TROLL1.CEL": {
+      "path": "data/TROLL1.CEL",
+      "sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "bytes": 18520,
+      "frames": 48
+    }
+  },
+  "scope": "Each frame generated separately, source-bound and viewed in actual controlled original WASM combat. Two captured mirrored compositions, walking and standing, exact toggle return. Not full64-frame animation coverage or a natural map journey.",
+  "excluded_unapproved_routes": [
+    "TROLL1.CEL/002.png",
+    "TROLL1.CEL/004.png",
+    "TROLL1.CEL/005.png"
+  ],
+  "runtime_input_index": "art/hd-completion-figures-2026-10-11/production/candidates.json",
+  "runtime_input_index_sha256": "ea1f2e42181417b3e582e5546ba6e56ad931d1d72761e2174716c1df9a553e7a",
+  "status": "six_ready_source_and_actual_controlled_combat_checked",
+  "entries": [
+    {
+      "key": "TROLL1.CEL/000.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/000/0659f945cb262709/rounded-source-edge-v5/candidate.png",
+      "candidate_sha256": "c37215a311d03237a0f2a80efe19e6d530367bccf883d9c3755d3dd8660ccc3f",
+      "source_indices_sha256": "e82118b239894360201233ec63833562ae6191ac4bf197ab4ae34215c68f40d0",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/000/0659f945cb262709/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "2cedb6fb9cbd28de1e1ce26355b1d7df096c8fd75f5913cd085e2dc3edcd965c",
+      "visual_status": "original_and_candidate_compared_same_source_pose_rectangle",
+      "runtime_status": "passed_actual_controlled_original_combat_and_exact_toggle_return",
+      "activated": false,
+      "activation_eligible": true,
+      "visual_runtime_status": "reviewed_original_and_candidate_render_same_pose_same_rectangle",
+      "runtime_evidence": {
+        "report": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json",
+        "report_sha256": "8451aef6f7b183630fc44049969d41308155da5228ec233ef489c7513bb82abd",
+        "frame": 1333,
+        "html_sha256": "c3a51a59c4fcc554142609b9387c182c84a17bd180a62c9b882ee6720a651ad2",
+        "mirrored": true,
+        "original_png_sha256": "1d1621d5c65dbe5ad91f46f2e090709430c36095275f38b5a6118316ae9378c7",
+        "candidate_png_sha256": "3b40c77498106e0e6110338651c7079e34b0d2a50e57dbeb25d6ee901c4d346f",
+        "state_unchanged": true
+      },
+      "pack_folder": "art/hd-completion-figures-2026-10-11/packs/TROLL1.CEL/000/c37215a311d03237"
+    },
+    {
+      "key": "TROLL1.CEL/001.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/001/6d7b19ece13a7453/rounded-source-edge-v5/candidate.png",
+      "candidate_sha256": "d9082c3cf85dc0d068ef5be4207a94ad7d9e3ca427f929b409a677bb512c8d15",
+      "source_indices_sha256": "cbe319d9ea87feabbe6a63de6f3388b56aab9356c2be4ca64fb7e3e7072e54b6",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/001/6d7b19ece13a7453/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "83b6f4a71a512ffb8e17c0170c0dfd2746c4a9f89fd25e697e9b30a7cefe685f",
+      "visual_status": "original_and_candidate_compared_same_source_pose_rectangle",
+      "runtime_status": "passed_actual_controlled_original_combat_and_exact_toggle_return",
+      "activated": false,
+      "activation_eligible": true,
+      "visual_runtime_status": "reviewed_original_and_candidate_render_same_pose_same_rectangle",
+      "runtime_evidence": {
+        "report": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json",
+        "report_sha256": "8451aef6f7b183630fc44049969d41308155da5228ec233ef489c7513bb82abd",
+        "frame": 1333,
+        "html_sha256": "c3a51a59c4fcc554142609b9387c182c84a17bd180a62c9b882ee6720a651ad2",
+        "mirrored": true,
+        "original_png_sha256": "1d1621d5c65dbe5ad91f46f2e090709430c36095275f38b5a6118316ae9378c7",
+        "candidate_png_sha256": "3b40c77498106e0e6110338651c7079e34b0d2a50e57dbeb25d6ee901c4d346f",
+        "state_unchanged": true
+      },
+      "pack_folder": "art/hd-completion-figures-2026-10-11/packs/TROLL1.CEL/001/d9082c3cf85dc0d0"
+    },
+    {
+      "key": "TROLL1.CEL/003.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/003/15fc3928c6f09406/separate-shadow-bottom8-v7/candidate.png",
+      "candidate_sha256": "170aa7e90cceaacd9e175ca58f28188fa1da9c4afc0800c8184e59f470066eda",
+      "source_indices_sha256": "5e8068ea419453481dcd432bcfc8ec88775da4fd947f648be5861b5b6e26b95a",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/003/15fc3928c6f09406/separate-shadow-bottom8-v7/art-record.json",
+      "art_record_sha256": "7ed98f0c2b3d4aaeeb419e3562be1369c2e1bd892b0542316d5f50f980f13e19",
+      "visual_status": "original_and_candidate_compared_same_source_pose_rectangle",
+      "runtime_status": "passed_actual_controlled_original_combat_and_exact_toggle_return",
+      "activated": false,
+      "activation_eligible": true,
+      "visual_runtime_status": "reviewed_original_and_candidate_render_same_pose_same_rectangle",
+      "runtime_evidence": {
+        "report": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json",
+        "report_sha256": "8451aef6f7b183630fc44049969d41308155da5228ec233ef489c7513bb82abd",
+        "frame": 1333,
+        "html_sha256": "c3a51a59c4fcc554142609b9387c182c84a17bd180a62c9b882ee6720a651ad2",
+        "mirrored": true,
+        "original_png_sha256": "1d1621d5c65dbe5ad91f46f2e090709430c36095275f38b5a6118316ae9378c7",
+        "candidate_png_sha256": "3b40c77498106e0e6110338651c7079e34b0d2a50e57dbeb25d6ee901c4d346f",
+        "state_unchanged": true
+      },
+      "pack_folder": "art/hd-completion-figures-2026-10-11/packs/TROLL1.CEL/003/170aa7e90cceaacd"
+    },
+    {
+      "key": "TROLL1.CEL/007.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/007/c7f366e4a98bbb88/rounded-source-edge-v5/candidate.png",
+      "candidate_sha256": "68a35a4aa9ea6a4b0635503ff17b6accd25e7df1b816ad2f4d151a479c7c9398",
+      "source_indices_sha256": "c4281d6b95c7eacc6b55ba16739f7e83741d57d306429cdf9f28ac36d7b5a7f4",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/007/c7f366e4a98bbb88/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "111bff86bce3301585d2889c5279b0de498824be012e502f45b64805138542d4",
+      "visual_status": "original_and_candidate_compared_same_source_pose_rectangle",
+      "runtime_status": "passed_actual_controlled_original_combat_and_exact_toggle_return",
+      "activated": false,
+      "activation_eligible": true,
+      "visual_runtime_status": "reviewed_original_and_candidate_render_same_pose_same_rectangle",
+      "runtime_evidence": {
+        "report": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json",
+        "report_sha256": "8451aef6f7b183630fc44049969d41308155da5228ec233ef489c7513bb82abd",
+        "frame": 1353,
+        "html_sha256": "c3a51a59c4fcc554142609b9387c182c84a17bd180a62c9b882ee6720a651ad2",
+        "mirrored": true,
+        "original_png_sha256": "69835a6c097e06411bab5017bbf9869e6dd8e7641a3e31a8a677b30807cae3c1",
+        "candidate_png_sha256": "3ecfb420068c519c7cb4ad9336631f74ffa8a5a4b1c72d8ccdc8a0d869fc65b7",
+        "state_unchanged": true
+      },
+      "pack_folder": "art/hd-completion-figures-2026-10-11/packs/TROLL1.CEL/007/68a35a4aa9ea6a4b"
+    },
+    {
+      "key": "TROLL1.CEL/006.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/006/016e0c8d247b24dc/rounded-source-edge-v5/source-eye-v10-photo-skin/candidate.png",
+      "candidate_sha256": "0e407cb43bb2835488ec2e5e7459c05d9e30cc978a24c5ec0e8a7e3d985770fb",
+      "source_indices_sha256": "d9ca2d5c066ef89aa0ac94e68fdbd6c2b213265953a3475a0ed1059576ea6f65",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/006/016e0c8d247b24dc/rounded-source-edge-v5/source-eye-v10-photo-skin/art-record.json",
+      "art_record_sha256": "b5e385b824ba559828566a7887f089e41e1a07405dc05190bf7d0e7bdc1cd9b8",
+      "visual_status": "original_and_candidate_compared_same_source_pose_rectangle",
+      "runtime_status": "passed_actual_controlled_original_combat_and_exact_toggle_return",
+      "activated": false,
+      "activation_eligible": true,
+      "visual_runtime_status": "reviewed_original_and_candidate_render_same_pose_same_rectangle",
+      "runtime_evidence": {
+        "report": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json",
+        "report_sha256": "8451aef6f7b183630fc44049969d41308155da5228ec233ef489c7513bb82abd",
+        "frame": 1353,
+        "html_sha256": "c3a51a59c4fcc554142609b9387c182c84a17bd180a62c9b882ee6720a651ad2",
+        "mirrored": true,
+        "original_png_sha256": "69835a6c097e06411bab5017bbf9869e6dd8e7641a3e31a8a677b30807cae3c1",
+        "candidate_png_sha256": "3ecfb420068c519c7cb4ad9336631f74ffa8a5a4b1c72d8ccdc8a0d869fc65b7",
+        "state_unchanged": true
+      },
+      "pack_folder": "art/hd-completion-figures-2026-10-11/packs/TROLL1.CEL/006/0e407cb43bb28354"
+    },
+    {
+      "key": "TROLL1.CEL/008.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/008/23d8792257615802/separate-shadow-feet-v9-original-flat/candidate.png",
+      "candidate_sha256": "507071bce80fc1ef15c141c251bb376eff710362480c77077428e8f3406dfb29",
+      "source_indices_sha256": "823a9e9d5390c50563cc1835c5d9a4b75785d4a965802f502ec769eb0ca72565",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/008/23d8792257615802/separate-shadow-feet-v9-original-flat/art-record.json",
+      "art_record_sha256": "a1c999a187d0312ea1184676ad67f87c74f83c857fb3af518e98666cd39848de",
+      "visual_status": "original_and_candidate_compared_same_source_pose_rectangle",
+      "runtime_status": "passed_actual_controlled_original_combat_and_exact_toggle_return",
+      "activated": false,
+      "activation_eligible": true,
+      "visual_runtime_status": "reviewed_original_and_candidate_render_same_pose_same_rectangle",
+      "runtime_evidence": {
+        "report": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json",
+        "report_sha256": "8451aef6f7b183630fc44049969d41308155da5228ec233ef489c7513bb82abd",
+        "frame": 1353,
+        "html_sha256": "c3a51a59c4fcc554142609b9387c182c84a17bd180a62c9b882ee6720a651ad2",
+        "mirrored": true,
+        "original_png_sha256": "69835a6c097e06411bab5017bbf9869e6dd8e7641a3e31a8a677b30807cae3c1",
+        "candidate_png_sha256": "3ecfb420068c519c7cb4ad9336631f74ffa8a5a4b1c72d8ccdc8a0d869fc65b7",
+        "state_unchanged": true
+      },
+      "pack_folder": "art/hd-completion-figures-2026-10-11/packs/TROLL1.CEL/008/507071bce80fc1ef"
+    }
+  ],
+  "counts": {
+    "independent_redraws": 6,
+    "approved_independent_redraws": 6,
+    "png_files": 6,
+    "troll_master_total": 64,
+    "remaining_troll_masters": 58,
+    "activated_by_this_agent": 0
+  },
+  "rejected_revisions": {
+    "TROLL1_000_v1": "Red eye contradicted original cream eye",
+    "TROLL1_003_v2": "Black body material misclassified as fixed shadow",
+    "TROLL1_006_v1": "Eye and forehead shifted; not approved"
+  },
+  "material_packing_notes": [
+    "006: Generated eye photo detail bound to original cream-index1 contour at(27,1); separately generated eyeless photo skin used only at old eye patch. Original alpha unchanged.",
+    "008: Feet individually generated. Sparse original flat constant-black shadow preserved exact4x and not claimed as new art. Generator extra vertical padding trimmed; removed-region alpha never exceeds6."
+  ]
+}

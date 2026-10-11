@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "63a93d15ee0d36cf0eec6f0ad6b4be5d251f984e13b2634077bd0a9385f2881b",
+    "web/src/scenes.js": "05e7336cd4f92d17ec4dc2172761e7720f80f1532b343a06453f54c505c13c9f"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-c97709e9e932a2bd-59dfcb6c/test.json",
+      "sha256": "8498d1024f7e44eda65d9eff48365e457ce05d2d3e3927c54b36dab2d4e59189",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-c97709e9e932a2bd-59dfcb6c/loaded.html",
+      "html_sha256": "c972d3ae38eb426ea235b6043c97988650324c34f9c584664b5baa181de0b884"
+    }
+  ],
+  "scope": "Separate individuelt genererte ruter, sammenliknet med original og sett samlet i kontrollert originalkamp. Eksakte Original/HD-returer. Original flat skygge beholdes uten nytegningspaastand. Ingen full animasjonsdekning eller naturlig kartreise.",
+  "entries": [
+    {
+      "key": "TROLL1.CEL/020.png",
+      "bank": "TROLL1.CEL",
+      "frame": 20,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "4560f4707e1f1dd45b2d71eff447293e73a260a8b6338a50a78b5a24c7bf1bbd",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/020/9be03d8225cb094d/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "140163418de9abf83a497e16b27321ab8b7e2d476259c8504ec7f04bfce0fcc8",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-020-v1.png",
+      "raw_sha256": "9be03d8225cb094d08e4991bc39d54d7570981a654fe91c4618d17b3686d927e",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-020-v1.txt",
+      "prompt_sha256": "af8cf10b2e82a7a1470480807a4809f93c92cb6badc35b9c583f1a1d2c2e1c59",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-c97709e9e932a2bd-59dfcb6c/test.json",
+      "runtime_asset_sha256": "140163418de9abf83a497e16b27321ab8b7e2d476259c8504ec7f04bfce0fcc8",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/020/9be03d8225cb094d/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "7abf7ea41ddcc83242a2abc967d6e1b1461b27f1b99c0501b7027e07d00deb00",
+      "qa": {
+        "frame": 1383,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "TROLL1.CEL/021.png",
+      "bank": "TROLL1.CEL",
+      "frame": 21,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "f3726ec73290429c6f6eaf56b6f486ac01056dc6de32600e3d09d5ba3d4b16f9",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/021/fe732a4efafc973c/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "02a3f98c01df562b2e09aa9fe4e517cded7cfb66675623f20953a6c15110c051",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-021-v1.png",
+      "raw_sha256": "fe732a4efafc973c64646088d5da0a4c00465e47e68edccbc19a6bbfa52c94ad",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-021-v1.txt",
+      "prompt_sha256": "8a149e713a60adc556ced6cc4efe19af4e888950c509aeee1a447b8073575290",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-c97709e9e932a2bd-59dfcb6c/test.json",
+      "runtime_asset_sha256": "02a3f98c01df562b2e09aa9fe4e517cded7cfb66675623f20953a6c15110c051",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/021/fe732a4efafc973c/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "57e5953bf4f6fe99c088fc8f3054b78f12741e2091b682fd9c69a67b30110418",
+      "qa": {
+        "frame": 1383,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "TROLL1.CEL/022.png",
+      "bank": "TROLL1.CEL",
+      "frame": 22,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "052d9212fa4426ac568d69b06e5da19b80e08b9d01f4fce02de3dddb1fe70da4",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/022/27b79574e2fb11a0/rounded-source-edge-v5/source-eye-v16-photo-skin/candidate.png",
+      "png_sha256": "664e03b70d6142fd3da20f52bec2d12c9acba22e793e1509ff79ea39368ea6fa",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-022-v1.png",
+      "raw_sha256": "27b79574e2fb11a0f644f450c1ce49a6a11b44ba7475464437a15f6be03386c6",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-022-v1.txt",
+      "prompt_sha256": "9df4876bb4b5ffea81d8aed505cde84e70979a7217aef3b0921a3cfbb4196974",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-c97709e9e932a2bd-59dfcb6c/test.json",
+      "runtime_asset_sha256": "664e03b70d6142fd3da20f52bec2d12c9acba22e793e1509ff79ea39368ea6fa",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/022/27b79574e2fb11a0/rounded-source-edge-v5/source-eye-v16-photo-skin/art-record.json",
+      "art_record_sha256": "9568f30cc0a0fefa222c5c339cd6b8449661ade8aeab8e2b1943a92c2b46c569",
+      "additional_generated_material": {
+        "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-022-v2-eyeless-material.png",
+        "raw_sha256": "4cf4d3773d08b1d699539018c1e344b9cf204e163816b6d0254bd81098222dfa",
+        "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-022-v2-eyeless-material.txt",
+        "prompt_sha256": "b805474dd308428862e60b823171384b7c224b6f478ccd4b3da7300b3d2e946a",
+        "used_region": [
+          27,
+          0,
+          44,
+          14
+        ],
+        "method": "Only the generated eyeless photo skin patch is packed; all other RGB and all alpha retain the original candidate. Two HD pixels feather the patch boundary."
+      },
+      "qa": {
+        "frame": 1383,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "TROLL1.CEL/023.png",
+      "bank": "TROLL1.CEL",
+      "frame": 23,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "07d4fd52d011717547f73632b6cbd8a0b73edb943c76ab7bf46d04d2e2be8240",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/023/e7f4148d3f385fc9/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "ef13b2af813ecc0940de672ae2c58f4badb4bbe33fce42f66ef18849796a8304",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-023-v1.png",
+      "raw_sha256": "e7f4148d3f385fc9777441450ea3b112038b7974095cb3413806e7c8f7770cae",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-023-v1.txt",
+      "prompt_sha256": "f0a9e6f6f8508d6c6130b34772c932853e6368704d8f5f4bccf012a3f0039590",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-c97709e9e932a2bd-59dfcb6c/test.json",
+      "runtime_asset_sha256": "ef13b2af813ecc0940de672ae2c58f4badb4bbe33fce42f66ef18849796a8304",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/023/e7f4148d3f385fc9/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "faf9239605f45bdf594553c27e9af9e7210a30a0e8c6b492a0d0026141c49cb9",
+      "qa": {
+        "frame": 1383,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    }
+  ]
+}

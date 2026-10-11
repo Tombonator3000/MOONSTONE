@@ -103,8 +103,11 @@ def identity(bank, frame):
     if bank.lower() == 'mys.cel':
         return 'Healeren: begge øyne lukket' if frame == 6 else 'Mystikeren: ett øye lukket'
     if bank.lower() == 'dice.cel':
+        if 10 <= frame <= 22:
+            return ('Tavernaen: tre kastede Dragon Dice over bordet; bruk tav.piv-paletten. '
+                    'Bevar hver ternings plassering, rotasjon og størrelse fra originalruten')
         return ('Tavernaen: ridderens stålhanske/arm over bordet; bruk tav.piv-paletten, ikke dice.piv. '
-                'Eksakt håndstilling og handling må leses fra originalruten') if 6 <= frame <= 22 else 'Terningspillets separate originalrute'
+                'Eksakt håndstilling og handling må leses fra originalruten') if 6 <= frame <= 9 else 'Terningspillets separate originalrute'
     if bank.lower() == 'mi.c':
         return 'Kartets flygende drage, animasjonsrute '+str(frame-34)
     if bank.lower() == 'blo.cel':
