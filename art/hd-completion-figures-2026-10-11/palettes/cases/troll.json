@@ -1,0 +1,888 @@
+{
+  "status": "original_palette_branch_and_controlled_runtime_verified",
+  "case": "troll",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "mog_sha256": "d8cc4ec9f848ee30032f1e0c0db4e37c2484114910d314760956da9fee96da81",
+  "headless_sha256": "b70edf0eeb05e853e3ce0e3949548275824c7ff98f723f83697f6564e67db695",
+  "scope": "Controlled original combat initializer and terrain immediate in test memory only; not a natural world-map visit. No palette writes.",
+  "initializer": "0x84924",
+  "palette_function": "0x088a4e",
+  "monster_type": "0x40",
+  "branch": "0x88bcc",
+  "terrain": 12,
+  "source_branch_words": [
+    1370,
+    839,
+    291,
+    1,
+    3840,
+    2048
+  ],
+  "effective_branch_words": [
+    1370,
+    839,
+    291,
+    1,
+    3840,
+    2048
+  ],
+  "common_red_override": "0x088c86..0x088c92",
+  "source_branch_bytes_sha256": "78d7fa384f39ffa48fca92a5726d78b80eb958b1606286524d4caabac748c360",
+  "words": [
+    0,
+    4093,
+    2456,
+    1910,
+    1091,
+    0,
+    10,
+    7,
+    4,
+    1370,
+    839,
+    291,
+    1,
+    3840,
+    2048,
+    3072,
+    802,
+    1074,
+    1603,
+    2149,
+    3206,
+    2192,
+    661,
+    370,
+    97,
+    64,
+    2678,
+    1876,
+    1104,
+    255,
+    153,
+    3979
+  ],
+  "colors": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      255,
+      255,
+      221
+    ],
+    [
+      153,
+      153,
+      136
+    ],
+    [
+      119,
+      119,
+      102
+    ],
+    [
+      68,
+      68,
+      51
+    ],
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      170
+    ],
+    [
+      0,
+      0,
+      119
+    ],
+    [
+      0,
+      0,
+      68
+    ],
+    [
+      85,
+      85,
+      170
+    ],
+    [
+      51,
+      68,
+      119
+    ],
+    [
+      17,
+      34,
+      51
+    ],
+    [
+      0,
+      0,
+      17
+    ],
+    [
+      255,
+      0,
+      0
+    ],
+    [
+      136,
+      0,
+      0
+    ],
+    [
+      204,
+      0,
+      0
+    ],
+    [
+      51,
+      34,
+      34
+    ],
+    [
+      68,
+      51,
+      34
+    ],
+    [
+      102,
+      68,
+      51
+    ],
+    [
+      136,
+      102,
+      85
+    ],
+    [
+      204,
+      136,
+      102
+    ],
+    [
+      136,
+      153,
+      0
+    ],
+    [
+      34,
+      153,
+      85
+    ],
+    [
+      17,
+      119,
+      34
+    ],
+    [
+      0,
+      102,
+      17
+    ],
+    [
+      0,
+      68,
+      0
+    ],
+    [
+      170,
+      119,
+      102
+    ],
+    [
+      119,
+      85,
+      68
+    ],
+    [
+      68,
+      85,
+      0
+    ],
+    [
+      0,
+      255,
+      255
+    ],
+    [
+      0,
+      153,
+      153
+    ],
+    [
+      255,
+      136,
+      187
+    ]
+  ],
+  "palette_memory": "0x0961a0",
+  "stable_frames": [
+    1500,
+    2000,
+    2400
+  ],
+  "test_writes": [
+    {
+      "frame": 900,
+      "address": "0x80172",
+      "value": "0x84924",
+      "bytes": 4
+    },
+    {
+      "frame": 900,
+      "address": "0x8d9ac",
+      "value": "0x8d5b4",
+      "bytes": 4
+    },
+    {
+      "frame": 900,
+      "address": "0x8015c",
+      "value": "0xc",
+      "bytes": 4
+    }
+  ],
+  "command": [
+    "/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/port/moonstone-headless",
+    "--headless",
+    "--frames",
+    "2400",
+    "--log",
+    "2",
+    "--press",
+    "100:esc:4",
+    "--press",
+    "700:down:4",
+    "--press",
+    "760:down:4",
+    "--press",
+    "820:fire:4",
+    "--press",
+    "1200:left:120",
+    "--shot-every",
+    "100",
+    "--shot-dir",
+    "/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/troll",
+    "--tegneliste",
+    "1000:1401",
+    "--skriv",
+    "900:80172:0x84924:4",
+    "--skriv",
+    "900:8d9ac:0x8d5b4:4",
+    "--skriv",
+    "900:8015c:0xc:4",
+    "--dump",
+    "1500:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/troll/chip1500.bin",
+    "--dump",
+    "2000:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/troll/chip2000.bin",
+    "--dump",
+    "2400:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/troll/chip2400.bin"
+  ],
+  "chip_sha256": {
+    "chip1500.bin": "23a321971e6e86fd52b857f3e0c1a430d2d96c024f6a0373b8aaf7518c4b22f5",
+    "chip2000.bin": "2c24481ad61592c38e1ae5ec652a7f9855b39977d6228267f4c1202fe5ed6e8a",
+    "chip2400.bin": "c565f90ce5a35ccbf55ca4bd4c778d8aec5a398b89c57884b1f324d06ad2ccdb"
+  },
+  "trace_sha256": "9a622b40420cf0edda2846567f51841bbf03d87f7daead0611ac43533e34d78b",
+  "drawn_banks": [
+    "bold.f",
+    "kn1.ob",
+    "kn2.ob",
+    "kn3.ob",
+    "kn4.ob",
+    "kn5.ob",
+    "sel.cel",
+    "troll1.cel",
+    "troll2.cel"
+  ],
+  "source_banks": {
+    "TROLL1.CEL": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+    "TROLL2.CEL": "f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e"
+  },
+  "references": [
+    {
+      "key": "TROLL1.CEL/000.png",
+      "source_indices_sha256": "e82118b239894360201233ec63833562ae6191ac4bf197ab4ae34215c68f40d0",
+      "original": "references/troll/TROLL1.CEL/000.png",
+      "sha256": "7c9dc83eec9224cd5e32ef65b473a37d45717f178791e2e8c6d5932f4f34af46",
+      "nearest4x": "references4x/troll/TROLL1.CEL/000.png",
+      "nearest4x_sha256": "9b65dd4715c865b41c7e498a60d5a82bbc9d3136495eac81075c75ee21777eee",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/001.png",
+      "source_indices_sha256": "cbe319d9ea87feabbe6a63de6f3388b56aab9356c2be4ca64fb7e3e7072e54b6",
+      "original": "references/troll/TROLL1.CEL/001.png",
+      "sha256": "7af0a400d8c4f7a10f6b19bcebb38bc5c95e0e4ec2dbb27f17c0758dac4c5769",
+      "nearest4x": "references4x/troll/TROLL1.CEL/001.png",
+      "nearest4x_sha256": "bc73763b2267b6d232cbc7e8cec73a9488a46d159464dea30717692664251bab",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/015.png",
+      "source_indices_sha256": "cbe319d9ea87feabbe6a63de6f3388b56aab9356c2be4ca64fb7e3e7072e54b6",
+      "original": "references/troll/TROLL1.CEL/015.png",
+      "sha256": "7af0a400d8c4f7a10f6b19bcebb38bc5c95e0e4ec2dbb27f17c0758dac4c5769",
+      "nearest4x": "references4x/troll/TROLL1.CEL/015.png",
+      "nearest4x_sha256": "bc73763b2267b6d232cbc7e8cec73a9488a46d159464dea30717692664251bab",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/002.png",
+      "source_indices_sha256": "27b8e1683d98374ef92ca91a784d161ea88d680c4c776f590d74bd036c478fb6",
+      "original": "references/troll/TROLL1.CEL/002.png",
+      "sha256": "849e37ac71eb940e3c5ebb123612e7d887fd913b16a8b94ab17005d062623727",
+      "nearest4x": "references4x/troll/TROLL1.CEL/002.png",
+      "nearest4x_sha256": "644904c9f27d64c313c857df71d7d055cfc9b57ef083cf8a35b18e7813222569",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/003.png",
+      "source_indices_sha256": "5e8068ea419453481dcd432bcfc8ec88775da4fd947f648be5861b5b6e26b95a",
+      "original": "references/troll/TROLL1.CEL/003.png",
+      "sha256": "8c0bcf6b250b76c0fe821dd17cd62ce5e84fa1a59af3760325d5a458e3ae7646",
+      "nearest4x": "references4x/troll/TROLL1.CEL/003.png",
+      "nearest4x_sha256": "901d54748011c56ade5fac9b21a95190a0a1cd3e0fcb7493cf578c6e30f052cd",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/004.png",
+      "source_indices_sha256": "060c6649e249a4bed256c630e51968df2532979ef0d374a1ce593baa3dff16b2",
+      "original": "references/troll/TROLL1.CEL/004.png",
+      "sha256": "6cfb14e8d49f32eb1a0fde535a63a2e5c2a2a5bcc3a3609e0dfa2894d5aa6263",
+      "nearest4x": "references4x/troll/TROLL1.CEL/004.png",
+      "nearest4x_sha256": "edab4ad6aab263c44ae2d34b8e31bfb9d127976fde4e9ea0b22da2bae63a7141",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/005.png",
+      "source_indices_sha256": "2c5dc1c426e67d4122d8892694775dfb38d9b322b9ac6078995f4861725415fe",
+      "original": "references/troll/TROLL1.CEL/005.png",
+      "sha256": "32560b70236559eb8c867388f8505999e87344f46cc1cd66c97616668f08a8c9",
+      "nearest4x": "references4x/troll/TROLL1.CEL/005.png",
+      "nearest4x_sha256": "936431029fa1b90dfc324150aa5df9ae49243abf0d062909144099a8887d68d7",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/006.png",
+      "source_indices_sha256": "d9ca2d5c066ef89aa0ac94e68fdbd6c2b213265953a3475a0ed1059576ea6f65",
+      "original": "references/troll/TROLL1.CEL/006.png",
+      "sha256": "690d7581c84f8bd061c0cd2543af1dddfffca78e9c944223ebcc8878a07c0287",
+      "nearest4x": "references4x/troll/TROLL1.CEL/006.png",
+      "nearest4x_sha256": "07887409630bb6182de4efd410ef1ff26947951e6d59d15b023158b56ad23c71",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/007.png",
+      "source_indices_sha256": "c4281d6b95c7eacc6b55ba16739f7e83741d57d306429cdf9f28ac36d7b5a7f4",
+      "original": "references/troll/TROLL1.CEL/007.png",
+      "sha256": "3ac316aa68545798ffcfbdb6714ab9f455aaf12ac86f13016ac77e52f9cf91a5",
+      "nearest4x": "references4x/troll/TROLL1.CEL/007.png",
+      "nearest4x_sha256": "8b37f5d0cf8acf08070ec7faa93f44f9a2f57b7dc73b2f28c7b4c66b841d378c",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/008.png",
+      "source_indices_sha256": "823a9e9d5390c50563cc1835c5d9a4b75785d4a965802f502ec769eb0ca72565",
+      "original": "references/troll/TROLL1.CEL/008.png",
+      "sha256": "9c98f096fa75c5ff55ca68208a812716cfc27eb359994f29de6c867f792178eb",
+      "nearest4x": "references4x/troll/TROLL1.CEL/008.png",
+      "nearest4x_sha256": "02e8d80470b5cd63008c14cd71700f481a6bc9a3453098b8a10641b8e175e9bd",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/009.png",
+      "source_indices_sha256": "485df8f5dcd84654778125b83d96ab31b27f60cbea25419e2407e7a8754b0558",
+      "original": "references/troll/TROLL1.CEL/009.png",
+      "sha256": "5738eb6b94183ae09ea03c7e94efce1076658b87b3b46f566e45f407f5e9f325",
+      "nearest4x": "references4x/troll/TROLL1.CEL/009.png",
+      "nearest4x_sha256": "2dc43593919e909a828d89e5ff86752cb8e4737c0b2401b4afd6e245a3f1404a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/010.png",
+      "source_indices_sha256": "41b7e0f0c4e6ee7062987bc6523003c3b5e7452a2e7b1c0948af93581175a4c8",
+      "original": "references/troll/TROLL1.CEL/010.png",
+      "sha256": "f53de0cac6d80966f6e332b79ca21c2a4c009f20689c6823d98da7b8d419ee57",
+      "nearest4x": "references4x/troll/TROLL1.CEL/010.png",
+      "nearest4x_sha256": "4f82d57dba779388f9220e3abb2a6c772c3d9fd74cc5af2d9814a97cc832f1c4",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/011.png",
+      "source_indices_sha256": "9821740cf3e58e399c0bc4025cf6825f8bd34c5d21ccfb9ea3d92dd12d38b4eb",
+      "original": "references/troll/TROLL1.CEL/011.png",
+      "sha256": "9908b24dc6bb00a396ec41e9cb62a1e8269e2a1b5c90f275e612a808fd80b587",
+      "nearest4x": "references4x/troll/TROLL1.CEL/011.png",
+      "nearest4x_sha256": "1f92750d150bd343c6aa85c1cef833ddfcc2fb7fa3426e4d90ffcfc173728ca5",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/012.png",
+      "source_indices_sha256": "e677a94e4abd55666edab3a18d6bc0f8b24eb99a5e324ad9098004dc03fdb196",
+      "original": "references/troll/TROLL1.CEL/012.png",
+      "sha256": "863c54f1aed40875a47d15c89d86ffa548235738ad4a7b0bbcfb36de0ace0a90",
+      "nearest4x": "references4x/troll/TROLL1.CEL/012.png",
+      "nearest4x_sha256": "dd56a04af9807fac345abbc2b063ec31db497713dafede2a40ebaabecdbe90ae",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/013.png",
+      "source_indices_sha256": "fc2f3bf5b564847e430b695935fcf22cb03780ff5c36b9c86a1a40bc851dcf5c",
+      "original": "references/troll/TROLL1.CEL/013.png",
+      "sha256": "d34b38d34ce2a0c2c0333d33f1a479360fdc5b65ca0ba8f4b7797b642d8719e1",
+      "nearest4x": "references4x/troll/TROLL1.CEL/013.png",
+      "nearest4x_sha256": "40e128b50ab29fedd361f9f6885f12ea6ae31b060e461a4458132f6749e8b1a6",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/014.png",
+      "source_indices_sha256": "275a2007095eed0936979b262f07713df59c050bc30b30ed642ceff87af40c80",
+      "original": "references/troll/TROLL1.CEL/014.png",
+      "sha256": "21da30b9427800fef6fdc99c4211bdf7b590db82cc3d5d2c66a75b5831ee4143",
+      "nearest4x": "references4x/troll/TROLL1.CEL/014.png",
+      "nearest4x_sha256": "a7d8ff6a8b97f4793063d57bd1300277883fd16722d9736bb7968690ff4e8145",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/016.png",
+      "source_indices_sha256": "fdd6732d584cd59998253fc6df07f846311c1800d5c8104a8d0ed917f674ff15",
+      "original": "references/troll/TROLL1.CEL/016.png",
+      "sha256": "dbe265d0797439e6c85ad64d5e4bf81e9f4a127ac5ea2327a00e3561a4095be6",
+      "nearest4x": "references4x/troll/TROLL1.CEL/016.png",
+      "nearest4x_sha256": "b4273da7d84e2ec4e3cbcc125494bc3ab68359e559e8e81e3fefa7cc21a8f532",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/017.png",
+      "source_indices_sha256": "f5af24a55ab8aa42b5d2dc5d307f7f389c6bb9f41c73a6f146dbb6083f799209",
+      "original": "references/troll/TROLL1.CEL/017.png",
+      "sha256": "2c750d6d1b4314557214f9c91ba6a08fc977268737b918fe9ea60210f7c3d63c",
+      "nearest4x": "references4x/troll/TROLL1.CEL/017.png",
+      "nearest4x_sha256": "f9aa9652864e42463a185d1352a5787c0dc1452e99eabddeb7aa62c9b4d65e5d",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/018.png",
+      "source_indices_sha256": "46dda7135d26d6279e3c5dc52f084cf20a0f6cc6d1d78677b84bad3216c7128e",
+      "original": "references/troll/TROLL1.CEL/018.png",
+      "sha256": "ddff6f9b155ac79c5758099ce3d68fb163c8b20a4701f9c4230ac37a8f68dd21",
+      "nearest4x": "references4x/troll/TROLL1.CEL/018.png",
+      "nearest4x_sha256": "6effd03746aa5eb2c7727ce4ee533f6058328d848a4d1a98dd7637299f92ede3",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/019.png",
+      "source_indices_sha256": "007c4c25e0d9efbb8f8f2d32f09eac3183193fb32f4d6b1f95e9113dfbe3e40f",
+      "original": "references/troll/TROLL1.CEL/019.png",
+      "sha256": "c35f1d80c7bc6eadfb8ebebb9f02f0a4e48292a8930042717ac7e96820a38a0f",
+      "nearest4x": "references4x/troll/TROLL1.CEL/019.png",
+      "nearest4x_sha256": "41fd8a47d2980cb314efb75d8a522fa81256174123e39344e5ff98fdab628ff3",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/020.png",
+      "source_indices_sha256": "4560f4707e1f1dd45b2d71eff447293e73a260a8b6338a50a78b5a24c7bf1bbd",
+      "original": "references/troll/TROLL1.CEL/020.png",
+      "sha256": "f1590cccd8d33e1e2a981394f2890e28ba74066376333327a9e2dd6634008c6b",
+      "nearest4x": "references4x/troll/TROLL1.CEL/020.png",
+      "nearest4x_sha256": "dad0bfa414edde4121f05cb020a22dea4ca8e7f2005adec541b596a4e1030a51",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/021.png",
+      "source_indices_sha256": "f3726ec73290429c6f6eaf56b6f486ac01056dc6de32600e3d09d5ba3d4b16f9",
+      "original": "references/troll/TROLL1.CEL/021.png",
+      "sha256": "4c684e2039d9ec3f20eec49ab3c41b39fbbbec095b177629dceb039f8c8f745d",
+      "nearest4x": "references4x/troll/TROLL1.CEL/021.png",
+      "nearest4x_sha256": "9006e2e08c7db7a3ed218c213d3a27966d75d0b5451c078da7478469f6b9220a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/022.png",
+      "source_indices_sha256": "052d9212fa4426ac568d69b06e5da19b80e08b9d01f4fce02de3dddb1fe70da4",
+      "original": "references/troll/TROLL1.CEL/022.png",
+      "sha256": "ab79b76492175a99b8b9dfa34c0d401598984e8967161f64d99136aaa3856055",
+      "nearest4x": "references4x/troll/TROLL1.CEL/022.png",
+      "nearest4x_sha256": "1e27120ccd35595da17b00d6c5dee6496fbb32439f65a957794efea1b3b276dd",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/023.png",
+      "source_indices_sha256": "07d4fd52d011717547f73632b6cbd8a0b73edb943c76ab7bf46d04d2e2be8240",
+      "original": "references/troll/TROLL1.CEL/023.png",
+      "sha256": "2e762f3c4776011bcffaf990812e2cf02a66c4d9528e9c510f5a40c615404623",
+      "nearest4x": "references4x/troll/TROLL1.CEL/023.png",
+      "nearest4x_sha256": "bd34a878be4614757e94e374a4d67646050f78d75dd575c70a0e7241b5520ab6",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/024.png",
+      "source_indices_sha256": "08d6783a00b5c174cceed400e7a59556ee846ac10414691bba8b4cfc899465ff",
+      "original": "references/troll/TROLL1.CEL/024.png",
+      "sha256": "cf3fac2033f1eba53d7dc5b69617ec8a05a582914c254b0548fdc497154a4b0c",
+      "nearest4x": "references4x/troll/TROLL1.CEL/024.png",
+      "nearest4x_sha256": "211236d2e6fc88e132381c313e518a68d776821e0ef50b23d99b39674398dea2",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/025.png",
+      "source_indices_sha256": "a3c609d7d58b9713ca5d0994c6b3d5059e4eb723564033ba42e8c24e83b1f4c1",
+      "original": "references/troll/TROLL1.CEL/025.png",
+      "sha256": "56b36eb2fbfc68fa9900f89723cb57b310be55548c97ee50c8619b2b76eccb68",
+      "nearest4x": "references4x/troll/TROLL1.CEL/025.png",
+      "nearest4x_sha256": "7fea49a2e075ad8ee8f640313223ddaa5058019501eb93e4cef992ec3e161851",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/026.png",
+      "source_indices_sha256": "d182bd085c0ba5a1610d9fc3aaa9e4801bb1281210b9a611e22c6baca8b8491c",
+      "original": "references/troll/TROLL1.CEL/026.png",
+      "sha256": "f4db0bfffd701bfa5c41b95b619a26bce93c2739d0533f7d3cadedd79bb353f4",
+      "nearest4x": "references4x/troll/TROLL1.CEL/026.png",
+      "nearest4x_sha256": "ff3a7c50f447cd9271c75b4da88f5c89d142693fbc4d5204a4f4aba165af75e9",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/027.png",
+      "source_indices_sha256": "35328f28662b437c0fde4f83de3db4c7cbfa8e9e8e7c6ad34701d0d3c2714315",
+      "original": "references/troll/TROLL1.CEL/027.png",
+      "sha256": "db5e016b1313a1f15a359a3d67edf3086bce23f4149c92888dc0b6fff585e717",
+      "nearest4x": "references4x/troll/TROLL1.CEL/027.png",
+      "nearest4x_sha256": "59d4a3149f4b15cca08dc18ca73e5351b66d5c358d1f78d026da82281291f6cd",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/028.png",
+      "source_indices_sha256": "5463fce58cb336eb3abaa52b9d053d3dde4d17a2250dea740dc5b32e8a013b28",
+      "original": "references/troll/TROLL1.CEL/028.png",
+      "sha256": "2c70b7f0ec7c0dadc94f2ba0c0e8095afc858d55d151f7e5a2814f3612b1e71d",
+      "nearest4x": "references4x/troll/TROLL1.CEL/028.png",
+      "nearest4x_sha256": "a68f0d20bbd37eae26ea5f7f5bc340aae92024e26404eaf4a0c997469df30a4e",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/029.png",
+      "source_indices_sha256": "21e0ae4bb0a529ca5b86cf589f9b353a11ae3b21adde8768c4281e74ca207990",
+      "original": "references/troll/TROLL1.CEL/029.png",
+      "sha256": "586c6c83202c3a70323e116ad06afcf67da26397cd92108a6ff19c7915b3cd20",
+      "nearest4x": "references4x/troll/TROLL1.CEL/029.png",
+      "nearest4x_sha256": "324a13c83147168a473291bed9ab9ba5580af0e346e1ec33defc81dec208e01e",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/030.png",
+      "source_indices_sha256": "2c7d4e1462c964315cb912cec8839aa9c0b3790a83a720d8301a3e3b1464a143",
+      "original": "references/troll/TROLL1.CEL/030.png",
+      "sha256": "9eed599fb2c0dd386417cc9f74613cbbdefcac6a26c7b5a2b418edde1492b0e8",
+      "nearest4x": "references4x/troll/TROLL1.CEL/030.png",
+      "nearest4x_sha256": "f58b0fa71f8b1e6cdbd575f7f8c57fc7f0c23315635e49f0b7a62483573f90c4",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/031.png",
+      "source_indices_sha256": "9f3ffa7c83c463531472fd4d6fb08e21158283fcb25ea557076f9f483538908d",
+      "original": "references/troll/TROLL1.CEL/031.png",
+      "sha256": "45d7c4da9e2217894d39e53be8bcbf78e62a64454bafd43c12a842fdda7a233f",
+      "nearest4x": "references4x/troll/TROLL1.CEL/031.png",
+      "nearest4x_sha256": "f273915f677437c56ce7b93fa71efed5b2443f8bfcd59411aae6eec4e37ad737",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/032.png",
+      "source_indices_sha256": "d037225d0bd664284c010e1e338212915479ca646259060298f922b2fb20fc4a",
+      "original": "references/troll/TROLL1.CEL/032.png",
+      "sha256": "3bd2363e7bb8ac90f1f87d2bd0c72a10fdc31f09f3c3129686daf213fa0f5bd3",
+      "nearest4x": "references4x/troll/TROLL1.CEL/032.png",
+      "nearest4x_sha256": "90ad9709121bd7ee68061d0a5c6f68a5a031760c3c2c500e2bd53f72795cb76b",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/033.png",
+      "source_indices_sha256": "60f50d18a2bd2e3cccaf6d9a8d392ae2757cb9d0397b5e58c873aa40f6f8c58f",
+      "original": "references/troll/TROLL1.CEL/033.png",
+      "sha256": "77ec34de88c7a83603716d2d3c2b9d43a03a3a43f65cdfcc6ccaa1f5eba839fc",
+      "nearest4x": "references4x/troll/TROLL1.CEL/033.png",
+      "nearest4x_sha256": "0707afbf7b482c606912c7fd0b27ed5364cd0eb722041c8d34ad8b1b887541c2",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/034.png",
+      "source_indices_sha256": "cc1ce15cc79f514575e6661eb87fb07bda7f9918663b8ecaa482a93377288178",
+      "original": "references/troll/TROLL1.CEL/034.png",
+      "sha256": "d5de38766785c6be4f71c47351bd21fa8ead5560b68e581064de36d7d0f0761d",
+      "nearest4x": "references4x/troll/TROLL1.CEL/034.png",
+      "nearest4x_sha256": "19667c2a3d51e8a2ac23c8ae2fe99d74e79d4d126c6b0653bd3012d41e154d4a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/035.png",
+      "source_indices_sha256": "4616c56512140a10e8d03b0a30872f41920df4e5a3266694320a70ddea5c9508",
+      "original": "references/troll/TROLL1.CEL/035.png",
+      "sha256": "7f902de2e7957e0382f05591d5fb43eafdd7a8dbd3b61d9ed1e56affa326189e",
+      "nearest4x": "references4x/troll/TROLL1.CEL/035.png",
+      "nearest4x_sha256": "02739ca9922e4d909bc858bdd6468500cee2759262743e9924d12359db89e6d7",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/036.png",
+      "source_indices_sha256": "74ea8b4b876dcec50c8b29011083fe1c9fa6ac8550247a78e06c091d6b38baf4",
+      "original": "references/troll/TROLL1.CEL/036.png",
+      "sha256": "a24ff4a73512ba40e62c3215d10c0aaa0f81fc13a30c8543d5cf9edcce15a5e9",
+      "nearest4x": "references4x/troll/TROLL1.CEL/036.png",
+      "nearest4x_sha256": "f92cdd4b28cffffce50ab90633ccb3007e0663f385bb10bb3d040dda8f64ea45",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/037.png",
+      "source_indices_sha256": "670b3118c935032df36666afb15562c80931b0c4ee96197867d8300dff84bd45",
+      "original": "references/troll/TROLL1.CEL/037.png",
+      "sha256": "cfe928812b5d7492e3f4738ed3e9d15f90b45228d9375adbdd558028ea5d9740",
+      "nearest4x": "references4x/troll/TROLL1.CEL/037.png",
+      "nearest4x_sha256": "a3a5066bccd645ded2597f557ed2b91c01260707ee78a041e089f93375183d84",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/038.png",
+      "source_indices_sha256": "12250ab9b02eb2c9a6b5a2f6c4bd15cefd84bf5df08af49f867f08af7ceabb52",
+      "original": "references/troll/TROLL1.CEL/038.png",
+      "sha256": "32798d55c3d2ad66e984fded1891d36a4c1ae5354481e7f31854e6c5fdc2ad37",
+      "nearest4x": "references4x/troll/TROLL1.CEL/038.png",
+      "nearest4x_sha256": "5a08de6d1d6c4b6c910c1526b7f6c5a56751c9b8fdad4a4c73d5d09f87cd4a2d",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/039.png",
+      "source_indices_sha256": "39d035cbcfe96767d1d64b737900293d42a20d98fb9d44829d1fd21b0b4a9e7f",
+      "original": "references/troll/TROLL1.CEL/039.png",
+      "sha256": "28628966c2d91a78d147fcd04f8c05355ade17aad163562e860eef742e96ed71",
+      "nearest4x": "references4x/troll/TROLL1.CEL/039.png",
+      "nearest4x_sha256": "00089c0938c9eb74e9685092d5286126a303e09072f21bb3752b465042b66027",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/040.png",
+      "source_indices_sha256": "d74d636e909efac207f6992f1904edf95fa39451728361af972d4691c9330dfd",
+      "original": "references/troll/TROLL1.CEL/040.png",
+      "sha256": "91b9beb55b928acb01f5a025901115821400ff0bc1ec8ea554b088e4feb1d368",
+      "nearest4x": "references4x/troll/TROLL1.CEL/040.png",
+      "nearest4x_sha256": "c14e7bd64c4bd64140b5ee58252ef4a035bf19ad26408c676c74d4007c4a1ada",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/041.png",
+      "source_indices_sha256": "01adc6bbaf914ab03f803bebacb43ff906c0ba4f0642c171bd55e0a013d3b3af",
+      "original": "references/troll/TROLL1.CEL/041.png",
+      "sha256": "59b90ea2d043351f0d66e9343cf5e4116448a44c5e45435eaed6f6207a7657ee",
+      "nearest4x": "references4x/troll/TROLL1.CEL/041.png",
+      "nearest4x_sha256": "9f7d2453b755f31936cffe2fce04ce882cea69af3400db1564180c0ff9004899",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/042.png",
+      "source_indices_sha256": "ef1f989ee69f2c05a9a20c90f6737f8eb81dd65715217920a99659e0e718bbc5",
+      "original": "references/troll/TROLL1.CEL/042.png",
+      "sha256": "536032dbd1e54e3ca8f8575c8dc563ed0e8eee63a76a385151b0dc022b65d957",
+      "nearest4x": "references4x/troll/TROLL1.CEL/042.png",
+      "nearest4x_sha256": "f89f5f95b40bc9eaecb1ed84ab248d8de23153011306bb7ba8e42e23180e3881",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/043.png",
+      "source_indices_sha256": "a9c76d5f941743c7010ba36da9e7b7683dd99c34a8f0c432388296bd88362040",
+      "original": "references/troll/TROLL1.CEL/043.png",
+      "sha256": "b36ba39cc05cd8481501ea316e9193a25ca73efc774b17828eb5de17e9b93569",
+      "nearest4x": "references4x/troll/TROLL1.CEL/043.png",
+      "nearest4x_sha256": "3878dc9540ff7e980be55e508e63306ed6440f7fc5118ab8325df0be964628ff",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/044.png",
+      "source_indices_sha256": "c244cab377743244f456d640d8260d24a02b97f7cbef4d3a67181b64c4cfeb3c",
+      "original": "references/troll/TROLL1.CEL/044.png",
+      "sha256": "4ce1e69bb7fb08c53cbd2c82029532bdc4a5eb5fb9b5f4bf8affa018b20fd5fc",
+      "nearest4x": "references4x/troll/TROLL1.CEL/044.png",
+      "nearest4x_sha256": "399690a2eb2f9f88cc58fd429790df51664cd7054b4743c85a4a4920b452a658",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/045.png",
+      "source_indices_sha256": "2e9f04dc5befdf14970171480a69e583b69a65c22bd9c6248af4284b9c5dd3a5",
+      "original": "references/troll/TROLL1.CEL/045.png",
+      "sha256": "f3c07897b89f75d7f235cb18558ca9b94d0a2fcb40523d8a5fe3f492e4c40f35",
+      "nearest4x": "references4x/troll/TROLL1.CEL/045.png",
+      "nearest4x_sha256": "4fb50faf5fd3f3b2f414df20bd2d2d33c3f5a1b2e755b100d938209874627689",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/046.png",
+      "source_indices_sha256": "765026ad824ffc9070ab7d51556eda6b70842c311039c90616a722a7712fdeff",
+      "original": "references/troll/TROLL1.CEL/046.png",
+      "sha256": "536731698bf9d3fbaee5ff22c22589762afbcdacd4bfafce1a6d4d3ec95a794f",
+      "nearest4x": "references4x/troll/TROLL1.CEL/046.png",
+      "nearest4x_sha256": "7f1aa3e4684fced3b38820cbf6da7b03c522a6005bc0350a01cbc74639da19e1",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL1.CEL/047.png",
+      "source_indices_sha256": "9d6cb02dc41489519e49718fc6a67b2021f375b0288bf7ad65605dba75600f2b",
+      "original": "references/troll/TROLL1.CEL/047.png",
+      "sha256": "74edaf5fdadf10cc86ba17474c8487a5a94630a71e75df702c65be103bd65773",
+      "nearest4x": "references4x/troll/TROLL1.CEL/047.png",
+      "nearest4x_sha256": "e5bed08c8295770a9debef11c8ca99fa9191a30f7d75c8296a15bfe39f5c3e3f",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/000.png",
+      "source_indices_sha256": "726672d47fe3646280fffc5647e37ededab271ee87259415e9a0c4fa72eb7e2f",
+      "original": "references/troll/TROLL2.CEL/000.png",
+      "sha256": "2b8a84437bc1eb2fadef8a9d2e1fd3696b35a3f23f5939fd0b59ffd640db4e64",
+      "nearest4x": "references4x/troll/TROLL2.CEL/000.png",
+      "nearest4x_sha256": "03ac21855958b484388fbaccc702f63bcbaca5eaf504053ebe8e2003ecc4ff28",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/001.png",
+      "source_indices_sha256": "96964bae0a0af752d7262bc0ee2ed81c6d5f0da101463e496ea36b3dada97713",
+      "original": "references/troll/TROLL2.CEL/001.png",
+      "sha256": "a10bc40c44c9dc35cb2df3ff99cd4e71ce90a5fdaf4d8498379e62a8dbe2e17e",
+      "nearest4x": "references4x/troll/TROLL2.CEL/001.png",
+      "nearest4x_sha256": "71011a6a1d3a86a26576e8c2936ada3716042a009d55dcdfb75b8c219cfb0506",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/002.png",
+      "source_indices_sha256": "669f43b0fd1bf45fcbac81c4b418f387094595937f80f6f96ad57b266b501780",
+      "original": "references/troll/TROLL2.CEL/002.png",
+      "sha256": "cc7ce30c4f1c255fd75d2b1c0dfef8b2dd3bf53e78fbfbded50ec444afa88e6a",
+      "nearest4x": "references4x/troll/TROLL2.CEL/002.png",
+      "nearest4x_sha256": "77f992242560ebfac742a386693c3f3043cb8f8d9dadd94ffbcdd21f48c24b9e",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/003.png",
+      "source_indices_sha256": "27420a63be551aa94d9ec2ee7afcd110401547b444dbc082947334576806904f",
+      "original": "references/troll/TROLL2.CEL/003.png",
+      "sha256": "55df9f78c046941551ff9784441c599c4a50a9696ffaa072ab286ee31ca3db3a",
+      "nearest4x": "references4x/troll/TROLL2.CEL/003.png",
+      "nearest4x_sha256": "592e9ec3514dba23907c1c7ecea775469a6b05ca8b40bae690d9a8b1a6da3d78",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/004.png",
+      "source_indices_sha256": "958538ff89f02ea7ea1a044d61ed640b0d3c56fb8d7948b8be24ba31d05157ae",
+      "original": "references/troll/TROLL2.CEL/004.png",
+      "sha256": "7d70f989b9532c77de765fc86a62f223d5ac3147c2c490554bedbb583e7d1377",
+      "nearest4x": "references4x/troll/TROLL2.CEL/004.png",
+      "nearest4x_sha256": "1ce14c5a7dd2716c2c115810502f72a81d65128c18f786a0e3cb26086ac71b94",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/005.png",
+      "source_indices_sha256": "c75fa9db88383bc244539e96fecfb1792eb39278f07fd52a5374b056c090f7c3",
+      "original": "references/troll/TROLL2.CEL/005.png",
+      "sha256": "9b29ba98db0068d9b44c901187d5baba0ed9b334791440e75f3b3cd1920caa76",
+      "nearest4x": "references4x/troll/TROLL2.CEL/005.png",
+      "nearest4x_sha256": "c66ccaa133d317be02befaf03123f9fc0a882068958f27c626b17a444dd801ee",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/006.png",
+      "source_indices_sha256": "967c413a0358582a360b4e9497b558f268407ea3a6fe366b5c77bfda9b3ee269",
+      "original": "references/troll/TROLL2.CEL/006.png",
+      "sha256": "6eed8fb1db78463ef82b9a0afcfcfcd815c547082a2d85a9354d006e93b20dac",
+      "nearest4x": "references4x/troll/TROLL2.CEL/006.png",
+      "nearest4x_sha256": "880193e81e4118377a2052cb0b13c832606e27e679b7741a5aefdeb9573774a8",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/007.png",
+      "source_indices_sha256": "d792f3d3c679b58771c517fa3f87fec1c0f089dc65e9a85f6e7fbdb588b8a48b",
+      "original": "references/troll/TROLL2.CEL/007.png",
+      "sha256": "115f673af6d58f40e4e0155000ea6d5074740ddd66db609dbbcaaf1345f87b33",
+      "nearest4x": "references4x/troll/TROLL2.CEL/007.png",
+      "nearest4x_sha256": "fd7ca0beffe45fe89056c9e8cceba4cb7fa39a5ded121fbad6d11d4eaf3b3835",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/008.png",
+      "source_indices_sha256": "f2d6b997a6a3c9176e0d1764af2899b1134690460e4f1b47c24fe96e4302cebc",
+      "original": "references/troll/TROLL2.CEL/008.png",
+      "sha256": "92bea8d416f6a551e63e0f73f74b916f21e685aa0d76ffa4939121c2c8d38828",
+      "nearest4x": "references4x/troll/TROLL2.CEL/008.png",
+      "nearest4x_sha256": "8b9b3a8dd3871f3ead3e1e62a344ec31915687a255ee5b505ed991e16d8c272f",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/009.png",
+      "source_indices_sha256": "ce5370c40ac6fff5cdc03b6aaf636656f6100ca6a7f1e306a243dab92898528a",
+      "original": "references/troll/TROLL2.CEL/009.png",
+      "sha256": "62a67f665157a3a6948ca9e743739f6522f7c746042e13723919c68d7373226d",
+      "nearest4x": "references4x/troll/TROLL2.CEL/009.png",
+      "nearest4x_sha256": "e53a7051081f2cc340608905afd5802a45d3af1014f1a0370ec4dad5a9c9454c",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/010.png",
+      "source_indices_sha256": "d26e3ca5e1a5db53223622c5701bff85e96cdb0501fa1fe3658cd2acaafce74d",
+      "original": "references/troll/TROLL2.CEL/010.png",
+      "sha256": "1f6312da735c653d0f96ff158b0772076182d8a345c852c9d76871b531785bd5",
+      "nearest4x": "references4x/troll/TROLL2.CEL/010.png",
+      "nearest4x_sha256": "3233fe79f022154c87922fe6f8156ad4231f4b4eae6bc4bfb08d6fed8b4b6069",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/011.png",
+      "source_indices_sha256": "2a77f4dbafa224d8a630adaa8cbe6d655ea4ff4c365e9596a3d05bf330476c22",
+      "original": "references/troll/TROLL2.CEL/011.png",
+      "sha256": "97ea91e2d4f687c47855d83b68267d949ce9625282dc6d34f564b88969aadfec",
+      "nearest4x": "references4x/troll/TROLL2.CEL/011.png",
+      "nearest4x_sha256": "a50ff428cbfe846a59519f28bbb06afd292b90a3dd26301e88d2de3efca62eee",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/012.png",
+      "source_indices_sha256": "102e0d3f8d23bcc648734f0bee734c243124ab6036687ec130fa9badcb5f3f4f",
+      "original": "references/troll/TROLL2.CEL/012.png",
+      "sha256": "bdeb23421d31b99f0cf77e1b0aeefe7b09d519f3de328ff8c95acf54d6d8aa91",
+      "nearest4x": "references4x/troll/TROLL2.CEL/012.png",
+      "nearest4x_sha256": "9834a162f8f768bf40e9a60f992af0ef56d38cc7a9f457ad01050d27d152f5bb",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/013.png",
+      "source_indices_sha256": "350e7907bd0e4973db68fb0b1d32ed42bdc41b24f370e09d3af9d46b0eba3d57",
+      "original": "references/troll/TROLL2.CEL/013.png",
+      "sha256": "47b6104413d5b3e07bc9986ba50d378f9fe3cad29d4d109fe1aa1d035df9c8a6",
+      "nearest4x": "references4x/troll/TROLL2.CEL/013.png",
+      "nearest4x_sha256": "d1728cf5a06f1942d0c185c93195fd135d1782b2078ed97cbc9979adcc984421",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/014.png",
+      "source_indices_sha256": "08e5a0373a80b43565c1ffe9488ee671a8dbd50f73b571fcbe9d53a8c3d9cdad",
+      "original": "references/troll/TROLL2.CEL/014.png",
+      "sha256": "8f380f1a542ff99db403906b29ab24a064de6f27576c7e9f88ad15d83bb73e08",
+      "nearest4x": "references4x/troll/TROLL2.CEL/014.png",
+      "nearest4x_sha256": "b5d4afbb277298ecd887b78dbec70490b981d4b86d38c4c48ddf54b1ed2508a1",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "TROLL2.CEL/015.png",
+      "source_indices_sha256": "9b414a417a734e702e5dfba3476c9f29375a5072c7aa231a2edccb8f230b15dd",
+      "original": "references/troll/TROLL2.CEL/015.png",
+      "sha256": "62d3b10e579236d0febadf74d94f1e6644e83b6debdefed5c599da38b6bc43ec",
+      "nearest4x": "references4x/troll/TROLL2.CEL/015.png",
+      "nearest4x_sha256": "b73c6442ee5f744a3019b1834590d1be03e4f3d905c1c14a4c9ac671d5122a82",
+      "art_status": "original_reference_only_not_hd_redraw"
+    }
+  ]
+}

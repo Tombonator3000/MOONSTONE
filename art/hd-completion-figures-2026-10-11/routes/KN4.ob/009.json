@@ -1,0 +1,107 @@
+{
+  "key": "KN4.ob/009.png",
+  "master_key": "KN4.ob/009.png",
+  "role": "redraw",
+  "package": "02-riddere",
+  "order_group": "Riddere",
+  "order_priority": "3",
+  "identity": "Ridderens separate kropp-, våpen- eller blodfragment fra KN4.ob",
+  "master_usage": "Alle kamper: ridderens våpen (sverd, lanse) over kroppen",
+  "identity_limit": "Kildebank og brukssted. Ingen udokumentert handlingsetikett per rute.",
+  "bank": "KN4.ob",
+  "frame": 9,
+  "width": 12,
+  "height": 11,
+  "target_width": 48,
+  "target_height": 44,
+  "source_bank": {
+    "path": "data/KN4.ob",
+    "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+    "bytes": 1600,
+    "frames": 26
+  },
+  "bitplane_sha256": "aba8b879f4dc80773ffa78275685ac625d6d7acef9322c65800bdf491f9c9bb1",
+  "packed_indices_sha256": "9cb7cbc6a042bf0643f782e2c2aa798450934d5e65d1ca39555ac5799ef48657",
+  "indices_sha256": "9cb7cbc6a042bf0643f782e2c2aa798450934d5e65d1ca39555ac5799ef48657",
+  "plane_mask": 7,
+  "packed_planes": 3,
+  "source_flag": 1,
+  "source_indices": [
+    0,
+    1,
+    2,
+    4,
+    5
+  ],
+  "index_remap": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "4": 4,
+    "5": 5
+  },
+  "source_neighbors": [
+    "KN4.ob/007.png",
+    "KN4.ob/008.png",
+    "KN4.ob/010.png",
+    "KN4.ob/011.png"
+  ],
+  "neighbor_limit": "Nærliggende kilde-ID-er, ikke en bekreftet animasjonsrekkefølge",
+  "alpha_bounds": [
+    0,
+    0,
+    12,
+    11
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "placement": "Originalens tegnerektangel; ingen ny sentrering eller justering av fotpunkt",
+  "palette_id": "combat-preview",
+  "palette_status": "preview_only_not_a_monster_or_player_color_approval",
+  "palette_source_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+  "palette_file_sha256": "9e0b9b6c5798bc2706a91487b5fae02b840c95c20235a5886f0bdba34bbcef35",
+  "original": {
+    "path": "references/original/KN4.ob/009.png",
+    "sha256": "7783b98676958f2555f08da568d432f41620fc10b6e56103c909a6c46778efa1",
+    "width": 12,
+    "height": 11
+  },
+  "nearest4x_reference": {
+    "path": "references/nearest4x/KN4.ob/009.png",
+    "sha256": "50cc33e68ef99a9c20b89af690894d499382fa74e67f4d002ed49c4c7c88c9ff",
+    "width": 48,
+    "height": 44
+  },
+  "packed_original": {
+    "path": "source/packed/KN4.ob/009.png",
+    "sha256": "6ff0ebfbc6d9cfe32f126076380e1e16b719526b20a4a0660686447fbff43e0e",
+    "width": 12,
+    "height": 11
+  },
+  "silhouette": {
+    "path": "source/alpha/KN4.ob/009.png",
+    "sha256": "5d4113cb6a22391b3da6c7dd97961fc74be11a68a3bb03b0d7672b14d2abfcbe",
+    "width": 12,
+    "height": 11
+  },
+  "needs_mask": false,
+  "neutral_mask_template": null,
+  "live_palette_indices": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "source_order_mask_override": null,
+  "mask_warning": null,
+  "intro_only": false,
+  "runtime_gate": "new_art_requires_route_runtime_check",
+  "art_status": "pending_individual_redraw",
+  "target_png": "hd/KN4.ob/009.png",
+  "target_mask": null,
+  "source_order_note": "Koden støtter flere deler. Sverdet tegnes over kroppen i KN1-3; ny grafikk må prøves med kroppen. Eldre utkast i art/photoreal/candidates/KN4.ob (generated_pending_qa), ikke godkjent. Bare feilarkiv; bruk originalen som tegnereferanse."
+}

@@ -127,7 +127,7 @@
 - [x] Kontrollere alle 56 sammensatte kampbakgrunner i faktisk WASM, og de tolv nye PIV-koblingene med originalfixturer.
 - [x] Bevare små kartporter, Original-valg, spilltilstand, originalfiler og fungerende HD-import/cache.
 - [x] Lage galleri, master-/promptarkiv og kildeoversikt for alle 75 aktive bakgrunner.
-- [ ] Fullføre selvstendige PIV-fliser/rulling og rullende sluttsekvenser; dette inngår ikke i de 56 faste kampvariantene.
+- [x] Fullføre selvstendige PIV-fliser/rulling og rullende sluttsekvenser; dette inngår ikke i de 56 faste kampvariantene.
 - [ ] Nytegne de resterende figurrutene separat etter bakgrunnsarbeidet, som avtalt med brukeren.
 - [x] Koble inn de fem øvrige faste intro-/meldingsbildene med bevarte originalfigurer, symboler, stjerner og logo.
 
@@ -139,5 +139,14 @@
 - [x] Fullføre samlet runtime-/import-/integrasjonskontroll for ikonpakken.
 - [x] Publisere ikonpakken via PR, grønn CI og offentlig kontroll.
 - [x] Fullføre originaltro fontformer, meldingspanelet, riddervalgrammen og valgkonturene som egne oppgaver.
-- [ ] Fullføre de tre vinrankefragmentene034-036; avviste kandidater beholdes som negative eksempler.
+- [x] Fullføre de tre vinrankefragmentene034-036; avviste kandidater beholdes som negative eksempler.
 - [ ] Ta figur- og drageanimasjoner, separat forgrunn, effekter og rulling etter ikon-/bakgrunnsarbeidet.
+
+## Separate figurruter, 11. oktober 2026
+- [x] Nytegne og kontrollere alle26 KN4-sverd-/bevegelsesruter,7 identiske kopier og025-masken.
+- [x] Nytegne18 flammer separat og kontrollere dem i original Stonehenge-scene og sluttsekvens;18 identiske Klift-kopier.
+- [ ] Publisere og kontrollere den første figurruteleveransen etter grønn CI.
+- [ ] Fullføre1735 resterende figurmastere/1971 konkrete ruter, inkludert265 masker.
+- [ ] Gjøre Math-ansikt, kropp, hår og kappe visuelt sammenhengende i statisk WI1.P-plate og separate Wi1.C-ruter.
+- [ ] Fjerne hudskjøter fra de to separate MYS-øyefragmentene før aktivering.
+- [ ] Kontrollere alle nye TROLL-ruter, inklusive øyefarge og adskilt fotskygge, før aktivering.

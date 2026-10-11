@@ -1,0 +1,106 @@
+{
+  "url": "http://127.0.0.1:8773/moonstone.html",
+  "checks": [
+    "94c7f163_background_ready",
+    "94c7f163_loaded",
+    "94c7f163_trusted_source_scene",
+    "94c7f163_HD_changes_pixels",
+    "94c7f163_HD_restored_exactly",
+    "94c7f163_protected_source_regions",
+    "94c7f163_moving_foreground_preserved",
+    "94c7f163_foreground_restored",
+    "94c7f163_Original_restored_exactly",
+    "c2501c17_background_ready",
+    "c2501c17_loaded",
+    "c2501c17_trusted_source_scene",
+    "c2501c17_HD_changes_pixels",
+    "c2501c17_HD_restored_exactly",
+    "c2501c17_protected_source_regions",
+    "c2501c17_moving_foreground_preserved",
+    "c2501c17_foreground_restored",
+    "c2501c17_Original_restored_exactly",
+    "a45a2508_background_ready",
+    "a45a2508_loaded",
+    "a45a2508_trusted_source_scene",
+    "a45a2508_HD_changes_pixels",
+    "a45a2508_HD_restored_exactly",
+    "a45a2508_protected_source_regions",
+    "a45a2508_moving_foreground_preserved",
+    "a45a2508_foreground_restored",
+    "a45a2508_Original_restored_exactly",
+    "46963198_background_ready",
+    "46963198_loaded",
+    "46963198_trusted_source_scene",
+    "46963198_HD_changes_pixels",
+    "46963198_HD_restored_exactly",
+    "46963198_protected_source_regions",
+    "46963198_moving_foreground_preserved",
+    "46963198_foreground_restored",
+    "46963198_Original_restored_exactly",
+    "d0f67acb_background_ready",
+    "d0f67acb_loaded",
+    "d0f67acb_trusted_source_scene",
+    "d0f67acb_HD_changes_pixels",
+    "d0f67acb_HD_restored_exactly",
+    "d0f67acb_protected_source_regions",
+    "d0f67acb_moving_foreground_preserved",
+    "d0f67acb_foreground_restored",
+    "d0f67acb_Original_restored_exactly",
+    "emulated_state_unchanged",
+    "no_browser_errors"
+  ],
+  "assets": [
+    {
+      "hash": "94c7f163",
+      "id": "stonehenge",
+      "source_sha256": "6630526de9bb84bcdf2b6243c9eae9ff873be0ad25fa3370f59a1d58cdb9c91b",
+      "hd_sha256": "87bf48c42bdbc452df65a0c2de2e08095bb3f7bb661b687093ce2257aa278a23",
+      "original_sha256": "dd854f9e472ae57de8e960d410a452ff5b18447c6be6e0f977b80d921bae6e4d"
+    },
+    {
+      "hash": "c2501c17",
+      "id": "stonehenge-overhead",
+      "source_sha256": "b7a1ef7feed2d5b50ce84152a35ab64bb597842eb74b098f67e68d6acd350874",
+      "hd_sha256": "a7d4079c632f979bda9cd1f3cae449d4994017d096140b558c59a76f13a8d38e",
+      "original_sha256": "8ceb97d13709b4cd1874cb7709e02d9b939de461a4e1d93157a723e4db9d697f"
+    },
+    {
+      "hash": "a45a2508",
+      "id": "stonehenge-knight",
+      "source_sha256": "ef54f41c02caa247007e5d9b2dd6efdfd5ee433e1b637616607f6c82e6ca8d49",
+      "hd_sha256": "f1c993952988c455dc08a9b571558473aa03009c5768b8f9703391dbb759d2cc",
+      "original_sha256": "69e032bdf3b3987852a195ee85505735772c68186872e5d57c5a66d74793ff43"
+    },
+    {
+      "hash": "46963198",
+      "id": "mindscape-logo",
+      "source_sha256": "9f527449cc9d62388db127cfc7944dd44e6afdbb5d1a932ccd062a94b015cf51",
+      "hd_sha256": "16bc8e449b9291a33decdede9c17620004e17ef1461751319b02b61deff2f6d9",
+      "original_sha256": "48b60213a14f1b981a53d563765518528462d847a23b797559dc0be36a718518"
+    },
+    {
+      "hash": "d0f67acb",
+      "id": "intro-stars",
+      "source_sha256": "8aa774acc809f744f8878079b64274cf9984d10f5123e1abdde0871a36dc2524",
+      "hd_sha256": "bf85c6a8ee262e6ce3073ed49e53962ae17223eb5fc557a6a9958044cdee78e6",
+      "original_sha256": "845de4de6e52c94beb5a211bcc66ee662cafbba1f6d3812e395628ed796985e7"
+    }
+  ],
+  "errors": [],
+  "scope": "Originale kilde-PIV og kilde-PNG som frontend-fixturer. Ingen emulert minneskriving, naturlig navigasjon eller full gjennomspilling.",
+  "status": "passed",
+  "created_at": "2026-10-11T19:22:06.087Z",
+  "production_code_sha256": {
+    "web/src/render.js": "63a93d15ee0d36cf0eec6f0ad6b4be5d251f984e13b2634077bd0a9385f2881b",
+    "web/src/scenes.js": "05e7336cd4f92d17ec4dc2172761e7720f80f1532b343a06453f54c505c13c9f"
+  },
+  "packed_png_sha256": {
+    "bg/94c7f163": "d8d0d8b42b7c9c01ba6dfda97873c6d4dbb644dce10ba308cf4fe965f15f6d7c",
+    "bg/c2501c17": "5d4ce800903543377ab2521464fd5c4a463e05de601f09420ea6ab0d91824493",
+    "bg/a45a2508": "d8b5c27774c20692375a0d59484b8dfec3e575f4fafd5ffdfcda28b7e6a65eb6",
+    "bg/46963198": "469f05ec69299818ca74a34466080bf1e99ffe5d4dc4c6161179b1541984a669",
+    "bg/d0f67acb": "648dda0dddde9a010fb9a56421549b85d58b4e955e546467ea06fc9ced9ef28d"
+  },
+  "manifest_sha256": "c70ed76f2f4dd87dd65cd4265acb25ddf6e9707aaab0eb7a50c1645cdd279438",
+  "html_sha256": "c418df2437b41db40a037cb8f14efeea9015c18296232435d238edff2b1ceffc"
+}

@@ -1,0 +1,55 @@
+{
+  "scope": "Frontend-fixture fra faktisk opprinnelig Math-ramme, ikke ny naturlig sceneinngang. Originale indekser og palett uendret.",
+  "fixture_sha256": "6133c2c1c57c6eac69009bf76a5a723f1535dde9374c596af036f5c7a75fcf95",
+  "frame": 2976,
+  "status": "failed",
+  "checks": [
+    "pending_overlay_absent",
+    "pending_Original_HD_same_foreground",
+    "pending_Original_return_exact",
+    "pending_HD_return_exact",
+    "Original_unchanged_when_overlay_loads"
+  ],
+  "sources": {
+    "web/src/render.js": "63a93d15ee0d36cf0eec6f0ad6b4be5d251f984e13b2634077bd0a9385f2881b",
+    "web/src/scenes.js": "05e7336cd4f92d17ec4dc2172761e7720f80f1532b343a06453f54c505c13c9f",
+    "web/build/moonstone-core.js": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+    "Moonstonecd32-AMIGA.zip": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02"
+  },
+  "errors": [],
+  "html_sha256": "e88c2a243ffc9841a1b8aa40fc52a7ad383020e6d072b589cb4608b3fa177a21",
+  "assets": {
+    "Wi1.C/000.png": "2eaec5917bcd79d734062d9e5d78980803072cf171088b9fcfd166062f5b747e",
+    "Wi1.C/001.png": "8a5055ccb1fc56e02ea884c9b5d7d71fed6f3f9b9c0b696f9cfa1fbfb520a445",
+    "Wi1.C/002.png": "7b5df8abc79d2d67337f907fe15529a5dfac3ba6deee3057a1dcf2e43d90d5c6",
+    "Wi1.C/003.png": "75cbaeda5f4ca6f5b841134e4091373b047e314af1c74450ee0cd73f2cfbf886",
+    "Wi1.C/004.png": "6eb5f78aa45f70770fa19da2c9a0f14c46f961c5c824435623cdd0ff32b98cbe",
+    "Wi1.C/005.png": "35146862886c479a97793732a10fa4b2889695922ba62210073be0b2e4b5f49b",
+    "Wi1.C/006.png": "6a80386706e99d8459ddcc8b20e07530d56ff18b96410092e361aee004afc0b0",
+    "Wi1.C/007.png": "38ba6d19814dcc3429afdae0ba98f65fcb9ae31d0f55271d40c5e4015d34adda",
+    "Wi1.C/010.png": "9b52ddfac67066bb734eb51ab99cb5c5c75c6b0b1da7a40e83d7ead5cc6cfc38",
+    "Wi1.C/011.png": "d6d561b57dccc82c6c78ac110c5b2eaa3471f136be71a44f41f2e26548d4aca9",
+    "Wi1.C/012.png": "619d8f0b81bced07ab28ff2498a2384c49a8a5b520a6aea84b58838b4e8e3d1a",
+    "Wi1.C/015.mask.png": "b51bec0a09eab794efea69995064162879c47bc63cc6fb750bbf06287bac367b",
+    "Wi1.C/015.png": "aba479260ecd33d0dd0f343a92da5396794746af26e4c3bad3a694f3a7655dbd",
+    "Wi1.C/016.mask.png": "55ac815d39aaf3ac832af4b11f12ef9c5759a150b351e27bee3f367f05c54748",
+    "Wi1.C/016.png": "29fac1c91f9f6d54faa6612015afd44adaa77ac46a96ab9eed5b497fb09ef3e2",
+    "Wi1.C/017.mask.png": "8c3c2ff2df3c929d3dfadd98a88e92a8b3e3035681e052fcf5af6403f0f1641c",
+    "Wi1.C/017.png": "ac6920aac0724123d1a5d1d40f40c4e1c1b98b9186a019d104903e35268bded6",
+    "Wi1.C/018.mask.png": "a379648cda7333ae0c6a2688a7e0bcd91695a10cd179e0a735f3345ad1e6aff6",
+    "Wi1.C/018.png": "3d46b3f10d1568d540667be8592afd8682309136c3bd28a559840ceb59eb399a",
+    "Wi1.C/019.mask.png": "0a577a69044a1c1070310e45612292b604cc9f21e46d205b173b461c8adc2217",
+    "Wi1.C/019.png": "1b108105c6342c2327c7a4904c21ec47e895502bea9f246e59ed3da663a388b4",
+    "Wi1.C/020.mask.png": "28d8a50091b26171d074b41ab92a8eb4fbb1135b4640c380377775938bf144f1",
+    "Wi1.C/020.png": "377a90d1bb8263dcf45bba5e638453d39cff9e27ecf34c967ac5f283c98625a8",
+    "embedded/math-static.png": "ff4701747e98a776c35afcdd14696bbd600dda0fb322d03d4dedbb95a99ffe98",
+    "bg/71970806.png": "28a03830009889115222fe6f07d417e17aabbfb183e59ed70636a6290310622a"
+  },
+  "pending": {
+    "original": "cb502cac04ec2a73a89035b2aab52f79bf90047768d9dd9529f2108baaf527a6",
+    "hd": "8c6c55f132ad8172a85f0cc6d0f9d2dd554389471a63a53b8cffa322c18a4c21",
+    "foreground_sha256": "d6d54b8c6cd7bb9bdc5157b1f1591e3eac0548224726b6619723f260f4bfcb53"
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: ready_Original_HD_same_foreground",
+  "created_at": "2026-10-11T19:40:21.603Z"
+}

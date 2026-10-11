@@ -1,0 +1,98 @@
+{
+  "key": "be1.c/056.png",
+  "master_key": "KN4.ob/006.png",
+  "role": "exact_copy",
+  "package": "02-riddere",
+  "order_group": "Riddere",
+  "order_priority": "3",
+  "identity": "beistet, separat originalfragment fra be1.c",
+  "master_usage": "Alle kamper: ridderens våpen (sverd, lanse) over kroppen",
+  "identity_limit": "Kildebank og brukssted. Ingen udokumentert handlingsetikett per rute.",
+  "bank": "be1.c",
+  "frame": 56,
+  "width": 20,
+  "height": 29,
+  "target_width": 80,
+  "target_height": 116,
+  "source_bank": {
+    "path": "data/be1.c",
+    "sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+    "bytes": 21379,
+    "frames": 100
+  },
+  "bitplane_sha256": "397217cfa9cd54a038d24d6892f7318222884b1823d51d6de72e33026fce3960",
+  "packed_indices_sha256": "2f7a331b6097c748cffbcea8a67fb0108e0298edb3d17fd5eb3fde7c6e373753",
+  "indices_sha256": "2f7a331b6097c748cffbcea8a67fb0108e0298edb3d17fd5eb3fde7c6e373753",
+  "plane_mask": 3,
+  "packed_planes": 2,
+  "source_flag": 1,
+  "source_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "index_remap": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3
+  },
+  "source_neighbors": [
+    "be1.c/054.png",
+    "be1.c/055.png",
+    "be1.c/057.png",
+    "be1.c/058.png"
+  ],
+  "neighbor_limit": "Nærliggende kilde-ID-er, ikke en bekreftet animasjonsrekkefølge",
+  "alpha_bounds": [
+    1,
+    0,
+    20,
+    29
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "placement": "Originalens tegnerektangel; ingen ny sentrering eller justering av fotpunkt",
+  "palette_id": "combat-preview",
+  "palette_status": "preview_only_not_a_monster_or_player_color_approval",
+  "palette_source_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+  "palette_file_sha256": "9e0b9b6c5798bc2706a91487b5fae02b840c95c20235a5886f0bdba34bbcef35",
+  "original": {
+    "path": "references/original/be1.c/056.png",
+    "sha256": "29024db40401066f1b3e8797d7e84432b9b9be78550147834320a9027ffb4694",
+    "width": 20,
+    "height": 29
+  },
+  "nearest4x_reference": {
+    "path": "references/nearest4x/be1.c/056.png",
+    "sha256": "b303f28a993ddc708c10261a47c43e591b8a1d1ed2f14c6dbc9f5743d4d6f562",
+    "width": 80,
+    "height": 116
+  },
+  "packed_original": {
+    "path": "source/packed/be1.c/056.png",
+    "sha256": "b3016d725e3468edc9e22505add970d334d93e136752179cf8d25dd7d024c4e6",
+    "width": 20,
+    "height": 29
+  },
+  "silhouette": {
+    "path": "source/alpha/be1.c/056.png",
+    "sha256": "a607e56d66bf49068f794851b8a0df4f23758c5e2df08f0a4ceb1054caec6784",
+    "width": 20,
+    "height": 29
+  },
+  "needs_mask": false,
+  "neutral_mask_template": null,
+  "live_palette_indices": [],
+  "source_order_mask_override": null,
+  "mask_warning": null,
+  "intro_only": false,
+  "runtime_gate": "new_art_requires_route_runtime_check",
+  "art_status": "pending_master_redraw",
+  "target_png": "hd/be1.c/056.png",
+  "target_mask": null,
+  "source_order_note": "Koden støtter flere deler. Sverdet tegnes over kroppen i KN1-3; ny grafikk må prøves med kroppen. Samme bilde brukes også som Balok2.CEL/015.png, be1.c/056.png. Legg samme tegning der. Eldre utkast i art/photoreal/candidates/KN4.ob (generated_pending_qa), ikke godkjent. Bare feilarkiv; bruk originalen som tegnereferanse."
+}

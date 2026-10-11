@@ -18,7 +18,7 @@ Det viktigste: **samme motiv, samme form, samme plassering, bare skarpere.** Ikk
 
 ## 2. Listen
 
-`docs/hd-bestilling-liste.csv` har 1779 gjenstående rader, skilt med semikolon. Kolonnene:
+`docs/hd-bestilling-liste.csv` har 1735 gjenstående rader, skilt med semikolon. Kolonnene:
 
 | Kolonne | Hva |
 |---|---|
@@ -38,18 +38,20 @@ Antall per gruppe, i rekkefølgen du bør ta dem:
 | Pri | Gruppe | Rader | Filer |
 |---|---|---|---|
 | 3 | Monstre | 1050 | Balok, beistet, Demon, DRAGON, Mudmen, RATMEN, TROGGAxe, TROGGSpear, TROLL |
-| 3 | Riddere | 195 | KN1-4.ob og HE1-3.ob, inkludert HE-kopier via merknadene |
-| 3 | Stedsfigurer | 74 | Wi1.C, hen1.c og de to øyefragmentene i mys.cel 006-007 |
+| 3 | Riddere | 169 | KN1-4.ob og HE1-3.ob, inkludert HE-kopier via merknadene |
+| 3 | Stedsfigurer | 56 | Wi1.C, hen1.c og de to øyefragmentene i mys.cel 006-007 |
 | 4 | Blod og sår | 106 | KN5.ob, blo.cel |
 | 4 | Drageanimasjon | 8 | mi.c 034-041, åtte separate ruter |
-| 4 | Kroanimasjoner | 17 | dice.cel 006-022, hender og terningkast |
+| 4 | Kroanimasjoner | 17 | dice.cel 006-022, ridderens stålhanske og arm over bordet |
 | 4 | Intro og slutt | 329 | au1, co1, da1, dg1, dw1, ha1, li1, ov1 |
 
-Listen har bare figur- og animasjonsarbeid igjen. De 11 ikonmaterialene, fem bakgrunnsrevisjonene og logoen er aktivert etter kilde- og runtimekontroll. To komplette rullestriper for intro og slutt er også koblet inn. Pakken har 81 aktive bakgrunner, inkludert alle 56 sammensatte kampvarianter, og 411 PNG-ruter i 417 manifestfiler. 1779 selvstendige nytegninger gir 2040 konkrete PNG-ruter med eksakte kopier og HE-fargekopier.
+Listen har bare figur- og animasjonsarbeid igjen. De 11 ikonmaterialene, fem bakgrunnsrevisjonene og logoen er aktivert etter kilde- og runtimekontroll. To komplette rullestriper for intro og slutt er også koblet inn. Pakken har 81 aktive bakgrunner, inkludert alle 56 sammensatte kampvarianter, og 481 PNG-ruter i 487 manifestfiler. 1735 selvstendige nytegninger gir 1971 konkrete PNG-ruter med eksakte kopier og HE-fargekopier.
 
-162 rader trenger maske: KN1 55, KN3 45, KN2 21, KN5 15, HE1 13, HE2 6, KN4 1 og Math/Wi1.C 015-020 seks. I tillegg kommer 102 masker til HE-kopiene (punkt 3.5), totalt 264 maskefiler. Utvidet CEL-planmaske gjør at HE3/031 inngår som en fargekopi av KN3/031 med egen HE-maske. Math015-020 følger aktiv ridderfarge i indeks6-10; dette er kontrollert i originalrutinen og med blå og rød Math i spillet.
+163 rader trenger maske: KN1 55, KN3 45, KN2 21, KN5 15, HE1 13, HE2 6, Math/Wi1.C 015-020 seks og dice.cel006/007 to. I tillegg kommer 102 masker til HE-kopiene (punkt 3.5), totalt 265 gjenstående maskefiler. Utvidet CEL-planmaske gjør at HE3/031 inngår som en fargekopi av KN3/031 med egen HE-maske. Math015-020 følger aktiv ridderfarge i indeks6-10; dette er kontrollert i originalrutinen og med blå og rød Math i spillet.
 
 Ni palettstyrte valgkonturer, MI032-meldingspergamentet, alle ti KI-fragmenter034-044, sel.cel/001 og mys.cel/000-005 er aktive, sammen med seks DragonDice-symboler. De tidligere erstatningsfontene er byttet til 144 originale kildeformer: 142 glyfer og to opphavsrettsfelt. Logoen bruker fotografisk gullmateriale i originalens nøyaktige bokstav- og skyggeformer.
+
+26 separate sverd-/bevegelsesruter i KN4.ob og18 flammer i hen1.c er nå aktive etter sammenligning og runtimekontroll. De gir69 konkrete ruter med kildeidentiske kopier, samt én riddermaske. Math har i tillegg en statisk ansikts-/kroppsplate i WI1.PIV som ikke er en CEL-rad. Denne er kartlagt og under visuell bearbeiding, og er ikke telt ferdig. Tavernaens006..022 bruker tav.piv-paletten;006/007 følger aktiv ridder i indeks6..10. Kildekode og alle fire originale fargevalg er kontrollert uten palettskriving.
 
 Hele ridderposer har begrenset HD-dekning i en eldre metodeprøve. De telles ikke som ferdig nytegning av hver originalrute; brukerens krav om separate ruter gjelder fortsatt.
 

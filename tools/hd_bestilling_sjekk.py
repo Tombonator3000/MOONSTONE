@@ -122,6 +122,25 @@ def main():
             assert Image.open(ut).tobytes() == expected_image.tobytes()
         kontroller += 11
 
+        # Stålhanske/bord bruker tav-paletten.006/007 har levende drakt6..10.
+        assert bestilling.maskefarger('dice.cel',6)==set(range(6,11))
+        assert bestilling.maskefarger('dice.cel',7)==set(range(6,11))
+        assert bestilling.maskefarger('dice.cel',8)==set()
+        assert bestilling.maskefarger('dice.cel',22)==set()
+        for nr in (6,7,8,22):
+            original=mf.cel_les(spill.les('data/dice.cel'))[0][nr]
+            packed=mf.plan_til_indeks(original['data'],original['plan'],original['bredde'],original['hoyde'])
+            expanded=bestilling.utvid_indekser(packed,original['maske'])
+            source=temp/'dice.cel'/('%03d.png'%nr);source.parent.mkdir(exist_ok=True)
+            gfx.lagre_png(str(source),packed,original['bredde'],original['hoyde'],pal)
+            with contextlib.redirect_stdout(io.StringIO()):
+                bestilling.lag_maske(str(source),str(ut),spill_sti=str(spill_sti))
+            expected=Image.new('RGBA',(original['bredde'],original['hoyde']))
+            expected.putdata([(v+1,128,255,255) if v in bestilling.maskefarger('dice.cel',nr) else (0,0,0,255) for v in expanded])
+            expected=expected.resize((original['bredde']*4,original['hoyde']*4),Image.Resampling.NEAREST)
+            assert Image.open(ut).tobytes()==expected.tobytes()
+        kontroller += 8
+
         csv_sti = temp / 'bestilling.csv'
         resultat = subprocess.run([sys.executable, str(rot / 'tools/hd_bestilling.py'),
                                    str(spill_sti), str(csv_sti)], check=True,
@@ -143,6 +162,8 @@ def main():
         for r in rader:
             if r['fil'].lower() == 'wi1.c':
                 assert r['trenger_maske'] == ('ja' if 15 <= int(r['bilde']) <= 20 else 'nei')
+            if r['fil'].lower() == 'dice.cel':
+                assert r['trenger_maske'] == ('ja' if int(r['bilde']) in (6,7) else 'nei')
         assert not any('Bruk dem gjerne' in r['merknad'] for r in rader)
         assert all(r['prioritet'] == ('1' if int(r['bilde']) <= 5 else '3')
                    for r in rader if r['fil'].lower() == 'mys.cel')
