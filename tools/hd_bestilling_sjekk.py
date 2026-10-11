@@ -99,8 +99,8 @@ def main():
             raise AssertionError('Ukjent CEL-kilde ble godtatt')
         kontroller += 1
 
-        # Math's living player-color field is exactly6..10 only in tower15..20.
-        # Balcony0..14 has fixed colors even where it uses the same indices.
+        # Math bruker levende spillerfarger6..10 bare i taarnrutene15..20.
+        # Balkongrutene0..14 har faste farger, ogsaa med de samme indeksene.
         assert bestilling.maskefarger('Wi1.C', 15) == set(range(6, 11))
         assert bestilling.maskefarger('Wi1.C', 20) == set(range(6, 11))
         assert bestilling.maskefarger('Wi1.C', 14) == set()
