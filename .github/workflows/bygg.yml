@@ -1,6 +1,10 @@
 # Bygger PC-porten for Linux og Windows og nettleserversjonen ved hver push.
 # Ferdige filer ligger under "Artifacts" paa siden til hver kjoring i Actions-fanen.
 #
+# Ved push til main legges Linux- og Windows-pakkene ogsaa ut som en utgivelse
+# med taggen "siste" (jobben utgivelse), saa spillere kan laste dem ned uten
+# aa logge inn: https://github.com/Tombonator3000/MOONSTONE/releases/tag/siste
+#
 # Paa hovedgrenen legges nettleserversjonen ogsaa ut paa GitHub Pages, baade ved
 # push og naar kjoringen startes for haand ("Run workflow" paa main). Det krever
 # at Pages er slaatt paa: Settings -> Pages -> Source: GitHub Actions. For et
@@ -39,6 +43,10 @@ jobs:
           cd port
           ./moonstone-headless --headless --frames 3000 --log 0 | tee ut.txt
           grep -q "Ferdig etter 3000 bilder" ut.txt
+      - name: Sjekk C-erstatningene mot originalen
+        run: |
+          python3 tools/check_hooks.py | tee hooks.txt
+          grep -q "OK: 25 av 25" hooks.txt
       - name: Pakk
         run: |
           mkdir -p pakke/moonstone
@@ -115,3 +123,59 @@ jobs:
     steps:
       - id: deploy
         uses: actions/deploy-pages@v5
+
+  # Lager eller oppdaterer utgivelsen "siste" med zip-filene for Linux og Windows.
+  # Taggen flyttes til commiten som ble bygget, og filene byttes ut. Zip-filene
+  # lages her og ikke i artefaktene, fordi artefakter mister kjorerettigheten.
+  utgivelse:
+    needs: [linux, windows]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    concurrency:
+      group: utgivelse-siste
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: moonstone-linux
+          path: ned/linux
+      - uses: actions/download-artifact@v8
+        with:
+          name: moonstone-windows
+          path: ned/windows
+      - name: Pakk zip-filene
+        run: |
+          chmod +x ned/linux/moonstone/moonstone
+          (cd ned/linux && zip -r -9 ../../moonstone-linux.zip moonstone)
+          (cd ned/windows && zip -r -9 ../../moonstone-windows.zip moonstone)
+          unzip -l moonstone-linux.zip
+          unzip -l moonstone-windows.zip
+      - name: Lag eller oppdater utgivelsen
+        run: |
+          kort=$(echo "$GITHUB_SHA" | cut -c1-7)
+          dato=$(date -u +%Y-%m-%d)
+          cat > notat.md <<EOF
+          Siste bygg fra main (commit $kort, $dato).
+
+          - moonstone-windows.zip: pakk ut og dobbeltklikk start.bat eller moonstone.exe.
+          - moonstone-linux.zip: pakk ut og kjor moonstone/moonstone. Trenger libSDL2
+            (sudo apt install libsdl2-2.0-0) og glibc 2.39 eller nyere (bygget paa Ubuntu 24.04).
+
+          Spillfilen er bygget inn, saa det trengs ingen andre filer.
+          Nettleserversjonen: https://tombonator3000.github.io/MOONSTONE/
+          EOF
+          if gh release view siste >/dev/null 2>&1; then
+            gh api -X PATCH "repos/$GH_REPO/git/refs/tags/siste" -f sha="$GITHUB_SHA" -F force=true \
+              || gh api -X POST "repos/$GH_REPO/git/refs" -f ref=refs/tags/siste -f sha="$GITHUB_SHA"
+            gh release edit siste --prerelease --title "Moonstone (siste bygg)" --notes-file notat.md
+            gh release upload siste moonstone-linux.zip moonstone-windows.zip --clobber
+          else
+            gh release create siste moonstone-linux.zip moonstone-windows.zip --prerelease \
+              --target "$GITHUB_SHA" --title "Moonstone (siste bygg)" --notes-file notat.md
+          fi
