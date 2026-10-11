@@ -1,9 +1,15 @@
 /*
  * sprak.js - spraaket paa nettsiden.
  *
- * Kildeteksten i koden og i index.html er norsk. Engelsk er standard, og norsk
- * kan velges i sidemenyen («Language / Språk»). Valget lagres i innstillingene
- * (sprak: 'en' eller 'no').
+ * Kildeteksten i koden er norsk. Engelsk er standard, og norsk kan velges i
+ * sidemenyen («Language / Språk»). Valget lagres i innstillingene (sprak: 'en'
+ * eller 'no').
+ *
+ * De faste tekstene i index.html er engelske, saa siden er engelsk fra foerste
+ * bilde og for dem som leser den uten JavaScript (soekemotorer, forhaandsvisning
+ * av lenker). Sprak.start finner den norske kilden ved aa slaa opp den engelske
+ * teksten baklengs i ordboken, saa en fast tekst i index.html maa vaere helt lik
+ * den engelske teksten i ordboken.
  *
  *   T(tekst, ...verdier)   teksten paa valgt spraak. {0}, {1} ... byttes med
  *                          verdiene. Tekster som ikke finnes i ordboken, kommer
@@ -13,7 +19,8 @@
  *                          tegnes paa nytt naar spraaket byttes. Elementer med
  *                          klassen pt (spillets font) tegnes med Spillgrafikk.sett.
  *                          En verdi kan vaere en funksjon; den kalles ved hver tegning.
- *   Sprak.start(sprak)     leser de faste tekstene i index.html og oversetter dem.
+ *   Sprak.start(sprak)     leser de faste tekstene i index.html, finner den norske
+ *                          kilden og tegner dem paa valgt spraak.
  *   Sprak.bytt(sprak)      bytter spraak og tegner alle kjente tekster paa nytt.
  *
  * Teksten i selve spillet (tittelmenyen, kartet) er engelsk og oversettes ikke.
@@ -56,11 +63,11 @@ const Sprak = (() => {
         'Standardgrafikk': 'Standard graphics',
         'Fjern': 'Remove',
         'Lagre bakgrunnen': 'Save background',
-        'Lagring': 'Saving',
+        'Lagring': 'Saves',
         'Plass': 'Slot',
         'Lagre': 'Save',
         'Last': 'Load',
-        'Fortsett': 'Continue',
+        'Fortsett': 'Load autosave',
         'Last ned': 'Download',
         'Hent fra fil': 'Load from file',
         'Nettspill': 'Online game',
@@ -94,14 +101,13 @@ const Sprak = (() => {
         'Bokstaver, tall og mellomrom, opptil 13 tegn.': 'Letters, numbers and spaces, up to 13 characters.',
         'Skriv romkoden (seks tegn) eller lim inn invitasjonslenken.': 'Type the room code (six characters) or paste the invite link.',
         'ButtonWait: kampen venter på fire, så du får tid til å lese. Gjelder fra neste start.':
-            'ButtonWait: battles wait for fire, so you have time to read. Takes effect next start.',
+            'ButtonWait: battles wait for fire, so you have time to read. Takes effect the next time the game starts.',
         'Spillet tegnes i lag: bakgrunn, figurer og tekst hver for seg. Effektene bruker det.':
             'The game is drawn in layers: background, figures and text separately. The effects use that.',
         'Med HD valgt lastes fotografisk standardgrafikk automatisk: bakgrunner, blå ridderbevegelse, riddervalg, menypil og månefaser. Øvrige animasjoner bruker foreløpig originalgrafikk. Du kan også velge egne HD-bilder.':
             'With HD on, photographic standard graphics load automatically: backgrounds, the blue knight walking, knight selection, the menu pointer and moon phases. Other animations still use the original graphics. You can also pick your own HD images.',
         'Bakgrunner: lagre den som vises, tegn den i høyere oppløsning, og legg den i mappen <code>bg</code> i HD-pakken med samme navn.':
             'Backgrounds: save the one on screen, redraw it at a higher resolution and put it in the <code>bg</code> folder of the HD pack with the same name.',
-        'Standardgrafikken lastes når spillet starter.': 'The standard graphics load when the game starts.',
         'Spillet lagres i denne nettleseren. Det lagres også automatisk når du bytter fane eller app, og hvert andre minutt. Lagringene kan lastes ned og flyttes mellom nettleser og PC.':
             'Your game is saved in this browser. It also saves automatically when you switch tab or app, and every two minutes. Saves can be downloaded and moved between browser and PC.',
         'Ingen automatisk lagring ennå.': 'No autosave yet.',
@@ -154,7 +160,7 @@ const Sprak = (() => {
         'Spillfilen mangler. Velg den under «Spillfil og egne filer» i menyen.':
             'The game file is missing. Choose it under “Game file and your own files” in the menu.',
         'Spillet ditt fra {0} er lagret. Velg Fortsett under Lagring i menyen for å spille videre.':
-            'Your game from {0} is saved. Choose Continue under Saving in the menu to carry on.',
+            'Your game from {0} is saved. Choose Load autosave under Saves in the menu to carry on.',
         'Kunne ikke starte spillet: {0}': "Couldn't start the game: {0}",
         'Trykk på et valg i menyen': 'Tap a menu item',
         'Klikk på et valg, eller bruk piltastene og Enter': 'Click a menu item, or use the arrow keys and Enter',
@@ -166,7 +172,7 @@ const Sprak = (() => {
 
         /* ---------------- app.js: nettspill */
         'Lager rom ...': 'Creating a room ...',
-        'Rommet {0} er klart. Velg «Copy Link» og send lenken.': 'Room {0} is ready. Choose «Copy Link» and send the link.',
+        'Rommet {0} er klart. Velg «Copy Link» og send lenken.': 'Room {0} is ready. Choose “Copy Link” and send the link.',
         'Alle spiller sitt eget spill og ser hverandre på kartet.': 'Everyone plays their own game and sees each other on the map.',
         'Kunne ikke lage rom: {0}': "Couldn't create a room: {0}",
         'Du er invitert til rom {0}. Trykk fire for å bli med.': "You're invited to room {0}. Press fire to join.",
@@ -271,7 +277,7 @@ const Sprak = (() => {
         'Kunne ikke laste {0}: {1}': "Couldn't load {0}: {1}",
         'ukjent feil': 'unknown error',
         'Lastet {0}': 'Loaded {0}',
-        'Gjelder fra neste start': 'Takes effect next start',
+        'Gjelder fra neste start': 'Takes effect the next time the game starts',
         'Pause': 'Paused',
         'Fortsetter': 'Resumed',
 
@@ -287,6 +293,8 @@ const Sprak = (() => {
         'HD-grafikken lastes automatisk': 'HD graphics load automatically',
         'HD er av. Velg «HD der den finnes» for å laste standardgrafikken.':
             'HD is off. Choose “HD where available” to load the standard graphics.',
+        'HD er av. Velg «HD der den finnes» for å slå den på igjen.':
+            'HD is off. Choose “HD where available” to turn it back on.',
         'HD kunne ikke lastes. Originalgrafikken brukes der bilder mangler.':
             "HD couldn't be loaded. The original graphics are used where images are missing.",
         'Standard-HD: {0} bilder lastet. Bakgrunner lastes ved behov.': 'Standard HD: {0} images loaded. Backgrounds load as needed.',
@@ -338,12 +346,44 @@ const Sprak = (() => {
         'Spillet er avsluttet.': 'The game was stopped.',
         'Slaven krever registrert WHDLoad.': 'The slave needs a registered WHDLoad.',
         'Feil versjon av spillfilene.': 'Wrong version of the game files.',
+        'Filen er ikke en lagring fra Moonstone.': "That file isn't a Moonstone save.",
+        'Ikke nok minne til aa laste.': 'Not enough memory to load it.',
+        'Filen er tom.': 'The file is empty.',
+        'Kunne ikke lese filen.': "Couldn't read the file.",
+        'Fant ikke filen.': "Couldn't find the file.",
+        'Fant ikke Moonstone.Slave.': "Couldn't find Moonstone.Slave.",
+        'Moonstone.Slave kan ikke leses.': "Moonstone.Slave can't be read.",
+        'Moonstone.Slave er ikke en WHDLoad-slave.': "Moonstone.Slave isn't a WHDLoad slave.",
+        'Slaven returnerte.': 'The slave quit unexpectedly.',
+        'Denne versjonen av spillfilene trenger resload_Delta, som ikke er med.':
+            "This version of the game files needs resload_Delta, which isn't supported.",
+
+        /* ---------------- net.js: feil fra PeerJS (e.type) */
+        'Nettleseren kan ikke spille på nett (WebRTC mangler).': "This browser can't play online (no WebRTC).",
+        'Forbindelsen til nettspilltjenesten ble brutt.': 'Lost the connection to the online game service.',
+        'Fikk ikke satt opp forbindelsen mellom spillerne.': "Couldn't set up the connection between the players.",
+        'Ugyldig romkode.': "That room code isn't valid.",
     };
 
-    /* meldinger fra kjernen med tall eller navn i (port/src/state.c, files.c, whdload.c) */
+    /* navnene paa delene i en lagring (deler[] i port/src/state.c) */
+    const DELER = {
+        'minnet': 'the memory', 'maskinen': 'the machine', 'brikkene': 'the chips',
+        'CIA-brikkene': 'the CIA chips', '68000': 'the 68000', 'lyden': 'the sound',
+        'WHDLoad': 'WHDLoad', 'moetet mellom to riddere': 'fights between two knights',
+        'tegnelisten': 'the drawing list', 'tekstene': 'the texts',
+        'nettspillmenyen': 'the online game menu', 'ridderne som er tatt over': 'the knights taken over',
+        'Hver for seg': 'Separate mode', 'Blitteren': 'the blitter',
+    };
+
+    /* meldinger fra kjernen med tall eller navn i (port/src/state.c, files.c, whdload.c).
+     * Det engelske kan vaere en funksjon som faar treffene. */
     const MOENSTRE = [
         [/^Lagringen er fra en utgave der (.+) er lagret annerledes, og kan ikke brukes\.$/,
-            "The save is from a version that stores $1 differently, and can't be used."],
+            (m, del) => "The save is from a version that stores " + (DELER[del] || del) + " differently, and can't be used."],
+        [/^Slaven stoppet \(aarsak (.+)\)$/, 'The slave stopped (reason $1)'],
+        [/^Kunne ikke relokere filen paa (\S+)$/, "Couldn't relocate the file at $1"],
+        [/^Ukjent kommando (\S+) i patchlisten paa (\S+)$/, 'Unknown command $1 in the patch list at $2'],
+        [/^Ukjent resload-funksjon (\S+)$/, 'Unknown resload function $1'],
         [/^Lagringen er fra en eldre utgave \(versjon (\d+)\) som ikke kan leses\.$/,
             "The save is from an older version ($1) that can't be read."],
         [/^Fant ikke filen (\S+)$/, "Couldn't find the file $1"],
@@ -394,18 +434,22 @@ const Sprak = (() => {
 
     const normal = (s) => s.replace(/\s+/g, ' ').trim();
 
-    /* de faste tekstene i index.html: husk den norske kilden og oversett */
+    /* engelsk -> norsk kilde, for de faste tekstene i index.html */
+    const NO = new Map(Object.entries(EN).map(([no, en]) => [en, no]));
+    const kilde = (t) => { t = normal(t); return NO.has(t) ? NO.get(t) : t; };
+
+    /* de faste tekstene i index.html: husk den norske kilden og tegn paa valgt spraak */
     function start(valgt) {
         sprak = valgt === 'no' ? 'no' : 'en';
         document.documentElement.lang = sprak;
-        for (const el of document.querySelectorAll('.pt, .pt2')) if (el.textContent.trim()) sett(el, normal(el.textContent));
-        for (const el of document.querySelectorAll('option')) if (el.textContent.trim()) sett(el, normal(el.textContent));
-        for (const el of document.querySelectorAll('p.hjelp, .taster li, p.smaa, #lasting-tekst')) if (el.textContent.trim()) settHtml(el, normal(el.innerHTML));
+        for (const el of document.querySelectorAll('.pt, .pt2')) if (el.textContent.trim()) sett(el, kilde(el.textContent));
+        for (const el of document.querySelectorAll('option')) if (el.textContent.trim()) sett(el, kilde(el.textContent));
+        for (const el of document.querySelectorAll('p.hjelp, .taster li, p.smaa, #lasting-tekst')) if (el.textContent.trim()) settHtml(el, kilde(el.innerHTML));
         for (const attr of ['placeholder', 'title', 'aria-label']) {
-            for (const el of document.querySelectorAll('[' + attr + ']')) settAttr(el, attr, el.getAttribute(attr));
+            for (const el of document.querySelectorAll('[' + attr + ']')) settAttr(el, attr, kilde(el.getAttribute(attr)));
         }
         const beskrivelse = document.querySelector('meta[name="description"]');
-        if (beskrivelse) settAttr(beskrivelse, 'content', beskrivelse.getAttribute('content'));
+        if (beskrivelse) settAttr(beskrivelse, 'content', kilde(beskrivelse.getAttribute('content')));
     }
 
     function bytt(valgt) {

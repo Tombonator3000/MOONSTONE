@@ -29,6 +29,18 @@ const Nett = (() => {
      * Det endres automatisk naar en del endres, saa en gjest med en gammel side i hurtigbufferen
      * faar beskjed i stedet for aa bli staaende og vente. */
     const format = () => (typeof Kjerne !== 'undefined' && Kjerne.formatId ? Kjerne.formatId() : 0);
+    /* en vennlig melding for en feil fra PeerJS (e.type), paa valgt spraak */
+    function peerFeil(e) {
+        switch (e && e.type) {
+        case 'server-error': case 'network': case 'socket-error':
+            return T('Fikk ikke kontakt med PeerJS-serveren. Sjekk nettforbindelsen og prøv igjen.');
+        case 'socket-closed': case 'disconnected': return T('Forbindelsen til nettspilltjenesten ble brutt.');
+        case 'browser-incompatible': return T('Nettleseren kan ikke spille på nett (WebRTC mangler).');
+        case 'webrtc': return T('Fikk ikke satt opp forbindelsen mellom spillerne.');
+        case 'invalid-id': return T('Ugyldig romkode.');
+        }
+        return T('Nettverksfeil: {0}', (e && (e.message || e.type)) || T('ukjent feil'));
+    }
     const MAKS_GJESTER = 3;
     const DEL = 48 * 1024;
     const PORTER = ['p2', 'p1', 'p2'];        /* standard for gjest 1, 2, 3 */
@@ -203,7 +215,7 @@ const Nett = (() => {
                 peer.on('error', (e) => {
                     if (e.type === 'unavailable-id' && ++forsok < 5) { peer.destroy(); prov(); return; }
                     if (!aapen) return;           /* tidsfristen gir feilmeldingen */
-                    h.status && h.status(T('Nettverksfeil: {0}', e.message || e.type));
+                    h.status && h.status(peerFeil(e));
                 });
             };
             prov();
@@ -483,8 +495,8 @@ const Nett = (() => {
             });
             peer.on('error', (e) => {
                 if (e.type === 'peer-unavailable') feil(new Error(T('Fant ikke rommet {0}. Sjekk koden, eller om verten fortsatt er der.', kode)));
-                else if (!aapnet) feil(new Error(e.message || e.type));
-                else h.status && h.status(T('Nettverksfeil: {0}', e.message || e.type));
+                else if (!aapnet) feil(new Error(peerFeil(e)));
+                else h.status && h.status(peerFeil(e));
             });
             setTimeout(() => { if (!aapnet) feil(new Error(T('Fikk ikke kontakt med verten.'))); }, 20000);
         });

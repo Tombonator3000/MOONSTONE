@@ -1823,8 +1823,16 @@
         innst.hd = e.target.value;
         innst.hdValgt = true;
         Visning.settHd(innst.hd !== 'original');
-        if (innst.hd === 'original' && !Visning.hdAntall()) Sprak.sett($('hd-status'), 'HD er av. Velg «HD der den finnes» for å laste standardgrafikken.');
-        if (innst.hd !== 'original' && !Visning.hdAntall()) StandardHd.start(Visning);
+        if (innst.hd === 'original') {
+            /* standardgrafikken som er lastet eller lastes, beholdes til HD slaas paa igjen */
+            const lastet = Visning.hdAntall() || StandardHd.info().aktiv;
+            Sprak.sett($('hd-status'), lastet ? 'HD er av. Velg «HD der den finnes» for å slå den på igjen.'
+                : 'HD er av. Velg «HD der den finnes» for å laste standardgrafikken.');
+        } else if (StandardHd.info().aktiv) StandardHd.status();
+        else if (Visning.hdAntall()) {
+            const bg = Visning.hdBakgrunner();
+            Sprak.sett($('hd-status'), bg ? '{0} bilder i HD-pakken, av dem {1} bakgrunner.' : '{0} bilder i HD-pakken.', Visning.hdAntall(), bg);
+        } else StandardHd.start(Visning);
         lagreInnst();
         status(innst.hd === 'original' ? 'Original grafikk' : Visning.hdAntall() ? 'HD-grafikk der den finnes' : 'HD-grafikken lastes automatisk');
     });

@@ -158,10 +158,15 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   spillets tittelmeny. Sidemenyen (Home, knappen oppe til høyre) har bilde og lyd,
   HD-grafikk, lagring, spillfil og egne filer, taster og «Start spillet på nytt».
 - Teksten på nettsiden er engelsk som standard; norsk velges øverst i sidemenyen
-  («Language / Språk», innstillingen `sprak`: 'en' eller 'no'). Kildeteksten i koden og
-  index.html er norsk, og `web/src/sprak.js` har ordboken til engelsk. `T(tekst, ...verdier)`
+  («Language / Språk», innstillingen `sprak`: 'en' eller 'no'). Kildeteksten i JavaScript
+  er norsk, og `web/src/sprak.js` har ordboken til engelsk. `T(tekst, ...verdier)`
   oversetter ({0}, {1} er plassholdere), `Sprak.sett(el, tekst, ...)` husker kilden så
   elementet tegnes på nytt ved bytte. Nye tekster på siden må inn i ordboken.
+  De faste tekstene i index.html er engelske (første bilde, søkemotorer, lenkeforhåndsvisning),
+  og `Sprak.start` finner den norske kilden ved å slå opp den engelske teksten baklengs i
+  ordboken. En fast tekst i index.html må derfor være lik den engelske teksten i ordboken.
+  Feilmeldingene fra kjernen (state.c, files.c, whdload.c) er norske og står også i
+  ordboken; navnene på delene i en lagring (`deler[]`) står i `DELER` i sprak.js.
   Tester som leser norsk tekst, setter `sprak: 'no'` i `moonstone.innstillinger`.
 - HD-grafikken er av som standard (bryteren står på Original). Den slås på i sidemenyen,
   og valget lagres som `hd` sammen med `hdValgt: true`; en gammel lagret `hd` uten
