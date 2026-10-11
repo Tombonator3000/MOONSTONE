@@ -17,6 +17,13 @@ def main():
  # Indeks5 er vanlig svart ogsaa inne i kroppen. Bare kildebekreftede
  # fotskyggefelt skilles fra fotomaterialet i disse referansene.
  troll2_shadow={'TROLL2.CEL/000.png':0,'TROLL2.CEL/001.png':38,'TROLL2.CEL/002.png':0,'TROLL2.CEL/006.png':0,'TROLL2.CEL/010.png':0,'TROLL2.CEL/011.png':0,'TROLL2.CEL/012.png':39,'TROLL2.CEL/014.png':0}
+ if a.case=='balok' and a.key in {'Balok1.CEL/003.png','Balok1.CEL/006.png','Balok1.CEL/011.png','Balok1.CEL/020.png','Balok1.CEL/027.png','Balok1.CEL/028.png','Balok1.CEL/033.png','Balok1.CEL/036.png','Balok1.CEL/040.png','Balok1.CEL/043.png'}:
+  assert c['colors'][5]==[0,0,0]
+  for y in range(original.height):
+   for x in range(original.width):
+    if ix[y*original.width+x]==5 and y>=(29 if a.key=='Balok1.CEL/028.png' else 63 if a.key=='Balok1.CEL/027.png' else 29 if a.key=='Balok1.CEL/006.png' else 0):
+     body.putpixel((x,y),(0,0,0,0));flat_shadow.append([x,y])
+  assert flat_shadow
  if a.case=='troll' and (a.key in {f'TROLL1.CEL/{n:03}.png' for n in [2,3,4,5,8,11,13,19,29,34,40]} or a.key in troll2_shadow):
   assert c['colors'][5]==[0,0,0]
   shadow_top=troll2_shadow[a.key] if a.key in troll2_shadow else 0 if a.key in {'TROLL1.CEL/008.png','TROLL1.CEL/019.png','TROLL1.CEL/029.png','TROLL1.CEL/034.png','TROLL1.CEL/040.png'} else original.height-(10 if a.key=='TROLL1.CEL/013.png' else 9 if a.key=='TROLL1.CEL/002.png' else 8)

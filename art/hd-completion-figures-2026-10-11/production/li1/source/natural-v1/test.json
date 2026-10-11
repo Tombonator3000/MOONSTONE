@@ -1,0 +1,7435 @@
+{
+  "status": "passed",
+  "errors": [],
+  "scope": "Unchanged original intro, no memory/palette writes. Source object identification and actual LI1 palette transitions, no completed HD claim.",
+  "sources": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "9d0e6a66a7597e745d23b0a0516f0c6f8b06f97cb92189613938c14f40aef8bd",
+    "web/src/scenes.js": "f96ca11802910e3291ec7ee4128299f68b73957b3f5f1d0b1435141e1a08ebcd",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac",
+    "web/build/moonstone-core.js": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+    "Moonstonecd32-AMIGA.zip": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02"
+  },
+  "html_sha256": "8ec46e4a339a44c8bd45db16fda9b2a61b074a911345cf28b41a273583839cc0",
+  "runtime": {
+    "shots": {
+      "4474": {
+        "visible": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": null
+        },
+        "scene": null,
+        "state": 2662674951,
+        "sha256": "8ec2612bb50e47b920edd5efab6151fad37a1e3a13519ab785af53863edb9fb7"
+      },
+      "4502": {
+        "visible": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": null
+        },
+        "scene": null,
+        "state": 3301749969,
+        "sha256": "8ec2612bb50e47b920edd5efab6151fad37a1e3a13519ab785af53863edb9fb7"
+      },
+      "4528": {
+        "visible": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": null
+        },
+        "scene": null,
+        "state": 2286264236,
+        "sha256": "ef0be6caf5d3084c354854977932d93952ea8393caa84c9d8247f5633c079ed4"
+      },
+      "4552": {
+        "visible": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": null
+        },
+        "scene": null,
+        "state": 195221382,
+        "sha256": "ef0be6caf5d3084c354854977932d93952ea8393caa84c9d8247f5633c079ed4"
+      },
+      "5704": {
+        "visible": [
+          {
+            "fil": "au1.cel",
+            "bilde": 89,
+            "x": 137,
+            "y": 153,
+            "w": 38,
+            "h": 29,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 91,
+            "x": 272,
+            "y": 156,
+            "w": 15,
+            "h": 32,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 90,
+            "x": 254,
+            "y": 166,
+            "w": 18,
+            "h": 13,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 71,
+            "x": 29,
+            "y": 85,
+            "w": 27,
+            "h": 32,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 72,
+            "x": 25,
+            "y": 117,
+            "w": 10,
+            "h": 10,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 73,
+            "x": 93,
+            "y": 117,
+            "w": 36,
+            "h": 11,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 74,
+            "x": 40,
+            "y": 117,
+            "w": 26,
+            "h": 43,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 75,
+            "x": 66,
+            "y": 128,
+            "w": 74,
+            "h": 22,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 76,
+            "x": 66,
+            "y": 150,
+            "w": 85,
+            "h": 31,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 77,
+            "x": 71,
+            "y": 181,
+            "w": 92,
+            "h": 19,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 65,
+            "x": 172,
+            "y": 112,
+            "w": 61,
+            "h": 59,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 64,
+            "x": 178,
+            "y": 103,
+            "w": 32,
+            "h": 9,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 66,
+            "x": 233,
+            "y": 151,
+            "w": 17,
+            "h": 11,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 67,
+            "x": 233,
+            "y": 162,
+            "w": 30,
+            "h": 9,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 69,
+            "x": 148,
+            "y": 171,
+            "w": 144,
+            "h": 29,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 70,
+            "x": 292,
+            "y": 184,
+            "w": 14,
+            "h": 16,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "au1.cel",
+            "bilde": 68,
+            "x": 138,
+            "y": 186,
+            "w": 10,
+            "h": 14,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": null
+        },
+        "scene": null,
+        "state": 2713662112,
+        "sha256": "b092057f687da2f9f91c75ae61e0073e963ae06b957a7b3ef6aff25c048f550e"
+      }
+    },
+    "trace": [
+      {
+        "frame": 4464,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4465,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4473,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4474,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4475,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4482,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4483,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4484,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4491,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4492,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4493,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4500,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 3,
+            "x": 140,
+            "y": 30,
+            "w": 30,
+            "h": 27,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 8,
+            "x": 170,
+            "y": 30,
+            "w": 31,
+            "h": 63,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4501,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 9,
+            "x": 201,
+            "y": 49,
+            "w": 23,
+            "h": 44,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 10,
+            "x": 224,
+            "y": 50,
+            "w": 15,
+            "h": 15,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 6,
+            "x": 126,
+            "y": 43,
+            "w": 14,
+            "h": 54,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 7,
+            "x": 140,
+            "y": 56,
+            "w": 17,
+            "h": 45,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 5,
+            "x": 103,
+            "y": 55,
+            "w": 23,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 4,
+            "x": 76,
+            "y": 63,
+            "w": 27,
+            "h": 25,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 1,
+            "x": 104,
+            "y": 4,
+            "w": 37,
+            "h": 38,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4502,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 0,
+            "x": 150,
+            "y": 7,
+            "w": 33,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 2,
+            "x": 183,
+            "y": 19,
+            "w": 18,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4503,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4509,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4510,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4511,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4528,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 3,
+            "x": 140,
+            "y": 30,
+            "w": 30,
+            "h": 27,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 8,
+            "x": 170,
+            "y": 30,
+            "w": 31,
+            "h": 63,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4529,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 9,
+            "x": 201,
+            "y": 49,
+            "w": 23,
+            "h": 44,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 10,
+            "x": 224,
+            "y": 50,
+            "w": 15,
+            "h": 15,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 6,
+            "x": 126,
+            "y": 43,
+            "w": 14,
+            "h": 54,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 7,
+            "x": 140,
+            "y": 56,
+            "w": 17,
+            "h": 45,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 5,
+            "x": 103,
+            "y": 55,
+            "w": 23,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 4,
+            "x": 76,
+            "y": 63,
+            "w": 27,
+            "h": 25,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 1,
+            "x": 104,
+            "y": 4,
+            "w": 37,
+            "h": 38,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4530,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 0,
+            "x": 150,
+            "y": 7,
+            "w": 33,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 2,
+            "x": 183,
+            "y": 19,
+            "w": 18,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4531,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4533,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4534,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4552,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4553,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4554,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4555,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4556,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4564,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4565,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4566,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4573,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 3,
+            "x": 140,
+            "y": 30,
+            "w": 30,
+            "h": 27,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 8,
+            "x": 170,
+            "y": 30,
+            "w": 31,
+            "h": 63,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4574,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 9,
+            "x": 201,
+            "y": 49,
+            "w": 23,
+            "h": 44,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 10,
+            "x": 224,
+            "y": 50,
+            "w": 15,
+            "h": 15,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 6,
+            "x": 126,
+            "y": 43,
+            "w": 14,
+            "h": 54,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 7,
+            "x": 140,
+            "y": 56,
+            "w": 17,
+            "h": 45,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 5,
+            "x": 103,
+            "y": 55,
+            "w": 23,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 4,
+            "x": 76,
+            "y": 63,
+            "w": 27,
+            "h": 25,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 1,
+            "x": 104,
+            "y": 4,
+            "w": 37,
+            "h": 38,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4575,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 0,
+            "x": 150,
+            "y": 7,
+            "w": 33,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 2,
+            "x": 183,
+            "y": 19,
+            "w": 18,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4576,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4582,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4583,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4584,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4601,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4602,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4603,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4604,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4605,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4613,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 3,
+            "x": 140,
+            "y": 30,
+            "w": 30,
+            "h": 27,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 8,
+            "x": 170,
+            "y": 30,
+            "w": 31,
+            "h": 63,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4614,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 9,
+            "x": 201,
+            "y": 49,
+            "w": 23,
+            "h": 44,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 10,
+            "x": 224,
+            "y": 50,
+            "w": 15,
+            "h": 15,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 6,
+            "x": 126,
+            "y": 43,
+            "w": 14,
+            "h": 54,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 7,
+            "x": 140,
+            "y": 56,
+            "w": 17,
+            "h": 45,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 5,
+            "x": 103,
+            "y": 55,
+            "w": 23,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 4,
+            "x": 76,
+            "y": 63,
+            "w": 27,
+            "h": 25,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 1,
+            "x": 104,
+            "y": 4,
+            "w": 37,
+            "h": 38,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4615,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 0,
+            "x": 150,
+            "y": 7,
+            "w": 33,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 2,
+            "x": 183,
+            "y": 19,
+            "w": 18,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4616,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4632,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4633,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4634,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4635,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4636,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4637,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4644,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4645,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4646,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4653,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4654,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4655,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4662,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4663,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4664,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4671,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4672,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4673,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4680,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4681,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4682,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4689,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4690,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4691,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4698,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4699,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4700,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4707,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4708,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4709,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4716,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4717,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4718,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4725,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4726,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4727,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4734,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4735,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4736,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4743,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4744,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4745,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4752,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 11,
+            "x": 54,
+            "y": 95,
+            "w": 18,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 12,
+            "x": 72,
+            "y": 84,
+            "w": 25,
+            "h": 64,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4753,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 13,
+            "x": 97,
+            "y": 119,
+            "w": 17,
+            "h": 17,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 14,
+            "x": 97,
+            "y": 136,
+            "w": 28,
+            "h": 28,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 15,
+            "x": 125,
+            "y": 117,
+            "w": 52,
+            "h": 47,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 16,
+            "x": 205,
+            "y": 93,
+            "w": 18,
+            "h": 12,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 17,
+            "x": 211,
+            "y": 105,
+            "w": 14,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 18,
+            "x": 215,
+            "y": 116,
+            "w": 17,
+            "h": 34,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 19,
+            "x": 194,
+            "y": 116,
+            "w": 21,
+            "h": 16,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 4754,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 20,
+            "x": 177,
+            "y": 132,
+            "w": 38,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 21,
+            "x": 98,
+            "y": 164,
+            "w": 94,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 22,
+            "x": 84,
+            "y": 187,
+            "w": 120,
+            "h": 13,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 5637,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 3,
+            "x": 140,
+            "y": 30,
+            "w": 30,
+            "h": 27,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 8,
+            "x": 170,
+            "y": 30,
+            "w": 31,
+            "h": 63,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 5638,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 9,
+            "x": 201,
+            "y": 49,
+            "w": 23,
+            "h": 44,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 10,
+            "x": 224,
+            "y": 50,
+            "w": 15,
+            "h": 15,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 6,
+            "x": 126,
+            "y": 43,
+            "w": 14,
+            "h": 54,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 7,
+            "x": 140,
+            "y": 56,
+            "w": 17,
+            "h": 45,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 5,
+            "x": 103,
+            "y": 55,
+            "w": 23,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 4,
+            "x": 76,
+            "y": 63,
+            "w": 27,
+            "h": 25,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 1,
+            "x": 104,
+            "y": 4,
+            "w": 37,
+            "h": 38,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 5639,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 0,
+            "x": 150,
+            "y": 7,
+            "w": 33,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 2,
+            "x": 183,
+            "y": 19,
+            "w": 18,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 5665,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 3,
+            "x": 140,
+            "y": 30,
+            "w": 30,
+            "h": 27,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 8,
+            "x": 170,
+            "y": 30,
+            "w": 31,
+            "h": 63,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 5666,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 9,
+            "x": 201,
+            "y": 49,
+            "w": 23,
+            "h": 44,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 10,
+            "x": 224,
+            "y": 50,
+            "w": 15,
+            "h": 15,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 6,
+            "x": 126,
+            "y": 43,
+            "w": 14,
+            "h": 54,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 7,
+            "x": 140,
+            "y": 56,
+            "w": 17,
+            "h": 45,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 5,
+            "x": 103,
+            "y": 55,
+            "w": 23,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 4,
+            "x": 76,
+            "y": 63,
+            "w": 27,
+            "h": 25,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 1,
+            "x": 104,
+            "y": 4,
+            "w": 37,
+            "h": 38,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 5667,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 0,
+            "x": 150,
+            "y": 7,
+            "w": 33,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 2,
+            "x": 183,
+            "y": 19,
+            "w": 18,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 5704,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 3,
+            "x": 140,
+            "y": 30,
+            "w": 30,
+            "h": 27,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 8,
+            "x": 170,
+            "y": 30,
+            "w": 31,
+            "h": 63,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 5705,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 9,
+            "x": 201,
+            "y": 49,
+            "w": 23,
+            "h": 44,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 10,
+            "x": 224,
+            "y": 50,
+            "w": 15,
+            "h": 15,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 6,
+            "x": 126,
+            "y": 43,
+            "w": 14,
+            "h": 54,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 7,
+            "x": 140,
+            "y": 56,
+            "w": 17,
+            "h": 45,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 5,
+            "x": 103,
+            "y": 55,
+            "w": 23,
+            "h": 32,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 4,
+            "x": 76,
+            "y": 63,
+            "w": 27,
+            "h": 25,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 1,
+            "x": 104,
+            "y": 4,
+            "w": 37,
+            "h": 38,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      },
+      {
+        "frame": 5706,
+        "draws": [
+          {
+            "fil": "li1.cel",
+            "bilde": 0,
+            "x": 150,
+            "y": 7,
+            "w": 33,
+            "h": 23,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          },
+          {
+            "fil": "li1.cel",
+            "bilde": 2,
+            "x": 183,
+            "y": 19,
+            "w": 18,
+            "h": 11,
+            "xoff": 0,
+            "speilet": false,
+            "target": 481852,
+            "caller": 549914
+          }
+        ]
+      }
+    ],
+    "palette_variants": [
+      {
+        "palette": [
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ]
+        ],
+        "first_frame": 4464,
+        "last_frame": 4465,
+        "frames": 2,
+        "routes": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22
+        ]
+      },
+      {
+        "palette": [
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            204,
+            238,
+            255,
+            255
+          ],
+          [
+            153,
+            170,
+            187,
+            255
+          ],
+          [
+            85,
+            85,
+            85,
+            255
+          ],
+          [
+            34,
+            34,
+            34,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            17,
+            17,
+            17,
+            255
+          ],
+          [
+            51,
+            51,
+            51,
+            255
+          ],
+          [
+            255,
+            0,
+            0,
+            255
+          ],
+          [
+            170,
+            0,
+            0,
+            255
+          ],
+          [
+            102,
+            0,
+            0,
+            255
+          ],
+          [
+            51,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            204,
+            102,
+            255
+          ],
+          [
+            255,
+            170,
+            0,
+            255
+          ],
+          [
+            255,
+            102,
+            0,
+            255
+          ],
+          [
+            187,
+            85,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            68,
+            255
+          ],
+          [
+            0,
+            0,
+            34,
+            255
+          ],
+          [
+            0,
+            0,
+            17,
+            255
+          ],
+          [
+            34,
+            17,
+            0,
+            255
+          ],
+          [
+            51,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            51,
+            17,
+            255
+          ],
+          [
+            136,
+            85,
+            34,
+            255
+          ],
+          [
+            119,
+            119,
+            136,
+            255
+          ],
+          [
+            119,
+            187,
+            255,
+            255
+          ],
+          [
+            68,
+            119,
+            221,
+            255
+          ],
+          [
+            34,
+            51,
+            170,
+            255
+          ],
+          [
+            0,
+            0,
+            136,
+            255
+          ],
+          [
+            255,
+            136,
+            85,
+            255
+          ],
+          [
+            204,
+            85,
+            51,
+            255
+          ],
+          [
+            136,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            17,
+            0,
+            255
+          ]
+        ],
+        "first_frame": 4473,
+        "last_frame": 5706,
+        "frames": 95,
+        "routes": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          3,
+          8,
+          9,
+          10,
+          6,
+          7,
+          5,
+          4,
+          1,
+          0,
+          2
+        ]
+      },
+      {
+        "palette": [
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            255,
+            255,
+            255
+          ],
+          [
+            255,
+            255,
+            255,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            255,
+            255,
+            255
+          ],
+          [
+            255,
+            255,
+            255,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            255,
+            255,
+            255
+          ],
+          [
+            255,
+            255,
+            255,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            255,
+            255,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            255,
+            255,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            255,
+            255,
+            255
+          ],
+          [
+            255,
+            255,
+            255,
+            255
+          ],
+          [
+            255,
+            255,
+            255,
+            255
+          ],
+          [
+            255,
+            255,
+            255,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            255,
+            255,
+            255
+          ],
+          [
+            51,
+            17,
+            0,
+            255
+          ],
+          [
+            51,
+            17,
+            0,
+            255
+          ],
+          [
+            51,
+            17,
+            0,
+            255
+          ]
+        ],
+        "first_frame": 4528,
+        "last_frame": 5665,
+        "frames": 5,
+        "routes": [
+          3,
+          8,
+          11,
+          12
+        ]
+      }
+    ],
+    "frame": 5750,
+    "state": 3870145346
+  },
+  "test_sha256": "a0e4e082369559f2558173b11a6c012c64d8cd3388cd9975eee38ec3c12a4596"
+}

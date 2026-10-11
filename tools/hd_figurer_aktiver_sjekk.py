@@ -10,12 +10,12 @@ from PIL import Image
 import hd_figurer_aktiver as gate
 
 ROOT = gate.ROOT
-path = ROOT / 'art/hd-completion-figures-2026-10-11/figures/kn1-production/activation-set-kn1-001.json'
+path = ROOT / 'art/hd-completion-figures-2026-10-11/production/li1/activation-set-001.json'
 delivery = json.loads(path.read_text())
 checks = []
 files = gate.validate(delivery)
-assert len(files) == 202
-checks.append('105 ruter og97 levende masker har gyldige kilder og runtimebevis')
+assert len(files) == 60
+checks.append('30 LI1-ruter og30 levende masker har gyldige kilder og runtimebevis')
 
 
 def rejected(name, edit, expected):
@@ -45,7 +45,9 @@ rejected('Manglende separat raabilde avvises',
 rejected('Ekstern bildegenerator avvises',
          lambda d: d['entries'][0].update(generation_tool='other'), '')
 rejected('Feil alias avvises',
-         lambda d: next(e for e in d['entries'] if e.get('master_key')).update(master_key='KN4.ob/999.png'), '')
+         lambda d: d['entries'][0].update(master_key='KN4.ob/999.png'), '')
+rejected('Endret bundet derivasjon avvises',
+         lambda d: d['companion_derivations'][0].update(sha256='0'*64), 'Endret fil')
 
 masked = next(e for e in delivery['entries'] if e.get('mask'))
 checked = gate.checked

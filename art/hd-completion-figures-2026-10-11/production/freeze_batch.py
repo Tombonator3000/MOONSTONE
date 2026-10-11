@@ -27,6 +27,7 @@ def main():
     parser.add_argument('--index', type=Path, required=True)
     parser.add_argument('--runtime', type=Path, required=True)
     parser.add_argument('--name', required=True)
+    parser.add_argument('--existing-context', nargs='*', default=[])
     args = parser.parse_args()
     index = load(args.index)
     report = load(args.runtime)
@@ -43,6 +44,10 @@ def main():
     queue = load(ART.parent / 'queue.json')
     entries = []
     for item in index['entries']:
+        if item['key'] in args.existing_context:
+            active = ROOT / 'web/hd' / item['key']
+            assert sha(active.read_bytes()) == item['candidate_sha256'], 'Annen aktiv kontekst: ' + item['key']
+            continue
         if item.get('runtime_context_only'):
             continue
         r = next(r for r in queue['entries'] if r['key'] == item['key'])
@@ -69,7 +74,7 @@ def main():
             # foto- og promptfiler er dessuten bundet og kontrollert her.
             entry['additional_generated_material'] = materials[-1]
             entry['additional_generated_materials'] = materials
-        entry['qa'] = dict(frame=sample['frame'], mirrored=all(d['speilet'] for d in sample['visible'] if d['fil'].lower() == r['bank'].lower()), source_midpoints_missing=0, source_transparent_midpoints_filled=0, actual_original_hd_return='exact', emulated_state='unchanged', visual_original_and_runtime='reviewed_same_source_rectangle', footshadow='original_flat_retained_not_redrawn' if art.get('original_flat_shadow_packing') else None)
+        entry['qa'] = dict(frame=sample['frame'], mirrored=all(d['speilet'] for d in sample['visible'] if d['hd'] and d['fil'].lower() == r['bank'].lower() and d['bilde'] == r['frame']), source_midpoints_missing=0, source_transparent_midpoints_filled=0, actual_original_hd_return='exact', emulated_state='unchanged', visual_original_and_runtime='reviewed_same_source_rectangle', footshadow='original_flat_retained_not_redrawn' if art.get('original_flat_shadow_packing') else None)
         entries.append(entry)
     activation = dict(schema=1, visual_status='reviewed_original_and_runtime', source_zip_sha256=report['source_zip_sha256'], production_code_sha256=codes, wasm_core_sha256=sha((ROOT / 'web/build/moonstone-core.js').read_bytes()), proofs=[dict(path=str(args.runtime.resolve().relative_to(ROOT)), sha256=sha(args.runtime.read_bytes()), html_path=str(html.resolve().relative_to(ROOT)), html_sha256=report['html_sha256'])], scope='Separate individuelt genererte ruter, sammenliknet med original og sett samlet i kontrollert originalkamp. Eksakte Original/HD-returer. Original flat skygge beholdes uten nytegningspaastand. Ingen full animasjonsdekning eller naturlig kartreise.', entries=entries)
     target = ART / ('activation-set-' + args.name + '.json')

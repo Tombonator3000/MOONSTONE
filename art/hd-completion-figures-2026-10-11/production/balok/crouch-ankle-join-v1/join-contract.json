@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "status": "source_positioned_material_patch_not_new_pose",
+  "input_index": "art/hd-completion-figures-2026-10-11/production/balok/candidates-attack-seven-eea5-v1.json",
+  "input_index_sha256": "a26d77cc5483df6bfacd209cf3970d3b4ed7d54c7eb1900f7b91ad04ba027f21",
+  "runtime": "art/hd-completion-figures-2026-10-11/production/verification/runtime-a26d77cc5483df6b-3264f74c/test.json",
+  "runtime_sha256": "e86e0c345848af339aa12a443b072dc904db863349ad314041f6067f4630d900",
+  "frame": 1361,
+  "mirrored": true,
+  "original_draws": {
+    "Balok1.CEL/035.png": {
+      "fil": "Balok1.cel",
+      "bilde": 35,
+      "x": 147,
+      "y": 152,
+      "w": 48,
+      "h": 24,
+      "speilet": true,
+      "hd": true,
+      "maske": false
+    },
+    "Balok1.CEL/036.png": {
+      "fil": "Balok1.cel",
+      "bilde": 36,
+      "x": 128,
+      "y": 176,
+      "w": 74,
+      "h": 11,
+      "speilet": true,
+      "hd": true,
+      "maske": false
+    }
+  },
+  "placements4x": {
+    "Balok1.CEL/035.png": [
+      28,
+      0
+    ],
+    "Balok1.CEL/036.png": [
+      0,
+      96
+    ]
+  },
+  "size4x": [
+    296,
+    140
+  ],
+  "band4x": [
+    20,
+    80,
+    280,
+    112
+  ],
+  "source_composite_sha256": "25c3bff69f982e1e7a1fe91c8f5c9ce384c03e738db0bbc4abc8863b9a04ff89",
+  "entries": [
+    {
+      "key": "Balok1.CEL/035.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/035/d76ff0650a66b99d/rounded-source-edge-v5/candidate.png",
+      "candidate_sha256": "95882366ea6d3169e8f37f270938c1b6c7b5e125f52071296a61f7d400554dbc",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/035/d76ff0650a66b99d/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "e2f9676c3cf0625d8649cf289829630ca1998de3715b30bcdd8ed9b18863781e"
+    },
+    {
+      "key": "Balok1.CEL/036.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/036/cdc17920f25b7976/separate-shadow-balok-v1-original-flat/candidate.png",
+      "candidate_sha256": "533697055373d7f324782e8800548679c467e316edb69d185750120ff64ae389",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/036/cdc17920f25b7976/separate-shadow-balok-v1-original-flat/art-record.json",
+      "art_record_sha256": "a66756bcbf02bf01499c370b26840ac98df2d010b6913f59b9e6950faf0cf1b1"
+    }
+  ]
+}

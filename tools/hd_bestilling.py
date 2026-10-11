@@ -71,6 +71,12 @@ def maskefarger(bank, frame):
     # og ild29..31. Riddervelgeren $088ca0 endrer bare6..8, ikke9..11.
     if bank.lower() == 'kn5.ob':
         return {6, 7, 8}
+    # Bare disse dragefragmentene inneholder den aktive ridderens drakt.
+    # Dragens roede9..15 og ild29..31 er faste i $088c16.
+    if bank.lower() == 'dragon2.cel' and frame in (17, 18, 19):
+        return {6, 7, 8}
+    if bank.lower() == 'dragon5.cel' and frame in (32, 35):
+        return {6, 7, 8}
     if bank.lower() in {b.lower() for b in PALETT}:
         return RIDDERFARGER
     # Math-tårnet: $089478-$089484 sender WI2.P+12 til $08a9b6.
@@ -81,6 +87,14 @@ def maskefarger(bank, frame):
     # Bare006/007 har levende draktindekser;008/009 er hanske,010..022 er terninger.
     if bank.lower() == 'dice.cel' and frame in (6, 7):
         return set(range(6, 11))
+    # LI1: originalintro4464/4473/4528 bruker svart, normal og hvitblink.
+    # Hvert ikke-null kildefelt trenger sin eksakte NN-indeks, ikke bare draktfarger.
+    if bank.lower() == 'li1.cel' and 0 <= frame < 30:
+        return set(range(1, 32))
+    # Oppstigningen deler den faktiske bla skanout-paletten med LI1.
+    # Bare040..054 bruker modus3; tidligere ritual- og flammeruter er uendret.
+    if bank.lower() in {'hen1.c', 'klift1.cel'} and 40 <= frame <= 54:
+        return set(range(1, 32))
     return set()
 
 

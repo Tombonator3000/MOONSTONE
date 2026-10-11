@@ -146,15 +146,18 @@
 - [x] Nytegne og kontrollere alle26 KN4-sverd-/bevegelsesruter,7 identiske kopier og025-masken.
 - [x] Nytegne18 flammer separat og kontrollere dem i original Stonehenge-scene og sluttsekvens;18 identiske Klift-kopier.
 - [x] Publisere og kontrollere den første figurruteleveransen etter grønn CI (PR #33, offentlig70PNG, faktisk kamp og Stonehenge).
-- [ ] Fullføre1448 resterende figurmastere/1555 konkrete ruter;8 KN5-mastermasker og ingen HE-kopier står på restlisten.
-- [ ] Gjøre Math-ansikt, kropp, hår og kappe visuelt sammenhengende i statisk WI1.P-plate og separate Wi1.C-ruter.
+- [ ] Fullføre1270 resterende figurmastere/1340 konkrete ruter; fem mastermasker for innbakte drageriddere og ingen HE-kopier står på restlisten.
+- [x] Gjøre Math-ansikt, kropp, hår og kappe visuelt sammenhengende i statisk WI1.P-plate og separate Wi1.C-ruter (PR #35).
 - [x] Fjerne hudskjøter fra de to separate MYS-øyefragmentene før aktivering; aktivert lokalt etter14 scene- og30 rutekontroller.
 - [x] Publisere og kontrollere MYS006/007 i standardpakken (PR #34).
-- [ ] Fullføre tavernahansker006..009 og tre kastede terninger010..022; rette også innbygd TAV-figur med aktiv spillerfarge.
+- [x] Fullføre tavernahansker006..009 og tre kastede terninger010..022, samt innbygd TAV-figur med aktiv spillerfarge (PR #35).
 - [x] Kontrollere og aktivere16 TROLL-ruter, inklusive øyefarge og adskilt fotskygge.
 - [x] Aktivere129 KN3-/HE3-/RATMEN-ruter og90 masker etter1928 rutekontroller og visuell sammenligning. Fire rene svarte skygger bevart.
 - [x] Publisere og kontrollere den andre figurleveransen med237 nye PNG-filer (PR #34).
-- [ ] Fullføre øvrige TROLL- og KN1-ruter med samme separate bilde-/runtimekrav.
+- [ ] Fullføre øvrige TROLL-ruter med samme separate bilde-/runtimekrav; KN1/HE1 er levert i PR #35.
 
 - [x] Tredje lokale figurleveranse: KN1/HE1, KN2/HE2, Math, TAV/DICE, kartdrage, OV1, HA1 og ytterligere TROLL,1145PNG/1151filer. Standard- og originalkontroller bundet.
-- [ ] Publisere og kontrollere tredje figurleveranse gjennom PR/CI/Pages, deretter fortsette resterende monstre og intro/slutt.
+- [x] Publisere og kontrollere tredje figurleveranse (PR #35, alle433PNG samt281 KN1-/158 KN2-kontroller paa offentlig side).
+- [x] Fullføre LI1/30, HEN/Klift/74, KN5/65, DRAGON1/16, Balok1/28 og TROLL2/2 nye ruter lokalt:178 mastere,215 kilderuter og68 masker,283 nyePNG. Palettblink, LI1-haandens retensjon og eksakt TROLL-likbuffer er kontrollert.
+- [ ] Publisere fjerde figurleveranse via groenn CI og kontrollere den offentlige standardpakken.
+- [ ] Fortsette DRAGON2/5, Balok, Guardian og resten av1270-masterlisten. Uavklarte TROLL-bruksruter beholdes som originalgrafikk til de kan kontrolleres.

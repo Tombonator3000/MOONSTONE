@@ -1,0 +1,807 @@
+{
+  "key": "Balok1.CEL/020.png",
+  "candidate_sha256": "9db63108cce36379abced4830dc990e8f32f20bb8463100d727100e497dd382a",
+  "source_indices_sha256": "ffddcad9b1cf6d3aa55560059c17eed1a5d8b38d1c42a3270eae4b8b29096449",
+  "authoring_method": "individual_redraw",
+  "generator": "built-in ChatGPT image generator; exact model version not exposed",
+  "raw_sha256": "bd4260d4def57007338c92bedcec42bbf0302098c3989efdaf036fbbcf9cb28c",
+  "raw_file": "art/hd-completion-figures-2026-10-11/production/balok/raw/020-v1.png",
+  "raw_padding_window": [
+    0,
+    195,
+    2172,
+    497
+  ],
+  "raw_margin_proof": {
+    "removed_pixels": 916584,
+    "nonzero_alpha_pixels": 2677,
+    "max_alpha": 5,
+    "visible_content_clipped": false,
+    "target_aspect_height": 302,
+    "preserved_window_height": 302
+  },
+  "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/020-v1.txt",
+  "prompt_sha256": "f46caedfc58a66069116d9ef94b0e8bea10c8e985f4ee631d7f670ec4b690d5c",
+  "palette_case": "balok",
+  "palette_contract_sha256": "faf30600b1098c4fbf24fded5ca6cea5690f27b77e31b0b6daba4eb7da1807f2",
+  "palette_reference_sha256": "ef0522c0e96b8cdf31a1e4bbe706a034f24c726031a8a012e67ca0cd3d2a2321",
+  "packing": "Generated RGBA resized to source4x and minimally globally aligned. Original alpha via marching-squares contours with <=.4sourcepx rounded corners; every original pixel midpoint preserved. Aligned generated interior RGB unchanged, missing edge RGB extended from nearest generated material. No original RGB, per-row anatomy warp, or raster replacement.",
+  "raw_silhouette_iou": 0.867170881588277,
+  "aligned_silhouette_iou": 0.9652195988829653,
+  "alignment_gate": 0.85,
+  "max_opaque_edge_extension_px": 2,
+  "geometry_gate_passed": true,
+  "original_flat_shadow_packing": {
+    "indices": [
+      5
+    ],
+    "source_rect": [
+      0,
+      0,
+      72,
+      10
+    ],
+    "source_pixels": 230,
+    "method": "Original constant-black index5 within known footshadow region is antialiased separately. Frame008 contains only cropped feet and shadow; frames002..005 restrict this to bottom8 rows. Black index5 above that region remains generated body material. Frame008, Frame011, Frame013 and Frame029 preserve sparse flat source shadow with exact nearest4x alpha; other footshadows use rounded contours. Not claimed as a new shadow redraw"
+  },
+  "source_pixel_midpoints_checked": 720,
+  "missing_opaque_source_midpoints": [],
+  "false_filled_transparent_source_midpoints": [],
+  "retained_generated_rgb_pixels": 3818,
+  "extended_edge_pixels": 105,
+  "max_edge_extension_px": 2,
+  "edge_extension_map": [
+    {
+      "x": 100,
+      "y": 2,
+      "from_x": 99,
+      "from_y": 2,
+      "distance": 1
+    },
+    {
+      "x": 163,
+      "y": 2,
+      "from_x": 163,
+      "from_y": 1,
+      "distance": 1
+    },
+    {
+      "x": 168,
+      "y": 2,
+      "from_x": 167,
+      "from_y": 2,
+      "distance": 1
+    },
+    {
+      "x": 171,
+      "y": 2,
+      "from_x": 172,
+      "from_y": 2,
+      "distance": 1
+    },
+    {
+      "x": 30,
+      "y": 3,
+      "from_x": 31,
+      "from_y": 3,
+      "distance": 1
+    },
+    {
+      "x": 100,
+      "y": 3,
+      "from_x": 99,
+      "from_y": 3,
+      "distance": 1
+    },
+    {
+      "x": 101,
+      "y": 3,
+      "from_x": 101,
+      "from_y": 4,
+      "distance": 1
+    },
+    {
+      "x": 102,
+      "y": 3,
+      "from_x": 102,
+      "from_y": 4,
+      "distance": 1
+    },
+    {
+      "x": 103,
+      "y": 3,
+      "from_x": 103,
+      "from_y": 4,
+      "distance": 1
+    },
+    {
+      "x": 162,
+      "y": 3,
+      "from_x": 163,
+      "from_y": 3,
+      "distance": 1
+    },
+    {
+      "x": 169,
+      "y": 3,
+      "from_x": 168,
+      "from_y": 3,
+      "distance": 1
+    },
+    {
+      "x": 170,
+      "y": 3,
+      "from_x": 170,
+      "from_y": 4,
+      "distance": 1
+    },
+    {
+      "x": 171,
+      "y": 3,
+      "from_x": 171,
+      "from_y": 4,
+      "distance": 1
+    },
+    {
+      "x": 172,
+      "y": 3,
+      "from_x": 172,
+      "from_y": 2,
+      "distance": 1
+    },
+    {
+      "x": 172,
+      "y": 4,
+      "from_x": 171,
+      "from_y": 4,
+      "distance": 1
+    },
+    {
+      "x": 173,
+      "y": 4,
+      "from_x": 173,
+      "from_y": 3,
+      "distance": 1
+    },
+    {
+      "x": 174,
+      "y": 4,
+      "from_x": 174,
+      "from_y": 3,
+      "distance": 1
+    },
+    {
+      "x": 172,
+      "y": 5,
+      "from_x": 171,
+      "from_y": 5,
+      "distance": 1
+    },
+    {
+      "x": 124,
+      "y": 6,
+      "from_x": 123,
+      "from_y": 6,
+      "distance": 1
+    },
+    {
+      "x": 172,
+      "y": 6,
+      "from_x": 171,
+      "from_y": 6,
+      "distance": 1
+    },
+    {
+      "x": 125,
+      "y": 7,
+      "from_x": 124,
+      "from_y": 7,
+      "distance": 1
+    },
+    {
+      "x": 126,
+      "y": 7,
+      "from_x": 126,
+      "from_y": 8,
+      "distance": 1
+    },
+    {
+      "x": 127,
+      "y": 7,
+      "from_x": 127,
+      "from_y": 8,
+      "distance": 1
+    },
+    {
+      "x": 192,
+      "y": 9,
+      "from_x": 191,
+      "from_y": 9,
+      "distance": 1
+    },
+    {
+      "x": 136,
+      "y": 10,
+      "from_x": 135,
+      "from_y": 10,
+      "distance": 1
+    },
+    {
+      "x": 192,
+      "y": 10,
+      "from_x": 191,
+      "from_y": 10,
+      "distance": 1
+    },
+    {
+      "x": 137,
+      "y": 11,
+      "from_x": 136,
+      "from_y": 11,
+      "distance": 1
+    },
+    {
+      "x": 193,
+      "y": 11,
+      "from_x": 192,
+      "from_y": 11,
+      "distance": 1
+    },
+    {
+      "x": 194,
+      "y": 11,
+      "from_x": 194,
+      "from_y": 12,
+      "distance": 1
+    },
+    {
+      "x": 30,
+      "y": 12,
+      "from_x": 30,
+      "from_y": 11,
+      "distance": 1
+    },
+    {
+      "x": 162,
+      "y": 12,
+      "from_x": 162,
+      "from_y": 11,
+      "distance": 1
+    },
+    {
+      "x": 163,
+      "y": 13,
+      "from_x": 163,
+      "from_y": 12,
+      "distance": 1
+    },
+    {
+      "x": 172,
+      "y": 13,
+      "from_x": 171,
+      "from_y": 13,
+      "distance": 1
+    },
+    {
+      "x": 172,
+      "y": 14,
+      "from_x": 171,
+      "from_y": 14,
+      "distance": 1
+    },
+    {
+      "x": 200,
+      "y": 14,
+      "from_x": 199,
+      "from_y": 14,
+      "distance": 1
+    },
+    {
+      "x": 172,
+      "y": 15,
+      "from_x": 171,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 173,
+      "y": 15,
+      "from_x": 173,
+      "from_y": 16,
+      "distance": 1
+    },
+    {
+      "x": 174,
+      "y": 15,
+      "from_x": 175,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 200,
+      "y": 15,
+      "from_x": 199,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 201,
+      "y": 15,
+      "from_x": 201,
+      "from_y": 16,
+      "distance": 1
+    },
+    {
+      "x": 202,
+      "y": 15,
+      "from_x": 202,
+      "from_y": 16,
+      "distance": 1
+    },
+    {
+      "x": 203,
+      "y": 15,
+      "from_x": 203,
+      "from_y": 16,
+      "distance": 1
+    },
+    {
+      "x": 34,
+      "y": 16,
+      "from_x": 34,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 68,
+      "y": 16,
+      "from_x": 68,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 69,
+      "y": 16,
+      "from_x": 69,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 70,
+      "y": 16,
+      "from_x": 70,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 93,
+      "y": 16,
+      "from_x": 93,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 94,
+      "y": 16,
+      "from_x": 94,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 112,
+      "y": 16,
+      "from_x": 112,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 113,
+      "y": 16,
+      "from_x": 113,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 114,
+      "y": 16,
+      "from_x": 114,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 125,
+      "y": 16,
+      "from_x": 125,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 126,
+      "y": 16,
+      "from_x": 126,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 68,
+      "y": 17,
+      "from_x": 67,
+      "from_y": 17,
+      "distance": 1
+    },
+    {
+      "x": 112,
+      "y": 17,
+      "from_x": 111,
+      "from_y": 17,
+      "distance": 1
+    },
+    {
+      "x": 207,
+      "y": 18,
+      "from_x": 207,
+      "from_y": 17,
+      "distance": 1
+    },
+    {
+      "x": 208,
+      "y": 18,
+      "from_x": 207,
+      "from_y": 17,
+      "distance": 2
+    },
+    {
+      "x": 243,
+      "y": 18,
+      "from_x": 244,
+      "from_y": 18,
+      "distance": 1
+    },
+    {
+      "x": 256,
+      "y": 18,
+      "from_x": 255,
+      "from_y": 18,
+      "distance": 1
+    },
+    {
+      "x": 162,
+      "y": 19,
+      "from_x": 163,
+      "from_y": 19,
+      "distance": 1
+    },
+    {
+      "x": 208,
+      "y": 19,
+      "from_x": 207,
+      "from_y": 19,
+      "distance": 1
+    },
+    {
+      "x": 209,
+      "y": 19,
+      "from_x": 209,
+      "from_y": 20,
+      "distance": 1
+    },
+    {
+      "x": 210,
+      "y": 19,
+      "from_x": 210,
+      "from_y": 20,
+      "distance": 1
+    },
+    {
+      "x": 211,
+      "y": 19,
+      "from_x": 211,
+      "from_y": 20,
+      "distance": 1
+    },
+    {
+      "x": 240,
+      "y": 19,
+      "from_x": 240,
+      "from_y": 20,
+      "distance": 1
+    },
+    {
+      "x": 241,
+      "y": 19,
+      "from_x": 241,
+      "from_y": 20,
+      "distance": 1
+    },
+    {
+      "x": 242,
+      "y": 19,
+      "from_x": 242,
+      "from_y": 20,
+      "distance": 1
+    },
+    {
+      "x": 243,
+      "y": 19,
+      "from_x": 244,
+      "from_y": 19,
+      "distance": 1
+    },
+    {
+      "x": 256,
+      "y": 19,
+      "from_x": 255,
+      "from_y": 19,
+      "distance": 1
+    },
+    {
+      "x": 257,
+      "y": 19,
+      "from_x": 257,
+      "from_y": 20,
+      "distance": 1
+    },
+    {
+      "x": 258,
+      "y": 19,
+      "from_x": 258,
+      "from_y": 20,
+      "distance": 1
+    },
+    {
+      "x": 259,
+      "y": 19,
+      "from_x": 259,
+      "from_y": 20,
+      "distance": 1
+    },
+    {
+      "x": 45,
+      "y": 20,
+      "from_x": 45,
+      "from_y": 19,
+      "distance": 1
+    },
+    {
+      "x": 46,
+      "y": 20,
+      "from_x": 46,
+      "from_y": 19,
+      "distance": 1
+    },
+    {
+      "x": 60,
+      "y": 20,
+      "from_x": 60,
+      "from_y": 19,
+      "distance": 1
+    },
+    {
+      "x": 61,
+      "y": 20,
+      "from_x": 61,
+      "from_y": 19,
+      "distance": 1
+    },
+    {
+      "x": 62,
+      "y": 20,
+      "from_x": 62,
+      "from_y": 19,
+      "distance": 1
+    },
+    {
+      "x": 60,
+      "y": 21,
+      "from_x": 59,
+      "from_y": 21,
+      "distance": 1
+    },
+    {
+      "x": 268,
+      "y": 22,
+      "from_x": 267,
+      "from_y": 22,
+      "distance": 1
+    },
+    {
+      "x": 49,
+      "y": 23,
+      "from_x": 49,
+      "from_y": 22,
+      "distance": 1
+    },
+    {
+      "x": 55,
+      "y": 23,
+      "from_x": 55,
+      "from_y": 22,
+      "distance": 1
+    },
+    {
+      "x": 56,
+      "y": 23,
+      "from_x": 56,
+      "from_y": 22,
+      "distance": 1
+    },
+    {
+      "x": 57,
+      "y": 23,
+      "from_x": 57,
+      "from_y": 22,
+      "distance": 1
+    },
+    {
+      "x": 58,
+      "y": 23,
+      "from_x": 58,
+      "from_y": 22,
+      "distance": 1
+    },
+    {
+      "x": 269,
+      "y": 23,
+      "from_x": 268,
+      "from_y": 23,
+      "distance": 1
+    },
+    {
+      "x": 270,
+      "y": 23,
+      "from_x": 270,
+      "from_y": 24,
+      "distance": 1
+    },
+    {
+      "x": 271,
+      "y": 23,
+      "from_x": 271,
+      "from_y": 24,
+      "distance": 1
+    },
+    {
+      "x": 274,
+      "y": 24,
+      "from_x": 273,
+      "from_y": 24,
+      "distance": 1
+    },
+    {
+      "x": 274,
+      "y": 25,
+      "from_x": 273,
+      "from_y": 25,
+      "distance": 1
+    },
+    {
+      "x": 275,
+      "y": 25,
+      "from_x": 273,
+      "from_y": 25,
+      "distance": 2
+    },
+    {
+      "x": 274,
+      "y": 26,
+      "from_x": 273,
+      "from_y": 26,
+      "distance": 1
+    },
+    {
+      "x": 275,
+      "y": 26,
+      "from_x": 273,
+      "from_y": 26,
+      "distance": 2
+    },
+    {
+      "x": 274,
+      "y": 27,
+      "from_x": 273,
+      "from_y": 27,
+      "distance": 1
+    },
+    {
+      "x": 268,
+      "y": 28,
+      "from_x": 268,
+      "from_y": 27,
+      "distance": 1
+    },
+    {
+      "x": 269,
+      "y": 28,
+      "from_x": 269,
+      "from_y": 27,
+      "distance": 1
+    },
+    {
+      "x": 270,
+      "y": 28,
+      "from_x": 270,
+      "from_y": 27,
+      "distance": 1
+    },
+    {
+      "x": 184,
+      "y": 29,
+      "from_x": 184,
+      "from_y": 28,
+      "distance": 1
+    },
+    {
+      "x": 268,
+      "y": 29,
+      "from_x": 267,
+      "from_y": 29,
+      "distance": 1
+    },
+    {
+      "x": 237,
+      "y": 32,
+      "from_x": 237,
+      "from_y": 31,
+      "distance": 1
+    },
+    {
+      "x": 238,
+      "y": 32,
+      "from_x": 238,
+      "from_y": 31,
+      "distance": 1
+    },
+    {
+      "x": 253,
+      "y": 32,
+      "from_x": 253,
+      "from_y": 31,
+      "distance": 1
+    },
+    {
+      "x": 254,
+      "y": 32,
+      "from_x": 254,
+      "from_y": 31,
+      "distance": 1
+    },
+    {
+      "x": 236,
+      "y": 33,
+      "from_x": 236,
+      "from_y": 32,
+      "distance": 1
+    },
+    {
+      "x": 255,
+      "y": 33,
+      "from_x": 255,
+      "from_y": 32,
+      "distance": 1
+    },
+    {
+      "x": 264,
+      "y": 33,
+      "from_x": 264,
+      "from_y": 32,
+      "distance": 1
+    }
+  ],
+  "global_affine": {
+    "scale_x": 1,
+    "scale_y": 0.98,
+    "translate_x_px": 0,
+    "translate_y_px": -1
+  },
+  "visual_checks": {
+    "pose": "pending",
+    "crop": "pending",
+    "equipment": "pending",
+    "source_colors": "pending",
+    "anatomy": "pending",
+    "material": "pending",
+    "runtime_overlap": "pending",
+    "original_hd_return": "pending"
+  },
+  "status": "source_guided_candidate_not_activated"
+}

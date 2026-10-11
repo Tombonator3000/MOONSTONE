@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "status": "source_positioned_material_patch_not_new_pose",
+  "input_index": "art/hd-completion-figures-2026-10-11/production/balok/candidates-jump-five-v1.json",
+  "input_index_sha256": "71621ccb3fce1a3069d47fe8c45e3228d4ae4a8f50707bcc3846c51c662e1d5c",
+  "runtime": "art/hd-completion-figures-2026-10-11/production/verification/runtime-71621ccb3fce1a30-d21380f6/test.json",
+  "runtime_sha256": "0d1827d338595deb165f3e8b076f4001b048764c7d06598ca6deb59e6723c891",
+  "frame": 1334,
+  "mirrored": false,
+  "original_draws": {
+    "Balok1.CEL/023.png": {
+      "fil": "Balok1.cel",
+      "bilde": 23,
+      "x": 100,
+      "y": 54,
+      "w": 62,
+      "h": 17,
+      "speilet": false,
+      "hd": true,
+      "maske": false
+    },
+    "Balok1.CEL/024.png": {
+      "fil": "Balok1.cel",
+      "bilde": 24,
+      "x": 106,
+      "y": 71,
+      "w": 29,
+      "h": 13,
+      "speilet": false,
+      "hd": true,
+      "maske": false
+    }
+  },
+  "placements4x": {
+    "Balok1.CEL/023.png": [
+      0,
+      0
+    ],
+    "Balok1.CEL/024.png": [
+      24,
+      68
+    ]
+  },
+  "size4x": [
+    248,
+    120
+  ],
+  "band4x": [
+    24,
+    52,
+    112,
+    88
+  ],
+  "source_composite_sha256": "665a32b184a01b8a66901d43a47c768566baa7421d3ee03f19e41ecd423a3fbe",
+  "entries": [
+    {
+      "key": "Balok1.CEL/023.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/023/ff5ffb0123b82076/rounded-source-edge-v5/candidate.png",
+      "candidate_sha256": "b59ff0822899fcc525dfa16d9cd52f1710012dc66bce08a2282260e678546074",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/023/ff5ffb0123b82076/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "36590809d41bbc01a18e108cc5d1c5669cc4f83109121043bd2f1bd8c88240d1"
+    },
+    {
+      "key": "Balok1.CEL/024.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/024/6e6db3b0fe613d6a/rounded-source-edge-v5/candidate.png",
+      "candidate_sha256": "c2500d31a4de4345cd24d77007516cb7bcf680482809a075776325c75a7302ec",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/024/6e6db3b0fe613d6a/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "6be8e34607231c47661745d24b4230055400b0ed71bec6fcb18f33e6e5a646c6"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "status": "reviewed_against_original_and_actual_runtime",
+  "created_at": "2026-10-11T23:40:11.646555+00:00",
+  "masters": 16,
+  "visible_photo_material_masters": 16,
+  "preserved_original_black_shadow_masters": 0,
+  "contact_sheets": [
+    {
+      "path": "verification/comparison-dragon1-006-017.png",
+      "sha256": "41272772427a9a1688579d4319ae7bf96c9abdee5960be1f767c906a8248dcdc"
+    },
+    {
+      "path": "verification/comparison-dragon1-018-021.png",
+      "sha256": "e13e1bc7e7f7e4e60e03d61665bd36bb7267639199421710ee18a05b5b2f7183"
+    }
+  ],
+  "actual_dragon_proof_sha256": "def6b6e78d5beaf7f2f5435f7c7f4084f5e06fa198e9432640d54b01a0d4a3c9",
+  "actual_captures": [
+    {
+      "emulator_frame": 1252,
+      "route": 7,
+      "original_png_sha256": "98283aaa73da7daf415a75b0ec7054b3b44126485f580963a0bdc55bd556a798",
+      "hd_png_sha256": "69a5d66ae8bd69847af842a6b1a28200c5b03a17d4836dc5e2aa0fe2a3fc7215"
+    },
+    {
+      "emulator_frame": 1252,
+      "route": 8,
+      "original_png_sha256": "98283aaa73da7daf415a75b0ec7054b3b44126485f580963a0bdc55bd556a798",
+      "hd_png_sha256": "69a5d66ae8bd69847af842a6b1a28200c5b03a17d4836dc5e2aa0fe2a3fc7215"
+    }
+  ],
+  "source_color_contract_sha256": "cf38ab02168650296730ec18b82def4019172bbb35fe923e42c36a215a5f2734",
+  "packed_png_sha256": {
+    "DRAGON1.CEL/006.png": "0600ace6d890c9038a9c9b40aa370b846163d8bff926e5d6ba233675b669563c",
+    "DRAGON1.CEL/007.png": "45f43ddec6ec80348e4221f3cfc4d73b9ab129ff052063fecba852688be7a7ab",
+    "DRAGON1.CEL/008.png": "40f2f2780d27c719c7b6d8980de85a459445ff3d6ed13718454e290ca75a316a",
+    "DRAGON1.CEL/009.png": "3e4572a8c764acce448ab661fa2d1801381a460bde758334ef1615bcc072f9dc",
+    "DRAGON1.CEL/010.png": "2160b22eb109c2e553894e4730e4b20418b7a83c06dcf47010decc27d1110ab8",
+    "DRAGON1.CEL/011.png": "faac793cbf1778386de0a16b266f48f9e7af50dd07437d1e1e819f4966571ae2",
+    "DRAGON1.CEL/012.png": "366c3ffaebb305a251121e2954dc5a7c68c179298a84a4ca76b3f3ab6e6eba88",
+    "DRAGON1.CEL/013.png": "5763ef43b7212ee2cfc79a85618e5a57e4b94c4cfcb27afe78230810a8494780",
+    "DRAGON1.CEL/014.png": "598dc9e0271ca3d7d05361b1b405f333d74c2423b4723d2c9623bd6db130a30e",
+    "DRAGON1.CEL/015.png": "4af868b163fac8ced7f1579eb0ec8ab67ee9667142f54432d4acd3a9e400427d",
+    "DRAGON1.CEL/016.png": "94d92482a2793769e804fe34043d78c01d302403e48bd7ab79528d6950b47105",
+    "DRAGON1.CEL/017.png": "0c648e5c01ac4db7cfb8b439afd037bf128a2e18224aa33e9f635c1cd0669863",
+    "DRAGON1.CEL/018.png": "3307190c4eeb1fc5a0022ab9c73d934bf3bcb119c26ddf10081c51f6ed4c3f6b",
+    "DRAGON1.CEL/019.png": "af9485a744f6ee7c182764336c08efbacb6000a0eeccbe6ebbe8eae73a066687",
+    "DRAGON1.CEL/020.png": "57c104d414135865735d8ce88c822edb4d1b55c29395eb108c88a2cb77929633",
+    "DRAGON1.CEL/021.png": "2c94fbd9df5aca540902ddb39bea472ac1f5d9333082f5ffd61457d1ed3ffbf5"
+  },
+  "notes": [
+    "Alle16 originalruter og ferdige4x-par er visuelt kontrollert. Egen builtin-generering per rute, ingen aliaser eller svarte skyggemastere.",
+    "Silhuetter, horn, kjever, membraner, hull, utsnitt og naturtro materialfarger er sammenlignet. Rot har gjennomgaatt begge kontaktark og godkjent alle16.",
+    "009v1 ble avvist fordi skyggehornet ble roedt.009v2 bevarer midthornet som skyggefullt bein og er gjennomgaatt separat.",
+    "Faktisk original CPU-kamp viser007 og008 sammen ved1252 med korrekt innbyrdes anslutning, normal retning og originalt tegneutsnitt.",
+    "Resten av dragens hode/kropp og bakgrunnen er fortsatt originaler i denne avgrensede scenekontrollen. Spilleren bruker eksisterende standard-HD.",
+    "Alle16ruter normal/speilet bestaar237 frontendkontroller; faktisk kamp bestaar39 med eksakt Original/HD-retur og uendret emulatortilstand."
+  ]
+}

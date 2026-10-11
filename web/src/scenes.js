@@ -176,6 +176,16 @@ const SceneHd = (() => {
             }
         }
         if (!valgt) return lag;
+        // LI1-ritualets originale palett blinker hvit/sort. En vanlig RGB-
+        // bakgrunn kan bare tones fra normalpaletten, ikke gjengi dette blinket.
+        // Bare disse SHA-bekreftede PIV-scenene bruker originalbakgrunn ved
+        // annen palett. Identitet/lagdeling er lik i Original og HD.
+        const li1Scene = (valgt.id==='altar' && valgt.source_sha256==='59d17f17600ae46b60667992364e6b360529df12d9ea41b976c01f1d2527b051') ||
+            (valgt.id==='portal' && valgt.source_sha256==='aec20997ca0dd954b1bc81cc8137d51f74eca0a8f4a94866f91487d3fa1c972d');
+        const hdBackgroundOriginal=li1Scene && !Visning.li1NormalPalett(scan,diw);
+        // Kandidatens alfakontur eier sin kant. PIV-piksler utenfor kanten
+        // skal ikke danne en tre-pikslers blaa/sort glorie rundt HD-fotoet.
+        const padding=li1Scene?0:valgt.foreground_padding;
         const rect = valgt.rect || [0, 0, 320, 200];
         const faste = Visning.hdPaa() ? (valgt.overlays || []).filter(o=>Visning.sceneOverleggKlar(o.key,diw,o.palette_mask)) : [];
         // Tilgjengelighet er lik i Original og HD. Ellers ville Original utvide
@@ -209,7 +219,7 @@ const SceneHd = (() => {
                 fb[fp*4+2]!==bak[p*4+2] || fb[fp*4+3]!==bak[p*4+3]) avvik[p] = 1;
             if (protectedPixel || avvik[p]) maske[p] = 1;
         }
-        if (valgt.foreground_padding) {
+        if (padding) {
             summer.fill(0);
             for (let y=0;y<200;y++) {
                 let sum=0;
@@ -232,8 +242,8 @@ const SceneHd = (() => {
         for (let y = 0; y < 200; y++) for (let x = 0; x < 320; x++) {
             const p = y * 320 + x;
             let vern = maske[p];
-            if (!vern && valgt.foreground_padding) {
-                const d = valgt.foreground_padding;
+            if (!vern && padding) {
+                const d = padding;
                 const x0=Math.max(0,x-d), y0=Math.max(0,y-d), x1=Math.min(320,x+d+1), y1=Math.min(200,y+d+1);
                 vern=summer[y1*321+x1]-summer[y0*321+x1]-summer[y1*321+x0]+summer[y0*321+x0];
             }
@@ -243,10 +253,11 @@ const SceneHd = (() => {
             indeks[p] = scan.idx[fp] & 31;
             beholdt++;
         }
-        sist = { id: valgt.id, match: best, preserved_pixels: beholdt, hash: valgt.hash, hd_icons: ikoner.length };
+        sist = { id: valgt.id, match: best, preserved_pixels: beholdt, hash: valgt.hash, hd_icons: ikoner.length,
+            ...(li1Scene?{hd_background_original:hdBackgroundOriginal}: {}) };
         return { bak, for: foran, forIdx: indeks, bakIdx: valgt.px,
             hash: parseInt(valgt.hash, 16), lys, lysMaks: valgt.lysMaks,
-            hdRect: valgt.uv_rect || rect, scene: valgt.id,
+            hdRect: valgt.uv_rect || rect, scene: valgt.id, hdBackgroundOriginal,
             overlays: [...faste,...ikoner.map(m=>({key:m.key,rect:m.draw_rect||m.rect,uv_rect:[0,0,1,1],foreground:true}))], sceneVern: avvik };
     }
     return { korriger, nullstill, info: () => sist, matcher: () => sisteMatcher.slice() };

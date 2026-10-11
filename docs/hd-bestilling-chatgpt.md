@@ -166,7 +166,7 @@ Enkeltfigurer og eksakte bakgrunnshasher kan prøves med «Velg HD-mappe» i sid
 ## 8. Det som ikke er sikkert
 
 - Riddermasken er prøvd med syntetiske palettvarianter. Hver ny fotografisk ridderrute krever fortsatt egen kontroll. Math015 er prøvd med separat fotografisk nytegning i faktisk blå og rød originalscene.
-- Hvilke indekser hver av de fire ridderne og den svarte ridderen får i kamp, er ikke målt. Masken lages derfor av originalens indekser, ikke av fargene.
-- KN5.ob og blo.cel (blod og sår) er ikke sett på skjermen i målingene våre. Vi antar at de brukes.
+- Flere ridderbanker har nå kildebekreftede draktindekser og målte palettvarianter. Hver ny bank må likevel kontrolleres separat; masken bygges fra originalens indekser, ikke fra en forhåndsvisningsfarge.
+- KN5.ob er nå kontrollert i original dragekamp. Alle65 ruter har separate HD-mastere og normal-/speilingsprøver; de sju brennende ridderrutene058..064 er også observert i originalens tegneliste. Dette er ikke en påstand om naturlig bruk av alle65 ruter. De41 blo.cel-masterne gjenstår.
 - Math (WI1.P, WI2.P), terningspillet og de aktiverte introscenene har allerede scener i `web/hd/manifest.json`. De skal ikke bestilles på nytt for å løse en manglende scenekobling. Nye eller reviderte bakgrunnsbilder må fortsatt testes mot originaltekst, markører og forgrunn ved levering.
 - Monstre kan ha andre farger i et hi enn ute. De 13 målte kampkontekstene er kildebelegg, ikke full dekning av alle ruter og steder. Kontroller hver levert monsteranimasjon i riktig sammenheng.

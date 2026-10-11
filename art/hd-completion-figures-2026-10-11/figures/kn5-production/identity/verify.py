@@ -79,7 +79,21 @@ result = dict(schema=1, status='source_and_two_original_cpu_colors_verified',
               mask_function_sha256=sha((ROOT / 'tools/hd_bestilling.py').read_bytes()))
 target = ART / 'source-color-contract.json'
 if target.exists():
-    assert json.loads(target.read_text()) == result, 'Frosset kildekontrakt avviker'
+    frozen = json.loads(target.read_text())
+    # Hele bestillingsgeneratoren kan faa uavhengige bankrettinger senere.
+    # Frys dens opprinnelige kilde, og kontroller alle KN5-resultater paa nytt
+    # med dagens funksjon; ikke skriv om den historiske kildekontrakten.
+    assert sha((ART / 'mask-function-source.py').read_bytes()) == frozen['mask_function_sha256']
+    current_function_sha256 = result['mask_function_sha256']
+    result['mask_function_sha256'] = frozen['mask_function_sha256']
+    assert frozen == result, 'Frosset originalkode, CPU-palett eller KN5-masker avviker'
+    validation = dict(schema=1, status='passed', frames=65, original_cpu_cases=2, masks=8,
+                      frozen_contract_sha256=sha(target.read_bytes()),
+                      frozen_mask_function_sha256=frozen['mask_function_sha256'],
+                      current_mask_function_sha256=current_function_sha256,
+                      verifier_sha256=sha(Path(__file__).read_bytes()),
+                      scope='Alle originale KN5-indekser, kodebytes og CPU-paletter gjenkontrollert. Dagens KN5-maskeresultater er identiske med den frosne kontrakten.')
+    (ART / 'current-validation.json').write_text(json.dumps(validation, ensure_ascii=False, indent=2) + '\n')
 else:
     target.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
 print(json.dumps(dict(frames=65, original_cpu_cases=2, observed_routes=list(range(58,65)), masks=8, contract_sha256=sha(target.read_bytes()))))
