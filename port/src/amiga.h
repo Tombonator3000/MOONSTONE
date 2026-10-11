@@ -368,6 +368,7 @@ void     paula_state(StateIO *s);
 void     video_state(StateIO *s);
 void     whd_state(StateIO *s);
 void     game_state(StateIO *s);
+void     game_state_moete(StateIO *s);     /* moetefasen (maa passe med minnet) */
 void     patch_state(StateIO *s);
 void     meny_state(StateIO *s);
 void     hver_state(StateIO *s);
@@ -379,6 +380,7 @@ bool     state_load_mem(const uint8_t *buf, size_t size);
 bool     state_save_file(const char *path);
 bool     state_load_file(const char *path);
 bool     state_file_exists(const char *path);
+bool     state_file_rename(const char *fra, const char *til);   /* UTF-8, erstatter til */
 extern bool amiga_quit_key;                /* F10 (QuitKey) avsluttet, ikke resload_Abort */
 uint32_t state_format_id(void);           /* endres naar en del av lagringen endres (nettspill: samme versjon?) */
 extern const char *state_feil;           /* hvorfor siste lasting feilet (tom hvis den gikk) */

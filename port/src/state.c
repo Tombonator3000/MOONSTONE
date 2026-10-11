@@ -89,6 +89,7 @@ static const Del deler[] = {
     { "CPU ", 1, cpu_state,   NULL,           "68000" },
     { "AUD ", 1, paula_state, NULL,           "lyden" },
     { "WHD ", 1, whd_state,   NULL,           "WHDLoad" },
+    { "MOET", 1, game_state_moete, NULL,      "moetet mellom to riddere" },
     { "GAME", 1, game_state,  game_standard,  "tegnelisten" },
     { "PTCH", 1, patch_state, NULL,           "tekstene" },
     { "MENY", 1, meny_state,  meny_standard,  "nettspillmenyen" },
@@ -195,6 +196,9 @@ static bool load_new(const uint8_t *buf, size_t size)
             deler[i].standard();
         }
     }
+    /* en lagring fra et spill som var stoppet (F10 eller en feil) skal kunne spilles videre */
+    M.aborted = false;
+    M.abort_msg[0] = 0;
     return true;
 }
 
@@ -222,11 +226,14 @@ static bool load_old(const uint8_t *buf, size_t size)
     video_state(&s);
     whd_state(&s);
     game_state(&s);
+    game_state_moete(&s);
     patch_state(&s);
     meny_state(&s);
     hver_state_gammel(&s);
     blit_state(&s);
     if (s.error) { state_feil = "Lagringen er skadet."; return false; }
+    M.aborted = false;
+    M.abort_msg[0] = 0;
     return true;
 }
 
@@ -316,6 +323,8 @@ bool state_load_file(const char *path)
     free(buf);
     return ok;
 }
+
+bool state_file_rename(const char *fra, const char *til) { return bytt_navn(fra, til); }
 
 /* finnes filen (for meldingene paa PC) */
 bool state_file_exists(const char *path)

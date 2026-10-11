@@ -1571,12 +1571,12 @@
     /* ---------------------------------------------------------------- automatisk lagring
      * Mobilnettlesere kaster ofte fanen naar man bytter app eller laaser telefonen.
      * Spillet lagres derfor naar fanen skjules, naar siden lukkes og hvert andre minutt,
-     * men bare naar man spiller (ikke i introen, i en duell eller som gjest). */
+     * men bare naar man spiller (ikke i introen, i en duell eller som gjest). Pause er greit. */
     /* bare naar et spill er i gang: en tur har begynt siden tittelmenyen (eller en lagring
      * med det er lastet). Ikke i introen, tittelmenyen, en duell eller som gjest, saa den
      * automatiske lagringen aldri blir skrevet over med et spill som ikke er begynt. */
     function kanAutolagre() {
-        return (modus === 'alene' || modus === 'vert' || modus === 'hver') && !D && !pause
+        return (modus === 'alene' || modus === 'vert' || modus === 'hver') && !D
             && !Kjerne.iIntro() && !Kjerne.iMeny() && Kjerne.hverKart();
     }
     async function autolagre(tvunget) {

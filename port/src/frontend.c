@@ -281,6 +281,7 @@ static void load_slot(int s)
     state_path(path, sizeof path, s);
     if (!state_file_exists(path)) { show(s ? "Ingen lagring paa plass %d" : "Ingen automatisk lagring%.0d", s); return; }
     if (state_load_file(path)) {
+        hver_kommando(HVER_FJERN, 0, NULL);    /* PC har ikke Hver for seg: plassene tilbake til datamaskinen */
         show(s ? "Lastet plass %d" : "Lastet den automatiske lagringen%.0d", s);
         if (adev) SDL_ClearQueuedAudio(adev);
     } else show("Kunne ikke laste: %s", state_feil);
@@ -432,14 +433,15 @@ int frontend_run(const FrontendOptions *o)
      * er lastet), ogsaa ved F10, men ikke naar spillet har stoppet med en feil. Den
      * forrige automatiske lagringen blir moonstone_auto_forrige.sav. */
     if (whd_mog_loaded && hver_kart() && (!M.aborted || amiga_quit_key)) {
-        char path[1024], forrige[1024];
+        char path[1024], forrige[1024], ny[1024];
         state_path_save(path, sizeof path, 0);
         snprintf(forrige, sizeof forrige, "%smoonstone_auto_forrige.sav", pref_dir());
-        if (state_file_exists(path)) {
-            remove(forrige);
-            rename(path, forrige);
+        snprintf(ny, sizeof ny, "%smoonstone_auto_ny.sav", pref_dir());
+        /* den nye skrives forst; den gamle flyttes bare naar den nye finnes */
+        if (state_save_file(ny)) {
+            if (state_file_exists(path)) state_file_rename(path, forrige);
+            if (state_file_rename(ny, path)) printf("Lagret automatisk: %s\n", path);
         }
-        if (state_save_file(path)) printf("Lagret automatisk: %s\n", path);
     }
     for (int i = 0; i < MAX_PADS; i++) if (pads[i]) SDL_GameControllerClose(pads[i]);
     if (adev) SDL_CloseAudioDevice(adev);

@@ -350,6 +350,9 @@ int main(int argc, char **argv)
         return 1;
     }
     if (load_state && headless) printf("Tilstand lastet, bilde %u\n", M.frame);
+    /* PC-vinduet har ikke Hver for seg: en lagring fra et rom paa nettet faar plassene
+     * tilbake til datamaskinen (headless lar dem staa, testene styrer dem med --hver) */
+    if (load_state && !headless) hver_kommando(HVER_FJERN, 0, NULL);
 
     /* --coverage: hvilke adresser som er kjort, lagt sammen med filen fra for.
      * Bare mog (fra $80000) teller; introen ligger paa de samme adressene. */
