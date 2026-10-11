@@ -18,11 +18,11 @@ Det viktigste: **samme motiv, samme form, samme plassering, bare skarpere.** Ikk
 
 ## 2. Listen
 
-`docs/hd-bestilling-liste.csv` har 1796 rader, skilt med semikolon. Kolonnene:
+`docs/hd-bestilling-liste.csv` har 1779 gjenstående rader, skilt med semikolon. Kolonnene:
 
 | Kolonne | Hva |
 |---|---|
-| prioritet | 1 er viktigst. «senere» betyr at det ikke kan vises ennå |
+| prioritet | Lavest tall tas først. Ikoner og bakgrunner er levert; figurene har prioritet 3 eller 4 |
 | gruppe | Hva slags grafikk |
 | fil, bilde | Originalfilen i spillet og bildenummeret i den |
 | hd_fil | Eksakt sti i HD-pakken. Bruk den uendret |
@@ -37,25 +37,19 @@ Antall per gruppe, i rekkefølgen du bør ta dem:
 
 | Pri | Gruppe | Rader | Filer |
 |---|---|---|---|
-| 1 | Inventar-UI | 3 | ki.cel 034-036: tre ranke-/rammefragmenter |
-| 1 | Kro- og byikoner | 8 | mys.cel 000-001 og dice.cel 000-005: sekker og seks utfallssymboler |
-| 2 | Introscener | 3 | bg2a, bg3, mindscape: revisjoner av aktive HD-bilder |
-| 2 | Logo | 1 | bold.f/073: revisjon i originalens sideforhold |
-| 2 | Sluttscene | 1 | bg8: revisjon av aktiv HD-bakgrunn |
-| 2 | Steder | 1 | hen1.p/bg5.piv: revisjon av druidenes Stonehenge |
 | 3 | Monstre | 1050 | Balok, beistet, Demon, DRAGON, Mudmen, RATMEN, TROGGAxe, TROGGSpear, TROLL |
 | 3 | Riddere | 195 | KN1-4.ob og HE1-3.ob, inkludert HE-kopier via merknadene |
 | 3 | Stedsfigurer | 74 | Wi1.C, hen1.c og de to øyefragmentene i mys.cel 006-007 |
 | 4 | Blod og sår | 106 | KN5.ob, blo.cel |
 | 4 | Drageanimasjon | 8 | mi.c 034-041, åtte separate ruter |
 | 4 | Kroanimasjoner | 17 | dice.cel 006-022, hender og terningkast |
-| senere | Intro og slutt | 329 | au1, co1, da1, dg1, dw1, ha1, li1, ov1 |
+| 4 | Intro og slutt | 329 | au1, co1, da1, dg1, dw1, ha1, li1, ov1 |
 
-Det er 5 bakgrunnsrader og 1791 øvrige bilder, totalt 1796 bestillingsrader. Alle fem bakgrunnsrader er revisjoner av aktive HD-bilder. De fire tidligere manglende bakgrunnsnøklene til butikk, inventar, introens skog og vannvirvel er nå aktivert og utelatt. Pakken har 79 aktive bakgrunner, hvorav alle 56 sammensatte kampvarianter. Logoen er også en revisjonsoppgave. Listen er derfor ikke en opptelling av bare manglende runtimefiler.
+Listen har bare figur- og animasjonsarbeid igjen. De 11 ikonmaterialene, fem bakgrunnsrevisjonene og logoen er aktivert etter kilde- og runtimekontroll. To komplette rullestriper for intro og slutt er også koblet inn. Pakken har 81 aktive bakgrunner, inkludert alle 56 sammensatte kampvarianter, og 411 PNG-ruter i 417 manifestfiler. 1779 selvstendige nytegninger gir 2040 konkrete PNG-ruter med eksakte kopier og HE-fargekopier.
 
-156 rader trenger maske: KN1 55, KN3 45, KN2 21, KN5 15, HE1 13, HE2 6 og KN4 1. I tillegg kommer 102 masker til HE-kopiene (punkt 3.5). Utvidet CEL-planmaske gjør at HE3/031 nå inngår som en fargekopi av KN3/031, med egen HE-maske; den blir ikke feilaktig stående som en maskeløs tegning.
+162 rader trenger maske: KN1 55, KN3 45, KN2 21, KN5 15, HE1 13, HE2 6, KN4 1 og Math/Wi1.C 015-020 seks. I tillegg kommer 102 masker til HE-kopiene (punkt 3.5), totalt 264 maskefiler. Utvidet CEL-planmaske gjør at HE3/031 inngår som en fargekopi av KN3/031 med egen HE-maske. Math015-020 følger aktiv ridderfarge i indeks6-10; dette er kontrollert i originalrutinen og med blå og rød Math i spillet.
 
-Ni palettstyrte valgkonturer, MI032-meldingspergamentet, sju KI-fragmenter, sel.cel/001 og mys.cel/002-005 er nå aktive. De tre gjenstående KI-fragmentene 034-036 og de åtte materialikonene i kro/by står fortsatt i CSV-en. De tidligere erstatningsfontene er byttet til 144 originale kildeformer: 142 glyfer og to opphavsrettsfelt. Logoen håndteres separat og er fortsatt bestilt.
+Ni palettstyrte valgkonturer, MI032-meldingspergamentet, alle ti KI-fragmenter034-044, sel.cel/001 og mys.cel/000-005 er aktive, sammen med seks DragonDice-symboler. De tidligere erstatningsfontene er byttet til 144 originale kildeformer: 142 glyfer og to opphavsrettsfelt. Logoen bruker fotografisk gullmateriale i originalens nøyaktige bokstav- og skyggeformer.
 
 Hele ridderposer har begrenset HD-dekning i en eldre metodeprøve. De telles ikke som ferdig nytegning av hver originalrute; brukerens krav om separate ruter gjelder fortsatt.
 
@@ -148,11 +142,11 @@ Bakgrunner: merknaden på hver bakgrunnsrad sier hvor kilden ligger.
 
 Bakgrunnene er 320 x 200. Det finnes eldre utkast i `art/photoreal/candidates/` for mange rader. Ingen av dem er godkjent. De er feilarkiv, og skal ikke vedlegges som positive tegnereferanser eller brukes som utgangspunkt. Bruk det uendrede originalbildet og kontroller resultatet direkte mot det.
 
-## 5. Det som skal tegnes på nytt
+## 5. Figurer som fortsatt skal tegnes
 
-- **Logoen** (`bold.f/073.png`, 1220 x 216). Følg originalens bokstavformer, tre O-diamanter, teksten «A Hard Days Knight» og sideforhold 305 x 54. Tegn den i gullmetall. Oppdater tekstmetadata ved aktivering.
-- **Druidene og introscenene** (bg2a, bg3, mindscape, stjernene i bg8) er i bruk som eldre utkast der avvikene skjules med masker. Tegn dem på nytt der merknaden sier at de avviker.
-- **Trollet** er blått i spillet. Utkastene er brune og gylne.
+- **Hver figurrute** i CSV-en tegnes separat, også kroppsdeler, våpen, øyne, flammer og blod. En helfigur erstatter ikke separate fragmenter.
+- **Trollet** er blått i spillet. Eldre brune og gylne utkast er avviste referanser. 13 originale kampkontekster er nå målt med originalens palettrutiner, inkludert trogg-økse/spyd i skog, sump og ørken; se `art/hd-completion-figures-2026-10-11/palettes/`.
+- **Intro og slutt** har tegneliste og rullestøtte. Hver nytegnet rute må likevel prøves med sin faktiske palett, målbuffer og plassering.
 
 ## 6. Levering og test
 
@@ -166,15 +160,14 @@ Enkeltfigurer og eksakte bakgrunnshasher kan prøves med «Velg HD-mappe» i sid
 - `bg/8dbce956.png` (månen) og `bg/c234c097.png` (stjernene). De ligger bak lasteskjermen og synes aldri.
 - Bitene i `test` (bilde 0-7). Kampbakgrunnene settes sammen av dem, men bare den ferdige bakgrunnen kan byttes. Alle 56 ferdige kampvarianter har nå HD.
 - Ikke lag nye hele skjermer for lasteskjermen («MOONSTONE ... Loading») eller «Prepare yourself»; de har aktive HD-scener fra ch.piv og message.piv. «Select a Knight» bruker eksisterende HD-tekst og valggrafikk. Menyrammen sel.cel/001 er nå aktivert og utelatt fra listen.
-- Separate PIV-fliser og rullende sekvenser i bg1a, bg1b og bg1c krever en egen oppgave. Det nye faste bildet for bg1b er aktivert; det løser ikke hele flis-/rulleforløpet.
-- Sju KI-fragmenter, ki.cel 038-044, er aktivert med originalens tekstformer og palettkontrakter. De tre gjenstående ranke-/rammefragmentene 034-036 står i CSV-en. Et materialutkast som mistet originalens silhuett er avvist og ikke aktivert.
-- De 144 originale kildeformene for fontene og opphavsrettsteksten er nå aktive; de bruker ikke lenger de tidligere erstatningsfontenes bokstavformer. KI045-049 er aktive via poseruten selv om de ikke står i icons.json. Manifestdekning alene betyr fortsatt ikke visuell godkjenning av andre motiver. Logoen og de fem bakgrunnene i CSV-en er uttrykkelige revisjonsoppgaver.
-- Rader med prioritet «senere» (intro og slutt, 329 rader). Introen og slutten kjøres av et eget program der nettsiden ikke ser hva som tegnes, så bildene kan ikke vises ennå. Vent med dem.
+- Separate PIV-atlasfliser bestilles ikke ved siden av de komplette rullestripene. Introens bg1a/bg1c/bg1b og sluttens bg7 rekonstrueres fra originalens fliskart til to320x1200-kilder, som har1280x4800-HD-ruter. Ukjente kilder faller tilbake til originalen.
+- KI034-044 og de åtte materialikonene i kro/by er ferdige. Fritt genererte utkast som mistet originalens silhuett er avvist som geometrigrunnlag; hvert fotografiske materiale er bundet til originalkonturene.
+- De 144 originale kildeformene for fontene, logoen og de fem bakgrunnsrevisjonene er aktive. KI045-049 er aktive via poseruten selv om de ikke står i icons.json. Manifestdekning alene betyr fortsatt ikke visuell godkjenning av andre motiver.
 
 ## 8. Det som ikke er sikkert
 
-- Masken (3.5) er prøvd med syntetiske bilder (originalene 4x med rød rustning): samme bilde ble blått, grønt, oransje og rødt etter hvilken ridder som kjemper. Den er ikke prøvd med en ekte HD-tegning ennå.
+- Riddermasken er prøvd med syntetiske palettvarianter. Hver ny fotografisk ridderrute krever fortsatt egen kontroll. Math015 er prøvd med separat fotografisk nytegning i faktisk blå og rød originalscene.
 - Hvilke indekser hver av de fire ridderne og den svarte ridderen får i kamp, er ikke målt. Masken lages derfor av originalens indekser, ikke av fargene.
 - KN5.ob og blo.cel (blod og sår) er ikke sett på skjermen i målingene våre. Vi antar at de brukes.
 - Math (WI1.P, WI2.P), terningspillet og de aktiverte introscenene har allerede scener i `web/hd/manifest.json`. De skal ikke bestilles på nytt for å løse en manglende scenekobling. Nye eller reviderte bakgrunnsbilder må fortsatt testes mot originaltekst, markører og forgrunn ved levering.
-- Monstre kan ha andre farger i et hi enn ute, fordi paletten er en annen. Vi har bare målt ett hi. Ser et monster feil ut i spillet, kommer vi tilbake til det.
+- Monstre kan ha andre farger i et hi enn ute. De 13 målte kampkontekstene er kildebelegg, ikke full dekning av alle ruter og steder. Kontroller hver levert monsteranimasjon i riktig sammenheng.

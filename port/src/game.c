@@ -183,7 +183,7 @@ void game_slave_pc(uint32_t pc)
     }
 }
 
-static bool observe_draw(void)
+static bool observe_draw_at(uint32_t target_pointer)
 {
     if (game_n_draws >= GAME_MAX_DRAWS) return false;
     uint32_t a0 = m68k_get_reg(NULL, M68K_REG_A0);
@@ -193,7 +193,7 @@ static bool observe_draw(void)
     d->frame = (int16_t)m68k_get_reg(NULL, M68K_REG_D0);
     d->x = (int16_t)m68k_get_reg(NULL, M68K_REG_D1);
     d->y = (int16_t)m68k_get_reg(NULL, M68K_REG_D2);
-    d->target = rd32(0x9e87e);             /* figurbuffer: hvor figuren tegnes */
+    d->target = rd32(target_pointer);     /* figurbuffer: hvor figuren tegnes */
     d->caller = mem_read32(m68k_get_reg(NULL, M68K_REG_A7));   /* returadressen: hvem som tegner */
     /* Bredde og hoyde fra bildetabellen i filen (+10, 10 byte per bilde).
      * Byte +8 er 1 for et vanlig bilde. speil_figur ($9DB16) snur et bilde der
@@ -211,6 +211,19 @@ static bool observe_draw(void)
         d->xoff = d->flip ? 0 : (int16_t)(fl >> 4);
     }
     return false;                          /* originalen tegner som vanlig */
+}
+
+static bool observe_draw(void) { return observe_draw_at(0x9e87e); }
+
+/* program (intro og slutt) har sin egen IMAGEXCEL-rutine paa $08c214.
+ * $086c02 setter fem maalplan fra $08c72a. Samme CEL-tabell/registerkontrakt
+ * som mog. Dette er en lesende front-end-observator, aldri en CPU-erstatning.
+ * Originalopkodene vernes saa en annen/modifisert programfil ikke feiltolkes. */
+void game_program_pc(uint32_t pc)
+{
+    if (whd_mog_loaded || pc != 0x08c214 || mem_read16(pc) != 0x4a79 ||
+        mem_read32(pc + 2) != 0x08cfce || mem_read16(0x08c22a) != 0x4a40) return;
+    observe_draw_at(0x08c72a);
 }
 
 const char *game_cel_name(int i) { return i >= 0 && i < n_cels ? cels[i].name : ""; }

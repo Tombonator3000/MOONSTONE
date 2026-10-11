@@ -302,6 +302,7 @@ typedef struct { int16_t cel, frame, x, y, w, h, xoff, flip; uint32_t target, ca
 extern GameDraw game_draws[GAME_MAX_DRAWS];
 extern int      game_n_draws;
 void     game_slave_pc(uint32_t pc);
+void     game_program_pc(uint32_t pc);      /* lesende intro-/sluttobservator */
 void     game_register_hooks(void);
 const char *game_cel_name(int i);
 const char *game_background(void);

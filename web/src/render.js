@@ -158,9 +158,11 @@ const Visning = (() => {
         uniform float uskarp;      // 0 = skarp
         uniform float lys;         // fading for HD-bakgrunner
         uniform vec4 region;
+        uniform vec4 sourceRegion; // utsnitt av en kompositt, full tekstur ellers
         varying vec2 vUv;
         void main() {
             vec2 uv = (vUv - region.xy) / region.zw;
+            uv = sourceRegion.xy + uv * sourceRegion.zw;
             vec3 c = texture2D(map, uv).rgb;
             if (uskarp > 0.0) {
                 vec2 d = texel * uskarp;
@@ -337,7 +339,7 @@ const Visning = (() => {
         bakTex = dataTekstur(bakData, 320, 200);
         bakAmigaMat = amigaMat(bakTex, 320, 200, 1, false, false);
         bakMat = new THREE.ShaderMaterial({         /* HD-bakgrunnen */
-            uniforms: { map: { value: bakTex }, texel: { value: new THREE.Vector2(1 / 320, 1 / 200) }, uskarp: { value: 0 }, lys: { value: 1 }, region: { value: new THREE.Vector4(0, 0, 1, 1) } },
+            uniforms: { map: { value: bakTex }, texel: { value: new THREE.Vector2(1 / 320, 1 / 200) }, uskarp: { value: 0 }, lys: { value: 1 }, region: { value: new THREE.Vector4(0, 0, 1, 1) }, sourceRegion: { value: new THREE.Vector4(0, 0, 1, 1) } },
             vertexShader: vertLag, fragmentShader: fragBak, side: THREE.DoubleSide, depthTest: false, depthWrite: false,
         });
         bakMesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), bakAmigaMat);
@@ -1331,10 +1333,11 @@ const Visning = (() => {
             if (hd && !lysUkjent) {
                 bakMesh.material = bakMat;
                 bakMat.uniforms.map.value = hd.tex;
-                bakMat.uniforms.texel.value.set(1 / 320, 1 / 200);
+                bakMat.uniforms.texel.value.set(1 / (lag.sourceSize?.[0] || 320), 1 / (lag.sourceSize?.[1] || 200));
                 bakMat.uniforms.lys.value = hdLys;
                 const r = lag.hdRect || [0,0,320,200];
                 bakMat.uniforms.region.value.set(r[0]/320,r[1]/200,(r[2]-r[0])/320,(r[3]-r[1])/200);
+                bakMat.uniforms.sourceRegion.value.set(...(lag.hdUv || [0,0,1,1]));
                 bakMat.uniforms.uskarp.value = effekter.dybde ? 0.9 : 0;
             } else {
                 bakMesh.material = bakAmigaMat;

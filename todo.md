@@ -2,9 +2,9 @@
 
 ## Neste
 - [x] HD-retting av Math og stedene: loddrett rundt murtaarn og 23 gjentatte Stonehenge-porter. Siste brukerfoto presiserer to stoetter og en overligger; enkeltstaaende soeyle er erstattet. Portene er skalert proporsjonalt ned til originalens fem kartpiksler i hoeyden. Originale posisjoner, statusmoenstre og spillregler beholdes.
-- [ ] HD-troskap: fullføre de tre KI-rankene034-036, de to donasjonssekkene i mys.cel000-001 og seks DragonDice-symboler000-005. De tidligere49 konturikonene er nytegnet;102 gamle rasterruter er bevart. Ny pakke har124 ikonkontrakter, inkludert21 kildefaste UI-konturer og nytt pergament. Se docs/hd-bestilling-chatgpt.md.
-- [ ] HD-troskap: nytegne hver resterende figur-/animasjonsrute separat og kontrollere deler, eierskap og palettvarianter. Bestillingen har1796 rader etter deduplisering, inkludert11 ikonmaterialer, fem bakgrunnsrevisjoner og logoen. Hele ridderposer regnes ikke som ferdige separate ruter.
-- [ ] HD-troskap: revidere hen1/bg5, bg2a, bg3, mindscape, bg8 og logo073 mot originalen. Rullegrafikk, PIV-fliser og underlag gjenstår. Alle56 sammensatte kampvarianter er allerede aktive; nå79 bakgrunner totalt.
+- [x] HD-troskap: KI-rankene034-036, mys.cel000-001 og seks DragonDice-symboler000-005 er separat generert, kildebundet og aktivert.141 runtimekontroller består.
+- [ ] HD-troskap: fullføre1779 separate figur-/animasjonsmastere med2040 konkrete PNG-ruter og264 masker. Math, KN4, hen1-flammer og TROLL er under produksjon; kandidater regnes ikke som ferdige. Hele ridderposer erstatter ikke separate ruter.
+- [x] HD-troskap: fem bakgrunnsrevisjoner, kildeformet gulllogo og begge komplette rullestriper er aktivert.81 bakgrunner,411 PNG/417 filer.47+35+58 berørte runtimekontroller består; figurene gjenstår.
 - [ ] HD-bakgrunner etter filnavn (bg1a.PIV/0.png) i tillegg til hash, for bildene som vises som de er.
 - [ ] Valgene paa kartet i PC-versjonen: LB, RB, X og Y velger 1-4 i dag; mangler valg 5-9 og en liste paa skjermen. Nevn det i windows/LES_MEG.txt.
 - [ ] Options paa mobil: oppsett av styrekorset og knappene (storrelse, venstrehendt).
@@ -17,7 +17,7 @@
 - [x] HD-bilder som får fargene fra skjermen: maske <navn>.mask.png (docs/hd-grafikk.md), 2026-10-11.
 - [ ] HD-bakgrunner som tåler små endringer i bakgrunnskopien (legg forskjellene over).
 - [ ] Effektene og HD-laget også i PC-versjonen: trenger en PNG-leser (png.c kan bare skrive) og HD-tegningen skrevet i C (SDL_Renderer holder).
-- [ ] Prøve «Run workflow» for hånd én gang (rettelsen a998217 er på main, men ikke prøvd).
+- [x] Prøve «Run workflow» for hånd én gang: bygg.yml på main26b6f86, kjøring38159533435, Linux/Windows/web/Pages grønne 2026-10-11.
 - [ ] HD-grafikk: bakgrunner i HD (PIV, og .t for kampene), fargeeffekter (fading) på HD-bildene, andre tegnerutiner enn tegn_figur (tekst, menyer).
 - [ ] Lage en liten HD-pakke som eksempel (f.eks. ridderne i fire ganger størrelse).
 - [ ] Finne ut hvordan .t-filene bygger kampbakgrunnene.
@@ -36,8 +36,8 @@
 ## HD: kodeendringer så bildene i docs/hd-bestilling-chatgpt.md blir brukt
 - [ ] Prøve HD-figurer i en ekte monsterkamp i et hi og i en kamp med fire riddere (ikke målt etter at figurer i flere deler kom).
 - [x] Banneret i Prepare yourself: bg/931f9b1d.png kom med PR #26.
-- [ ] Introen og slutten: tegneliste fra programmet program, så de 385 figurbildene kan få HD.
-- [x] bg1b.PIV: originalbundet skogsbilde og kildevalidert scene. Andre rullende introfliser gjenstår.
+- [x] Introen og slutten: originalbundet programtrace, målbuffer og rullekompositt.385 figurruter kan nå vises;329 uavhengige nytegninger er fortsatt på restlisten.
+- [x] bg1b.PIV og komplette intro-/sluttrullestriper er kildevaliderte. Alle synlige atlasfliser dekkes av rekonstruerte320x1200-kompositter.
 - [ ] Lasteren (render.js lastHdPakke) skal bare godta NAVN/NNN og bg/HHHHHHHH og si fra om resten (i dag tar den alt, ca 4 MB per ubrukt bilde).
 - [ ] tools/hd_skaler.py skal hoppe over bildemappene (PIV) og test/, bare figurmapper og bg.
 - [ ] HD-pakken skal huskes (IndexedDB) og kunne være en zip.
@@ -101,6 +101,7 @@
 
 ## HD-integrasjon, 11. oktober 2026
 - [x]144 originale fontformer inklusive opphavsrettsfeltene,21 palettstyrte UI-konturer, pergamentpanel og fire nye bakgrunner koblet til standardpakken. Nye materialutkast som mister originalsilhuetten holdes utenfor.
+- [x] Publisere UI-/font-/bakgrunnsoppfølgingen via PR #30. Offentlig filkontroll og99 runtimekontroller består; fire nye bakgrunner og naturlig kart/inventar er visuelt kontrollert.
 - [x] Rette bestillingens CEL-planmasker, grånormalisering, prioritering og mappeimport for kildevaliderte scener.
 - [x] Nytegne kart, byer og kro; aktivere tre bevarte introbakgrunner med kildevalidering og beskyttet originalforgrunn.
 - [x] HD-logo, 142 konturglyfer, 20 faste menytekster og seks separate kartlandemerker; Original-valget bevares.
@@ -137,5 +138,6 @@
 - [x] Legge til manglende statiske ridder-, Gem of Seeing-, Hawk-, port-, grav- og paddemarkører.
 - [x] Fullføre samlet runtime-/import-/integrasjonskontroll for ikonpakken.
 - [x] Publisere ikonpakken via PR, grønn CI og offentlig kontroll.
-- [ ] Fullføre originaltro fontformer, vinranke-/rammefragmenter, meldingspaneler og valgkonturer som egne oppgaver.
+- [x] Fullføre originaltro fontformer, meldingspanelet, riddervalgrammen og valgkonturene som egne oppgaver.
+- [ ] Fullføre de tre vinrankefragmentene034-036; avviste kandidater beholdes som negative eksempler.
 - [ ] Ta figur- og drageanimasjoner, separat forgrunn, effekter og rulling etter ikon-/bakgrunnsarbeidet.

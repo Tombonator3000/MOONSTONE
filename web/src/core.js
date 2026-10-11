@@ -9,6 +9,7 @@
 const Kjerne = (() => {
     let M = null;
     let fbW = 720, fbH = 288;
+    let filRevisjon = 0; // frontend-cache, aldri del av emulert eller lagret tilstand
 
     /* lastes bare en gang, ogsaa om flere spor ber om den samtidig */
     let laster = null;
@@ -42,12 +43,14 @@ const Kjerne = (() => {
     function harInnebygd() { return !!M._ms_has_embedded(); }
     function aapneInnebygd() {
         if (!M._ms_open_embedded()) throw new Error(M.UTF8ToString(M._ms_error()) || 'Den innebygde spillfilen kan ikke leses.');      /* oversettes der den vises (T) */
+        filRevisjon++;
     }
 
     /* andre spillfiler (zip eller ISO); kjernen tar over bufferet */
     function aapne(bytes) {
         const p = kopierInn(bytes);
         if (!M._ms_open_mem(p, bytes.length)) throw new Error(M.UTF8ToString(M._ms_error()));
+        filRevisjon++;
     }
 
     function start(knappevent) {
@@ -111,6 +114,7 @@ const Kjerne = (() => {
         const s = streng(sti);
         const p = kopierInn(bytes);
         M._ms_file_inject(s, p, bytes.length);
+        filRevisjon++;
         M._free(p);
         M._free(s);
     }
@@ -118,6 +122,7 @@ const Kjerne = (() => {
     function fjernFil(sti) {
         const s = streng(sti);
         M._ms_file_remove(s);
+        filRevisjon++;
         M._free(s);
     }
 
@@ -130,9 +135,30 @@ const Kjerne = (() => {
         const ut = [];
         for (let i = 0; i < n; i++) {
             const o = (i * st) >> 1;
-            ut.push({ fil: M.UTF8ToString(M._ms_cel_name(h[o])), bilde: h[o + 1], x: h[o + 2], y: h[o + 3], w: h[o + 4], h: h[o + 5], xoff: h[o + 6], speilet: h[o + 7] !== 0 });
+            // target/caller er eksisterende, lesende sporingsfelt i GameDraw.
+            // Storrelsen/lagringsformatet endres ikke.
+            const spor = new DataView(M.HEAPU8.buffer, p + i * st, st);
+            ut.push({ fil: M.UTF8ToString(M._ms_cel_name(h[o])), bilde: h[o + 1], x: h[o + 2], y: h[o + 3], w: h[o + 4], h: h[o + 5], xoff: h[o + 6], speilet: h[o + 7] !== 0,
+                target: spor.getUint32(16, true), caller: spor.getUint32(20, true) });
         }
         return ut;
+    }
+
+    /* Lesende hint fra originalens flisrulling, ingen ny C-ABI eller lagringsfelt.
+     * $09980a deler y med25, $099866 velger bank per80 fliser. Originalopkodene
+     * og kildefilens SHA i SceneHd maa begge passe foer hintet brukes. Skjermen
+     * kan ligge flere bilder etter y-variabelen; pikselmatching avgjor utsnittet. */
+    function programRull() {
+        if (!M || (!M._ms_in_intro() && !M._ms_in_ending())) return null;
+        const m = new DataView(M.HEAPU8.buffer, M._ms_chip(), 0x100000);
+        if (m.getUint16(0x08c214, false) !== 0x4a79 || m.getUint32(0x08c216, false) !== 0x08cfce ||
+            m.getUint16(0x09980a, false) !== 0x7000 || m.getUint32(0x09980e, false) !== 0x099806) return null;
+        const y = m.getUint16(0x099806, false);
+        if (y > 1000) return null;
+        const banks = [0, 1, 2].map(i => m.getUint32(0x09ab48 + i * 4, false));
+        return { y, banks, bank0: banks[0] >= 0x100 && banks[0]+40000 <= 0x100000 ?
+            new Uint8Array(M.HEAPU8.buffer, M._ms_chip()+banks[0], 40000) : null,
+            target: m.getUint32(0x09ab54, false) };
     }
 
     /* nettspill i tittelmenyen (port/src/meny.c) */
@@ -200,7 +226,7 @@ const Kjerne = (() => {
         volum: (v) => M._ms_volume(v),
         portSpillere: () => [M._ms_port_player(0), M._ms_port_player(1)],
         velgerRidder: () => !!(M && M._ms_velger_ridder()),       /* Select a Knight eller navnet etterpaa */
-        tegneliste,
+        tegneliste, programRull, filRevisjon: () => filRevisjon,
         ridderNavn: (k) => M.UTF8ToString(M._ms_knight_name(k)),
         /* valgene paa kartet (tastene 1-9) og navnet som skrives etter Select a Knight (port/src/game.c) */
         kartValg: () => {

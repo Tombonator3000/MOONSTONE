@@ -99,6 +99,29 @@ def main():
             raise AssertionError('Ukjent CEL-kilde ble godtatt')
         kontroller += 1
 
+        # Math bruker levende spillerfarger6..10 bare i taarnrutene15..20.
+        # Balkongrutene0..14 har faste farger, ogsaa med de samme indeksene.
+        assert bestilling.maskefarger('Wi1.C', 15) == set(range(6, 11))
+        assert bestilling.maskefarger('Wi1.C', 20) == set(range(6, 11))
+        assert bestilling.maskefarger('Wi1.C', 14) == set()
+        assert 11 not in bestilling.maskefarger('Wi1.C', 15)
+        for nr in (0, 15, 16, 17, 18, 19, 20):
+            original = mf.cel_les(spill.les('data/Wi1.C'))[0][nr]
+            packed = mf.plan_til_indeks(original['data'], original['plan'], original['bredde'], original['hoyde'])
+            expanded = bestilling.utvid_indekser(packed, original['maske'])
+            wi = temp / 'Wi1.C' / ('%03d.png' % nr)
+            wi.parent.mkdir(exist_ok=True)
+            gfx.lagre_png(str(wi), packed, original['bredde'], original['hoyde'], pal)
+            with contextlib.redirect_stdout(io.StringIO()):
+                bestilling.lag_maske(str(wi), str(ut), spill_sti=str(spill_sti))
+            expected = [(v + 1, 128, 255, 255) if v in bestilling.maskefarger('Wi1.C', nr)
+                        else (0, 0, 0, 255) for v in expanded]
+            expected_image = Image.new('RGBA', (original['bredde'], original['hoyde']))
+            expected_image.putdata(expected)
+            expected_image = expected_image.resize((original['bredde']*4, original['hoyde']*4), Image.Resampling.NEAREST)
+            assert Image.open(ut).tobytes() == expected_image.tobytes()
+        kontroller += 11
+
         csv_sti = temp / 'bestilling.csv'
         resultat = subprocess.run([sys.executable, str(rot / 'tools/hd_bestilling.py'),
                                    str(spill_sti), str(csv_sti)], check=True,
@@ -109,16 +132,23 @@ def main():
         assert kn['trenger_maske'] == 'ja'
         assert 'HE3.ob/031.mask.png' in kn['merknad']
         assert not any(r['hd_fil'] == 'HE3.ob/031.png' for r in rader)
-        logo = next(r for r in rader if r['hd_fil'] == 'bold.f/073.png')
-        assert (logo['hd_bredde'], logo['hd_hoyde']) == ('1220', '216')
+        files = json.loads((rot / 'web/hd/manifest.json').read_text())['files']
+        assert bestilling.logo_gjennomfort(str(rot), files)
+        assert not any(r['hd_fil'] == 'bold.f/073.png' for r in rader)
+        bad_files = [dict(r, sha256='0'*64) if r['path'] == 'bold.f/073.png' else r for r in files]
+        assert not bestilling.logo_gjennomfort(str(rot), bad_files)
         assert all(int(r['prioritet']) == 2 for r in rader if r['hd_fil'].startswith('bg/'))
-        assert min(i for i, r in enumerate(rader) if r['gruppe'] == 'Monstre') > rader.index(logo)
+        assert all(r['prioritet'] == '4' for r in rader if r['gruppe'] == 'Intro og slutt')
+        assert not any('Kan ikke vises ennå' in r['merknad'] or 'vises ikke ennå' in r['merknad'] for r in rader)
+        for r in rader:
+            if r['fil'].lower() == 'wi1.c':
+                assert r['trenger_maske'] == ('ja' if 15 <= int(r['bilde']) <= 20 else 'nei')
         assert not any('Bruk dem gjerne' in r['merknad'] for r in rader)
         assert all(r['prioritet'] == ('1' if int(r['bilde']) <= 5 else '3')
                    for r in rader if r['fil'].lower() == 'mys.cel')
         assert all(r['prioritet'] == ('1' if int(r['bilde']) <= 5 else '4')
                    for r in rader if r['fil'].lower() == 'dice.cel')
-        kontroller += 9
+        kontroller += 12
     print('%d kildebaserte bestillings-/maskekontroller består.' % kontroller)
     print(resultat.stdout.strip())
 
