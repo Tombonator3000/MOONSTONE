@@ -43,7 +43,7 @@ const Visning = (() => {
     let palData, palTex, tomTex;            /* skjermens palett per linje (32 x H) til maskene, og en tom tekstur */
     let lagNaa = null;                      /* { hash, lys } for bildet som vises, eller null */
     const lysMaks = new Map();              /* bakgrunn -> lyseste stabile lysstyrke sett (fading av HD-bildene) */
-    let lysForrige = { nokkel: null, lys: -1, fra: 0 };     /* lysstyrken har vaert lik siden tegning fra */
+    let lysForrige = { nokkel: null, lys: -1, fra: 0, fraTegn: 0 };  /* lik lysstyrke siden bilde fra / tegning fraTegn */
     let tegnNr = 0;                         /* tegninger (tegn), ogsaa naar spillet staar stille */
     let lysUkjent = false;                  /* skjermen toner inn foer fullt lys er kjent: originalen vises */
     const utsnittBg = new Set();            /* bakgrunner som bare dekker en del av skjermen (krever hdRect) */
@@ -1186,7 +1186,7 @@ const Visning = (() => {
     /* Lysstyrken til HD-bildene. Kjernen og SceneHd gir summen av fargene bakgrunnen
      * bruker (lag.lys). Med lag.lysMaks (scenene: samme sum med PIV-filens egen palett)
      * er fullt lys kjent med en gang. Ellers er fullt lys det lyseste som har staatt
-     * stille i minst ti tegninger for denne bakgrunnen. Toner skjermen inn foer det er
+     * stille i minst ti bilder eller ti tegninger for denne bakgrunnen. Toner skjermen inn foer det er
      * kjent, vises originalen (lysUkjent), saa HD-bildene ikke lyser fullt over en
      * skjerm som fortsatt er moerk. Scenene og kjernen regner summen ulikt, og har
      * hver sin noekkel. */
@@ -1194,9 +1194,10 @@ const Visning = (() => {
         lysUkjent = false;
         if (lag.lysMaks) { hdLys = Math.min(1, lag.lys / lag.lysMaks); return; }
         const nokkel = (lag.scene ? 's:' : 'k:') + (lag.hash >>> 0);
-        if (lysForrige.nokkel !== nokkel || lysForrige.lys !== lag.lys) lysForrige = { nokkel, lys: lag.lys, fra: tegnNr };
+        if (lysForrige.nokkel !== nokkel || lysForrige.lys !== lag.lys) lysForrige = { nokkel, lys: lag.lys, fra: bildeNr, fraTegn: tegnNr };
         let maks = lysMaks.get(nokkel);
-        if (tegnNr - lysForrige.fra >= 10 || (maks !== undefined && lag.lys > maks)) {
+        /* ti bilder (spillet gaar) eller ti tegninger (spillet staar stille) med samme lys */
+        if (bildeNr - lysForrige.fra >= 10 || tegnNr - lysForrige.fraTegn >= 10 || (maks !== undefined && lag.lys > maks)) {
             maks = Math.max(maks || 0, lag.lys);
             lysMaks.set(nokkel, maks);
         }
