@@ -148,6 +148,9 @@
             sendKontroller();
             visSpill();
             lasting(null);
+            const auto = await Lager.hent('auto');
+            visAuto(auto && auto.tid);
+            if (auto && auto.tid) status('Spillet ditt fra ' + klokke(auto.tid) + ' er lagret. Velg Fortsett under Lagring i menyen for å spille videre.');
         } catch (e) {
             lasting('Kunne ikke starte spillet: ' + e.message);
         }
@@ -1556,6 +1559,52 @@
         oppdaterVerdier();
     }
 
+    /* ---------------------------------------------------------------- automatisk lagring
+     * Mobilnettlesere kaster ofte fanen naar man bytter app eller laaser telefonen.
+     * Spillet lagres derfor naar fanen skjules, naar siden lukkes og hvert andre minutt,
+     * men bare naar man spiller (ikke i introen, i en duell eller som gjest). */
+    let sistAuto = 0, baApersist = false;
+    function kanAutolagre() {
+        return (modus === 'alene' || modus === 'vert' || modus === 'hver') && !D && !pause
+            && Kjerne.menyKlar() && !Kjerne.iIntro();
+    }
+    async function autolagre(tvunget) {
+        if (!kanAutolagre()) return;
+        const naa = Date.now();
+        if (!tvunget && naa - sistAuto < 20000) return;
+        const s = Kjerne.lagreTilstand();
+        if (!s) return;
+        sistAuto = naa;
+        if (await Lager.sett('auto', { data: s, tid: naa })) visAuto(naa);
+        if (!baApersist && navigator.storage && navigator.storage.persist) {
+            baApersist = true;                   /* be nettleseren om ikke aa slette lagringene */
+            navigator.storage.persist().catch(() => {});
+        }
+    }
+    function klokke(tid) {
+        const d = new Date(tid), to = (n) => String(n).padStart(2, '0');
+        const idag = new Date().toDateString() === d.toDateString();
+        return (idag ? '' : d.getDate() + '.' + (d.getMonth() + 1) + '. ') + 'kl. ' + to(d.getHours()) + ':' + to(d.getMinutes());
+    }
+    function visAuto(tid) { $('auto-info').textContent = tid ? 'Sist lagret automatisk ' + klokke(tid) + '.' : 'Ingen automatisk lagring ennå.'; }
+    setInterval(() => autolagre(false), 120000);
+
+    /* lagringen som fil: kan flyttes til en annen nettleser eller til PC-versjonen */
+    function lastNed() {
+        if (modus !== 'alene' && modus !== 'vert' && modus !== 'hver') { status('Ingenting å laste ned ennå'); return; }
+        const s = Kjerne.lagreTilstand();
+        if (!s) { status('Kunne ikke lagre.'); return; }
+        const d = new Date(), to = (n) => String(n).padStart(2, '0');
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([s], { type: 'application/octet-stream' }));
+        a.download = 'moonstone-' + d.getFullYear() + to(d.getMonth() + 1) + to(d.getDate()) + '-' + to(d.getHours()) + to(d.getMinutes()) + '.sav';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 10000);
+        status('Lagringen er lastet ned');
+    }
+
     async function lagre() {
         if (modus !== 'alene' && modus !== 'vert' && modus !== 'hver') return;
         if (D) { status('Ikke under en duell'); return; }
@@ -1565,20 +1614,23 @@
         status(ok ? 'Lagret på plass ' + plass : 'Nettleseren tillater ikke lagring');
     }
 
-    async function last() {
-        if (modus !== 'alene' && modus !== 'vert' && modus !== 'hver') return;
+    function last() { return lastFra(() => Lager.hent('tilstand' + plass), 'plass ' + plass); }
+
+    /* henter en lagring (plass, automatisk eller fil) og laster den; meldingen sier hvorfor den ikke passer */
+    async function lastFra(hent, hva) {
+        if (modus !== 'alene' && modus !== 'vert' && modus !== 'hver') { status('Lagringer kan lastes når du spiller selv eller er vert'); return; }
         if (D) { status('Ikke under en duell'); return; }
         const m0 = modus;
-        const v = await Lager.hent('tilstand' + plass);
+        const v = await hent();
         if (D || modus !== m0) return;           /* en duell kan ha startet mens vi hentet */
-        if (!v) { status('Ingenting lagret på plass ' + plass); return; }
-        if (!Kjerne.lastTilstand(new Uint8Array(v.data))) { status('Tilstanden passer ikke med denne versjonen'); return; }
+        if (!v) { status('Ingenting lagret på ' + hva); return; }
+        if (!Kjerne.lastTilstand(new Uint8Array(v.data))) { status('Kunne ikke laste ' + hva + ': ' + (Kjerne.tilstandFeil() || 'ukjent feil')); return; }
         /* de fjerne ridderne i tilstanden er fra da den ble lagret: bruk de som er i rommet naa */
         if (modus === 'hver') oppdaterFjerne();
         else Kjerne.hverKmd(HVER.FJERN, 0);
         menyRomPaaNytt();
         Lyd.clear();
-        status('Lastet plass ' + plass);
+        status('Lastet ' + hva);
         if (modus === 'vert') for (const s of Nett.spillere()) if (!s.vert) Nett.sendTilstand(s.id, Kjerne.lagreTilstand(), Kjerne.bildeNr());
     }
 
@@ -1612,6 +1664,15 @@
     });
     $('lagre').addEventListener('click', lagre);
     $('last').addEventListener('click', last);
+    $('last-auto').addEventListener('click', () => lastFra(() => Lager.hent('auto'), 'den automatiske lagringen'));
+    $('eksport').addEventListener('click', lastNed);
+    $('importer').addEventListener('change', async (e) => {
+        const f = e.target.files[0];
+        e.target.value = '';
+        if (!f) return;
+        const data = new Uint8Array(await f.arrayBuffer());
+        lastFra(async () => ({ data }), f.name);
+    });
     $('kopier').addEventListener('click', async () => {
         try { await navigator.clipboard.writeText($('lenke').value); status('Lenken er kopiert'); }
         catch (e) { $('lenke').select(); document.execCommand('copy'); status('Lenken er kopiert'); }
@@ -1734,6 +1795,7 @@
      * gang (ellers fortsetter en retning som holdes, til siden vises igjen). */
     document.addEventListener('visibilitychange', () => {
         if (!document.hidden) return;
+        autolagre(true);
         Lyd.clear();
         if (modus === 'gjest') Nett.sendInn(0);
         if (D && D.rolle === 'b' && D.conn && D.conn.open) { D.conn.send({ t: 'inn', j: 0 }); D.sistInn = 0; D.sistInnTid = performance.now(); }
@@ -1742,6 +1804,7 @@
     /* fanen lukkes: si fra til gjestene og fjern rommet fra listen. En gjest lukker
      * forbindelsen, saa verten merker det med en gang (WebRTC gjor det ikke alltid). */
     window.addEventListener('pagehide', () => {
+        autolagre(true);
         if (modus === 'gjest') { Nett.avslutt(); return; }
         if (modus !== 'vert' && modus !== 'hver') return;
         if (stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }

@@ -243,7 +243,7 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   tegnes i bakgrunnen vises med en gang.
 - Kopien av bakgrunnen er ikke i lagringen; etter lasting tegnes ridderne på nytt først
   neste tur.
-- Testtilstanden $S/hv/kart.sav må lages på nytt når H eller M2 endres (STATE_VERSION 8,
+- Testtilstanden $S/hv/kart.sav må lages på nytt når H eller M2 endres (gjaldt før lagringsformatet MOONSAV2,
   ikke sluppet ennå). Uten tilstand: --press 1400 med --hver før return i 1500, så turen
   starter med de fjerne ridderne.
 - Valgene på kartet venter på tastene 1-9 (`--press 1900:2:4` velger nummer 2).
@@ -334,3 +334,16 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   nettspill (ms_start_empty, ingen amiga_init) beholder modulen fra forrige oppstart. Test: $S/mus3.js.
 - Introen hoppes over headless med --press 200:esc:4 (fire hopper ikke over); tittelmenyen fra ca. bilde 600.
 - ffmpeg her har libopenmpt og kan spille .mod til WAV (sammenligning med egen spiller).
+
+## Lagringene (fra 2026-10-11)
+- state.c: MOONSAV2 = magi, format 1, CRC for spillfilene, antall deler, og deler med merke (4 tegn),
+  versjon og lengde: MEM, MACH (M og IN), CUST (C og B), CIA, CPU, AUD, WHD, GAME, PTCH, MENY, HVER, BLIT.
+  En del maa ha samme versjon og nøyaktig samme lengde. AUD, GAME, MENY, HVER og BLIT faar
+  standardverdier ellers (meny_standard: menyen paa hvis mog er lappet, rd32(0x8f094) == TITLE_NODE).
+- Det gamle formatet (MOONSTAT, versjon 13) leses fortsatt, men bare paa samme maskintype
+  (layout_id tok med sizeof(void *)). Eldre versjoner gir en melding med versjonsnummeret.
+- Strukturene er like store paa x86_64, MinGW og wasm32 (M 232, C 280, B 64, AudChan 40, Cia 36,
+  Input 6, CPU 488), saa lagringer kan flyttes mellom PC og nett. state_feil har grunnen.
+- Nettsiden: autolagring i IndexedDB-noekkelen 'auto' (visibilitychange, pagehide, hvert 120 s,
+  ikke i introen, duell eller som gjest), navigator.storage.persist(), Fortsett, Last ned, Hent fra fil.
+  Test: $S/lag1.js (8 sjekker). PC: SDL_GetPrefPath, moonstone_auto.sav ved avslutning, Shift+PageDown.

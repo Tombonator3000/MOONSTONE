@@ -106,11 +106,19 @@
     </section>
     <section class="boks" id="lagring">
       <h3 class="pt">Lagring</h3>
-      <p class="hjelp" id="lagring-hjelp">Tilstanden lagres i denne nettleseren.</p>
+      <p class="hjelp" id="lagring-hjelp">Spillet lagres i denne nettleseren. Det lagres også automatisk når du bytter fane eller app, og hvert andre minutt. Lagringene kan lastes ned og flyttes mellom nettleser og PC.</p>
       <label class="valg"><span class="pt">Plass</span><select id="plass"></select><span class="verdi pt" data-for="plass"></span></label>
       <div class="rad">
         <button id="lagre" class="knapp"><span class="pt">Lagre</span></button>
         <button id="last" class="knapp"><span class="pt">Last</span></button>
+      </div>
+      <div class="rad">
+        <button id="last-auto" class="knapp"><span class="pt">Fortsett</span></button>
+      </div>
+      <p class="hjelp" id="auto-info">Ingen automatisk lagring ennå.</p>
+      <div class="rad">
+        <button id="eksport" class="knapp"><span class="pt">Last ned</span></button>
+        <label class="knapp"><span class="pt">Hent fra fil</span> <input type="file" id="importer" accept=".sav"></label>
       </div>
     </section>
     <section class="boks" id="nettspill" hidden>

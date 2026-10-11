@@ -216,11 +216,25 @@ riktig navn). `tools/hd_skaler.py` lager en HD-pakke automatisk av de utpakkede 
 
 Første gang tittelmenyen vises, står det øverst at valgene kan klikkes.
 
+### Lagring
+
+Originalen har ingen lagring, så porten lagrer hele maskinen. På nettsiden ligger
+lagringene i nettleseren (plass 1-9 under «Lagring» i menyen). Spillet lagres også
+automatisk når du bytter fane eller app, når siden lukkes og hvert andre minutt, og
+«Fortsett» henter det igjen. «Last ned» og «Hent fra fil» flytter lagringer mellom
+nettlesere og til PC-versjonen, og PC-lagringer kan hentes inn på nettet.
+
+PC-versjonen lagrer i brukermappen (`~/.local/share/Moonstone/` på Linux,
+`%APPDATA%\Moonstone\Moonstone\` på Windows) og lagrer automatisk når du avslutter
+(Shift+Page Down henter den). Lagringer fra før oktober 2026 (versjon 13) kan fortsatt
+lastes på samme slags maskin; eldre lagringer gir en melding om hvilken versjon de er.
+
 
 | Tast | PC | Nettleser |
 | --- | --- | --- |
 | Meny | | Home |
-| Lagre / laste tilstand | Page Up / Page Down | Page Up / Page Down |
+| Lagre / laste | Page Up / Page Down | Page Up / Page Down |
+| Laste den automatiske lagringen | Shift+Page Down | Fortsett i menyen |
 | Bytt lagringsplass | End | End |
 | Pause | Pause | Pause (alene) |
 | Fullskjerm | F11 eller Alt+Enter | nettleserens egen |

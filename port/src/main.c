@@ -350,7 +350,7 @@ int main(int argc, char **argv)
         return 1;
     }
     if (load_state && !state_load_file(load_state)) {
-        fprintf(stderr, "Kunne ikke laste tilstanden %s\n", load_state);
+        fprintf(stderr, "Kunne ikke laste tilstanden %s: %s\n", load_state, state_feil);
         return 1;
     }
     if (load_state && headless) printf("Tilstand lastet, bilde %u\n", M.frame);

@@ -181,7 +181,8 @@ const Kjerne = (() => {
             };
         },
         last, aapne, harInnebygd, aapneInnebygd, start, startSomGjest, inndata, tast, bilde, rammebuffer, vindu, lyd,
-        lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil, fjernFil,
+        lagreTilstand, lastTilstand, brukteFiler,
+        tilstandFeil: () => M.UTF8ToString(M._ms_state_error()), hentFil, leggInnFil, fjernFil,
         bredde: () => fbW, hoyde: () => fbH,
         bildeNr: () => M._ms_frame_no() >>> 0,
         hz: () => M._ms_hz(),

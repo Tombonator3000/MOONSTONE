@@ -711,6 +711,15 @@ void meny_reset(void)
     n_events = 0;
 }
 
+/* En lagring uten menydel, eller med en eldre menydel: menyen er av, eller paa
+ * tittelsiden hvis mog er lappet med Options (lappen ligger i minnet). */
+void meny_standard(void)
+{
+    meny_reset();
+    M2.enabled = whd_mog_loaded && rd32(0x8f094) == TITLE_NODE;
+    M2.page = PAGE_TITLE;
+}
+
 /* Er tittelmenyen (eller en nettspillside) paa skjermen? Ogsaa mens den tegnes paa
  * nytt, som tar opp mot et sekund. Bare for frontenden; lagres ikke. */
 bool meny_in_menu(void)

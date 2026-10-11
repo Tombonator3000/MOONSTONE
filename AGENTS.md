@@ -44,8 +44,13 @@ Instrukser for AI-agenter og andre som jobber i dette repoet.
 - Nettsiden skal ikke ha en egen startside. Den starter rett i introen, som kan hoppes
   over, og nettspill og navn velges bare i spillets tittelmeny («Online Game»).
   Innstillinger, lagring og egne filer ligger i sidemenyen. Eieren vil ha det slik.
-- Endres strukturer som lagres i tilstanden, men som `layout_id()` i state.c ikke ser
-  (f.eks. M2 i meny.c), skal `STATE_VERSION` økes.
+- Lagringene (state.c) er delt i deler med merke, versjon og lengde. Spillernes lagringer
+  skal virke også etter en ny versjon: endres lengden på en del porten har lagt til
+  (menyen, Hver for seg, tegnelisten, lyden), får den standardverdier ved lasting. Endres
+  betydningen uten at lengden endres, økes versjonen til delen i tabellen `deler[]`.
+  Delene som er selve Amigaen (minnet, CPU, brikkene, WHDLoad) skal ikke endres uten
+  en overgang for gamle lagringer. Bruk bare tall og tegn i strukturene som lagres
+  (ingen pekere), så lagringene kan flyttes mellom PC og nett.
 - Utgivelser: eieren har gitt varig lov (2026-10-02) til at agenten lager en PR mot
   `main` når en del er ferdig og testet, venter på grønn CI og fletter selv. Pages
   publiserer etter flettingen. Si fra til eieren når den nye versjonen er ute.

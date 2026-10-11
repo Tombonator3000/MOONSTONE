@@ -316,6 +316,7 @@ bool     meny_mog_ready(void);            /* true naar menyen er lappet */
 void     patch_register_hooks(void);      /* lappene; de sjekker selv tilstanden */
 void     patch_reset(void);               /* ny maskin: lappene av (kalles fra amiga_reset) */
 void     meny_reset(void);
+void     meny_standard(void);              /* lagring uten (passende) menydel: som etter lasting av mog */
 void     meny_register_hooks(void);
 extern bool meny_online;                  /* frontenden kan nettspill: "Online Game" i tittelmenyen */
 extern bool meny_title_seen;              /* tittelmenyen er naadd (oppstart rett til menyen) */
@@ -380,6 +381,7 @@ bool     state_save_mem(uint8_t **buf, size_t *size);
 bool     state_load_mem(const uint8_t *buf, size_t size);
 bool     state_save_file(const char *path);
 bool     state_load_file(const char *path);
+extern const char *state_feil;           /* hvorfor siste lasting feilet (tom hvis den gikk) */
 uint32_t state_ram_hash(void);            /* sjekksum av RAM og registre, for nettspill */
 extern bool state_any_game;               /* gjest uten spillfiler: ikke sjekk hvilke filer tilstanden er laget med */
 

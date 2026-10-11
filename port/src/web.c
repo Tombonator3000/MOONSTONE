@@ -109,6 +109,9 @@ EMSCRIPTEN_KEEPALIVE int ms_peek8(int a) { return (int)mem_read8((uint32_t)a); }
 EMSCRIPTEN_KEEPALIVE int ms_peek16(int a) { return (int)mem_read16((uint32_t)a); }
 EMSCRIPTEN_KEEPALIVE uint8_t *ms_chip(void) { return chip; }
 
+/* hvorfor siste lasting feilet (state.c), til meldingen paa siden */
+EMSCRIPTEN_KEEPALIVE const char *ms_state_error(void) { return state_feil; }
+
 EMSCRIPTEN_KEEPALIVE int ms_state_save(void)
 {
     free(state_buf);
