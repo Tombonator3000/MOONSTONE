@@ -9,13 +9,13 @@ Brukerens retting 11. oktober 2026 erstatter de tidligere gjetningene fra små p
 | `map-landmarks/001` | Math sitt trollmannstårn, et rundt bygg med loddrette murvegger, liten balkong høyt i veggen og lav brystning. | Brukerens siste retting avviser kjegle/pyramideformen. Originalscenen gir grått murverk og øvre åpning; kartet gir plasseringen `[215,8,225,36]`. Grønn blokksøyle og tidligere kjegle er forkastet. |
 | `map-landmarks/002` | Valley of the Gods, med en steinsirkel på grønt land midt i dalen, omgitt av elv, fossefall og varme bergvegger. | Hele originalutsnittet `[140,84,180,119]`, ikke bare de lyse steinpikslene. Her hentes Moonstone etter kampen med vokteren. |
 | `map-landmarks/003` | Tre trilitter i en skogklaring. En bak i midten, to foran, hver med to oppreiste steiner og en overligger. | Hele originalutsnittet `[84,146,113,173]`. Dette er stedet der Moonstone leveres under riktig månefase. |
-| `map-icons/000..022` | Interaksjonssteder vises med én enkel oppreist steinsøyle, etter brukerens markering i kartbildet. | Samme søyle brukes ved alle 23 registrerte markører av denne typen. Hver original 9x5-markør beholder forventede indekser og kildevern. Et eget 5x14-visningsfelt strekker søylen opp fra det opprinnelige fotpunktet. Landsbyer og spillerikoner endres ikke. |
+| `map-icons/000..022` | Én Stonehenge-port, en trilitt: to oppreiste steinstøtter og én overligger med åpen passasje. Brukerens siste foto presiserer formen. | Samme port brukes ved alle 23 registrerte markører av denne typen. Hver original 9x5-markør beholder forventede indekser og kildevern. Et eget 9x11-visningsfelt beholder opprinnelig midtpunkt og fotpunkt. Landsbyer og spillerikoner endres ikke. |
 
 De nye bildene er laget separat med den innebygde ChatGPT-bildegeneratoren. Mastere, prompter og sammenligning ligger i `art/faithful-hd-icons-2026-10-11/`. De er kontrollert visuelt som motiver og i nettleserspillet. Dette er ikke en påstand om at alle ikoner nå er ferdige eller at bildene er pikselidentiske med originalen.
 
 ## Kontrollerte betydninger for videre arbeid
 
-- Kartets vanlige kampsteder er monsterhuler; manualen beskriver seks i hver av fire regioner. Brukerens visuelle retting for den registrerte markørtypen er en enkel steinsøyle. 23 markører er koblet; ingen manglende posisjon er lagt til ved gjetning.
+- Kartets vanlige kampsteder er monsterhuler; manualen beskriver seks i hver av fire regioner. Brukerens siste foto presiserer en enkel Stonehenge-port med to støtter og en overligger. Den enkeltstående steinsøylen var feil. 23 markører er koblet; ingen manglende posisjon er lagt til ved gjetning.
 - Startstedene er riddernes hjemlandsbyer.
 - Highwood og Waterdeep er to forskjellige byer. Originalskissene fra David O'Connor viser deres ulike bygningsformer. Eksisterende filnavn og etiketter skal likevel kontrolleres mot faktisk stedstekst i spillet før neste bytegning.
 - Gem of Seeing brukes til å undersøke skatten i en hule. Ved bruk vises spilleren som en krystallkule. Det betyr ikke at alle blå inventargjenstander er krystallkuler eller flasker.

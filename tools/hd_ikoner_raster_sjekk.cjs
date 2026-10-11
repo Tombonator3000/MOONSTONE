@@ -25,6 +25,12 @@ const code=source.slice(source.indexOf('    function ikonPalett('),source.indexO
     }};
     const r=m.draw_rect,w=r ? r[2]-r[0] : m.width,h=r ? r[3]-r[1] : m.height;
     check('avtalte_bildemaal',im.width===w*m.scale&&im.height===h*m.scale);
+    if(m.draw_rect){
+     const ctx=canvas.getContext('2d'),alpha=(x,y)=>ctx.getImageData(Math.floor(im.width*x),Math.floor(im.height*y),1,1).data[3];
+     check('aapen_passasje',alpha(.5,.65)===0);
+     check('to_steinstoetter',alpha(.17,.65)>128&&alpha(.83,.65)>128);
+     check('overligger',alpha(.5,.15)>128);
+    }
     let previous=-1;
     for(let n=0;n<=15;n++){
      set(n);check('fade_'+n,api.fargeleggIkon(m,t,0)&&t.ikonLys>=previous&&Math.abs(t.ikonLys-n/15)<.06);
