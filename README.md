@@ -386,3 +386,9 @@ PeerJS og MQTT.js er MIT (lisensene ligger i `web/vendor`). SDL2 er zlib-lisens.
 Moonstone tilhører Mindscape og rettighetshaverne. Spillfilen ligger i repoet fordi
 eieren la den der; Moonstone regnes som abandonware, men det er ingen juridisk lisens.
 WHDLoad-slaven er laget av Wepl.
+
+## Fotografisk HD-grafikk
+
+[Nettutgaven](https://tombonator3000.github.io/MOONSTONE/) laster fotografisk standardgrafikk automatisk: 33 bakgrunner, blå stå-/gangbevegelse, riddervalg, menypil og månefaser. Bytt mellom HD og original i sidemenyen. Øvrige animasjoner har fortsatt originalgrafikk.
+
+Råbilder, prompter, originalreferanser og dokumenterte rettingsbehov er bevart i [HD-arkivet](art/photoreal/README.md). Se [HD-dokumentasjonen](docs/hd-grafikk.md) for pakkeformat, lokale bygg og egne bilder.

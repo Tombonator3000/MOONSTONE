@@ -91,15 +91,16 @@
       <label class="valg"><span class="pt">Grafikk</span>
         <select id="hd-bryter"><option value="hd">HD der den finnes</option><option value="original">Original</option></select>
         <span class="verdi pt" data-for="hd-bryter"></span></label>
-      <p class="hjelp">Velg en mappe med PNG-er navngitt som i <code>docs/grafikkliste.md</code> (for eksempel <code>KN1.ob/000.png</code>), gjerne tegnet i høyere oppløsning. Figurene spillet tegner, vises da med dine bilder. Se docs/hd-grafikk.md.</p>
+      <p class="hjelp">Fotografisk standardgrafikk lastes automatisk: bakgrunner, blå ridderbevegelse, riddervalg, menypil og månefaser. Øvrige animasjoner bruker foreløpig originalgrafikk. Du kan også velge egne HD-bilder.</p>
       <label class="valg"><span class="pt">Gult felt der HD-bilde mangler</span><input type="checkbox" id="rammer"><span class="verdi pt" data-for="rammer"></span></label>
       <p class="hjelp">Bakgrunner: lagre den som vises, tegn den i høyere oppløsning, og legg den i mappen <code>bg</code> i HD-pakken med samme navn.</p>
       <div class="rad">
         <label class="knapp"><span class="pt">Velg HD-mappe</span> <input type="file" id="velg-hd" webkitdirectory multiple></label>
+        <button id="standard-hd" class="knapp"><span class="pt">Standardgrafikk</span></button>
         <button id="tom-hd" class="knapp"><span class="pt">Fjern</span></button>
         <button id="lagre-bg" class="knapp"><span class="pt">Lagre bakgrunnen</span></button>
       </div>
-      <p class="hjelp" id="hd-status">Ingen HD-pakke.</p>
+      <p class="hjelp" id="hd-status">Standardgrafikken lastes når spillet starter.</p>
     </section>
     <section class="boks" id="lagring">
       <h3 class="pt">Lagring</h3>

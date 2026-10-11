@@ -1,0 +1,7 @@
+Use case: photorealistic-natural
+Asset type: Exact original Moonstone intro STILE cropped background tile bg1a.PIV/041. Opaque32:25 canvas, approximately1419x1109.
+Input1: Exact32x25 source enlarged16x nearest-neighbor; locked silhouette, original crop, color blocks and black negative space.
+Primary request: Photographically redraw just this source fragment with fine natural rough bark texture, keeping the exact original geometry and all four edge crossings.
+Exact content: Nearly the entire crop is pure opaque black. Only a TINY thin brown bark sliver enters the LEFT border at y68% and widens toward the bottom left, reaching at most x9% at BOTTOM. Preserve that exact tiny fragment; do not invent a large trunk or light anything in the black remainder.
+Lighting/palette: Very underexposed nocturnal woodland, original brown RGB34,17,0 /51,34,17 /85,51,17 and strongest136,85,34. Match these broad source values; do not add orange sunlight, bright rimlight or blue glow. Black source regions stay flat opaque RGB0,0,0 all the way to the borders. No haze or gradient fill.
+Constraints: Natural photographic surface detail only inside existing source shapes. Never complete the fragment into a whole object. No added tree, twig, foliage, ground, sky, stars, symbols or text. No 3D-game-render or painting appearance. No framing, padding, feathering or transparency. Pixel stair steps may become natural fine edges without moving silhouette endpoints. Output only this tile.

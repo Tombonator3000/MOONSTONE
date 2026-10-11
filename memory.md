@@ -363,3 +363,11 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   blir moonstone_auto_forrige.sav, Shift+PageDown henter. Filene skrives til .tmp og byttes (atomisk),
   og paa Windows aapnes UTF-8-stier med _wfopen (testet i Wine med "Tøm æøå"). SIGTERM gir SDL_QUIT,
   saa avslutningen kan testes med SDL_VIDEODRIVER=dummy og timeout -s TERM.
+
+## Standard-HD og råarkiv, 11. oktober 2026
+
+web/hd/manifest.json binder48 bilder med SHA-256:33 bakgrunner,5 blå hele metodeposer,4 riddervalg,menypil og5 månefaser. web/src/hd.js henter basisbildene automatisk og bakgrunner ved behov, med høyst4 standardbakgrunner på GPU. Egne filer/Fjern venter på stopp av standardlasteren, så gamle forespørsler ikke skriver over brukervalg. Standardgrafikk-knappen gjenoppretter pakken. Ved file:// brukes originalgrafikk uten nettforespørsler; HTTP/Pages gir auto-HD.
+
+art/photoreal har807 urørte rå-PNG med revisjoner, prompter og616 selvstendige katalogoppføringer:506 valgte planutdata og110 nytegnede fliser.10 svarte konstante fliser er metadata. Katalogen bevarer faktisk palettreferanse eller tydelig preview-merking. Arkivruter er ikke automatisk aktive i spillet. Historisk produksjonsplan er bevart som production-plan-2026-10-03.json. De tidligere lokale spesialverktøyene og bildebevisene er bevart i moonstone-hd-arbeidsmappen.
+
+Integrasjonstest tools/hd_standard_sjekk.cjs bygger på faktisk HTML og main-CI-kjernen med musikk.25 kontroller bestått,71/71 gangrammer har fotopose. Ingen ny full gjennomspilling, mobil-FPS eller ny månefasesekvens er påstått. Måne-/meny-/bakgrunnsregler og råbilder viderefører de tidligere målte kildekontraktene.

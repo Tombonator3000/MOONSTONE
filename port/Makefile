@@ -82,7 +82,7 @@ web: ../web/build/moonstone.html
 ../web/build/moonstone-core.js: $(WEB_OBJ)
 	@mkdir -p $(dir $@)
 	emcc -o $@ $(WEB_OBJ) $(WEB_LDFLAGS)
-../web/build/moonstone.html: ../web/build/moonstone-core.js $(wildcard ../web/src/*) $(wildcard ../web/vendor/*)
+../web/build/moonstone.html: ../web/build/moonstone-core.js $(wildcard ../web/src/*) $(wildcard ../web/vendor/*) ../web/pakk.py ../web/hd/manifest.json $(wildcard ../web/hd/*/*.png)
 	python3 ../web/pakk.py ../web/build/moonstone-core.js $@
 build-web/%.o: %.c src/amiga.h $(MUSASHI_GEN)
 	@mkdir -p $(dir $@)
