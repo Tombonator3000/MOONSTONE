@@ -20,7 +20,11 @@ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
      for(let y=0;y<c.height;y++)for(let x=0;x<c.width;x++)if(pix[(y*c.width+x)*4+3]>=16){x0=Math.min(x0,x);x1=Math.max(x1,x+1);y0=Math.min(y0,y);y1=Math.max(y1,y+1);}
      if(x1<=x0||y1<=y0)throw Error('Tom rasterkilde');return[x0,y0,x1-x0,y1-y0];};
     const from=bounds(master),to=bounds(original),out=document.createElement('canvas');out.width=w;out.height=h;
-    const dest=placement==='full_rect' ? [0,0,w,h] : [to[0]*w/original.width,to[1]*h/original.height,to[2]*w/original.width,to[3]*h/original.height];
+    let dest;
+    if(placement==='contain'){
+     const scale=Math.min(w/from[2],h/from[3]);
+     dest=[(w-from[2]*scale)/2,h-from[3]*scale,from[2]*scale,from[3]*scale];
+    }else dest=placement==='full_rect' ? [0,0,w,h] : [to[0]*w/original.width,to[1]*h/original.height,to[2]*w/original.width,to[3]*h/original.height];
     out.getContext('2d').drawImage(master,...from,...dest);
     const ref=document.createElement('canvas');ref.width=w;ref.height=h;ref.getContext('2d').drawImage(original,0,0,w,h);
     const aa=out.getContext('2d').getImageData(0,0,w,h).data,bb=ref.getContext('2d').getImageData(0,0,w,h).data;

@@ -23,6 +23,9 @@ async function render(p){return p.evaluate(()=>{const{Kjerne:K,Visning:V,SceneHd
  await render(p);await p.waitForFunction(()=>moonDebug.StandardHd.info().bakgrunner.includes('2c1e0fa5'));await p.waitForTimeout(100);
  const full=await render(p),state=await p.evaluate(()=>moonDebug.Kjerne.sjekksum());
  fs.writeFileSync(out+'/corrected-map-hd.png',Buffer.from(full.split(',')[1],'base64'));
+ await p.evaluate(()=>moonDebug.Visning.settHd(false));
+ const original=await render(p);fs.writeFileSync(out+'/original-map-size.png',Buffer.from(original.split(',')[1],'base64'));
+ await p.evaluate(()=>moonDebug.Visning.settHd(true));check('hd_restored_after_original_comparison',await render(p)===full);
  for(const m of metas){
   check(m.key+'_overlay_present',await p.evaluate(key=>moonDebug.Visning.lagNaa().overlays.some(o=>o.key===key),m.key));
   await p.evaluate(key=>moonDebug.Visning.fjernHdBilde(key),m.key);const without=await render(p);
@@ -46,15 +49,16 @@ async function render(p){return p.evaluate(()=>{const{Kjerne:K,Visning:V,SceneHd
  const pillar=metas.find(m=>m.key==='map-icons/018');
  if(pillar){
   const overlays=await p.evaluate(()=>moonDebug.Visning.lagNaa().overlays);
-  check('23_stonehenge_gateways_present',metas.filter(m=>m.draw_rect).every(m=>overlays.some(o=>o.key===m.key&&o.rect.join()===m.draw_rect.join())));
-  // Statusendring i den gamle markoeren skal bevare originalen og skjule soeylen.
+  const sites=metas.filter(m=>m.dynamic);
+  check('23_gateways_with_original_size',sites.length===23&&sites.every(m=>!m.draw_rect&&m.width===9&&m.height===5&&overlays.some(o=>o.key===m.key&&o.rect.join()===m.rect.join())));
+  // Statusendring i originalmarkoeren skal bevare originalen og skjule porten.
   await p.evaluate(m=>{const K=moonDebug.Kjerne;window.pillarScan=K.skanout;const s=K.skanout(),idx=s.idx.slice(),d=K.vindu();
    const p=(d[1]+m.rect[1])*720+d[0]+m.rect[0]*2;idx[p]=(idx[p]+1)%32;K.skanout=()=>({...s,idx});},pillar);
   await render(p);check('changed_marker_keeps_original',await p.evaluate(m=>{const l=moonDebug.Visning.lagNaa(),d=moonDebug.Kjerne.vindu(),s=moonDebug.Kjerne.skanout();
    return !l.overlays.some(o=>o.key===m.key)&&l.forIdx[m.rect[1]*320+m.rect[0]]===s.idx[(d[1]+m.rect[1])*720+d[0]+m.rect[0]*2];},pillar));
   await p.evaluate(()=>{moonDebug.Kjerne.skanout=pillarScan;delete window.pillarScan;});check('marker_restore_exact',await render(p)===full);
-  // En figur over kilderektangelet maa ikke skjules av den hoeyere HD-soeylen.
-  const point=[pillar.draw_rect[0]+2,pillar.draw_rect[1]+3];
+  // En figur rett over kilderektangelet skal fortsatt vises.
+  const point=[pillar.rect[0]+2,pillar.rect[1]-1];
   await p.evaluate(([x,y])=>{const K=moonDebug.Kjerne;window.pillarScan=K.skanout;const s=K.skanout(),idx=s.idx.slice(),d=K.vindu(),p=(d[1]+y)*720+d[0]+x*2;
    idx[p]=(idx[p]+1)%32;K.skanout=()=>({...s,idx});},point);
   await render(p);check('foreground_above_marker_is_protected',await p.evaluate(({key,point:[x,y]})=>{const l=moonDebug.Visning.lagNaa();

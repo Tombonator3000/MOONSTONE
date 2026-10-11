@@ -25,8 +25,12 @@ const code=source.slice(source.indexOf('    function ikonPalett('),source.indexO
     }};
     const r=m.draw_rect,w=r ? r[2]-r[0] : m.width,h=r ? r[3]-r[1] : m.height;
     check('avtalte_bildemaal',im.width===w*m.scale&&im.height===h*m.scale);
-    if(m.draw_rect){
-     const ctx=canvas.getContext('2d'),alpha=(x,y)=>ctx.getImageData(Math.floor(im.width*x),Math.floor(im.height*y),1,1).data[3];
+    if(m.dynamic){
+     const ctx=canvas.getContext('2d'),pix=ctx.getImageData(0,0,im.width,im.height).data;
+     let x0=im.width,y0=im.height,x1=0,y1=0;
+     for(let y=0;y<im.height;y++)for(let x=0;x<im.width;x++)if(pix[(y*im.width+x)*4+3]>=16){x0=Math.min(x0,x);x1=Math.max(x1,x+1);y0=Math.min(y0,y);y1=Math.max(y1,y+1);}
+     const alpha=(x,y)=>ctx.getImageData(Math.floor(x0+(x1-x0)*x),Math.floor(y0+(y1-y0)*y),1,1).data[3];
+     check('originalt_visningsfelt',!m.draw_rect&&m.width===9&&m.height===5&&im.height===40);
      check('aapen_passasje',alpha(.5,.65)===0);
      check('to_steinstoetter',alpha(.17,.65)>128&&alpha(.83,.65)>128);
      check('overligger',alpha(.5,.15)>128);

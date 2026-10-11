@@ -1,6 +1,7 @@
 {
   "url": "http://127.0.0.1:8769/moonstone.html",
   "checks": [
+    "hd_restored_after_original_comparison",
     "map-icons/000_overlay_present",
     "map-icons/000_actually_drawn",
     "map-icons/000_restored",
@@ -81,7 +82,7 @@
     "map-landmarks/003_restored",
     "unsupported_palette_keeps_full_original_region",
     "palette_restore_exact",
-    "23_stonehenge_gateways_present",
+    "23_gateways_with_original_size",
     "changed_marker_keeps_original",
     "marker_restore_exact",
     "foreground_above_marker_is_protected",
@@ -92,5 +93,5 @@
   "errors": [],
   "scope": "Naturlig karttur, faktisk teksturtegning, originalfallback og uendret spilltilstand.",
   "status": "passed",
-  "created_at": "2026-10-11T12:33:02.205Z"
+  "created_at": "2026-10-11T12:57:09.496Z"
 }
