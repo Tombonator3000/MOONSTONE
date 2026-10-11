@@ -4,7 +4,7 @@
 
 Dette arkivet inneholder også uferdige kandidater. Status og konkrete avvik er bevart, inkludert feil palettvarianter, konturer, alpha og sammensettingsskjøter. `production-plan-2026-10-03.json` er historisk kildedokumentasjon med enkelte lokale bevisstier; det selvstendige katalogformatet bruker de innsjekkede filene i `references/` og `candidates/`.
 
-Spillet bruker `web/hd/manifest.json`: 48 bilder med eksisterende kilde-/palettkontrakter og dokumenterte runtimeprøver. Dette er 33 bakgrunner, fem blå stå-/gangposer, fire riddervalg, menypil og fem månefaser. De fem hele blå metodeposene er ikke en erstatning for separat nytegning av alle originalruter. Uferdige figurdeler er ikke automatisk aktivert.
+Spillet bruker `web/hd/manifest.json`: 320 bilder, av dem 68 bakgrunner. 74 av radene i `catalog.json` er slått på (`enabled_in_game`), det vil si at råfilen ligger byteidentisk i standardpakken. Blant dem er de 24 hulebakgrunnene (fol, gll, swl, wal 1-6), healeren, Mythrid, druidene og bg3, som eieren ville ha på selv om de står som needs_revision eller candidate_geometry_review. Avvikene i notatene gjelder fortsatt. De fem hele blå metodeposene er ikke en erstatning for separat nytegning av alle originalruter. Uferdige figurdeler er ikke automatisk aktivert.
 
 Bakgrunner lastes ved behov og høyst fire av standardpakkens bakgrunner holdes på GPU-en. Rå-PNG-ene i standardpakken er byteidentiske med masterne. Ingen bildebehandling eller ny bildegenerering ble brukt ved integrasjonen.
 

@@ -5,8 +5,14 @@ const StandardHd = (() => {
     'use strict';
     const manifest = %%HD_MANIFEST%%;
     const base = manifest.files.filter(f => f.kind === 'base');
+    /* 045a1ac5 er hashen av en helt tom bakgrunnskopi (40000 nullbyte). Den staar
+     * paa alle tomme skjermer og i alle overganger, saa et bilde der ville dekke
+     * meldinger, lasteskjermen og toningene. Den faar aldri HD, heller ikke om
+     * noen legger den i manifestet. pakk.py nekter den ogsaa. */
+    const TOM_BAKGRUNN = '045a1ac5';
     const bakgrunner = new Map(manifest.files.filter(f => f.kind === 'background')
-        .map(f => [f.path.slice(3, -4), f]));
+        .map(f => [f.path.slice(3, -4), f]).filter(([hash]) => hash !== TOM_BAKGRUNN));
+    const scener = (manifest.scenes || []).filter(s => s.hash !== TOM_BAKGRUNN);
     const cache = new Map(), avvist = new Set(), oppdrag = new Set();
     let V = null, meld = () => {}, aktiv = false, klar = false, lasterBakgrunn = false;
     let kontroller = null, sistHash = null, feil = null;
@@ -125,5 +131,5 @@ const StandardHd = (() => {
         cache.clear(); avvist.clear();
     }
 
-    return { start, stopp, oppdater, info, status, scener: () => manifest.scenes || [] };
+    return { start, stopp, oppdater, info, status, scener: () => scener };
 })();

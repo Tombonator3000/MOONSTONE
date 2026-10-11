@@ -55,6 +55,10 @@ def main():
     manifest = json.loads((hd / 'manifest.json').read_text())
     assert manifest['schema'] == 1 and manifest['images'] == sum(f['path'].endswith('.png') for f in manifest['files'])
     assert len({f['path'] for f in manifest['files']}) == len(manifest['files'])
+    # 045a1ac5 er en helt tom bakgrunnskopi (alle tomme skjermer og overganger).
+    # Et bilde der ville dekke meldinger og toninger, saa den skal aldri ha HD.
+    assert not any(f['path'].lower() == 'bg/045a1ac5.png' for f in manifest['files']), 'bg/045a1ac5 er tom skjerm'
+    assert not any(s.get('hash') == '045a1ac5' for s in manifest.get('scenes', [])), 'scene paa tom skjerm'
     for f in manifest['files']:
         path = hd / f['path']
         assert path.resolve().is_relative_to(hd.resolve()) and path.is_file()

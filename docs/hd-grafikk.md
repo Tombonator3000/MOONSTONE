@@ -173,7 +173,7 @@ HD-pakken kan være forskjellig fra spiller til spiller.
 
 ## Standardgrafikk i nettutgaven
 
-Nettutgaven laster standardgrafikken automatisk. Pakken har 224 PNG-ruter: 40 bakgrunner, 142 fontglyfer, HD-logo, 20 faste tekstfelt, seks kartlandemerker, fem blå stå-/gangposer, fire riddervalg, menypilen og fem månefaser. Kartet, Waterdeep, Highwood, kroen og tre introscener er koblet til kildevaliderte PIV-lag. Se [leveransen med bilder og kontroller](../art/hd-backgrounds-2026-10-11/README.md). Andre figurer, scener og animasjoner bruker originalgrafikk til deres nye deler er rettet og kontrollert.
+Nettutgaven laster standardgrafikken automatisk. Pakken har 224 PNG-ruter: 40 bakgrunner, 142 fontglyfer, HD-logo, 20 faste tekstfelt, seks kartlandemerker, fem blå stå-/gangposer, fire riddervalg, menypilen og fem månefaser. Kartet, Waterdeep, Highwood, kroen og tre introscener er koblet til kildevaliderte PIV-lag. Senere kom de 24 hulebakgrunnene (fol, gll, swl og wal 1-6), healeren, Mythrid, druidene og bg3 i introen, så pakken har nå 68 bakgrunner (se tallet nederst). Bakgrunnen 045a1ac5 er en helt tom skjerm og får aldri HD (vakt i `web/src/hd.js` og `web/pakk.py`). Se [leveransen med bilder og kontroller](../art/hd-backgrounds-2026-10-11/README.md). Andre figurer, scener og animasjoner bruker originalgrafikk til deres nye deler er rettet og kontrollert.
 
 Velg **Grafikk → Original** i sidemenyen for å sammenligne. Valget lagres. **Standardgrafikk** henter standardpakken igjen etter at egne filer er valgt eller HD er fjernet. Egne HD-mapper støttes fortsatt; de stopper automatisk innlasting slik at brukerens bilder får overta.
 
@@ -183,4 +183,4 @@ Bildene ligger i `web/hd/`, og alle filstørrelser og SHA-256-hasher er bundet i
 
 Alle produserte råbilder og tidligere revisjoner ligger under `art/photoreal/candidates`, med prompter og et lokalt original-/fotogalleri. Arkivets 616 valgte oppføringer er ikke det samme som 616 ferdige spillruter. Se `art/photoreal/README.md` for status og kreditering.
 
-Trofaste ikoner: [kilder, metode og kontroll](../art/hd-icons-2026-10-11/README.md). Den oppdaterte standardpakken har292 PNG-ruter;69 ikonruter bygger direkte på originalens fargeflater og faktiske palett.
+Trofaste ikoner: [kilder, metode og kontroll](../art/hd-icons-2026-10-11/README.md). Den oppdaterte standardpakken har 320 PNG-ruter. 69 ikonruter bygger direkte på originalens fargeflater og faktiske palett.
