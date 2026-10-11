@@ -69,8 +69,6 @@ EMSCRIPTEN_KEEPALIVE void ms_input(int j0, int j1)
 }
 
 EMSCRIPTEN_KEEPALIVE void ms_key(int code, int down) { amiga_key(code, down != 0); }
-/* bakgrunnsmusikken i resten av spillet (musikk.c): av/paa og styrke 0-1 */
-EMSCRIPTEN_KEEPALIVE void ms_musikk(int paa, float volum) { musikk_sett(paa != 0, volum); }
 
 EMSCRIPTEN_KEEPALIVE void ms_frame(void)
 {
@@ -113,6 +111,10 @@ EMSCRIPTEN_KEEPALIVE uint32_t ms_game_crc(void) { return files_game_crc(); }
 EMSCRIPTEN_KEEPALIVE int ms_peek8(int a) { return (int)mem_read8((uint32_t)a); }
 EMSCRIPTEN_KEEPALIVE int ms_peek16(int a) { return (int)mem_read16((uint32_t)a); }
 EMSCRIPTEN_KEEPALIVE uint8_t *ms_chip(void) { return chip; }
+
+/* hvorfor siste lasting feilet (state.c), til meldingen paa siden */
+EMSCRIPTEN_KEEPALIVE const char *ms_state_error(void) { return state_feil; }
+EMSCRIPTEN_KEEPALIVE uint32_t ms_state_format(void) { return state_format_id(); }
 
 EMSCRIPTEN_KEEPALIVE int ms_state_save(void)
 {

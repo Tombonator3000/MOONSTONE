@@ -326,11 +326,27 @@ void game_reset(void)
     moete = MOETE_INGEN;
 }
 
+/* lagring uten (passende) tegneliste: tom liste, saa HD-laget viser originalgrafikken
+ * til spillet pakker ut filene paa nytt, i stedet for navn fra et annet spill */
+void game_standard(void)
+{
+    valg_bilde = navn_bilde = velg_bilde = 0xffffffffu;
+    memset(cels, 0, sizeof cels);
+    n_cels = 0;
+    background[0] = 0;
+}
+
+/* moetefasen styrer hvem som har joysticken (rullen, kampen, plyndringen) og maa
+ * passe med minnet; den lagres for seg (state.c, delen MOET), ikke med tegnelisten */
+void game_state_moete(StateIO *s)
+{
+    STATE_VAR(s, moete);
+}
+
 void game_state(StateIO *s)
 {
     STATE_VAR(s, cels);
     STATE_VAR(s, n_cels);
     STATE_VAR(s, background);
-    STATE_VAR(s, moete);
     if (!s->saving) valg_bilde = navn_bilde = velg_bilde = 0xffffffffu;    /* et annet bilde enn da lokka gikk */
 }

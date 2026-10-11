@@ -2,34 +2,63 @@
 
 ## Neste
 - [ ] HD-bakgrunner etter filnavn (bg1a.PIV/0.png) i tillegg til hash, for bildene som vises som de er.
-- [ ] Valgene paa kartet ogsaa i PC-versjonen med spillkontroller (i dag bare tastene 1-9).
+- [ ] Valgene paa kartet i PC-versjonen: LB, RB, X og Y velger 1-4 i dag; mangler valg 5-9 og en liste paa skjermen. Nevn det i windows/LES_MEG.txt.
 - [ ] Options paa mobil: oppsett av styrekorset og knappene (storrelse, venstrehendt).
 - [ ] Options-siden også i PC-versjonen (SDL): taster og knapper i spillets meny. PC slår ikke på menylappen i dag.
 - [ ] Options: velge spillkontroller nummer 2 og hvilken kontroller som er spiller 1.
 - [ ] Duell: la den som blir angrepet få se et kort varsel før kampen («Tom utfordrer deg») i spillets egen stil, ikke bare i statuslinjen.
 - [ ] Hver for seg, steg 4: motstanderen er opptatt (by, kamp), to utfordrer hverandre samtidig, årstidene går hver for seg.
 - [ ] Hver for seg: vise navnet til spilleren (ikke bare riddernavnet) når man står ved siden av, og en melding når noen kommer inn på kartet.
-- [ ] Veien mot en native port (brukeren sa ja 2026-10-02): 1) grafikken ut i lag (bakgrunn og forgrunn er ferdig; gjenstår tekst i HD og bakgrunner som endres litt), 2) logikken til C del for del (kamp og kart først) med check_hooks, 3) fjerne 68000 og Amiga-brikkene når originalkoden ikke kjører lenger.
+- [ ] Veien mot en native port (brukeren sa ja 2026-10-02): 1) grafikken ut i lag (bakgrunn og forgrunn er ferdig; gjenstår menyrammer i HD og bakgrunner som endres litt), 2) logikken til C del for del (kamp og kart først) med check_hooks, 3) fjerne 68000 og Amiga-brikkene når originalkoden ikke kjører lenger.
 - [ ] HD-bilder med fargeindekser (PNG med palett) som får fargene fra skjermen.
 - [ ] HD-bakgrunner som tåler små endringer i bakgrunnskopien (legg forskjellene over).
-- [ ] Effektene og HD-laget også i PC-versjonen (trenger OpenGL i frontend.c).
-- [ ] Flette rettelsen av workflowen (a998217 på grenen) til main, så «Run workflow» også publiserer.
+- [ ] Effektene og HD-laget også i PC-versjonen: trenger en PNG-leser (png.c kan bare skrive) og HD-tegningen skrevet i C (SDL_Renderer holder).
+- [ ] Prøve «Run workflow» for hånd én gang (rettelsen a998217 er på main, men ikke prøvd).
 - [ ] HD-grafikk: bakgrunner i HD (PIV, og .t for kampene), fargeeffekter (fading) på HD-bildene, andre tegnerutiner enn tegn_figur (tekst, menyer).
 - [ ] Lage en liten HD-pakke som eksempel (f.eks. ridderne i fire ganger størrelse).
 - [ ] Finne ut hvordan .t-filene bygger kampbakgrunnene.
-- [ ] Flere funksjoner i C: hovedløkken på kartet, kampsystemet.
-- [ ] Spille gjennom mer av spillet med --coverage (kamper, byer, Stonehenge) for bedre disassembly.
+- [ ] Spille gjennom hele spillet (butikker, taverna, Waterdeep, dragen, vokteren, Stonehenge, Game Over) med --coverage, og lage coverage.bin og functions.txt på nytt (de er fra 2. oktober).
 - [ ] Assembler-utgave av disassemblyen som bygger byte for byte like filer (vasm).
 - [ ] Teste nettspill (også «Online Game» i tittelmenyen) mot PeerJS Cloud og HiveMQ fra en vanlig nettleser (proxyen i skymiljøet stopper WebSocket; lokalt testet med egne servere).
 - [ ] Teste den nye oppstarten på en ekte mobil (lyd ved første trykk, også med lydløs-bryteren på iPhone, trykk på skjermen hopper over introen, navnefeltet med skjermtastatur).
-- [ ] Musikk: velge sang (også seierssangen vmusic.cmp), og kanskje la musikken ta en pause i kampene.
 - [ ] Klikk i menyene også i PC-versjonen (meny_row_at finnes; PC slår ikke på menylappen i dag).
 - [ ] Mus på andre skjermer enn tittelmenyen: velge ridder, butikker og inventar med klikk (krever å finne valgvariablene for hver skjerm).
 - [ ] Teste moonstone.exe på ekte Windows.
 - [ ] Nettspill over et ekte nett med to maskiner: hvor mye forsinkelse gjesten og forsvareren i en duell merker i kamp, og om bufferen på tre bilder bør justeres.
 
+## HD: kodeendringer så bildene i docs/hd-bestilling-chatgpt.md blir brukt
+- [ ] Lasteren (render.js lastHdPakke) skal bare godta NAVN/NNN og bg/HHHHHHHH og si fra om resten (i dag tar den alt, ca 4 MB per ubrukt bilde).
+- [ ] tools/hd_skaler.py skal hoppe over bildemappene (PIV) og test/, bare figurmapper og bg.
+- [ ] HD-pakken skal huskes (IndexedDB) og kunne være en zip.
+- [ ] --lag-dump skal lage mappen eller si fra, og prøve igjen når en bakgrunn ikke ble skrevet.
+- [ ] Et skript som spiller gjennom spillet med --lag-dump og knytter hver bakgrunnshash til et skjermnavn.
+- [ ] Sjekke CEL-navnene med --tegneliste (sti foran?) og om MAX_CELS glemmer filer som fortsatt tegnes.
+- [ ] Inntoning av HD-bakgrunnen første gang den vises (render.js lysMaks).
+- [ ] Rette docs/hd-grafikk.md (knappens navn, skala høyst 4) og grafikklisten (hen1.p = bg5.piv, Klift1.CEL = hen1.c).
+
+## Fra gjennomgangen 2026-10-11 (docs/hva-mangler.md)
+- [ ] Separate: hverKart() er sann hele spillet (hver.c setter H.kart = 0 bare i tittelmenyen), så en spiller i by eller monsterkamp sier ja til dueller automatisk.
+- [ ] Turns: en gjest med skjult fane holdes i live av pingen, og spillet venter på turen hans.
+- [ ] Turns: gjesten kan ikke lagre, og mister kopien når verten forsvinner.
+- [ ] Nettsiden tror sluttscenen er introen (ms_in_intro ser bare på whd_mog_loaded): fire blir Esc og HD slås av.
+- [ ] Trykk og klikk i inventar, by, butikker og Select Knight gir fire der spillets peker står ($098092/$098094), ikke der man trykker.
+- [ ] Reserve når WebGL-konteksten mistes (svart skjerm på mobil).
+- [ ] Mobil: fullskjerm, manifest for hjemskjermen og Wake Lock.
+- [ ] Utgivelser for PC (GitHub Releases) i stedet for Actions-artefakter, og krav (libSDL2, glibc 2.34) i README.
+- [ ] PC: innstillinger i spillet (volum, beskjeder som vises i fullskjerm), spiller 2 uten talltastatur. --online-meny blir stående på «Creating Room...».
+- [ ] Nettspill på PC, eller et vedtak om å la det være.
+- [ ] Testene (test26-36, mus, mobil, Options) og tilstandene de bruker inn i repoet, og check_hooks.py i CI.
+- [ ] CI: actions på Node 20 er utfaset.
+- [ ] Separate: et rom som forsvinner kan ikke samles igjen, og en død forbindelse blir stående som ridder på kartet.
+- [ ] Et lagret Turns-spill fordeler ridderne etter rekkefølgen gjestene kommer inn i.
+- [ ] Fast test av sluttscenen. --skriv leser heks uten 0x som 0 uten melding.
+- [ ] Rette memory.md (STATE_VERSION 8) og README (mappen spill/).
+
 ## Ferdig
-- [x] Musikk i hele spillet: introsangen (music.cmp) spilles også i menyen, på kartet og i kampene (port/src/musikk.c), med bryter og styrke i sidemenyen. Originalen har musikk bare i introen og sluttscenen. Lyden startes i selve trykket på mobil og følger ikke lydløs-bryteren på iPhone.
+- [x] Lagringer som tåler nye versjoner (MOONSAV2 med deler og standardverdier), går mellom PC og nett, forklarer hvorfor de avvises, automatisk lagring (nett og PC), eksport og import, PC-lagring i brukermappen (atomisk, UTF-8 på Windows).
+- [x] Nettspill: lagringsformatet sendes med i 'hei' og i romlisten; en gjest med annen versjon får beskjed, og en gjest som ikke kan laste tilstanden, går ut med grunnen.
+- [x] Bakgrunnsmusikken i hele spillet fjernet igjen (eieren ville ikke ha den).
+- [x] Lyden startes i selve trykket på mobil og følger ikke lydløs-bryteren på iPhone. (Bakgrunnsmusikken i hele spillet ble fjernet igjen 2026-10-11 etter ønske fra eieren.)
 - [x] Turns testet headless: beskyttelsesrullen styres av den angrepne (og kampen unngås når den brukes), og når datamaskinens ridder angriper, styrer den angrepnes spiller ridderen med port 2.
 - [x] Nettspill tur for tur: joysticken følger rekkefølgen ridderne ble valgt i (ikke figuren), bare den som velger styrer Select a Knight og navnet, møtet mellom to riddere gir portene til riktig spiller (rullen, kampen, plyndringen), Players settes opp til antallet i rommet, og korte trykk fra nettet blir ikke borte.
 - [x] Mobil i spillets menyer: valgene paa kartet som knapper (trykk, styrekors og Fire, Enter), navnet til ridderen med tekstfelt. Sidemenyen, knappene og meldingene i spillets stil (font, pil, logo og nattehimmel fra spillfilen). Bryter mellom HD og original grafikk. docs/grafikkliste.md og .csv over all grafikken.

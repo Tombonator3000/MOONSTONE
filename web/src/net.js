@@ -24,7 +24,11 @@
 
 const Nett = (() => {
     const PREFIKS = 'moonstone-ms-';
-    const VERSJON = 3;                          /* 2: Mode Separate, 3: hele ridderen og dueller */
+    const VERSJON = 4;                          /* 2: Mode Separate, 3: hele ridderen og dueller, 4: formatet sendes med */
+    /* Lagringsformatet (state.c) maa ogsaa vaere likt: verten sender tilstanden i det formatet.
+     * Det endres automatisk naar en del endres, saa en gjest med en gammel side i hurtigbufferen
+     * faar beskjed i stedet for aa bli staaende og vente. */
+    const format = () => (typeof Kjerne !== 'undefined' && Kjerne.formatId ? Kjerne.formatId() : 0);
     const MAKS_GJESTER = 3;
     const DEL = 48 * 1024;
     const PORTER = ['p2', 'p1', 'p2'];        /* standard for gjest 1, 2, 3 */
@@ -223,8 +227,8 @@ const Nett = (() => {
         switch (d.t) {
         case 'hei': {
             if (g) return;
-            if (d.v !== VERSJON) {
-                conn.send({ t: 'feil', tekst: 'Verten har en annen versjon av siden. Last siden paa nytt.' });
+            if (d.v !== VERSJON || (d.f >>> 0) !== format()) {
+                conn.send({ t: 'feil', tekst: 'Verten har en annen versjon av Moonstone. Last siden på nytt (begge to) og prøv igjen.' });
                 setTimeout(() => conn.close(), 500);
                 return;
             }
@@ -461,7 +465,7 @@ const Nett = (() => {
                 vert.on('open', () => {
                     aapnet = true;
                     sistFraVert = performance.now();
-                    klientKlar.then(() => { if (vert && vert.open) vert.send({ t: 'hei', navn: mittNavn, v: VERSJON, id: klient }); });
+                    klientKlar.then(() => { if (vert && vert.open) vert.send({ t: 'hei', navn: mittNavn, v: VERSJON, f: format(), id: klient }); });
                     /* WebRTC merker ikke alltid at verten er borte (lukket fane, tapt nett),
                      * saa gjesten gir opp naar verten ikke har svart paa en stund */
                     pingTimer = setInterval(() => {

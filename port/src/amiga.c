@@ -205,6 +205,7 @@ static void keyboard_line(void)
     if (code == whd_keyexit && !M.aborted) {
         snprintf(M.abort_msg, sizeof M.abort_msg, "Spillet er avsluttet (F10).");
         M.aborted = true;
+        amiga_quit_key = true;
         return;
     }
     /* bitene sendes rotert ett steg til venstre og invertert */
@@ -295,6 +296,7 @@ void amiga_reset(void)
     memset(&M, 0, sizeof M);
     patch_reset();
     game_reset();
+    amiga_quit_key = false;
     M.lof = true;
     M.kbd_ready = true;
     custom_reset();
@@ -316,13 +318,14 @@ void amiga_reset(void)
 bool amiga_init(void)
 {
     amiga_reset();
-    musikk_last();                        /* fra filene naa; en gjest i nettspill beholder den fra foer */
     if (!whd_boot()) return false;
     return true;
 }
 
 /* ------------------------------------------------------------ tilstand */
 void cpu_state(StateIO *s);   /* cpu_state.c */
+
+bool amiga_quit_key;                       /* ikke i tilstanden: bare for frontenden */
 
 void amiga_state(StateIO *s)
 {

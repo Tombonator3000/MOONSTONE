@@ -243,7 +243,7 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   tegnes i bakgrunnen vises med en gang.
 - Kopien av bakgrunnen er ikke i lagringen; etter lasting tegnes ridderne på nytt først
   neste tur.
-- Testtilstanden $S/hv/kart.sav må lages på nytt når H eller M2 endres (STATE_VERSION 8,
+- Testtilstanden $S/hv/kart.sav må lages på nytt når H eller M2 endres (gjaldt før lagringsformatet MOONSAV2,
   ikke sluppet ennå). Uten tilstand: --press 1400 med --hver før return i 1500, så turen
   starter med de fjerne ridderne.
 - Valgene på kartet venter på tastene 1-9 (`--press 1900:2:4` velger nummer 2).
@@ -328,12 +328,41 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 - Musikken: bare program har en musikkspiller (ProTracker-periodetabellen paa 0x2366 i filen). Introen
   laster music.cmp ($085662) etter bildene, saa de foerste ca. 32 s er stille; sangen aapner med 12 s
   nesten stille, slag til 23 s, hovedtema fra posisjon 4. mog har bare en driver for lydeffekter
-  ($0AE0DA, fire kanaler med avbrudd). musikk.c spiller music.cmp naar mog kjorer (ikke i emuleringen).
-- musikk_last kjoerer i hver amiga_init: nettsiden starter kjernen paa nytt i samme WebAssembly-instans
-  (startPaaNytt, ny spillfil eller egne filer), saa modulen lastes fra filene som gjelder naa. En gjest i
-  nettspill (ms_start_empty, ingen amiga_init) beholder modulen fra forrige oppstart. Test: $S/mus3.js.
+  ($0AE0DA, fire kanaler med avbrudd).
+- Bakgrunnsmusikk i hele spillet (port/src/musikk.c, PR #14) ble fjernet 2026-10-11 fordi eieren ikke
+  ville ha musikk som gaar hele tiden. Koden ligger i git (94049e7) om den skal tilbake som et valg.
+- Nettsiden starter kjernen paa nytt i samme WebAssembly-instans (startPaaNytt), saa statiske
+  variabler i C beholdes mellom omstarter; noe som lastes fra filene, maa lastes i amiga_init.
 - Introen hoppes over headless med --press 200:esc:4 (fire hopper ikke over); tittelmenyen fra ca. bilde 600.
 - ffmpeg her har libopenmpt og kan spille .mod til WAV (sammenligning med egen spiller).
+
+## Lagringene (fra 2026-10-11)
+- state.c: MOONSAV2 = magi, format 1, CRC for spillfilene, antall deler, og deler med merke (4 tegn),
+  versjon og lengde: MEM, MACH (M og IN), CUST (C og B), CIA, CPU, AUD, WHD, GAME, PTCH, MENY, HVT, HVER, BLIT.
+  En del maa ha samme versjon og nøyaktig samme lengde. GAME (game_standard: tom tegneliste), MENY
+  (meny_standard: menyen paa hvis mog er lappet, rd32(0x8f094) == TITLE_NODE), HVER (hver_standard:
+  alt unntatt originalene) og BLIT faar standardverdier ellers. HVT er originalene til datamaskinens
+  riddere (H.tatt, o36, o6c, o0b, o49, orig) og maa passe, fordi ridderne er byttet ut i minnet.
+  AUD er Paula og maa passe (paula_reset midt i spillet ville gjort kanalene stumme).
+- hver_kart() (H.kart) er sann fra en tur har begynt til tittelmenyen, i alle moduser, og foelger med
+  lagringen. Den brukes som "et spill er i gang" for automatisk lagring (nett og PC).
+- Nettspill: 'hei' har f = state_format_id() (delenes merke, versjon, lengde) og v = 4; verten avviser
+  et annet format med beskjed. Romlisten (rooms.js) har f og viser bare rom med samme format.
+  Faar en gjest en tilstand den ikke kan laste, gaar den ut av rommet med grunnen. Test: $S/ver1.js.
+- Det gamle formatet (MOONSTAT, versjon 13) leses fortsatt, men bare paa samme maskintype
+  (layout_id tok med sizeof(void *)). Eldre versjoner gir en melding med versjonsnummeret.
+- Strukturene er like store paa x86_64, MinGW og wasm32 (M 232, C 280, B 64, AudChan 40, Cia 36,
+  Input 6, CPU 488), saa lagringer kan flyttes mellom PC og nett. state_feil har grunnen.
+- Nettsiden: autolagring i IndexedDB-noekkelen 'auto' (visibilitychange, pagehide, hvert 120 s,
+  bare naar hver_kart() og ikke i introen, tittelmenyen, en duell eller som gjest),
+  navigator.storage.persist(), Fortsett, Last ned, Hent fra fil. Test: $S/lag1.js (10 sjekker, bruker
+  $S/lt/kart_ny.sav: --online-meny --press 100:esc:4 700/760/820:down:10 880:fire:10 1300:fire:10
+  1500:return:6, lagret i bilde 2000 paa kartet).
+- PC: SDL_GetPrefPath ("~/.local/share/Moonstone/Moonstone/", %APPDATA%\Moonstone\Moonstone\),
+  moonstone_auto.sav ved avslutning (ogsaa F10: amiga_quit_key, ikke ved resload_Abort), den forrige
+  blir moonstone_auto_forrige.sav, Shift+PageDown henter. Filene skrives til .tmp og byttes (atomisk),
+  og paa Windows aapnes UTF-8-stier med _wfopen (testet i Wine med "Tøm æøå"). SIGTERM gir SDL_QUIT,
+  saa avslutningen kan testes med SDL_VIDEODRIVER=dummy og timeout -s TERM.
 
 ## Standard-HD og råarkiv, 11. oktober 2026
 

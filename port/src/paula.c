@@ -202,7 +202,6 @@ int paula_take(int16_t *out, int max_frames)
         ring_r = (ring_r + 1) % AUDIO_RING;
         n++;
     }
-    musikk_bland(out, n);                 /* bakgrunnsmusikken (musikk.c), ikke en del av emuleringen */
     return n;
 }
 

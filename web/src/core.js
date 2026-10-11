@@ -186,6 +186,8 @@ const Kjerne = (() => {
             idx: new Uint8Array(M.HEAPU8.buffer, M._ms_video_idx(), fbW * fbH),
             pal: new Uint8Array(M.HEAPU8.buffer, M._ms_video_pal(), fbH * 32 * 4) }),
         lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil, fjernFil,
+        tilstandFeil: () => M.UTF8ToString(M._ms_state_error()),
+        formatId: () => (M ? M._ms_state_format() >>> 0 : 0),     /* lagringsformatet (nettspill: samme versjon?) */
         bredde: () => fbW, hoyde: () => fbH,
         bildeNr: () => M._ms_frame_no() >>> 0,
         hz: () => M._ms_hz(),
@@ -193,7 +195,6 @@ const Kjerne = (() => {
         stoppet: () => !!M._ms_aborted(),
         stoppMelding: () => M.UTF8ToString(M._ms_abort_msg()),
         volum: (v) => M._ms_volume(v),
-        musikk: (paa, v) => M && M._ms_musikk(paa ? 1 : 0, v),     /* bakgrunnsmusikken (port/src/musikk.c) */
         portSpillere: () => [M._ms_port_player(0), M._ms_port_player(1)],
         velgerRidder: () => !!(M && M._ms_velger_ridder()),       /* Select a Knight eller navnet etterpaa */
         tegneliste,

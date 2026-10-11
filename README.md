@@ -115,8 +115,7 @@ dobbeltklikk `start.bat` eller `moonstone.exe`. Windows kan si at programmet er 
 fordi det ikke er signert; velg «Mer informasjon» og «Kjør likevel».
 
 Med `--game sti` bruker programmet en annen spillfil: zip-filen, ISO-en eller en mappe
-med `Moonstone.Slave` og `data/`. `moonstone --help` viser alle valgene, blant annet
-`--musikk 0.7` (styrken på musikken i resten av spillet) og `--ingen-musikk`.
+med `Moonstone.Slave` og `data/`. `moonstone --help` viser alle valgene.
 
 ## Taster
 
@@ -196,12 +195,9 @@ skjermen og meldingene bruker også spillets font.
 
 ### Musikk
 
-Originalen har musikk bare i introen og i sluttscenen. Introsangen begynner først etter et
-halvt minutt, så de fleste hørte den aldri. Nå spilles introsangen også i tittelmenyen, på
-kartet og i kampene (`port/src/musikk.c`), fra hovedtemaet og om igjen. I sidemenyen kan
-den slås av («Musikk i hele spillet»), og styrken kan settes for seg («Musikkstyrke»).
-Introen og sluttscenen har sin egen musikk som før. En egen `music.cmp` (egne filer i
-sidemenyen, eller `--mod` på PC) brukes også til denne musikken.
+Originalen har musikk bare i introen og i sluttscenen; resten av spillet har bare
+lydeffekter. Introsangen begynner først etter et halvt minutt, så den som hopper over
+introen, hører den ikke. Porten spiller det samme som originalen.
 
 ### Effekter og HD-grafikk i nettleseren
 
@@ -216,11 +212,26 @@ riktig navn). `tools/hd_skaler.py` lager en HD-pakke automatisk av de utpakkede 
 
 Første gang tittelmenyen vises, står det øverst at valgene kan klikkes.
 
+### Lagring
+
+Originalen har ingen lagring, så porten lagrer hele maskinen. På nettsiden ligger
+lagringene i nettleseren (plass 1-9 under «Lagring» i menyen). Spillet lagres også
+automatisk når du bytter fane eller app, når siden lukkes og hvert andre minutt, og
+«Fortsett» henter det igjen. «Last ned» og «Hent fra fil» flytter lagringer mellom
+nettlesere og til PC-versjonen, og PC-lagringer kan hentes inn på nettet.
+
+PC-versjonen lagrer i brukermappen (`~/.local/share/Moonstone/Moonstone/` på Linux,
+`%APPDATA%\Moonstone\Moonstone\` på Windows) og lagrer automatisk når du avslutter
+(Shift+Page Down henter den; den forrige blir `moonstone_auto_forrige.sav`). Den lagrer
+bare når et spill er i gang, også ved F10. Lagringer fra før oktober 2026 (versjon 13) kan fortsatt
+lastes på samme slags maskin; eldre lagringer gir en melding om hvilken versjon de er.
+
 
 | Tast | PC | Nettleser |
 | --- | --- | --- |
 | Meny | | Home |
-| Lagre / laste tilstand | Page Up / Page Down | Page Up / Page Down |
+| Lagre / laste | Page Up / Page Down | Page Up / Page Down |
+| Laste den automatiske lagringen | Shift+Page Down | Fortsett i menyen |
 | Bytt lagringsplass | End | End |
 | Pause | Pause | Pause (alene) |
 | Fullskjerm | F11 eller Alt+Enter | nettleserens egen |

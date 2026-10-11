@@ -250,14 +250,55 @@ static void screenshot(void)
 }
 
 /* ------------------------------------------------------------ hendelser */
-static void state_path(char *out, size_t n) { snprintf(out, n, "moonstone_tilstand%d.sav", slot); }
+/* Lagringene ligger i brukermappen (SDL_GetPrefPath: ~/.local/share/Moonstone/ paa Linux,
+ * AppData\Roaming\Moonstone\ paa Windows). Plass 0 er den automatiske lagringen naar
+ * man avslutter. Ligger en eldre lagring i mappen programmet startes fra, brukes den. */
+static const char *pref_dir(void)
+{
+    static char *dir;
+    static bool tried;
+    if (!tried) { tried = true; dir = SDL_GetPrefPath("Moonstone", "Moonstone"); }
+    return dir ? dir : "";
+}
+static void state_path(char *out, size_t n, int s)
+{
+    char name[40];
+    if (s == 0) snprintf(name, sizeof name, "moonstone_auto.sav");
+    else snprintf(name, sizeof name, "moonstone_tilstand%d.sav", s);
+    snprintf(out, n, "%s%s", pref_dir(), name);
+    if (!state_file_exists(out) && state_file_exists(name))
+        snprintf(out, n, "%s", name);      /* gammel plassering (mappen programmet startes fra) */
+}
+static void state_path_save(char *out, size_t n, int s)
+{
+    if (s == 0) snprintf(out, n, "%smoonstone_auto.sav", pref_dir());
+    else snprintf(out, n, "%smoonstone_tilstand%d.sav", pref_dir(), s);
+}
+
+static void load_slot(int s)
+{
+    char path[1024];
+    state_path(path, sizeof path, s);
+    /* stoppet programmet midt i den automatiske lagringen, ligger den under et av de
+     * andre navnene (den nye forst, saa den forrige) */
+    if (s == 0 && !state_file_exists(path)) {
+        snprintf(path, sizeof path, "%smoonstone_auto_ny.sav", pref_dir());
+        if (!state_file_exists(path)) snprintf(path, sizeof path, "%smoonstone_auto_forrige.sav", pref_dir());
+    }
+    if (!state_file_exists(path)) { show(s ? "Ingen lagring paa plass %d" : "Ingen automatisk lagring%.0d", s); return; }
+    if (state_load_file(path)) {
+        hver_kommando(HVER_FJERN, 0, NULL);    /* PC har ikke Hver for seg: plassene tilbake til datamaskinen */
+        show(s ? "Lastet plass %d" : "Lastet den automatiske lagringen%.0d", s);
+        if (adev) SDL_ClearQueuedAudio(adev);
+    } else show("Kunne ikke laste: %s", state_feil);
+}
 
 static void key_event(const SDL_KeyboardEvent *e, bool down)
 {
     SDL_Scancode s = e->keysym.scancode;
     bool alt = (e->keysym.mod & KMOD_ALT) != 0;
     if (down && !e->repeat) {
-        char path[64];
+        char path[1024];
         switch (s) {
         case SDL_SCANCODE_F11: set_fullscreen(!fullscreen); return;
         case SDL_SCANCODE_RETURN: if (alt) { set_fullscreen(!fullscreen); return; } break;
@@ -268,13 +309,11 @@ static void key_event(const SDL_KeyboardEvent *e, bool down)
             if (paused && adev) SDL_ClearQueuedAudio(adev);
             return;
         case SDL_SCANCODE_PAGEUP:
-            state_path(path, sizeof path);
-            show(state_save_file(path) ? "Tilstand lagret paa plass %d" : "Klarte ikke aa lagre (plass %d)", slot);
+            state_path_save(path, sizeof path, slot);
+            show(state_save_file(path) ? "Lagret paa plass %d" : "Klarte ikke aa lagre (plass %d)", slot);
             return;
         case SDL_SCANCODE_PAGEDOWN:
-            state_path(path, sizeof path);
-            if (state_load_file(path)) { show("Tilstand lastet fra plass %d", slot); if (adev) SDL_ClearQueuedAudio(adev); }
-            else show("Ingen tilstand paa plass %d", slot);
+            load_slot((e->keysym.mod & KMOD_SHIFT) ? 0 : slot);   /* Shift: den automatiske */
             return;
         case SDL_SCANCODE_END:
             slot = slot % 9 + 1;
@@ -394,6 +433,22 @@ int frontend_run(const FrontendOptions *o)
         double now = (double)(SDL_GetPerformanceCounter() - t0) / freq;
         double wait = emu_time - now;
         if (wait > 0.003) SDL_Delay((Uint32)(wait * 1000.0) - 1);
+    }
+    /* automatisk lagring naar man avslutter (Shift+PageDown henter den): bare naar et
+     * spill er i gang (en tur har begynt siden tittelmenyen, eller en lagring med det
+     * er lastet), ogsaa ved F10, men ikke naar spillet har stoppet med en feil. Den
+     * forrige automatiske lagringen blir moonstone_auto_forrige.sav. */
+    if (whd_mog_loaded && hver_kart() && (!M.aborted || amiga_quit_key)) {
+        char path[1024], forrige[1024], ny[1024];
+        state_path_save(path, sizeof path, 0);
+        snprintf(forrige, sizeof forrige, "%smoonstone_auto_forrige.sav", pref_dir());
+        snprintf(ny, sizeof ny, "%smoonstone_auto_ny.sav", pref_dir());
+        /* den nye skrives forst; den gamle flyttes bare naar den nye finnes */
+        if (state_save_file(ny)) {
+            bool flyttet = state_file_exists(path) && state_file_rename(path, forrige);
+            if (state_file_rename(ny, path)) printf("Lagret automatisk: %s\n", path);
+            else if (flyttet) state_file_rename(forrige, path);   /* den gamle tilbake */
+        }
     }
     for (int i = 0; i < MAX_PADS; i++) if (pads[i]) SDL_GameControllerClose(pads[i]);
     if (adev) SDL_CloseAudioDevice(adev);
