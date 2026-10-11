@@ -1,0 +1,106 @@
+{
+  "key": "dice.cel/010.png",
+  "master_key": "dice.cel/010.png",
+  "role": "redraw",
+  "package": "03-steder-effekter-intro",
+  "order_group": "Kroanimasjoner",
+  "order_priority": "4",
+  "identity": "Tavernaen: ridderens stålhanske/arm over bordet; bruk tav.piv-paletten, ikke dice.piv. Eksakt håndstilling og handling må leses fra originalruten",
+  "master_usage": "Tavernaen: hender og terningkast",
+  "identity_limit": "Kildebank og brukssted. Ingen udokumentert handlingsetikett per rute.",
+  "bank": "dice.cel",
+  "frame": 10,
+  "width": 15,
+  "height": 18,
+  "target_width": 60,
+  "target_height": 72,
+  "source_bank": {
+    "path": "data/dice.cel",
+    "sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+    "bytes": 6364,
+    "frames": 23
+  },
+  "bitplane_sha256": "e7a49b3396c83a96454c33ad497d2a9cc9d92ff59f872473ce89397408f5510c",
+  "packed_indices_sha256": "cb4a455945366ddcd7af09a07e74b7c9633dea4a07ca037e2c0a30c02feeb009",
+  "indices_sha256": "4efe30166601c1986173679c0e60ecf4fce517d144593213979e2b3a4a856ac0",
+  "plane_mask": 23,
+  "packed_planes": 4,
+  "source_flag": 1,
+  "source_indices": [
+    3,
+    4,
+    5,
+    17,
+    19,
+    20,
+    21,
+    23
+  ],
+  "index_remap": {
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "17": 17,
+    "19": 19,
+    "20": 20,
+    "21": 21,
+    "23": 23
+  },
+  "source_neighbors": [
+    "dice.cel/008.png",
+    "dice.cel/009.png",
+    "dice.cel/011.png",
+    "dice.cel/012.png"
+  ],
+  "neighbor_limit": "Nærliggende kilde-ID-er, ikke en bekreftet animasjonsrekkefølge",
+  "alpha_bounds": [
+    0,
+    0,
+    15,
+    18
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "placement": "Originalens tegnerektangel; ingen ny sentrering eller justering av fotpunkt",
+  "palette_id": "tavern-blue",
+  "palette_status": "captured_original_tavern_palette; dice006/007_live_indices6..10",
+  "palette_source_sha256": "62d53c6c9f8138a2d7f8b5f923f73a595bfd8a5c8f6a0b31c987659e62090faa",
+  "palette_file_sha256": "cab58fdabb50347958463a0c5fda0774c78ac013e402ce0026bdd7928745e450",
+  "original": {
+    "path": "references/original/dice.cel/010.png",
+    "sha256": "194d0409f20486859ec4ef3314b6a8c431505b13c2e72d7e39135fe104846ea9",
+    "width": 15,
+    "height": 18
+  },
+  "nearest4x_reference": {
+    "path": "references/nearest4x/dice.cel/010.png",
+    "sha256": "9168bd3317604521a690b3d5c34e33148960f0c0ba2ec7ba0aa0e60e4115c208",
+    "width": 60,
+    "height": 72
+  },
+  "packed_original": {
+    "path": "source/packed/dice.cel/010.png",
+    "sha256": "1ec4df856cfe6659eeeae9c0f52ae8d9e88dc14175f3f54663f699b1bd812c95",
+    "width": 15,
+    "height": 18
+  },
+  "silhouette": {
+    "path": "source/alpha/dice.cel/010.png",
+    "sha256": "fd435ccd078152a91595ccd3d472a7d03b56238e640054f1c58a29a5356aef36",
+    "width": 15,
+    "height": 18
+  },
+  "needs_mask": false,
+  "neutral_mask_template": null,
+  "live_palette_indices": [],
+  "source_order_mask_override": null,
+  "mask_warning": null,
+  "intro_only": false,
+  "runtime_gate": "new_art_requires_route_runtime_check",
+  "art_status": "pending_individual_redraw",
+  "target_png": "hd/dice.cel/010.png",
+  "target_mask": null,
+  "source_order_note": "Animasjonsruter, tas til slutt. Bilde 6 og 7 er sett i tegnelisten. Nytegn og kontroller hver rute separat."
+}

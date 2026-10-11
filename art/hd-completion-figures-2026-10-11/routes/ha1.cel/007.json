@@ -1,0 +1,100 @@
+{
+  "key": "ha1.cel/007.png",
+  "master_key": "ha1.cel/007.png",
+  "role": "redraw",
+  "package": "03-steder-effekter-intro",
+  "order_group": "Intro og slutt",
+  "order_priority": "4",
+  "identity": "Introen eller slutten: hender og arm i rustning (Valley of the Gods)",
+  "master_usage": "Introen eller slutten: hender og arm i rustning (Valley of the Gods)",
+  "identity_limit": "Kildebank og brukssted. Ingen udokumentert handlingsetikett per rute.",
+  "bank": "ha1.cel",
+  "frame": 7,
+  "width": 35,
+  "height": 13,
+  "target_width": 140,
+  "target_height": 52,
+  "source_bank": {
+    "path": "data/ha1.cel",
+    "sha256": "6129c3a67493c1e0d579354265104af7bea0412913e47c60b375d45084f90ffe",
+    "bytes": 11898,
+    "frames": 22
+  },
+  "bitplane_sha256": "a98068993401b565a9ef33af6372a88d7f211ba1f6a0cdc9156280a4d2333991",
+  "packed_indices_sha256": "9eae78c1661570b566c9684bc69fad4bda4164b2e046cca1a10302b43e9aba36",
+  "indices_sha256": "9eae78c1661570b566c9684bc69fad4bda4164b2e046cca1a10302b43e9aba36",
+  "plane_mask": 7,
+  "packed_planes": 3,
+  "source_flag": 1,
+  "source_indices": [
+    0,
+    4,
+    5,
+    6,
+    7
+  ],
+  "index_remap": {
+    "0": 0,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7
+  },
+  "source_neighbors": [
+    "ha1.cel/005.png",
+    "ha1.cel/006.png",
+    "ha1.cel/008.png",
+    "ha1.cel/009.png"
+  ],
+  "neighbor_limit": "Nærliggende kilde-ID-er, ikke en bekreftet animasjonsrekkefølge",
+  "alpha_bounds": [
+    0,
+    0,
+    34,
+    13
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "placement": "Originalens tegnerektangel; ingen ny sentrering eller justering av fotpunkt",
+  "palette_id": "combat-preview",
+  "palette_status": "preview_only_not_a_monster_or_player_color_approval",
+  "palette_source_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+  "palette_file_sha256": "9e0b9b6c5798bc2706a91487b5fae02b840c95c20235a5886f0bdba34bbcef35",
+  "original": {
+    "path": "references/original/ha1.cel/007.png",
+    "sha256": "fb3f115b57d9abdd2a5719acb4465707691fe4e357d0bca44f9eec6d2c5de26a",
+    "width": 35,
+    "height": 13
+  },
+  "nearest4x_reference": {
+    "path": "references/nearest4x/ha1.cel/007.png",
+    "sha256": "cedb5f29075a080f6edc0ed21db24738ca76a1f30f6d815320ac949995567a59",
+    "width": 140,
+    "height": 52
+  },
+  "packed_original": {
+    "path": "source/packed/ha1.cel/007.png",
+    "sha256": "0e7df90052ed0264754e5ac46b42d22f42b2952666f734fb648528055cf769e2",
+    "width": 35,
+    "height": 13
+  },
+  "silhouette": {
+    "path": "source/alpha/ha1.cel/007.png",
+    "sha256": "44ecbaae9489cba23ea0dcf880e9f545e7cdf59e93ae6f013175a0157a39145e",
+    "width": 35,
+    "height": 13
+  },
+  "needs_mask": false,
+  "neutral_mask_template": null,
+  "live_palette_indices": [],
+  "source_order_mask_override": null,
+  "mask_warning": null,
+  "intro_only": true,
+  "runtime_gate": "program_art_palette_and_animation_runtime_pending",
+  "art_status": "pending_individual_redraw",
+  "target_png": "hd/ha1.cel/007.png",
+  "target_mask": null,
+  "source_order_note": "Kan ikke vises ennå: intro og slutt kjøres av programmet program, der laget og tegnelisten mangler (docs/hd-mangler.md punkt 4.4). Ikke tegn dette før det er løst."
+}

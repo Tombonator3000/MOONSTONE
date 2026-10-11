@@ -1,0 +1,111 @@
+{
+  "key": "Wi1.C/020.png",
+  "master_key": "Wi1.C/020.png",
+  "role": "redraw",
+  "package": "03-steder-effekter-intro",
+  "order_group": "Stedsfigurer",
+  "order_priority": "3",
+  "identity": "Trollmannen Math, separat originalfigur eller animasjonsfragment",
+  "master_usage": "Tårnet i fjellene: trollmannen Math",
+  "identity_limit": "Kildebank og brukssted. Ingen udokumentert handlingsetikett per rute.",
+  "bank": "Wi1.C",
+  "frame": 20,
+  "width": 47,
+  "height": 10,
+  "target_width": 188,
+  "target_height": 40,
+  "source_bank": {
+    "path": "data/Wi1.C",
+    "sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+    "bytes": 8907,
+    "frames": 21
+  },
+  "bitplane_sha256": "7defe4bcc04926b28096489c0657674b9b3f59947c9fca0057768a4f7745da80",
+  "packed_indices_sha256": "6a20c59a59dd5956ffa3455a19752f49f29ab57a8bb8d194aba9bfb2511f364c",
+  "indices_sha256": "6a20c59a59dd5956ffa3455a19752f49f29ab57a8bb8d194aba9bfb2511f364c",
+  "plane_mask": 15,
+  "packed_planes": 4,
+  "source_flag": 1,
+  "source_indices": [
+    0,
+    6,
+    7,
+    8
+  ],
+  "index_remap": {
+    "0": 0,
+    "6": 6,
+    "7": 7,
+    "8": 8
+  },
+  "source_neighbors": [
+    "Wi1.C/018.png",
+    "Wi1.C/019.png"
+  ],
+  "neighbor_limit": "Nærliggende kilde-ID-er, ikke en bekreftet animasjonsrekkefølge",
+  "alpha_bounds": [
+    0,
+    0,
+    47,
+    10
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "placement": "Originalens tegnerektangel; ingen ny sentrering eller justering av fotpunkt",
+  "palette_id": "math-tower",
+  "palette_status": "captured_original_Math_palette; tower015..020_live_indices6..10",
+  "palette_source_sha256": "0f6dc23736bb2146b94da6e89daf3d0b3f18671cbd103759eeb52de691de07ef",
+  "palette_file_sha256": "26ead3546c2d80b6ab04a86148c10654bc44a69637a96022eb1d69d8ebbce2f4",
+  "original": {
+    "path": "references/original/Wi1.C/020.png",
+    "sha256": "03d49b9ac874f48b5ed687ce2212cfde33875c4c73785f184c873a3f80ffdb54",
+    "width": 47,
+    "height": 10
+  },
+  "nearest4x_reference": {
+    "path": "references/nearest4x/Wi1.C/020.png",
+    "sha256": "ab3b43e73c9930525f584872d71050407c912ee8e404ffdc9535e315a91384c0",
+    "width": 188,
+    "height": 40
+  },
+  "packed_original": {
+    "path": "source/packed/Wi1.C/020.png",
+    "sha256": "eee3023815ad7da3313a023158ebad647df927fc00fb48ddbfe864bf8100ea9a",
+    "width": 47,
+    "height": 10
+  },
+  "silhouette": {
+    "path": "source/alpha/Wi1.C/020.png",
+    "sha256": "52dcae8a21d32fbc2727ac6b4ae1e497d891b95cd2e9fdc79b040daf69e86e3a",
+    "width": 47,
+    "height": 10
+  },
+  "needs_mask": true,
+  "neutral_mask_template": {
+    "path": "mask-templates/Wi1.C/020.mask.png",
+    "sha256": "5fc96036b728baceb2d786fb984a1658de2b9844249d52d7c3c9fe5cd6724362",
+    "width": 188,
+    "height": 40
+  },
+  "live_palette_indices": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "source_order_mask_override": {
+    "reason": "Original08a9b6 recolors6..10 in Math tower",
+    "contract": "source/runtime-palette-contracts/math.json",
+    "sha256": "0f6dc23736bb2146b94da6e89daf3d0b3f18671cbd103759eeb52de691de07ef"
+  },
+  "mask_warning": null,
+  "intro_only": false,
+  "runtime_gate": "new_art_requires_route_runtime_check",
+  "art_status": "pending_individual_redraw",
+  "target_png": "hd/Wi1.C/020.png",
+  "target_mask": "hd/Wi1.C/020.mask.png",
+  "source_order_note": "Klar, ikke prøvd."
+}

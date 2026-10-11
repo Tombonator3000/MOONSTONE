@@ -60,11 +60,15 @@ def main():
             assert sha((ROOT / path).read_bytes()) == digest
         subprocess.run([sys.executable, str(ART.parent / 'prepare.py'), 'pack', '--key', item['key'], '--candidate', str(candidate), '--art-record', str(record)], check=True)
         entry = dict(key=item['key'], bank=r['bank'], frame=r['frame'], source_bank_sha256=r['source_bank']['sha256'], indices_sha256=r['indices_sha256'], png=item['candidate'], png_sha256=item['candidate_sha256'], raw=art['raw_file'], raw_sha256=art['raw_sha256'], prompt=art['prompt'], prompt_sha256=art['prompt_sha256'], generation_tool='builtin_image_gen', runtime_proof=str(args.runtime.resolve().relative_to(ROOT)), runtime_asset_sha256=item['candidate_sha256'], art_record=item['art_record'], art_record_sha256=item['art_record_sha256'])
-        patch = art.get('eye_source_binding', {}).get('generated_eyeless_skin_patch')
-        if patch:
+        materials = [p for p in [art.get('eye_source_binding', {}).get('generated_eyeless_skin_patch'), art.get('shoulder_join_material'), art.get('wrist_join_material'), art.get('source_join_material'), art.get('source_blood_material')] if p]
+        for patch in materials:
             for name in ('raw', 'prompt'):
                 assert sha((ROOT / patch[name]).read_bytes()) == patch[name + '_sha256']
-            entry['additional_generated_material'] = patch
+        if materials:
+            # Den generiske porten kontrollerer siste materiale; alle inngaaende
+            # foto- og promptfiler er dessuten bundet og kontrollert her.
+            entry['additional_generated_material'] = materials[-1]
+            entry['additional_generated_materials'] = materials
         entry['qa'] = dict(frame=sample['frame'], mirrored=all(d['speilet'] for d in sample['visible'] if d['fil'].lower() == r['bank'].lower()), source_midpoints_missing=0, source_transparent_midpoints_filled=0, actual_original_hd_return='exact', emulated_state='unchanged', visual_original_and_runtime='reviewed_same_source_rectangle', footshadow='original_flat_retained_not_redrawn' if art.get('original_flat_shadow_packing') else None)
         entries.append(entry)
     activation = dict(schema=1, visual_status='reviewed_original_and_runtime', source_zip_sha256=report['source_zip_sha256'], production_code_sha256=codes, wasm_core_sha256=sha((ROOT / 'web/build/moonstone-core.js').read_bytes()), proofs=[dict(path=str(args.runtime.resolve().relative_to(ROOT)), sha256=sha(args.runtime.read_bytes()), html_path=str(html.resolve().relative_to(ROOT)), html_sha256=report['html_sha256'])], scope='Separate individuelt genererte ruter, sammenliknet med original og sett samlet i kontrollert originalkamp. Eksakte Original/HD-returer. Original flat skygge beholdes uten nytegningspaastand. Ingen full animasjonsdekning eller naturlig kartreise.', entries=entries)

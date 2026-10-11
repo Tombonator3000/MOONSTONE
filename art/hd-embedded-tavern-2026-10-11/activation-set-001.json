@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "status": "reviewed_original_and_runtime",
+  "scope": "En ekstra innebygd TAV.PIV-spillerfigur, separat fra CEL-mastertellingen. Ren tavernabakgrunn og alle17 DICE-mastere testes samlet. Ingen WI2-fastfigur finnes i originalen.",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "9d0e6a66a7597e745d23b0a0516f0c6f8b06f97cb92189613938c14f40aef8bd",
+    "web/src/scenes.js": "f96ca11802910e3291ec7ee4128299f68b73957b3f5f1d0b1435141e1a08ebcd",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "html_sha256": "5b59aed418f802345119b5f1a3c38613b0fef15598a81b39a86d908e67ce10fd",
+  "runtime_html": {
+    "path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v9-package/moonstone.html",
+    "sha256": "5b59aed418f802345119b5f1a3c38613b0fef15598a81b39a86d908e67ce10fd"
+  },
+  "package_manifest": {
+    "path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v9-package/manifest.json",
+    "sha256": "6b89f429722beff1a1fe52ba10d3ffd3b441f41e446afa2fb052bd1866fc1e3e"
+  },
+  "package_ledger": {
+    "path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v9-package/snapshot.json",
+    "sha256": "23cac72db2af3394f88517b5655df04e5cf02cd7b7cb09e77d4a09068ad06501"
+  },
+  "runtime_test": {
+    "path": "art/hd-embedded-tavern-2026-10-11/runtime.cjs",
+    "sha256": "36ff54f29fc16d4a5e4db8a3e2ef4b16b00bbb62e09eaa183e82ea9ccc3bd65f"
+  },
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "source_file": "data/tav.piv",
+  "source_file_sha256": "466c92eac2ddb68f0eb98689db6ad36017683b29b23638c7b5c84fef4f6f3b42",
+  "source_contract": {
+    "path": "art/hd-embedded-tavern-2026-10-11/player-source-contract.json",
+    "sha256": "544f9882e35c8f88eb1c0007382adff021460afbeaa0ed5a8b6220466ae7d67a"
+  },
+  "source_indices": {
+    "path": "art/hd-embedded-tavern-2026-10-11/source/player-indices.bin",
+    "sha256": "d1e01b2fe5908993ffc15d184c89ebe62f55ee94caa04bfd431963cfa55ad27f"
+  },
+  "source_mask": {
+    "path": "art/hd-embedded-tavern-2026-10-11/source/player-mask.bin",
+    "sha256": "9f75c0985554d9242895de55ad606f9e74fcd29de41c9ebcbd43c63bb88b8fe6"
+  },
+  "packing_proof": {
+    "path": "art/hd-embedded-tavern-2026-10-11/verification/packing-v1.json",
+    "sha256": "5209e40f161f28ba9f6d039fdba1dff04f86119efbe05849be4f71578e66a26e"
+  },
+  "packing_record": {
+    "path": "art/hd-embedded-tavern-2026-10-11/packed/embedded/tav-player.json",
+    "sha256": "c0c3723c23be6babdd028655c16c6dcc5da6240477a92b8956e5a30b9b663c8c"
+  },
+  "source_audit": {
+    "path": "art/hd-embedded-tavern-2026-10-11/source-audit.json",
+    "sha256": "8357a2947f623534187ac7f023761aa377a49ea72ba406e10261756aa1d6af85"
+  },
+  "generation_record": {
+    "path": "art/hd-embedded-tavern-2026-10-11/generation-record-player-v3.json",
+    "sha256": "42a67bbff6e9f54a683635a0506b1b945df6614ed12d7116f309bbc7a20f1edf"
+  },
+  "raw": {
+    "path": "art/hd-embedded-tavern-2026-10-11/raw/player-v3.png",
+    "sha256": "3eb172b85b9b533d20f2be1fe904b0029237e6961b279845b5c46fc7dd33468b"
+  },
+  "prompt": {
+    "path": "art/hd-embedded-tavern-2026-10-11/prompts/player-v3.txt",
+    "sha256": "6a1f23917d093e57e6218a40c1d5a6c8e447e06124b20436e53ee7225f155e3c"
+  },
+  "material_derivations": [
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/register-player-v3.cjs",
+      "sha256": "6b0d1ba1632371141d81ddcd8900423cbaead6b7a2078fdc13c4a6af7cdd638f"
+    },
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/material/player-v3-registered.json",
+      "sha256": "8981226d736e869054a0de4271c77a90f2a7c22b76dd97dab6cbe17047fcc424"
+    },
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/material/player-v3-registered.png",
+      "sha256": "a8429e896aff0f81a8d9c8591f7310d7d462afe11b5477ab1be2cd14b26276ba"
+    },
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/frozen-player-before-fixed/tav-player.png",
+      "sha256": "4f91cc08fe76a703947ee3094d0df855d8976d047292aa9c293d3047885fa81a"
+    },
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/normalize-fixed-material-v2.cjs",
+      "sha256": "4baaabe6d48540fc754b8c851d91a414591280598bfe34232a61ac1167ccb91b"
+    },
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/material/fixed-material-v2.json",
+      "sha256": "fa5b0fd627a8bc16334fc602f15bbb803a5d6cfa472110dc42d20862deb18a8b"
+    }
+  ],
+  "companion_derivations": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/dice/pack.cjs",
+      "sha256": "c167bfdc1cbf807297ec7faa78d91466e71c87f2038f31fa259bf6b631b22c9f"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/dice/join-cloth.py",
+      "sha256": "c2de8c22258bcbc36133de828c0c25278155a771d734331184f22ee12ec316b8"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/dice/freeze-packing.py",
+      "sha256": "bea4c1eed89ba2c18f467dfe7c6a6288dee278433b039e94948354f8d2c516a0"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/dice/freeze-delivery.py",
+      "sha256": "9dabb3c50c2e208b4ada7550f3a37ef2a5d06614f53df74344f6739bfd666892"
+    },
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/dice-source-cloth.json",
+      "sha256": "0301da6c3c42666f9fd9d0da19c324e9e5a5a6ff974715dbdea51d0b66561ddd"
+    }
+  ],
+  "embedded_entries": [
+    {
+      "key": "embedded/tav-player.png",
+      "png": {
+        "path": "art/hd-embedded-tavern-2026-10-11/packed/embedded/tav-player.png",
+        "sha256": "735f066ec2b537f867df0d63eb81ae7493f2f9f8409d5acbe96117180e1826f5"
+      },
+      "mask": {
+        "path": "art/hd-embedded-tavern-2026-10-11/packed/embedded/tav-player.mask.png",
+        "sha256": "a81f8eb880af0dd10d78aa66214724c209e2036dc3c07a239426f7f65d3d4488"
+      },
+      "original_rect": [
+        90,
+        65,
+        225,
+        188
+      ],
+      "original_selected_pixels": 7431,
+      "original_live_pixels": 3682,
+      "excluded_other_live_pixels": 16,
+      "scene_id": "tavern",
+      "overlay": {
+        "key": "embedded/tav-player",
+        "rect": [
+          90,
+          65,
+          225,
+          188
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": false,
+        "palette_mask": true
+      }
+    }
+  ],
+  "background": {
+    "key": "bg/44898895.png",
+    "png": {
+      "path": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+      "sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef"
+    },
+    "prompt": {
+      "path": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+      "sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+    },
+    "ownership": "Root generated and visually checked this clean background; this delivery binds the exact shared RGB file."
+  },
+  "proofs": [
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "sha256": "f2f2f34c5fa82e6fbbad21b778c1f4779e331474ea2ab07dc8fa03a4766e15da"
+    },
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-1/dice-runtime.json",
+      "sha256": "3f16f264d7e7b5f51d2a57b415427ed512919e70ed3c611fc473278107974889"
+    },
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-2/dice-runtime.json",
+      "sha256": "63dcb04fb08620581d9e138af9778362483b0d706b2684b3d7a19e05e2f83aa0"
+    },
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-3/dice-runtime.json",
+      "sha256": "5a2ec8cd02311d4ab9638779efcf91980920f32c8c9de142026a28de3b821cc8"
+    }
+  ],
+  "runtime_assets": {
+    "dice.cel/006.png": "7febe0bb9838e4c4bf3abba15fe5c462dde7303d2700140247d38fedcc083479",
+    "dice.cel/006.mask.png": "c609a057abbf69897564a2f66f9a354ed148ed46fd4bf32b551b8931edc2e849",
+    "dice.cel/007.png": "8f55d9e228a7e7191bcea19f4d3d887b928242f474b7e52d3cf3437efe6d7dcb",
+    "dice.cel/007.mask.png": "c609a057abbf69897564a2f66f9a354ed148ed46fd4bf32b551b8931edc2e849",
+    "dice.cel/008.png": "fa52ee4193a36d3b18f2404dc625d82a6740a25bef47c6f8966149b1b37b191e",
+    "dice.cel/009.png": "b9dce4508eddd3d6aea316e0d9f76c16624bc8c0a3a6b09765912bf3a9f86138",
+    "dice.cel/010.png": "51fb95b75ed3419c3bcbf62bd3d524ed5c1a416ee74b9fadcbcd4c24292a9bc0",
+    "dice.cel/011.png": "bb052b3051cdb667ad9596e35529b2e97aa209b232911f1070eee3ba0d2a9f93",
+    "dice.cel/012.png": "a5b47b447d4d2dc86e150d79675b4a38ef70dc2a6bf7092b236217c733d62d17",
+    "dice.cel/013.png": "5703da8708c353dd6cc4ca5302f68d1ec650b271abe261e30ee268a291dd5ac3",
+    "dice.cel/014.png": "67a0d1e73f9ea54472a787017316bfca9ade95fd6cf16d169b0a2aa988419c7f",
+    "dice.cel/015.png": "f7c8e9f667b2a2c9f51479bb9f04e8ca4dadbedb94ee9cf0065a131d24bd7140",
+    "dice.cel/016.png": "bc22e461a92e6b1932f3e3b6beebd6671ee3d75080a693c44b3cda439b4b7bdb",
+    "dice.cel/017.png": "7e07c7e53ff0e2762237ec5fad53e5b0f19a7f86292cd8373d5b5ca3947e7819",
+    "dice.cel/018.png": "0d856b993c175b7597e8c9ef9ed21caab4a50eb9d80dc4bd43fd043a34968fbd",
+    "dice.cel/019.png": "cad8e1bf3658568806d879e25ac646b8e3f96b1fbcb30b41b03ff0e7c06134dc",
+    "dice.cel/020.png": "54f0d26733c2a1f127f38a39f90fd9f0ba173bd8057171efd55af5122749a721",
+    "dice.cel/021.png": "9208d4323fb77c6ca0ca7da97a3a5256051f831512c555b763cd1fcdc6723c47",
+    "dice.cel/022.png": "482165e1b874dd6e5d526b3bb2a93eb0cd5f60dbda24b2e71789a996de2e237b",
+    "embedded/tav-player.png": "735f066ec2b537f867df0d63eb81ae7493f2f9f8409d5acbe96117180e1826f5",
+    "bg/44898895.png": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+    "embedded/tav-player.mask.png": "a81f8eb880af0dd10d78aa66214724c209e2036dc3c07a239426f7f65d3d4488"
+  },
+  "notes": [
+    "Hver DICE-rute har egen fotografisk master; DICE-proveniens og aktivering eies av root.",
+    "Kappens6..10 og hjelmfjær bruker faktisk originalpalett for alle fire farger. Indeks11 er fast original mørkerød og er ikke med i levende masken.",
+    "Original albue har dithrede svarte indekser.14 åpne originale nullskygger mellom samme rads originale stålankre er dokumentert i kildemasken.",
+    "Disse prøvene bruker kontrollert originalinngang08a1f0 og originalt bettrykk. Ingen naturlig kartreise eller full gjennomspilling påstås."
+  ]
+}

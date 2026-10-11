@@ -14,7 +14,7 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('record',type=Path);p.add_argument('--skin-patch-raw',type=Path);p.add_argument('--skin-patch-prompt',type=Path);a=p.parse_args();a.record=a.record.resolve()
  old=json.loads(a.record.read_text());key=old['key']
- source_eyes={'TROLL1.CEL/006.png':[(27,1)],'TROLL1.CEL/009.png':[(10,2),(11,2)],'TROLL1.CEL/013.png':[(28,1),(27,2)],'TROLL1.CEL/016.png':[(11,1)],'TROLL1.CEL/022.png':[(7,1)],'TROLL1.CEL/028.png':[(10,4)]}
+ source_eyes={'TROLL1.CEL/006.png':[(27,1)],'TROLL1.CEL/009.png':[(10,2),(11,2)],'TROLL1.CEL/013.png':[(28,1),(27,2)],'TROLL1.CEL/016.png':[(11,1)],'TROLL1.CEL/022.png':[(7,1)],'TROLL1.CEL/028.png':[(10,4)],'TROLL1.CEL/032.png':[(9,1)],'TROLL1.CEL/037.png':[(23,8)],'TROLL2.CEL/001.png':[(70,7)],'TROLL2.CEL/003.png':[(2,6)],'TROLL2.CEL/007.png':[(17,7)],'TROLL2.CEL/012.png':[(43,2),(42,3)],'TROLL2.CEL/015.png':[(19,4)]}
  assert key in source_eyes
  base=a.record.parent/'candidate.png';assert sha(base)==old['candidate_sha256']
  im=Image.open(base).convert('RGBA');original=im.copy()
@@ -22,11 +22,11 @@ def main():
  packed=Image.open(FIGURES/r['packed_original']['path']);bits=[1<<n for n in range(5) if r['plane_mask']&(1<<n)]
  ix=[sum(bit for n,bit in enumerate(bits) if v&(1<<n)) for v in packed.getdata()]
  eye_index=2 if key=='TROLL1.CEL/013.png' else 1;brightness=80 if eye_index==2 else 140
- source_eye=[(x,y) for y in range(5) for x in range(r['width']) if ix[y*r['width']+x]==eye_index]
+ source_eye=[(x,y) for y in range(12 if key in {'TROLL1.CEL/037.png','TROLL2.CEL/001.png','TROLL2.CEL/003.png','TROLL2.CEL/007.png','TROLL2.CEL/015.png'} else 5) for x in range(r['width']) if ix[y*r['width']+x]==eye_index]
  assert source_eye==source_eyes[key],source_eye
  eye_min_x=min(x for x,y in source_eye);eye_min_y=min(y for x,y in source_eye)
  eye_width=(max(x for x,y in source_eye)-eye_min_x+1)*4;eye_height=(max(y for x,y in source_eye)-eye_min_y+1)*4
- eye_scan_height=32 if key=='TROLL1.CEL/028.png' else 20
+ eye_scan_height=52 if key in {'TROLL1.CEL/037.png','TROLL2.CEL/001.png','TROLL2.CEL/003.png','TROLL2.CEL/007.png','TROLL2.CEL/015.png'} else 32 if key=='TROLL1.CEL/028.png' else 20
  # Bare det høytsittende øyet velges, aldri tannen eller munnen.
  bright=[(x,y) for y in range(eye_scan_height) for x in range(im.width) if (lambda rr,g,b,aa:rr>brightness and g>brightness and b<g+20 and aa>128)(*im.getpixel((x,y)))]
  assert (3 if key=='TROLL1.CEL/028.png' else 4)<=len(bright)<=64
@@ -59,7 +59,7 @@ def main():
    if a.skin_patch_raw:
     weight=min(1,min(x-box[0]+1,box[2]-x,y-box[1]+1,box[3]-y)/2);before=original.getpixel((x,y));photo=skin.getpixel((x,y));im.putpixel((x,y),tuple(round(photo[k]*weight+before[k]*(1-weight)) for k in range(3))+(before[3],))
    else:im.putpixel((x,y),original.getpixel((u,v))[:3]+(im.getpixel((x,y))[3],));fill.append([x,y,u,v])
- versions={'TROLL1.CEL/006.png':'source-eye-v10-photo-skin','TROLL1.CEL/009.png':'source-eye-v11-photo-skin','TROLL1.CEL/013.png':'source-eye-v14-gray-photo-skin','TROLL1.CEL/016.png':'source-eye-v15-photo-skin','TROLL1.CEL/022.png':'source-eye-v16-photo-skin','TROLL1.CEL/028.png':'source-eye-v17-photo-skin'}
+ versions={'TROLL1.CEL/006.png':'source-eye-v10-photo-skin','TROLL1.CEL/009.png':'source-eye-v11-photo-skin','TROLL1.CEL/013.png':'source-eye-v14-gray-photo-skin','TROLL1.CEL/016.png':'source-eye-v15-photo-skin','TROLL1.CEL/022.png':'source-eye-v16-photo-skin','TROLL1.CEL/028.png':'source-eye-v17-photo-skin','TROLL1.CEL/032.png':'source-eye-v19-photo-skin','TROLL1.CEL/037.png':'source-eye-v22-photo-skin','TROLL2.CEL/001.png':'source-eye-troll2-v1-photo-skin','TROLL2.CEL/003.png':'source-eye-troll2-v1-photo-skin','TROLL2.CEL/007.png':'source-eye-troll2-v1-photo-skin','TROLL2.CEL/012.png':'source-eye-troll2-v1-photo-skin','TROLL2.CEL/015.png':'source-eye-troll2-v1-photo-skin'}
  out=a.record.parent/(versions[key] if a.skin_patch_raw else 'source-eye-v9');out.mkdir(parents=True,exist_ok=True)
  eye_bits=[255 if (x,y) in source_eye else 0 for y in range(r['height']) for x in range(r['width'])]
  shape=source_contours(eye_bits,r['width'],r['height'],lambda n:n>0)

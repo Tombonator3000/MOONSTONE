@@ -1,0 +1,3206 @@
+{
+  "status": "passed",
+  "checks": [
+    "34_visible_original_map_call",
+    "34_HD_route_used",
+    "34_map_HD_loaded",
+    "34_HD_changes",
+    "34_Original_exact_return",
+    "34_HD_exact_return",
+    "34_state_unchanged",
+    "35_visible_original_map_call",
+    "35_HD_route_used",
+    "35_map_HD_loaded",
+    "35_HD_changes",
+    "35_Original_exact_return",
+    "35_HD_exact_return",
+    "35_state_unchanged",
+    "36_visible_original_map_call",
+    "36_HD_route_used",
+    "36_map_HD_loaded",
+    "36_HD_changes",
+    "36_Original_exact_return",
+    "36_HD_exact_return",
+    "36_state_unchanged",
+    "37_visible_original_map_call",
+    "37_HD_route_used",
+    "37_map_HD_loaded",
+    "37_HD_changes",
+    "37_Original_exact_return",
+    "37_HD_exact_return",
+    "37_state_unchanged",
+    "38_visible_original_map_call",
+    "38_HD_route_used",
+    "38_map_HD_loaded",
+    "38_HD_changes",
+    "38_Original_exact_return",
+    "38_HD_exact_return",
+    "38_state_unchanged",
+    "39_visible_original_map_call",
+    "39_HD_route_used",
+    "39_map_HD_loaded",
+    "39_HD_changes",
+    "39_Original_exact_return",
+    "39_HD_exact_return",
+    "39_state_unchanged",
+    "40_visible_original_map_call",
+    "40_HD_route_used",
+    "40_map_HD_loaded",
+    "40_HD_changes",
+    "40_Original_exact_return",
+    "40_HD_exact_return",
+    "40_state_unchanged",
+    "41_visible_original_map_call",
+    "41_HD_route_used",
+    "41_map_HD_loaded",
+    "41_HD_changes",
+    "41_Original_exact_return",
+    "41_HD_exact_return",
+    "41_state_unchanged",
+    "round2_original_dragon_active",
+    "034_fixture_HD_used",
+    "034_fixture_changes",
+    "034_fixture_Original_return",
+    "034_fixture_HD_return",
+    "034-mirror_fixture_HD_used",
+    "034-mirror_fixture_changes",
+    "034-mirror_fixture_Original_return",
+    "034-mirror_fixture_HD_return",
+    "035_fixture_HD_used",
+    "035_fixture_changes",
+    "035_fixture_Original_return",
+    "035_fixture_HD_return",
+    "035-mirror_fixture_HD_used",
+    "035-mirror_fixture_changes",
+    "035-mirror_fixture_Original_return",
+    "035-mirror_fixture_HD_return",
+    "036_fixture_HD_used",
+    "036_fixture_changes",
+    "036_fixture_Original_return",
+    "036_fixture_HD_return",
+    "036-mirror_fixture_HD_used",
+    "036-mirror_fixture_changes",
+    "036-mirror_fixture_Original_return",
+    "036-mirror_fixture_HD_return",
+    "037_fixture_HD_used",
+    "037_fixture_changes",
+    "037_fixture_Original_return",
+    "037_fixture_HD_return",
+    "037-mirror_fixture_HD_used",
+    "037-mirror_fixture_changes",
+    "037-mirror_fixture_Original_return",
+    "037-mirror_fixture_HD_return",
+    "038_fixture_HD_used",
+    "038_fixture_changes",
+    "038_fixture_Original_return",
+    "038_fixture_HD_return",
+    "038-mirror_fixture_HD_used",
+    "038-mirror_fixture_changes",
+    "038-mirror_fixture_Original_return",
+    "038-mirror_fixture_HD_return",
+    "039_fixture_HD_used",
+    "039_fixture_changes",
+    "039_fixture_Original_return",
+    "039_fixture_HD_return",
+    "039-mirror_fixture_HD_used",
+    "039-mirror_fixture_changes",
+    "039-mirror_fixture_Original_return",
+    "039-mirror_fixture_HD_return",
+    "040_fixture_HD_used",
+    "040_fixture_changes",
+    "040_fixture_Original_return",
+    "040_fixture_HD_return",
+    "040-mirror_fixture_HD_used",
+    "040-mirror_fixture_changes",
+    "040-mirror_fixture_Original_return",
+    "040-mirror_fixture_HD_return",
+    "041_fixture_HD_used",
+    "041_fixture_changes",
+    "041_fixture_Original_return",
+    "041_fixture_HD_return",
+    "041-mirror_fixture_HD_used",
+    "041-mirror_fixture_changes",
+    "041-mirror_fixture_Original_return",
+    "041-mirror_fixture_HD_return",
+    "fixtures_state_unchanged",
+    "no_browser_errors"
+  ],
+  "errors": [],
+  "assets": {
+    "mi.c/034.png": "8979c94dcb031c1b6d8a2f7a7b3cda34e782d1faba8e6c067a8fc77beaa76bf6",
+    "mi.c/035.png": "83d973381f9f94f2c3f401de65bad3d490fd1d4810397370e21cc9ee73dbc152",
+    "mi.c/036.png": "56f5166d9d34946820a80f449dfbfb42650ee00bdcbefcc1d363c706064a57de",
+    "mi.c/037.png": "223695755338521279837873dca9e067ea165febd6f80bbe2bb5431e400ce009",
+    "mi.c/038.png": "eaff934872b9c6363990ca5b09a07e04bf0dde8dad51f92264dd3b44f508d179",
+    "mi.c/039.png": "4d3e57be12d4f75cc5cd1674d8b9fc72e32d6ad70aba01df34479f56ffdd723f",
+    "mi.c/040.png": "2c20a0f83244848ff1f4886e912a67b2c0088cf69c1ec2c32e991059fad15111",
+    "mi.c/041.png": "4a663e4639b351032b1139e26b390e9a612de00c1d55a411c1822a57d49bcb16"
+  },
+  "scope": "Original inndatareise til kartet; kun original rundeteller08f150 settes til2 ved1250 for aa utloese original drageinitialisering. Ingen palettskriving. Alle8 faktiske originale vingeslag og16 separate normal/speilet-frontendfixturer. Ikke en naturlig full gjennomspilling.",
+  "package_mode": "candidate_import",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "63a93d15ee0d36cf0eec6f0ad6b4be5d251f984e13b2634077bd0a9385f2881b",
+    "web/src/scenes.js": "05e7336cd4f92d17ec4dc2172761e7720f80f1532b343a06453f54c505c13c9f"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "url": "http://127.0.0.1:41341/moonstone.html",
+  "html_sha256": "86e310dfb2e88fdab2027ba822cc85092f3f1446620aa345fb7f5899c5494e49",
+  "runtime": {
+    "seen": {
+      "34": {
+        "frame": 1595,
+        "source": {
+          "fil": "mi.c",
+          "bilde": 34,
+          "x": 183,
+          "y": 14,
+          "w": 35,
+          "h": 14,
+          "speilet": true,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 528198
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 699112
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": 185,
+            "y": 14,
+            "w": 35,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ],
+        "figures": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": -35,
+            "y": 29,
+            "w": 35,
+            "h": 14,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": 183,
+            "y": 14,
+            "w": 35,
+            "h": 14,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "world-map",
+          "match": 0.9855,
+          "preserved_pixels": 457,
+          "hash": "2c1e0fa5",
+          "hd_icons": 26
+        },
+        "control": {
+          "godkjent": 2,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 1,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "state": 2071369663,
+        "state_after": 2071369663,
+        "original_sha256": "ddc5354e43cbfe2918797e7f6ed5e5e5ad7ddc72218c2f877ce10be5e3016984",
+        "hd_sha256": "343630a878c149f26a42417e26c4844a49adf76fa79cc13378b81bbf80a98aad"
+      },
+      "35": {
+        "frame": 1445,
+        "source": {
+          "fil": "mi.c",
+          "bilde": 35,
+          "x": 33,
+          "y": 11,
+          "w": 35,
+          "h": 16,
+          "speilet": true,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 528198
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 699112
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 35,
+            "x": 35,
+            "y": 11,
+            "w": 35,
+            "h": 16,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ],
+        "figures": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": -35,
+            "y": 29,
+            "w": 35,
+            "h": 14,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 35,
+            "x": 33,
+            "y": 11,
+            "w": 35,
+            "h": 16,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "world-map",
+          "match": 0.9855,
+          "preserved_pixels": 447,
+          "hash": "2c1e0fa5",
+          "hd_icons": 26
+        },
+        "control": {
+          "godkjent": 2,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 1,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "state": 252871546,
+        "state_after": 252871546,
+        "original_sha256": "c67f5c0cb45086a5e8baad2d1d6395712a715b57fff4e711bbce57ca571443e3",
+        "hd_sha256": "6c15f96f6d11873ba6b23b34e4b2414deda8d70fe6d3eb835849a5b63ad65ab4"
+      },
+      "36": {
+        "frame": 1449,
+        "source": {
+          "fil": "mi.c",
+          "bilde": 36,
+          "x": 38,
+          "y": 9,
+          "w": 34,
+          "h": 18,
+          "speilet": true,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 528198
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 699112
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 36,
+            "x": 40,
+            "y": 9,
+            "w": 34,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ],
+        "figures": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": -35,
+            "y": 29,
+            "w": 35,
+            "h": 14,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 36,
+            "x": 38,
+            "y": 9,
+            "w": 34,
+            "h": 18,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "world-map",
+          "match": 0.9855,
+          "preserved_pixels": 450,
+          "hash": "2c1e0fa5",
+          "hd_icons": 26
+        },
+        "control": {
+          "godkjent": 2,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 1,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "state": 452735997,
+        "state_after": 452735997,
+        "original_sha256": "6bbc4c9b39743512224bbf1a4f1e31cfd0740cab18ab1ad19a1c94ac5f9b7c78",
+        "hd_sha256": "19543cbbd290dc4009fa1cb15f605213c910456b4632c9c2f8b6d0b5a1430517"
+      },
+      "37": {
+        "frame": 1453,
+        "source": {
+          "fil": "mi.c",
+          "bilde": 37,
+          "x": 41,
+          "y": 10,
+          "w": 35,
+          "h": 23,
+          "speilet": true,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 528198
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 699112
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 43,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ],
+        "figures": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": -35,
+            "y": 29,
+            "w": 35,
+            "h": 14,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 41,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "world-map",
+          "match": 0.9855,
+          "preserved_pixels": 484,
+          "hash": "2c1e0fa5",
+          "hd_icons": 26
+        },
+        "control": {
+          "godkjent": 2,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 1,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "state": 3567054919,
+        "state_after": 3567054919,
+        "original_sha256": "4cf202eba65c97c74482d98ab8793f107aa0b6a349d1741b2f30eef358f76da5",
+        "hd_sha256": "a96413a66ca14cf4907c9e6332a7866fd7d842649f78cfa876b31f63964e579c"
+      },
+      "38": {
+        "frame": 1581,
+        "source": {
+          "fil": "mi.c",
+          "bilde": 38,
+          "x": 168,
+          "y": 13,
+          "w": 36,
+          "h": 21,
+          "speilet": true,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 528198
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 699112
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 39,
+            "x": 170,
+            "y": 13,
+            "w": 36,
+            "h": 20,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ],
+        "figures": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": -35,
+            "y": 29,
+            "w": 35,
+            "h": 14,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 38,
+            "x": 168,
+            "y": 13,
+            "w": 36,
+            "h": 21,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "world-map",
+          "match": 0.9855,
+          "preserved_pixels": 501,
+          "hash": "2c1e0fa5",
+          "hd_icons": 26
+        },
+        "control": {
+          "godkjent": 2,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 1,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "state": 213495147,
+        "state_after": 213495147,
+        "original_sha256": "f89a39d95b2f0337797fa1d0cf99875e90d83685fe830eaf82d50a465bf4d45b",
+        "hd_sha256": "c6c452649fae55c1760bfbada172fac1382ce9e8ed7d10b0e55b2070749995df"
+      },
+      "39": {
+        "frame": 1583,
+        "source": {
+          "fil": "mi.c",
+          "bilde": 39,
+          "x": 170,
+          "y": 13,
+          "w": 36,
+          "h": 20,
+          "speilet": true,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 528198
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 699112
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 39,
+            "x": 172,
+            "y": 13,
+            "w": 36,
+            "h": 20,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ],
+        "figures": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": -35,
+            "y": 29,
+            "w": 35,
+            "h": 14,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 39,
+            "x": 170,
+            "y": 13,
+            "w": 36,
+            "h": 20,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "world-map",
+          "match": 0.9855,
+          "preserved_pixels": 488,
+          "hash": "2c1e0fa5",
+          "hd_icons": 26
+        },
+        "control": {
+          "godkjent": 2,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 1,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "state": 3759509801,
+        "state_after": 3759509801,
+        "original_sha256": "ef312b97da66971e92bd0d8997f39de14faaaef3302d699af208b8f0c4d6fcf7",
+        "hd_sha256": "2ab1e9c9b9666a0447a7dc866b786fddbf0a337ff8d2d1c62347c9a6fddfb4e1"
+      },
+      "40": {
+        "frame": 1587,
+        "source": {
+          "fil": "mi.c",
+          "bilde": 40,
+          "x": 175,
+          "y": 14,
+          "w": 35,
+          "h": 18,
+          "speilet": true,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 528198
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 699112
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 40,
+            "x": 177,
+            "y": 14,
+            "w": 35,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ],
+        "figures": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": -35,
+            "y": 29,
+            "w": 35,
+            "h": 14,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 40,
+            "x": 175,
+            "y": 14,
+            "w": 35,
+            "h": 18,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "world-map",
+          "match": 0.9855,
+          "preserved_pixels": 483,
+          "hash": "2c1e0fa5",
+          "hd_icons": 26
+        },
+        "control": {
+          "godkjent": 2,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 1,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "state": 3087997440,
+        "state_after": 3087997440,
+        "original_sha256": "b9e9d56284e5fa9febfacce21a03fc837e06e630503447a9374b2026c93b9d3b",
+        "hd_sha256": "dcef5b12ab367d1f84464083dea9369878a81056621ef74264fdddb344b75530"
+      },
+      "41": {
+        "frame": 1591,
+        "source": {
+          "fil": "mi.c",
+          "bilde": 41,
+          "x": 179,
+          "y": 15,
+          "w": 35,
+          "h": 15,
+          "speilet": true,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 528198
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "xoff": 0,
+            "speilet": false,
+            "target": 666838,
+            "caller": 699112
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 41,
+            "x": 181,
+            "y": 15,
+            "w": 35,
+            "h": 15,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ],
+        "figures": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": -35,
+            "y": 29,
+            "w": 35,
+            "h": 14,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 21,
+            "x": 18,
+            "y": 11,
+            "w": 24,
+            "h": 19,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 5,
+            "x": 10,
+            "y": 10,
+            "w": 8,
+            "h": 10,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "mi.c",
+            "bilde": 41,
+            "x": 179,
+            "y": 15,
+            "w": 35,
+            "h": 15,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "world-map",
+          "match": 0.9855,
+          "preserved_pixels": 463,
+          "hash": "2c1e0fa5",
+          "hd_icons": 26
+        },
+        "control": {
+          "godkjent": 2,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 1,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "state": 3993595439,
+        "state_after": 3993595439,
+        "original_sha256": "f6dd4f5ed9466570579664409e558ff32f2d07b64af600af4ef82678675c642a",
+        "hd_sha256": "075cccfe5a734adfcf9f84cec50e6ad7a0829239e647883ba041ece18610e1f3"
+      }
+    },
+    "trace": [
+      {
+        "frame": 1375,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": -35,
+            "y": 29,
+            "w": 35,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1377,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": -33,
+            "y": 28,
+            "w": 35,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1380,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 35,
+            "x": -31,
+            "y": 24,
+            "w": 35,
+            "h": 16,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1381,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 35,
+            "x": -29,
+            "y": 23,
+            "w": 35,
+            "h": 16,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1384,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 36,
+            "x": -26,
+            "y": 20,
+            "w": 34,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1385,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 36,
+            "x": -24,
+            "y": 19,
+            "w": 34,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1388,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": -23,
+            "y": 19,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1389,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": -21,
+            "y": 18,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1392,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 38,
+            "x": -20,
+            "y": 20,
+            "w": 36,
+            "h": 21,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1393,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 38,
+            "x": -18,
+            "y": 19,
+            "w": 36,
+            "h": 21,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1396,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 39,
+            "x": -16,
+            "y": 18,
+            "w": 36,
+            "h": 20,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1397,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 39,
+            "x": -14,
+            "y": 17,
+            "w": 36,
+            "h": 20,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1400,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 40,
+            "x": -11,
+            "y": 17,
+            "w": 35,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1401,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 40,
+            "x": -9,
+            "y": 16,
+            "w": 35,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1404,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 41,
+            "x": -7,
+            "y": 16,
+            "w": 35,
+            "h": 15,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1405,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 41,
+            "x": -5,
+            "y": 15,
+            "w": 35,
+            "h": 15,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1407,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": -3,
+            "y": 14,
+            "w": 35,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1409,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": -1,
+            "y": 14,
+            "w": 35,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1411,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 35,
+            "x": 1,
+            "y": 11,
+            "w": 35,
+            "h": 16,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1413,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 35,
+            "x": 3,
+            "y": 11,
+            "w": 35,
+            "h": 16,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1415,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 36,
+            "x": 6,
+            "y": 9,
+            "w": 34,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1417,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 36,
+            "x": 8,
+            "y": 9,
+            "w": 34,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1419,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 9,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1421,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 11,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1423,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 38,
+            "x": 12,
+            "y": 13,
+            "w": 36,
+            "h": 21,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1425,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 38,
+            "x": 14,
+            "y": 13,
+            "w": 36,
+            "h": 21,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1427,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 39,
+            "x": 16,
+            "y": 13,
+            "w": 36,
+            "h": 20,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1429,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 39,
+            "x": 18,
+            "y": 13,
+            "w": 36,
+            "h": 20,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1431,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 40,
+            "x": 21,
+            "y": 14,
+            "w": 35,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1433,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 40,
+            "x": 23,
+            "y": 14,
+            "w": 35,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1435,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 41,
+            "x": 25,
+            "y": 15,
+            "w": 35,
+            "h": 15,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1437,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 41,
+            "x": 27,
+            "y": 15,
+            "w": 35,
+            "h": 15,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1439,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": 29,
+            "y": 14,
+            "w": 35,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1441,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": 31,
+            "y": 14,
+            "w": 35,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1443,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 35,
+            "x": 33,
+            "y": 11,
+            "w": 35,
+            "h": 16,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1445,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 35,
+            "x": 35,
+            "y": 11,
+            "w": 35,
+            "h": 16,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1447,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 36,
+            "x": 38,
+            "y": 9,
+            "w": 34,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1449,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 36,
+            "x": 40,
+            "y": 9,
+            "w": 34,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1451,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 41,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1453,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 43,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1455,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 45,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1457,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 47,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1459,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 49,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1461,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 51,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1463,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 53,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1465,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 55,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1467,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 57,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1469,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 59,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1471,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 61,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1473,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 63,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1475,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 65,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1477,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 67,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1479,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 69,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1481,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 71,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1483,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 73,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1485,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 75,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1487,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 77,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1489,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 79,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1491,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 81,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1493,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 83,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1495,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 85,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1497,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 87,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1499,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 89,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1501,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 91,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1503,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 93,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1505,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 95,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1507,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 97,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1509,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 99,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1511,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 101,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1513,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 103,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1515,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 105,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1517,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 107,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1519,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 109,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1521,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 111,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1523,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 113,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1525,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 115,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1527,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 117,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1529,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 119,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1531,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 121,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1533,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 123,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1535,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 125,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1537,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 127,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1539,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 129,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1541,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 131,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1543,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 133,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1545,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 135,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1547,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 137,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1549,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 139,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1551,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 141,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1553,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 143,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1555,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 145,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1557,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 147,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1559,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 149,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1561,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 151,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1563,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 153,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1565,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 155,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1567,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 157,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1569,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 159,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1571,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 161,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1573,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 163,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1575,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 37,
+            "x": 165,
+            "y": 10,
+            "w": 35,
+            "h": 23,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1577,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 38,
+            "x": 166,
+            "y": 13,
+            "w": 36,
+            "h": 21,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1579,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 38,
+            "x": 168,
+            "y": 13,
+            "w": 36,
+            "h": 21,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1581,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 39,
+            "x": 170,
+            "y": 13,
+            "w": 36,
+            "h": 20,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1583,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 39,
+            "x": 172,
+            "y": 13,
+            "w": 36,
+            "h": 20,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1585,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 40,
+            "x": 175,
+            "y": 14,
+            "w": 35,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1587,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 40,
+            "x": 177,
+            "y": 14,
+            "w": 35,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1589,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 41,
+            "x": 179,
+            "y": 15,
+            "w": 35,
+            "h": 15,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1591,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 41,
+            "x": 181,
+            "y": 15,
+            "w": 35,
+            "h": 15,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1593,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": 183,
+            "y": 14,
+            "w": 35,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1595,
+        "dragon": [
+          {
+            "fil": "mi.c",
+            "bilde": 34,
+            "x": 185,
+            "y": 14,
+            "w": 35,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      }
+    ],
+    "round": 2,
+    "dragon_flag": 1
+  },
+  "fixtures": [
+    {
+      "key": "mi.c/034.png",
+      "mirror": false,
+      "original_sha256": "a5442bccd50d2048ae2e695e1d1ac841590b28c33cfedb4274a979bb9731535b",
+      "hd_sha256": "013d3dc47308cfc81c74b32b83f45cf1962e3bd7f99a53e5546b27c89cf79bda"
+    },
+    {
+      "key": "mi.c/034.png",
+      "mirror": true,
+      "original_sha256": "0adab41253acc4ed604fdfc61dc3ae3eaf57e7c38fbe4058b110140d1de71bba",
+      "hd_sha256": "0fbe7889ae39bea380681ca0e8f0bdf83dc5a03e12daeb45640c2314fb4a2c89"
+    },
+    {
+      "key": "mi.c/035.png",
+      "mirror": false,
+      "original_sha256": "f723d3e8e3f2e50105c7b82d80fcc403d693586dffbcfeea0e7c83e8dbeace66",
+      "hd_sha256": "e56ed5930ba15d3c4ada5d2607db403e7011d6ee9665733d56dc428aebd9da86"
+    },
+    {
+      "key": "mi.c/035.png",
+      "mirror": true,
+      "original_sha256": "008ed5a6a570d4abc96fc543bb943f242e1bdc0e2435692b03708586e2e72158",
+      "hd_sha256": "a012beda0023b6d7c8b8a6660fbc48758b55bef15c9f312ba4f32cd5d555853a"
+    },
+    {
+      "key": "mi.c/036.png",
+      "mirror": false,
+      "original_sha256": "4188dc719ff5d0d1aaf2103eeb96e892cdadfff6168097e8660a0365b8a230fb",
+      "hd_sha256": "72d8a73502cc8236cd42b73f20af6c1ffecb45039a798d20540ab1857ac5eb95"
+    },
+    {
+      "key": "mi.c/036.png",
+      "mirror": true,
+      "original_sha256": "91cecbc439d4e6c7cacd54f2c1bb1c06d396d235583933278c9ae2371514927d",
+      "hd_sha256": "6582b207378857df34ab00ff3c8b7baf1139745c8198cff7525017373e49558d"
+    },
+    {
+      "key": "mi.c/037.png",
+      "mirror": false,
+      "original_sha256": "e3299060e59aba5b656bef6e026ecfd5c1540ca60b6780c0f758f5e12452a6fa",
+      "hd_sha256": "8229ffea575d0424f4be323a9807ff18ce074d1f749bea037847c03867f9d074"
+    },
+    {
+      "key": "mi.c/037.png",
+      "mirror": true,
+      "original_sha256": "78e79f313e01e57399336ca1615a60bcd83d899fbdf0ccce36ddb4cdb232fc22",
+      "hd_sha256": "59bd34a6f7c1165cbad70a74cac9a92a7236318365939ff5f8475c512b68bad2"
+    },
+    {
+      "key": "mi.c/038.png",
+      "mirror": false,
+      "original_sha256": "0cbba7269c055a090662e8b5a16d0fb65048231dd02468a4517cc5f831398a4c",
+      "hd_sha256": "d92b03f51df0fd2fc8b74eb6ef8aabc8f47b111b286f9ea46715b763c49956cc"
+    },
+    {
+      "key": "mi.c/038.png",
+      "mirror": true,
+      "original_sha256": "025e3d6b47d5adcd72e16fac92807cea0491daba431b00f73cfc843c978e7ab7",
+      "hd_sha256": "321fb0e73ddad01bdb97a67bbca878a46515121df804f5b0c92a668900a08c44"
+    },
+    {
+      "key": "mi.c/039.png",
+      "mirror": false,
+      "original_sha256": "8d4200eb50b6fc452e6d293f44ad878f581c8302c8bbee1312f85d6d452d1fb7",
+      "hd_sha256": "0cb9a0b395a89a644512c9173f1022910c939892be4c2ea823324d8ca6c603a9"
+    },
+    {
+      "key": "mi.c/039.png",
+      "mirror": true,
+      "original_sha256": "423ae173fc0bde60d48036b9da07fc7024d6415f8c7e5f0c4103e4901ebcb744",
+      "hd_sha256": "89431e8dbc90ee8dfc9826f6df3ff7d2bfdc2d02923615dbeb86866ca725a815"
+    },
+    {
+      "key": "mi.c/040.png",
+      "mirror": false,
+      "original_sha256": "fc87356ca85ad086c7c5ca3f30eac98fd0cd43ce15ebcff602c1f7d58f02d902",
+      "hd_sha256": "f7a55e6c4cd8bf52a03246d1e721d0f129a61abbf039e03b35fd41425eb71c6b"
+    },
+    {
+      "key": "mi.c/040.png",
+      "mirror": true,
+      "original_sha256": "6ad72d5f848ec406e3fa8bc094dc5b146be4f2d34502f34f9e7aeaa74a1bc310",
+      "hd_sha256": "0003a19af7d19bed39d3ca264a52160d5c0c1416dd92c617d71cae63eae4fd72"
+    },
+    {
+      "key": "mi.c/041.png",
+      "mirror": false,
+      "original_sha256": "0d1932370a4d24c7e07287bcf7d510da2ab61983ccfe9671ae242cab94d6d6e6",
+      "hd_sha256": "7dd2e1e77d2106b214aa1897523cd8e7697dd78c95ca8900e0914285f207343a"
+    },
+    {
+      "key": "mi.c/041.png",
+      "mirror": true,
+      "original_sha256": "e9cb7522d461b5a3fe823cf9dcd3b40f213313c887d8bbce2668c68148daafec",
+      "hd_sha256": "171f811f005cff24d6a1e62f1dd1e2e89528f3e725613cae12473ce96389dfcd"
+    }
+  ]
+}

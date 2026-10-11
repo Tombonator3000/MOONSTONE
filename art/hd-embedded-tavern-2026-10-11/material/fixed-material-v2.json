@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "method": "source_fixed_material_normalization",
+  "input": "verification/frozen-player-before-fixed/tav-player.png",
+  "input_sha256": "4f91cc08fe76a703947ee3094d0df855d8976d047292aa9c293d3047885fa81a",
+  "output": "packed/embedded/tav-player-fixed-v2.png",
+  "output_sha256": "735f066ec2b537f867df0d63eb81ae7493f2f9f8409d5acbe96117180e1826f5",
+  "source_indices_sha256": "d1e01b2fe5908993ffc15d184c89ebe62f55ee94caa04bfd431963cfa55ad27f",
+  "changes_by_source_index": {
+    "0": 965,
+    "3": 65,
+    "4": 244,
+    "5": 741,
+    "11": 6668,
+    "12": 9,
+    "13": 3,
+    "17": 24,
+    "19": 9,
+    "20": 37,
+    "23": 60,
+    "27": 3,
+    "31": 3
+  },
+  "live_RGB_changed": 0,
+  "source_alpha_changed": 0,
+  "scope": "Original11 er fast moerkeroedt kappeskyggemateriale. Bare feilblaatt original0-materiale nøytraliseres, mens fotografiske varme staal-/kullskygger beholdes. Feilblaatt fotomateriale paa staal/skum og antialias-kant nøytraliseres etter originalens materialklasse. Fotografisk tekstur og luminans brukes; original6..10-RGB, masken, geometrien og alfa bevares byteidentisk. Ingen ny figur eller egen nytegning paastaas."
+}

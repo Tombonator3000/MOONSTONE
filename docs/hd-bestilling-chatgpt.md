@@ -1,6 +1,6 @@
 # HD-grafikk til Moonstone: bestilling
 
-Alt under streken er en ferdig melding. Lim den inn til ChatGPT og legg ved `docs/hd-bestilling-liste.csv`. Listen lages på nytt med `python3 tools/hd_bestilling.py Moonstonecd32-AMIGA.zip docs/hd-bestilling-liste.csv`, og tallene under er fra den kjøringen (11. oktober 2026). Bakgrunnen for listen, med belegg, står i `docs/hd-mangler.md`.
+Alt under streken er en ferdig melding. Lim den inn til ChatGPT og legg ved `docs/hd-bestilling-liste.csv`. Listen lages på nytt med `python3 tools/hd_bestilling.py Moonstonecd32-AMIGA.zip docs/hd-bestilling-liste.csv`, og tallene under er fra den kjøringen (12. oktober 2026). Bakgrunnen for listen, med belegg, står i `docs/hd-mangler.md`.
 
 Meldingen viser til filer som kommer med samme PR som denne bestillingen (listen, `tools/hd_bestilling.py`, `docs/hd-mangler.md`, maskeformatet i `docs/hd-grafikk.md` og kildebildene i `art/photoreal/references/runtime_background/`). Send den når PR-en er flettet, og sjekk at filene finnes på https://github.com/Tombonator3000/MOONSTONE/tree/main.
 
@@ -18,7 +18,7 @@ Det viktigste: **samme motiv, samme form, samme plassering, bare skarpere.** Ikk
 
 ## 2. Listen
 
-`docs/hd-bestilling-liste.csv` har 1654 gjenstående rader, skilt med semikolon. Kolonnene:
+`docs/hd-bestilling-liste.csv` har 1448 gjenstående rader, skilt med semikolon. Kolonnene:
 
 | Kolonne | Hva |
 |---|---|
@@ -37,23 +37,20 @@ Antall per gruppe, i rekkefølgen du bør ta dem:
 
 | Pri | Gruppe | Rader | Filer |
 |---|---|---|---|
-| 3 | Monstre | 1035 | Balok, beistet, Demon, DRAGON, Mudmen, RATMEN, TROGGAxe, TROGGSpear, TROLL |
-| 3 | Riddere | 105 | KN1-2.ob og HE1-2.ob, inkludert HE-kopier via merknadene |
-| 3 | Stedsfigurer | 54 | Wi1.C og hen1.c |
+| 3 | Monstre | 1002 | Balok, beistet, Demon, DRAGON, Mudmen, RATMEN, TROGGAxe, TROGGSpear, TROLL |
+| 3 | Stedsfigurer | 37 | hen1.c |
 | 4 | Blod og sår | 106 | KN5.ob, blo.cel |
-| 4 | Drageanimasjon | 8 | mi.c 034-041, åtte separate ruter |
-| 4 | Kroanimasjoner | 17 | dice.cel 006-009 stålhanske/arm, 010-022 tre kastede terninger |
-| 4 | Intro og slutt | 329 | au1, co1, da1, dg1, dw1, ha1, li1, ov1 |
+| 4 | Intro og slutt | 303 | au1, co1, da1, dg1, dw1, li1 |
 
-Listen har bare figur- og animasjonsarbeid igjen. De 11 ikonmaterialene, fem bakgrunnsrevisjonene og logoen er aktivert etter kilde- og runtimekontroll. To komplette rullestriper for intro og slutt er også koblet inn. Pakken har 81 aktive bakgrunner, inkludert alle 56 sammensatte kampvarianter, og 718 PNG-ruter i 724 manifestfiler. 1654 selvstendige nytegninger gir 1824 konkrete PNG-ruter med eksakte kopier og HE-fargekopier.
+Listen har bare figur- og animasjonsarbeid igjen. De 11 ikonmaterialene, fem bakgrunnsrevisjonene og logoen er aktivert etter kilde- og runtimekontroll. To komplette rullestriper for intro og slutt er også koblet inn. Pakken har 81 aktive bakgrunner, inkludert alle 56 sammensatte kampvarianter, og 1145 PNG-ruter i 1151 manifestfiler. 1448 selvstendige nytegninger gir 1555 konkrete PNG-ruter med eksakte kopier og HE-fargekopier.
 
-118 rader trenger maske: KN1 55, KN2 21, KN5 15, HE1 13, HE2 6, Math/Wi1.C 015-020 seks og dice.cel006/007 to. I tillegg kommer 57 masker til HE-kopiene (punkt 3.5), totalt 175 gjenstående maskefiler. KN3/HE3, inklusive den utvidede planmasken til HE3/031, er levert. Math015-020 følger aktiv ridderfarge i indeks6-10; dette er kontrollert i originalrutinen og med blå og rød Math i spillet.
+8 gjenstående rader trenger maske, alle i KN5.ob. Alle HE-kopier er aktivert; ingen HE-kopimasker gjenstår. KN1-4, HE1-3, Math/Wi1.C og dice.cel006/007 er levert med kildebundne fargemasker. Math015-020 og tavernaspilleren følger aktiv ridderfarge i indeks6-10. Normal standardlasting er kontrollert i alle fire tavernaspillerfarger, uten kandidatimport eller palettskriving.
 
 Ni palettstyrte valgkonturer, MI032-meldingspergamentet, alle ti KI-fragmenter034-044, sel.cel/001 og mys.cel/000-005 er aktive, sammen med seks DragonDice-symboler. De tidligere erstatningsfontene er byttet til 144 originale kildeformer: 142 glyfer og to opphavsrettsfelt. Logoen bruker fotografisk gullmateriale i originalens nøyaktige bokstav- og skyggeformer.
 
-26 separate sverd-/bevegelsesruter i KN4.ob og18 flammer i hen1.c er nå aktive etter sammenligning og runtimekontroll. De gir69 konkrete ruter med kildeidentiske kopier, samt én riddermaske. Math har i tillegg en statisk ansikts-/kroppsplate i WI1.PIV som ikke er en CEL-rad. Denne er kartlagt og under visuell bearbeiding, og er ikke telt ferdig. Tavernaens006..022 bruker tav.piv-paletten;006/007 følger aktiv ridder i indeks6..10. Kildekode og alle fire originale fargevalg er kontrollert uten palettskriving.
+Alle KN1-4-/HE1-3-ruter, åtte kartdrager, alle DICE-ruter, Math, de fire OV1-forgrunnene og 22 HA1-ruter er aktivert etter original- og runtimekontroll.18 flammer i hen1.c er også aktive; andre hen1-figurer gjenstår. Math har en ekstra fastfigur i WI1.PIV, og tavernaen har en innbakt spillerfigur utenfor CEL-listen. Begge er nå levert. TAV-bakgrunnen er renset for den gamle spilleren, mens øvrige tavernagjester er bevart. TROLL har fortsatt enkelte ruter som må fullføres.
 
-Hele ridderposer har begrenset HD-dekning i en eldre metodeprøve. De telles ikke som ferdig nytegning av hver originalrute; brukerens krav om separate ruter gjelder fortsatt.
+De fem eldre helfigurprøvene er tatt ut av standardpakken. De er bevart i produksjonsarkivet og telles ikke som separat nytegning. Aktiv riddergrafikk bruker nå hver originalrute og tilhørende fargemaske. [Tredje figurleveranse](../art/hd-completion-figures-2026-10-11/delivery-progress-003.json) binder aktive bilder, originale kilder og kontrollresultater. Rutekontroll og kontrollerte scener er dokumentert; full naturlig gjennomspilling av alle animasjoner er ikke påstått.
 
 Rekkefølgen følger brukerens bestilling: **ikoner og UI først, så alle bakgrunner og logoen, deretter figurer og animasjoner**. Nytegn og kontroller hver figurrute separat. I standardpakken (`web/hd/`) må hver ny eller erstattet fil føres i `web/hd/manifest.json` med sha256 og størrelse. Math, terningspillet og de aktiverte introscenene har allerede scenekoblinger. Nye bakgrunnsnøkler må få en passende scenekobling ved levering. Ridderne, monstrene og blodet har støtte i koden for figurer i flere deler og fargemasker. Lasteskjermen og Prepare yourself-banneret har aktive HD-scener og er ikke med i bestillingen. Skjermbilder fra faktisk spillvisning skal sammenlignes med originalen før en ny del kalles ferdig.
 

@@ -1,0 +1,449 @@
+{
+  "schema": 1,
+  "scope": "Skrivebeskyttet kartlegging av innebygd levende spillerfigur, uten nytegning eller produksjonsendring. Ikke del av1779 selvstendige CEL-mastere.",
+  "source_file": "data/tav.piv",
+  "source_file_sha256": "466c92eac2ddb68f0eb98689db6ad36017683b29b23638c7b5c84fef4f6f3b42",
+  "source_indices_sha256": "87391f11f050e562a5652bb24689bc58b8073c5f99ce0c0f13b033365712d40e",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "original_dimensions": [
+    320,
+    200
+  ],
+  "planes": 5,
+  "scene_contract": {
+    "id": "tavern",
+    "file": "tav.piv",
+    "frame": 0,
+    "source_sha256": "466c92eac2ddb68f0eb98689db6ad36017683b29b23638c7b5c84fef4f6f3b42",
+    "hash": "44898895",
+    "rect": [
+      0,
+      0,
+      256,
+      200
+    ],
+    "minimum_match": 0.97,
+    "foreground_padding": 0,
+    "overlays": [
+      {
+        "key": "scene-text/014",
+        "rect": [
+          272,
+          51,
+          309,
+          64
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": true
+      },
+      {
+        "key": "scene-text/015",
+        "rect": [
+          272,
+          79,
+          309,
+          92
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": true
+      },
+      {
+        "key": "scene-text/016",
+        "rect": [
+          272,
+          107,
+          309,
+          120
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": true
+      },
+      {
+        "key": "scene-text/017",
+        "rect": [
+          272,
+          135,
+          309,
+          148
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": true
+      },
+      {
+        "key": "scene-text/018",
+        "rect": [
+          272,
+          163,
+          309,
+          176
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": true
+      },
+      {
+        "key": "scene-text/019",
+        "rect": [
+          272,
+          182,
+          310,
+          196
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": true
+      },
+      {
+        "key": "scene-icons/000",
+        "rect": [
+          272,
+          4,
+          310,
+          29
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": true
+      },
+      {
+        "key": "scene-icons/001",
+        "rect": [
+          277,
+          35,
+          305,
+          51
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": true
+      },
+      {
+        "key": "scene-icons/002",
+        "rect": [
+          277,
+          63,
+          305,
+          79
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": true
+      },
+      {
+        "key": "scene-icons/003",
+        "rect": [
+          277,
+          91,
+          305,
+          107
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": true
+      },
+      {
+        "key": "scene-icons/004",
+        "rect": [
+          277,
+          119,
+          305,
+          135
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": true
+      },
+      {
+        "key": "scene-icons/005",
+        "rect": [
+          277,
+          147,
+          305,
+          163
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": true
+      }
+    ]
+  },
+  "live_indices": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "source_palette_6_10": [
+    [
+      255,
+      0,
+      0
+    ],
+    [
+      204,
+      0,
+      0
+    ],
+    [
+      170,
+      0,
+      0
+    ],
+    [
+      119,
+      0,
+      0
+    ],
+    [
+      85,
+      0,
+      0
+    ]
+  ],
+  "whole_bank_live_pixels": 3698,
+  "live_components": [
+    {
+      "pixels": 3645,
+      "bbox": [
+        131,
+        67,
+        223,
+        171
+      ],
+      "indices_histogram": {
+        "10": 354,
+        "8": 1456,
+        "9": 1057,
+        "7": 402,
+        "6": 376
+      }
+    },
+    {
+      "pixels": 36,
+      "bbox": [
+        150,
+        161,
+        160,
+        174
+      ],
+      "indices_histogram": {
+        "10": 36
+      }
+    },
+    {
+      "pixels": 4,
+      "bbox": [
+        171,
+        47,
+        172,
+        51
+      ],
+      "indices_histogram": {
+        "10": 4
+      }
+    },
+    {
+      "pixels": 3,
+      "bbox": [
+        171,
+        34,
+        172,
+        37
+      ],
+      "indices_histogram": {
+        "10": 3
+      }
+    },
+    {
+      "pixels": 2,
+      "bbox": [
+        162,
+        33,
+        163,
+        35
+      ],
+      "indices_histogram": {
+        "10": 2
+      }
+    },
+    {
+      "pixels": 2,
+      "bbox": [
+        163,
+        40,
+        164,
+        42
+      ],
+      "indices_histogram": {
+        "10": 2
+      }
+    },
+    {
+      "pixels": 2,
+      "bbox": [
+        170,
+        55,
+        171,
+        57
+      ],
+      "indices_histogram": {
+        "10": 2
+      }
+    },
+    {
+      "pixels": 1,
+      "bbox": [
+        163,
+        46,
+        164,
+        47
+      ],
+      "indices_histogram": {
+        "10": 1
+      }
+    },
+    {
+      "pixels": 1,
+      "bbox": [
+        163,
+        54,
+        164,
+        55
+      ],
+      "indices_histogram": {
+        "10": 1
+      }
+    },
+    {
+      "pixels": 1,
+      "bbox": [
+        164,
+        58,
+        165,
+        59
+      ],
+      "indices_histogram": {
+        "10": 1
+      }
+    },
+    {
+      "pixels": 1,
+      "bbox": [
+        205,
+        68,
+        206,
+        69
+      ],
+      "indices_histogram": {
+        "9": 1
+      }
+    }
+  ],
+  "player_live_region": [
+    131,
+    67,
+    223,
+    174
+  ],
+  "player_live_region_pixels": 3682,
+  "source_evidence": [
+    "disasm/mog.s:$08a224..08a230 laster tav.piv til dat_0aa948",
+    "$08a236..08a242 kopierer TAV-paletten til08ceaa",
+    "$08a3b2 lea08ceaa,a0; $08a3b8 d0=12; $08a3be jsr08a9b6 erstatter indekser6..10",
+    "$08a9b6..08aa42 leser aktiv_ridder+0x36 og skriver5RGB4-farger"
+  ],
+  "active_knight_palettes_rgb4": {
+    "0_blue": [
+      "05d",
+      "03b",
+      "028",
+      "016",
+      "003"
+    ],
+    "1_yellow": [
+      "fa0",
+      "c60",
+      "b40",
+      "930",
+      "710"
+    ],
+    "2_green": [
+      "0c5",
+      "0a3",
+      "082",
+      "061",
+      "040"
+    ],
+    "3_red": [
+      "e00",
+      "b00",
+      "900",
+      "600",
+      "300"
+    ]
+  },
+  "observed_runtime_status": "Original full tavern entrance is measured by root; this artifact verifies source/disassembly only.",
+  "required_followup": [
+    "Separat figurplate med originalplassering for hjelm, kappe, hansker og arm, avgrenset mot bord/andre personer.",
+    "Levende materialmaske som følger faktisk skanout-palett6..10 for kappe og hjelmfjær, inkludert fragmentkomponentene.",
+    "Kontroller utsiden av spillerregionen:16 andre kilderegisterpiksler finnes i barmaidens skygger; ikke erstatt hele bakgrunnen med én statisk ridderfarge.",
+    "Sammenlign hele tavernaen i4aktivefarger, Original/HD-retur, lys og original terning-/handanimasjon før aktivering."
+  ],
+  "references": {
+    "art/hd-embedded-tavern-2026-10-11/references/tav-live-palette-6-10.png": "e6e692fd2c26c83bcf6dae1dc9faf0e15a27582d985d028b1da25716d2813a6e",
+    "art/hd-embedded-tavern-2026-10-11/references/tav-original.png": "9c68cec8c5e060bc5edafec860be7d2259ccd8d112b0f3a205259a329ece3e2f"
+  }
+}

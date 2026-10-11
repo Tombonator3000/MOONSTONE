@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "method": "source_bound_photographic_material_registration",
+  "input": "raw/math-static-v1.png",
+  "input_sha256": "906e5e648a4bb2b8be3dc1baafd77d548928e55510d8627a0cfa2d0c04e6cb6c",
+  "output": "material/math-static-registered.png",
+  "output_sha256": "1976fdc89b1236ec73dcb2564511761a071a41ea74be4f53758aec321e0a7a3c",
+  "size": [
+    1716,
+    917
+  ],
+  "source_rect": [
+    20,
+    32,
+    270,
+    166
+  ],
+  "registration": {
+    "original_head_rect": [
+      140,
+      38,
+      178,
+      74
+    ],
+    "original_animation_rect": [
+      141,
+      53,
+      179,
+      66
+    ],
+    "target_y": [
+      38,
+      53,
+      59,
+      64,
+      74
+    ],
+    "material_y": [
+      38,
+      55,
+      62,
+      68,
+      74
+    ],
+    "horizontal_feather": 1,
+    "scope": "Lokal vertikal registrering av generert hudemateriale. Kildealfakontur, hodekontur, originalrektangel, anker, geometri og spilltilstand er uendret. Fotoeyets nedre kant ligger etter registrering innen originalens separate CEL-oeyefelt."
+  }
+}

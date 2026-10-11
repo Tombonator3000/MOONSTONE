@@ -146,12 +146,15 @@
 - [x] Nytegne og kontrollere alle26 KN4-sverd-/bevegelsesruter,7 identiske kopier og025-masken.
 - [x] Nytegne18 flammer separat og kontrollere dem i original Stonehenge-scene og sluttsekvens;18 identiske Klift-kopier.
 - [x] Publisere og kontrollere den første figurruteleveransen etter grønn CI (PR #33, offentlig70PNG, faktisk kamp og Stonehenge).
-- [ ] Fullføre1654 resterende figurmastere/1824 konkrete ruter;118 mastermasker og57 HE-kopier står på restlisten.
+- [ ] Fullføre1448 resterende figurmastere/1555 konkrete ruter;8 KN5-mastermasker og ingen HE-kopier står på restlisten.
 - [ ] Gjøre Math-ansikt, kropp, hår og kappe visuelt sammenhengende i statisk WI1.P-plate og separate Wi1.C-ruter.
 - [x] Fjerne hudskjøter fra de to separate MYS-øyefragmentene før aktivering; aktivert lokalt etter14 scene- og30 rutekontroller.
-- [ ] Publisere og kontrollere MYS006/007 i standardpakken.
+- [x] Publisere og kontrollere MYS006/007 i standardpakken (PR #34).
 - [ ] Fullføre tavernahansker006..009 og tre kastede terninger010..022; rette også innbygd TAV-figur med aktiv spillerfarge.
 - [x] Kontrollere og aktivere16 TROLL-ruter, inklusive øyefarge og adskilt fotskygge.
 - [x] Aktivere129 KN3-/HE3-/RATMEN-ruter og90 masker etter1928 rutekontroller og visuell sammenligning. Fire rene svarte skygger bevart.
-- [ ] Publisere og kontrollere den andre figurleveransen med237 nye PNG-filer.
+- [x] Publisere og kontrollere den andre figurleveransen med237 nye PNG-filer (PR #34).
 - [ ] Fullføre øvrige TROLL- og KN1-ruter med samme separate bilde-/runtimekrav.
+
+- [x] Tredje lokale figurleveranse: KN1/HE1, KN2/HE2, Math, TAV/DICE, kartdrage, OV1, HA1 og ytterligere TROLL,1145PNG/1151filer. Standard- og originalkontroller bundet.
+- [ ] Publisere og kontrollere tredje figurleveranse gjennom PR/CI/Pages, deretter fortsette resterende monstre og intro/slutt.

@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "checks": {
+    "source_indices": 16605,
+    "source_alpha_centers": 16605,
+    "nn_mask_pixels": 265680,
+    "photo_live_luminance": 58912,
+    "photo_black_live_pixels": 249,
+    "negative_wrong_live_R_rejected": true
+  },
+  "source_contract_sha256": "544f9882e35c8f88eb1c0007382adff021460afbeaa0ed5a8b6220466ae7d67a",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "source_file_sha256": "466c92eac2ddb68f0eb98689db6ad36017683b29b23638c7b5c84fef4f6f3b42",
+  "original_rect": [
+    90,
+    65,
+    225,
+    188
+  ],
+  "selected_pixels": 7431,
+  "preserved_other_live_pixels": 16,
+  "photo": {
+    "path": "art/hd-embedded-tavern-2026-10-11/packed/embedded/tav-player.png",
+    "sha256": "735f066ec2b537f867df0d63eb81ae7493f2f9f8409d5acbe96117180e1826f5"
+  },
+  "mask": {
+    "path": "art/hd-embedded-tavern-2026-10-11/packed/embedded/tav-player.mask.png",
+    "sha256": "a81f8eb880af0dd10d78aa66214724c209e2036dc3c07a239426f7f65d3d4488"
+  },
+  "red_dominant_photo_pixels_by_original_index": {
+    "11": 6513,
+    "8": 724,
+    "9": 541,
+    "23": 22,
+    "5": 9913,
+    "4": 7753,
+    "10": 564,
+    "3": 3941,
+    "0": 2978,
+    "1": 642,
+    "17": 1169,
+    "19": 111,
+    "7": 64,
+    "6": 15,
+    "27": 26,
+    "13": 101,
+    "12": 36,
+    "28": 50
+  },
+  "fixed_material_normalization": {
+    "remaining_blue_outside_live": 0,
+    "before_sha256": "4f91cc08fe76a703947ee3094d0df855d8976d047292aa9c293d3047885fa81a",
+    "live_RGBA_changed": 0,
+    "alpha_changed": 0,
+    "fixed_red_and_neutral_shadows_preserved": true
+  },
+  "interpretation": "Varmt staal kan ha roed refleks. Dette er diagnostikk, ikke visuell godkjenning eller bevis for riktig scene. Alle levende maskepiksler er eksakte NN-indekser uavhengig av alfa."
+}

@@ -1,0 +1,5340 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "url": "http://127.0.0.1:34301/moonstone.html",
+  "index_sha256": "4d2dabeb61445e88ea47bc80c10de029f5a22a755f36501b3f7198c8f34efea0",
+  "palette_case_sha256": "6d8a8ff115611d16d5fc8a491ffcbf77ad8b67c0cc4a0d05753cebe54e8718dc",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "assets": [
+    {
+      "key": "TROLL2.CEL/000.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/000/0eb2a43c40cf9629/separate-shadow-troll2-v1-original-flat/candidate.png",
+      "candidate_sha256": "e64dfe101318f961d3f8b8e19815502eb3a826fb72b41bcbc857340f08d9bbee"
+    },
+    {
+      "key": "TROLL2.CEL/001.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/001/5c68908a7567862a/separate-shadow-troll2-v1-original-flat/source-eye-troll2-v1-photo-skin/candidate.png",
+      "candidate_sha256": "eb821508b6429c545a6128ffc6006d28aea2665dd547504bd17a52e1632b77bd"
+    },
+    {
+      "key": "TROLL2.CEL/002.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/002/218af78ea62ed513/separate-shadow-troll2-v1-original-flat/candidate.png",
+      "candidate_sha256": "a20935eb7bf97eb6fdd835e831aad48c5069f5b2c11382e489b95fe18dd76178"
+    }
+  ],
+  "checks": [
+    "actual_blue_troll_palette",
+    "all_candidates_imported",
+    "original_bank_exact",
+    "troll2.cel/000_visible_in_original_combat",
+    "troll2.cel/000_changes_frame",
+    "troll2.cel/000_original_exact_return",
+    "troll2.cel/000_hd_exact_return",
+    "troll2.cel/000_emulated_state_unchanged",
+    "troll2.cel/001_visible_in_original_combat",
+    "troll2.cel/001_changes_frame",
+    "troll2.cel/001_original_exact_return",
+    "troll2.cel/001_hd_exact_return",
+    "troll2.cel/001_emulated_state_unchanged",
+    "troll2.cel/002_visible_in_original_combat",
+    "troll2.cel/002_changes_frame",
+    "troll2.cel/002_original_exact_return",
+    "troll2.cel/002_hd_exact_return",
+    "troll2.cel/002_emulated_state_unchanged",
+    "no_browser_errors"
+  ],
+  "errors": [],
+  "scope": "Original kampstart via tre kontrollerte testskrivinger; deretter original inndata, lag og tegneliste. Privat kandidatimport, ingen produksjonsaktivering. Ingen naturlig kartreise eller full animasjonsdekning.",
+  "html_sha256": "284514f5e7dc78a53877ef8b1db851aef1b815f1f2c1bd4c5fa8fde5a9d073ad",
+  "runtime_script_sha256": "5c0e8ad29c2dfd9b5fb8c9a9fd4881c21278d5d374f1a778a1ef6262e9b8792d",
+  "standard_before_stop": {
+    "aktiv": false,
+    "klar": false,
+    "laster": 0,
+    "feil": null,
+    "bilder": 0,
+    "bakgrunner": [],
+    "tilgjengelige": 770
+  },
+  "runtime": {
+    "imported": 3,
+    "trace": [
+      {
+        "frame": 1405,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 8,
+            "x": 168,
+            "y": 171,
+            "w": 51,
+            "h": 11,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 7,
+            "x": 181,
+            "y": 135,
+            "w": 25,
+            "h": 36,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ],
+        "visible": [
+          {
+            "fil": "kn1.ob",
+            "bilde": 3,
+            "x": 366,
+            "y": 180,
+            "w": 31,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 2,
+            "x": 372,
+            "y": 125,
+            "w": 21,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 363,
+            "y": 127,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 5,
+            "x": 358,
+            "y": 168,
+            "w": 36,
+            "h": 19,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 4,
+            "x": 362,
+            "y": 124,
+            "w": 22,
+            "h": 44,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 355,
+            "y": 127,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 7,
+            "x": 345,
+            "y": 158,
+            "w": 27,
+            "h": 27,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 6,
+            "x": 353,
+            "y": 126,
+            "w": 15,
+            "h": 32,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 340,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 9,
+            "x": 335,
+            "y": 161,
+            "w": 36,
+            "h": 24,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 8,
+            "x": 341,
+            "y": 125,
+            "w": 21,
+            "h": 36,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 327,
+            "y": 125,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 2,
+            "x": 324,
+            "y": 125,
+            "w": 21,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 8,
+            "x": 330,
+            "y": 141,
+            "w": 51,
+            "h": 11,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 7,
+            "x": 343,
+            "y": 105,
+            "w": 25,
+            "h": 36,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 6,
+            "x": 327,
+            "y": 56,
+            "w": 59,
+            "h": 49,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 5,
+            "x": 330,
+            "y": 100,
+            "w": 54,
+            "h": 56,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 59,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 4,
+            "x": 340,
+            "y": 105,
+            "w": 40,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 65,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 3,
+            "x": 325,
+            "y": 110,
+            "w": 62,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 69,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 2,
+            "x": 336,
+            "y": 115,
+            "w": 47,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 345,
+            "y": 75,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 330,
+            "y": 79,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 30,
+            "x": 315,
+            "y": 42,
+            "w": 27,
+            "h": 21,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 3,
+            "x": 122,
+            "y": 180,
+            "w": 31,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 21,
+            "x": 335,
+            "y": 82,
+            "w": 44,
+            "h": 29,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 20,
+            "x": 378,
+            "y": 73,
+            "w": 48,
+            "h": 14,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 27,
+            "x": 332,
+            "y": 70,
+            "w": 19,
+            "h": 27,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 26,
+            "x": 351,
+            "y": 52,
+            "w": 20,
+            "h": 24,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 25,
+            "x": 371,
+            "y": 36,
+            "w": 17,
+            "h": 22,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 24,
+            "x": 388,
+            "y": 28,
+            "w": 18,
+            "h": 18,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 42,
+            "x": 279,
+            "y": 14,
+            "w": 43,
+            "h": 16,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 41,
+            "x": 322,
+            "y": 14,
+            "w": 74,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 79,
+            "y": 125,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 0,
+            "x": 179,
+            "y": 152,
+            "w": 25,
+            "h": 29,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 1,
+            "x": 93,
+            "y": 130,
+            "w": 86,
+            "h": 51,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 2,
+            "x": 38,
+            "y": 161,
+            "w": 55,
+            "h": 19,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 36,
+            "x": 40,
+            "y": 117,
+            "w": 18,
+            "h": 53,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 47,
+            "x": 45,
+            "y": 90,
+            "w": 24,
+            "h": 27,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 46,
+            "x": 61,
+            "y": 69,
+            "w": 18,
+            "h": 21,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 45,
+            "x": 79,
+            "y": 56,
+            "w": 15,
+            "h": 18,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 44,
+            "x": 94,
+            "y": 48,
+            "w": 14,
+            "h": 10,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 3,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": "original"
+        }
+      }
+    ],
+    "sourceTrace": [
+      {
+        "frame": 1244,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 8,
+            "x": 330,
+            "y": 141,
+            "w": 51,
+            "h": 11,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 7,
+            "x": 343,
+            "y": 105,
+            "w": 25,
+            "h": 36,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1245,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 6,
+            "x": 327,
+            "y": 56,
+            "w": 59,
+            "h": 49,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn2.ob",
+            "bilde": 13,
+            "x": 227,
+            "y": 125,
+            "w": 36,
+            "h": 61,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1250,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 5,
+            "x": 330,
+            "y": 100,
+            "w": 54,
+            "h": 56,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 59,
+            "w": 33,
+            "h": 52,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1251,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 1,
+            "x": 313,
+            "y": 101,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 5,
+            "x": 224,
+            "y": 169,
+            "w": 36,
+            "h": 19,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 4,
+            "x": 228,
+            "y": 125,
+            "w": 22,
+            "h": 44,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 222,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1254,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 4,
+            "x": 340,
+            "y": 105,
+            "w": 40,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 65,
+            "w": 33,
+            "h": 52,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 1,
+            "x": 313,
+            "y": 107,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 7,
+            "x": 210,
+            "y": 158,
+            "w": 27,
+            "h": 27,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1260,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 3,
+            "x": 325,
+            "y": 110,
+            "w": 62,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 69,
+            "w": 33,
+            "h": 52,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 1,
+            "x": 313,
+            "y": 111,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 9,
+            "x": 197,
+            "y": 161,
+            "w": 36,
+            "h": 24,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 8,
+            "x": 203,
+            "y": 125,
+            "w": 21,
+            "h": 36,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 189,
+            "y": 125,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1264,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 2,
+            "x": 336,
+            "y": 115,
+            "w": 47,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 345,
+            "y": 75,
+            "w": 33,
+            "h": 52,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 1,
+            "x": 312,
+            "y": 117,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 3,
+            "x": 177,
+            "y": 180,
+            "w": 31,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 2,
+            "x": 183,
+            "y": 125,
+            "w": 21,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1268,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 3,
+            "x": 309,
+            "y": 120,
+            "w": 62,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1269,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 330,
+            "y": 79,
+            "w": 33,
+            "h": 52,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 1,
+            "x": 297,
+            "y": 121,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 5,
+            "x": 169,
+            "y": 169,
+            "w": 36,
+            "h": 19,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 4,
+            "x": 173,
+            "y": 125,
+            "w": 22,
+            "h": 44,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 167,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1273,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 4,
+            "x": 298,
+            "y": 125,
+            "w": 40,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1274,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 304,
+            "y": 85,
+            "w": 33,
+            "h": 52,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 1,
+            "x": 271,
+            "y": 127,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 7,
+            "x": 155,
+            "y": 158,
+            "w": 27,
+            "h": 27,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 6,
+            "x": 163,
+            "y": 126,
+            "w": 15,
+            "h": 32,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 149,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1279,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 34,
+            "x": 273,
+            "y": 171,
+            "w": 72,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1280,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 33,
+            "x": 287,
+            "y": 117,
+            "w": 34,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 32,
+            "x": 296,
+            "y": 87,
+            "w": 34,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1281,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 31,
+            "x": 296,
+            "y": 63,
+            "w": 28,
+            "h": 24,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 30,
+            "x": 315,
+            "y": 42,
+            "w": 27,
+            "h": 21,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 9,
+            "x": 142,
+            "y": 161,
+            "w": 36,
+            "h": 24,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 8,
+            "x": 148,
+            "y": 125,
+            "w": 21,
+            "h": 36,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1284,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 29,
+            "x": 277,
+            "y": 169,
+            "w": 82,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1285,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 23,
+            "x": 290,
+            "y": 129,
+            "w": 34,
+            "h": 40,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 22,
+            "x": 305,
+            "y": 89,
+            "w": 30,
+            "h": 40,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1286,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 21,
+            "x": 335,
+            "y": 82,
+            "w": 44,
+            "h": 29,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 20,
+            "x": 378,
+            "y": 73,
+            "w": 48,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 3,
+            "x": 122,
+            "y": 180,
+            "w": 31,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 2,
+            "x": 128,
+            "y": 125,
+            "w": 21,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 118,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1288,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 29,
+            "x": 277,
+            "y": 169,
+            "w": 82,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 23,
+            "x": 290,
+            "y": 129,
+            "w": 34,
+            "h": 40,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1289,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 22,
+            "x": 305,
+            "y": 89,
+            "w": 30,
+            "h": 40,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 21,
+            "x": 335,
+            "y": 82,
+            "w": 44,
+            "h": 29,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 20,
+            "x": 378,
+            "y": 73,
+            "w": 48,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 5,
+            "x": 114,
+            "y": 169,
+            "w": 36,
+            "h": 19,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 4,
+            "x": 118,
+            "y": 125,
+            "w": 22,
+            "h": 44,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 112,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1293,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 34,
+            "x": 273,
+            "y": 171,
+            "w": 72,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 33,
+            "x": 287,
+            "y": 117,
+            "w": 34,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1294,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 28,
+            "x": 308,
+            "y": 80,
+            "w": 24,
+            "h": 37,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 27,
+            "x": 332,
+            "y": 70,
+            "w": 19,
+            "h": 27,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1295,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 26,
+            "x": 351,
+            "y": 52,
+            "w": 20,
+            "h": 24,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 25,
+            "x": 371,
+            "y": 36,
+            "w": 17,
+            "h": 22,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 24,
+            "x": 388,
+            "y": 28,
+            "w": 18,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 7,
+            "x": 100,
+            "y": 158,
+            "w": 27,
+            "h": 27,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 6,
+            "x": 108,
+            "y": 126,
+            "w": 15,
+            "h": 32,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1299,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 40,
+            "x": 257,
+            "y": 172,
+            "w": 76,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 38,
+            "x": 298,
+            "y": 114,
+            "w": 23,
+            "h": 58,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1300,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 39,
+            "x": 266,
+            "y": 122,
+            "w": 32,
+            "h": 42,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1301,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 37,
+            "x": 251,
+            "y": 83,
+            "w": 47,
+            "h": 39,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 43,
+            "x": 244,
+            "y": 25,
+            "w": 35,
+            "h": 22,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1302,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 35,
+            "x": 238,
+            "y": 39,
+            "w": 13,
+            "h": 56,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 42,
+            "x": 279,
+            "y": 14,
+            "w": 43,
+            "h": 16,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 41,
+            "x": 322,
+            "y": 14,
+            "w": 74,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 9,
+            "x": 87,
+            "y": 161,
+            "w": 36,
+            "h": 24,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 8,
+            "x": 93,
+            "y": 125,
+            "w": 21,
+            "h": 36,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1304,
+        "draws": [
+          {
+            "fil": "Troll2.cel",
+            "bilde": 0,
+            "x": 299,
+            "y": 152,
+            "w": 25,
+            "h": 29,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1306,
+        "draws": [
+          {
+            "fil": "Troll2.cel",
+            "bilde": 1,
+            "x": 213,
+            "y": 130,
+            "w": 86,
+            "h": 51,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1307,
+        "draws": [
+          {
+            "fil": "Troll2.cel",
+            "bilde": 2,
+            "x": 158,
+            "y": 161,
+            "w": 55,
+            "h": 19,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 36,
+            "x": 160,
+            "y": 117,
+            "w": 18,
+            "h": 53,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 47,
+            "x": 165,
+            "y": 90,
+            "w": 24,
+            "h": 27,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1308,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 46,
+            "x": 181,
+            "y": 69,
+            "w": 18,
+            "h": 21,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 45,
+            "x": 199,
+            "y": 56,
+            "w": 15,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 44,
+            "x": 214,
+            "y": 48,
+            "w": 14,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 3,
+            "x": 67,
+            "y": 180,
+            "w": 31,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 2,
+            "x": 73,
+            "y": 125,
+            "w": 21,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1310,
+        "draws": [
+          {
+            "fil": "Troll2.cel",
+            "bilde": 0,
+            "x": 299,
+            "y": 152,
+            "w": 25,
+            "h": 29,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 1,
+            "x": 213,
+            "y": 130,
+            "w": 86,
+            "h": 51,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 2,
+            "x": 158,
+            "y": 161,
+            "w": 55,
+            "h": 19,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1315,
+        "draws": [
+          {
+            "fil": "Troll2.cel",
+            "bilde": 0,
+            "x": 299,
+            "y": 152,
+            "w": 25,
+            "h": 29,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 1,
+            "x": 213,
+            "y": 130,
+            "w": 86,
+            "h": 51,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1316,
+        "draws": [
+          {
+            "fil": "Troll2.cel",
+            "bilde": 2,
+            "x": 158,
+            "y": 161,
+            "w": 55,
+            "h": 19,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 7,
+            "x": 45,
+            "y": 158,
+            "w": 27,
+            "h": 27,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 6,
+            "x": 53,
+            "y": 126,
+            "w": 15,
+            "h": 32,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 39,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1320,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 5,
+            "x": 275,
+            "y": 125,
+            "w": 54,
+            "h": 56,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1321,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 291,
+            "y": 84,
+            "w": 33,
+            "h": 52,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 1,
+            "x": 258,
+            "y": 126,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 9,
+            "x": 32,
+            "y": 161,
+            "w": 36,
+            "h": 24,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 8,
+            "x": 38,
+            "y": 125,
+            "w": 21,
+            "h": 36,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 24,
+            "y": 125,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1325,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 2,
+            "x": 255,
+            "y": 125,
+            "w": 47,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1326,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 264,
+            "y": 85,
+            "w": 33,
+            "h": 52,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 1,
+            "x": 231,
+            "y": 127,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1330,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 3,
+            "x": 228,
+            "y": 125,
+            "w": 62,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1331,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 249,
+            "y": 84,
+            "w": 33,
+            "h": 52,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 1,
+            "x": 216,
+            "y": 126,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1335,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 4,
+            "x": 217,
+            "y": 125,
+            "w": 40,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1336,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 223,
+            "y": 85,
+            "w": 33,
+            "h": 52,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 1,
+            "x": 190,
+            "y": 127,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1340,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 5,
+            "x": 194,
+            "y": 125,
+            "w": 54,
+            "h": 56,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1341,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 210,
+            "y": 84,
+            "w": 33,
+            "h": 52,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 1,
+            "x": 177,
+            "y": 126,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1345,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 2,
+            "x": 174,
+            "y": 125,
+            "w": 47,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1346,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 183,
+            "y": 85,
+            "w": 33,
+            "h": 52,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 1,
+            "x": 150,
+            "y": 127,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1350,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 8,
+            "x": 168,
+            "y": 171,
+            "w": 51,
+            "h": 11,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 7,
+            "x": 181,
+            "y": 135,
+            "w": 25,
+            "h": 36,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1351,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 6,
+            "x": 165,
+            "y": 86,
+            "w": 59,
+            "h": 49,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1356,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 11,
+            "x": 168,
+            "y": 157,
+            "w": 43,
+            "h": 25,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 10,
+            "x": 165,
+            "y": 130,
+            "w": 36,
+            "h": 27,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1357,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 9,
+            "x": 173,
+            "y": 91,
+            "w": 22,
+            "h": 39,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 1,
+            "x": 132,
+            "y": 129,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1362,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 13,
+            "x": 161,
+            "y": 90,
+            "w": 45,
+            "h": 92,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 14,
+            "x": 133,
+            "y": 116,
+            "w": 28,
+            "h": 17,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1363,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 15,
+            "x": 100,
+            "y": 123,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1365,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 13,
+            "x": 161,
+            "y": 90,
+            "w": 45,
+            "h": 92,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1366,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 14,
+            "x": 133,
+            "y": 116,
+            "w": 28,
+            "h": 17,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 15,
+            "x": 100,
+            "y": 123,
+            "w": 33,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1370,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 8,
+            "x": 168,
+            "y": 171,
+            "w": 51,
+            "h": 11,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 7,
+            "x": 181,
+            "y": 135,
+            "w": 25,
+            "h": 36,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1371,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 6,
+            "x": 165,
+            "y": 86,
+            "w": 59,
+            "h": 49,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1375,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 34,
+            "x": 153,
+            "y": 171,
+            "w": 72,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 33,
+            "x": 167,
+            "y": 117,
+            "w": 34,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1376,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 32,
+            "x": 176,
+            "y": 87,
+            "w": 34,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 31,
+            "x": 176,
+            "y": 63,
+            "w": 28,
+            "h": 24,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 30,
+            "x": 195,
+            "y": 42,
+            "w": 27,
+            "h": 21,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1380,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 29,
+            "x": 157,
+            "y": 169,
+            "w": 82,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 23,
+            "x": 170,
+            "y": 129,
+            "w": 34,
+            "h": 40,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1381,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 22,
+            "x": 185,
+            "y": 89,
+            "w": 30,
+            "h": 40,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 21,
+            "x": 215,
+            "y": 82,
+            "w": 44,
+            "h": 29,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 20,
+            "x": 258,
+            "y": 73,
+            "w": 48,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1385,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 29,
+            "x": 157,
+            "y": 169,
+            "w": 82,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 23,
+            "x": 170,
+            "y": 129,
+            "w": 34,
+            "h": 40,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1386,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 22,
+            "x": 185,
+            "y": 89,
+            "w": 30,
+            "h": 40,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 21,
+            "x": 215,
+            "y": 82,
+            "w": 44,
+            "h": 29,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 20,
+            "x": 258,
+            "y": 73,
+            "w": 48,
+            "h": 14,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1390,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 34,
+            "x": 153,
+            "y": 171,
+            "w": 72,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 33,
+            "x": 167,
+            "y": 117,
+            "w": 34,
+            "h": 55,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1391,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 28,
+            "x": 188,
+            "y": 80,
+            "w": 24,
+            "h": 37,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 27,
+            "x": 212,
+            "y": 70,
+            "w": 19,
+            "h": 27,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 26,
+            "x": 231,
+            "y": 52,
+            "w": 20,
+            "h": 24,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 25,
+            "x": 251,
+            "y": 36,
+            "w": 17,
+            "h": 22,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 24,
+            "x": 268,
+            "y": 28,
+            "w": 18,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1395,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 40,
+            "x": 137,
+            "y": 172,
+            "w": 76,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 38,
+            "x": 178,
+            "y": 114,
+            "w": 23,
+            "h": 58,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1396,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 39,
+            "x": 146,
+            "y": 122,
+            "w": 32,
+            "h": 42,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 37,
+            "x": 131,
+            "y": 83,
+            "w": 47,
+            "h": 39,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 43,
+            "x": 124,
+            "y": 25,
+            "w": 35,
+            "h": 22,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 35,
+            "x": 118,
+            "y": 39,
+            "w": 13,
+            "h": 56,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 42,
+            "x": 159,
+            "y": 14,
+            "w": 43,
+            "h": 16,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 41,
+            "x": 202,
+            "y": 14,
+            "w": 74,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1400,
+        "draws": [
+          {
+            "fil": "Troll2.cel",
+            "bilde": 0,
+            "x": 179,
+            "y": 152,
+            "w": 25,
+            "h": 29,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 1,
+            "x": 93,
+            "y": 130,
+            "w": 86,
+            "h": 51,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1401,
+        "draws": [
+          {
+            "fil": "Troll2.cel",
+            "bilde": 2,
+            "x": 38,
+            "y": 161,
+            "w": 55,
+            "h": 19,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 36,
+            "x": 40,
+            "y": 117,
+            "w": 18,
+            "h": 53,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 47,
+            "x": 45,
+            "y": 90,
+            "w": 24,
+            "h": 27,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 46,
+            "x": 61,
+            "y": 69,
+            "w": 18,
+            "h": 21,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 45,
+            "x": 79,
+            "y": 56,
+            "w": 15,
+            "h": 18,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 44,
+            "x": 94,
+            "y": 48,
+            "w": 14,
+            "h": 10,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      },
+      {
+        "frame": 1405,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 8,
+            "x": 168,
+            "y": 171,
+            "w": 51,
+            "h": 11,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 7,
+            "x": 181,
+            "y": 135,
+            "w": 25,
+            "h": 36,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ]
+      }
+    ],
+    "samples": {
+      "troll2.cel/000": {
+        "frame": 1405,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 8,
+            "x": 168,
+            "y": 171,
+            "w": 51,
+            "h": 11,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 7,
+            "x": 181,
+            "y": 135,
+            "w": 25,
+            "h": 36,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ],
+        "visible": [
+          {
+            "fil": "kn1.ob",
+            "bilde": 3,
+            "x": 366,
+            "y": 180,
+            "w": 31,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 2,
+            "x": 372,
+            "y": 125,
+            "w": 21,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 363,
+            "y": 127,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 5,
+            "x": 358,
+            "y": 168,
+            "w": 36,
+            "h": 19,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 4,
+            "x": 362,
+            "y": 124,
+            "w": 22,
+            "h": 44,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 355,
+            "y": 127,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 7,
+            "x": 345,
+            "y": 158,
+            "w": 27,
+            "h": 27,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 6,
+            "x": 353,
+            "y": 126,
+            "w": 15,
+            "h": 32,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 340,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 9,
+            "x": 335,
+            "y": 161,
+            "w": 36,
+            "h": 24,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 8,
+            "x": 341,
+            "y": 125,
+            "w": 21,
+            "h": 36,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 327,
+            "y": 125,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 2,
+            "x": 324,
+            "y": 125,
+            "w": 21,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 8,
+            "x": 330,
+            "y": 141,
+            "w": 51,
+            "h": 11,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 7,
+            "x": 343,
+            "y": 105,
+            "w": 25,
+            "h": 36,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 6,
+            "x": 327,
+            "y": 56,
+            "w": 59,
+            "h": 49,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 5,
+            "x": 330,
+            "y": 100,
+            "w": 54,
+            "h": 56,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 59,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 4,
+            "x": 340,
+            "y": 105,
+            "w": 40,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 65,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 3,
+            "x": 325,
+            "y": 110,
+            "w": 62,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 69,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 2,
+            "x": 336,
+            "y": 115,
+            "w": 47,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 345,
+            "y": 75,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 330,
+            "y": 79,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 30,
+            "x": 315,
+            "y": 42,
+            "w": 27,
+            "h": 21,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 3,
+            "x": 122,
+            "y": 180,
+            "w": 31,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 21,
+            "x": 335,
+            "y": 82,
+            "w": 44,
+            "h": 29,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 20,
+            "x": 378,
+            "y": 73,
+            "w": 48,
+            "h": 14,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 27,
+            "x": 332,
+            "y": 70,
+            "w": 19,
+            "h": 27,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 26,
+            "x": 351,
+            "y": 52,
+            "w": 20,
+            "h": 24,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 25,
+            "x": 371,
+            "y": 36,
+            "w": 17,
+            "h": 22,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 24,
+            "x": 388,
+            "y": 28,
+            "w": 18,
+            "h": 18,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 42,
+            "x": 279,
+            "y": 14,
+            "w": 43,
+            "h": 16,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 41,
+            "x": 322,
+            "y": 14,
+            "w": 74,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 79,
+            "y": 125,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 0,
+            "x": 179,
+            "y": 152,
+            "w": 25,
+            "h": 29,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 1,
+            "x": 93,
+            "y": 130,
+            "w": 86,
+            "h": 51,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 2,
+            "x": 38,
+            "y": 161,
+            "w": 55,
+            "h": 19,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 36,
+            "x": 40,
+            "y": 117,
+            "w": 18,
+            "h": 53,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 47,
+            "x": 45,
+            "y": 90,
+            "w": 24,
+            "h": 27,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 46,
+            "x": 61,
+            "y": 69,
+            "w": 18,
+            "h": 21,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 45,
+            "x": 79,
+            "y": 56,
+            "w": 15,
+            "h": 18,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 44,
+            "x": 94,
+            "y": 48,
+            "w": 14,
+            "h": 10,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "hd_keys": [
+          "Troll2.cel/0",
+          "Troll2.cel/1",
+          "Troll2.cel/2"
+        ],
+        "control": {
+          "godkjent": 3,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": "original"
+        },
+        "state": 543819622,
+        "state_after": 543819622,
+        "original_sha256": "b9f983904facd5770475f9539f8b7ebad2f7c6df1c6f619c24a8dfc7d25693bb",
+        "candidate_sha256": "5ea8bdbed44d763328470400584fc07fb7a46e8d5d1e7b0ac3f046b3a8ebf5ce"
+      },
+      "troll2.cel/001": {
+        "frame": 1405,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 8,
+            "x": 168,
+            "y": 171,
+            "w": 51,
+            "h": 11,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 7,
+            "x": 181,
+            "y": 135,
+            "w": 25,
+            "h": 36,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ],
+        "visible": [
+          {
+            "fil": "kn1.ob",
+            "bilde": 3,
+            "x": 366,
+            "y": 180,
+            "w": 31,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 2,
+            "x": 372,
+            "y": 125,
+            "w": 21,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 363,
+            "y": 127,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 5,
+            "x": 358,
+            "y": 168,
+            "w": 36,
+            "h": 19,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 4,
+            "x": 362,
+            "y": 124,
+            "w": 22,
+            "h": 44,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 355,
+            "y": 127,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 7,
+            "x": 345,
+            "y": 158,
+            "w": 27,
+            "h": 27,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 6,
+            "x": 353,
+            "y": 126,
+            "w": 15,
+            "h": 32,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 340,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 9,
+            "x": 335,
+            "y": 161,
+            "w": 36,
+            "h": 24,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 8,
+            "x": 341,
+            "y": 125,
+            "w": 21,
+            "h": 36,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 327,
+            "y": 125,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 2,
+            "x": 324,
+            "y": 125,
+            "w": 21,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 8,
+            "x": 330,
+            "y": 141,
+            "w": 51,
+            "h": 11,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 7,
+            "x": 343,
+            "y": 105,
+            "w": 25,
+            "h": 36,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 6,
+            "x": 327,
+            "y": 56,
+            "w": 59,
+            "h": 49,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 5,
+            "x": 330,
+            "y": 100,
+            "w": 54,
+            "h": 56,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 59,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 4,
+            "x": 340,
+            "y": 105,
+            "w": 40,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 65,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 3,
+            "x": 325,
+            "y": 110,
+            "w": 62,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 69,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 2,
+            "x": 336,
+            "y": 115,
+            "w": 47,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 345,
+            "y": 75,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 330,
+            "y": 79,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 30,
+            "x": 315,
+            "y": 42,
+            "w": 27,
+            "h": 21,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 3,
+            "x": 122,
+            "y": 180,
+            "w": 31,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 21,
+            "x": 335,
+            "y": 82,
+            "w": 44,
+            "h": 29,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 20,
+            "x": 378,
+            "y": 73,
+            "w": 48,
+            "h": 14,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 27,
+            "x": 332,
+            "y": 70,
+            "w": 19,
+            "h": 27,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 26,
+            "x": 351,
+            "y": 52,
+            "w": 20,
+            "h": 24,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 25,
+            "x": 371,
+            "y": 36,
+            "w": 17,
+            "h": 22,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 24,
+            "x": 388,
+            "y": 28,
+            "w": 18,
+            "h": 18,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 42,
+            "x": 279,
+            "y": 14,
+            "w": 43,
+            "h": 16,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 41,
+            "x": 322,
+            "y": 14,
+            "w": 74,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 79,
+            "y": 125,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 0,
+            "x": 179,
+            "y": 152,
+            "w": 25,
+            "h": 29,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 1,
+            "x": 93,
+            "y": 130,
+            "w": 86,
+            "h": 51,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 2,
+            "x": 38,
+            "y": 161,
+            "w": 55,
+            "h": 19,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 36,
+            "x": 40,
+            "y": 117,
+            "w": 18,
+            "h": 53,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 47,
+            "x": 45,
+            "y": 90,
+            "w": 24,
+            "h": 27,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 46,
+            "x": 61,
+            "y": 69,
+            "w": 18,
+            "h": 21,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 45,
+            "x": 79,
+            "y": 56,
+            "w": 15,
+            "h": 18,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 44,
+            "x": 94,
+            "y": 48,
+            "w": 14,
+            "h": 10,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "hd_keys": [
+          "Troll2.cel/0",
+          "Troll2.cel/1",
+          "Troll2.cel/2"
+        ],
+        "control": {
+          "godkjent": 3,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": "original"
+        },
+        "state": 543819622,
+        "state_after": 543819622,
+        "original_sha256": "b9f983904facd5770475f9539f8b7ebad2f7c6df1c6f619c24a8dfc7d25693bb",
+        "candidate_sha256": "5ea8bdbed44d763328470400584fc07fb7a46e8d5d1e7b0ac3f046b3a8ebf5ce"
+      },
+      "troll2.cel/002": {
+        "frame": 1405,
+        "draws": [
+          {
+            "fil": "Troll1.cel",
+            "bilde": 8,
+            "x": 168,
+            "y": 171,
+            "w": 51,
+            "h": 11,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 7,
+            "x": 181,
+            "y": 135,
+            "w": 25,
+            "h": 36,
+            "xoff": 0,
+            "speilet": true,
+            "target": 666838,
+            "caller": 556016
+          }
+        ],
+        "visible": [
+          {
+            "fil": "kn1.ob",
+            "bilde": 3,
+            "x": 366,
+            "y": 180,
+            "w": 31,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 2,
+            "x": 372,
+            "y": 125,
+            "w": 21,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 363,
+            "y": 127,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 5,
+            "x": 358,
+            "y": 168,
+            "w": 36,
+            "h": 19,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 4,
+            "x": 362,
+            "y": 124,
+            "w": 22,
+            "h": 44,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 355,
+            "y": 127,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 7,
+            "x": 345,
+            "y": 158,
+            "w": 27,
+            "h": 27,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 6,
+            "x": 353,
+            "y": 126,
+            "w": 15,
+            "h": 32,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 340,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 9,
+            "x": 335,
+            "y": 161,
+            "w": 36,
+            "h": 24,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 8,
+            "x": 341,
+            "y": 125,
+            "w": 21,
+            "h": 36,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 327,
+            "y": 125,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 2,
+            "x": 324,
+            "y": 125,
+            "w": 21,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 8,
+            "x": 330,
+            "y": 141,
+            "w": 51,
+            "h": 11,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 7,
+            "x": 343,
+            "y": 105,
+            "w": 25,
+            "h": 36,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 6,
+            "x": 327,
+            "y": 56,
+            "w": 59,
+            "h": 49,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 5,
+            "x": 330,
+            "y": 100,
+            "w": 54,
+            "h": 56,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 59,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 4,
+            "x": 340,
+            "y": 105,
+            "w": 40,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 65,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 3,
+            "x": 325,
+            "y": 110,
+            "w": 62,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 346,
+            "y": 69,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 2,
+            "x": 336,
+            "y": 115,
+            "w": 47,
+            "h": 55,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 345,
+            "y": 75,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 0,
+            "x": 330,
+            "y": 79,
+            "w": 33,
+            "h": 52,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 30,
+            "x": 315,
+            "y": 42,
+            "w": 27,
+            "h": 21,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 3,
+            "x": 122,
+            "y": 180,
+            "w": 31,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 21,
+            "x": 335,
+            "y": 82,
+            "w": 44,
+            "h": 29,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 20,
+            "x": 378,
+            "y": 73,
+            "w": 48,
+            "h": 14,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 27,
+            "x": 332,
+            "y": 70,
+            "w": 19,
+            "h": 27,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 26,
+            "x": 351,
+            "y": 52,
+            "w": 20,
+            "h": 24,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 25,
+            "x": 371,
+            "y": 36,
+            "w": 17,
+            "h": 22,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 24,
+            "x": 388,
+            "y": 28,
+            "w": 18,
+            "h": 18,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 42,
+            "x": 279,
+            "y": 14,
+            "w": 43,
+            "h": 16,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 41,
+            "x": 322,
+            "y": 14,
+            "w": 74,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 79,
+            "y": 125,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 0,
+            "x": 179,
+            "y": 152,
+            "w": 25,
+            "h": 29,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 1,
+            "x": 93,
+            "y": 130,
+            "w": 86,
+            "h": 51,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "Troll2.cel",
+            "bilde": 2,
+            "x": 38,
+            "y": 161,
+            "w": 55,
+            "h": 19,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 36,
+            "x": 40,
+            "y": 117,
+            "w": 18,
+            "h": 53,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 47,
+            "x": 45,
+            "y": 90,
+            "w": 24,
+            "h": 27,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 46,
+            "x": 61,
+            "y": 69,
+            "w": 18,
+            "h": 21,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 45,
+            "x": 79,
+            "y": 56,
+            "w": 15,
+            "h": 18,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "Troll1.cel",
+            "bilde": 44,
+            "x": 94,
+            "y": 48,
+            "w": 14,
+            "h": 10,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 1,
+            "x": 35,
+            "y": 179,
+            "w": 33,
+            "h": 7,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn1.ob",
+            "bilde": 0,
+            "x": 41,
+            "y": 125,
+            "w": 23,
+            "h": 54,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "kn4.ob",
+            "bilde": 1,
+            "x": 32,
+            "y": 128,
+            "w": 19,
+            "h": 30,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "hd_keys": [
+          "Troll2.cel/0",
+          "Troll2.cel/1",
+          "Troll2.cel/2"
+        ],
+        "control": {
+          "godkjent": 3,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": "original"
+        },
+        "state": 543819622,
+        "state_after": 543819622,
+        "original_sha256": "b9f983904facd5770475f9539f8b7ebad2f7c6df1c6f619c24a8dfc7d25693bb",
+        "candidate_sha256": "5ea8bdbed44d763328470400584fc07fb7a46e8d5d1e7b0ac3f046b3a8ebf5ce"
+      }
+    },
+    "palette_words": [
+      0,
+      4093,
+      2456,
+      1910,
+      1091,
+      0,
+      10,
+      7,
+      4,
+      1370,
+      839,
+      291,
+      1,
+      3840,
+      2048,
+      3072,
+      802,
+      1074,
+      1603,
+      2149,
+      3206,
+      2192,
+      661,
+      370,
+      97,
+      64,
+      2678,
+      1876,
+      1104,
+      255,
+      153,
+      3979
+    ],
+    "source_bank_sha256": "f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e",
+    "frame": 1405
+  },
+  "created_at": "2026-10-11T21:25:19.334Z"
+}

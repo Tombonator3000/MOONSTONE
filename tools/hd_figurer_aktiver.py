@@ -21,6 +21,22 @@ def checked(path, digest):
     return source
 
 
+def code_in_html(code, html):
+    """pakk.py erstatter bare HD-manifestplassen med ett JSON-objekt."""
+    if b'%%HD_MANIFEST%%' not in code:
+        return code in html
+    before, after = code.split(b'%%HD_MANIFEST%%')
+    start = html.find(before)
+    if start < 0:
+        return False
+    tail = html[start + len(before):].decode('utf-8')
+    try:
+        manifest, end = json.JSONDecoder().raw_decode(tail)
+    except (ValueError, UnicodeDecodeError):
+        return False
+    return isinstance(manifest, dict) and tail[end:].encode('utf-8').startswith(after)
+
+
 def alias_indices(master, entry, master_indices, indices):
     """HE bruker samme geometri, men originalen flytter draktindekser6..8 til9..11."""
     if entry.get('index_remap'):
@@ -62,7 +78,7 @@ def validate(delivery):
         html = checked(proof['html_path'], proof['html_sha256']).read_bytes()
         for path in [*delivery['production_code_sha256'], 'web/build/moonstone-core.js']:
             code = (ROOT / path).read_bytes().replace(b'</script', b'<\\/script')
-            assert code in html, 'Runtime-HTML inneholder annen kode: ' + path
+            assert code_in_html(code, html), 'Runtime-HTML inneholder annen kode: ' + path
         proofs[proof['path']] = data.decode()
     assert proofs
     files, seen_keys = {}, set()
@@ -86,8 +102,11 @@ def validate(delivery):
         if entry.get('art_record'):
             record = json.loads(checked(entry['art_record'], entry['art_record_sha256']).read_text())
             assert record['candidate_sha256'] == entry['png_sha256'], 'Materialproveniens gjelder annet bilde: ' + key
+        materials = entry.get('additional_generated_materials', [])
+        assert isinstance(materials, list), 'Tilleggsmaterialer skal vaere en liste: ' + key
         if entry.get('additional_generated_material'):
-            material = entry['additional_generated_material']
+            materials = [entry['additional_generated_material'], *materials]
+        for material in materials:
             checked(material['raw'], material['raw_sha256'])
             checked(material['prompt'], material['prompt_sha256'])
         if entry.get('master_key'):
@@ -100,9 +119,25 @@ def validate(delivery):
             alias_indices(master, entry, master_indices, indices)
             assert master['png_sha256'] == entry['png_sha256']
         else:
-            checked(entry['raw'], entry['raw_sha256'])
+            raw = checked(entry['raw'], entry['raw_sha256'])
             checked(entry['prompt'], entry['prompt_sha256'])
-            assert entry['generation_tool'] == 'builtin_image_gen'
+            if entry['generation_tool'] == 'preserved_original_black_shadow':
+                assert set(indices) <= {0, 5} and 5 in indices, 'Annen kilde enn ren svart skygge'
+                # Rene originalskygger har ingen ny fotografisk master. Bare
+                # kildeindeks5 er svart og opak; null er gjennomsiktig.
+                for target, scale in [(source, 4), (raw, None)]:
+                    with Image.open(target) as shadow:
+                        assert shadow.mode == 'RGBA'
+                        if scale is None:
+                            assert shadow.size in [(original['bredde'], original['hoyde']),
+                                                   (original['bredde']*4, original['hoyde']*4)]
+                            scale = shadow.width // original['bredde']
+                        assert shadow.size == (original['bredde']*scale, original['hoyde']*scale)
+                        expected = bytes(v for y in range(shadow.height) for x in range(shadow.width)
+                                         for v in (0, 0, 0, 255 if indices[y//scale*original['bredde']+x//scale] else 0))
+                        assert shadow.tobytes() == expected, 'Endret original svart skygge'
+            else:
+                assert entry['generation_tool'] == 'builtin_image_gen'
         assert key.lower() not in seen_keys, 'Duplikat: ' + key
         seen_keys.add(key.lower())
         existing = entry.get('existing_master', False)

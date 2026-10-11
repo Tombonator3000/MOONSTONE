@@ -1,0 +1,652 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "9d0e6a66a7597e745d23b0a0516f0c6f8b06f97cb92189613938c14f40aef8bd",
+    "web/src/scenes.js": "f96ca11802910e3291ec7ee4128299f68b73957b3f5f1d0b1435141e1a08ebcd",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "sha256": "f2f2f34c5fa82e6fbbad21b778c1f4779e331474ea2ab07dc8fa03a4766e15da",
+      "html_path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v9-package/moonstone.html",
+      "html_sha256": "5b59aed418f802345119b5f1a3c38613b0fef15598a81b39a86d908e67ce10fd"
+    },
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-1/dice-runtime.json",
+      "sha256": "3f16f264d7e7b5f51d2a57b415427ed512919e70ed3c611fc473278107974889",
+      "html_path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v9-package/moonstone.html",
+      "html_sha256": "5b59aed418f802345119b5f1a3c38613b0fef15598a81b39a86d908e67ce10fd"
+    },
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-2/dice-runtime.json",
+      "sha256": "63dcb04fb08620581d9e138af9778362483b0d706b2684b3d7a19e05e2f83aa0",
+      "html_path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v9-package/moonstone.html",
+      "html_sha256": "5b59aed418f802345119b5f1a3c38613b0fef15598a81b39a86d908e67ce10fd"
+    },
+    {
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-3/dice-runtime.json",
+      "sha256": "5a2ec8cd02311d4ab9638779efcf91980920f32c8c9de142026a28de3b821cc8",
+      "html_path": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v9-package/moonstone.html",
+      "html_sha256": "5b59aed418f802345119b5f1a3c38613b0fef15598a81b39a86d908e67ce10fd"
+    }
+  ],
+  "scope": "17 egne foto-raabilder: fire tavernahansker/arm006..009 og13ruter med tre kastede terninger010..022. Originalgeometri og bordplassering.210kildeidentiske stasjonare kappepiksler i006/007 deler TAV-materiale. Samlet med TAV-fastfigur, NN-maske og ren bakgrunn i fire originalpaletter. Kontrollert originalinngang, ikke naturlig kartreise.",
+  "entries": [
+    {
+      "key": "dice.cel/006.png",
+      "bank": "dice.cel",
+      "frame": 6,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "a899cb34659546c9618949a7e6dde21e10d45bf1ac62392afb5f31145c72af7e",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/006/7febe0bb9838e4c4/hd/dice.cel/006.png",
+      "png_sha256": "7febe0bb9838e4c4bf3abba15fe5c462dde7303d2700140247d38fedcc083479",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-006-v1.png",
+      "raw_sha256": "d6b959f0c93a12b0d258a1b013c80b40f43c3a84fd3b0f5b542b58cf83469145",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-006-v1.txt",
+      "prompt_sha256": "0a963babc86a08a6a6d466be8115b30a58ba205f84eb7c01890342287d8d3ad0",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "7febe0bb9838e4c4bf3abba15fe5c462dde7303d2700140247d38fedcc083479",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/006/7febe0bb9838e4c4/art-record.json",
+      "art_record_sha256": "0e1ee977990993e55acc2b75c8e06bf6a2b47f3904a55f134f132eb60b240d11",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        },
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/player-v3.png",
+          "raw_sha256": "3eb172b85b9b533d20f2be1fe904b0029237e6961b279845b5c46fc7dd33468b",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/player-v3.txt",
+          "prompt_sha256": "6a1f23917d093e57e6218a40c1d5a6c8e447e06124b20436e53ee7225f155e3c"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 1332,
+        "source_centers_empty": 1,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      },
+      "mask": "art/hd-completion-figures-2026-10-11/packs/dice.cel/006/7febe0bb9838e4c4/hd/dice.cel/006.mask.png",
+      "mask_sha256": "c609a057abbf69897564a2f66f9a354ed148ed46fd4bf32b551b8931edc2e849"
+    },
+    {
+      "key": "dice.cel/007.png",
+      "bank": "dice.cel",
+      "frame": 7,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "bf6cf2f6609056ca7d196f1bd831798b19bc1ba4c673fe5e9bbedf69e527059b",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/007/8f55d9e228a7e719/hd/dice.cel/007.png",
+      "png_sha256": "8f55d9e228a7e7191bcea19f4d3d887b928242f474b7e52d3cf3437efe6d7dcb",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-007-v1.png",
+      "raw_sha256": "4b64e0f38adb0cc8ade72a45f1b2ae43d2949b0d3f790973082b8dfe57524bf1",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-007-v1.txt",
+      "prompt_sha256": "3394671bf12aeafd960db6554b4dbd52c147327fdcc479aa9694a9478b6295fd",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "8f55d9e228a7e7191bcea19f4d3d887b928242f474b7e52d3cf3437efe6d7dcb",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/007/8f55d9e228a7e719/art-record.json",
+      "art_record_sha256": "0ac7f48812c9b41658693c76e26fc18711560ff6b7be0411e32d19a743e33fd2",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        },
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/player-v3.png",
+          "raw_sha256": "3eb172b85b9b533d20f2be1fe904b0029237e6961b279845b5c46fc7dd33468b",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/player-v3.txt",
+          "prompt_sha256": "6a1f23917d093e57e6218a40c1d5a6c8e447e06124b20436e53ee7225f155e3c"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 1333,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      },
+      "mask": "art/hd-completion-figures-2026-10-11/packs/dice.cel/007/8f55d9e228a7e719/hd/dice.cel/007.mask.png",
+      "mask_sha256": "c609a057abbf69897564a2f66f9a354ed148ed46fd4bf32b551b8931edc2e849"
+    },
+    {
+      "key": "dice.cel/008.png",
+      "bank": "dice.cel",
+      "frame": 8,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "6d04d9c5a72a938131837f810927f37925ea232dfd03209c24240600c3edbca5",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/008/fa52ee4193a36d3b/hd/dice.cel/008.png",
+      "png_sha256": "fa52ee4193a36d3b18f2404dc625d82a6740a25bef47c6f8966149b1b37b191e",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-008-v1.png",
+      "raw_sha256": "7698837ba1c572701b7f75a630fca80716e89589a35cf0fd6984bf89b12573ff",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-008-v1.txt",
+      "prompt_sha256": "a00a563b984fc9e49e304bfaccd34886a74458be09e89cd2414d11ca63a5d5c2",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "fa52ee4193a36d3b18f2404dc625d82a6740a25bef47c6f8966149b1b37b191e",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/008/fa52ee4193a36d3b/art-record.json",
+      "art_record_sha256": "7deca4465f6e442b0bfdea8647814eee453e2c8c475727dcfc1070dff5121ae5",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 1196,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/009.png",
+      "bank": "dice.cel",
+      "frame": 9,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "cac833523accda0a91483098998853a9c369d5d3026a4dc0ac9df8bb5fe662b9",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/009/b9dce4508eddd3d6/hd/dice.cel/009.png",
+      "png_sha256": "b9dce4508eddd3d6aea316e0d9f76c16624bc8c0a3a6b09765912bf3a9f86138",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-009-v1.png",
+      "raw_sha256": "8c014aeaafba3cc690a1dd5f6fa7cb4f746a230c49e476e68b8a1b19520d0db1",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-009-v1.txt",
+      "prompt_sha256": "546ed0ad42561488ac205f62acf734043b6004b61b939c613cca65a35b0096cb",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "b9dce4508eddd3d6aea316e0d9f76c16624bc8c0a3a6b09765912bf3a9f86138",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/009/b9dce4508eddd3d6/art-record.json",
+      "art_record_sha256": "8c6bc4660cc2a042db363b8680db31245f49a90c98c2f0f0198d46eda0b9feeb",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 1080,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/010.png",
+      "bank": "dice.cel",
+      "frame": 10,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "4efe30166601c1986173679c0e60ecf4fce517d144593213979e2b3a4a856ac0",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/010/51fb95b75ed3419c/hd/dice.cel/010.png",
+      "png_sha256": "51fb95b75ed3419c3bcbf62bd3d524ed5c1a416ee74b9fadcbcd4c24292a9bc0",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-010-v3.png",
+      "raw_sha256": "f19478578bcbe9438efbe1ae441a76c00c782a2b55c942890ba461ccfcb8fddf",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-010-v3.txt",
+      "prompt_sha256": "8fae8a86c959b27f9236db2a41d79d91abfc34627f33f8d1e9f7dc72d52afbc2",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "51fb95b75ed3419c3bcbf62bd3d524ed5c1a416ee74b9fadcbcd4c24292a9bc0",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/010/51fb95b75ed3419c/art-record.json",
+      "art_record_sha256": "cc5b3a5a6b47640af5026032cd299683e9bc47238f43379d1f8a03631ca05b08",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 270,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/011.png",
+      "bank": "dice.cel",
+      "frame": 11,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "c090c6675c4c9148089cf82de3eed8de46f3862dbd7ba0ab8e3fe15cf013ae22",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/011/bb052b3051cdb667/hd/dice.cel/011.png",
+      "png_sha256": "bb052b3051cdb667ad9596e35529b2e97aa209b232911f1070eee3ba0d2a9f93",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-011-v2.png",
+      "raw_sha256": "2c084a2d498b2195ba1e34fc2a64f8063fe9311d360a2e7160a78d398b26fa14",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-011-v2.txt",
+      "prompt_sha256": "fff3acab4a20d042974d84a0046467b8bf6c7183bd4a2468b4fc191a1bd8269e",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "bb052b3051cdb667ad9596e35529b2e97aa209b232911f1070eee3ba0d2a9f93",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/011/bb052b3051cdb667/art-record.json",
+      "art_record_sha256": "9983ee6b94f5b3e55918a64b23bad06450635efec93f339e4a25e9c877017549",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 228,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/012.png",
+      "bank": "dice.cel",
+      "frame": 12,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "3dfde7b14dd0c8731bf91283613176ebd3977b114728a686bd9221accd23ebae",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/012/a5b47b447d4d2dc8/hd/dice.cel/012.png",
+      "png_sha256": "a5b47b447d4d2dc86e150d79675b4a38ef70dc2a6bf7092b236217c733d62d17",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-012-v1.png",
+      "raw_sha256": "68cfe176ab93c9fe15f1938d1d0a6eb4c17c4277af0a66bb96db6e713daba3bf",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-012-v1.txt",
+      "prompt_sha256": "6215f297582ecfff0faa45722f7d1fd763094654d6865f7d5122caecc8a7421c",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "a5b47b447d4d2dc86e150d79675b4a38ef70dc2a6bf7092b236217c733d62d17",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/012/a5b47b447d4d2dc8/art-record.json",
+      "art_record_sha256": "ae27b41d55e34e6bdd94e90e3d39babb0546b436e1a5b38d50bd294756993fe9",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 374,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/013.png",
+      "bank": "dice.cel",
+      "frame": 13,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "8bff267d5340565eeb35eab80bed483b8685cc9bebb30078d7aba1048c7212b8",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/013/5703da8708c353dd/hd/dice.cel/013.png",
+      "png_sha256": "5703da8708c353dd6cc4ca5302f68d1ec650b271abe261e30ee268a291dd5ac3",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-013-v1.png",
+      "raw_sha256": "efa78afddc98607d71efe99f51df364bf0f4f305999271abcfee247ace0a679d",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-013-v1.txt",
+      "prompt_sha256": "aa84ab677028567680a5b74c31f5750cf2497052ca16ed95ddb9c90bd53ffbfc",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "5703da8708c353dd6cc4ca5302f68d1ec650b271abe261e30ee268a291dd5ac3",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/013/5703da8708c353dd/art-record.json",
+      "art_record_sha256": "01d025ce3036be6b0610061b7850b5dd162d9c533db8220d13ddde73ab026884",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 224,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/014.png",
+      "bank": "dice.cel",
+      "frame": 14,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "3f938a9b52689052986b6a1271d1c1fe23984f94dbf14eddf3607782f8c74270",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/014/67a0d1e73f9ea544/hd/dice.cel/014.png",
+      "png_sha256": "67a0d1e73f9ea54472a787017316bfca9ade95fd6cf16d169b0a2aa988419c7f",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-014-v1.png",
+      "raw_sha256": "2fcadc1202d02bc106caaf1c53a41396d0103ab8611242ebfe32a323590a3cff",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-014-v1.txt",
+      "prompt_sha256": "8ec68e95b72334d545b85a0d4f5931948ae8f6187527c60a8e9dcc8651d7c6db",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "67a0d1e73f9ea54472a787017316bfca9ade95fd6cf16d169b0a2aa988419c7f",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/014/67a0d1e73f9ea544/art-record.json",
+      "art_record_sha256": "8d0570555e99cdbf9c0e0913e873a4c7096b2e1db59d64906885ace6409085a6",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 357,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/015.png",
+      "bank": "dice.cel",
+      "frame": 15,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "7e5e22c91609c06934b853e505ee8f68e760c4e83664024aa840cebd0cb4df63",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/015/f7c8e9f667b2a2c9/hd/dice.cel/015.png",
+      "png_sha256": "f7c8e9f667b2a2c9f51479bb9f04e8ca4dadbedb94ee9cf0065a131d24bd7140",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-015-v1.png",
+      "raw_sha256": "2f4bfbe78999a91735a046c4e9ab5c3477a53bc26160ecbb644175ca5a9ef09f",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-015-v1.txt",
+      "prompt_sha256": "f1709709283e874d6c8127037822e56e2f1b81437cdbb46d44d7db548d65fa42",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "f7c8e9f667b2a2c9f51479bb9f04e8ca4dadbedb94ee9cf0065a131d24bd7140",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/015/f7c8e9f667b2a2c9/art-record.json",
+      "art_record_sha256": "6ffee50914cb04c5f32d61212812bd7f68b5894c5806cd912b38e5f0255bbef2",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 330,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/016.png",
+      "bank": "dice.cel",
+      "frame": 16,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "43955d004fbdf45dd34ceb7df0d29222c2960a6cce76703f936600909ef38629",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/016/bc22e461a92e6b19/hd/dice.cel/016.png",
+      "png_sha256": "bc22e461a92e6b1932f3e3b6beebd6671ee3d75080a693c44b3cda439b4b7bdb",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-016-v1.png",
+      "raw_sha256": "bfb82cd84beb2dd997ded7d9f8bac634fa2f2a41a36cfdaa594fd491979101dd",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-016-v1.txt",
+      "prompt_sha256": "93507df8e4ac249cb74871f1e32d8112702f1d6f3e03bbb84a4ca7d0dea68122",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "bc22e461a92e6b1932f3e3b6beebd6671ee3d75080a693c44b3cda439b4b7bdb",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/016/bc22e461a92e6b19/art-record.json",
+      "art_record_sha256": "f38b14a8aad4604818df31d12c636a355cee7a4cd59e524424d73e541a0dd5a7",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 315,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/017.png",
+      "bank": "dice.cel",
+      "frame": 17,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "b420960367b71d15ac9f93535cb35934a6665b90ce12bbdcdad40c315f25b7aa",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/017/7e07c7e53ff0e276/hd/dice.cel/017.png",
+      "png_sha256": "7e07c7e53ff0e2762237ec5fad53e5b0f19a7f86292cd8373d5b5ca3947e7819",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-017-v1.png",
+      "raw_sha256": "6ad4e3c4452c46079d73bd027d1143c2061d7dd397b6b3814b3dd6d91682f2a6",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-017-v1.txt",
+      "prompt_sha256": "1879858186255679b237be5a34aece18a15233f4100bfe5b66d4fa26567a2e27",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "7e07c7e53ff0e2762237ec5fad53e5b0f19a7f86292cd8373d5b5ca3947e7819",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/017/7e07c7e53ff0e276/art-record.json",
+      "art_record_sha256": "63fb38c1086a9622cca78004c6f951da60267b688090d46002bc6b33553609b6",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 288,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/018.png",
+      "bank": "dice.cel",
+      "frame": 18,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "b23cbf916182728904a592d57eeecffb70a790a88600824cf530cd0aac335f7e",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/018/0d856b993c175b75/hd/dice.cel/018.png",
+      "png_sha256": "0d856b993c175b7597e8c9ef9ed21caab4a50eb9d80dc4bd43fd043a34968fbd",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-018-v1.png",
+      "raw_sha256": "7154ebef60d827a189714e5748028ef934e13d6951e39a447d8f7f76793329b2",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-018-v1.txt",
+      "prompt_sha256": "7fb4d29b7eb2e0d5bc1d589531c20ecbbc3dc4e6492cc3adb37b1e3ad1507616",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "0d856b993c175b7597e8c9ef9ed21caab4a50eb9d80dc4bd43fd043a34968fbd",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/018/0d856b993c175b75/art-record.json",
+      "art_record_sha256": "4048a63b72503b887a546770c229116d238af349613166d0b326e871366b18a0",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 380,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/019.png",
+      "bank": "dice.cel",
+      "frame": 19,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "d4e229a0d1d2c83c9788eb0c2c370af4de555005df1749d7121e965e6bab443e",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/019/cad8e1bf36585688/hd/dice.cel/019.png",
+      "png_sha256": "cad8e1bf3658568806d879e25ac646b8e3f96b1fbcb30b41b03ff0e7c06134dc",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-019-v1.png",
+      "raw_sha256": "8a93beef664e054b7e98a90cccc8f8232066fe0b64290076ee2a08ba919f311f",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-019-v1.txt",
+      "prompt_sha256": "172cd703dbeda6617f73ae43af251fb8fb2f897564fa9036f880d8032629eade",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "cad8e1bf3658568806d879e25ac646b8e3f96b1fbcb30b41b03ff0e7c06134dc",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/019/cad8e1bf36585688/art-record.json",
+      "art_record_sha256": "43fa1b70464906c144234f05219da4000019ea4a35c2f403f35adb2d8b59b2dd",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 360,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/020.png",
+      "bank": "dice.cel",
+      "frame": 20,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "0f1d1896af02d78aaf79e5c09f8fec161f693697d40ac74f2e5cb41496502b38",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/020/54f0d26733c2a1f1/hd/dice.cel/020.png",
+      "png_sha256": "54f0d26733c2a1f127f38a39f90fd9f0ba173bd8057171efd55af5122749a721",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-020-v1.png",
+      "raw_sha256": "05499cc1e22a5ded8aef6a0647a1d46501fe740c6a2cb832ff7928c9864da9eb",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-020-v1.txt",
+      "prompt_sha256": "e7c62ba28e17f5a0f707f8bdae260a286896cffb00d35426117fc73e82faff14",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "54f0d26733c2a1f127f38a39f90fd9f0ba173bd8057171efd55af5122749a721",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/020/54f0d26733c2a1f1/art-record.json",
+      "art_record_sha256": "ec941f58e6ceffb4c219a7038b6fcfccd34153272c62b40d88e2295f9fa840a1",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 270,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/021.png",
+      "bank": "dice.cel",
+      "frame": 21,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "7f1ba2543e029d2cc506008e79c4ed970063ef215d6e69cac624dc87c9d69df7",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/021/9208d4323fb77c6c/hd/dice.cel/021.png",
+      "png_sha256": "9208d4323fb77c6ca0ca7da97a3a5256051f831512c555b763cd1fcdc6723c47",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-021-v1.png",
+      "raw_sha256": "761f766edbae2bfeb3f3ee35351188ab35ec30b93ac9a8828d9fe78dfe9e1490",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-021-v1.txt",
+      "prompt_sha256": "11b30d61f3ce3694734fbbfb1055dc95b3dfe1957e852cc0dd81f46819749240",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "9208d4323fb77c6ca0ca7da97a3a5256051f831512c555b763cd1fcdc6723c47",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/021/9208d4323fb77c6c/art-record.json",
+      "art_record_sha256": "5d6eb4df070dcf2c2ff5c015a3def45e328f34e5f4771742bc3b27fa8f6d0c4b",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 225,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "dice.cel/022.png",
+      "bank": "dice.cel",
+      "frame": 22,
+      "source_bank_sha256": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88",
+      "indices_sha256": "99028aee6adce2b7069509292252891eda2968920329e09f6fa1a762763f3589",
+      "png": "art/hd-completion-figures-2026-10-11/packs/dice.cel/022/482165e1b874dd6e/hd/dice.cel/022.png",
+      "png_sha256": "482165e1b874dd6e5d526b3bb2a93eb0cd5f60dbda24b2e71789a996de2e237b",
+      "raw": "art/hd-completion-figures-2026-10-11/production/dice/raw/dice-022-v1.png",
+      "raw_sha256": "f7a6b10acbc1e2ae9142a68df054ce280f82dc822912ebe5371419b08a62d546",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/dice/prompts/dice-022-v1.txt",
+      "prompt_sha256": "b732dd486bfa32fd94220a15c6725f330e393250a867e769180a9da2983c46c7",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-embedded-tavern-2026-10-11/verification/runtime-v11-0/dice-runtime.json",
+      "runtime_asset_sha256": "482165e1b874dd6e5d526b3bb2a93eb0cd5f60dbda24b2e71789a996de2e237b",
+      "art_record": "art/hd-completion-figures-2026-10-11/packs/dice.cel/022/482165e1b874dd6e/art-record.json",
+      "art_record_sha256": "dc464f4fa13276b66e23e16b5bfbbbe9094f313188517fbbb0fb4d668fd08d05",
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-embedded-tavern-2026-10-11/raw/tav-clean-v1.png",
+          "raw_sha256": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef",
+          "prompt": "art/hd-embedded-tavern-2026-10-11/prompts/tav-clean-v1.txt",
+          "prompt_sha256": "3626c8ccc0cb9f97dab7ebf14690c1fa6d7a1deed30144466aa17c513a13d7d9"
+        }
+      ],
+      "qa": {
+        "source_centers_opaque": 224,
+        "source_centers_empty": 0,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "four_original_player_palettes": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    }
+  ]
+}

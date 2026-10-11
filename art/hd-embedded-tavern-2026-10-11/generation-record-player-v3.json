@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "generation_tool": "builtin_image_gen",
+  "model_version": "Tool does not confirm an exact image model version.",
+  "output": "raw/player-v3.png",
+  "output_sha256": "3eb172b85b9b533d20f2be1fe904b0029237e6961b279845b5c46fc7dd33468b",
+  "prompt": "prompts/player-v3.txt",
+  "prompt_sha256": "6a1f23917d093e57e6218a40c1d5a6c8e447e06124b20436e53ee7225f155e3c",
+  "builtin_output_path": "/home/tombonator3000t/.codex/generated_images/01a12bdd-775f-7861-a140-acf03481be58/exec-e4e1091e-cb31-441d-8035-dcda9fd5d4b4.png",
+  "references": [
+    {
+      "path": "raw/player-v2.png",
+      "sha256": "ba3c0e374e57752b3a31e2383d4f2bb8b7509438ec6616420bdb300e2cc46e34"
+    },
+    {
+      "path": "references/player-original-blue-generation-v3.png",
+      "sha256": "cf1f320d925d4c2cf9e21351fc29f803e2716a52c1a0ae4b76ac0c85e36fc5a3",
+      "reconstruction_note": "Source reference used during generation preceded the later14 original-zero elbow shadow mask repair. This reference is reconstructed by removing only those14 source positions from the current source-derived reference. Exact original source bank and palette unchanged."
+    }
+  ],
+  "scope": "Separat innebygd spillerplate med original hjelm, fjær, hanske, arm, kappe og eget krus. Den siste genereringen retter bare nedre originalalbue; ingen ny plassering eller bakgrunn. Fotografisk materialregistrering og originalmaskepakking dokumenteres separat."
+}
