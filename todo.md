@@ -68,3 +68,9 @@
 - [x] Beholde Original-valg og egen mappeimport, avbryte lasting sikkert og begrense bakgrunnscachen.
 - [x] Kontrollere auto-HD i tittel/Practice og71 gangbilder samt lasting/feil/gjenoppretting i faktisk HTML.
 - [ ] Fullføre nytegning og dokumenterte feil i resterende figurruter, palettvarianter og PIV-fliser før videre spillaktivering.
+
+## Trofaste ikoner, 11. oktober 2026
+- [x] Bygge75 ikonruter fra originalkonturer, uten nye motivdetaljer eller bildegenerering.
+- [x] Bruke virkelig palett, korrekte CEL-planmasker og source-hash; bevare Original og usikre treff.
+- [x] Identifisere sverdpekeren som hardware-sprite og bevare dens overlapping.
+- [x] Kontrollere alle26 557 kildepikselmidtpunkter i eksporterte HD-filer mot originalvisningene.
