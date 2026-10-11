@@ -2,7 +2,7 @@
 
 Alt under streken er en ferdig melding. Lim den inn til ChatGPT og legg ved `docs/hd-bestilling-liste.csv`. Listen lages på nytt med `python3 tools/hd_bestilling.py Moonstonecd32-AMIGA.zip docs/hd-bestilling-liste.csv`, og tallene under er fra den kjøringen (11. oktober 2026). Bakgrunnen for listen, med belegg, står i `docs/hd-mangler.md`.
 
-Send ikke meldingen før to ting er flettet til main, for meldingen viser til dem: denne bestillingen (`docs/hd-bestilling-liste.csv`, `tools/hd_bestilling.py`, `docs/hd-mangler.md` og de to kildebildene i `art/photoreal/references/runtime_background/`), og visningen av figurer i flere deler med farge fra paletten (masken i punkt 3.5, beskrevet i `docs/hd-grafikk.md` under «Farge fra paletten»). Sjekk at filene finnes på https://github.com/Tombonator3000/MOONSTONE/tree/main før du sender.
+Meldingen viser til filer som kommer med samme PR som denne bestillingen (listen, `tools/hd_bestilling.py`, `docs/hd-mangler.md`, maskeformatet i `docs/hd-grafikk.md` og kildebildene i `art/photoreal/references/runtime_background/`). Send den når PR-en er flettet, og sjekk at filene finnes på https://github.com/Tombonator3000/MOONSTONE/tree/main.
 
 ---
 

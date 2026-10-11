@@ -8,6 +8,23 @@ Oversikt per 11. oktober 2026. Den bygger på målinger med headless-emulatoren 
 
 Skriptene og dumpene ligger i scratchpad for økten (`hdm/`), ikke i repoet. Linjenumre i `disasm/*.s` gjelder disassemblyen som lages lokalt.
 
+## 0. Gjort etter kartleggingen (11. oktober, ettermiddag)
+
+Dette er rettet eller slått på siden oversikten under ble skrevet. Tabellene under beskriver tilstanden før, så les dette først.
+
+- **Slått på (data):** de 24 hulebakgrunnene (fol, gll, swl, wal 1-6), healeren (2e3c32ae), Mythrid (d8b4018a) og druidene (94c7f163). Utkastene er merket needs_revision for runene og detaljer; de er slått på etter ønske fra eieren og kan tas ut av `web/hd/manifest.json` igjen. Manifestet har nå 326 filer, 68 bakgrunner.
+- **Scener i introen:** steinsirkelen, portalen (begge gangene) og alteret blinker ikke lenger (målt bilde for bilde: 459 av 459, 302 av 302). Ny scene for bg3.PIV (c2501c17). Nye scener for lasteskjermen (ch.piv) og Prepare yourself (message.piv, men bg/931f9b1d.png finnes ikke ennå, så banneret har ikke HD).
+- **Figurer i flere deler (punkt 4.1):** render.js avgjør nå eierskap per piksel. Sverdet over kroppen og andre figurer i flere deler kan få HD hver for seg; piksler fra figurer uten HD blir stående.
+- **Farge fra paletten (4.2):** en HD-PNG kan ha `<navn>.mask.png` (R = palettindeks + 1, G = lysstyrke, B = vekt, se docs/hd-grafikk.md). Ett sett ridderbilder viser da riktig farge for hver ridder. Prøvd med forstørrede originaler: blå, grønn, oransje og rød ble lik paletten. Posene følger også paletten, så de virker i dueller med annen palett.
+- **Tekst ved hashbytte (4.5):** bare figurer som ikke lenger står i forgrunnen fjernes.
+- **Utsnittsbakgrunner (4.6):** byene og kroen vises bare i HD med rektangel fra et scenetreff, ellers originalen.
+- **Toning (4.7):** HD-bakgrunner, figurer og poser tones med skjermen; scenene har referanselys fra PIV-filen.
+- **Logoen:** vises med riktig sideforhold (fyller bredden, ikke flatklemt) til en ny tegning i 5,65:1 finnes. Den står i bestillingen.
+- **Arkivet:** enabled_in_game er rettet i art/photoreal/catalog.json, og bg/045a1ac5 (tom skjerm) nektes i standardpakken.
+- **Bestillingen:** docs/hd-bestilling-liste.csv (1871 rader, laget av tools/hd_bestilling.py) og en ferdig melding i docs/hd-bestilling-chatgpt.md.
+
+Ikke målt ennå: monsterkamp i et ekte hi med HD-figurer, og kamp med fire riddere samtidig.
+
 ## 1. Status
 
 ### Dette har HD i dag (målt)
@@ -116,13 +133,13 @@ Feil i arkivets metadata (målt): `enabled_in_game` står true for sel.cel:000, 
 
 ## 4. Kodemangler som hindrer HD
 
-1. **Figurer i flere deler avvises.** En tegning avvises hvis den overlapper en tegning som kom tidligere i listen, uansett om den andre har PNG, og også hvis en overlappende tegning har PNG eller ukjent kilde (web/src/render.js:948). I øvingskampen overlapper 1064 av 1602 tegninger (målt). Sverdet kn4 over kroppen kn1 avvises alltid. Gjelder riddere, blod og trolig de fleste monstre.
-2. **Ingen farge fra paletten for vanlige figurer.** PNG-en vises med faste farger (render.js:956-983 sammenligner bare indekser). Ridderne får fargen fra paletten, så ett sett KN-bilder kan ikke vise fire ridderfarger. Posene krever eksakt RGB (render.js:844) og identitetsindeksene 6, 7, 8 (render.js:847), og avvises ved fremmed overlapp (render.js:821). I en kamp i et hi er paletten en annen enn i øvingskampen, så posene avvises der (målt). Ikonene fargelegges allerede med skjermens palett (render.js:1160), og samme løsning trengs for ridderne.
+1. **Figurer i flere deler avvises.** (Rettet, se punkt 0.) En tegning avvises hvis den overlapper en tegning som kom tidligere i listen, uansett om den andre har PNG, og også hvis en overlappende tegning har PNG eller ukjent kilde (web/src/render.js:948). I øvingskampen overlapper 1064 av 1602 tegninger (målt). Sverdet kn4 over kroppen kn1 avvises alltid. Gjelder riddere, blod og trolig de fleste monstre.
+2. **Ingen farge fra paletten for vanlige figurer.** (Rettet med masker, se punkt 0.) PNG-en vises med faste farger (render.js:956-983 sammenligner bare indekser). Ridderne får fargen fra paletten, så ett sett KN-bilder kan ikke vise fire ridderfarger. Posene krever eksakt RGB (render.js:844) og identitetsindeksene 6, 7, 8 (render.js:847), og avvises ved fremmed overlapp (render.js:821). I en kamp i et hi er paletten en annen enn i øvingskampen, så posene avvises der (målt). Ikonene fargelegges allerede med skjermens palett (render.js:1160), og samme løsning trengs for ridderne.
 3. **Bitene i kampbakgrunnene** settes sammen av en egen blitter-rutine ($099BB8 i mog) rett i bakgrunnskopien. De får aldri en fil/bilde-nøkkel, bare hele bakgrunnen per .t-fil (målt med --blit-log).
 4. **Intro og slutt** kjøres av `program`. Der er laget ugyldig (port/src/lag.c:54, port/src/whdload.c:304-305) og tegnelisten tom (målt). Bare hele bilder via SceneHd virker. 385 figurbilder kan derfor ikke få HD.
-5. **Tekst forsvinner ved hashbytte.** render.js:484 tømmer alle plasserte figurer når bakgrunnshashen endres. På lasteskjermen tegnes teksten i bilde 863-870, hashen skifter i bilde 950 (målt).
-6. **Utsnittsbakgrunner kan strekkes feil (kode).** bg/438c8bc2, 44898895 og d097d0ff dekker bare en del av skjermen (1419 x 1108 og 1414 x 1113). Utsnittet settes bare av SceneHd (web/src/scenes.js:116). Står hashen igjen uten scenetreff, strekkes bildet over hele 320 x 200 (render.js:1079-1091). Det er målt at bakgrunnslaget kan stå på Highwood mens en meldingsskjerm vises.
-7. **Toning og fargebytte.** HD-figurer og bakgrunner får bare lysstyrke (render.js:1029, 1089). Posene vises med lys 1 og avvises mens skjermen toner (kode).
+5. **Tekst forsvinner ved hashbytte.** (Rettet, se punkt 0.) render.js:484 tømmer alle plasserte figurer når bakgrunnshashen endres. På lasteskjermen tegnes teksten i bilde 863-870, hashen skifter i bilde 950 (målt).
+6. **Utsnittsbakgrunner kan strekkes feil (kode).** (Rettet, se punkt 0.) bg/438c8bc2, 44898895 og d097d0ff dekker bare en del av skjermen (1419 x 1108 og 1414 x 1113). Utsnittet settes bare av SceneHd (web/src/scenes.js:116). Står hashen igjen uten scenetreff, strekkes bildet over hele 320 x 200 (render.js:1079-1091). Det er målt at bakgrunnslaget kan stå på Highwood mens en meldingsskjerm vises.
+7. **Toning og fargebytte.** (Rettet, se punkt 0.) HD-figurer og bakgrunner får bare lysstyrke (render.js:1029, 1089). Posene vises med lys 1 og avvises mens skjermen toner (kode).
 8. **SceneHd sammenligner med bakgrunnskopien når laget er gyldig** (scenes.js:46). For Math, terningspillet og kartet er teksten og markørene en del av den, så kravene i en ny scene må tåle dem.
 9. **Faste særtilfeller i tittelmenyen.** Pilen, titteltekstene og månefasene har faste koordinater, paletter og bankhasher (render.js:437-440, 729-789, 868-904). En oversatt eller endret meny faller tilbake til originalen (kode).
 10. **Utenfor spillet:** grensesnittet på nettsiden (sidemenyen, knappene, hint) bruker originalpikslene og har egne glyfer for æ, ø, å og tegn spillet ikke har (web/src/grafikk.js:145-161). PC-versjonen leser ikke HD i det hele tatt (kode).
