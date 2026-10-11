@@ -688,6 +688,9 @@ void meny_command(int cmd, int arg, const char *text)
         M2.pick_fire = 1;
         M2.pick_frame = M.frame;
         return;
+    case MENY_CMD_PEKER:                    /* pekeren til (x, y) og fire: arg = x | y << 16 */
+        game_peker(arg & 0xffff, (arg >> 16) & 0xffff);
+        return;
     case MENY_CMD_SESSION_END:
         M2.session = SESSION_NONE;
         M2.n_names = 0;

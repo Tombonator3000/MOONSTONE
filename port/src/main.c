@@ -277,7 +277,15 @@ int main(int argc, char **argv)
                 p->frame = (uint32_t)strtoul(tmp, &c, 10);
                 p->addr = *c == ':' ? (uint32_t)strtoul(c + 1, &c, 16) : 0;
                 p->value = *c == ':' ? (uint32_t)strtoul(c + 1, &c, 0) : 0;
+                if (*c && *c != ':') {             /* f.eks. 4ef9: base 0 leser bare 4 */
+                    fprintf(stderr, "--skriv %s: verdien kan ikke leses (heks skrives 0x4ef9, adressen er alltid heks)\n", v);
+                    return 1;
+                }
                 p->size = *c == ':' ? atoi(c + 1) : 1;
+                if (p->size != 1 && p->size != 2 && p->size != 4) {
+                    fprintf(stderr, "--skriv %s: N maa vaere 1, 2 eller 4\n", v);
+                    return 1;
+                }
             }
             i++;
         } else if (!strcmp(a, "--online-meny")) {
@@ -398,6 +406,7 @@ static int run_headless(int frames, int shot_every, const char *shot_dir, int sa
             }
         hver_frame();
         meny_frame();
+        game_frame();
         amiga_run_frame();
         {
             extern int blit_trace_from, blit_trace_n;

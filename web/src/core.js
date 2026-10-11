@@ -41,7 +41,7 @@ const Kjerne = (() => {
     /* spillfila som er bygget inn i kjernen (port/bin2c.py) */
     function harInnebygd() { return !!M._ms_has_embedded(); }
     function aapneInnebygd() {
-        if (!M._ms_open_embedded()) throw new Error(M.UTF8ToString(M._ms_error()) || 'Den innebygde spillfilen kan ikke leses.');
+        if (!M._ms_open_embedded()) throw new Error(M.UTF8ToString(M._ms_error()) || 'Den innebygde spillfilen kan ikke leses.');      /* oversettes der den vises (T) */
     }
 
     /* andre spillfiler (zip eller ISO); kjernen tar over bufferet */
@@ -150,6 +150,9 @@ const Kjerne = (() => {
         menyHendelse: () => M._ms_menu_event(),
         menyKlar: () => !!(M && M._ms_menu_ready()),     /* tittelmenyen er naadd (false mens kjernen lastes) */
         iIntro: () => !!(M && M._ms_in_intro()),
+        iSlutt: () => !!(M && M._ms_in_ending()),    /* sluttscenen (program etter seieren) */
+        pekerAktiv: () => !!(M && M._ms_peker_aktiv()),   /* spillets peker vises (inventar, by, butikker) */
+        pekerPort: () => (M ? M._ms_peker_port() : 1),     /* porten som styrer den (0 = port 1, 1 = port 2) */
         iMeny: () => !!(M && M._ms_in_menu()),      /* tittelmenyen eller en nettspillside er framme */
         menyRad: (y) => M._ms_menu_row(y | 0),      /* raden paa linje y, -1 ikke i menyen, -2 ingen rad */
         menySide: () => (M ? M._ms_menu_page() : -1),    /* siden i menyen (2 = romsiden til verten), -1 utenfor */

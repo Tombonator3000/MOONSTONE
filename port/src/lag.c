@@ -111,5 +111,9 @@ void lag_bygg(void)
     uint32_t lys = 0;
     for (int i = 0; i < 32; i++)
         if (brukt & (1u << i)) lys += (pal[i] & 0xff) + ((pal[i] >> 8) & 0xff) + ((pal[i] >> 16) & 0xff);
+    /* helt svart bakgrunn (riddervalget): da foelger vi hele paletten, ellers ville
+       HD-bildene aldri faatt lys eller aldri tonet ut */
+    if (!lys)
+        for (int i = 0; i < 32; i++) lys += (pal[i] & 0xff) + ((pal[i] >> 8) & 0xff) + ((pal[i] >> 16) & 0xff);
     lag_bak_lys = lys;
 }

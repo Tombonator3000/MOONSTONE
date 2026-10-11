@@ -22,11 +22,13 @@ const StandardHd = (() => {
             bakgrunner: [...cache.keys()], tilgjengelige: manifest.images };
     }
 
+    /* Er HD slaatt av, viser siden at HD er av, selv om lastingen fortsetter */
     function status() {
-        if (!aktiv) return;
+        if (!aktiv || !V.hdPaa()) return;
+        /* meld faar norsk kildetekst og verdier; siden oversetter (sprak.js) */
         meld(feil ? 'HD kunne ikke lastes. Originalgrafikken brukes der bilder mangler.'
-            : klar ? 'Standard-HD: ' + V.hdAntall() + ' bilder lastet. Bakgrunner lastes ved behov.'
-            : 'Laster standardgrafikken ...');
+            : klar ? 'Standard-HD: {0} bilder lastet. Bakgrunner lastes ved behov.'
+            : 'Laster standardgrafikken ...', V.hdAntall());
     }
 
     async function hent(f, signal) {
@@ -123,5 +125,5 @@ const StandardHd = (() => {
         cache.clear(); avvist.clear();
     }
 
-    return { start, stopp, oppdater, info, scener: () => manifest.scenes || [] };
+    return { start, stopp, oppdater, info, status, scener: () => manifest.scenes || [] };
 })();

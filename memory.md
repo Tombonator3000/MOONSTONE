@@ -157,6 +157,20 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 - Eieren vil ikke ha en HTML-startside. Siden starter rett i introen, og alt valg skjer i
   spillets tittelmeny. Sidemenyen (Home, knappen oppe til høyre) har bilde og lyd,
   HD-grafikk, lagring, spillfil og egne filer, taster og «Start spillet på nytt».
+- Teksten på nettsiden er engelsk som standard; norsk velges øverst i sidemenyen
+  («Language / Språk», innstillingen `sprak`: 'en' eller 'no'). Kildeteksten i JavaScript
+  er norsk, og `web/src/sprak.js` har ordboken til engelsk. `T(tekst, ...verdier)`
+  oversetter ({0}, {1} er plassholdere), `Sprak.sett(el, tekst, ...)` husker kilden så
+  elementet tegnes på nytt ved bytte. Nye tekster på siden må inn i ordboken.
+  De faste tekstene i index.html er engelske (første bilde, søkemotorer, lenkeforhåndsvisning),
+  og `Sprak.start` finner den norske kilden ved å slå opp den engelske teksten baklengs i
+  ordboken. En fast tekst i index.html må derfor være lik den engelske teksten i ordboken.
+  Feilmeldingene fra kjernen (state.c, files.c, whdload.c) er norske og står også i
+  ordboken; navnene på delene i en lagring (`deler[]`) står i `DELER` i sprak.js.
+  Tester som leser norsk tekst, setter `sprak: 'no'` i `moonstone.innstillinger`.
+- HD-grafikken er av som standard (bryteren står på Original). Den slås på i sidemenyen,
+  og valget lagres som `hd` sammen med `hdValgt: true`; en gammel lagret `hd` uten
+  `hdValgt` gir Original. HD-testene i tools/ setter `{hd:'hd',hdValgt:true}` før lasting.
 - Introen ser på den siste tastaturkoden uten slipp-biten, og bare mellom trinnene.
   Esc huskes, men det kan gå opp mot 200 bilder før mog lastes. En annen tast etter Esc
   (Return som slippes) gjør at introen ikke slutter. Målt med moonstone-headless
@@ -247,15 +261,16 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   ikke sluppet ennå). Uten tilstand: --press 1400 med --hver før return i 1500, så turen
   starter med de fjerne ridderne.
 - Valgene på kartet venter på tastene 1-9 (`--press 1900:2:4` velger nummer 2).
-- Nettlesertest: $S/test26.js (vert og Kari, Separate, gange, farger, verten går).
-  Playwright ligger i /opt/node-tools/node_modules (NODE_PATH).
+- Nettlesertest: tests/nettleser/test26.js (vert og Kari, Separate, gange, farger, verten går).
+  Playwright ligger i /opt/node-tools/node_modules (NODE_PATH). tests/kjor.sh starter serverne og
+  kjorer testene (tests/README.md); felles.js har hjelpefunksjonene.
 - Dueller (steg 3): HVER_BLOB (hele ridderen som heks, 312 tegn), HVER_MEG (inn paa plass 0
   etter duellen), HVER_DUELL (maske: kan naas), HVER_AI (datamaskinen tar over), hendelser
   HVER_EV_DUELL / HVER_EV_DUELL_SLUTT via ms_hver_hendelse. Nettsiden: D i app.js (rolle 'a'
   angriper / 'b'), Nett.duellKoble (direkte PeerJS med metadata.duell), sendTilstandTil,
   tilstandsMottaker. Protokollversjon 3.
 - Kampposisjonene: +$04 x og +$08 y (ord) i ridderstrukturen. Kampen laster i om lag 8 s.
-- Tester: $S/test27.js (duell, verten angriper, testspiller styrer etter posisjonene),
+- Tester: tests/nettleser/test27.js (duell, verten angriper, testspiller styrer etter posisjonene),
   test28.js (Kari sier nei: datamaskinen tar over), test29.js (Kari angriper verten).
 - Home-tasten aapnet og lukket sidemenyen paa samme trykk (to lyttere); rettet med
   e.defaultPrevented.
@@ -318,7 +333,7 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   To mennesker i moete: Players 2, ridder 2 flyttes til ridder 1 ($8D6B6/$8D6B8 = 300/5 i
   bilde 2100), fire 2200, tasten 2 i 2300; forsvareren gaar med p2-right 62 og p2-down 42
   fra 2850 og slaar med p2-fire + p2-right (angriperen med HIT 1 via $8D604 i 2250).
-- Nettlesertest for Turns-kontrollene: $S/test35.js.
+- Nettlesertest for Turns-kontrollene: tests/nettleser/test35.js.
 - Rullen headless: gi plass 1 en rull med --skriv 2100:8d872:1:1 (tingtabellen til plass 1 er $8D860,
   ting $12), angrip som over; fire i 2450 aapner inventaret, pekeren fra (160,100) til rullen ved ca.
   (110,195) og fire bruker den (ting $12 blir 0, $8BEA4 = $12, ingen kamp).
@@ -348,15 +363,15 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   lagringen. Den brukes som "et spill er i gang" for automatisk lagring (nett og PC).
 - Nettspill: 'hei' har f = state_format_id() (delenes merke, versjon, lengde) og v = 4; verten avviser
   et annet format med beskjed. Romlisten (rooms.js) har f og viser bare rom med samme format.
-  Faar en gjest en tilstand den ikke kan laste, gaar den ut av rommet med grunnen. Test: $S/ver1.js.
+  Faar en gjest en tilstand den ikke kan laste, gaar den ut av rommet med grunnen. Test: tests/nettleser/ver1.js.
 - Det gamle formatet (MOONSTAT, versjon 13) leses fortsatt, men bare paa samme maskintype
   (layout_id tok med sizeof(void *)). Eldre versjoner gir en melding med versjonsnummeret.
 - Strukturene er like store paa x86_64, MinGW og wasm32 (M 232, C 280, B 64, AudChan 40, Cia 36,
   Input 6, CPU 488), saa lagringer kan flyttes mellom PC og nett. state_feil har grunnen.
 - Nettsiden: autolagring i IndexedDB-noekkelen 'auto' (visibilitychange, pagehide, hvert 120 s,
   bare naar hver_kart() og ikke i introen, tittelmenyen, en duell eller som gjest),
-  navigator.storage.persist(), Fortsett, Last ned, Hent fra fil. Test: $S/lag1.js (10 sjekker, bruker
-  $S/lt/kart_ny.sav: --online-meny --press 100:esc:4 700/760/820:down:10 880:fire:10 1300:fire:10
+  navigator.storage.persist(), Fortsett, Last ned, Hent fra fil. Test: tests/nettleser/lag1.js (10 sjekker, bruker
+  kart_ny.sav, som testen lager selv: --online-meny --press 100:esc:4 700/760/820:down:10 880:fire:10 1300:fire:10
   1500:return:6, lagret i bilde 2000 paa kartet).
 - PC: SDL_GetPrefPath ("~/.local/share/Moonstone/Moonstone/", %APPDATA%\Moonstone\Moonstone\),
   moonstone_auto.sav ved avslutning (ogsaa F10: amiga_quit_key, ikke ved resload_Abort), den forrige
@@ -385,3 +400,13 @@ art/hd-icons-2026-10-11 har75 kildefaste konturikonruter og redigerbare SVG-kild
 `Visning.lastHdPakke(filer)` bytter bare ikonmetadata når en tilsvarende PNG er dekodet og erstattet. Egen PNG uten ikonmetadata beholder sine egne piksler. Delvis import og bakgrunnslasting bevarer øvrige ikoners palett, kildekontroll og HD-peker. Feil i PNG eller ikonmanifest endrer ikke de øvrige ikonene. Scenefelt krever gyldig rektangel, originalmål og indeksmønster før de blir tilgjengelige for rendereren.
 
 Dynamiske kartmarkører fjernes først fra originalforgrunnen når valgt HD-bakgrunn finnes i standardpakkens ferdiglastede bakgrunnscache. Dette hindrer at markørene blir usynlige under nettverkslasting.
+- Sluttscenen: seierruten i mog ($081834) skriver d7|$80 til $3E0 og hopper til tilbake_til_introen ($081846),
+  som laster program. program kopierer $3E0 til $080190 ($08001E) og viser sluttscenen naar bit 7 er satt
+  ($080064). Ingen andre hopp til $081846. Headless: --press 200:esc:4 --skriv 800:81942:0x4ef9:2
+  --skriv 800:81944:0x0008183c:4 --press 900:down:10 (hex maa ha 0x). Nettsiden: ms_in_ending.
+- Pekeren: $098088 paa (1)/av, $098092 x, $098094 y (lowres, spissen), $098096 fire, $09A020 feltlisten ($18 byte:
+  +4 b, +6 h, +$C x, +$E y, +$10 kode), $8E8B6 eieren (+$0B porten). VBL $08C3EA flytter 2 piksler/bilde og leser
+  eierens port; byen ($081242/$0813B2) og tavernaen leser port 2 selv; tavernaen ser etter fire hvert 14. bilde.
+  MENY_CMD_PEKER (14, arg x | y << 16) og game_frame (fire 16 bilder paa begge portene). Test: peker1.js; by.sav i
+  $S/peker/agent_b. --save-state F er antall bilder fra start av kjoringen (ikke bildenummeret).
+- HD-lysstyrke: lag.c lag_bak_lys er summen av fargene bakgrunnen bruker. Er bakgrunnen helt svart (riddervalget), brukes hele paletten i stedet; render.js gir hdLys = 1 om maks er 0. Uten dette ble HD-portrettene og HD-teksten svarte.

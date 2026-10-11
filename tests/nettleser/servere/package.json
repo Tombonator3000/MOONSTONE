@@ -1,0 +1,12 @@
+{
+  "name": "moonstone-testservere",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lokale PeerJS- og MQTT-servere for nettlesertestene i tests/nettleser",
+  "dependencies": {
+    "aedes": "0.51.3",
+    "express": "4.22.3",
+    "peer": "1.0.2",
+    "ws": "8.22.0"
+  }
+}

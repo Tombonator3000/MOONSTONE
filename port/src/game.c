@@ -350,3 +350,45 @@ void game_state(StateIO *s)
     STATE_VAR(s, background);
     if (!s->saving) valg_bilde = navn_bilde = velg_bilde = 0xffffffffu;    /* et annet bilde enn da lokka gikk */
 }
+
+/* ------------------------------------------------------------ pekeren (inventar, by, butikker)
+ * Spillets peker ($098092/$098094, lowres-piksler fra oeverst til venstre i vinduet,
+ * spissen) flyttes med joysticken av VBL-rutinen $08C3EA, som leser porten til ridderen
+ * i $8E8B6. Fire maa komme paa porten: byen ($081242/$0813B2) og tavernaen leser port 2
+ * selv, og tavernaen ser etter fire bare hvert 14. bilde. Et klikk paa nettsiden blir
+ * derfor kommandoen MENY_CMD_PEKER: pekeren settes dit, og fire holdes i 16 bilder paa
+ * begge portene (game_frame). Det skjer ved starten av et bilde hos alle i nettspill. */
+#define PEKER_PAA  0x98088
+#define PEKER_X    0x98092
+#define PEKER_Y    0x98094
+#define PEKER_EIER 0x8e8b6
+static uint8_t peker_fire;
+bool game_peker_aktiv(void) { return game_mog_running() && rd16(PEKER_PAA) != 0; }
+/* porten som styrer pekeren (0 = port 1, 1 = port 2): eierens i inventaret, ellers port 2 */
+int game_peker_port(void)
+{
+    int k = knight_index(rd32(PEKER_EIER));
+    return (k >= 0 && styres_med(k) == 1) ? 0 : 1;
+}
+void game_peker(int x, int y)
+{
+    if (!game_peker_aktiv()) return;
+    if (x < 0) x = 0;
+    if (x > 0x13a) x = 0x13a;
+    if (y < 0) y = 0;
+    if (y > 0xc3) y = 0xc3;
+    chip[PEKER_X] = (uint8_t)(x >> 8); chip[PEKER_X + 1] = (uint8_t)x;
+    chip[PEKER_Y] = (uint8_t)(y >> 8); chip[PEKER_Y + 1] = (uint8_t)y;
+    peker_fire = 16;
+}
+/* etter at inndataene for bildet er satt, foer amiga_run_frame */
+void game_frame(void)
+{
+    if (!peker_fire) return;
+    if (!game_peker_aktiv()) { peker_fire = 0; return; }
+    IN.joy[0] |= JOY_FIRE;
+    IN.joy[1] |= JOY_FIRE;
+    peker_fire--;
+}
+void game_state_peker(StateIO *s) { STATE_VAR(s, peker_fire); }
+void game_peker_standard(void) { peker_fire = 0; }

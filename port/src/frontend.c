@@ -406,6 +406,7 @@ int frontend_run(const FrontendOptions *o)
             while ((fast || emu_time <= real) && ran < maxrun && running) {
                 read_joysticks();
                 meny_frame();
+                game_frame();
                 amiga_run_frame();
                 int n = paula_take(abuf, AUDIO_RING);
                 if (adev && !fast && n > 0) {
