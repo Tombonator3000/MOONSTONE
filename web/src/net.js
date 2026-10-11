@@ -35,6 +35,7 @@ const Nett = (() => {
     const HOLD = 3;                           /* et kort trykk fra nettet varer minst saa mange bilder */
     const STILLE_INN = 1500;                  /* ms uten joystick fra den andre: siden dens staar, alt er sluppet */
     const STILLE_GJEST = 30000;               /* ms uten noe fra en gjest foer verten regner den som borte */
+    const SKJULT_GJEST = 60000;               /* ms med skjult fane (pingen gaar, spillet staar) foer verten tar over */
 
     let peer = null, rolle = null, kode = '', mittNavn = 'Spiller';
     let h = {};                               /* hendelser til app.js */
@@ -193,7 +194,10 @@ const Nett = (() => {
                     vaktTimer = setInterval(() => {
                         if (romSpill !== 'sammen') return;
                         const naa = performance.now();
-                        for (const g of [...gjester.values()]) if (naa - g.sist > STILLE_GJEST) fjernGjest(g, 'svarer ikke lenger');
+                        for (const g of [...gjester.values()]) {
+                            if (naa - g.sist > STILLE_GJEST) fjernGjest(g, 'svarer ikke lenger');
+                            else if (g.skjultSiden && naa - g.skjultSiden > SKJULT_GJEST) fjernGjest(g, 'har vært borte i ett minutt');
+                        }
                     }, 5000);
                     oppdaterLobby();
                     ok(kode);
@@ -288,7 +292,15 @@ const Nett = (() => {
         case 'synk':
             if (g && romSpill !== 'hver') { h.status && h.status(g.navn + ' kom ut av takt, sender tilstanden paa nytt'); h.trengerTilstand && h.trengerTilstand(g.id); }
             break;
-        case 'ping': conn.send({ t: 'pong', tid: d.tid }); break;
+        case 'ping':
+            conn.send({ t: 'pong', tid: d.tid });
+            /* fanen hos gjesten er skjult: spillokka staar, men pingen gaar (setInterval), saa
+             * gjesten ville ellers holdes i live og spillet staa paa turen hans for alltid */
+            if (g) {
+                if (d.skjult && !g.skjultSiden) { g.skjultSiden = performance.now(); h.chat && h.chat('', g.navn + ' har byttet fane eller app'); }
+                else if (!d.skjult) g.skjultSiden = 0;
+            }
+            break;
         }
     }
 
@@ -472,7 +484,7 @@ const Nett = (() => {
                         if (performance.now() - sistFraVert > STILLE) {
                             clearInterval(pingTimer);
                             h.frakoblet && h.frakoblet('Verten svarer ikke lenger.');
-                        } else if (vert && vert.open) vert.send({ t: 'ping', tid: performance.now() });
+                        } else if (vert && vert.open) vert.send({ t: 'ping', tid: performance.now(), skjult: document.hidden });
                     }, 2000);
                     ok();
                 });
