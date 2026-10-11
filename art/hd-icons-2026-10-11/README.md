@@ -29,3 +29,5 @@ Sverdpekeren bruker hardware-spritefargene 17..19 og finnes derfor ikke i `tegn_
 [Inventar](verification/inventory-hd.png), [kart](verification/journey-frame2000-hd.png) og [kro](verification/fixture-tavern-hd.png) er faktiske nettleserbilder. Krobildet er en tydelig avgrenset visningsfixtur. Kildene og de gamle genererte kandidatene er bevart.
 
 [Standardtesten](verification/standard/standard-test.json) består25 kontroller med71/71 gangbilder. [Faktisk inndata](verification/input-test.json) består4/4. Alle298 standardpakkefiler er kontrollert på lengde og SHA-256.
+
+[Importtesten](verification/import/import-test.json) består 17 kontroller. Et eget ensfarget testikon lastes gjennom mappevalget og vises med sine egne piksler. Ni ugyldige scene-/mønsterfelt avvises. Delvis bakgrunns- og ikonimport bevarer de øvrige standardikonene, deres palett og HD-pekeren. En ødelagt PNG beholder eksisterende bilde og metadata. Standardpakken kan gjenopprettes.
