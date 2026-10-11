@@ -303,6 +303,31 @@
         return Math.floor(c[1] + fy * (c[3] - c[1]) - Kjerne.vindu()[1]);
     }
 
+    /* kolonnen i spillets bilde (lowres, 0 = venstre kant av spillets vindu) */
+    function spillX(e) {
+        const r = $('lerret').getBoundingClientRect();
+        const fx = (e.clientX - r.left) / r.width;
+        if (!(fx >= 0 && fx <= 1)) return -1000;
+        const c = Visning.utsnitt();
+        return Math.floor((c[0] + fx * (c[2] - c[0]) - Kjerne.vindu()[0]) / 2);
+    }
+
+    /* Inventaret, byen og butikkene har en peker som flyttes med joysticken. Et klikk
+     * eller trykk setter pekeren der og gir fire (kommando PEKER, port/src/game.c), i
+     * stedet for fire der pekeren tilfeldigvis staar. En gjest sender klikket til verten. */
+    function velgPeker(x, y) {
+        if (modus === 'gjest') { Nett.sendPeker(x, y); return; }
+        if (modus === 'vert') { pekerFraGjest(x, y, Nett.vertensSpiller()); return; }   /* ogsaa verten bare paa sin tur */
+        menyKmd(KMD.PEKER, (x & 0xffff) | (y & 0xffff) << 16);
+    }
+    /* en gjest klikket: bare den som styrer pekeren naa (eller alle, hvis ingen eier den) */
+    function pekerFraGjest(x, y, spiller) {
+        if (!Kjerne.pekerAktiv()) return;
+        const eier = Kjerne.portSpillere()[Kjerne.pekerPort()];
+        if (eier !== -1 && eier !== spiller && Nett.harSpiller(eier)) return;
+        menyKmd(KMD.PEKER, (x & 0xffff) | (y & 0xffff) << 16);
+    }
+
     /* rad (eller -1 = raden pilen staar paa) er valgt her eller av en gjest */
     function velgRad(rad) {
         if (modus === 'gjest') { Nett.sendVelg(rad); return; }
@@ -317,6 +342,10 @@
         const rad = Kjerne.menyRad(spillY(e));
         if (e.button === 0 && rad >= 0) { velgRad(rad); return; }
         if (rad !== -1) return;                      /* i menyen, men ikke paa en rad */
+        if (e.button === 0 && !D && Kjerne.pekerAktiv()) {
+            const x = spillX(e), y = spillY(e);
+            if (x >= 0 && x < 320 && y >= 0 && y < 200) { velgPeker(x, y); return; }
+        }
         museStart = { x: e.clientX, y: e.clientY };
         museRetning = 0;
         try { $('skjerm').setPointerCapture(e.pointerId); } catch (err) { /* ikke viktig */ }
@@ -372,7 +401,7 @@
      * av neste bilde, og verten sender dem med bildet til gjestene, saa alle
      * maskinene viser det samme. */
     const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8, NAVN: 9, SPILL: 10, BIND: 11 };
-    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11, KONTROLL: 12, RIDDERE: 13 };
+    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11, KONTROLL: 12, RIDDERE: 13, PEKER: 14 };
     const SIDE_JOIN = 3;
     const SIDE_VERT = 2;                    /* romsiden til verten: Copy Link og Public er vertens */
     let romHint = 0;                        /* sist gjesten fikk beskjed om at romsiden er vertens */
@@ -418,7 +447,8 @@
             duell: (conn) => duellInn(conn),
             chat: chatLinje,
             status,
-            velg: (rad) => { if (Kjerne.iMeny() && Kjerne.menySide() !== SIDE_VERT) velgRad(rad); },   /* en gjest klikket i menyen (ikke paa romsiden) */
+            velg: (rad) => { if (Kjerne.iMeny() && Kjerne.menySide() !== SIDE_VERT) velgRad(rad); },
+            peker: (x, y, spiller) => pekerFraGjest(x, y, spiller),   /* en gjest klikket i menyen (ikke paa romsiden) */
             iMeny: () => Kjerne.iMeny(),            /* der kan spillernumrene gjores om uten hull */
             trengerTilstand: (id) => {
                 const s = Kjerne.lagreTilstand();

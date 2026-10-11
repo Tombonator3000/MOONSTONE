@@ -74,6 +74,7 @@ EMSCRIPTEN_KEEPALIVE void ms_frame(void)
 {
     hver_frame();
     meny_frame();
+    game_frame();
     amiga_run_frame();
     audio_frames = paula_take(audio, AUDIO_RING);
     if (lag_paa) lag_bygg();
@@ -195,3 +196,6 @@ EMSCRIPTEN_KEEPALIVE int ms_menu_page(void) { return meny_side(); }
 static bool i_slutt(void) { return !whd_mog_loaded && (mem_read16(0x80190) & 0x80); }
 EMSCRIPTEN_KEEPALIVE int ms_in_intro(void) { return !whd_mog_loaded && !i_slutt() ? 1 : 0; }
 EMSCRIPTEN_KEEPALIVE int ms_in_ending(void) { return i_slutt() ? 1 : 0; }
+/* spillets peker (inventar, by, butikker): klikk treffer der man peker (MENY_CMD_PEKER) */
+EMSCRIPTEN_KEEPALIVE int ms_peker_aktiv(void) { return game_peker_aktiv() ? 1 : 0; }
+EMSCRIPTEN_KEEPALIVE int ms_peker_port(void) { return game_peker_port(); }

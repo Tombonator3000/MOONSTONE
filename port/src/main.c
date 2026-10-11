@@ -406,6 +406,7 @@ static int run_headless(int frames, int shot_every, const char *shot_dir, int sa
             }
         hver_frame();
         meny_frame();
+        game_frame();
         amiga_run_frame();
         {
             extern int blit_trace_from, blit_trace_n;

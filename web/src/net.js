@@ -273,6 +273,7 @@ const Nett = (() => {
         /* F10 avslutter spillet (WHDLoad QuitKey) for alle; det er bare vertens tast */
         case 'tast': if (g && g.klar && romSpill !== 'hver' && (d.k & 0x7f) !== 0x59) gjesteTaster.push([d.k & 0x7f, !!d.ned, g.spiller]); break;
         case 'velg': if (g && g.klar && romSpill !== 'hver') h.velg && h.velg(d.rad | 0); break;     /* gjesten klikket paa en rad i menyen */
+        case 'peker': if (g && g.klar && romSpill !== 'hver') h.peker && h.peker(d.x | 0, d.y | 0, g.spiller); break;   /* klikk i inventar, by, butikk */
         case 'ridder':                          /* hver for seg: ridderen til en gjest, videre til de andre */
             if (g && romSpill === 'hver') {
                 const m = d.borte ? { t: 'ridder', fra: g.id, borte: true }
@@ -553,6 +554,7 @@ const Nett = (() => {
         else if (vert && vert.open) vert.send(m);
     }
     function sendVelg(rad) { if (vert && vert.open) vert.send({ t: 'velg', rad }); }
+    function sendPeker(x, y) { if (vert && vert.open) vert.send({ t: 'peker', x, y }); }
     function beOmSynk() { if (vert && vert.open) vert.send({ t: 'synk' }); }
 
     /* ---------------------------------------------------------------- duell (hver for seg)
@@ -624,7 +626,7 @@ const Nett = (() => {
 
     return {
         lagRom, bliMed, avslutt, chat, invitasjon, settPort, settSpiller, settModus, sendTilstand, porter, sendBilde,
-        hentGjesteTaster, tastTillatt, vertensSpiller, harSpiller, harGjester, sendInn, sendTast, sendVelg, sendRidder, beOmSynk, spillere,
+        hentGjesteTaster, tastTillatt, vertensSpiller, harSpiller, harGjester, sendInn, sendTast, sendVelg, sendPeker, sendRidder, beOmSynk, spillere,
         romSpill: () => romSpill, minId: () => (rolle === 'vert' ? 'vert' : peer ? peer.id : null),
         duellKoble, sendTilstandTil, tilstandsMottaker, peerId, nyInn, brukInn,
         rammer, rolle: () => rolle, kode: () => kode, ping: () => ping,

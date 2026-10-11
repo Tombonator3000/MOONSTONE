@@ -92,6 +92,7 @@ static const Del deler[] = {
     { "MOET", 1, game_state_moete, NULL,      "moetet mellom to riddere" },
     { "GAME", 1, game_state,  game_standard,  "tegnelisten" },
     { "PTCH", 1, patch_state, NULL,           "tekstene" },
+    { "PEKR", 1, game_state_peker, game_peker_standard, "pekeren" },
     { "MENY", 1, meny_state,  meny_standard,  "nettspillmenyen" },
     { "HVT ", 1, hver_state_tatt, NULL,       "ridderne som er tatt over" },
     { "HVER", 1, hver_state,  hver_standard,  "Hver for seg" },

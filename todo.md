@@ -26,6 +26,9 @@
 - [ ] Teste moonstone.exe på ekte Windows.
 - [ ] Nettspill over et ekte nett med to maskiner: hvor mye forsinkelse gjesten og forsvareren i en duell merker i kamp, og om bufferen på tre bilder bør justeres.
 
+- [ ] Klikk der man peker også i Select a Knight (ingen peker der; feltene for figurene er ikke kartlagt) og for forsvareren i en duell.
+- [ ] Et trykk på kartet blir fire og kan åpne et sted; la det bare gi retning når man drar (observatør på \$0AACFA).
+
 ## HD: kodeendringer så bildene i docs/hd-bestilling-chatgpt.md blir brukt
 - [ ] Lasteren (render.js lastHdPakke) skal bare godta NAVN/NNN og bg/HHHHHHHH og si fra om resten (i dag tar den alt, ca 4 MB per ubrukt bilde).
 - [ ] tools/hd_skaler.py skal hoppe over bildemappene (PIV) og test/, bare figurmapper og bg.
@@ -39,7 +42,6 @@
 ## Fra gjennomgangen 2026-10-11 (docs/hva-mangler.md)
 - [ ] Separate: hverKart() er sann hele spillet (hver.c setter H.kart = 0 bare i tittelmenyen), så en spiller i by eller monsterkamp sier ja til dueller automatisk.
 - [ ] Turns: gjesten kan ikke lagre, og mister kopien når verten forsvinner.
-- [ ] Trykk og klikk i inventar, by, butikker og Select Knight gir fire der spillets peker står ($098092/$098094), ikke der man trykker.
 - [ ] PC: innstillinger i spillet (volum, beskjeder som vises i fullskjerm), spiller 2 uten talltastatur. --online-meny blir stående på «Creating Room...».
 - [ ] Nettspill på PC, eller et vedtak om å la det være.
 - [ ] Noen av nettlesertestene (tests/kjor.sh) i en egen CI-jobb, og de nye testene fra 11. oktober inn i tests/nettleser (slutt1, skjult1, fs1, gl1; de ligger i scratchpad).
@@ -47,6 +49,7 @@
 - [ ] Et lagret Turns-spill fordeler ridderne etter rekkefølgen gjestene kommer inn i.
 
 ## Ferdig
+- [x] Klikk og trykk treffer der man peker i inventaret, byen, tavernaen og butikkene (MENY_CMD_PEKER).
 - [x] Tapt WebGL-kontekst: lagres med en gang, tegnes igjen, eller siden lastes på nytt og fortsetter.
 - [x] --skriv avviser verdier som ikke kan leses; test av sluttscenen (slutt1.js, lagring laget med --skriv).
 - [x] Mobil: fullskjermknapp, ikon og manifest for hjemskjermen, Wake Lock.

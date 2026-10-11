@@ -390,3 +390,8 @@ Dynamiske kartmarkører fjernes først fra originalforgrunnen når valgt HD-bakg
   som laster program. program kopierer $3E0 til $080190 ($08001E) og viser sluttscenen naar bit 7 er satt
   ($080064). Ingen andre hopp til $081846. Headless: --press 200:esc:4 --skriv 800:81942:0x4ef9:2
   --skriv 800:81944:0x0008183c:4 --press 900:down:10 (hex maa ha 0x). Nettsiden: ms_in_ending.
+- Pekeren: $098088 paa (1)/av, $098092 x, $098094 y (lowres, spissen), $098096 fire, $09A020 feltlisten ($18 byte:
+  +4 b, +6 h, +$C x, +$E y, +$10 kode), $8E8B6 eieren (+$0B porten). VBL $08C3EA flytter 2 piksler/bilde og leser
+  eierens port; byen ($081242/$0813B2) og tavernaen leser port 2 selv; tavernaen ser etter fire hvert 14. bilde.
+  MENY_CMD_PEKER (14, arg x | y << 16) og game_frame (fire 16 bilder paa begge portene). Test: peker1.js; by.sav i
+  $S/peker/agent_b. --save-state F er antall bilder fra start av kjoringen (ikke bildenummeret).
