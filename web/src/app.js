@@ -156,6 +156,9 @@
             visAuto(auto && auto.tid);
             const forste = forsteStart;
             forsteStart = false;                 /* etter et nettspill skal grunnen til at det sluttet, staa */
+            let fortsett = false;
+            try { fortsett = sessionStorage.getItem('moonstone.fortsett') === '1'; sessionStorage.removeItem('moonstone.fortsett'); } catch (e) { /* privat vindu */ }
+            if (fortsett && auto && auto.tid) { lastFra(async () => auto, 'den automatiske lagringen'); return; }
             if (forste && auto && auto.tid) status('Spillet ditt fra ' + klokke(auto.tid) + ' er lagret. Velg Fortsett under Lagring i menyen for å spille videre.');
         } catch (e) {
             lasting('Kunne ikke starte spillet: ' + e.message);
@@ -1590,17 +1593,19 @@
             && !Kjerne.iIntro() && !Kjerne.iSlutt() && !Kjerne.iMeny() && Kjerne.hverKart();
     }
     async function autolagre(tvunget) {
-        if (!kanAutolagre()) return;
+        if (!kanAutolagre()) return false;
         const naa = Date.now();
-        if (!tvunget && naa - sistAuto < 20000) return;
+        if (!tvunget && naa - sistAuto < 20000) return false;
         const s = Kjerne.lagreTilstand();
-        if (!s) return;
+        if (!s) return false;
         sistAuto = naa;
-        if (await Lager.sett('auto', { data: s, tid: naa })) visAuto(naa);
+        const ok = await Lager.sett('auto', { data: s, tid: naa });
+        if (ok) visAuto(naa);
         if (!baApersist && navigator.storage && navigator.storage.persist) {
             baApersist = true;                   /* be nettleseren om ikke aa slette lagringene */
             navigator.storage.persist().catch(() => {});
         }
+        return ok;
     }
     function klokke(tid) {
         const d = new Date(tid), to = (n) => String(n).padStart(2, '0');
@@ -1701,6 +1706,20 @@
             else { await (fsEl.requestFullscreen || fsEl.webkitRequestFullscreen).call(fsEl); visMeny(false); }
         } catch (e) { status('Nettleseren tillater ikke fullskjerm her'); }
     });
+    /* tapt grafikk: lagre med en gang; kommer den ikke tilbake, lastes siden paa nytt og
+     * spillet fortsetter fra den automatiske lagringen (bare naar man spiller alene) */
+    let graftimer = null;
+    Visning.vedGrafikk(async () => {
+        clearTimeout(graftimer);
+        const lagret = await autolagre(true);
+        status('Grafikken ble borte (vanlig på mobil).' + (lagret ? ' Spillet er lagret.' : ''));
+        graftimer = setTimeout(() => {
+            if (!Visning.grafikkBorte() || modus !== 'alene' || !lagret) return;
+            try { sessionStorage.setItem('moonstone.fortsett', '1'); } catch (e) { /* privat vindu */ }
+            location.reload();
+        }, 6000);
+    }, () => { clearTimeout(graftimer); status('Grafikken er tilbake'); });
+
     let skjermlaas = null;
     async function holdSkjermen() {
         if (!navigator.wakeLock || document.hidden || skjermlaas || !modus) return;

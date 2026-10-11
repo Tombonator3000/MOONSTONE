@@ -40,7 +40,6 @@
 - [ ] Separate: hverKart() er sann hele spillet (hver.c setter H.kart = 0 bare i tittelmenyen), så en spiller i by eller monsterkamp sier ja til dueller automatisk.
 - [ ] Turns: gjesten kan ikke lagre, og mister kopien når verten forsvinner.
 - [ ] Trykk og klikk i inventar, by, butikker og Select Knight gir fire der spillets peker står ($098092/$098094), ikke der man trykker.
-- [ ] Reserve når WebGL-konteksten mistes (svart skjerm på mobil).
 - [ ] Utgivelser for PC (GitHub Releases) i stedet for Actions-artefakter, og krav (libSDL2, glibc 2.34) i README.
 - [ ] PC: innstillinger i spillet (volum, beskjeder som vises i fullskjerm), spiller 2 uten talltastatur. --online-meny blir stående på «Creating Room...».
 - [ ] Nettspill på PC, eller et vedtak om å la det være.
@@ -50,6 +49,7 @@
 - [ ] Et lagret Turns-spill fordeler ridderne etter rekkefølgen gjestene kommer inn i.
 
 ## Ferdig
+- [x] Tapt WebGL-kontekst: lagres med en gang, tegnes igjen, eller siden lastes på nytt og fortsetter.
 - [x] --skriv avviser verdier som ikke kan leses; test av sluttscenen (slutt1.js, lagring laget med --skriv).
 - [x] Mobil: fullskjermknapp, ikon og manifest for hjemskjermen, Wake Lock.
 - [x] Tur for tur: en gjest med skjult fane fjernes etter ett minutt (verten får beskjed i chatten).
