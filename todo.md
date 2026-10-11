@@ -70,7 +70,7 @@
 - [ ] Fullføre nytegning og dokumenterte feil i resterende figurruter, palettvarianter og PIV-fliser før videre spillaktivering.
 
 ## Trofaste ikoner, 11. oktober 2026
-- [x] Bygge69 ikonruter fra originalkonturer, uten nye motivdetaljer eller bildegenerering.
+- [x] Bygge75 ikonruter fra originalkonturer, uten nye motivdetaljer eller bildegenerering.
 - [x] Bruke virkelig palett, korrekte CEL-planmasker og source-hash; bevare Original og usikre treff.
 - [x] Identifisere sverdpekeren som hardware-sprite og bevare dens overlapping.
-- [x] Kontrollere alle23 971 kildepikselmidtpunkter i eksporterte HD-filer mot originalvisningene.
+- [x] Kontrollere alle26 557 kildepikselmidtpunkter i eksporterte HD-filer mot originalvisningene.

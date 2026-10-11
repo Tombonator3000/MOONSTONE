@@ -135,11 +135,46 @@ def main():
             {'file':'test','frame':8,'bank_sha256':sha(source),'runtime_frame':2000,'runtime_state':sample['state']},
             scene='world-map',rect=[x,y,x+w,y+h],expected=expected,dynamic=True)
         entries.append(entry)
+    # Landemerkene beholdes paa kildekartets faktiske posisjoner. Polygonene
+    # er manuelle uttak fra originalen, ikke ny arkitektur eller nye motiver.
+    planes,pal,bp=mf.piv_alle(source)[0][8];map_px=mf.plan_til_indeks(bp,planes)
+    palette=[mf.amiga_rgb(c) for c in pal]
+    landmarks=[
+        ([84,31,111,62],[(84,48),(87,45),(87,37),(90,36),(92,31),(95,34),(95,44),(98,36),(102,39),(102,45),(106,45),(110,50),(111,61),(87,62)],None),
+        ([216,14,224,33],[(219,14),(221,14),(221,16),(220,18),(220,29),(222,29),(224,32),(216,33),(216,30),(219,29),(219,18)],None),
+        ([150,96,166,108],None,{1,2,3,4}),
+        ([88,151,108,168],None,{1,2,3,4,5,12}),
+        ([242,89,253,112],[(244,89),(248,91),(248,97),(249,103),(253,109),(251,112),(242,112),(242,108),(244,102)],None),
+        ([284,146,312,175],[(284,167),(284,159),(286,157),(289,157),(289,160),(292,162),(292,153),(295,151),(295,149),(298,146),(301,149),(301,155),(304,157),(305,161),(307,157),(310,159),(312,173),(304,175),(297,172),(292,168)],None),
+    ]
+    def inside(x,y,poly):
+        value=False
+        for i,(ax,ay) in enumerate(poly):
+            bx,by=poly[i-1]
+            if (ay>y)!=(by>y) and x<(bx-ax)*(y-ay)/(by-ay)+ax:value=not value
+        return value
+    landmark_overlays=[]
+    for i,(rect,poly,stone_colors) in enumerate(landmarks):
+        x0,y0,x1,y1=rect;w,h=x1-x0,y1-y0
+        mask=[inside(x+.5,y+.5,poly) if poly else map_px[y*320+x] in stone_colors
+              for y in range(y0,y1) for x in range(x0,x1)]
+        if stone_colors:
+            # Bare original skygge inntil original steinflate, ikke skogflaten.
+            core=mask[:]
+            for j in range(h):
+                for k in range(w):
+                    if map_px[(y0+j)*320+x0+k] not in (19,8):continue
+                    if any(core[yy*w+xx] for yy in range(max(0,j-1),min(h,j+2)) for xx in range(max(0,k-1),min(w,k+2))):mask[j*w+k]=True
+        px=[map_px[(y0+j)*320+x0+k] if mask[j*w+k] else 0 for j in range(h) for k in range(w)]
+        key=f'map-landmarks/{i:03}'
+        entries.append(make_entry(key,px,w,h,palette,{'file':'test','frame':8,'bank_sha256':sha(source),'rect':rect,'mask_polygon':poly,'stone_colors':sorted(stone_colors) if stone_colors else None},scene='world-map',rect=rect))
+        landmark_overlays.append({'key':key,'rect':rect,'uv_rect':[0,0,1,1]})
     manifest={'schema':1,'method':'source-contours','banks':banks,'entries':entries}
     (ROOT/'web/hd/icons.json').write_text(json.dumps(manifest,ensure_ascii=False,separators=(',',':'))+'\n')
     (ART/'icons.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     package=json.loads((ROOT/'web/hd/manifest.json').read_text())
     for scene in package['scenes']:
+        if scene['id']=='world-map':scene['overlays']=[o for o in scene.get('overlays',[]) if not o['key'].startswith('map-landmarks/')]+landmark_overlays
         if scene['id']=='tavern':scene['overlays']=[o for o in scene.get('overlays',[]) if not o['key'].startswith('scene-icons/')]+panels
     (ROOT/'web/hd/manifest.json').write_text(json.dumps(package,ensure_ascii=False,indent=2)+'\n')
     print(len(entries),'konturikoner, kildebanker',banks)

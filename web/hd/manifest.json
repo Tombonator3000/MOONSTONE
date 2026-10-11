@@ -1199,42 +1199,6 @@
       "kind": "base"
     },
     {
-      "path": "map-landmarks/000.png",
-      "sha256": "2e7747c7b95642827ed0a1891fcee06cda22d39519897585fc6ecfd18538faaf",
-      "bytes": 2308375,
-      "kind": "base"
-    },
-    {
-      "path": "map-landmarks/001.png",
-      "sha256": "2e7747c7b95642827ed0a1891fcee06cda22d39519897585fc6ecfd18538faaf",
-      "bytes": 2308375,
-      "kind": "base"
-    },
-    {
-      "path": "map-landmarks/002.png",
-      "sha256": "2e7747c7b95642827ed0a1891fcee06cda22d39519897585fc6ecfd18538faaf",
-      "bytes": 2308375,
-      "kind": "base"
-    },
-    {
-      "path": "map-landmarks/003.png",
-      "sha256": "2e7747c7b95642827ed0a1891fcee06cda22d39519897585fc6ecfd18538faaf",
-      "bytes": 2308375,
-      "kind": "base"
-    },
-    {
-      "path": "map-landmarks/004.png",
-      "sha256": "2e7747c7b95642827ed0a1891fcee06cda22d39519897585fc6ecfd18538faaf",
-      "bytes": 2308375,
-      "kind": "base"
-    },
-    {
-      "path": "map-landmarks/005.png",
-      "sha256": "2e7747c7b95642827ed0a1891fcee06cda22d39519897585fc6ecfd18538faaf",
-      "bytes": 2308375,
-      "kind": "base"
-    },
-    {
       "path": "fonts/UncialAntiqua-Regular.ttf",
       "sha256": "33a5128b59d1c95d4f3788164f4ab3a1196f0a982263cb2cd278c47418366766",
       "bytes": 63404,
@@ -1374,8 +1338,8 @@
     },
     {
       "path": "icons.json",
-      "bytes": 850048,
-      "sha256": "d05bd61ff104832559c44678ac1e50aaf82137a1bec5e8185c1ec1d807f77e4c",
+      "bytes": 954378,
+      "sha256": "fb01ce5f4d9a48bff52e08640be7e29c79daa6af7814a05504bb6c59a816bc16",
       "kind": "base"
     },
     {
@@ -1745,6 +1709,42 @@
       "kind": "base"
     },
     {
+      "path": "map-landmarks/000.png",
+      "bytes": 22102,
+      "sha256": "fd9aaa20d8b71e2afd3b04326c0b694c2687e7973a10a3f713b164db02f127ea",
+      "kind": "base"
+    },
+    {
+      "path": "map-landmarks/001.png",
+      "bytes": 3044,
+      "sha256": "7cb37a2066519b4a67d9685f90e65bb724fe7d5d9e8ca65c46bfa9d6c979b18d",
+      "kind": "base"
+    },
+    {
+      "path": "map-landmarks/002.png",
+      "bytes": 3409,
+      "sha256": "76ad27e14b3a36c76eb8292ba66e3199eddbebbaa0f33ee0dc21883c32cd7894",
+      "kind": "base"
+    },
+    {
+      "path": "map-landmarks/003.png",
+      "bytes": 4114,
+      "sha256": "c696ec2c95f83683e6d85e1c4b1b5699002a4e53369ea260306bbf2876171f23",
+      "kind": "base"
+    },
+    {
+      "path": "map-landmarks/004.png",
+      "bytes": 8366,
+      "sha256": "bcc02c31c2f11b91d84a23b1f6343122f70c1097ca2e624b9a95884fe8d8fd86",
+      "kind": "base"
+    },
+    {
+      "path": "map-landmarks/005.png",
+      "bytes": 21944,
+      "sha256": "5a9c675ff7c124ebbb77c9c8f27a754901df6c834d2909d649155d69af8c5397",
+      "kind": "base"
+    },
+    {
       "path": "po.cel/000.png",
       "bytes": 4747,
       "sha256": "7b2c8a392917fead3a1e507664b277c5e311c1666b6248c455a0f019190c0ebc",
@@ -1989,66 +1989,62 @@
         {
           "key": "map-landmarks/000",
           "rect": [
-            45,
-            21,
-            87,
-            56
+            84,
+            31,
+            111,
+            62
           ],
           "uv_rect": [
             0,
             0,
-            0.3333333333333333,
-            0.5
-          ],
-          "alpha_cutoff": 0.2
+            1,
+            1
+          ]
         },
         {
           "key": "map-landmarks/001",
           "rect": [
-            214,
-            11,
-            227,
-            32
+            216,
+            14,
+            224,
+            33
           ],
           "uv_rect": [
-            0.3333333333333333,
             0,
-            0.3333333333333333,
-            0.5
-          ],
-          "alpha_cutoff": 0.2
+            0,
+            1,
+            1
+          ]
         },
         {
           "key": "map-landmarks/002",
           "rect": [
-            141,
-            82,
-            181,
-            117
+            150,
+            96,
+            166,
+            108
           ],
           "uv_rect": [
-            0.6666666666666666,
             0,
-            0.3333333333333333,
-            0.5
-          ],
-          "alpha_cutoff": 0.2
+            0,
+            1,
+            1
+          ]
         },
         {
           "key": "map-landmarks/003",
           "rect": [
-            85,
-            149,
-            109,
-            172
+            88,
+            151,
+            108,
+            168
           ],
           "uv_rect": [
             0,
-            0.5,
-            0.3333333333333333,
-            0.5
-          ],
-          "alpha_cutoff": 0.2
+            0,
+            1,
+            1
+          ]
         },
         {
           "key": "map-landmarks/004",
@@ -2056,31 +2052,29 @@
             242,
             89,
             253,
-            111
+            112
           ],
           "uv_rect": [
-            0.3333333333333333,
-            0.5,
-            0.3333333333333333,
-            0.5
-          ],
-          "alpha_cutoff": 0.2
+            0,
+            0,
+            1,
+            1
+          ]
         },
         {
           "key": "map-landmarks/005",
           "rect": [
-            278,
-            144,
-            318,
-            181
+            284,
+            146,
+            312,
+            175
           ],
           "uv_rect": [
-            0.6666666666666666,
-            0.5,
-            0.3333333333333333,
-            0.5
-          ],
-          "alpha_cutoff": 0.2
+            0,
+            0,
+            1,
+            1
+          ]
         }
       ]
     },
