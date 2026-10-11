@@ -21,7 +21,6 @@
 - [ ] Assembler-utgave av disassemblyen som bygger byte for byte like filer (vasm).
 - [ ] Teste nettspill (også «Online Game» i tittelmenyen) mot PeerJS Cloud og HiveMQ fra en vanlig nettleser (proxyen i skymiljøet stopper WebSocket; lokalt testet med egne servere).
 - [ ] Teste den nye oppstarten på en ekte mobil (lyd ved første trykk, også med lydløs-bryteren på iPhone, trykk på skjermen hopper over introen, navnefeltet med skjermtastatur).
-- [ ] Musikk: velge sang (også seierssangen vmusic.cmp), og kanskje la musikken ta en pause i kampene.
 - [ ] Klikk i menyene også i PC-versjonen (meny_row_at finnes; PC slår ikke på menylappen i dag).
 - [ ] Mus på andre skjermer enn tittelmenyen: velge ridder, butikker og inventar med klikk (krever å finne valgvariablene for hver skjerm).
 - [ ] Teste moonstone.exe på ekte Windows.
@@ -34,13 +33,13 @@
 - [ ] Separate: hverKart() er sann hele spillet (hver.c setter H.kart = 0 bare i tittelmenyen), så en spiller i by eller monsterkamp sier ja til dueller automatisk.
 - [ ] Turns: en gjest med skjult fane holdes i live av pingen, og spillet venter på turen hans.
 - [ ] Turns: gjesten kan ikke lagre, og mister kopien når verten forsvinner.
-- [ ] Nettsiden tror sluttscenen er introen (ms_in_intro ser bare på whd_mog_loaded): fire blir Esc, musikken og HD slås av.
+- [ ] Nettsiden tror sluttscenen er introen (ms_in_intro ser bare på whd_mog_loaded): fire blir Esc og HD slås av.
 - [ ] Trykk og klikk i inventar, by, butikker og Select Knight gir fire der spillets peker står ($098092/$098094), ikke der man trykker.
 - [ ] Reserve når WebGL-konteksten mistes (svart skjerm på mobil).
 - [ ] Mobil: fullskjerm, manifest for hjemskjermen og Wake Lock.
 - [ ] HD-pakken på nettet: huskes ikke etter omlasting, bare mappevalg (ingen zip), bakgrunnen tones ikke inn første gang.
 - [ ] Utgivelser for PC (GitHub Releases) i stedet for Actions-artefakter, og krav (libSDL2, glibc 2.34) i README.
-- [ ] PC: innstillinger i spillet (musikk, volum, beskjeder som vises i fullskjerm), spiller 2 uten talltastatur. --online-meny blir stående på «Creating Room...».
+- [ ] PC: innstillinger i spillet (volum, beskjeder som vises i fullskjerm), spiller 2 uten talltastatur. --online-meny blir stående på «Creating Room...».
 - [ ] Nettspill på PC, eller et vedtak om å la det være.
 - [ ] Testene (test26-36, mus, mobil, Options) og tilstandene de bruker inn i repoet, og check_hooks.py i CI.
 - [ ] CI: actions på Node 20 er utfaset.
@@ -50,7 +49,7 @@
 - [ ] Rette memory.md (STATE_VERSION 8) og README (mappen spill/).
 
 ## Ferdig
-- [x] Musikk i hele spillet: introsangen (music.cmp) spilles også i menyen, på kartet og i kampene (port/src/musikk.c), med bryter og styrke i sidemenyen. Originalen har musikk bare i introen og sluttscenen. Lyden startes i selve trykket på mobil og følger ikke lydløs-bryteren på iPhone.
+- [x] Lyden startes i selve trykket på mobil og følger ikke lydløs-bryteren på iPhone. (Bakgrunnsmusikken i hele spillet ble fjernet igjen 2026-10-11 etter ønske fra eieren.)
 - [x] Turns testet headless: beskyttelsesrullen styres av den angrepne (og kampen unngås når den brukes), og når datamaskinens ridder angriper, styrer den angrepnes spiller ridderen med port 2.
 - [x] Nettspill tur for tur: joysticken følger rekkefølgen ridderne ble valgt i (ikke figuren), bare den som velger styrer Select a Knight og navnet, møtet mellom to riddere gir portene til riktig spiller (rullen, kampen, plyndringen), Players settes opp til antallet i rommet, og korte trykk fra nettet blir ikke borte.
 - [x] Mobil i spillets menyer: valgene paa kartet som knapper (trykk, styrekors og Fire, Enter), navnet til ridderen med tekstfelt. Sidemenyen, knappene og meldingene i spillets stil (font, pil, logo og nattehimmel fra spillfilen). Bryter mellom HD og original grafikk. docs/grafikkliste.md og .csv over all grafikken.

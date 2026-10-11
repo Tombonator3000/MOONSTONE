@@ -146,9 +146,8 @@ to ProTracker-moduler: `introx5` (introen) og `vict0ry6yy` (seier).
 Bare `program` (introen og sluttscenen) har en musikkspiller. Introen laster `music.cmp`
 først etter bildene ($085662), så de første ca. 32 sekundene er stille, og sangen åpner
 med 12 sekunder som nesten er stille. Hovedspillet (`mog`) har bare en driver for
-lydeffektene ($0AE0DA, fire kanaler med lydavbrudd). Porten spiller derfor introsangen
-selv når `mog` kjører (`port/src/musikk.c`, kan slås av), blandet inn i lyden ut, uten å
-røre emuleringen.
+lydeffektene ($0AE0DA, fire kanaler med lydavbrudd), så resten av spillet har ingen
+musikk. (En stund spilte porten introsangen i hele spillet, men eieren ville ikke ha det.)
 
 ## Ting å se nærmere på
 

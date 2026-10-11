@@ -328,10 +328,11 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 - Musikken: bare program har en musikkspiller (ProTracker-periodetabellen paa 0x2366 i filen). Introen
   laster music.cmp ($085662) etter bildene, saa de foerste ca. 32 s er stille; sangen aapner med 12 s
   nesten stille, slag til 23 s, hovedtema fra posisjon 4. mog har bare en driver for lydeffekter
-  ($0AE0DA, fire kanaler med avbrudd). musikk.c spiller music.cmp naar mog kjorer (ikke i emuleringen).
-- musikk_last kjoerer i hver amiga_init: nettsiden starter kjernen paa nytt i samme WebAssembly-instans
-  (startPaaNytt, ny spillfil eller egne filer), saa modulen lastes fra filene som gjelder naa. En gjest i
-  nettspill (ms_start_empty, ingen amiga_init) beholder modulen fra forrige oppstart. Test: $S/mus3.js.
+  ($0AE0DA, fire kanaler med avbrudd).
+- Bakgrunnsmusikk i hele spillet (port/src/musikk.c, PR #14) ble fjernet 2026-10-11 fordi eieren ikke
+  ville ha musikk som gaar hele tiden. Koden ligger i git (94049e7) om den skal tilbake som et valg.
+- Nettsiden starter kjernen paa nytt i samme WebAssembly-instans (startPaaNytt), saa statiske
+  variabler i C beholdes mellom omstarter; noe som lastes fra filene, maa lastes i amiga_init.
 - Introen hoppes over headless med --press 200:esc:4 (fire hopper ikke over); tittelmenyen fra ca. bilde 600.
 - ffmpeg her har libopenmpt og kan spille .mod til WAV (sammenligning med egen spiller).
 

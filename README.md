@@ -115,8 +115,7 @@ dobbeltklikk `start.bat` eller `moonstone.exe`. Windows kan si at programmet er 
 fordi det ikke er signert; velg «Mer informasjon» og «Kjør likevel».
 
 Med `--game sti` bruker programmet en annen spillfil: zip-filen, ISO-en eller en mappe
-med `Moonstone.Slave` og `data/`. `moonstone --help` viser alle valgene, blant annet
-`--musikk 0.7` (styrken på musikken i resten av spillet) og `--ingen-musikk`.
+med `Moonstone.Slave` og `data/`. `moonstone --help` viser alle valgene.
 
 ## Taster
 
@@ -196,12 +195,9 @@ skjermen og meldingene bruker også spillets font.
 
 ### Musikk
 
-Originalen har musikk bare i introen og i sluttscenen. Introsangen begynner først etter et
-halvt minutt, så de fleste hørte den aldri. Nå spilles introsangen også i tittelmenyen, på
-kartet og i kampene (`port/src/musikk.c`), fra hovedtemaet og om igjen. I sidemenyen kan
-den slås av («Musikk i hele spillet»), og styrken kan settes for seg («Musikkstyrke»).
-Introen og sluttscenen har sin egen musikk som før. En egen `music.cmp` (egne filer i
-sidemenyen, eller `--mod` på PC) brukes også til denne musikken.
+Originalen har musikk bare i introen og i sluttscenen; resten av spillet har bare
+lydeffekter. Introsangen begynner først etter et halvt minutt, så den som hopper over
+introen, hører den ikke. Porten spiller det samme som originalen.
 
 ### Effekter og HD-grafikk i nettleseren
 
