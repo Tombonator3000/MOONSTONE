@@ -24,9 +24,10 @@ const StandardHd = (() => {
 
     function status() {
         if (!aktiv) return;
+        /* meld faar norsk kildetekst og verdier; siden oversetter (sprak.js) */
         meld(feil ? 'HD kunne ikke lastes. Originalgrafikken brukes der bilder mangler.'
-            : klar ? 'Standard-HD: ' + V.hdAntall() + ' bilder lastet. Bakgrunner lastes ved behov.'
-            : 'Laster standardgrafikken ...');
+            : klar ? 'Standard-HD: {0} bilder lastet. Bakgrunner lastes ved behov.'
+            : 'Laster standardgrafikken ...', V.hdAntall());
     }
 
     async function hent(f, signal) {

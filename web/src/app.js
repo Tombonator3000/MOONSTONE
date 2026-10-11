@@ -23,10 +23,14 @@
     const $ = (id) => document.getElementById(id);
     const inn = Lager.innstillinger();
     const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false, knapper: false,
-        effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false }, spill: 'hver', hd: 'hd' }, inn);
+        effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false }, spill: 'hver', hd: 'original', sprak: 'en' }, inn);
+    /* HD er av til man selv slaar den paa (hdValgt). Foer var HD standard og ble lagret
+     * med de andre innstillingene, saa en lagret 'hd' uten hdValgt telles ikke som et valg. */
+    if (!innst.hdValgt) innst.hd = 'original';
+    Sprak.start(innst.sprak);               /* tekstene i index.html paa valgt spraak (sprak.js) */
     /* lagringene: automatisk lagring, og hjelpeteksten fra index.html (oppdaterMeny legger til) */
     let sistAuto = 0, baApersist = false, forsteStart = true;
-    const HJELP_LAGRING = document.getElementById('lagring-hjelp').textContent;
+    const HJELP_LAGRING = 'Spillet lagres i denne nettleseren. Det lagres også automatisk når du bytter fane eller app, og hvert andre minutt. Lagringene kan lastes ned og flyttes mellom nettleser og PC.';
     const lagreInnst = () => Lager.lagreInnstillinger(innst);
     innst.kontroller = Inndata.settOppsett(innst.kontroller);
 
@@ -45,7 +49,7 @@
     /* ---------------------------------------------------------------- meldinger */
     function status(tekst) {
         const s = $('status');
-        Spillgrafikk.sett(s, tekst);
+        Spillgrafikk.sett(s, T(tekst));     /* norsk kildetekst eller ferdig oversatt (T) */
         s.classList.add('vis');
         clearTimeout(statusTimer);
         statusTimer = setTimeout(() => s.classList.remove('vis'), 3500);
@@ -54,7 +58,7 @@
     /* teppet over spillet mens det lastes, kobler til eller ikke kan starte */
     function lasting(tekst) {
         $('lasting').hidden = !tekst;
-        $('lasting-tekst').textContent = tekst || '';
+        Sprak.sett($('lasting-tekst'), tekst || '');
     }
 
     function chatLinje(fra, tekst) {
@@ -75,7 +79,7 @@
     async function finnSpillfil() {
         await Kjerne.last();
         if (Kjerne.harInnebygd()) { spillfil = INNEBYGD; return true; }
-        $('spillfil-hjelp').textContent = 'Velg spillfilen (Moonstonecd32-AMIGA.zip eller «Moonstone CD32.iso»). Den lagres bare i denne nettleseren. Gjester i nettspill trenger den ikke.';
+        Sprak.sett($('spillfil-hjelp'), 'Velg spillfilen (Moonstonecd32-AMIGA.zip eller «Moonstone CD32.iso»). Den lagres bare i denne nettleseren. Gjester i nettspill trenger den ikke.');
         const lagret = await Lager.hent('spillfil');
         if (lagret) { spillfil = new Uint8Array(lagret); return true; }
         for (const sti of ['spill/Moonstonecd32-AMIGA.zip', 'spill/moonstone.zip', 'Moonstonecd32-AMIGA.zip']) {
@@ -102,7 +106,7 @@
 
     function visMod() {
         const navn = Object.keys(modFiler);
-        $('mod-liste').textContent = navn.length ? 'Brukes: ' + navn.join(', ') : 'Ingen egne filer.';
+        Sprak.sett($('mod-liste'), navn.length ? 'Brukes: {0}' : 'Ingen egne filer.', navn.join(', '));
     }
 
     $('velg-mod').addEventListener('change', async (e) => {
@@ -123,7 +127,7 @@
         if (somGjest) {
             Kjerne.startSomGjest();
         } else {
-            if (!spillfil) throw new Error('Spillfilen mangler.');
+            if (!spillfil) throw new Error(T('Spillfilen mangler.'));
             if (spillfil === INNEBYGD) Kjerne.aapneInnebygd();
             else Kjerne.aapne(spillfil.slice());
             for (const [n, d] of Object.entries(modFiler)) Kjerne.leggInnFil('data/' + n, d);
@@ -156,9 +160,9 @@
             visAuto(auto && auto.tid);
             const forste = forsteStart;
             forsteStart = false;                 /* etter et nettspill skal grunnen til at det sluttet, staa */
-            if (forste && auto && auto.tid) status('Spillet ditt fra ' + klokke(auto.tid) + ' er lagret. Velg Fortsett under Lagring i menyen for å spille videre.');
+            if (forste && auto && auto.tid) status(T('Spillet ditt fra {0} er lagret. Velg Fortsett under Lagring i menyen for å spille videre.', klokke(auto.tid)));
         } catch (e) {
-            lasting('Kunne ikke starte spillet: ' + e.message);
+            lasting(T('Kunne ikke starte spillet: {0}', T(e.message)));
         }
     }
 
@@ -193,7 +197,8 @@
         if (!Visning.klar) {
             Visning.init($('lerret'), Kjerne.bredde(), Kjerne.hoyde());
             Visning.klar = true;
-            StandardHd.start(Visning, tekst => { $('hd-status').textContent = tekst; });
+            StandardHd.start(Visning, (tekst, ...v) => Sprak.sett($('hd-status'), tekst, ...v));
+            if (!Visning.hdPaa()) Sprak.sett($('hd-status'), 'HD er av. Velg «HD der den finnes» for å laste standardgrafikken.');
         }
         Visning.settFilter(innst.filter);
         Visning.settFormat(innst.format);
@@ -263,7 +268,7 @@
         } else if (modus === 'alene' && Kjerne.iIntro()) {
             /* introen gjor ferdig det den holder paa med, det kan ta et par sekunder */
             if (hopper) t = 'Hopper over introen ...';
-            else if (invitasjon) t = 'Du er invitert til rom ' + invitasjon + '. Trykk på skjermen, fire eller Esc for å hoppe over introen.';
+            else if (invitasjon) t = T('Du er invitert til rom {0}. Trykk på skjermen, fire eller Esc for å hoppe over introen.', invitasjon);
             else if (lydForsokt) t = 'Esc, fire eller et trykk på skjermen hopper over introen';
             else t = 'Trykk på skjermen eller en tast for lyd';
         }
@@ -271,7 +276,7 @@
         if (t + topp === sisteHint) return;
         sisteHint = t + topp;
         $('hint').hidden = !t;
-        Spillgrafikk.sett($('hint'), t);
+        Spillgrafikk.sett($('hint'), T(t));
         $('hint').classList.toggle('topp', topp);
     }
 
@@ -439,7 +444,7 @@
         if (!erVert()) return;
         if (on && !stoppAnnonse) {
             stoppAnnonse = Romliste.annonser(() => ({
-                kode: Nett.kode(), vert: innst.navn || 'Vert', spillere: Nett.spillere().length, maks: 4, spill: Nett.romSpill(),
+                kode: Nett.kode(), vert: innst.navn || 'Host', spillere: Nett.spillere().length, maks: 4, spill: Nett.romSpill(),
             }));
         }
         if (!on && stoppAnnonse) { stoppAnnonse(); stoppAnnonse = null; }
@@ -462,14 +467,14 @@
             menyKmd(KMD.VERT, 0, kode);
             settOffentlig(innst.offentlig);
             oppdaterMeny();
-            status('Rommet ' + kode + ' er klart. Velg «Copy Link» og send lenken.'
-                + (spill === 'hver' ? ' Alle spiller sitt eget spill og ser hverandre på kartet.' : ''));
+            status(T('Rommet {0} er klart. Velg «Copy Link» og send lenken.', kode)
+                + (spill === 'hver' ? ' ' + T('Alle spiller sitt eget spill og ser hverandre på kartet.') : ''));
         } catch (e) {
             lagerRom = false;
             if (min !== okt) return;
             Nett.avslutt();
             menyKmd(KMD.MELDING, 0, 'No Connection\nTry Again Later');
-            status('Kunne ikke lage rom: ' + e.message);
+            status(T('Kunne ikke lage rom: {0}', T(e.message)));
         }
     }
 
@@ -511,7 +516,7 @@
         history.replaceState(null, '', u);
         menyKmd(KMD.SIDE, SIDE_JOIN);
         lyttMenyRom();
-        status('Du er invitert til rom ' + menyInvitert + '. Trykk fire for å bli med.');
+        status(T('Du er invitert til rom {0}. Trykk fire for å bli med.', menyInvitert));
     }
 
     async function kopierLenke() {
@@ -777,7 +782,7 @@
             const el = $(v.dataset.for);
             if (!el) continue;
             let t = '';
-            if (el.type === 'checkbox') t = el.checked ? 'På' : 'Av';
+            if (el.type === 'checkbox') t = T(el.checked ? 'På' : 'Av');
             else if (el.type === 'range') t = Math.round(el.value * 100) + '%';
             else if (el.tagName === 'SELECT') t = el.selectedOptions[0] ? el.selectedOptions[0].textContent : '';
             Spillgrafikk.sett(v, t);
@@ -882,7 +887,7 @@
         venterSynk = false;
         const min = ++okt;
         let sisteFeil = null;
-        lasting('Kobler til rom ' + kode + ' ...');
+        lasting(T('Kobler til rom {0} ...', kode));
         /* Spillet her staar mens vi kobler til. Rommet sier om det er hver for seg
          * (da fortsetter spillet her) eller tur for tur (da blir kjernen en gjest
          * og faar tilstanden fra verten, som kommer rett etter forste lobby). */
@@ -898,7 +903,7 @@
                             lasting(null);
                             oppdaterMeny();
                             menyKmd(KMD.MELDING, 1, 'In Room ' + k + '\nSeparate Games');
-                            status('Du er med i rom ' + k + '. Alle spiller sitt eget spill og ser hverandre på kartet.');
+                            status(T('Du er med i rom {0}. Alle spiller sitt eget spill og ser hverandre på kartet.', k));
                         } else {
                             Kjerne.startSomGjest();
                             gjestKjerne = true;
@@ -925,7 +930,8 @@
                     if (!Kjerne.lastTilstand(bytes)) {
                         /* ellers blir gjesten staaende og vente, og verten venter paa turen hans */
                         const grunn = Kjerne.tilstandFeil();
-                        startPaaNytt('Kunne ikke laste spillet fra verten' + (grunn ? ': ' + grunn : '') + ' Last siden på nytt og prøv igjen.');
+                        startPaaNytt(grunn ? T('Kunne ikke laste spillet fra verten: {0} Last siden på nytt og prøv igjen.', T(grunn))
+                            : T('Kunne ikke laste spillet fra verten. Last siden på nytt og prøv igjen.'));
                         return;
                     }
                     venterSynk = false;
@@ -941,8 +947,8 @@
             });
         } catch (e) {
             if (min !== okt) return;                     /* brukeren har gaatt videre */
-            if (gjestKjerne) { startPaaNytt('Kunne ikke koble til: ' + e.message); return; }
-            avbrytTilkobling('Kunne ikke koble til: ' + e.message);
+            if (gjestKjerne) { startPaaNytt(T('Kunne ikke koble til: {0}', T(e.message))); return; }
+            avbrytTilkobling(T('Kunne ikke koble til: {0}', T(e.message)));
         }
     }
 
@@ -1052,7 +1058,7 @@
     const egneFiler = () => spillfil !== INNEBYGD || Object.keys(modFiler).length > 0;
     const STILLE_A = 12000, STILLE_B = 20000;    /* ms uten melding foer duellen gis opp */
 
-    const navnTil = (id) => { const s = sisteSpillere.find((x) => x.id === id); return s ? s.navn : 'den andre'; };
+    const navnTil = (id) => { const s = sisteSpillere.find((x) => x.id === id); return s ? s.navn : T('den andre'); };
 
     function hverHendelser() {
         for (let e; (e = Kjerne.hverHendelse()); ) {
@@ -1067,16 +1073,16 @@
         if (!id || D || modus !== 'hver') { Kjerne.hverKmd(HVER.AI, k); return; }
         const d = D = { rolle: 'a', plass: k, id, status: 'venter', inn: 0, kort: 0, kortN: 0, navn: navnTil(id), conn: null };
         skjulValg();
-        status('Utfordrer ' + d.navn + ' ...');
-        d.tidsfrist = setTimeout(() => utenDuell(d, d.navn + ' svarte ikke.'), 15000);
+        status(T('Utfordrer {0} ...', d.navn));
+        d.tidsfrist = setTimeout(() => utenDuell(d, T('{0} svarte ikke.', d.navn)), 15000);
         Nett.duellKoble(id).then((conn) => {
             if (D !== d) { conn.close(); return; }
             d.conn = conn;
             d.sist = performance.now();
             conn.on('data', (m) => fraB(d, m));
-            conn.on('close', () => { if (D === d) utenDuell(d, 'Forbindelsen til ' + d.navn + ' ble brutt.'); });
+            conn.on('close', () => { if (D === d) utenDuell(d, T('Forbindelsen til {0} ble brutt.', d.navn)); });
             conn.send({ t: 'utfordring', navn: innst.navn || 'Player', plass: k });
-        }).catch(() => utenDuell(d, 'Fikk ikke kontakt med ' + d.navn + '.'));
+        }).catch(() => utenDuell(d, T('Fikk ikke kontakt med {0}.', d.navn)));
     }
 
     /* A: ingen duell likevel; datamaskinen styrer den andre ridderen i kampen */
@@ -1088,7 +1094,7 @@
         if (d.conn) { const c = d.conn; d.conn = null; setTimeout(() => c.close(), 300); }
         if (fjerneVenter) oppdaterFjerne();
         akk = 0;
-        status(tekst + ' Datamaskinen styrer ridderen i kampen.');
+        status((tekst ? T(tekst) + ' ' : '') + T('Datamaskinen styrer ridderen i kampen.'));
     }
 
     function fraB(d, m) {
@@ -1104,7 +1110,7 @@
             if (d.sendt) d.sendt.clear();       /* bildene med filene kan vaere kastet hos den andre */
             const t = Kjerne.lagreTilstand();
             if (t) Nett.sendTilstandTil(d.conn, t, Kjerne.bildeNr());
-            if (m.t === 'ja') status(d.navn + ' tar imot. Sender spillet ...');
+            if (m.t === 'ja') status(T('{0} tar imot. Sender spillet ...', d.navn));
             break;
         }
         case 'klar':
@@ -1112,9 +1118,9 @@
             d.status = 'aktiv';
             d.kort = d.kortN = 0;                /* trykk mens den andre lastet, er gamle */
             akk = 0;
-            status('Kamp mot ' + d.navn + '!');
+            status(T('Kamp mot {0}!', d.navn));
             break;
-        case 'nei': utenDuell(d, d.navn + ' kan ikke kjempe nå.'); break;
+        case 'nei': utenDuell(d, T('{0} kan ikke kjempe nå.', d.navn)); break;
         case 'inn': d.inn = Nett.nyInn(d, m.j); break;      /* et kort trykk varer noen bilder (net.js) */
         }
     }
@@ -1134,7 +1140,7 @@
             c.on('data', (m) => { if (m && m.t === 'ferdig') lukk(); });
             setTimeout(lukk, 60000);
         }
-        status('Kampen mot ' + d.navn + ' er over.');
+        status(T('Kampen mot {0} er over.', d.navn));
     }
 
     /* B: noen vil kjempe mot deg */
@@ -1161,7 +1167,7 @@
                 motta: Nett.tilstandsMottaker(), sistInn: -1, sistInnTid: 0, akk: 0, sist: performance.now(), mine: new Map() };
             skjulValg();                        /* kampen vises; valgene kommer tilbake etter den */
             Lyd.clear();
-            status(D.navn + ' utfordrer deg til kamp!');
+            status(T('{0} utfordrer deg til kamp!', D.navn));
             conn.send({ t: 'ja', egne: egneFiler() });
             return;
         }
@@ -1178,7 +1184,7 @@
             d.akk = 0;
             Lyd.clear();
             conn.send({ t: 'klar' });
-            status('Kamp mot ' + d.navn + '! Du styrer ridderen din.');
+            status(T('Kamp mot {0}! Du styrer ridderen din.', d.navn));
         }
     }
 
@@ -1366,8 +1372,8 @@
         const d = D;
         if (!d || !d.sist) return;
         const stille = performance.now() - d.sist;
-        if (d.rolle === 'a' && d.conn && stille > STILLE_A) utenDuell(d, d.navn + ' svarer ikke lenger.');
-        else if (d.rolle === 'b' && stille > STILLE_B) avbrytDuell(d.navn + ' svarer ikke lenger. Tilbake i ditt eget spill.');
+        if (d.rolle === 'a' && d.conn && stille > STILLE_A) utenDuell(d, T('{0} svarer ikke lenger.', d.navn));
+        else if (d.rolle === 'b' && stille > STILLE_B) avbrytDuell(T('{0} svarer ikke lenger. Tilbake i ditt eget spill.', d.navn));
     }
 
     function lokke(t) {
@@ -1423,7 +1429,7 @@
             while (akk >= periode && n < 4 && !(D && D.status !== 'aktiv')) { kjorEttBilde(); akk -= periode; n++; }
             if (akk > periode * 4) akk = 0;
             if (Kjerne.stoppet()) {
-                startPaaNytt(Kjerne.stoppMelding());
+                startPaaNytt(T(Kjerne.stoppMelding()));
                 return;
             }
         }
@@ -1459,22 +1465,24 @@
         const nett = modus === 'vert' || modus === 'gjest' || modus === 'hver';
         $('nettspill').hidden = !nett;
         $('lagring').hidden = modus === 'gjest';
-        Spillgrafikk.sett($('omstart').querySelector('.pt'), modus === 'hver' ? 'Forlat rommet' : nett ? 'Forlat nettspillet og start på nytt' : 'Start spillet på nytt');
+        Sprak.sett($('omstart').querySelector('.pt'), modus === 'hver' ? 'Forlat rommet' : nett ? 'Forlat nettspillet og start på nytt' : 'Start spillet på nytt');
         oppdaterVerdier();
-        $('lagring-hjelp').textContent = HJELP_LAGRING;
+        /* hjelpeteksten om lagring, med et tillegg i et rom; T i en funksjon, saa et nytt spraak tas med */
+        const lagringHjelp = (tillegg) => Sprak.sett($('lagring-hjelp'), '{0} {1}', () => T(HJELP_LAGRING), () => T(tillegg));
+        Sprak.sett($('lagring-hjelp'), HJELP_LAGRING);
         if (modus === 'hver') {
-            $('rominfo').textContent = (erVert() ? 'Du er vert for rom ' + Nett.kode() + '. Send lenken til opptil tre andre.' : 'Du er med i rom ' + Nett.kode() + '.')
-                + ' Alle spiller sitt eget spill og ser de andre ridderne på kartet.';
+            Sprak.sett($('rominfo'), erVert() ? 'Du er vert for rom {0}. Send lenken til opptil tre andre. Alle spiller sitt eget spill og ser de andre ridderne på kartet.'
+                : 'Du er med i rom {0}. Alle spiller sitt eget spill og ser de andre ridderne på kartet.', Nett.kode());
             $('lenke').value = erVert() ? Nett.invitasjon() : '';
             $('lenkerad').hidden = !erVert();
-            $('lagring-hjelp').textContent = HJELP_LAGRING + ' I et rom gjelder lagringene bare ditt eget spill.';
+            lagringHjelp('I et rom gjelder lagringene bare ditt eget spill.');
         } else if (modus === 'vert') {
-            $('rominfo').textContent = 'Du er vert for rom ' + Nett.kode() + '. Send lenken til opptil tre gjester.';
+            Sprak.sett($('rominfo'), 'Du er vert for rom {0}. Send lenken til opptil tre gjester.', Nett.kode());
             $('lenke').value = Nett.invitasjon();
             $('lenkerad').hidden = false;
-            $('lagring-hjelp').textContent = HJELP_LAGRING + ' Laster du en lagring, får gjestene den også.';
+            lagringHjelp('Laster du en lagring, får gjestene den også.');
         } else if (modus === 'gjest') {
-            $('rominfo').textContent = 'Du er med i rom ' + Nett.kode() + '. Verten kjører spillet og lagrer.';
+            Sprak.sett($('rominfo'), 'Du er med i rom {0}. Verten kjører spillet og lagrer.', Nett.kode());
             $('lenkerad').hidden = true;
         }
         visSpillere(null);
@@ -1491,15 +1499,18 @@
             for (const s of sisteSpillere) {
                 const tr = document.createElement('tr');
                 const td1 = document.createElement('td');
-                td1.textContent = s.navn + (s.vert ? ' (vert)' : '') + (s.id === Nett.minId() ? ' (deg)' : '');
+                let n = s.navn;
+                if (s.vert) n = T('{0} (vert)', n);
+                if (s.id === Nett.minId()) n = T('{0} (deg)', n);
+                td1.textContent = n;
                 const td2 = document.createElement('td');
                 const r = fjerne.get(s.id);
-                td2.textContent = s.id === Nett.minId() ? '' : r && !r.borte ? 'På kartet' : 'Ikke på kartet';
+                td2.textContent = s.id === Nett.minId() ? '' : T(r && !r.borte ? 'På kartet' : 'Ikke på kartet');
                 tr.append(td1, td2);
                 tab.appendChild(tr);
             }
-            $('port-hjelp').textContent = 'Hver for seg: alle styrer sin egen ridder i sitt eget spill. De andre ridderne står på kartet ditt '
-                + 'der de er i sine spill, i stedet for datamaskinens riddere.';
+            Sprak.sett($('port-hjelp'), 'Hver for seg: alle styrer sin egen ridder i sitt eget spill. De andre ridderne står på kartet ditt '
+                + 'der de er i sine spill, i stedet for datamaskinens riddere.');
             return;
         }
         const vert = modus === 'vert';
@@ -1512,20 +1523,23 @@
             const sel = document.createElement('select');
             for (const [v, t] of [['auto', 'Følger turen i spillet'], ['fast', 'Faste porter']]) {
                 const o = document.createElement('option');
-                o.value = v; o.textContent = t; o.selected = v === sisteModus;
+                o.value = v; o.textContent = T(t); o.selected = v === sisteModus;
                 sel.appendChild(o);
             }
             sel.addEventListener('change', () => Nett.settModus(sel.value));
             t2.appendChild(sel);
-        } else t2.textContent = sisteModus === 'auto' ? 'Følger turen i spillet' : 'Faste porter';
+        } else t2.textContent = T(sisteModus === 'auto' ? 'Følger turen i spillet' : 'Faste porter');
         topp.append(t1, t2);
         tab.appendChild(topp);
-        const portNavn = { p2: 'Joystick 1 (port 2)', p1: 'Joystick 2 (port 1)', begge: 'Begge', ingen: 'Ser på' };
-        const spillerNavn = { '-1': 'Ser på', 0: 'Spiller 1', 1: 'Spiller 2', 2: 'Spiller 3', 3: 'Spiller 4' };
+        const portNavn = { p2: 'Joystick 1 (port 2)', p1: 'Joystick 2 (port 1)', begge: T('Begge'), ingen: T('Ser på') };
+        const spillerNavn = { '-1': T('Ser på'), 0: T('Spiller {0}', 1), 1: T('Spiller {0}', 2), 2: T('Spiller {0}', 3), 3: T('Spiller {0}', 4) };
         for (const s of sisteSpillere) {
             const tr = document.createElement('tr');
             const td1 = document.createElement('td');
-            td1.textContent = s.navn + (s.vert ? ' (vert)' : '') + (s.klar === false ? ' (kobler til ...)' : '');
+            let n = s.navn;
+            if (s.vert) n = T('{0} (vert)', n);
+            if (s.klar === false) n = T('{0} (kobler til ...)', n);
+            td1.textContent = n;
             const td2 = document.createElement('td');
             const valg = sisteModus === 'auto' ? spillerNavn : portNavn;
             const verdi = sisteModus === 'auto' ? String(s.spiller) : s.port;
@@ -1547,9 +1561,9 @@
             tr.append(td1, td2);
             tab.appendChild(tr);
         }
-        $('port-hjelp').textContent = sisteModus === 'auto'
+        Sprak.sett($('port-hjelp'), sisteModus === 'auto'
             ? 'Spiller 1 velger ridder først i spillet, så spiller 2 osv., og bare den som skal velge, kan styre da. Joysticken går automatisk til den som har turen på kartet, og i kamp mellom to riddere får begge sin joystick. I menyene kan alle styre.'
-            : 'Moonstone har to joystickporter. Joystick 1 (port 2) brukes på kartet og i menyene, i kamp mellom to riddere brukes begge.';
+            : 'Moonstone har to joystickporter. Joystick 1 (port 2) brukes på kartet og i menyene, i kamp mellom to riddere brukes begge.');
     }
 
     /* vis hvem som har turen (eller velger ridder) naar det endrer seg */
@@ -1562,14 +1576,15 @@
         sistEier = n;
         if (e < 0) return;
         const s = sisteSpillere.find((x) => x.spiller === e);
-        if (s) status(s.navn + (velger ? ' velger ridder' : ' har turen'));
+        if (s) status(T(velger ? '{0} velger ridder' : '{0} har turen', s.navn));
     }
 
     function fyllPlasser() {
         const sel = $('plass');
         for (let i = 1; i <= 9; i++) {
             const o = document.createElement('option');
-            o.value = i; o.textContent = 'Plass ' + i;
+            o.value = i;
+            Sprak.sett(o, 'Plass {0}', i);
             sel.appendChild(o);
         }
         sel.addEventListener('change', () => { plass = +sel.value; });
@@ -1603,9 +1618,14 @@
     function klokke(tid) {
         const d = new Date(tid), to = (n) => String(n).padStart(2, '0');
         const idag = new Date().toDateString() === d.toDateString();
-        return (idag ? '' : d.getDate() + '.' + (d.getMonth() + 1) + '. ') + 'kl. ' + to(d.getHours()) + ':' + to(d.getMinutes());
+        const dato = Sprak.sprak() === 'no' ? d.getDate() + '.' + (d.getMonth() + 1) + '. '
+            : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }) + ' ';
+        return (idag ? '' : dato) + T('kl. {0}', to(d.getHours()) + ':' + to(d.getMinutes()));
     }
-    function visAuto(tid) { $('auto-info').textContent = tid ? 'Sist lagret automatisk ' + klokke(tid) + '.' : 'Ingen automatisk lagring ennå.'; }
+    function visAuto(tid) {
+        if (tid) Sprak.sett($('auto-info'), 'Sist lagret automatisk {0}.', () => klokke(tid));
+        else Sprak.sett($('auto-info'), 'Ingen automatisk lagring ennå.');
+    }
     setInterval(() => autolagre(false), 120000);
 
     /* lagringen som fil: kan flyttes til en annen nettleser eller til PC-versjonen */
@@ -1631,10 +1651,10 @@
         const s = Kjerne.lagreTilstand();
         if (!s) { status('Kunne ikke lagre.'); return; }
         const ok = await Lager.sett('tilstand' + plass, { data: s, tid: Date.now() });
-        status(ok ? 'Lagret på plass ' + plass : 'Nettleseren tillater ikke lagring');
+        status(ok ? T('Lagret på plass {0}', plass) : 'Nettleseren tillater ikke lagring');
     }
 
-    function last() { return lastFra(() => Lager.hent('tilstand' + plass), 'plass ' + plass); }
+    function last() { return lastFra(() => Lager.hent('tilstand' + plass), T('plass {0}', plass)); }
 
     /* henter en lagring (plass, automatisk eller fil) og laster den; meldingen sier hvorfor den ikke passer */
     async function lastFra(hent, hva) {
@@ -1643,14 +1663,14 @@
         const m0 = modus;
         const v = await hent();
         if (D || modus !== m0) return;           /* en duell kan ha startet mens vi hentet */
-        if (!v) { status('Ingenting lagret på ' + hva); return; }
-        if (!Kjerne.lastTilstand(new Uint8Array(v.data))) { status('Kunne ikke laste ' + hva + ': ' + (Kjerne.tilstandFeil() || 'ukjent feil')); return; }
+        if (!v) { status(T('Ingenting lagret på {0}', hva)); return; }
+        if (!Kjerne.lastTilstand(new Uint8Array(v.data))) { status(T('Kunne ikke laste {0}: {1}', hva, T(Kjerne.tilstandFeil() || 'ukjent feil'))); return; }
         /* de fjerne ridderne i tilstanden er fra da den ble lagret: bruk de som er i rommet naa */
         if (modus === 'hver') oppdaterFjerne();
         else Kjerne.hverKmd(HVER.FJERN, 0);
         menyRomPaaNytt();
         Lyd.clear();
-        status('Lastet ' + hva);
+        status(T('Lastet {0}', hva));
         if (modus === 'vert') for (const s of Nett.spillere()) if (!s.vert) Nett.sendTilstand(s.id, Kjerne.lagreTilstand(), Kjerne.bildeNr());
     }
 
@@ -1684,7 +1704,7 @@
     });
     $('lagre').addEventListener('click', lagre);
     $('last').addEventListener('click', last);
-    $('last-auto').addEventListener('click', () => lastFra(() => Lager.hent('auto'), 'den automatiske lagringen'));
+    $('last-auto').addEventListener('click', () => lastFra(() => Lager.hent('auto'), T('den automatiske lagringen')));
     $('eksport').addEventListener('click', lastNed);
     $('importer').addEventListener('change', async (e) => {
         const f = e.target.files[0];
@@ -1774,7 +1794,7 @@
                 a.download = navn;
                 a.click();
                 setTimeout(() => URL.revokeObjectURL(a.href), 5000);
-                status('Lagret ' + navn + '. Legg den i mappen bg i HD-pakken.');
+                status(T('Lagret {0}. Legg den i mappen bg i HD-pakken.', navn));
             });
         }
     });
@@ -1783,28 +1803,39 @@
         const n = await Visning.lastHdPakke(e.target.files);
         e.target.value = '';                    /* samme mappe kan velges igjen etter endringer */
         const bg = Visning.hdBakgrunner();
-        $('hd-status').textContent = Visning.hdAntall() + ' bilder i HD-pakken' + (bg ? ', av dem ' + bg + ' bakgrunner.' : '.');
-        status(n + ' HD-bilder lastet');
+        Sprak.sett($('hd-status'), bg ? '{0} bilder i HD-pakken, av dem {1} bakgrunner.' : '{0} bilder i HD-pakken.', Visning.hdAntall(), bg);
+        status(T('{0} HD-bilder lastet', n));
     });
     $('tom-hd').addEventListener('click', async () => {
         await StandardHd.stopp();
         Visning.tomHdPakke();
-        $('hd-status').textContent = 'HD-grafikken er fjernet.';
+        Sprak.sett($('hd-status'), 'HD-grafikken er fjernet.');
     });
     $('standard-hd').addEventListener('click', async () => {
         await StandardHd.stopp();
         Visning.tomHdPakke();
-        innst.hd = 'hd'; lagreInnst();
+        innst.hd = 'hd'; innst.hdValgt = true; lagreInnst();
         $('hd-bryter').value = 'hd'; Visning.settHd(true);
         StandardHd.start(Visning);
     });
     /* HD-grafikk eller originalen, uten aa fjerne HD-pakken */
     $('hd-bryter').addEventListener('change', (e) => {
         innst.hd = e.target.value;
+        innst.hdValgt = true;
         Visning.settHd(innst.hd !== 'original');
+        if (innst.hd === 'original' && !Visning.hdAntall()) Sprak.sett($('hd-status'), 'HD er av. Velg «HD der den finnes» for å laste standardgrafikken.');
         if (innst.hd !== 'original' && !Visning.hdAntall()) StandardHd.start(Visning);
         lagreInnst();
         status(innst.hd === 'original' ? 'Original grafikk' : Visning.hdAntall() ? 'HD-grafikk der den finnes' : 'HD-grafikken lastes automatisk');
+    });
+
+    /* spraaket paa nettsiden (sprak.js); teksten i selve spillet er engelsk uansett */
+    $('sprak').addEventListener('change', (e) => {
+        innst.sprak = e.target.value === 'no' ? 'no' : 'en';
+        lagreInnst();
+        Sprak.bytt(innst.sprak);
+        oppdaterMeny();                         /* knappen nederst, verdiene og spillerlisten */
+        sisteHint = null;
     });
 
     Inndata.settHurtigtaster((e) => {
@@ -1812,7 +1843,7 @@
         if (e.repeat) return false;
         if (e.code === 'PageUp') { lagre(); return true; }
         if (e.code === 'PageDown') { last(); return true; }
-        if (e.code === 'End') { plass = plass % 9 + 1; $('plass').value = plass; oppdaterVerdier(); status('Plass ' + plass); return true; }
+        if (e.code === 'End') { plass = plass % 9 + 1; $('plass').value = plass; oppdaterVerdier(); status(T('Plass {0}', plass)); return true; }
         if (e.code === 'Pause' && (modus === 'alene' || modus === 'hver') && !D) { pause = !pause; Lyd.clear(); status(pause ? 'Pause' : 'Fortsetter'); return true; }
         return false;
     });
@@ -1856,6 +1887,7 @@
     $('knappevent').checked = innst.knappevent;
     $('skjermknapper').checked = innst.knapper;
     $('hd-bryter').value = innst.hd === 'original' ? 'original' : 'hd';
+    $('sprak').value = innst.sprak === 'no' ? 'no' : 'en';
     Visning.settHd(innst.hd !== 'original');
     Spillgrafikk.stil(document);                /* vanlig tekst til spillets grafikk er lastet */
     fyllPlasser();

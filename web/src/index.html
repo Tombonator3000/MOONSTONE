@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="no">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -64,6 +64,11 @@
       <button id="lukk-meny" class="knapp"><span class="pt">Tilbake til spillet</span></button>
     </div>
     <section class="boks">
+      <label class="valg"><span class="pt">Language / Språk</span>
+        <select id="sprak"><option value="en">English</option><option value="no">Norsk</option></select>
+        <span class="verdi pt" data-for="sprak"></span></label>
+    </section>
+    <section class="boks">
       <h3 class="pt">Bilde og lyd</h3>
       <label class="valg"><span class="pt">Filter</span>
         <select id="filter"><option value="skarp">Skarp</option><option value="piksel">Rene piksler</option><option value="myk">Myk</option><option value="crt">CRT</option><option value="glatt">Glatt (Scale4x)</option></select>
@@ -89,9 +94,9 @@
     <section class="boks">
       <h3 class="pt">HD-grafikk</h3>
       <label class="valg"><span class="pt">Grafikk</span>
-        <select id="hd-bryter"><option value="hd">HD der den finnes</option><option value="original">Original</option></select>
+        <select id="hd-bryter"><option value="original">Original</option><option value="hd">HD der den finnes</option></select>
         <span class="verdi pt" data-for="hd-bryter"></span></label>
-      <p class="hjelp">Fotografisk standardgrafikk lastes automatisk: bakgrunner, blå ridderbevegelse, riddervalg, menypil og månefaser. Øvrige animasjoner bruker foreløpig originalgrafikk. Du kan også velge egne HD-bilder.</p>
+      <p class="hjelp">Med HD valgt lastes fotografisk standardgrafikk automatisk: bakgrunner, blå ridderbevegelse, riddervalg, menypil og månefaser. Øvrige animasjoner bruker foreløpig originalgrafikk. Du kan også velge egne HD-bilder.</p>
       <label class="valg"><span class="pt">Gult felt der HD-bilde mangler</span><input type="checkbox" id="rammer"><span class="verdi pt" data-for="rammer"></span></label>
       <p class="hjelp">Bakgrunner: lagre den som vises, tegn den i høyere oppløsning, og legg den i mappen <code>bg</code> i HD-pakken med samme navn.</p>
       <div class="rad">

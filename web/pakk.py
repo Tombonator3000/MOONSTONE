@@ -17,7 +17,7 @@ import base64
 from pathlib import Path
 
 HER = os.path.dirname(os.path.abspath(__file__))
-APP = ['core.js', 'audio.js', 'render.js', 'hd.js', 'scenes.js', 'input.js', 'store.js', 'net.js', 'rooms.js', 'grafikk.js', 'app.js']
+APP = ['sprak.js', 'core.js', 'audio.js', 'render.js', 'hd.js', 'scenes.js', 'input.js', 'store.js', 'net.js', 'rooms.js', 'grafikk.js', 'app.js']
 VENDOR = ['three.min.js', 'peerjs.min.js', 'mqtt.min.js']
 
 

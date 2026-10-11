@@ -157,6 +157,15 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 - Eieren vil ikke ha en HTML-startside. Siden starter rett i introen, og alt valg skjer i
   spillets tittelmeny. Sidemenyen (Home, knappen oppe til høyre) har bilde og lyd,
   HD-grafikk, lagring, spillfil og egne filer, taster og «Start spillet på nytt».
+- Teksten på nettsiden er engelsk som standard; norsk velges øverst i sidemenyen
+  («Language / Språk», innstillingen `sprak`: 'en' eller 'no'). Kildeteksten i koden og
+  index.html er norsk, og `web/src/sprak.js` har ordboken til engelsk. `T(tekst, ...verdier)`
+  oversetter ({0}, {1} er plassholdere), `Sprak.sett(el, tekst, ...)` husker kilden så
+  elementet tegnes på nytt ved bytte. Nye tekster på siden må inn i ordboken.
+  Tester som leser norsk tekst, setter `sprak: 'no'` i `moonstone.innstillinger`.
+- HD-grafikken er av som standard (bryteren står på Original). Den slås på i sidemenyen,
+  og valget lagres som `hd` sammen med `hdValgt: true`; en gammel lagret `hd` uten
+  `hdValgt` gir Original. HD-testene i tools/ setter `{hd:'hd',hdValgt:true}` før lasting.
 - Introen ser på den siste tastaturkoden uten slipp-biten, og bare mellom trinnene.
   Esc huskes, men det kan gå opp mot 200 bilder før mog lastes. En annen tast etter Esc
   (Return som slippes) gjør at introen ikke slutter. Målt med moonstone-headless
