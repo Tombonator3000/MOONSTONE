@@ -1,4 +1,4 @@
-/* Nytegnede motiver og stedsoeyler i faktisk karttur; kildesikring og forgrunn. */
+/* Nytegnede motiver og stedsporter i faktisk karttur; kildesikring og forgrunn. */
 'use strict';
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),{chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),out=root+'/art/faithful-hd-icons-2026-10-11/verification';
@@ -46,7 +46,7 @@ async function render(p){return p.evaluate(()=>{const{Kjerne:K,Visning:V,SceneHd
  const pillar=metas.find(m=>m.key==='map-icons/018');
  if(pillar){
   const overlays=await p.evaluate(()=>moonDebug.Visning.lagNaa().overlays);
-  check('23_standing_stones_present',metas.filter(m=>m.draw_rect).every(m=>overlays.some(o=>o.key===m.key&&o.rect.join()===m.draw_rect.join())));
+  check('23_stonehenge_gateways_present',metas.filter(m=>m.draw_rect).every(m=>overlays.some(o=>o.key===m.key&&o.rect.join()===m.draw_rect.join())));
   // Statusendring i den gamle markoeren skal bevare originalen og skjule soeylen.
   await p.evaluate(m=>{const K=moonDebug.Kjerne;window.pillarScan=K.skanout;const s=K.skanout(),idx=s.idx.slice(),d=K.vindu();
    const p=(d[1]+m.rect[1])*720+d[0]+m.rect[0]*2;idx[p]=(idx[p]+1)%32;K.skanout=()=>({...s,idx});},pillar);
