@@ -58,7 +58,7 @@ const StandardHd = (() => {
             try {
                 const file = await hent(bakgrunner.get(key), signal);
                 if (!aktiv || signal.aborted) return;
-                const n = await V.lastHdPakke([file]);
+                const n = await V.lastHdPakke([file], true);
                 if (n !== 1) throw new Error('Bildet kunne ikke dekodes');
                 cache.set(key, true);
                 while (cache.size > manifest.background_cache_limit) {

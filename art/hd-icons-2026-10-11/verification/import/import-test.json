@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "standard_metadata_survives_lazy_background",
+    "custom_PNG_pixels_visible_without_standard_recolor",
+    "missing_rect_rejected",
+    "string_rect_rejected",
+    "fractional_rect_rejected",
+    "outside_rect_rejected",
+    "wrong_dimensions_rejected",
+    "missing_expected_rejected",
+    "invalid_expected_rejected",
+    "missing_scene_rejected",
+    "invalid_dynamic_rejected",
+    "standard_restores_after_custom_and_invalid_manifests",
+    "no_browser_errors"
+  ],
+  "errors": [],
+  "url": "http://127.0.0.1:8769/moonstone.html",
+  "magenta_pixels": 8775,
+  "status": "passed",
+  "created_at": "2026-10-11T09:09:17.241Z"
+}

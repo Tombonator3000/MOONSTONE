@@ -1217,8 +1217,11 @@ const Visning = (() => {
 
     /* HD-pakke: filer med stier som ".../kn1.ob/012.png" (som tools/gfx.py extract)
      * og ".../bg/1a2b3c4d.png" for bakgrunner (hash fra laget, se lagreBakgrunn) */
-    async function lastHdPakke(filer) {
+    async function lastHdPakke(filer, tillegg = false) {
         let antall = 0;
+        // Egne bilder skal ikke tegnes om med standardpakkens konturer.
+        // Bakgrunner som lastes etter behov, beholder ikonmetadataene.
+        if (!tillegg) { hdIkoner.clear(); hdIkonFeil = []; }
         const alle = Array.from(filer), stiFor = (f) => (f.webkitRelativePath || f.name).replace(/\\/g, '/');
         const filKart = new Map(alle.map((f) => [stiFor(f).toLowerCase(), f]));
         for (const f of alle.filter(f=>/(^|\/)icons\.json$/i.test(stiFor(f)))) {
@@ -1233,6 +1236,14 @@ const Visning = (() => {
                         !/^[0-9a-f]{64}$/.test(m.indices_sha256) || ![0,16].includes(m.palette_offset||0) ||
                         !Array.isArray(m.paths) || m.paths.length>32 || !Number.isInteger(m.base_index) || m.base_index<0 || m.base_index>31 ||
                         typeof m.clip!=='string' || m.clip.length>100000 || m.paths.some(p=>!Number.isInteger(p.index)||p.index<0||p.index>31||typeof p.d!=='string'||p.d.length>100000)) throw new Error('Ugyldig ikonkontur');
+                    if (m.dynamic !== undefined && typeof m.dynamic !== 'boolean' ||
+                        m.dynamic && typeof m.scene !== 'string' ||
+                        m.scene !== undefined && (typeof m.scene !== 'string' || !/^[a-z0-9_-]{1,80}$/.test(m.scene) ||
+                            !Array.isArray(m.rect) || m.rect.length !== 4 || m.rect.some(v=>!Number.isInteger(v)) ||
+                            m.rect[0] < 0 || m.rect[1] < 0 || m.rect[2] > 320 || m.rect[3] > 200 ||
+                            m.rect[2] - m.rect[0] !== m.width || m.rect[3] - m.rect[1] !== m.height) ||
+                        m.dynamic && (!Array.isArray(m.expected) || m.expected.length !== m.width * m.height ||
+                            m.expected.some(v=>!Number.isInteger(v) || v < 0 || v > 31))) throw new Error('Ugyldig ikonfelt');
                     hdIkoner.set(m.key,{...m,clipPath:new Path2D(m.clip),paths:m.paths.map(p=>({...p,path:new Path2D(p.d)}))});
                 }
                 for (const m of hdIkoner.values()) if (!m.scene) {
