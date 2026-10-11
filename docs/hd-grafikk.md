@@ -128,8 +128,45 @@ et bilde på 1280 x 800 gir fire ganger så skarp bakgrunn. Slik får du bakgrun
   `MAPPE/HASH.png` når den har stått i 50 bilder (og på nytt hvis den blir lysere).
   `--lag F:PREFIKS` skriver begge lagene i bilde F.
 
-Når spillet toner ut med paletten, tones HD-bakgrunnen og HD-figurene like mye
-(lysstyrken til fargene bakgrunnen bruker, mot den lyseste som er sett).
+Når spillet toner med paletten, tones HD-bakgrunnen, HD-figurene og posene like mye:
+lysstyrken til fargene bakgrunnen bruker, mot fullt lys. For en scene (se under) er fullt
+lys summen med PIV-filens egen palett, så det er kjent fra første bilde, også når
+skjermen toner inn. Ellers er fullt lys det lyseste som har stått stille i minst ti
+bilder for den bakgrunnen. Toner skjermen inn før det er kjent, vises originalen til
+lyset har stått stille (ellers ville HD-bildene lyst fullt over en mørk skjerm). Posene
+avvises ikke lenger mens skjermen toner: uten skjermens palett godtas fargene når de er
+posens farger ganger lysstyrken (med ett 4-bits Amiga-trinn slingringsmonn).
+
+**Utsnitt.** Noen bakgrunner dekker bare en del av skjermen: Highwood og kroen
+(`bg/438c8bc2`, `bg/44898895`, venstre 256 kolonner) og Waterdeep (`bg/d097d0ff`,
+kolonne 66-319). De vises bare når en scene har gitt rektangelet (`rect` i scenen). Står
+bakgrunnskopien på en av dem uten scenetreff (en meldingsskjerm over byen), vises
+originalbakgrunnen i stedet for at bildet strekkes over hele skjermen. Hvilke bakgrunner
+som er utsnitt, leses av scenene i `manifest.json` (et `rect` mindre enn 320 x 200), eller
+av `"partial": true` på filoppføringen (`StandardHd.utsnitt()`,
+`Visning.settUtsnittBakgrunner`).
+
+### Scener som bare finnes på skjermen
+
+En scene (`manifest.scenes`, `web/src/scenes.js`) kjenner igjen en PIV ut fra indeksene.
+Vanligvis sammenlignes med bakgrunnskopien. Med `"compare": "screen"` sammenlignes med
+det skjermen viser, for bilder spillet tegner rett på skjermen uten å legge dem i
+kopien. En slik scene går foran en som bare stemmer med kopien, og brukes ikke når kopien
+selv er bildet (da gjelder den vanlige bakgrunnen). Alt som avviker fra PIV-en (teksten),
+blir forgrunn med sine indekser, så tekst og logo kan få HD over scenen.
+
+Målt med `--tegneliste` og `LAG_SPOR=1` (11. oktober 2026):
+
+| Skjerm | Bakgrunnskopien | Det som vises | HD |
+|---|---|---|---|
+| Lasteskjermen etter introen (også med Esc i introen) | portalen 6e5a5c07, eller månen 8dbce956 | `ch.piv` (trærne fra tittelen) som forgrunn, logoen `bold.f` 73 (y 20), copyrightlinjene `bold.f` 74 og 75, «created by Rob Anderson» og «Loading...» i `bold.f` | Scene `loading` (ch.piv, `bg/55bb9767`). Tekst og logo er figurer. Copyrightlinjene mangler PNG |
+| Prepare yourself (før hver kamp) | tittelen 55bb9767, så tom (045a1ac5) | banneret `message.piv` (Stonehenge i lilla) og teksten i `bold.f`, tegnet 44-52 bilder etter valget i tittelmenyen | Scene `message` (931f9b1d) er lagt inn, men `bg/931f9b1d.png` finnes ikke. Utkastet `art/photoreal` message er ikke godkjent. Teksten er figurer og får HD |
+| Select a Knight | tom (045a1ac5) | «Select a Knight» i `bold.f` (y 5) og portrettene `sel.cel` 1-5 | Alt er figurer. Det finnes ikke noe eget banner |
+
+Logoen `bold.f/073.png` er 2172 x 724 med tom kant. Innholdet er 2172 x 414 (5,2:1), mens
+kilden er 305 x 54 (5,65:1), så beskjæring retter ikke sideforholdet. I `text.json` har den
+`"fit": "width"` og et utsnitt rundt innholdet: den fyller figurens bredde og sentreres i
+høyden (ca. 59 i stedet for 54 linjer), uten å strekkes. En ny tegning i 5,65:1 er bestilt.
 
 ### Tekst i HD
 
@@ -140,8 +177,15 @@ statusskjermene). HD-bilder for dem, f.eks. `bold.f/015.png`, gir derfor tekst i
 Tekst tegnes bare én gang, mens figurene i kamp tegnes på nytt hele tiden. Med lagene
 blir en HD-figur derfor stående så lenge forgrunnen der den ligger er uendret
 (sammenlignet med fargeindeksene, så fading ikke teller som en endring), og den
-forsvinner når spillet tegner noe annet der eller bakgrunnen byttes. Uten lagene
-vises en klynge til det har gått 50 bilder uten nye tegninger, som før.
+forsvinner når spillet tegner noe annet der. For bokstavene sjekkes det hvert bilde om
+de fortsatt står der, og det samme gjelder alle figurer når bakgrunnen byttes: hver
+kildepiksel må ha samme indeks, være lik bakgrunnen, eller være dekket av en annen
+plassert figur med den indeksen (nabobokstaven over skyggen). Figurene som står, beholdes. Det trengs fordi Prepare yourself tegner teksten mens kopien ennå er
+tittelen, og bytter kopien 35 bilder senere. Uten lagene vises en klynge til det har
+gått 50 bilder uten nye tegninger, som før.
+
+En tekstrad kan stikke en linje under vinduet («Loading...» på y 182, 19 høy). Da
+kontrolleres bare linjene som vises.
 
 ### Figurer i flere deler
 

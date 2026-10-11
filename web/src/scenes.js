@@ -38,12 +38,17 @@ const SceneHd = (() => {
         if (!scan.gyldig) return lag;
         const rows = StandardHd.scener();
         for (const row of rows) klargjor(row).catch(() => {});
-        let valgt = null, best = 0; sisteMatcher = [];
+        let valgt = null, best = 0, bestSkjerm = false; sisteMatcher = [];
         for (const s of kilder.values()) {
             if (!s) continue;
+            // compare "screen": bildet ligger bare paa skjermen, ikke i bakgrunnskopien
+            // (lasteskjermen viser ch.piv over en annen kopi, banneret i Prepare yourself
+            // er message.piv). Er kopien selv bildet, gjelder den vanlige bakgrunnen.
+            const skjerm = s.compare === 'screen';
+            if (skjerm && lag && (lag.hash >>> 0) === parseInt(s.hash, 16)) continue;
             let match = 0, n = 0, detalj = 0, detaljMatch = 0;
             for (let y = 2; y < 200; y += 4) for (let x = 2; x < 320; x += 4) {
-                const actual = lag?.bakIdx ? lag.bakIdx[y * 320 + x] : scan.idx[(diw[1] + y) * 720 + diw[0] + x * 2];
+                const actual = lag?.bakIdx && !skjerm ? lag.bakIdx[y * 320 + x] : scan.idx[(diw[1] + y) * 720 + diw[0] + x * 2];
                 if (actual === s.px[y * 320 + x]) match++;
                 if (s.px[y * 320 + x] !== s.vanligst) { detalj++; if (actual === s.px[y * 320 + x]) detaljMatch++; }
                 n++;
@@ -51,8 +56,12 @@ const SceneHd = (() => {
             const ratio = match / n;
             sisteMatcher.push({id:s.id, match:ratio, detail:detaljMatch/detalj});
             // En nesten svart skjerm maa ikke forveksles med en svart PIV.
+            // En scene som stemmer med skjermen, gaar foran en som bare stemmer med
+            // bakgrunnskopien (lasteskjermen over portalen fra introen).
             if (detalj > 40 && detaljMatch / detalj >= (s.minimum_detail || s.minimum_match || 0.98) &&
-                ratio > best && ratio >= (s.minimum_match || 0.98)) { best = ratio; valgt = s; }
+                ratio >= (s.minimum_match || 0.98) && (skjerm && !bestSkjerm || skjerm === bestSkjerm && ratio > best)) {
+                best = ratio; valgt = s; bestSkjerm = skjerm;
+            }
         }
         if (!valgt) return lag;
         const rect = valgt.rect || [0, 0, 320, 200];
@@ -67,12 +76,17 @@ const SceneHd = (() => {
             return true;
         });
         foran.fill(0); indeks.fill(255); maske.fill(0); avvik.fill(0);
-        let lys = 0;
+        let lys = 0, lysRef = 0;
         for (let y = 0; y < 200; y++) for (let x = 0; x < 320; x++) {
             const p = y * 320 + x, fp = (diw[1] + y) * 720 + diw[0] + x * 2, c = valgt.px[p];
             const pal = (diw[1] + y) * 32 * 4 + c * 4;
             for (let k=0;k<4;k++) bak[p*4+k]=scan.pal[pal+k];
-            if (y === 100) lys += scan.pal[pal] + scan.pal[pal + 1] + scan.pal[pal + 2];
+            if (y === 100) {
+                lys += scan.pal[pal] + scan.pal[pal + 1] + scan.pal[pal + 2];
+                // samme sum med filens egen palett: fullt lys, ogsaa foer skjermen har tonet inn
+                const ref = valgt.pal?.[c];
+                if (ref) lysRef += ref[0] + ref[1] + ref[2];
+            }
             const actual = scan.idx[fp];
             const protectedPixel = x < rect[0] || y < rect[1] || x >= rect[2] || y >= rect[3] ||
                 (valgt.protected || []).some(r => x >= r[0] && y >= r[1] && x < r[2] && y < r[3]);
@@ -113,7 +127,7 @@ const SceneHd = (() => {
         }
         sist = { id: valgt.id, match: best, preserved_pixels: beholdt, hash: valgt.hash, hd_icons: ikoner.length };
         return { bak, for: foran, forIdx: indeks, bakIdx: valgt.px,
-            hash: parseInt(valgt.hash, 16), lys, hdRect: rect, scene: valgt.id,
+            hash: parseInt(valgt.hash, 16), lys, lysRef, hdRect: rect, scene: valgt.id,
             overlays: [...(valgt.overlays || []),...ikoner.map(m=>({key:m.key,rect:m.rect,uv_rect:[0,0,1,1],foreground:true}))], sceneVern: avvik };
     }
     return { korriger, nullstill, info: () => sist, matcher: () => sisteMatcher.slice() };

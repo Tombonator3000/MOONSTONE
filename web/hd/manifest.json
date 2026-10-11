@@ -1194,8 +1194,8 @@
     },
     {
       "path": "text.json",
-      "sha256": "7bf96bbefc3b6f99c63063c1009d8b98bad80f212c28c5dc623f9d7d87580b84",
-      "bytes": 45565,
+      "sha256": "728c71533701bb45f2c1affa06c48309046ef41f62c7be83e51bb2c0ffcd1dbc",
+      "bytes": 45587,
       "kind": "base"
     },
     {
@@ -2415,6 +2415,40 @@
           "foreground": true
         }
       ]
+    },
+    {
+      "id": "loading",
+      "file": "ch.piv",
+      "frame": 0,
+      "source_sha256": "376825107a9f65d264c6e7f36d6eeffd0d23ce55d4ca072b2475dbfcc098ea37",
+      "hash": "55bb9767",
+      "rect": [
+        0,
+        0,
+        320,
+        200
+      ],
+      "compare": "screen",
+      "minimum_match": 0.75,
+      "minimum_detail": 0.8,
+      "foreground_padding": 0
+    },
+    {
+      "id": "message",
+      "file": "message.piv",
+      "frame": 0,
+      "source_sha256": "4633b51167960dc8562ae2e3cf2be522b35d4ef7ad2126d214db2c69745be94c",
+      "hash": "931f9b1d",
+      "rect": [
+        0,
+        0,
+        320,
+        200
+      ],
+      "compare": "screen",
+      "minimum_match": 0.9,
+      "minimum_detail": 0.95,
+      "foreground_padding": 0
     }
   ]
 }

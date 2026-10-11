@@ -125,5 +125,18 @@ const StandardHd = (() => {
         cache.clear(); avvist.clear();
     }
 
-    return { start, stopp, oppdater, info, status, scener: () => manifest.scenes || [] };
+    /* Bakgrunner som bare dekker en del av skjermen: scenene med et mindre rektangel
+     * (byene og kroen), eller "partial": true i filoppfoeringen. De vises bare med
+     * rektangelet fra et scenetreff (render.js). */
+    function utsnitt() {
+        const liste = new Set();
+        for (const s of manifest.scenes || []) {
+            const r = s.rect || [0, 0, 320, 200];
+            if (r[0] > 0 || r[1] > 0 || r[2] < 320 || r[3] < 200) liste.add(parseInt(s.hash, 16));
+        }
+        for (const f of bakgrunner.values()) if (f.partial) liste.add(parseInt(f.path.slice(3, -4), 16));
+        return [...liste];
+    }
+
+    return { start, stopp, oppdater, info, status, utsnitt, scener: () => manifest.scenes || [] };
 })();
