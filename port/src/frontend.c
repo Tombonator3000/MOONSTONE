@@ -279,6 +279,12 @@ static void load_slot(int s)
 {
     char path[1024];
     state_path(path, sizeof path, s);
+    /* stoppet programmet midt i den automatiske lagringen, ligger den under et av de
+     * andre navnene (den nye forst, saa den forrige) */
+    if (s == 0 && !state_file_exists(path)) {
+        snprintf(path, sizeof path, "%smoonstone_auto_ny.sav", pref_dir());
+        if (!state_file_exists(path)) snprintf(path, sizeof path, "%smoonstone_auto_forrige.sav", pref_dir());
+    }
     if (!state_file_exists(path)) { show(s ? "Ingen lagring paa plass %d" : "Ingen automatisk lagring%.0d", s); return; }
     if (state_load_file(path)) {
         hver_kommando(HVER_FJERN, 0, NULL);    /* PC har ikke Hver for seg: plassene tilbake til datamaskinen */
@@ -439,8 +445,9 @@ int frontend_run(const FrontendOptions *o)
         snprintf(ny, sizeof ny, "%smoonstone_auto_ny.sav", pref_dir());
         /* den nye skrives forst; den gamle flyttes bare naar den nye finnes */
         if (state_save_file(ny)) {
-            if (state_file_exists(path)) state_file_rename(path, forrige);
+            bool flyttet = state_file_exists(path) && state_file_rename(path, forrige);
             if (state_file_rename(ny, path)) printf("Lagret automatisk: %s\n", path);
+            else if (flyttet) state_file_rename(forrige, path);   /* den gamle tilbake */
         }
     }
     for (int i = 0; i < MAX_PADS; i++) if (pads[i]) SDL_GameControllerClose(pads[i]);
