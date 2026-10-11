@@ -1217,22 +1217,24 @@ const Visning = (() => {
 
     /* HD-pakke: filer med stier som ".../kn1.ob/012.png" (som tools/gfx.py extract)
      * og ".../bg/1a2b3c4d.png" for bakgrunner (hash fra laget, se lagreBakgrunn) */
-    async function lastHdPakke(filer, tillegg = false) {
+    async function lastHdPakke(filer) {
         let antall = 0;
-        // Egne bilder skal ikke tegnes om med standardpakkens konturer.
-        // Bakgrunner som lastes etter behov, beholder ikonmetadataene.
-        if (!tillegg) { hdIkoner.clear(); hdIkonFeil = []; }
         const alle = Array.from(filer), stiFor = (f) => (f.webkitRelativePath || f.name).replace(/\\/g, '/');
         const filKart = new Map(alle.map((f) => [stiFor(f).toLowerCase(), f]));
+        // En delvis pakke erstatter bare metadata for sine egne bilder.
+        // Andre standardikoner beholder palett, kildekontroll og spritepeker.
+        hdIkonFeil = [];
+        const pakkeIkoner = new Map();
         for (const f of alle.filter(f=>/(^|\/)icons\.json$/i.test(stiFor(f)))) {
-            hdIkoner.clear();hdIkonFeil=[];
             try {
                 const data=JSON.parse(await f.text());
                 if (data.schema!==1 || !Array.isArray(data.entries) || data.entries.length>200) throw new Error('Ugyldig ikonmanifest');
+                const nyeIkoner = new Map();
                 for (const m of data.entries) {
                     if (!m || typeof m.key!=='string' || !/^[a-z0-9_.-]+\/[0-9]{3}$/.test(m.key) ||
                         !Number.isInteger(m.width) || m.width<1 || m.width>320 || !Number.isInteger(m.height) || m.height<1 || m.height>200 ||
-                        m.scale!==8 || !m.source || !/^[0-9a-f]{64}$/.test(m.source.bank_sha256) ||
+                        m.scale!==8 || !m.source || typeof m.source.file!=='string' || !/^[a-z0-9_.-]{1,80}$/.test(m.source.file) ||
+                        !Number.isInteger(m.source.frame) || m.source.frame<0 || m.source.frame>1999 || !/^[0-9a-f]{64}$/.test(m.source.bank_sha256) ||
                         !/^[0-9a-f]{64}$/.test(m.indices_sha256) || ![0,16].includes(m.palette_offset||0) ||
                         !Array.isArray(m.paths) || m.paths.length>32 || !Number.isInteger(m.base_index) || m.base_index<0 || m.base_index>31 ||
                         typeof m.clip!=='string' || m.clip.length>100000 || m.paths.some(p=>!Number.isInteger(p.index)||p.index<0||p.index>31||typeof p.d!=='string'||p.d.length>100000)) throw new Error('Ugyldig ikonkontur');
@@ -1244,16 +1246,17 @@ const Visning = (() => {
                             m.rect[2] - m.rect[0] !== m.width || m.rect[3] - m.rect[1] !== m.height) ||
                         m.dynamic && (!Array.isArray(m.expected) || m.expected.length !== m.width * m.height ||
                             m.expected.some(v=>!Number.isInteger(v) || v < 0 || v > 31))) throw new Error('Ugyldig ikonfelt');
-                    hdIkoner.set(m.key,{...m,clipPath:new Path2D(m.clip),paths:m.paths.map(p=>({...p,path:new Path2D(p.d)}))});
+                    nyeIkoner.set(m.key,{...m,clipPath:new Path2D(m.clip),paths:m.paths.map(p=>({...p,path:new Path2D(p.d)}))});
                 }
-                for (const m of hdIkoner.values()) if (!m.scene) {
+                for (const m of nyeIkoner.values()) if (!m.scene) {
                     const g=originalCel(m.source.file,new Map())?.[m.source.frame];
                     if (g) {
                         indeksHasher.set(g,await sha256(g.px));
                         await bankHash(originalCeler.get(m.source.file)).venter;
                     }
                 }
-            } catch(e) {hdIkonFeil.push(e.message);hdIkoner.clear();}
+                for (const [key,m] of nyeIkoner) pakkeIkoner.set(key,m);
+            } catch(e) {hdIkonFeil.push(e.message);}
         }
         for (const f of alle.filter(f => /(^|\/)text\.json$/i.test(stiFor(f)))) {
             const tekst = JSON.parse(await f.text());
@@ -1317,7 +1320,7 @@ const Visning = (() => {
             if (nokkel.startsWith('poses/')) continue;
             try {
                 const t = await hdTekstur(f);
-                const ikon=hdIkoner.get(nokkel);
+                const ikon=pakkeIkoner.get(nokkel);
                 if (ikon && (t.width!==ikon.width*ikon.scale || t.height!==ikon.height*ikon.scale)) {t.tex.dispose();t.mat.dispose();hdIkonFeil.push(nokkel+': feil maal');continue;}
                 const meta = hdTekstMeta.get(nokkel);
                 if (meta?.raw_rect_px) {
@@ -1328,8 +1331,15 @@ const Visning = (() => {
                 const old = hdPakke.get(nokkel);
                 if (old) { old.tex.dispose(); old.mat.dispose(); }
                 hdPakke.set(nokkel, t);
+                if (ikon) hdIkoner.set(nokkel,ikon);
+                else hdIkoner.delete(nokkel);
                 antall++;
             } catch (e) { /* ikke et bilde */ }
+        }
+        for (const [key,m] of pakkeIkoner) {
+            const t=hdPakke.get(key);
+            if (t && t.width===m.width*m.scale && t.height===m.height*m.scale) hdIkoner.set(key,m);
+            else hdIkonFeil.push(key+': ikonbildet mangler eller har feil maal');
         }
         antallBg = [...hdPakke.keys()].filter((k) => k.startsWith('bg/')).length;
         hdPoseLaster = false;
