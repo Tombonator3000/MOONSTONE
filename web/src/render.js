@@ -1700,13 +1700,19 @@ const Visning = (() => {
                 if (ikon && (t.width!==(ikonRect ? ikonRect[2]-ikonRect[0] : ikon.width)*ikon.scale ||
                     t.height!==(ikonRect ? ikonRect[3]-ikonRect[1] : ikon.height)*ikon.scale)) {t.tex.dispose();t.mat.dispose();hdIkonFeil.push(nokkel+': feil maal');continue;}
                 const meta = hdTekstMeta.get(nokkel);
-                if (meta?.raw_rect_px) {
-                    const [x,y,w,h] = meta.raw_rect_px;
+                if (meta?.raw_rect_px || nokkel === 'bold.f/073') {
+                    // Standardmetadata gjelder det leverte standardbildet. Et eget
+                    // bilde kan allerede vaere klippet til originalrutens format.
+                    const r = meta?.raw_rect_px;
+                    const gyldig = Array.isArray(r) && r.length === 4 && r.every(Number.isFinite) &&
+                        r[0] >= 0 && r[1] >= 0 && r[2] > 0 && r[3] > 0 &&
+                        r[0] + r[2] <= t.width && r[1] + r[3] <= t.height;
+                    const [x,y,w,h] = gyldig ? r : [0,0,t.width,t.height];
                     t.mat.uniforms.imageRegion.value.set(x/t.width,y/t.height,w/t.width,h/t.height);
-                    t.mat.uniforms.alphaCutoff.value = meta.alpha_cutoff || 0;
+                    t.mat.uniforms.alphaCutoff.value = meta?.alpha_cutoff || 0;
                     /* fit "width": bildet har et annet sideforhold enn originalen (logoen
                      * bold.f/073). Det fyller bredden og sentreres i hoeyden, uten strekk. */
-                    t.fit = meta.fit === 'width' && w > 0 && h > 0 ? w / h : 0;
+                    t.fit = meta?.fit === 'width' || nokkel === 'bold.f/073' ? w / h : 0;
                 }
                 const old = hdPakke.get(nokkel);
                 if (old) { old.tex.dispose(); old.mat.dispose(); }
@@ -1782,7 +1788,8 @@ const Visning = (() => {
             viste: visteListe.filter(d=>hdTegnbare.has(d)&&hdIkoner.has(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'))).map(d=>({fil:d.fil,bilde:d.bilde,x:d.x,y:d.y})) }),
         sceneIkoner: id => [...hdIkoner.values()].filter(m=>m.scene===id&&m.dynamic&&hdPakke.has(m.key)),
         sceneIkonKlar: (m,diw) => {const p=ikonPalett(m,m.rect[1],diw);return !!p&&rasterIkonLys(m,p)!==null;},
-        sceneOverleggKlar: (key,diw) => {const m=hdIkoner.get(key);if(!m||m.render_mode!=='raster')return true;if(!m.scene||!m.rect)return false;const p=ikonPalett(m,m.rect[1],diw);return !!p&&rasterIkonLys(m,p)!==null;},
+        sceneOverleggKlar: (key,diw) => {if(!hdPakke.has(key))return false;const m=hdIkoner.get(key);if(!m||m.render_mode!=='raster')return true;if(!m.scene||!m.rect)return false;const p=ikonPalett(m,m.rect[1],diw);return !!p&&rasterIkonLys(m,p)!==null;},
+        harHdBilde: key => hdPakke.has(key),
         hdBakgrunner: () => antallBg,
         /* bakgrunner (hash) som bare dekker en del av skjermen og trenger rektangelet fra en scene */
         settUtsnittBakgrunner: (liste) => { utsnittBg.clear(); for (const h of liste) utsnittBg.add(h >>> 0); maaTegnes = true; },
@@ -1795,8 +1802,9 @@ const Visning = (() => {
         maaTegnes: () => maaTegnes,
         utsnitt: () => crop.slice(),                /* delen av rammebufferet som vises (x0, y0, x1, y1) */
         brukerListe: () => hdPaa && (hdPakke.size > 0 || hdPoser.size > 0 || visRammer),   /* trengs tegnelisten fra kjernen? */
-        /* trengs lagene fra kjernen? (HD-bakgrunner eller effekter som skiller lagene) */
-        trengerLag: () => (hdPaa && (hdPakke.size > 0 || hdPoser.size > 0)) || effekter.skygge || effekter.dybde || tvungetLag,
+        /* Lastede pakker trenger lag ogsaa i Original for aa beholde plasseringen
+         * av engangstegnet tekst naar HD slaas paa igjen. */
+        trengerLag: () => hdPakke.size > 0 || hdPoser.size > 0 || effekter.skygge || effekter.dybde || tvungetLag,
         /* HD-grafikk eller originalen (bryteren i menyen) */
         settHd: (on) => { hdPaa = !!on; document.documentElement.classList.toggle('hd-tekst', hdPaa); maaTegnes = true; },
         hdPaa: () => hdPaa,

@@ -34,9 +34,11 @@ const SceneHd = (() => {
     }
     function korriger(fb, diw, lag) {
         sist = null;
-        // Samme PIV-identitet i Original og HD bevarer engangstegnet tekst
-        // ved bytte. Uten en aktiv standardpakke brukes vanlig originallag.
-        if (!StandardHd.info().aktiv || !StandardHd.info().klar ||
+        // Scenedefinisjonene foelger utgivelsen og kildefilen valideres med SHA256.
+        // Egne PNG-er kan bruke samme scener etter at standardlastingen er stoppet.
+        // Original bruker samme identitet ved bytte saa engangstegnet tekst bevares.
+        const standard = StandardHd.info();
+        if ((!(standard.aktiv && standard.klar) && !Visning.hdAntall()) ||
             diw[2] - diw[0] !== 640 || diw[3] - diw[1] !== 200 || diw[0] < 0 || diw[1] < 0) return lag;
         const scan = Kjerne.skanout();
         if (!scan.gyldig) return lag;
@@ -74,7 +76,7 @@ const SceneHd = (() => {
         const originaleFelt = (valgt.overlays || []).filter(o=>!faste.includes(o));
         const vernedeFelt = [...(valgt.protected || []),...originaleFelt.map(o=>o.rect)];
         // Originalmarkorene beholdes til bakgrunnen og HD-overlegg kan vises sammen.
-        const ikoner = (Visning.hdPaa() && StandardHd.info().bakgrunner.includes(valgt.hash)
+        const ikoner = (Visning.hdPaa() && Visning.harHdBilde('bg/' + valgt.hash)
             ? Visning.sceneIkoner(valgt.id) : []).filter(m=>{
             if (m.source.bank_sha256!==valgt.source_sha256 || !m.expected || m.expected.length!==m.width*m.height || !Visning.sceneIkonKlar(m,diw)) return false;
             const [x,y]=m.rect;

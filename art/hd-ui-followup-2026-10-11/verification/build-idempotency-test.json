@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "created_at": "2026-10-11T17:13:08.087951+00:00",
+  "scope": "Gjenbygg etter aktivering mot frosset baseline; begge kandidater og aktiv pakke inkludert fotografisk MI032 skal beholdes byteeksakt.",
+  "commands": [
+    [
+      "python3",
+      "tools/hd_ui_bygg.py"
+    ],
+    [
+      "python3",
+      "tools/hd_ui_bygg.py",
+      "--additional"
+    ]
+  ],
+  "before_sha256": {
+    "art/hd-ui-followup-2026-10-11/fragment-icons.json": "06cab44da19a71d079f2b8c0bebb849342852825a75500417d154f5ec7c2ba80",
+    "art/hd-ui-followup-2026-10-11/candidate-icons.json": "d0cbadce6dd540ef412e4bab2da5b3e8aa71d67c9b3ee1f708cf4fbd7582084b",
+    "art/hd-ui-followup-2026-10-11/source-contracts.json": "3d06e7d2bd7ecd724c24035bd2d557c5e3d85365fa72b3c0944b8abcc3c08bd3",
+    "art/hd-ui-followup-2026-10-11/additional/fragment-icons.json": "f893207ce81ec99bbb175ac23c0999f5a1752c8f7c86b6ec714e61fc151c52d7",
+    "art/hd-ui-followup-2026-10-11/additional/candidate-icons.json": "57d4ba95a75748569b9afcc5086b139d223ac8138413f8a57c932e2121bbd7ed",
+    "art/hd-ui-followup-2026-10-11/additional/source-contracts.json": "3cf51e59abdf23993c89c36c713249f230f60b7aa2baa9d46cab5f0e41ab4faf",
+    "web/hd/icons.json": "59d7d4e14dd58f8b5b0585c3d7086cfd0ecf8ed111e526b45578048d9e974e9b",
+    "web/hd/manifest.json": "67a2ee3816498ec6a0a5c33b06b02c61d41d3b3e62163c2432d9bb56af0b824a",
+    "web/hd/mi.c/032.png": "b4dce1ba0817351b891284e4413e1a645074b0e099718ce3e1492653fcab76ea"
+  },
+  "after_sha256": {
+    "art/hd-ui-followup-2026-10-11/fragment-icons.json": "06cab44da19a71d079f2b8c0bebb849342852825a75500417d154f5ec7c2ba80",
+    "art/hd-ui-followup-2026-10-11/candidate-icons.json": "d0cbadce6dd540ef412e4bab2da5b3e8aa71d67c9b3ee1f708cf4fbd7582084b",
+    "art/hd-ui-followup-2026-10-11/source-contracts.json": "3d06e7d2bd7ecd724c24035bd2d557c5e3d85365fa72b3c0944b8abcc3c08bd3",
+    "art/hd-ui-followup-2026-10-11/additional/fragment-icons.json": "f893207ce81ec99bbb175ac23c0999f5a1752c8f7c86b6ec714e61fc151c52d7",
+    "art/hd-ui-followup-2026-10-11/additional/candidate-icons.json": "57d4ba95a75748569b9afcc5086b139d223ac8138413f8a57c932e2121bbd7ed",
+    "art/hd-ui-followup-2026-10-11/additional/source-contracts.json": "3cf51e59abdf23993c89c36c713249f230f60b7aa2baa9d46cab5f0e41ab4faf",
+    "web/hd/icons.json": "59d7d4e14dd58f8b5b0585c3d7086cfd0ecf8ed111e526b45578048d9e974e9b",
+    "web/hd/manifest.json": "67a2ee3816498ec6a0a5c33b06b02c61d41d3b3e62163c2432d9bb56af0b824a",
+    "web/hd/mi.c/032.png": "b4dce1ba0817351b891284e4413e1a645074b0e099718ce3e1492653fcab76ea"
+  },
+  "checks": 9
+}
