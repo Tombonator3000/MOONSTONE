@@ -1,0 +1,43 @@
+{
+  "status": "candidate_requires_runtime_visual_review",
+  "key": "Wi1.C/005.png",
+  "authoring_method": "individual_redraw_with_source_alpha_constraint",
+  "tool": "builtin image_gen",
+  "raw_file": "art/hd-math-figures-2026-10-11/material/005-head-joined.png",
+  "raw_sha256": "138c69159d6feedc5dc1ce584aad5286c0c785b32d0b770e92d1f958e43491c1",
+  "raw_crop_normalized": [
+    0.17142857142857143,
+    0.16666666666666666,
+    0.6571428571428571,
+    0.6666666666666666
+  ],
+  "source_indices_sha256": "5f58ed20bf1b0c19932f9f51f2bce2e530fe2f083e9d8793ca3719a268217717",
+  "reference_sha256": "b6005d6f396adbf96ba6b76c0e560a76c7f50d5ae17e905a7cfd4b64eb248d05",
+  "output_sha256": "7acc778c1fd52a44aaf141a9cd04c39fab8763df34f99b68f07ed270074ccb61",
+  "master_size": [
+    1237,
+    1272
+  ],
+  "size": [
+    184,
+    192
+  ],
+  "material_registration": "source_bound_context_crop",
+  "raw_silhouette_iou": 0.8424886705349202,
+  "silhouette_iou": 0.9873010113837363,
+  "shared_unchanged_material": {
+    "kind": "deling-av-uendret-kappemateriale",
+    "contract_sha256": "662bc5926e476200cdfdb6df02f85c11dd27b101adb1a0d5a46953d708213e2b",
+    "donor": "material/math-static-head-joined.png",
+    "donor_sha256": "77796a7f86610f3471a0cab5600536f1d2e9fdc6ff07a1c4f74d8bdd6739de64",
+    "mask_sha256": "ba10ea667d75d38d13ed828193e7b498e9ccd41d464f9ace15b3515d12995836",
+    "mask_pixels": 309,
+    "original_rect": [
+      98,
+      49,
+      144,
+      97
+    ],
+    "method": "Kun 309 kildeidentiske kappematerialpiksler. Hver bevegelige haar- og ansiktsrute har egen generert master. Ingen nytegning av hele kappen."
+  }
+}

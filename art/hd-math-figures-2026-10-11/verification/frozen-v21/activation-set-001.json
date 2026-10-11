@@ -1,0 +1,519 @@
+{
+  "schema": 1,
+  "visual_status": "candidate_final_views_pending_parent_review",
+  "scope": "17 separate Wi1.C figure/fragment masters plus one embedded Math figure plate from WI1.P. Four empty3x3 routes008/009/013/014 are deliberately excluded. Separate shared hair-root and cloak material repair assets are documented and do not count as additional animation masters.",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "63a93d15ee0d36cf0eec6f0ad6b4be5d251f984e13b2634077bd0a9385f2881b",
+    "web/src/scenes.js": "05e7336cd4f92d17ec4dc2172761e7720f80f1532b343a06453f54c505c13c9f"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "source_contract": "art/hd-math-figures-2026-10-11/source-contract.json",
+  "source_contract_sha256": "8c6b6b9e1b79fc639727c6c7d538020371e8217756a206bdaae9a66ba4b5d1dd",
+  "proofs": [
+    {
+      "path": "art/hd-math-figures-2026-10-11/verification/composite-v21-alternate/math-composite-test.json",
+      "sha256": "96e44c652dc199dc350f8cfeea346cb778db3c3f79d740a646018f2dbd2adea4",
+      "html_path": "art/hd-math-figures-2026-10-11/verification/runtime-v21/moonstone.html",
+      "html_sha256": "c972d3ae38eb426ea235b6043c97988650324c34f9c584664b5baa181de0b884"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/verification/composite-v21-closed/math-composite-test.json",
+      "sha256": "aa133d5385cd293099b1e810207e8cf681cee14b83058c37fa7a718b671424ed",
+      "html_path": "art/hd-math-figures-2026-10-11/verification/runtime-v21/moonstone.html",
+      "html_sha256": "c972d3ae38eb426ea235b6043c97988650324c34f9c584664b5baa181de0b884"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/verification/natural-v21-blue/math-figure-palette-test.json",
+      "sha256": "937a8673a60d515401d277a59551b1de9e06a4ffe135415f1451a522550911ad",
+      "html_path": "art/hd-math-figures-2026-10-11/verification/runtime-v21/moonstone.html",
+      "html_sha256": "c972d3ae38eb426ea235b6043c97988650324c34f9c584664b5baa181de0b884"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "sha256": "e592f1ebdd4e2a9e2b773db07b9b68b168785778541b51607cf9400ea5006900",
+      "html_path": "art/hd-math-figures-2026-10-11/verification/runtime-v21/moonstone.html",
+      "html_sha256": "c972d3ae38eb426ea235b6043c97988650324c34f9c584664b5baa181de0b884"
+    }
+  ],
+  "entries": [
+    {
+      "key": "Wi1.C/000.png",
+      "bank": "Wi1.C",
+      "frame": 0,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "0112374f314daa536ac028d6e31c74d237f6cf5c020ab2705dc2e489f243701d",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/000.png",
+      "png_sha256": "2eaec5917bcd79d734062d9e5d78980803072cf171088b9fcfd166062f5b747e",
+      "raw": "art/hd-math-figures-2026-10-11/raw/000-v1.png",
+      "raw_sha256": "32280cec95ec4d5b67de078d5e1de4e824451a5c478c38b046deaab36c19a08a",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/000-v1.txt",
+      "prompt_sha256": "dbdcf55635687c164284c4b0d51d9eedad34f2d73d25d29f77855a7f5d36e5b8",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/000.json",
+      "pack_record_sha256": "44bf0004525c636d22d3e2ada23dafeb46114a4ec6e59d9fd3fb30d25599919b",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "2eaec5917bcd79d734062d9e5d78980803072cf171088b9fcfd166062f5b747e"
+    },
+    {
+      "key": "Wi1.C/001.png",
+      "bank": "Wi1.C",
+      "frame": 1,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "95dab506e084af8e0646f4e128f1190181b57f37920e5f535d94fc027588763e",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/001.png",
+      "png_sha256": "8a5055ccb1fc56e02ea884c9b5d7d71fed6f3f9b9c0b696f9cfa1fbfb520a445",
+      "raw": "art/hd-math-figures-2026-10-11/raw/001-v1.png",
+      "raw_sha256": "2946f715c4587156e7a102bbb604295324de97644a6bf0f99850befbf5fc609c",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/001-v1.txt",
+      "prompt_sha256": "4041878f520b7bdef568e2a1334f479104997eaf01c350810c68f539d8265b63",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/001.json",
+      "pack_record_sha256": "d65838911f56a9723926492e5b053bedf631184ef4546062c60f502e66777a3b",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "8a5055ccb1fc56e02ea884c9b5d7d71fed6f3f9b9c0b696f9cfa1fbfb520a445"
+    },
+    {
+      "key": "Wi1.C/002.png",
+      "bank": "Wi1.C",
+      "frame": 2,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "7e9b367992a43530895ed5185eea094bf00feb9a34e247a7fa2256f5584461c6",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/002.png",
+      "png_sha256": "7b5df8abc79d2d67337f907fe15529a5dfac3ba6deee3057a1dcf2e43d90d5c6",
+      "raw": "art/hd-math-figures-2026-10-11/raw/002-v1.png",
+      "raw_sha256": "5f69bbe54917098fec8dbf2659740dbd118bbe000dee0723c221169c73e7115c",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/002-v1.txt",
+      "prompt_sha256": "e30da5a2b2d2774f19a2cd8a417792d22e46d4684eef2677f35ff9413913f168",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/002.json",
+      "pack_record_sha256": "8b9fceb3cff00b15347a67a4023acf14dc63b23aec9939d029ab89d46e6e1799",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "7b5df8abc79d2d67337f907fe15529a5dfac3ba6deee3057a1dcf2e43d90d5c6"
+    },
+    {
+      "key": "Wi1.C/003.png",
+      "bank": "Wi1.C",
+      "frame": 3,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "bca4994d39610345f96d1aaf14c70a4277e836bb311cc3412da3ab0a3c278f6e",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/003.png",
+      "png_sha256": "01d9a2dc411f435e9d53871b7c9467b470c914c7ac871b88365708d0cb838e84",
+      "raw": "art/hd-math-figures-2026-10-11/raw/003-v3.png",
+      "raw_sha256": "ae24ec99f49040d8b0473a571f24f3a5e973a2cc31194c6f3402915a1d59aeb8",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/003-v3.txt",
+      "prompt_sha256": "ca9ea0d04c939e8e875a416a2de3dd9c901c1b21e79d70b54e21503e91949b59",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/003.json",
+      "pack_record_sha256": "ff8a48e81cd46ee67b572ee10e588de152f29057b65656725e12f83c4a1a8990",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "01d9a2dc411f435e9d53871b7c9467b470c914c7ac871b88365708d0cb838e84"
+    },
+    {
+      "key": "Wi1.C/004.png",
+      "bank": "Wi1.C",
+      "frame": 4,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "ea34efd027ec73ca3d5dc4e1e00e0dcffa1b82dd88bb1d162701374367206dae",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/004.png",
+      "png_sha256": "12db01e76ddb7c4603da3a335ca113e90f6987b89eed293211acaa99fc277db0",
+      "raw": "art/hd-math-figures-2026-10-11/raw/004-v7-scene-context.png",
+      "raw_sha256": "f4fb13f6db279970022b70751f1b5a6af98aeb0cefd1b8e3c2da2f6d40136dfe",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/004-v7-scene-context.txt",
+      "prompt_sha256": "1f9d66d8157b2129addd94a22f5374a5d598f347a75ae08ee7f9cc4b8810798b",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/004.json",
+      "pack_record_sha256": "2007c036ee0b46c4540d70f522170baddb10cf82d9e7d677ddb7f8a3bf0c2e99",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "12db01e76ddb7c4603da3a335ca113e90f6987b89eed293211acaa99fc277db0"
+    },
+    {
+      "key": "Wi1.C/005.png",
+      "bank": "Wi1.C",
+      "frame": 5,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "5f58ed20bf1b0c19932f9f51f2bce2e530fe2f083e9d8793ca3719a268217717",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/005.png",
+      "png_sha256": "7acc778c1fd52a44aaf141a9cd04c39fab8763df34f99b68f07ed270074ccb61",
+      "raw": "art/hd-math-figures-2026-10-11/raw/005-v4-registered.png",
+      "raw_sha256": "64768b1015d3dbac64b1e7bcb91b1738ff163d3072374d44ab662259ebf8b3cb",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/005-v4-registered.txt",
+      "prompt_sha256": "fd855f3738d3bdadee1499e992598f2ee318e71dcbc9d1f5ff3dbbb48fb23121",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/005.json",
+      "pack_record_sha256": "323aeb4931b870671674203cab8e269226836f2fccbb10ce555c0aec082cc6dd",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "7acc778c1fd52a44aaf141a9cd04c39fab8763df34f99b68f07ed270074ccb61"
+    },
+    {
+      "key": "Wi1.C/006.png",
+      "bank": "Wi1.C",
+      "frame": 6,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "ec075f6a5d6cac61549377c79e0fd3ac8f18a8ecf562afbe449f15d33da47854",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/006.png",
+      "png_sha256": "3b9e36a87c66afd775ce2893669877bfd38139a22d3f4e0a4c280bb94621e769",
+      "raw": "art/hd-math-figures-2026-10-11/raw/006-v6-context.png",
+      "raw_sha256": "bd5d61936095816861d01189ffeba1c7ae4c015189dbfdaff5deb0b3bdecdcd6",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/006-v6-context.txt",
+      "prompt_sha256": "c15cab203f6ec4a7142835cf1bad1189d2f47986cd92cf44052ce4a85f4189c7",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/006.json",
+      "pack_record_sha256": "27ba5b5af752b4c015a4446fb42b6c3d6ecc93afe86547be8b963f35c8d92d89",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "3b9e36a87c66afd775ce2893669877bfd38139a22d3f4e0a4c280bb94621e769"
+    },
+    {
+      "key": "Wi1.C/007.png",
+      "bank": "Wi1.C",
+      "frame": 7,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "33c5fcfb071cad546351f7ec44a5dac92ab85e0168bb7c00f03de7744ff67601",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/007.png",
+      "png_sha256": "a5644529c3db80fb6b8c6b2b78ded5a18906afe97c7fb1544675d4a2033221fc",
+      "raw": "art/hd-math-figures-2026-10-11/raw/007-v4-context.png",
+      "raw_sha256": "f526d89b6413e0fd3595d1176bd0ee4d9b3937694d31ab21c380b262f801c8bb",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/007-v4-context.txt",
+      "prompt_sha256": "af7af5c1e68dc4d7ed1a8b9fa2e2cf79016b56771044a0bfe6d253ec676c3ef2",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/007.json",
+      "pack_record_sha256": "6c5f28d73f096c3e2c35438916f46328020bf85d51380994d7b1e6b17f9be17b",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "a5644529c3db80fb6b8c6b2b78ded5a18906afe97c7fb1544675d4a2033221fc"
+    },
+    {
+      "key": "Wi1.C/010.png",
+      "bank": "Wi1.C",
+      "frame": 10,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "a73ae6fe1c03261d1fc902d77c99aca8f3ae4cffe7a3a5ee0f624cf75a3f4175",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/010.png",
+      "png_sha256": "74bde5c1320176af27fac8daf0dcbaa44b51b4666fef930c2c27e5cd3c1e9840",
+      "raw": "art/hd-math-figures-2026-10-11/raw/010-v4-registered.png",
+      "raw_sha256": "76eb6ec86523abbf302215e2d6fe1e61995ac19d1d01b41296174c39b3602e56",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/010-v4-registered.txt",
+      "prompt_sha256": "6dd8e1c89c64707520550918fd55a74e066f0e8d71c28f23747fa0c8b2e6ebd9",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/010.json",
+      "pack_record_sha256": "467c6ba01cd9111fd06e9046e93bd6fedc31698251d0e8e0ae1ceea2f5843c7b",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "74bde5c1320176af27fac8daf0dcbaa44b51b4666fef930c2c27e5cd3c1e9840"
+    },
+    {
+      "key": "Wi1.C/011.png",
+      "bank": "Wi1.C",
+      "frame": 11,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "16e115b241ef552d062fd02f18aa5cdc9a0b2dceaf86bc6b617f1581f367d253",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/011.png",
+      "png_sha256": "5f93c27da18648d8907d6f90ddb8d51c702c41b171cb195ba6bae67394e5dece",
+      "raw": "art/hd-math-figures-2026-10-11/raw/011-v5-context.png",
+      "raw_sha256": "5011664ee41c423a439c11b5e16fc3babffce95e7b85ae809f05b4598d546c88",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/011-v5-context.txt",
+      "prompt_sha256": "5bb17858f574f3b6d9f42fe2b94a6e61a092612458e0f21161767a01aa93299f",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/011.json",
+      "pack_record_sha256": "9de45d699a278111d1b692fa7b3a9e78b3a9546fd4bb50045e732f321849ed77",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "5f93c27da18648d8907d6f90ddb8d51c702c41b171cb195ba6bae67394e5dece"
+    },
+    {
+      "key": "Wi1.C/012.png",
+      "bank": "Wi1.C",
+      "frame": 12,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "6be21bc624b95d7956a033775ccd685261eb7faa33f836aa5383cf9c8888affd",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/012.png",
+      "png_sha256": "ef8d03660d190dfa6fcedb68c923ed195c5b490f6a1bbf2b93f09d5a0e6c5c3c",
+      "raw": "art/hd-math-figures-2026-10-11/raw/012-v4-context.png",
+      "raw_sha256": "fe533f93953a5b0450e79d76e6b1aca7dd12d4b93f8d4924fc6f9a19b8a2fac2",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/012-v4-context.txt",
+      "prompt_sha256": "ea110653339131e26cad3ada784c717dab1410c72fbb2482f67323dac19390e4",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/012.json",
+      "pack_record_sha256": "82f22a4b978a4632457cbfdcc7031e532909593d5435dce572ec518a2d065c3a",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "ef8d03660d190dfa6fcedb68c923ed195c5b490f6a1bbf2b93f09d5a0e6c5c3c"
+    },
+    {
+      "key": "Wi1.C/015.png",
+      "bank": "Wi1.C",
+      "frame": 15,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "082ec7dfa889c86a1115cf0e79e7645aab0f2268bba27d2d12428ce91f81e298",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/015.png",
+      "png_sha256": "aba479260ecd33d0dd0f343a92da5396794746af26e4c3bad3a694f3a7655dbd",
+      "raw": "art/hd-math-figures-2026-10-11/raw/015-v1.png",
+      "raw_sha256": "c37e21fdfcef85857e7520493d939cff9dbd08475b4c5753c9d0df6d1ffa4fd5",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/015-v1.txt",
+      "prompt_sha256": "6a643f1dbd8babd9c24449a711dfbfaf33d2051674e1127dd9edea4e277fd42c",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/015.json",
+      "pack_record_sha256": "abb9ff0cd9ebdadccc6099986324fb1d8226ffa0f020596430581220f6e99b23",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "aba479260ecd33d0dd0f343a92da5396794746af26e4c3bad3a694f3a7655dbd",
+      "mask": "art/hd-math-figures-2026-10-11/packed/Wi1.C/015.mask.png",
+      "mask_sha256": "b51bec0a09eab794efea69995064162879c47bc63cc6fb750bbf06287bac367b"
+    },
+    {
+      "key": "Wi1.C/016.png",
+      "bank": "Wi1.C",
+      "frame": 16,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "26f7de7fbbd7ba87f48879c2402052a70bae9d6fe3985ca4332e552e9e30b116",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/016.png",
+      "png_sha256": "29fac1c91f9f6d54faa6612015afd44adaa77ac46a96ab9eed5b497fb09ef3e2",
+      "raw": "art/hd-math-figures-2026-10-11/raw/016-v1.png",
+      "raw_sha256": "12fd8ca3061434d90535c02d91d2d3d5ab7f6b89aead732926a318d59092de0b",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/016-v1.txt",
+      "prompt_sha256": "d57ce8f83b34e98cb88b774e77a9f64172f5abf10e0b9303cb3e9b785c279cf3",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/016.json",
+      "pack_record_sha256": "420cd645e71d29ba388153d330dd4864b29ef0a108a1a031b3e5fb15c9149b28",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "29fac1c91f9f6d54faa6612015afd44adaa77ac46a96ab9eed5b497fb09ef3e2",
+      "mask": "art/hd-math-figures-2026-10-11/packed/Wi1.C/016.mask.png",
+      "mask_sha256": "55ac815d39aaf3ac832af4b11f12ef9c5759a150b351e27bee3f367f05c54748"
+    },
+    {
+      "key": "Wi1.C/017.png",
+      "bank": "Wi1.C",
+      "frame": 17,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "2a34a732443496986822d2e64ae7266b8e45711afa967a03bf12483903356c2a",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/017.png",
+      "png_sha256": "ac6920aac0724123d1a5d1d40f40c4e1c1b98b9186a019d104903e35268bded6",
+      "raw": "art/hd-math-figures-2026-10-11/raw/017-v1.png",
+      "raw_sha256": "bcecef3509d75da38f8b706a03bec84bcbfaee176c2618ea91c27a0a15cd9473",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/017-v1.txt",
+      "prompt_sha256": "fc01f4e08ed361ab388f20ff72d7b6b51c9c9f54fdcd3a821f0356c5660fa357",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/017.json",
+      "pack_record_sha256": "4f0fe8c2428f3c901cb98d705ef4d9316eb80c0e53b7228338d4a4602d007f61",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "ac6920aac0724123d1a5d1d40f40c4e1c1b98b9186a019d104903e35268bded6",
+      "mask": "art/hd-math-figures-2026-10-11/packed/Wi1.C/017.mask.png",
+      "mask_sha256": "8c3c2ff2df3c929d3dfadd98a88e92a8b3e3035681e052fcf5af6403f0f1641c"
+    },
+    {
+      "key": "Wi1.C/018.png",
+      "bank": "Wi1.C",
+      "frame": 18,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "15a640f50dab70e425311d8d32ef539df88cf200ba61be75f7157fca4598a1c0",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/018.png",
+      "png_sha256": "3d46b3f10d1568d540667be8592afd8682309136c3bd28a559840ceb59eb399a",
+      "raw": "art/hd-math-figures-2026-10-11/raw/018-v1.png",
+      "raw_sha256": "9c6f2c83e3b51e1db243eebcb9435d349179b961977c85def39fcb08e4fb36f0",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/018-v1.txt",
+      "prompt_sha256": "eac6d255806745eddec1352cac8104eef558baec43e1f9b9be4d3b4cad133d72",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/018.json",
+      "pack_record_sha256": "c993a7db20ba2c9d18ae4c90ef774e62f81f02cf948102515f03077875969e61",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "3d46b3f10d1568d540667be8592afd8682309136c3bd28a559840ceb59eb399a",
+      "mask": "art/hd-math-figures-2026-10-11/packed/Wi1.C/018.mask.png",
+      "mask_sha256": "a379648cda7333ae0c6a2688a7e0bcd91695a10cd179e0a735f3345ad1e6aff6"
+    },
+    {
+      "key": "Wi1.C/019.png",
+      "bank": "Wi1.C",
+      "frame": 19,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "2fa231e1443adaeb24745cc6c2ee27eee96071de3649dffc710a59bb5b987d8f",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/019.png",
+      "png_sha256": "1b108105c6342c2327c7a4904c21ec47e895502bea9f246e59ed3da663a388b4",
+      "raw": "art/hd-math-figures-2026-10-11/raw/019-v1.png",
+      "raw_sha256": "47bf24759b692818b0b167074e46c9be472eebbf34597a26fba0061cf2ad55e3",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/019-v1.txt",
+      "prompt_sha256": "58959bc579b549005bf2b1bca3d010f8b12503711a207a0ddd7da9e2ec17bc48",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/019.json",
+      "pack_record_sha256": "5ba316d3f6c8b1b4896aaec94a4aa6ac0bd42555a088c1178193a877907aaf84",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "1b108105c6342c2327c7a4904c21ec47e895502bea9f246e59ed3da663a388b4",
+      "mask": "art/hd-math-figures-2026-10-11/packed/Wi1.C/019.mask.png",
+      "mask_sha256": "0a577a69044a1c1070310e45612292b604cc9f21e46d205b173b461c8adc2217"
+    },
+    {
+      "key": "Wi1.C/020.png",
+      "bank": "Wi1.C",
+      "frame": 20,
+      "source_bank_sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+      "indices_sha256": "6a20c59a59dd5956ffa3455a19752f49f29ab57a8bb8d194aba9bfb2511f364c",
+      "png": "art/hd-math-figures-2026-10-11/packed/Wi1.C/020.png",
+      "png_sha256": "377a90d1bb8263dcf45bba5e638453d39cff9e27ecf34c967ac5f283c98625a8",
+      "raw": "art/hd-math-figures-2026-10-11/raw/020-v1.png",
+      "raw_sha256": "2ab653025ba16ef3d78fa649e7d497cfd4764c1259e43567b50c67deaaa4d322",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/020-v1.txt",
+      "prompt_sha256": "211ac06647e5c5d53084be31e7b7fab2b47632a4838250792458368a8bfae695",
+      "generation_tool": "builtin_image_gen",
+      "pack_record": "art/hd-math-figures-2026-10-11/packed/Wi1.C/020.json",
+      "pack_record_sha256": "320b2bc1e1aaf05af909cb57151311094db9683726d8258692cb830e80ec5561",
+      "runtime_proof": "art/hd-math-figures-2026-10-11/verification/routes-v21/math-routes-test.json",
+      "runtime_asset_sha256": "377a90d1bb8263dcf45bba5e638453d39cff9e27ecf34c967ac5f283c98625a8",
+      "mask": "art/hd-math-figures-2026-10-11/packed/Wi1.C/020.mask.png",
+      "mask_sha256": "28d8a50091b26171d074b41ab92a8eb4fbb1135b4640c380377775938bf144f1"
+    }
+  ],
+  "embedded_entries": [
+    {
+      "key": "embedded/math-static.png",
+      "png": "art/hd-math-figures-2026-10-11/packed/embedded/math-static.png",
+      "png_sha256": "e409a9e02e69f473f57c406ed737e8f35deb5cd6bc835e65ff54603a54c29da5",
+      "raw": "art/hd-math-figures-2026-10-11/raw/math-static-v1.png",
+      "raw_sha256": "906e5e648a4bb2b8be3dc1baafd77d548928e55510d8627a0cfa2d0c04e6cb6c",
+      "prompt": "art/hd-math-figures-2026-10-11/prompts/math-static-v1.txt",
+      "prompt_sha256": "948f604150a6c3a6bd51878437c99642fc242cd3a5c23b9eec085777235247b3",
+      "source_contract": "art/hd-math-figures-2026-10-11/static-source-contract.json",
+      "source_contract_sha256": "00fb9b01beb3684429d56cad282c1ab0eff52f0d07ec535253cc2a5e67469666",
+      "source_file_sha256": "134168ade4635c9fa6f66954fb91fcf7571c6e4db422b4c5a2f61eb0753317fb",
+      "source_mask_sha256": "6498905767f60408874db73ef8c84113f454a9ebee8e51393a0c28b304a67197",
+      "mask_pixels": 9758,
+      "scene_id": "math-balcony",
+      "overlay": {
+        "key": "embedded/math-static",
+        "rect": [
+          20,
+          32,
+          270,
+          166
+        ],
+        "uv_rect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "foreground": true
+      }
+    }
+  ],
+  "material_derivations": [
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/004-registered.json",
+      "sha256": "5d265c297cecbadfbaf2e59e5e9b8b45e42904f38ae2019e0e15545bbd34aac0"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/005-head-joined.json",
+      "sha256": "f17eb900812eb2e59e2b43e8d281cbf49dca0dcd53f41fd4e747d76cc87d4662"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/007-head-joined.json",
+      "sha256": "326b6fdc5129e155931b19c57ecf3b781b5597c1013b3d0d409f5810bcbfa2b2"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/010-head-joined.json",
+      "sha256": "954b991088b3abc17fd8d5226d5112435997fbfd9197eebfee3326b979bc875a"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/012-head-joined.json",
+      "sha256": "846e21569911a230d19c301a10f102579e1e0a3d8334ce489056d4912d67f3f5"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/math-static-cloth-complete.json",
+      "sha256": "bfab7d1b9a62baaf504f5c20196d59411e3309cb36e813ad87c4a457e5b96761"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/math-static-head-joined.json",
+      "sha256": "c3ccfdd80b9c8f1218f69697fc759d1b551195633a78c54c6610b22ebd0e4113"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/math-static-registered.json",
+      "sha256": "1fae80d1d683f6c60a7a97efd8cf35c285c3ea0536b2fb866e90851864df9ddb"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/004-registered.png",
+      "sha256": "96454768a48bc9b927d192254af67b7a6b905061d9bd39e9384c245a7269ab09"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/005-head-joined.png",
+      "sha256": "138c69159d6feedc5dc1ce584aad5286c0c785b32d0b770e92d1f958e43491c1"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/007-head-joined.png",
+      "sha256": "13ec70d0c3ee67f24a5d376598ee38d400dd55948ed43261980d4902161bc0cb"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/010-head-joined.png",
+      "sha256": "d94f1eb7a184ba790d612ece763717127c211830f4a4dc4fc46edcf0675e00eb"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/012-head-joined.png",
+      "sha256": "b040f1ffc00b98e429399afabbd067636332c4f51778ea6e2c97421e7c91b33d"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/math-static-cloth-complete.png",
+      "sha256": "97922ef9d8e40a9affda7139af157437b391d68565fd061dc9219a524ef93660"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/math-static-head-joined.png",
+      "sha256": "77796a7f86610f3471a0cab5600536f1d2e9fdc6ff07a1c4f74d8bdd6739de64"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/material/math-static-registered.png",
+      "sha256": "1976fdc89b1236ec73dcb2564511761a071a41ea74be4f53758aec321e0a7a3c"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/raw/head-root-v1.png",
+      "sha256": "4010f177648023581b513c4052be2d5b332c086f5c06b4d0a43301da19485455"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/prompts/head-root-v1.txt",
+      "sha256": "8a70921c1504b22c05b1a3338ee3f1f33ceea5e48cd2987831342ab5660514b2"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/raw/cloth-context-v1.png",
+      "sha256": "e3d8c30500617d68b7b37ab9438e57a9113f84720ac2d50a9c3bbb8331a99920"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/prompts/cloth-context-v1.txt",
+      "sha256": "cf976cf2ea859a6c7cc48ffca4c13cb7e7757030eb26d2a1d5e05b19ce0b8b1f"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/register-head-root.cjs",
+      "sha256": "cc9208a531d875f59b418003118fd08f6ddd552422ea3b6b2596befbf9348356"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/register-eye-material.cjs",
+      "sha256": "0740268959be5c9675822637caab293f20359650a2691a61a38839beff054038"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/complete-cloth-material.cjs",
+      "sha256": "47471b3c2bc8c63e606f7ba723f372b57e1f9fe8ae059db75c038ba8779b3f1b"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/repack-current.cjs",
+      "sha256": "4e80a88df36d549ed52dc481f36688a88a6d3fb660f21dcb6e8ed5a7f6abfa93"
+    },
+    {
+      "path": "tools/hd_math_figurer_pakk.cjs",
+      "sha256": "077716fa0d187e2238810958c60e8b528e864b987395d462f91e0b3484d134ae"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/eye-expression-registration.json",
+      "sha256": "e9a6cbc28706798ea69c6eb5ee08f3afa412f724b808df7dab120bd000964a23"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/open-eye-expression-registration.json",
+      "sha256": "a1a8ad79a339ec65243bf3f2a69a6ce5bab44194bea8d1a34b6de6762b201e43"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/shared-cloth.json",
+      "sha256": "662bc5926e476200cdfdb6df02f85c11dd27b101adb1a0d5a46953d708213e2b"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/shared-face-cloth-007-012.json",
+      "sha256": "5bd846d3bf9d8578bb41fbffa2ec941d8f11b1851543b21d1cb6a5ad6e353e68"
+    },
+    {
+      "path": "art/hd-math-figures-2026-10-11/cloak-bottom-seam-007-012.json",
+      "sha256": "a9a3cb0143b1c3715182e22ead4eaec4290d69bf30a50d7e76581951d9139f58"
+    }
+  ],
+  "alpha_proof": {
+    "path": "art/hd-math-figures-2026-10-11/verification/alpha-v21.json",
+    "sha256": "bb137d7a1b7f0c5dfc9a2b6ee3bb2daad202d2e8387aeaf47384749caa9b06b2"
+  }
+}

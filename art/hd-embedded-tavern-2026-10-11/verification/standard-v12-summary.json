@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "scope": "Four original player palettes through standard package, no candidate import/scene override. Original controlled TAV entrance and bet press, not a natural map journey.",
+  "checks": 220,
+  "figures": 17,
+  "colors": 4,
+  "assets": {
+    "dice.cel/006.png": "7febe0bb9838e4c4bf3abba15fe5c462dde7303d2700140247d38fedcc083479",
+    "dice.cel/007.png": "8f55d9e228a7e7191bcea19f4d3d887b928242f474b7e52d3cf3437efe6d7dcb",
+    "dice.cel/008.png": "fa52ee4193a36d3b18f2404dc625d82a6740a25bef47c6f8966149b1b37b191e",
+    "dice.cel/009.png": "b9dce4508eddd3d6aea316e0d9f76c16624bc8c0a3a6b09765912bf3a9f86138",
+    "dice.cel/010.png": "51fb95b75ed3419c3bcbf62bd3d524ed5c1a416ee74b9fadcbcd4c24292a9bc0",
+    "dice.cel/011.png": "bb052b3051cdb667ad9596e35529b2e97aa209b232911f1070eee3ba0d2a9f93",
+    "dice.cel/012.png": "a5b47b447d4d2dc86e150d79675b4a38ef70dc2a6bf7092b236217c733d62d17",
+    "dice.cel/013.png": "5703da8708c353dd6cc4ca5302f68d1ec650b271abe261e30ee268a291dd5ac3",
+    "dice.cel/014.png": "67a0d1e73f9ea54472a787017316bfca9ade95fd6cf16d169b0a2aa988419c7f",
+    "dice.cel/015.png": "f7c8e9f667b2a2c9f51479bb9f04e8ca4dadbedb94ee9cf0065a131d24bd7140",
+    "dice.cel/016.png": "bc22e461a92e6b1932f3e3b6beebd6671ee3d75080a693c44b3cda439b4b7bdb",
+    "dice.cel/017.png": "7e07c7e53ff0e2762237ec5fad53e5b0f19a7f86292cd8373d5b5ca3947e7819",
+    "dice.cel/018.png": "0d856b993c175b7597e8c9ef9ed21caab4a50eb9d80dc4bd43fd043a34968fbd",
+    "dice.cel/019.png": "cad8e1bf3658568806d879e25ac646b8e3f96b1fbcb30b41b03ff0e7c06134dc",
+    "dice.cel/020.png": "54f0d26733c2a1f127f38a39f90fd9f0ba173bd8057171efd55af5122749a721",
+    "dice.cel/021.png": "9208d4323fb77c6ca0ca7da97a3a5256051f831512c555b763cd1fcdc6723c47",
+    "dice.cel/022.png": "482165e1b874dd6e5d526b3bb2a93eb0cd5f60dbda24b2e71789a996de2e237b",
+    "dice.cel/006.mask.png": "c609a057abbf69897564a2f66f9a354ed148ed46fd4bf32b551b8931edc2e849",
+    "dice.cel/007.mask.png": "c609a057abbf69897564a2f66f9a354ed148ed46fd4bf32b551b8931edc2e849",
+    "embedded/tav-player.png": "735f066ec2b537f867df0d63eb81ae7493f2f9f8409d5acbe96117180e1826f5",
+    "embedded/tav-player.mask.png": "a81f8eb880af0dd10d78aa66214724c209e2036dc3c07a239426f7f65d3d4488",
+    "bg/44898895.png": "e7b682f2c29e8a2c85a3db649e16a957f78f98c0b80885f578047a28ccae77ef"
+  },
+  "html_sha256": "8ec46e4a339a44c8bd45db16fda9b2a61b074a911345cf28b41a273583839cc0",
+  "manifest_sha256": "a05ba3481e38d06d981be4e9c5fce086cdf2a2fb7752eb12c6617306b23c3144",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "9d0e6a66a7597e745d23b0a0516f0c6f8b06f97cb92189613938c14f40aef8bd",
+    "web/src/scenes.js": "f96ca11802910e3291ec7ee4128299f68b73957b3f5f1d0b1435141e1a08ebcd",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "color": 0,
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/standard-v12-0/dice-standard.json",
+      "sha256": "2b93a2cbe8ff0aa638eb9bbc1826fc0a55094625bc72621b97018c0d0d5d139f",
+      "checks": 55
+    },
+    {
+      "color": 1,
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/standard-v12-1/dice-standard.json",
+      "sha256": "d247917b4acb54b6d81945e4527c301f7de7f1ed10e1d9995c43e41fce28acf1",
+      "checks": 55
+    },
+    {
+      "color": 2,
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/standard-v12-2/dice-standard.json",
+      "sha256": "8c289304015d2a8e946019f28dca890472f62d1c4ed8305d5bd0873944e5ff41",
+      "checks": 55
+    },
+    {
+      "color": 3,
+      "path": "art/hd-embedded-tavern-2026-10-11/verification/standard-v12-3/dice-standard.json",
+      "sha256": "923fdf91be6b325c4d9fba7ddedab06f0af22c46b3a34220cf4c68fdebd69413",
+      "checks": 55
+    }
+  ]
+}

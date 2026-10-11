@@ -1132,8 +1132,11 @@ const Visning = (() => {
                     if (hdMarkor?.visible.has(p)) continue;
                     if (eie.ukjent[p]) { tvetydig = true; gyldig = false; break; }
                     const e = eie.eier[p];
-                    if (e < 0) { if (indeks !== 255) { gyldig = false; break; } continue; }
-                    if (indeks === 255) continue;
+                    // SceneHd kan verne kildebakgrunn rundt en figur. Slike piksler
+                    // i gjennomsiktige hull er bakgrunn, og vernes fortsatt nedenfor.
+                    const kildeBakgrunn = indeks !== 255 && lag.bakIdx?.[p] === indeks;
+                    if (e < 0) { if (indeks !== 255 && !kildeBakgrunn) { gyldig = false; break; } continue; }
+                    if (indeks === 255 || (kildeBakgrunn && indeks !== eie.farge(e, p))) continue;
                     if (indeks !== eie.farge(e, p)) { gyldig = false; break; }
                     if (e === nr) egne++;
                 }
@@ -1164,7 +1167,12 @@ const Visning = (() => {
             });
             for (let p = 0; p < 320 * 200; p++) {
                 const e = eie.eier[p];
-                if (e < 0) continue;
+                // Vernefeltets bakgrunn og ukjent originalforgrunn maa forbli over
+                // fotoet ogsaa naar de ligger i figurens gjennomsiktige kildehull.
+                if (e < 0 || (lag.forIdx[p] !== 255 && lag.forIdx[p] !== eie.farge(e, p))) {
+                    if (lag.forIdx[p] !== 255) vernData[p * 4 + 3] = 255;
+                    continue;
+                }
                 if (figurHd.has(e)) {
                     if (lag.forIdx[p] !== 255 && !hdMarkor?.visible.has(p)) {
                         // Bare den validerte pikseleierens egne indeksvern gjelder.
@@ -1222,7 +1230,7 @@ const Visning = (() => {
         if (hdPaa && lagNaa?.overlays && hdPakke.has('bg/' + (lagNaa.hash >>> 0).toString(16).padStart(8,'0'))) {
             let i = 0;
             for (const o of lagNaa.overlays) {
-                const t = hdPakke.get(o.key); if (!t) continue;
+                const t = hdPakke.get(o.key); if (!t || (o.palette_mask && (!t.maske || !palettKlar))) continue;
                 const ikon = hdIkoner.get(o.key);
                 if (ikon && !fargeleggIkon(ikon,t,ikon.dynamic ? ikon.rect[1] : o.rect[1])) continue;
                 if (!sceneFlater[i]) {
@@ -1233,6 +1241,9 @@ const Visning = (() => {
                 // Faste ikonoverlegg maa ligge under nye HD-glyfkanter i samme felt.
                 m.renderOrder=o.foreground ? (ikon&&!ikon.dynamic ? 3.5 : 4) : 2.5;
                 m.material=t.mat; t.mat.uniforms.imageRegion.value.set(...o.uv_rect);
+                // Innbygde figurer bruker samme levende indeksmaske som CEL-rutene.
+                t.mat.uniforms.maskeModus.value=o.palette_mask ? 1 : 0;
+                t.mat.uniforms.palTop.value=diwNaa[1];
                 t.mat.uniforms.vern.value=o.foreground ? sceneVernTex : vernTex;
                 t.mat.uniforms.alphaCutoff.value=o.alpha_cutoff || 0;
                 t.mat.uniforms.edgeFeather.value.set(...(ikon?.edge_feather || [0,0]));
@@ -1801,7 +1812,7 @@ const Visning = (() => {
             viste: visteListe.filter(d=>hdTegnbare.has(d)&&hdIkoner.has(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'))).map(d=>({fil:d.fil,bilde:d.bilde,x:d.x,y:d.y})) }),
         sceneIkoner: id => [...hdIkoner.values()].filter(m=>m.scene===id&&m.dynamic&&hdPakke.has(m.key)),
         sceneIkonKlar: (m,diw) => {const p=ikonPalett(m,m.rect[1],diw);return !!p&&rasterIkonLys(m,p)!==null;},
-        sceneOverleggKlar: (key,diw) => {if(!hdPakke.has(key))return false;const m=hdIkoner.get(key);if(!m||m.render_mode!=='raster')return true;if(!m.scene||!m.rect)return false;const p=ikonPalett(m,m.rect[1],diw);return !!p&&rasterIkonLys(m,p)!==null;},
+        sceneOverleggKlar: (key,diw,paletteMask=false) => {const t=hdPakke.get(key);if(!t)return false;if(paletteMask){const scan=Kjerne.skanout();if(!t.maske||!scan.gyldig||scan.pal.length!==palData.length)return false;}const m=hdIkoner.get(key);if(!m||m.render_mode!=='raster')return true;if(!m.scene||!m.rect)return false;const p=ikonPalett(m,m.rect[1],diw);return !!p&&rasterIkonLys(m,p)!==null;},
         harHdBilde: key => hdPakke.has(key),
         hdBakgrunner: () => antallBg,
         /* bakgrunner (hash) som bare dekker en del av skjermen og trenger rektangelet fra en scene */

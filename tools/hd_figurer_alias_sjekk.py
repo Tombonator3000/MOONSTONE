@@ -24,10 +24,12 @@ for frame in range(64):
     gate.alias_indices(dict(bank='KN3.ob', frame=frame), entry, source, he)
     checks.append(f'KN3/HE3/{frame:03}: original geometri og indeksflytting')
 
-def rejects(name, fn):
+def rejects(name, fn, expected=None):
     try:
         fn()
-    except AssertionError:
+    except AssertionError as error:
+        if expected is not None:
+            assert expected in str(error), (name, str(error))
         checks.append(name)
     else:
         raise AssertionError('Ulovlig alias ble godkjent: ' + name)
@@ -51,13 +53,31 @@ rejects('Uaktiv kontekstmaster avvises', lambda: gate.checked_active('TROLL1.CEL
 other = root / 'web/hd/KN3.ob/000.png'
 rejects('Annet aktivt kontekstbilde avvises', lambda: gate.checked_active(context['key'], other))
 extra_path = root / 'art/hd-completion-figures-2026-10-11/production/activation-set-troll-004.json'
-extra_delivery = json.loads(extra_path.read_text())
+old_extra = json.loads(extra_path.read_text())
+# Nye negative proever starter med en gyldig leveranse paa gjeldende renderer.
+# Ellers kunne en urelatert gammel kodehash gi falskt bestaaende avvisning.
+current = json.loads((root/'art/hd-completion-figures-2026-10-11/production/ov1/activation-set-001.json').read_text())
+extra_delivery = copy.deepcopy(current)
+extra_delivery['entries'][0]['additional_generated_material'] = next(e['additional_generated_material'] for e in old_extra['entries'] if e.get('additional_generated_material'))
+assert len(gate.validate(extra_delivery)) == 4
+checks.append('Tilleggsmaterialproeve er gyldig foer negativ mutasjon')
 bad = copy.deepcopy(extra_delivery)
 next(e for e in bad['entries'] if e.get('additional_generated_material'))['additional_generated_material']['raw_sha256'] = '0'*64
-rejects('Annet generert tilleggsraabilde avvises', lambda: gate.validate(bad))
+rejects('Annet generert tilleggsraabilde avvises', lambda: gate.validate(bad), 'Endret fil')
 bad = copy.deepcopy(extra_delivery)
 bad['entries'][0]['art_record_sha256'] = '0'*64
-rejects('Endret materialproveniens avvises', lambda: gate.validate(bad))
+rejects('Endret materialproveniens avvises', lambda: gate.validate(bad), 'Endret fil')
+old_many = json.loads((root / 'art/hd-completion-figures-2026-10-11/production/activation-set-troll-005-join-v1.json').read_text())
+many_delivery = copy.deepcopy(current)
+many_delivery['entries'][0]['additional_generated_materials'] = next(e['additional_generated_materials'] for e in old_many['entries'] if e.get('additional_generated_materials'))
+assert len(gate.validate(many_delivery)) == 4
+checks.append('Materiallisteproeve er gyldig foer negativ mutasjon')
+bad = copy.deepcopy(many_delivery)
+next(e for e in bad['entries'] if e.get('additional_generated_materials'))['additional_generated_materials'][-1]['raw_sha256'] = '0'*64
+rejects('Endret ekstra raabilde i materialliste avvises', lambda: gate.validate(bad), 'Endret fil')
+bad = copy.deepcopy(many_delivery)
+next(e for e in bad['entries'] if e.get('additional_generated_materials'))['additional_generated_materials'][-1]['prompt_sha256'] = '0'*64
+rejects('Endret ekstra prompt i materialliste avvises', lambda: gate.validate(bad), 'Endret fil')
 report = dict(status='passed', count=len(checks), checks=checks,
               source_zip_sha256=hashlib.sha256((root/'Moonstonecd32-AMIGA.zip').read_bytes()).hexdigest())
 out = root / 'art/hd-completion-figures-2026-10-11/verification/activation-alias-gates.json'

@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "method": "generated_cloak_material_under_existing_plate",
+  "base": "material/math-static-registered.png",
+  "base_sha256": "1976fdc89b1236ec73dcb2564511761a071a41ea74be4f53758aec321e0a7a3c",
+  "cloth": "raw/cloth-context-v1.png",
+  "cloth_sha256": "e3d8c30500617d68b7b37ab9438e57a9113f84720ac2d50a9c3bbb8331a99920",
+  "context_original_rect": [
+    128,
+    88,
+    208,
+    136
+  ],
+  "registered_original_rect": [
+    125.5,
+    88,
+    205.5,
+    136
+  ],
+  "repair_original_rect": [
+    140,
+    96,
+    186,
+    113
+  ],
+  "registration": "Gold-trim convergence translated2.5 originalpixels left to match the existing plate. The source-verified cloak under the beard is filled; the contaminated transparent rim at y105..106 is replaced and blended into the same original cloak by y113.",
+  "output": "material/math-static-cloth-complete.png",
+  "output_sha256": "97922ef9d8e40a9affda7139af157437b391d68565fd061dc9219a524ef93660",
+  "scope": "Material correction for the same static cloak and source-identical007/012 cloak fields. No new foreground contour, character pose or gameplay change."
+}

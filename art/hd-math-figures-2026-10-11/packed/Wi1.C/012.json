@@ -1,0 +1,88 @@
+{
+  "status": "candidate_requires_runtime_visual_review",
+  "key": "Wi1.C/012.png",
+  "authoring_method": "individual_redraw_with_source_alpha_constraint",
+  "tool": "builtin image_gen",
+  "raw_file": "art/hd-math-figures-2026-10-11/material/012-head-joined.png",
+  "raw_sha256": "b040f1ffc00b98e429399afabbd067636332c4f51778ea6e2c97421e7c91b33d",
+  "raw_crop_normalized": [
+    0.1875,
+    0.21428571428571427,
+    0.625,
+    0.5714285714285714
+  ],
+  "source_indices_sha256": "6be21bc624b95d7956a033775ccd685261eb7faa33f836aa5383cf9c8888affd",
+  "reference_sha256": "5dfb8d0dbb19da0691981ec48a2c45ac23aac320a06f0c70880e785774c05ce7",
+  "output_sha256": "ef8d03660d190dfa6fcedb68c923ed195c5b490f6a1bbf2b93f09d5a0e6c5c3c",
+  "master_size": [
+    1341,
+    1173
+  ],
+  "size": [
+    160,
+    128
+  ],
+  "material_registration": "source_bound_context_crop",
+  "raw_silhouette_iou": 0.99921875,
+  "silhouette_iou": 0.9991696380598838,
+  "shared_unchanged_material": {
+    "kind": "deling-av-uendret-hud-og-kappemateriale",
+    "contract_sha256": "5bd846d3bf9d8578bb41fbffa2ec941d8f11b1851543b21d1cb6a5ad6e353e68",
+    "donor": "material/math-static-head-joined.png",
+    "donor_sha256": "77796a7f86610f3471a0cab5600536f1d2e9fdc6ff07a1c4f74d8bdd6739de64",
+    "mask_sha256": "ba25f8fdfad7abe129a6135f55474e0fa8373ca545fd564d49af9288f099aa6c",
+    "mask_pixels": 372,
+    "original_rect": [
+      144,
+      73,
+      184,
+      105
+    ],
+    "method": "143 kildeidentiske ansiktspiksler i de foerste fire radene faar en smal hudovergang. 229 kildeidentiske blaa/gull kappematerialpiksler i de siste8radene bruker den faste kappens samme fotografiske materiale paa originalstedet. Bevegelig munn og skjegg beholder hver sin genererte master."
+  },
+  "cloak_seam_registration": {
+    "contract_sha256": "a9a3cb0143b1c3715182e22ead4eaec4290d69bf30a50d7e76581951d9139f58",
+    "donor_sha256": "77796a7f86610f3471a0cab5600536f1d2e9fdc6ff07a1c4f74d8bdd6739de64",
+    "original_rect": [
+      144,
+      73,
+      184,
+      105
+    ],
+    "row_weights": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.074074,
+      0.259259,
+      0.5,
+      0.740741,
+      0.925926,
+      1
+    ],
+    "method": "Egen separat munn-/skjeggmaster beholdes. Bare de siste seks kilderadene (y99..104) registreres gradvis mot den faste fotografiske kappens samme materiale. Dette er lokal fotomaterialregistrering, ikke kildeindekslikhet eller egen nytegning av hele kappen. Kontur, originalrektangel og alfa beholdes."
+  }
+}

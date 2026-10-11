@@ -1,0 +1,1260 @@
+{
+  "status": "original_tavern_palette_code_and_controlled_runtime_verified",
+  "scope": "Original taverna-start at08a224 via controlled original-call immediate and active knight pointer/color. No palette writes. Not a natural world-map visit; native display screenshot is not color-authority.",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "mog_sha256": "d8cc4ec9f848ee30032f1e0c0db4e37c2484114910d314760956da9fee96da81",
+  "source_banks": {
+    "tav.piv": "466c92eac2ddb68f0eb98689db6ad36017683b29b23638c7b5c84fef4f6f3b42",
+    "dice.piv": "8987fa584d8858b74dee663d6440326d21d6f3875ceeb0b1098efd0c7a398188",
+    "dice.cel": "e8a5de9c5d22c283aacfa067bbadffde14f37577166ae51c0545cca71d699c88"
+  },
+  "headless_sha256": "b70edf0eeb05e853e3ce0e3949548275824c7ff98f723f83697f6564e67db695",
+  "source_call": {
+    "address": "0x08a3b2",
+    "bytes": "41f90008ceaa203c0000000c4eb90008a9b6",
+    "palette": "0x08ceaa",
+    "byte_offset": 12,
+    "function": "0x08a9b6",
+    "active_color_field": "active_knight+0x36"
+  },
+  "live_palette_indices": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "route_palettes": {
+    "dice.cel/006.png": "tavern-blue",
+    "dice.cel/007.png": "tavern-blue",
+    "dice.cel/008.png": "tavern-blue",
+    "dice.cel/009.png": "tavern-blue",
+    "dice.cel/010.png": "tavern-blue",
+    "dice.cel/011.png": "tavern-blue",
+    "dice.cel/012.png": "tavern-blue",
+    "dice.cel/013.png": "tavern-blue",
+    "dice.cel/014.png": "tavern-blue",
+    "dice.cel/015.png": "tavern-blue",
+    "dice.cel/016.png": "tavern-blue",
+    "dice.cel/017.png": "tavern-blue",
+    "dice.cel/018.png": "tavern-blue",
+    "dice.cel/019.png": "tavern-blue",
+    "dice.cel/020.png": "tavern-blue",
+    "dice.cel/021.png": "tavern-blue",
+    "dice.cel/022.png": "tavern-blue"
+  },
+  "masked_routes": [
+    "dice.cel/006.png",
+    "dice.cel/007.png"
+  ],
+  "variants": {
+    "blue": {
+      "active_knight_color": 0,
+      "words": [
+        0,
+        3567,
+        2949,
+        2185,
+        1365,
+        546,
+        93,
+        59,
+        40,
+        22,
+        3,
+        768,
+        4038,
+        4000,
+        3936,
+        2608,
+        3495,
+        2749,
+        2387,
+        784,
+        2114,
+        2660,
+        3206,
+        1313,
+        901,
+        338,
+        305,
+        3184,
+        2384,
+        3973,
+        3427,
+        1824
+      ],
+      "rgba": [
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          221,
+          238,
+          255,
+          255
+        ],
+        [
+          187,
+          136,
+          85,
+          255
+        ],
+        [
+          136,
+          136,
+          153,
+          255
+        ],
+        [
+          85,
+          85,
+          85,
+          255
+        ],
+        [
+          34,
+          34,
+          34,
+          255
+        ],
+        [
+          0,
+          85,
+          221,
+          255
+        ],
+        [
+          0,
+          51,
+          187,
+          255
+        ],
+        [
+          0,
+          34,
+          136,
+          255
+        ],
+        [
+          0,
+          17,
+          102,
+          255
+        ],
+        [
+          0,
+          0,
+          51,
+          255
+        ],
+        [
+          51,
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          204,
+          102,
+          255
+        ],
+        [
+          255,
+          170,
+          0,
+          255
+        ],
+        [
+          255,
+          102,
+          0,
+          255
+        ],
+        [
+          170,
+          51,
+          0,
+          255
+        ],
+        [
+          221,
+          170,
+          119,
+          255
+        ],
+        [
+          170,
+          187,
+          221,
+          255
+        ],
+        [
+          153,
+          85,
+          51,
+          255
+        ],
+        [
+          51,
+          17,
+          0,
+          255
+        ],
+        [
+          136,
+          68,
+          34,
+          255
+        ],
+        [
+          170,
+          102,
+          68,
+          255
+        ],
+        [
+          204,
+          136,
+          102,
+          255
+        ],
+        [
+          85,
+          34,
+          17,
+          255
+        ],
+        [
+          51,
+          136,
+          85,
+          255
+        ],
+        [
+          17,
+          85,
+          34,
+          255
+        ],
+        [
+          17,
+          51,
+          17,
+          255
+        ],
+        [
+          204,
+          119,
+          0,
+          255
+        ],
+        [
+          153,
+          85,
+          0,
+          255
+        ],
+        [
+          255,
+          136,
+          85,
+          255
+        ],
+        [
+          221,
+          102,
+          51,
+          255
+        ],
+        [
+          119,
+          34,
+          0,
+          255
+        ]
+      ],
+      "palette_memory": "0x08ceaa",
+      "stable_frames": [
+        1500,
+        2000,
+        2400
+      ],
+      "chip_sha256": {
+        "chip1500.bin": "08e96ed93a37566f5073f456eb542875a2529a4f49dca83f4a4d1dbdf884b6c6",
+        "chip2000.bin": "359b3fabd0bb049a5fcae799dfbb20536e70ca533fc9538c0c48c94cadfd4e3b",
+        "chip2400.bin": "de04b020762ec4b0c70fa788dfa5be3314ae11b514d6fe5dff7360a16158c6e7"
+      },
+      "trace_sha256": "98a8300c2815d7b32836635d35d6b1d2f656662cd1e781344637a09485f82f2b",
+      "source_loaded_files": [
+        "data/tav.piv",
+        "data/dice.piv",
+        "data/dice.cel"
+      ],
+      "observed_dice_frames": [
+        6,
+        7
+      ],
+      "command": [
+        "/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/port/moonstone-headless",
+        "--headless",
+        "--frames",
+        "2400",
+        "--log",
+        "2",
+        "--press",
+        "100:esc:4",
+        "--press",
+        "700:down:4",
+        "--press",
+        "760:down:4",
+        "--press",
+        "820:fire:4",
+        "--tegneliste",
+        "1000:1401",
+        "--skriv",
+        "900:80172:0x8a224:4",
+        "--skriv",
+        "900:8d9ac:0x8d5b4:4",
+        "--skriv",
+        "900:8d5ea:0x0:4",
+        "--dump",
+        "1500:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/tavern-blue/chip1500.bin",
+        "--dump",
+        "2000:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/tavern-blue/chip2000.bin",
+        "--dump",
+        "2400:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/tavern-blue/chip2400.bin"
+      ],
+      "test_writes": [
+        {
+          "frame": 900,
+          "address": "0x80172",
+          "value": "0x8a224",
+          "bytes": 4
+        },
+        {
+          "frame": 900,
+          "address": "0x8d9ac",
+          "value": "0x8d5b4",
+          "bytes": 4
+        },
+        {
+          "frame": 900,
+          "address": "0x8d5ea",
+          "value": "0x0",
+          "bytes": 4
+        }
+      ]
+    },
+    "yellow": {
+      "active_knight_color": 1,
+      "words": [
+        0,
+        3567,
+        2949,
+        2185,
+        1365,
+        546,
+        4000,
+        3168,
+        2880,
+        2352,
+        1808,
+        768,
+        4038,
+        4000,
+        3936,
+        2608,
+        3495,
+        2749,
+        2387,
+        784,
+        2114,
+        2660,
+        3206,
+        1313,
+        901,
+        338,
+        305,
+        3184,
+        2384,
+        3973,
+        3427,
+        1824
+      ],
+      "rgba": [
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          221,
+          238,
+          255,
+          255
+        ],
+        [
+          187,
+          136,
+          85,
+          255
+        ],
+        [
+          136,
+          136,
+          153,
+          255
+        ],
+        [
+          85,
+          85,
+          85,
+          255
+        ],
+        [
+          34,
+          34,
+          34,
+          255
+        ],
+        [
+          255,
+          170,
+          0,
+          255
+        ],
+        [
+          204,
+          102,
+          0,
+          255
+        ],
+        [
+          187,
+          68,
+          0,
+          255
+        ],
+        [
+          153,
+          51,
+          0,
+          255
+        ],
+        [
+          119,
+          17,
+          0,
+          255
+        ],
+        [
+          51,
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          204,
+          102,
+          255
+        ],
+        [
+          255,
+          170,
+          0,
+          255
+        ],
+        [
+          255,
+          102,
+          0,
+          255
+        ],
+        [
+          170,
+          51,
+          0,
+          255
+        ],
+        [
+          221,
+          170,
+          119,
+          255
+        ],
+        [
+          170,
+          187,
+          221,
+          255
+        ],
+        [
+          153,
+          85,
+          51,
+          255
+        ],
+        [
+          51,
+          17,
+          0,
+          255
+        ],
+        [
+          136,
+          68,
+          34,
+          255
+        ],
+        [
+          170,
+          102,
+          68,
+          255
+        ],
+        [
+          204,
+          136,
+          102,
+          255
+        ],
+        [
+          85,
+          34,
+          17,
+          255
+        ],
+        [
+          51,
+          136,
+          85,
+          255
+        ],
+        [
+          17,
+          85,
+          34,
+          255
+        ],
+        [
+          17,
+          51,
+          17,
+          255
+        ],
+        [
+          204,
+          119,
+          0,
+          255
+        ],
+        [
+          153,
+          85,
+          0,
+          255
+        ],
+        [
+          255,
+          136,
+          85,
+          255
+        ],
+        [
+          221,
+          102,
+          51,
+          255
+        ],
+        [
+          119,
+          34,
+          0,
+          255
+        ]
+      ],
+      "palette_memory": "0x08ceaa",
+      "stable_frames": [
+        1500,
+        2000,
+        2400
+      ],
+      "chip_sha256": {
+        "chip1500.bin": "4db661ce8cc22d402ccfef8707e511c9c85125dd9ad5be0d5bd9158c193dc900",
+        "chip2000.bin": "9cbc8e867d08b19d7dc9f323f8bc695b5bf556f1935d0751925f8c05d7bb27d3",
+        "chip2400.bin": "63514506ee40e57fbb5c68c3f8d867b95411769d763512933d3649e1d4693bab"
+      },
+      "trace_sha256": "98a8300c2815d7b32836635d35d6b1d2f656662cd1e781344637a09485f82f2b",
+      "source_loaded_files": [
+        "data/tav.piv",
+        "data/dice.piv",
+        "data/dice.cel"
+      ],
+      "observed_dice_frames": [
+        6,
+        7
+      ],
+      "command": [
+        "/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/port/moonstone-headless",
+        "--headless",
+        "--frames",
+        "2400",
+        "--log",
+        "2",
+        "--press",
+        "100:esc:4",
+        "--press",
+        "700:down:4",
+        "--press",
+        "760:down:4",
+        "--press",
+        "820:fire:4",
+        "--tegneliste",
+        "1000:1401",
+        "--skriv",
+        "900:80172:0x8a224:4",
+        "--skriv",
+        "900:8d9ac:0x8d5b4:4",
+        "--skriv",
+        "900:8d5ea:0x1:4",
+        "--dump",
+        "1500:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/tavern-yellow/chip1500.bin",
+        "--dump",
+        "2000:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/tavern-yellow/chip2000.bin",
+        "--dump",
+        "2400:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/tavern-yellow/chip2400.bin"
+      ],
+      "test_writes": [
+        {
+          "frame": 900,
+          "address": "0x80172",
+          "value": "0x8a224",
+          "bytes": 4
+        },
+        {
+          "frame": 900,
+          "address": "0x8d9ac",
+          "value": "0x8d5b4",
+          "bytes": 4
+        },
+        {
+          "frame": 900,
+          "address": "0x8d5ea",
+          "value": "0x1",
+          "bytes": 4
+        }
+      ]
+    },
+    "green": {
+      "active_knight_color": 2,
+      "words": [
+        0,
+        3567,
+        2949,
+        2185,
+        1365,
+        546,
+        197,
+        163,
+        130,
+        97,
+        64,
+        768,
+        4038,
+        4000,
+        3936,
+        2608,
+        3495,
+        2749,
+        2387,
+        784,
+        2114,
+        2660,
+        3206,
+        1313,
+        901,
+        338,
+        305,
+        3184,
+        2384,
+        3973,
+        3427,
+        1824
+      ],
+      "rgba": [
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          221,
+          238,
+          255,
+          255
+        ],
+        [
+          187,
+          136,
+          85,
+          255
+        ],
+        [
+          136,
+          136,
+          153,
+          255
+        ],
+        [
+          85,
+          85,
+          85,
+          255
+        ],
+        [
+          34,
+          34,
+          34,
+          255
+        ],
+        [
+          0,
+          204,
+          85,
+          255
+        ],
+        [
+          0,
+          170,
+          51,
+          255
+        ],
+        [
+          0,
+          136,
+          34,
+          255
+        ],
+        [
+          0,
+          102,
+          17,
+          255
+        ],
+        [
+          0,
+          68,
+          0,
+          255
+        ],
+        [
+          51,
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          204,
+          102,
+          255
+        ],
+        [
+          255,
+          170,
+          0,
+          255
+        ],
+        [
+          255,
+          102,
+          0,
+          255
+        ],
+        [
+          170,
+          51,
+          0,
+          255
+        ],
+        [
+          221,
+          170,
+          119,
+          255
+        ],
+        [
+          170,
+          187,
+          221,
+          255
+        ],
+        [
+          153,
+          85,
+          51,
+          255
+        ],
+        [
+          51,
+          17,
+          0,
+          255
+        ],
+        [
+          136,
+          68,
+          34,
+          255
+        ],
+        [
+          170,
+          102,
+          68,
+          255
+        ],
+        [
+          204,
+          136,
+          102,
+          255
+        ],
+        [
+          85,
+          34,
+          17,
+          255
+        ],
+        [
+          51,
+          136,
+          85,
+          255
+        ],
+        [
+          17,
+          85,
+          34,
+          255
+        ],
+        [
+          17,
+          51,
+          17,
+          255
+        ],
+        [
+          204,
+          119,
+          0,
+          255
+        ],
+        [
+          153,
+          85,
+          0,
+          255
+        ],
+        [
+          255,
+          136,
+          85,
+          255
+        ],
+        [
+          221,
+          102,
+          51,
+          255
+        ],
+        [
+          119,
+          34,
+          0,
+          255
+        ]
+      ],
+      "palette_memory": "0x08ceaa",
+      "stable_frames": [
+        1500,
+        2000,
+        2400
+      ],
+      "chip_sha256": {
+        "chip1500.bin": "fb9d9868bda444014919f62c4f5ac1b49f1a04b6d4a0a8d6ffb3d3c9c030c49a",
+        "chip2000.bin": "af98e680144bf54e3627936213b647423b196489d3632598be19713bc93df2a5",
+        "chip2400.bin": "5663e9aac0c448703445ddcb3bff045f61f06159e0d368ac6ba6c5cb79b348df"
+      },
+      "trace_sha256": "98a8300c2815d7b32836635d35d6b1d2f656662cd1e781344637a09485f82f2b",
+      "source_loaded_files": [
+        "data/tav.piv",
+        "data/dice.piv",
+        "data/dice.cel"
+      ],
+      "observed_dice_frames": [
+        6,
+        7
+      ],
+      "command": [
+        "/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/port/moonstone-headless",
+        "--headless",
+        "--frames",
+        "2400",
+        "--log",
+        "2",
+        "--press",
+        "100:esc:4",
+        "--press",
+        "700:down:4",
+        "--press",
+        "760:down:4",
+        "--press",
+        "820:fire:4",
+        "--tegneliste",
+        "1000:1401",
+        "--skriv",
+        "900:80172:0x8a224:4",
+        "--skriv",
+        "900:8d9ac:0x8d5b4:4",
+        "--skriv",
+        "900:8d5ea:0x2:4",
+        "--dump",
+        "1500:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/tavern-green/chip1500.bin",
+        "--dump",
+        "2000:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/tavern-green/chip2000.bin",
+        "--dump",
+        "2400:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/tavern-green/chip2400.bin"
+      ],
+      "test_writes": [
+        {
+          "frame": 900,
+          "address": "0x80172",
+          "value": "0x8a224",
+          "bytes": 4
+        },
+        {
+          "frame": 900,
+          "address": "0x8d9ac",
+          "value": "0x8d5b4",
+          "bytes": 4
+        },
+        {
+          "frame": 900,
+          "address": "0x8d5ea",
+          "value": "0x2",
+          "bytes": 4
+        }
+      ]
+    },
+    "red": {
+      "active_knight_color": 3,
+      "words": [
+        0,
+        3567,
+        2949,
+        2185,
+        1365,
+        546,
+        3584,
+        2816,
+        2304,
+        1536,
+        768,
+        768,
+        4038,
+        4000,
+        3936,
+        2608,
+        3495,
+        2749,
+        2387,
+        784,
+        2114,
+        2660,
+        3206,
+        1313,
+        901,
+        338,
+        305,
+        3184,
+        2384,
+        3973,
+        3427,
+        1824
+      ],
+      "rgba": [
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          221,
+          238,
+          255,
+          255
+        ],
+        [
+          187,
+          136,
+          85,
+          255
+        ],
+        [
+          136,
+          136,
+          153,
+          255
+        ],
+        [
+          85,
+          85,
+          85,
+          255
+        ],
+        [
+          34,
+          34,
+          34,
+          255
+        ],
+        [
+          238,
+          0,
+          0,
+          255
+        ],
+        [
+          187,
+          0,
+          0,
+          255
+        ],
+        [
+          153,
+          0,
+          0,
+          255
+        ],
+        [
+          102,
+          0,
+          0,
+          255
+        ],
+        [
+          51,
+          0,
+          0,
+          255
+        ],
+        [
+          51,
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          204,
+          102,
+          255
+        ],
+        [
+          255,
+          170,
+          0,
+          255
+        ],
+        [
+          255,
+          102,
+          0,
+          255
+        ],
+        [
+          170,
+          51,
+          0,
+          255
+        ],
+        [
+          221,
+          170,
+          119,
+          255
+        ],
+        [
+          170,
+          187,
+          221,
+          255
+        ],
+        [
+          153,
+          85,
+          51,
+          255
+        ],
+        [
+          51,
+          17,
+          0,
+          255
+        ],
+        [
+          136,
+          68,
+          34,
+          255
+        ],
+        [
+          170,
+          102,
+          68,
+          255
+        ],
+        [
+          204,
+          136,
+          102,
+          255
+        ],
+        [
+          85,
+          34,
+          17,
+          255
+        ],
+        [
+          51,
+          136,
+          85,
+          255
+        ],
+        [
+          17,
+          85,
+          34,
+          255
+        ],
+        [
+          17,
+          51,
+          17,
+          255
+        ],
+        [
+          204,
+          119,
+          0,
+          255
+        ],
+        [
+          153,
+          85,
+          0,
+          255
+        ],
+        [
+          255,
+          136,
+          85,
+          255
+        ],
+        [
+          221,
+          102,
+          51,
+          255
+        ],
+        [
+          119,
+          34,
+          0,
+          255
+        ]
+      ],
+      "palette_memory": "0x08ceaa",
+      "stable_frames": [
+        1500,
+        2000,
+        2400
+      ],
+      "chip_sha256": {
+        "chip1500.bin": "2dbfb9072ba54cbfa8e0fadda60aa852e79bb35e34fcb7017a7bb77455a954b7",
+        "chip2000.bin": "4dd960c57adc0457c78bc0ace6408417ddaf8468a2513f980ced2a83c1305231",
+        "chip2400.bin": "dd26124ec5b81716a4f019a7f83655db4dabd36f13f152a2557a0835e866dd43"
+      },
+      "trace_sha256": "98a8300c2815d7b32836635d35d6b1d2f656662cd1e781344637a09485f82f2b",
+      "source_loaded_files": [
+        "data/tav.piv",
+        "data/dice.piv",
+        "data/dice.cel"
+      ],
+      "observed_dice_frames": [
+        6,
+        7
+      ],
+      "command": [
+        "/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/port/moonstone-headless",
+        "--headless",
+        "--frames",
+        "2400",
+        "--log",
+        "2",
+        "--press",
+        "100:esc:4",
+        "--press",
+        "700:down:4",
+        "--press",
+        "760:down:4",
+        "--press",
+        "820:fire:4",
+        "--tegneliste",
+        "1000:1401",
+        "--skriv",
+        "900:80172:0x8a224:4",
+        "--skriv",
+        "900:8d9ac:0x8d5b4:4",
+        "--skriv",
+        "900:8d5ea:0x3:4",
+        "--dump",
+        "1500:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/tavern-red/chip1500.bin",
+        "--dump",
+        "2000:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/tavern-red/chip2000.bin",
+        "--dump",
+        "2400:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/tavern-red/chip2400.bin"
+      ],
+      "test_writes": [
+        {
+          "frame": 900,
+          "address": "0x80172",
+          "value": "0x8a224",
+          "bytes": 4
+        },
+        {
+          "frame": 900,
+          "address": "0x8d9ac",
+          "value": "0x8d5b4",
+          "bytes": 4
+        },
+        {
+          "frame": 900,
+          "address": "0x8d5ea",
+          "value": "0x3",
+          "bytes": 4
+        }
+      ]
+    }
+  }
+}

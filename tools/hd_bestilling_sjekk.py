@@ -141,15 +141,55 @@ def main():
             assert Image.open(ut).tobytes()==expected.tobytes()
         kontroller += 8
 
+        # KN5: original dragekamp setter faste roedfarger9/11/15 og ild29..31.
+        # Blod-/saarruter med6..8 trenger maske, brennende058..064 gjoer ikke det.
+        assert bestilling.maskefarger('Kn5.ob', 0) == {6, 7, 8}
+        assert bestilling.maskefarger('KN5.ob', 58) == {6, 7, 8}
+        kn5 = mf.cel_les(spill.les('data/KN5.ob'))[0]
+        maskerte = []
+        faste = {9, 11, 15, 29, 30, 31}
+        for nr, original in enumerate(kn5):
+            packed = mf.plan_til_indeks(original['data'], original['plan'], original['bredde'], original['hoyde'])
+            expanded = bestilling.utvid_indekser(packed, original['maske'])
+            if set(expanded) & {6, 7, 8}:
+                maskerte.append(nr)
+            source = temp / 'KN5.ob' / ('%03d.png' % nr)
+            source.parent.mkdir(exist_ok=True)
+            gfx.lagre_png(str(source), packed, original['bredde'], original['hoyde'], pal)
+            with contextlib.redirect_stdout(io.StringIO()):
+                bestilling.lag_maske(str(source), str(ut), spill_sti=str(spill_sti))
+            mask = Image.open(ut).convert('RGBA')
+            for y in range(original['hoyde']):
+                for x in range(original['bredde']):
+                    indeks = expanded[y * original['bredde'] + x]
+                    expected = (indeks + 1, 128, 255, 255) if indeks in {6, 7, 8} else (0, 0, 0, 255)
+                    assert mask.getpixel((x * 4 + 2, y * 4 + 2)) == expected
+            if nr >= 58:
+                assert set(expanded) & faste
+                assert not set(expanded) & {6, 7, 8}
+                assert set(piksler(mask)) == {(0, 0, 0, 255)}
+        assert maskerte == [0, 1, 4, 5, 6, 20, 22, 23]
+        kontroller += 75
+
         csv_sti = temp / 'bestilling.csv'
         resultat = subprocess.run([sys.executable, str(rot / 'tools/hd_bestilling.py'),
                                    str(spill_sti), str(csv_sti)], check=True,
                                   text=True, capture_output=True, cwd=rot)
         with csv_sti.open(encoding='utf-8') as f:
             rader = list(csv.DictReader(f, delimiter=';'))
-        kn = next(r for r in rader if r['hd_fil'] == 'KN3.ob/031.png')
-        assert kn['trenger_maske'] == 'ja'
-        assert 'HE3.ob/031.mask.png' in kn['merknad']
+        kn = next((r for r in rader if r['hd_fil'] == 'KN3.ob/031.png'), None)
+        if kn is not None:
+            assert kn['trenger_maske'] == 'ja'
+            assert 'HE3.ob/031.mask.png' in kn['merknad']
+        else:
+            # Etter aktivering skal bestillingen utelate begge, mens den faktiske
+            # pakken fortsatt maa bevare RGB-kopien og HE-indeksbyttet i masken.
+            filstier = {r['path'] for r in json.loads((rot / 'web/hd/manifest.json').read_text())['files']}
+            assert {'KN3.ob/031.png', 'HE3.ob/031.png', 'KN3.ob/031.mask.png', 'HE3.ob/031.mask.png'} <= filstier
+            assert (rot / 'web/hd/KN3.ob/031.png').read_bytes() == (rot / 'web/hd/HE3.ob/031.png').read_bytes()
+            kn_m = Image.open(rot / 'web/hd/KN3.ob/031.mask.png').convert('RGBA')
+            he_m = Image.open(rot / 'web/hd/HE3.ob/031.mask.png').convert('RGBA')
+            assert piksler(he_m) == [(r + 3 if r in (7, 8, 9) else r, g, b, a) for r, g, b, a in piksler(kn_m)]
         assert not any(r['hd_fil'] == 'HE3.ob/031.png' for r in rader)
         files = json.loads((rot / 'web/hd/manifest.json').read_text())['files']
         assert bestilling.logo_gjennomfort(str(rot), files)
@@ -164,6 +204,8 @@ def main():
                 assert r['trenger_maske'] == ('ja' if 15 <= int(r['bilde']) <= 20 else 'nei')
             if r['fil'].lower() == 'dice.cel':
                 assert r['trenger_maske'] == ('ja' if int(r['bilde']) in (6,7) else 'nei')
+            if r['fil'].lower() == 'kn5.ob':
+                assert r['trenger_maske'] == ('ja' if int(r['bilde']) in (0, 1, 4, 5, 6, 20, 22, 23) else 'nei')
         assert not any('Bruk dem gjerne' in r['merknad'] for r in rader)
         assert all(r['prioritet'] == ('1' if int(r['bilde']) <= 5 else '3')
                    for r in rader if r['fil'].lower() == 'mys.cel')

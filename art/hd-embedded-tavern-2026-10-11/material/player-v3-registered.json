@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "method": "source_bound_photographic_material_registration",
+  "input": "raw/player-v3.png",
+  "input_sha256": "3eb172b85b9b533d20f2be1fe904b0029237e6961b279845b5c46fc7dd33468b",
+  "output": "material/player-v3-registered.png",
+  "output_sha256": "a8429e896aff0f81a8d9c8591f7310d7d462afe11b5477ab1be2cd14b26276ba",
+  "original_plate_rect": [
+    90,
+    65,
+    225,
+    188
+  ],
+  "original_lower_arm_rect": [
+    111,
+    168,
+    160,
+    186
+  ],
+  "registration_rect": [
+    111,
+    168,
+    160,
+    188
+  ],
+  "vertical_material_factor": 0.64,
+  "scope": "Only lower-elbow photographic material is fitted into the source arm. Source alpha, original silhouettes, anchors and all other subject locations are unchanged."
+}

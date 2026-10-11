@@ -67,6 +67,10 @@ LOGO_SHA256 = 'd7d656cab28178c074feac994a463d1d558ee4bdcfb955675c09881c41071846'
 
 def maskefarger(bank, frame):
     """Eksakte levende indeksfelt, uavhengig av den valgte forhåndspaletten."""
+    # KN5 brukes ogsaa i dragekampen: $088c16 setter faste roedfarger9..15
+    # og ild29..31. Riddervelgeren $088ca0 endrer bare6..8, ikke9..11.
+    if bank.lower() == 'kn5.ob':
+        return {6, 7, 8}
     if bank.lower() in {b.lower() for b in PALETT}:
         return RIDDERFARGER
     # Math-tårnet: $089478-$089484 sender WI2.P+12 til $08a9b6.

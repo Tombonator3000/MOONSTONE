@@ -93,3 +93,11 @@ Bruk `--gray-reference 128` bare når grå rustning bruker grånivå 128 som nø
 Pakkeren avviser feil størrelse, feil PNG-modus, feil kilde-/kandidatbevis, for stor silhuettendring og en ren nærmeste-nabo-forstørrelse. Den måler formtreff, kopierer masteren til de dokumenterte aliasene og lager masker med kandidatens skyggedetaljer. Dette beviser ikke fotografisk kvalitet eller faktisk animasjonsflyt. Gjennomgå kilde og kandidat visuelt, og kjør original/HD, speiling, lys, palettbytte og overlapp i faktisk WASM-spill før en separat aktivator får endre produksjonspakken.
 
 `KN5.ob` og `blo.cel` har ennå ikke full scenemåling. Noen KN5-fragmenter bruker indeks 9/11; dagens bestilling og maskeflagg bevares, men disse må undersøkes i faktisk kamp før endelig fargegodkjenning. Vanlig PNG-pakking beviser ikke korrekt program-overlegg, palett eller animasjonsforløp i introen.
+
+## Tredje figurleveranse, 12. oktober 2026
+
+`delivery-progress-003.json` binder206 håndterte originalmastere,269 konkrete ruter,160 masker og tre ekstra innbakte figur-/maskefiler.201 mastere har eget nytt fotomateriale; fem er bevarte svarte originalskygger. TAV-bakgrunnen er renset og revidert. Fem gamle helfigurprøver er pensjonert i standardpakken. Nye totaler:1145PNG/1151filer,81bakgrunner. Restlisten:1448mastere/1555ruter.
+
+Standardlasting er kontrollert i de leverte scenene uten kandidatimport. TAV/DICE følger alle fire spillerpaletter. HA1 har sju naturlig observerte introruter og44 normal-/speilfixturer; øvrig dekning og begrensninger står i de frosne bevisene. Original/HD-returer og emulert tilstand er kontrollert. Full naturlig reise gjennom alle animasjoner er ikke påstått.
+
+Original-PNG-er, bankeksporter, kildeindeks-/maskebinærfiler og kompilert HTML er regenererbare lokale data. De sjekkes ikke inn. Bruk de relevante `prepare.py`-/`prepare-static.py`-skriptene, original-ZIP-en og `web/pakk.py` ved reproduksjon. Rå genererte bilder, prompts, kildekontrakter, pakkemetoder og bevis beholder egne hasher. Gamle avviste forsøk er lokale diagnosefiler og er ikke aktive spillassets.

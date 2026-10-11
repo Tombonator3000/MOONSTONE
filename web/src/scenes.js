@@ -177,10 +177,10 @@ const SceneHd = (() => {
         }
         if (!valgt) return lag;
         const rect = valgt.rect || [0, 0, 320, 200];
-        const faste = Visning.hdPaa() ? (valgt.overlays || []).filter(o=>Visning.sceneOverleggKlar(o.key,diw)) : [];
+        const faste = Visning.hdPaa() ? (valgt.overlays || []).filter(o=>Visning.sceneOverleggKlar(o.key,diw,o.palette_mask)) : [];
         // Tilgjengelighet er lik i Original og HD. Ellers ville Original utvide
         // forgrunnsrektangelet og avlyse de plasserte animasjonsfragmentene.
-        const originaleFelt = (valgt.overlays || []).filter(o=>!Visning.sceneOverleggKlar(o.key,diw));
+        const originaleFelt = (valgt.overlays || []).filter(o=>!Visning.sceneOverleggKlar(o.key,diw,o.palette_mask));
         const vernedeFelt = [...(valgt.protected || []),...originaleFelt.map(o=>o.rect)];
         // Originalmarkorene beholdes til bakgrunnen og HD-overlegg kan vises sammen.
         const ikoner = (Visning.hdPaa() && Visning.harHdBilde('bg/' + valgt.hash)

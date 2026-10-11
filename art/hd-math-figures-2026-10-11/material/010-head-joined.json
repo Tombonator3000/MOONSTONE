@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "kind": "source_bound_photographic_hair_root_join",
+  "input": "raw/010-v4-registered.png",
+  "input_sha256": "76eb6ec86523abbf302215e2d6fe1e61995ac19d1d01b41296174c39b3602e56",
+  "input_original_rect": [
+    86,
+    37,
+    156,
+    109
+  ],
+  "donor": "raw/head-root-v1.png",
+  "donor_sha256": "4010f177648023581b513c4052be2d5b332c086f5c06b4d0a43301da19485455",
+  "donor_original_rect": [
+    136,
+    38,
+    184,
+    105
+  ],
+  "join_original_rect": [
+    139,
+    47,
+    152,
+    99
+  ],
+  "method": "Smooth spatial registration of one continuous separately generated hair-root/skin material across originalx144. Only photographic RGB is changed; own frame master, original alpha, anchor, source dimensions and expression are retained. This is a material join, not a claim of source-index equality or a separate redraw of each whole figure.",
+  "output": "material/010-head-joined.png",
+  "output_sha256": "d94f1eb7a184ba790d612ece763717127c211830f4a4dc4fc46edcf0675e00eb"
+}

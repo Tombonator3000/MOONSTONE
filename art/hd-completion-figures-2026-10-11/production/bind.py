@@ -26,9 +26,12 @@ def main():
  ap.add_argument('--key',required=True);ap.add_argument('--raw',required=True,type=Path)
  ap.add_argument('--prompt',required=True,type=Path);ap.add_argument('--palette-case',default='troll')
  ap.add_argument('--fit-generated-vertical-padding',action='store_true',help='Tilpass generatorens loddrette marg; ingen piksler med alfa over7 kan fjernes')
+ ap.add_argument('--fit-generated-horizontal-padding',action='store_true',help='Tilpass generatorens vannrette marg; ingen piksler med alfa over7 kan fjernes')
  ap.add_argument('--diagnostic',action='store_true',help='Inspect failed raw geometry without approval or packing')
  ap.add_argument('--separate-shadow',action='store_true',help='TROLL source index5 stays a separate fixed black footshadow')
+ ap.add_argument('--exact-flat-shadow',action='store_true',help='Bevar opprinnelig svart fotskygge med eksakt naermeste4x-alfa i ny pakkeversjon')
  args=ap.parse_args()
+ assert not args.exact_flat_shadow or (args.separate_shadow and args.key in {'TROLL1.CEL/002.png','TROLL1.CEL/004.png','TROLL1.CEL/005.png'})
  args.raw=args.raw.resolve();args.prompt=args.prompt.resolve()
  q=json.loads((FIGURES/'queue.json').read_text());r=next(r for r in q['entries'] if r['key']==args.key)
  assert r['role']=='redraw'
@@ -40,11 +43,12 @@ def main():
  body_original=original.copy();shadow_positions=[]
  if args.separate_shadow:
   assert args.palette_case=='troll' and pal['colors'][5]==[0,0,0]
-  assert args.key in {f'TROLL1.CEL/{n:03}.png' for n in [2,3,4,5,8,11,13,29]},'Indeks5 er ikke generelt en fotskygge'
+  troll2_shadow={'TROLL2.CEL/000.png':0,'TROLL2.CEL/001.png':38,'TROLL2.CEL/002.png':0,'TROLL2.CEL/006.png':0,'TROLL2.CEL/010.png':0,'TROLL2.CEL/011.png':0,'TROLL2.CEL/012.png':39,'TROLL2.CEL/014.png':0}
+  assert args.key in {f'TROLL1.CEL/{n:03}.png' for n in [2,3,4,5,8,11,13,19,29,34,40]} or args.key in troll2_shadow,'Indeks5 er ikke generelt en fotskygge'
   packed=Image.open(FIGURES/r['packed_original']['path'])
   bits=[1<<n for n in range(5) if r['plane_mask']&(1<<n)]
   source_indices=[sum(bit for n,bit in enumerate(bits) if v&(1<<n)) for v in packed.getdata()]
-  shadow_top=0 if args.key in {'TROLL1.CEL/008.png','TROLL1.CEL/029.png'} else original.height-(10 if args.key=='TROLL1.CEL/013.png' else 8)
+  shadow_top=troll2_shadow[args.key] if args.key in troll2_shadow else 0 if args.key.startswith('TROLL2.CEL/') or args.key in {'TROLL1.CEL/008.png','TROLL1.CEL/019.png','TROLL1.CEL/029.png','TROLL1.CEL/034.png','TROLL1.CEL/040.png'} else original.height-(10 if args.key=='TROLL1.CEL/013.png' else 9 if args.key=='TROLL1.CEL/002.png' else 8)
   for y in range(original.height):
    for x in range(original.width):
     if source_indices[y*original.width+x]==5 and y>=shadow_top:
@@ -52,12 +56,14 @@ def main():
   assert shadow_positions,'Separate-shadow requested without original index5'
   assert min(y for x,y in shadow_positions)>=shadow_top,'Svart kroppsmateriale må ikke fjernes som fotskygge'
  raw=Image.open(args.raw);assert raw.mode=='RGBA'
+ assert not(args.fit_generated_vertical_padding and args.fit_generated_horizontal_padding),'Bare én teknisk margretning om gangen'
  raw_window=None;raw_margin_proof=None
  if args.fit_generated_vertical_padding:
   target_height=round(raw.width*original.height/original.width)
   bounds=raw.getchannel('A').point(lambda v:255 if v>=8 else 0).getbbox();assert bounds
-  assert body_original.getchannel('A').getbbox()[1]==0,'Automatisk margfjerning krever kildeinnhold ved toppkanten'
-  top=bounds[1];window_height=max(target_height,bounds[3]-top)
+  source_top=body_original.getchannel('A').getbbox()[1]
+  # Bevar ogsaa den opprinnelige transparente toppmargen ved teknisk pakking.
+  top=max(0,bounds[1]-round(source_top*target_height/original.height));window_height=max(target_height,bounds[3]-top)
   # Brede genereringer kan ha en liten sideforholdsavrunding. Bevar alle
   # synlige piksler, og tillat høyst to prosent ekstra helbildehøyde her.
   assert window_height<=target_height*1.02
@@ -68,6 +74,18 @@ def main():
   assert max(outside,default=0)<=7,'Synlig kunst kan ikke fjernes som marg'
   raw_margin_proof=dict(removed_pixels=len(outside),nonzero_alpha_pixels=sum(v>0 for v in outside),max_alpha=max(outside,default=0),visible_content_clipped=False,target_aspect_height=target_height,preserved_window_height=window_height)
   raw=raw.crop(raw_window)
+ if args.fit_generated_horizontal_padding:
+  target_width=round(raw.height*original.width/original.height)
+  bounds=raw.getchannel('A').point(lambda v:255 if v>=8 else 0).getbbox();assert bounds
+  assert body_original.getchannel('A').getbbox()[0]==0,'Automatisk margfjerning krever kildeinnhold ved venstrekanten'
+  left=bounds[0];window_width=max(target_width,bounds[2]-left)
+  assert window_width<=target_width*1.02
+  assert window_width<raw.width and bounds[2]<=left+window_width<=raw.width
+  raw_window=[left,0,left+window_width,raw.height]
+  outside=[raw.getpixel((x,y))[3] for y in range(raw.height) for x in range(raw.width) if x<left or x>=left+window_width]
+  assert max(outside,default=0)<=7,'Synlig kunst kan ikke fjernes som marg'
+  raw_margin_proof=dict(removed_pixels=len(outside),nonzero_alpha_pixels=sum(v>0 for v in outside),max_alpha=max(outside,default=0),visible_content_clipped=False,target_aspect_width=target_width,preserved_window_width=window_width)
+  raw=raw.crop(raw_window)
  assert raw.size[0]>=r['target_width'] and raw.size[1]>=r['target_height']
  # Only generated pixels supply RGB. Original supplies geometry, never texture.
  generated=raw.resize(original4x.size,Image.Resampling.LANCZOS)
@@ -77,7 +95,8 @@ def main():
  raw_iou=sum(a>=128 and b>=128 for a,b in zip(aa,bb))/sum(a>=128 or b>=128 for a,b in zip(aa,bb))
  assert raw_iou>=.80 or args.diagnostic,'Genereringens form avviker for mye for kildepakking'
  bank,frame=args.key.split('/')
- path=ART/'bound'/bank/frame.replace('.png','')/sha(args.raw.read_bytes())[:16]/('diagnostic-unapproved' if args.diagnostic else ('separate-shadow-feet-v18-original-flat' if args.key=='TROLL1.CEL/029.png' else 'separate-shadow-bottom10-v13' if args.key=='TROLL1.CEL/013.png' else 'separate-shadow-feet-v12-original-flat' if args.key=='TROLL1.CEL/011.png' else 'separate-shadow-feet-v9-original-flat' if args.key=='TROLL1.CEL/008.png' else 'separate-shadow-bottom8-v7') if args.separate_shadow else 'rounded-source-edge-v5')
+ path=ART/'bound'/bank/frame.replace('.png','')/sha(args.raw.read_bytes())[:16]/('diagnostic-unapproved' if args.diagnostic else ('separate-shadow-troll2-v1-original-flat' if args.key.startswith('TROLL2.CEL/') else 'separate-shadow-feet-v23-original-flat' if args.key=='TROLL1.CEL/040.png' else 'separate-shadow-feet-v21-original-flat' if args.key=='TROLL1.CEL/034.png' else 'separate-shadow-feet-v18-original-flat' if args.key=='TROLL1.CEL/029.png' else 'separate-shadow-bottom10-v13' if args.key=='TROLL1.CEL/013.png' else 'separate-shadow-feet-v12-original-flat' if args.key=='TROLL1.CEL/011.png' else 'separate-shadow-feet-v9-original-flat' if args.key=='TROLL1.CEL/008.png' else 'separate-shadow-bottom8-v7') if args.separate_shadow else 'rounded-source-edge-v5')
+ if args.exact_flat_shadow and not args.diagnostic:path=path.parent/'separate-shadow-walk-v8-original-flat'
  path.mkdir(parents=True,exist_ok=True)
  # Only a small whole-fragment placement correction is allowed. It preserves
  # generated anatomy and natural alpha edges; no per-row body deformation and
@@ -132,7 +151,7 @@ def main():
   shadow_shape=source_contours(shadow_bits,original.width,original.height,lambda a:a>0)
   shadow_svg=path/'shadow.svg';shadow_svg.write_text(f'<svg xmlns="http://www.w3.org/2000/svg" width="{r["target_width"]}" height="{r["target_height"]}" viewBox="0 0 {r["width"]} {r["height"]}"><path d="{shadow_shape}" fill="black" fill-rule="evenodd"/></svg>\n')
   subprocess.run([node,str(ART/'mask.cjs'),str(shadow_svg),str(path/'shadow.png'),str(r['target_width']),str(r['target_height'])],env=env,check=True)
-  if args.key in {'TROLL1.CEL/008.png','TROLL1.CEL/011.png','TROLL1.CEL/013.png','TROLL1.CEL/029.png'}:
+  if args.exact_flat_shadow or args.key.startswith('TROLL2.CEL/') or args.key in {'TROLL1.CEL/008.png','TROLL1.CEL/019.png','TROLL1.CEL/011.png','TROLL1.CEL/013.png','TROLL1.CEL/029.png','TROLL1.CEL/034.png','TROLL1.CEL/040.png'}:
    # Spredte opprinnelige skyggeprikker beholdes eksakt, ikke nytegnet.
    original_shadow=Image.new('RGBA',original.size);original_shadow.putdata([(0,0,0,v) for v in shadow_bits]);original_shadow.resize(result.size,Image.Resampling.NEAREST).save(path/'shadow.png')
   result=Image.alpha_composite(Image.open(path/'shadow.png').convert('RGBA'),result)
@@ -156,12 +175,14 @@ def main():
   raw_silhouette_iou=raw_iou,aligned_silhouette_iou=aligned_iou,
   alignment_gate=alignment_gate,max_opaque_edge_extension_px=opaque_extension,
   geometry_gate_passed=geometry_gate_passed and not args.diagnostic,
-  original_flat_shadow_packing=dict(indices=[5],source_rect=[0,shadow_top,original.width,original.height],source_pixels=len(shadow_positions),method='Original constant-black index5 within known footshadow region is antialiased separately. Frame008 contains only cropped feet and shadow; frames002..005 restrict this to bottom8 rows. Black index5 above that region remains generated body material. Frame008, Frame011, Frame013 and Frame029 preserve sparse flat source shadow with exact nearest4x alpha; other footshadows use rounded contours. Not claimed as a new shadow redraw') if shadow_positions else None,
+  original_flat_shadow_packing=dict(indices=[5],source_rect=[0,shadow_top,original.width,original.height],source_pixels=len(shadow_positions),method='Originalt flatt svart indeks5-fotskyggefelt bevares med eksakt naermeste4x-alfa i sitt kildebekreftede rektangel. Generert foto brukes bare i kropp/fot; ingen nytegning av skyggen paastaas.' if args.key.startswith('TROLL2.CEL/') else 'Originalt konstant svart indeks5-skyggemoenster i rute040 beholdes med eksakt naermeste4x-alfa. Bare foten inneholder generert fotomateriale; ingen nytegning av skyggen paastaas.' if args.key=='TROLL1.CEL/040.png' else 'Originalt konstant svart indeks5-skyggemoenster i rute034 beholdes med eksakt naermeste4x-alfa. Bare foten inneholder generert fotomateriale; ingen nytegning av skyggen paastaas.' if args.key=='TROLL1.CEL/034.png' else 'Original constant-black index5 within known footshadow region is antialiased separately. Frame008 contains only cropped feet and shadow; frames002..005 restrict this to bottom8 rows. Black index5 above that region remains generated body material. Frame008, Frame011, Frame013 and Frame029 preserve sparse flat source shadow with exact nearest4x alpha; other footshadows use rounded contours. Not claimed as a new shadow redraw') if shadow_positions else None,
   source_pixel_midpoints_checked=original.width*original.height,missing_opaque_source_midpoints=missing,false_filled_transparent_source_midpoints=false_filled,
   retained_generated_rgb_pixels=retained,extended_edge_pixels=len(extended),max_edge_extension_px=max((p['distance'] for p in extended),default=0),edge_extension_map=extended,
   global_affine=dict(scale_x=affine[0],scale_y=affine[1],translate_x_px=affine[2],translate_y_px=affine[3]),
   visual_checks={k:'pending' for k in ['pose','crop','equipment','source_colors','anatomy','material','runtime_overlap','original_hd_return']},
   status='unapproved_geometry_diagnostic' if args.diagnostic else 'source_guided_candidate_not_activated')
+ if args.exact_flat_shadow or args.key=='TROLL1.CEL/019.png':
+  review['original_flat_shadow_packing']['method']='Originalt flatt svart indeks5-fotskyggefelt bevares med eksakt naermeste4x-alfa i sitt kildebekreftede rektangel. Bare kropp/fot inneholder separat generert fotomateriale. Ingen nytegning av skyggen paastaas.'
  (path/'art-record.json').write_text(json.dumps(review,ensure_ascii=False,indent=2)+'\n')
  sheet=Image.new('RGB',(900,580),'#222222');draw=ImageDraw.Draw(sheet)
  for x,title,im in [(15,'Original correct palette',original4x),(310,'Generated before packing',generated),(605,'Aligned candidate',result)]:

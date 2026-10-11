@@ -10,12 +10,12 @@ from PIL import Image
 import hd_figurer_aktiver as gate
 
 ROOT = gate.ROOT
-path = ROOT / 'art/hd-completion-figures-2026-10-11/activation-set-001.json'
+path = ROOT / 'art/hd-completion-figures-2026-10-11/figures/kn1-production/activation-set-kn1-001.json'
 delivery = json.loads(path.read_text())
 checks = []
 files = gate.validate(delivery)
-assert len(files) == 70
-checks.append('69 ruter og levende maske har gyldige kilder og runtimebevis')
+assert len(files) == 202
+checks.append('105 ruter og97 levende masker har gyldige kilder og runtimebevis')
 
 
 def rejected(name, edit, expected):

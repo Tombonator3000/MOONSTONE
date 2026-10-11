@@ -1,0 +1,101 @@
+{
+  "key": "ov1.cel/001.png",
+  "master_key": "ov1.cel/001.png",
+  "role": "redraw",
+  "package": "03-steder-effekter-intro",
+  "order_group": "Intro og slutt",
+  "order_priority": "4",
+  "identity": "Introen eller slutten: forgrunn (busker og røde blader)",
+  "master_usage": "Introen eller slutten: forgrunn (busker og røde blader)",
+  "identity_limit": "Kildebank og brukssted. Ingen udokumentert handlingsetikett per rute.",
+  "bank": "ov1.cel",
+  "frame": 1,
+  "width": 140,
+  "height": 96,
+  "target_width": 560,
+  "target_height": 384,
+  "source_bank": {
+    "path": "data/ov1.cel",
+    "sha256": "680d1479bfdbe9debec2c01e1dd073c1c8a5ceaad721512a684329e59932815f",
+    "bytes": 11357,
+    "frames": 4
+  },
+  "bitplane_sha256": "fa0fb48de60520158b00fa097b0ee6e962abbe4dbfcaa603af1a7b54d78fc6ec",
+  "packed_indices_sha256": "a3492442c6d2ed9e2a2bc771223b4116042e2b6e3adb287b50053bb24a30f4c9",
+  "indices_sha256": "a3492442c6d2ed9e2a2bc771223b4116042e2b6e3adb287b50053bb24a30f4c9",
+  "plane_mask": 31,
+  "packed_planes": 5,
+  "source_flag": 1,
+  "source_indices": [
+    0,
+    7,
+    24,
+    25,
+    26,
+    27
+  ],
+  "index_remap": {
+    "0": 0,
+    "7": 7,
+    "24": 24,
+    "25": 25,
+    "26": 26,
+    "27": 27
+  },
+  "source_neighbors": [
+    "ov1.cel/000.png",
+    "ov1.cel/002.png",
+    "ov1.cel/003.png"
+  ],
+  "neighbor_limit": "Nærliggende kilde-ID-er, ikke en bekreftet animasjonsrekkefølge",
+  "alpha_bounds": [
+    0,
+    0,
+    140,
+    96
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "placement": "Originalens tegnerektangel; ingen ny sentrering eller justering av fotpunkt",
+  "palette_id": "combat-preview",
+  "palette_status": "preview_only_not_a_monster_or_player_color_approval",
+  "palette_source_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+  "palette_file_sha256": "9e0b9b6c5798bc2706a91487b5fae02b840c95c20235a5886f0bdba34bbcef35",
+  "original": {
+    "path": "references/original/ov1.cel/001.png",
+    "sha256": "90be1f05e7e61f3087b6296c0989c746aad905253df447197c3d123e663ee4bc",
+    "width": 140,
+    "height": 96
+  },
+  "nearest4x_reference": {
+    "path": "references/nearest4x/ov1.cel/001.png",
+    "sha256": "c89dc32710d1e37a58b9175e7aed99cc40ad529726062ae51b182fa4ab66f6a5",
+    "width": 560,
+    "height": 384
+  },
+  "packed_original": {
+    "path": "source/packed/ov1.cel/001.png",
+    "sha256": "b983975dbb64ce1cafa7c2ffc0ca00fa1817ebc6e77f7250eef13716d0a48958",
+    "width": 140,
+    "height": 96
+  },
+  "silhouette": {
+    "path": "source/alpha/ov1.cel/001.png",
+    "sha256": "d4078b7b2afe51d7e9b765098eb249466ba3ea677ae02ff8c07f9458e2c95921",
+    "width": 140,
+    "height": 96
+  },
+  "needs_mask": false,
+  "neutral_mask_template": null,
+  "live_palette_indices": [],
+  "source_order_mask_override": null,
+  "mask_warning": null,
+  "intro_only": true,
+  "runtime_gate": "program_art_palette_and_animation_runtime_pending",
+  "art_status": "pending_individual_redraw",
+  "target_png": "hd/ov1.cel/001.png",
+  "target_mask": null,
+  "source_order_note": "Kan ikke vises ennå: intro og slutt kjøres av programmet program, der laget og tegnelisten mangler (docs/hd-mangler.md punkt 4.4). Ikke tegn dette før det er løst. Eldre utkast i art/photoreal/candidates/ov1.cel (needs_revision), ikke godkjent. Bare feilarkiv; bruk originalen som tegnereferanse."
+}
