@@ -1080,7 +1080,8 @@ const Visning = (() => {
             const hd = hdPaa ? hdPakke.get(nokkel) : null;
             const maks = Math.max(lysMaks.get(lag.hash) || 0, lag.lys);
             lysMaks.set(lag.hash, maks);
-            hdLys = maks ? lag.lys / maks : 0;
+            /* helt svart bakgrunn (riddervalget): ingen fading aa lese, HD-bildene vises fullt */
+            hdLys = maks ? lag.lys / maks : 1;
             if (hd) {
                 bakMesh.material = bakMat;
                 bakMat.uniforms.map.value = hd.tex;
