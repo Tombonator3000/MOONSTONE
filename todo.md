@@ -29,6 +29,9 @@
 - [ ] Teste moonstone.exe på ekte Windows.
 - [ ] Nettspill over et ekte nett med to maskiner: hvor mye forsinkelse gjesten og forsvareren i en duell merker i kamp, og om bufferen på tre bilder bør justeres.
 
+- [ ] Klikk der man peker også i Select a Knight (ingen peker der; feltene for figurene er ikke kartlagt) og for forsvareren i en duell.
+- [ ] Et trykk på kartet blir fire og kan åpne et sted; la det bare gi retning når man drar (observatør på \$0AACFA).
+
 ## HD: kodeendringer så bildene i docs/hd-bestilling-chatgpt.md blir brukt
 - [ ] Lasteren (render.js lastHdPakke) skal bare godta NAVN/NNN og bg/HHHHHHHH og si fra om resten (i dag tar den alt, ca 4 MB per ubrukt bilde).
 - [ ] tools/hd_skaler.py skal hoppe over bildemappene (PIV) og test/, bare figurmapper og bg.
@@ -41,27 +44,27 @@
 
 ## Fra gjennomgangen 2026-10-11 (docs/hva-mangler.md)
 - [ ] Separate: hverKart() er sann hele spillet (hver.c setter H.kart = 0 bare i tittelmenyen), så en spiller i by eller monsterkamp sier ja til dueller automatisk.
-- [ ] Turns: en gjest med skjult fane holdes i live av pingen, og spillet venter på turen hans.
 - [ ] Turns: gjesten kan ikke lagre, og mister kopien når verten forsvinner.
-- [ ] Nettsiden tror sluttscenen er introen (ms_in_intro ser bare på whd_mog_loaded): fire blir Esc og HD slås av.
-- [ ] Trykk og klikk i inventar, by, butikker og Select Knight gir fire der spillets peker står ($098092/$098094), ikke der man trykker.
-- [ ] Reserve når WebGL-konteksten mistes (svart skjerm på mobil).
-- [ ] Mobil: fullskjerm, manifest for hjemskjermen og Wake Lock.
-- [ ] Utgivelser for PC (GitHub Releases) i stedet for Actions-artefakter, og krav (libSDL2, glibc 2.34) i README.
 - [ ] PC: innstillinger i spillet (volum, beskjeder som vises i fullskjerm), spiller 2 uten talltastatur. --online-meny blir stående på «Creating Room...».
 - [ ] Nettspill på PC, eller et vedtak om å la det være.
-- [ ] Testene (test26-36, mus, mobil, Options) og tilstandene de bruker inn i repoet, og check_hooks.py i CI.
-- [ ] CI: actions på Node 20 er utfaset.
+- [ ] Noen av nettlesertestene (tests/kjor.sh) i en egen CI-jobb, og de nye testene fra 11. oktober inn i tests/nettleser (slutt1, skjult1, fs1, gl1; de ligger i scratchpad).
 - [ ] Separate: et rom som forsvinner kan ikke samles igjen, og en død forbindelse blir stående som ridder på kartet.
 - [ ] Et lagret Turns-spill fordeler ridderne etter rekkefølgen gjestene kommer inn i.
-- [ ] Fast test av sluttscenen. --skriv leser heks uten 0x som 0 uten melding.
-- [ ] Rette memory.md (STATE_VERSION 8) og README (mappen spill/).
 
 ## Ferdig
+- [x] Klikk og trykk treffer der man peker i inventaret, byen, tavernaen og butikkene (MENY_CMD_PEKER).
+- [x] Tapt WebGL-kontekst: lagres med en gang, tegnes igjen, eller siden lastes på nytt og fortsetter.
+- [x] --skriv avviser verdier som ikke kan leses; test av sluttscenen (slutt1.js, lagring laget med --skriv).
+- [x] Mobil: fullskjermknapp, ikon og manifest for hjemskjermen, Wake Lock.
+- [x] Tur for tur: en gjest med skjult fane fjernes etter ett minutt (verten får beskjed i chatten).
+- [x] Sluttscenen kjennes igjen på nettsiden (\$080190 bit 7) og hoppes ikke over av et trykk.
+- [x] Nettlesertestene inn i repoet: tests/nettleser (Playwright) med felles hjelpefil og lokale PeerJS- og MQTT-servere, tests/kjor.sh og tests/README.md. Tilstandene lages med moonstone-headless når testene kjøres.
 - [x] Lagringer som tåler nye versjoner (MOONSAV2 med deler og standardverdier), går mellom PC og nett, forklarer hvorfor de avvises, automatisk lagring (nett og PC), eksport og import, PC-lagring i brukermappen (atomisk, UTF-8 på Windows).
 - [x] Nettspill: lagringsformatet sendes med i 'hei' og i romlisten; en gjest med annen versjon får beskjed, og en gjest som ikke kan laste tilstanden, går ut med grunnen.
 - [x] Bakgrunnsmusikken i hele spillet fjernet igjen (eieren ville ikke ha den).
 - [x] Lyden startes i selve trykket på mobil og følger ikke lydløs-bryteren på iPhone. (Bakgrunnsmusikken i hele spillet ble fjernet igjen 2026-10-11 etter ønske fra eieren.)
+- [x] Nedlastbare utgivelser: Actions lager utgivelsen «siste» med moonstone-linux.zip og moonstone-windows.zip ved push til main. CI bruker actions på Node 24 og kjører tools/check_hooks.py.
+- [x] Musikk i hele spillet: introsangen (music.cmp) spilles også i menyen, på kartet og i kampene (port/src/musikk.c), med bryter og styrke i sidemenyen. Originalen har musikk bare i introen og sluttscenen. Lyden startes i selve trykket på mobil og følger ikke lydløs-bryteren på iPhone.
 - [x] Turns testet headless: beskyttelsesrullen styres av den angrepne (og kampen unngås når den brukes), og når datamaskinens ridder angriper, styrer den angrepnes spiller ridderen med port 2.
 - [x] Nettspill tur for tur: joysticken følger rekkefølgen ridderne ble valgt i (ikke figuren), bare den som velger styrer Select a Knight og navnet, møtet mellom to riddere gir portene til riktig spiller (rullen, kampen, plyndringen), Players settes opp til antallet i rommet, og korte trykk fra nettet blir ikke borte.
 - [x] Mobil i spillets menyer: valgene paa kartet som knapper (trykk, styrekors og Fire, Enter), navnet til ridderen med tekstfelt. Sidemenyen, knappene og meldingene i spillets stil (font, pil, logo og nattehimmel fra spillfilen). Bryter mellom HD og original grafikk. docs/grafikkliste.md og .csv over all grafikken.

@@ -55,7 +55,7 @@ const Visning = (() => {
      * uendret (tekst tegnes bare en gang); uten lag vises klyngen til det har gaatt
      * 50 bilder uten nye tegninger. */
     let hdGruppe = null, hdPakke = new Map(), visRammer = false;
-    let hdPaa = true;                       /* false: original grafikk, selv om en HD-pakke er lastet */
+    let hdPaa = false;                      /* false: original grafikk, selv om en HD-pakke er lastet (standard) */
     let bildeNr = 0, sistTegnet = -99, klynger = [];
     let visteListe = [], visesFra = 0;
     let plasserte = new Map(), sisteBakHash = -1;    /* "x,y,b,h" -> { d, x, y, w, h, hash } */
@@ -264,6 +264,8 @@ const Visning = (() => {
             gl_FragColor = vec4(clamp(c, 0.0, 1.0), 1.0);
         }`;
 
+    let tapt = false, vedTapt = null, vedTilbake = null;
+
     function dataTekstur(data, w, h) {
         const t = new THREE.DataTexture(data, w, h, THREE.RGBAFormat, THREE.UnsignedByteType);
         t.colorSpace = THREE.NoColorSpace;
@@ -277,6 +279,11 @@ const Visning = (() => {
     function init(canvas, w, h) {
         W = w; H = h;
         renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'high-performance' });
+        /* Mobil kaster ofte grafikken naar appen gaar i bakgrunnen. three.js bygger den
+         * opp igjen naar nettleseren gir den tilbake (teksturene lastes paa nytt); app.js
+         * lagrer spillet med en gang og laster siden paa nytt hvis den ikke kommer. */
+        canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); tapt = true; if (vedTapt) vedTapt(); });
+        canvas.addEventListener('webglcontextrestored', () => { tapt = false; maaTegnes = true; if (vedTilbake) vedTilbake(); });
         renderer.setPixelRatio(window.devicePixelRatio || 1);
         renderer.autoClear = true;
 
@@ -1078,7 +1085,8 @@ const Visning = (() => {
             const hd = hdPaa ? hdPakke.get(nokkel) : null;
             const maks = Math.max(lysMaks.get(lag.hash) || 0, lag.lys);
             lysMaks.set(lag.hash, maks);
-            hdLys = maks ? lag.lys / maks : 0;
+            /* helt svart bakgrunn (riddervalget): ingen fading aa lese, HD-bildene vises fullt */
+            hdLys = maks ? lag.lys / maks : 1;
             if (hd) {
                 bakMesh.material = bakMat;
                 bakMat.uniforms.map.value = hd.tex;
@@ -1469,5 +1477,8 @@ const Visning = (() => {
         hdPaa: () => hdPaa,
         lagNaa: () => lagNaa,
         settTvungetLag: (on) => { tvungetLag = on; maaTegnes = true; },
+        /* grafikken (WebGL) ble borte og kom tilbake */
+        vedGrafikk: (borte, tilbake) => { vedTapt = borte; vedTilbake = tilbake; },
+        grafikkBorte: () => tapt,
     };
 })();

@@ -29,14 +29,27 @@ const Nett = (() => {
      * Det endres automatisk naar en del endres, saa en gjest med en gammel side i hurtigbufferen
      * faar beskjed i stedet for aa bli staaende og vente. */
     const format = () => (typeof Kjerne !== 'undefined' && Kjerne.formatId ? Kjerne.formatId() : 0);
+    /* en vennlig melding for en feil fra PeerJS (e.type), paa valgt spraak */
+    function peerFeil(e) {
+        switch (e && e.type) {
+        case 'server-error': case 'network': case 'socket-error':
+            return T('Fikk ikke kontakt med PeerJS-serveren. Sjekk nettforbindelsen og prøv igjen.');
+        case 'socket-closed': case 'disconnected': return T('Forbindelsen til nettspilltjenesten ble brutt.');
+        case 'browser-incompatible': return T('Nettleseren kan ikke spille på nett (WebRTC mangler).');
+        case 'webrtc': return T('Fikk ikke satt opp forbindelsen mellom spillerne.');
+        case 'invalid-id': return T('Ugyldig romkode.');
+        }
+        return T('Nettverksfeil: {0}', (e && (e.message || e.type)) || T('ukjent feil'));
+    }
     const MAKS_GJESTER = 3;
     const DEL = 48 * 1024;
     const PORTER = ['p2', 'p1', 'p2'];        /* standard for gjest 1, 2, 3 */
     const HOLD = 3;                           /* et kort trykk fra nettet varer minst saa mange bilder */
     const STILLE_INN = 1500;                  /* ms uten joystick fra den andre: siden dens staar, alt er sluppet */
     const STILLE_GJEST = 30000;               /* ms uten noe fra en gjest foer verten regner den som borte */
+    const SKJULT_GJEST = 60000;               /* ms med skjult fane (pingen gaar, spillet staar) foer verten tar over */
 
-    let peer = null, rolle = null, kode = '', mittNavn = 'Spiller';
+    let peer = null, rolle = null, kode = '', mittNavn = 'Player';
     let h = {};                               /* hendelser til app.js */
 
     /* ---------------------------------------------------------------- felles */
@@ -152,13 +165,13 @@ const Nett = (() => {
         l.filter((x) => x.s >= 0).sort((a, b) => a.s - b.s).forEach((x, i) => x.sett(i));
     }
 
-    /* en gjest er borte (lukket, eller har ikke sagt noe paa lenge) */
+    /* en gjest er borte (lukket, eller har ikke sagt noe paa lenge); tekst har {0} for navnet */
     function fjernGjest(g, tekst) {
         if (gjester.get(g.id) !== g) return;
         gjester.delete(g.id);
         if (g.klient) husk.set(g.klient, g.spiller);
         try { g.conn.close(); } catch (e) { /* lukket */ }
-        h.chat && h.chat('', g.navn + ' ' + tekst);
+        h.chat && h.chat('', T(tekst, g.navn));
         if (h.iMeny && h.iMeny()) komprimer();
         oppdaterLobby();
     }
@@ -170,7 +183,7 @@ const Nett = (() => {
 
     function lagRom(navn, hendelser, spill) {
         h = hendelser;
-        mittNavn = navn || 'Vert';
+        mittNavn = navn || 'Host';
         rolle = 'vert';
         romSpill = spill === 'hver' ? 'hver' : 'sammen';
         return new Promise((ok, feil) => {
@@ -178,7 +191,7 @@ const Nett = (() => {
             const tidsfrist = setTimeout(() => {
                 if (aapen) return;
                 if (peer) peer.destroy();
-                feil(new Error('Fikk ikke kontakt med PeerJS-serveren. Sjekk nettforbindelsen og prov igjen.'));
+                feil(new Error(T('Fikk ikke kontakt med PeerJS-serveren. Sjekk nettforbindelsen og prøv igjen.')));
             }, 20000);
             const prov = () => {
                 kode = nyKode();
@@ -193,7 +206,10 @@ const Nett = (() => {
                     vaktTimer = setInterval(() => {
                         if (romSpill !== 'sammen') return;
                         const naa = performance.now();
-                        for (const g of [...gjester.values()]) if (naa - g.sist > STILLE_GJEST) fjernGjest(g, 'svarer ikke lenger');
+                        for (const g of [...gjester.values()]) {
+                            if (naa - g.sist > STILLE_GJEST) fjernGjest(g, '{0} svarer ikke lenger');
+                            else if (g.skjultSiden && naa - g.skjultSiden > SKJULT_GJEST) fjernGjest(g, '{0} har vært borte i ett minutt');
+                        }
                     }, 5000);
                     oppdaterLobby();
                     ok(kode);
@@ -203,7 +219,7 @@ const Nett = (() => {
                 peer.on('error', (e) => {
                     if (e.type === 'unavailable-id' && ++forsok < 5) { peer.destroy(); prov(); return; }
                     if (!aapen) return;           /* tidsfristen gir feilmeldingen */
-                    h.status && h.status('Nettverksfeil: ' + (e.message || e.type));
+                    h.status && h.status(peerFeil(e));
                 });
             };
             prov();
@@ -215,7 +231,7 @@ const Nett = (() => {
         conn.on('data', (d) => fraGjest(conn, d));
         conn.on('close', () => {
             const g = gjester.get(conn.peer);
-            if (g && g.conn === conn) fjernGjest(g, 'koblet fra');
+            if (g && g.conn === conn) fjernGjest(g, '{0} koblet fra');
         });
         conn.on('error', () => { /* close kommer etterpaa */ });
     }
@@ -228,6 +244,7 @@ const Nett = (() => {
         case 'hei': {
             if (g) return;
             if (d.v !== VERSJON || (d.f >>> 0) !== format()) {
+                /* norsk kildetekst: gjesten oversetter til sitt spraak (sprak.js) */
                 conn.send({ t: 'feil', tekst: 'Verten har en annen versjon av Moonstone. Last siden på nytt (begge to) og prøv igjen.' });
                 setTimeout(() => conn.close(), 500);
                 return;
@@ -248,12 +265,12 @@ const Nett = (() => {
             const tilbake = spiller !== null;
             if (!tilbake) spiller = ledigSpiller();
             g = {
-                conn, id: conn.peer, klient, navn: String(d.navn || 'Gjest').slice(0, 20),
+                conn, id: conn.peer, klient, navn: String(d.navn || 'Guest').slice(0, 20),
                 port: gammel ? gammel.port : PORTER[gjester.size] || 'ingen', spiller,
                 inn: 0, kort: 0, kortN: 0, innTid: 0, sist: performance.now(), klar: false, venter: true, ko: [], filer: new Set(),
             };
             gjester.set(conn.peer, g);
-            h.chat && h.chat('', g.navn + (tilbake ? ' er tilbake' : ' koblet seg til'));
+            h.chat && h.chat('', T(tilbake ? '{0} er tilbake' : '{0} koblet seg til', g.navn));
             if (romSpill === 'hver') {          /* gjesten spiller sitt eget spill */
                 g.klar = true;
                 g.venter = false;
@@ -269,6 +286,7 @@ const Nett = (() => {
         /* F10 avslutter spillet (WHDLoad QuitKey) for alle; det er bare vertens tast */
         case 'tast': if (g && g.klar && romSpill !== 'hver' && (d.k & 0x7f) !== 0x59) gjesteTaster.push([d.k & 0x7f, !!d.ned, g.spiller]); break;
         case 'velg': if (g && g.klar && romSpill !== 'hver') h.velg && h.velg(d.rad | 0); break;     /* gjesten klikket paa en rad i menyen */
+        case 'peker': if (g && g.klar && romSpill !== 'hver') h.peker && h.peker(d.x | 0, d.y | 0, g.spiller); break;   /* klikk i inventar, by, butikk */
         case 'ridder':                          /* hver for seg: ridderen til en gjest, videre til de andre */
             if (g && romSpill === 'hver') {
                 const m = d.borte ? { t: 'ridder', fra: g.id, borte: true }
@@ -286,9 +304,17 @@ const Nett = (() => {
             }
             break;
         case 'synk':
-            if (g && romSpill !== 'hver') { h.status && h.status(g.navn + ' kom ut av takt, sender tilstanden paa nytt'); h.trengerTilstand && h.trengerTilstand(g.id); }
+            if (g && romSpill !== 'hver') { h.status && h.status(T('{0} kom ut av takt, sender tilstanden på nytt', g.navn)); h.trengerTilstand && h.trengerTilstand(g.id); }
             break;
-        case 'ping': conn.send({ t: 'pong', tid: d.tid }); break;
+        case 'ping':
+            conn.send({ t: 'pong', tid: d.tid });
+            /* fanen hos gjesten er skjult: spillokka staar, men pingen gaar (setInterval), saa
+             * gjesten ville ellers holdes i live og spillet staa paa turen hans for alltid */
+            if (g) {
+                if (d.skjult && !g.skjultSiden) { g.skjultSiden = performance.now(); h.chat && h.chat('', T('{0} har byttet fane eller app', g.navn)); }
+                else if (!d.skjult) g.skjultSiden = 0;
+            }
+            break;
         }
     }
 
@@ -451,7 +477,7 @@ const Nett = (() => {
 
     function bliMed(romkode, navn, hendelser) {
         h = hendelser;
-        mittNavn = navn || 'Gjest';
+        mittNavn = navn || 'Guest';
         rolle = 'gjest';
         kode = romkode.toUpperCase();
         return new Promise((ok, feil) => {
@@ -472,7 +498,7 @@ const Nett = (() => {
                         if (performance.now() - sistFraVert > STILLE) {
                             clearInterval(pingTimer);
                             h.frakoblet && h.frakoblet('Verten svarer ikke lenger.');
-                        } else if (vert && vert.open) vert.send({ t: 'ping', tid: performance.now() });
+                        } else if (vert && vert.open) vert.send({ t: 'ping', tid: performance.now(), skjult: document.hidden });
                     }, 2000);
                     ok();
                 });
@@ -481,11 +507,11 @@ const Nett = (() => {
                 vert.on('error', () => {});
             });
             peer.on('error', (e) => {
-                if (e.type === 'peer-unavailable') feil(new Error('Fant ikke rommet ' + kode + '. Sjekk koden, eller om verten fortsatt er der.'));
-                else if (!aapnet) feil(new Error(e.message || e.type));
-                else h.status && h.status('Nettverksfeil: ' + (e.message || e.type));
+                if (e.type === 'peer-unavailable') feil(new Error(T('Fant ikke rommet {0}. Sjekk koden, eller om verten fortsatt er der.', kode)));
+                else if (!aapnet) feil(new Error(peerFeil(e)));
+                else h.status && h.status(peerFeil(e));
             });
-            setTimeout(() => { if (!aapnet) feil(new Error('Fikk ikke kontakt med verten.')); }, 20000);
+            setTimeout(() => { if (!aapnet) feil(new Error(T('Fikk ikke kontakt med verten.'))); }, 20000);
         });
     }
 
@@ -497,7 +523,7 @@ const Nett = (() => {
         case 'tilstand': {
             if (!deler || deler.id !== d.id) deler = { id: d.id, n: d.n, f: d.f, z: d.z, biter: new Array(d.n), fatt: 0 };
             if (!deler.biter[d.i]) { deler.biter[d.i] = tilBytes(d.data); deler.fatt++; }
-            h.status && h.status('Henter spillet fra verten ... ' + Math.round(deler.fatt / deler.n * 100) + ' %');
+            h.status && h.status(T('Henter spillet fra verten ... {0} %', Math.round(deler.fatt / deler.n * 100)));
             if (deler.fatt === deler.n) {
                 const total = deler.biter.reduce((s, b) => s + b.length, 0);
                 const alt = new Uint8Array(total);
@@ -541,6 +567,7 @@ const Nett = (() => {
         else if (vert && vert.open) vert.send(m);
     }
     function sendVelg(rad) { if (vert && vert.open) vert.send({ t: 'velg', rad }); }
+    function sendPeker(x, y) { if (vert && vert.open) vert.send({ t: 'peker', x, y }); }
     function beOmSynk() { if (vert && vert.open) vert.send({ t: 'synk' }); }
 
     /* ---------------------------------------------------------------- duell (hver for seg)
@@ -554,10 +581,10 @@ const Nett = (() => {
 
     function duellKoble(id) {
         return new Promise((ok, feil) => {
-            if (!peer || peer.destroyed) { feil(new Error('ikke i et rom')); return; }
+            if (!peer || peer.destroyed) { feil(new Error(T('ikke i et rom'))); return; }
             const c = peer.connect(peerId(id), { reliable: true, metadata: { duell: true } });
-            if (!c) { feil(new Error('ikke koblet til signalserveren')); return; }   /* PeerJS gir undefined da */
-            const t = setTimeout(() => { c.close(); feil(new Error('svarer ikke')); }, 10000);
+            if (!c) { feil(new Error(T('ikke koblet til signalserveren'))); return; }   /* PeerJS gir undefined da */
+            const t = setTimeout(() => { c.close(); feil(new Error(T('svarer ikke'))); }, 10000);
             c.on('open', () => { clearTimeout(t); ok(c); });
             c.on('error', (e) => { clearTimeout(t); feil(e); });
         });
@@ -612,7 +639,7 @@ const Nett = (() => {
 
     return {
         lagRom, bliMed, avslutt, chat, invitasjon, settPort, settSpiller, settModus, sendTilstand, porter, sendBilde,
-        hentGjesteTaster, tastTillatt, vertensSpiller, harSpiller, harGjester, sendInn, sendTast, sendVelg, sendRidder, beOmSynk, spillere,
+        hentGjesteTaster, tastTillatt, vertensSpiller, harSpiller, harGjester, sendInn, sendTast, sendVelg, sendPeker, sendRidder, beOmSynk, spillere,
         romSpill: () => romSpill, minId: () => (rolle === 'vert' ? 'vert' : peer ? peer.id : null),
         duellKoble, sendTilstandTil, tilstandsMottaker, peerId, nyInn, brukInn,
         rammer, rolle: () => rolle, kode: () => kode, ping: () => ping,

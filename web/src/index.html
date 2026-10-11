@@ -1,10 +1,18 @@
 <!doctype html>
-<html lang="no">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Moonstone (Mindscape 1991) i nettleseren, kjørt fra originalkoden, med nettspill for opptil fire.">
+<meta name="description" content="Moonstone (Mindscape 1991) in your browser, running the original code, with online play for up to four.">
 <title>Moonstone</title>
+<link rel="icon" href="%%IKON%%">
+<link rel="apple-touch-icon" href="%%IKON%%">
+<link rel="manifest" href="%%MANIFEST%%">
+<meta name="theme-color" content="#000000">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Moonstone">
 <style>
 %%STIL%%
 </style>
@@ -15,154 +23,161 @@
   <div id="touch" hidden>
     <div class="kors"></div>
     <div class="knapper">
-      <button data-knapp="40" aria-label="Inventar"><span class="pt">Inventar</span></button>
-      <button data-knapp="12" aria-label="Slutt tur"><span class="pt">Slutt tur</span></button>
+      <button data-knapp="40" aria-label="Inventory"><span class="pt">Inventory</span></button>
+      <button data-knapp="12" aria-label="End turn"><span class="pt">End turn</span></button>
       <button data-knapp="45" aria-label="Esc"><span class="pt">Esc</span></button>
       <button data-knapp="fire" class="fire" aria-label="Fire"><span class="pt">Fire</span></button>
     </div>
   </div>
-  <div id="valg" class="spillboks" hidden role="dialog" aria-label="Valg">
+  <div id="valg" class="spillboks" hidden role="dialog" aria-label="Choices">
     <div id="valg-tittel" class="pt"></div>
     <div id="valg-liste"></div>
   </div>
-  <button id="navn-knapp" class="knapp" hidden><span class="pt">Skriv navn</span></button>
-  <button id="meny-knapp" title="Meny (Home)" aria-label="Meny"><span class="pt">Meny</span></button>
+  <button id="navn-knapp" class="knapp" hidden><span class="pt">Enter name</span></button>
+  <button id="meny-knapp" title="Menu (Home)" aria-label="Menu"><span class="pt">Menu</span></button>
   <div id="status"></div>
   <div id="hint" hidden></div>
   <div id="chatlinjer"></div>
-  <div id="lasting" role="status"><h1>Moonstone</h1><p id="lasting-tekst">Laster spillet ...</p></div>
+  <div id="lasting" role="status"><h1>Moonstone</h1><p id="lasting-tekst">Loading the game ...</p></div>
   <div id="navn-dialog" class="boks dialog" hidden>
-    <h3 class="pt">Navnet ditt</h3>
-    <p class="hjelp">Vises for de andre i nettspillet.</p>
-    <input id="navn-felt" maxlength="20" autocomplete="nickname" spellcheck="false" aria-label="Navnet ditt">
+    <h3 class="pt">Your name</h3>
+    <p class="hjelp">Shown to the other players online.</p>
+    <input id="navn-felt" maxlength="20" autocomplete="nickname" spellcheck="false" aria-label="Your name">
     <div class="rad">
       <button id="navn-ok" class="knapp"><span class="pt">OK</span></button>
-      <button id="navn-avbryt" class="knapp"><span class="pt">Avbryt</span></button>
+      <button id="navn-avbryt" class="knapp"><span class="pt">Cancel</span></button>
     </div>
   </div>
   <div id="ridder-dialog" class="boks dialog" hidden>
-    <h3 class="pt">Navnet til ridderen</h3>
-    <p class="hjelp">Bokstaver, tall og mellomrom, opptil 13 tegn.</p>
-    <input id="ridder-felt" maxlength="13" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Navnet til ridderen">
+    <h3 class="pt">Your knight's name</h3>
+    <p class="hjelp">Letters, numbers and spaces, up to 13 characters.</p>
+    <input id="ridder-felt" maxlength="13" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Your knight's name">
     <div class="rad">
       <button id="ridder-ok" class="knapp"><span class="pt">OK</span></button>
-      <button id="ridder-avbryt" class="knapp"><span class="pt">Avbryt</span></button>
+      <button id="ridder-avbryt" class="knapp"><span class="pt">Cancel</span></button>
     </div>
   </div>
   <div id="kode-dialog" class="boks dialog" hidden>
-    <h3 class="pt">Bli med i et rom</h3>
-    <p class="hjelp">Skriv romkoden (seks tegn) eller lim inn invitasjonslenken.</p>
-    <input id="kode-felt" maxlength="300" autocomplete="off" spellcheck="false" aria-label="Romkode eller lenke">
+    <h3 class="pt">Join a room</h3>
+    <p class="hjelp">Type the room code (six characters) or paste the invite link.</p>
+    <input id="kode-felt" maxlength="300" autocomplete="off" spellcheck="false" aria-label="Room code or link">
     <div class="rad">
-      <button id="kode-ok" class="knapp"><span class="pt">Bli med</span></button>
-      <button id="kode-avbryt" class="knapp"><span class="pt">Avbryt</span></button>
+      <button id="kode-ok" class="knapp"><span class="pt">Join</span></button>
+      <button id="kode-avbryt" class="knapp"><span class="pt">Cancel</span></button>
     </div>
   </div>
   <div id="meny" class="panel" hidden>
     <div class="menytopp">
       <div id="meny-logo"><h2 class="pt2">Moonstone</h2></div>
-      <button id="lukk-meny" class="knapp"><span class="pt">Tilbake til spillet</span></button>
+      <button id="lukk-meny" class="knapp"><span class="pt">Back to the game</span></button>
     </div>
     <section class="boks">
-      <h3 class="pt">Bilde og lyd</h3>
+      <label class="valg"><span class="pt">Language / Språk</span>
+        <select id="sprak"><option value="en">English</option><option value="no">Norsk</option></select>
+        <span class="verdi pt" data-for="sprak"></span></label>
+    </section>
+    <section class="boks">
+      <h3 class="pt">Picture and sound</h3>
       <label class="valg"><span class="pt">Filter</span>
-        <select id="filter"><option value="skarp">Skarp</option><option value="piksel">Rene piksler</option><option value="myk">Myk</option><option value="crt">CRT</option><option value="glatt">Glatt (Scale4x)</option></select>
+        <select id="filter"><option value="skarp">Sharp</option><option value="piksel">Clean pixels</option><option value="myk">Soft</option><option value="crt">CRT</option><option value="glatt">Smooth (Scale4x)</option></select>
         <span class="verdi pt" data-for="filter"></span></label>
       <label class="valg"><span class="pt">Format</span>
-        <select id="format"><option value="pal">PAL (kvadratiske piksler)</option><option value="43">4:3</option></select>
+        <select id="format"><option value="pal">PAL (square pixels)</option><option value="43">4:3</option></select>
         <span class="verdi pt" data-for="format"></span></label>
-      <label class="valg"><span class="pt">Hele PAL-bildet (med kanter)</span><input type="checkbox" id="helt"><span class="verdi pt" data-for="helt"></span></label>
-      <label class="valg glider"><span class="pt">Lydstyrke</span><span class="verdi pt" data-for="volum"></span><input type="range" id="volum" min="0" max="2" step="0.05"></label>
-      <label class="valg"><span class="pt">Vent på fire før kamp</span><input type="checkbox" id="knappevent"><span class="verdi pt" data-for="knappevent"></span></label>
-      <p class="hjelp">ButtonWait: kampen venter på fire, så du får tid til å lese. Gjelder fra neste start.</p>
-      <label class="valg"><span class="pt">Styrekors og knapper også med mus</span><input type="checkbox" id="skjermknapper"><span class="verdi pt" data-for="skjermknapper"></span></label>
+      <label class="valg"><span class="pt">Full PAL picture (with borders)</span><input type="checkbox" id="helt"><span class="verdi pt" data-for="helt"></span></label>
+      <div class="rad" id="fullskjerm-rad" hidden><button id="fullskjerm" class="knapp"><span class="pt">Fullscreen</span></button></div>
+      <p class="hjelp" id="hjemskjerm-hjelp" hidden>On iPhone and iPad: Share, then Add to Home Screen gives the game the whole screen.</p>
+      <label class="valg glider"><span class="pt">Volume</span><span class="verdi pt" data-for="volum"></span><input type="range" id="volum" min="0" max="2" step="0.05"></label>
+      <label class="valg"><span class="pt">Wait for fire before battles</span><input type="checkbox" id="knappevent"><span class="verdi pt" data-for="knappevent"></span></label>
+      <p class="hjelp">ButtonWait: battles wait for fire, so you have time to read. Takes effect the next time the game starts.</p>
+      <label class="valg"><span class="pt">On-screen controls with a mouse too</span><input type="checkbox" id="skjermknapper"><span class="verdi pt" data-for="skjermknapper"></span></label>
     </section>
     <section class="boks">
-      <h3 class="pt">Effekter</h3>
-      <p class="hjelp">Spillet tegnes i lag: bakgrunn, figurer og tekst hver for seg. Effektene bruker det.</p>
-      <label class="valg"><span class="pt">Skygger under figurer og tekst</span><input type="checkbox" id="effekt-skygge"><span class="verdi pt" data-for="effekt-skygge"></span></label>
-      <label class="valg"><span class="pt">Litt uskarp bakgrunn</span><input type="checkbox" id="effekt-dybde"><span class="verdi pt" data-for="effekt-dybde"></span></label>
-      <label class="valg"><span class="pt">Glød rundt lyse ting</span><input type="checkbox" id="effekt-glod"><span class="verdi pt" data-for="effekt-glod"></span></label>
-      <label class="valg"><span class="pt">Sterkere og varmere farger</span><input type="checkbox" id="effekt-farger"><span class="verdi pt" data-for="effekt-farger"></span></label>
-      <label class="valg"><span class="pt">Mørkere hjørner</span><input type="checkbox" id="effekt-vignett"><span class="verdi pt" data-for="effekt-vignett"></span></label>
+      <h3 class="pt">Effects</h3>
+      <p class="hjelp">The game is drawn in layers: background, figures and text separately. The effects use that.</p>
+      <label class="valg"><span class="pt">Shadows under figures and text</span><input type="checkbox" id="effekt-skygge"><span class="verdi pt" data-for="effekt-skygge"></span></label>
+      <label class="valg"><span class="pt">Slightly soft background</span><input type="checkbox" id="effekt-dybde"><span class="verdi pt" data-for="effekt-dybde"></span></label>
+      <label class="valg"><span class="pt">Glow around bright things</span><input type="checkbox" id="effekt-glod"><span class="verdi pt" data-for="effekt-glod"></span></label>
+      <label class="valg"><span class="pt">Richer, warmer colours</span><input type="checkbox" id="effekt-farger"><span class="verdi pt" data-for="effekt-farger"></span></label>
+      <label class="valg"><span class="pt">Darker corners</span><input type="checkbox" id="effekt-vignett"><span class="verdi pt" data-for="effekt-vignett"></span></label>
     </section>
     <section class="boks">
-      <h3 class="pt">HD-grafikk</h3>
-      <label class="valg"><span class="pt">Grafikk</span>
-        <select id="hd-bryter"><option value="hd">HD der den finnes</option><option value="original">Original</option></select>
+      <h3 class="pt">HD graphics</h3>
+      <label class="valg"><span class="pt">Graphics</span>
+        <select id="hd-bryter"><option value="original">Original</option><option value="hd">HD where available</option></select>
         <span class="verdi pt" data-for="hd-bryter"></span></label>
-      <p class="hjelp">Fotografisk standardgrafikk lastes automatisk: bakgrunner, blå ridderbevegelse, riddervalg, menypil og månefaser. Øvrige animasjoner bruker foreløpig originalgrafikk. Du kan også velge egne HD-bilder.</p>
-      <label class="valg"><span class="pt">Gult felt der HD-bilde mangler</span><input type="checkbox" id="rammer"><span class="verdi pt" data-for="rammer"></span></label>
-      <p class="hjelp">Bakgrunner: lagre den som vises, tegn den i høyere oppløsning, og legg den i mappen <code>bg</code> i HD-pakken med samme navn.</p>
+      <p class="hjelp">With HD on, photographic standard graphics load automatically: backgrounds, the blue knight walking, knight selection, the menu pointer and moon phases. Other animations still use the original graphics. You can also pick your own HD images.</p>
+      <label class="valg"><span class="pt">Yellow box where an HD image is missing</span><input type="checkbox" id="rammer"><span class="verdi pt" data-for="rammer"></span></label>
+      <p class="hjelp">Backgrounds: save the one on screen, redraw it at a higher resolution and put it in the <code>bg</code> folder of the HD pack with the same name.</p>
       <div class="rad">
-        <label class="knapp"><span class="pt">Velg HD-mappe</span> <input type="file" id="velg-hd" webkitdirectory multiple></label>
-        <button id="standard-hd" class="knapp"><span class="pt">Standardgrafikk</span></button>
-        <button id="tom-hd" class="knapp"><span class="pt">Fjern</span></button>
-        <button id="lagre-bg" class="knapp"><span class="pt">Lagre bakgrunnen</span></button>
+        <label class="knapp"><span class="pt">Choose HD folder</span> <input type="file" id="velg-hd" webkitdirectory multiple></label>
+        <button id="standard-hd" class="knapp"><span class="pt">Standard graphics</span></button>
+        <button id="tom-hd" class="knapp"><span class="pt">Remove</span></button>
+        <button id="lagre-bg" class="knapp"><span class="pt">Save background</span></button>
       </div>
-      <p class="hjelp" id="hd-status">Standardgrafikken lastes når spillet starter.</p>
+      <p class="hjelp" id="hd-status">HD is off. Choose “HD where available” to load the standard graphics.</p>
     </section>
     <section class="boks" id="lagring">
-      <h3 class="pt">Lagring</h3>
-      <p class="hjelp" id="lagring-hjelp">Spillet lagres i denne nettleseren. Det lagres også automatisk når du bytter fane eller app, og hvert andre minutt. Lagringene kan lastes ned og flyttes mellom nettleser og PC.</p>
-      <label class="valg"><span class="pt">Plass</span><select id="plass"></select><span class="verdi pt" data-for="plass"></span></label>
+      <h3 class="pt">Saves</h3>
+      <p class="hjelp" id="lagring-hjelp">Your game is saved in this browser. It also saves automatically when you switch tab or app, and every two minutes. Saves can be downloaded and moved between browser and PC.</p>
+      <label class="valg"><span class="pt">Slot</span><select id="plass"></select><span class="verdi pt" data-for="plass"></span></label>
       <div class="rad">
-        <button id="lagre" class="knapp"><span class="pt">Lagre</span></button>
-        <button id="last" class="knapp"><span class="pt">Last</span></button>
+        <button id="lagre" class="knapp"><span class="pt">Save</span></button>
+        <button id="last" class="knapp"><span class="pt">Load</span></button>
       </div>
       <div class="rad">
-        <button id="last-auto" class="knapp"><span class="pt">Fortsett</span></button>
+        <button id="last-auto" class="knapp"><span class="pt">Load autosave</span></button>
       </div>
-      <p class="hjelp" id="auto-info">Ingen automatisk lagring ennå.</p>
+      <p class="hjelp" id="auto-info">No autosave yet.</p>
       <div class="rad">
-        <button id="eksport" class="knapp"><span class="pt">Last ned</span></button>
-        <label class="knapp"><span class="pt">Hent fra fil</span> <input type="file" id="importer" accept=".sav"></label>
+        <button id="eksport" class="knapp"><span class="pt">Download</span></button>
+        <label class="knapp"><span class="pt">Load from file</span> <input type="file" id="importer" accept=".sav"></label>
       </div>
     </section>
     <section class="boks" id="nettspill" hidden>
-      <h3 class="pt">Nettspill</h3>
+      <h3 class="pt">Online game</h3>
       <p id="rominfo"></p>
       <div class="rad" id="lenkerad">
         <input id="lenke" readonly>
-        <button id="kopier" class="knapp"><span class="pt">Kopier lenken</span></button>
+        <button id="kopier" class="knapp"><span class="pt">Copy link</span></button>
       </div>
       <table id="spillerliste"></table>
-      <p class="hjelp" id="port-hjelp">Moonstone har to joystickporter. Joystick 1 (port 2) brukes på kartet, i kamp mellom to riddere brukes begge. Spillere på samme joystick deler den som ved et vanlig bord: den som har turen, styrer.</p>
-      <div id="chat"><div id="chatlogg"></div><input id="chatfelt" placeholder="Skriv en melding og trykk Enter" maxlength="300"></div>
+      <p class="hjelp" id="port-hjelp">Moonstone has two joystick ports. Joystick 1 (port 2) is used on the map; in a fight between two knights both are used. Players on the same joystick share it like at a real table: whoever has the turn is in control.</p>
+      <div id="chat"><div id="chatlogg"></div><input id="chatfelt" placeholder="Type a message and press Enter" maxlength="300"></div>
     </section>
     <section class="boks">
-      <h3 class="pt">Spillfil og egne filer</h3>
-      <p class="hjelp" id="spillfil-hjelp">Spillfilen (Moonstonecd32-AMIGA.zip) er bygget inn i siden. Vil du bruke en annen, f.eks. «Moonstone CD32.iso», velger du den her. Gjester i nettspill trenger ingen spillfil.</p>
+      <h3 class="pt">Game file and your own files</h3>
+      <p class="hjelp" id="spillfil-hjelp">The game file (Moonstonecd32-AMIGA.zip) is built into the page. To use another one, such as “Moonstone CD32.iso”, choose it here. Guests in online games don’t need a game file.</p>
       <div class="rad">
-        <label class="knapp"><span class="pt">Velg spillfil</span>
+        <label class="knapp"><span class="pt">Choose game file</span>
           <input type="file" id="velg-fil" accept=".zip,.iso,application/zip"></label>
       </div>
-      <p class="hjelp">Filer laget med <code>tools/gfx.py build</code> (f.eks. bg1a.PIV) brukes i stedet for originalene i data/, og <code>tekster.txt</code> fra <code>tools/tekst.py</code> endrer tekstene i spillet. De brukes når spillet startes på nytt. I nettspill får gjestene dem fra verten.</p>
+      <p class="hjelp">Files made with <code>tools/gfx.py build</code> (such as bg1a.PIV) replace the originals in data/, and <code>tekster.txt</code> from <code>tools/tekst.py</code> changes the texts in the game. They are used when the game restarts. In online games, guests get them from the host.</p>
       <div class="rad">
-        <label class="knapp"><span class="pt">Legg til filer</span> <input type="file" id="velg-mod" multiple></label>
-        <button id="fjern-mod" class="knapp"><span class="pt">Fjern alle</span></button>
+        <label class="knapp"><span class="pt">Add files</span> <input type="file" id="velg-mod" multiple></label>
+        <button id="fjern-mod" class="knapp"><span class="pt">Remove all</span></button>
       </div>
-      <p class="hjelp" id="mod-liste">Ingen egne filer.</p>
+      <p class="hjelp" id="mod-liste">No files of your own.</p>
     </section>
     <section class="boks">
-      <h3 class="pt">Taster</h3>
+      <h3 class="pt">Controls</h3>
       <ul class="taster">
-        <li><b>Introen:</b> Esc, fire, Enter eller et trykk på skjermen hopper over den.</li>
-        <li><b>Menyene i spillet:</b> klikk eller trykk på et valg, eller bruk piltastene og Enter (eller fire).</li>
-        <li><b>Valgene på kartet</b> (fire på et sted): trykk på et valg under bildet, bruk styrekorset og Fire, eller tastene 1-9.</li>
-        <li><b>Musen:</b> utenfor menyene er venstre knapp fire. Hold den og dra for fire og retning (angrepene i kamp). Høyre knapp og dra er bare retning.</li>
-        <li><b>Nettspill:</b> velg <b>Options</b> og <b>Online Game</b> i spillets meny.</li>
-        <li><b>Kontrollene:</b> tastene og knappene under kan endres i spillets meny, under <b>Options</b> (Keyboard og Gamepad). Listen viser standardoppsettet.</li>
-        <li><b>Joystick 1:</b> piltastene, Ctrl er fire. Spillkontroller 1.</li>
-        <li><b>Joystick 2:</b> talltastaturet 8 2 4 6 (7 9 1 3 på skrå), 0 er fire. Spillkontroller 2.</li>
-        <li><b>Mellomrom:</b> inventaret til ridderen. <b>E:</b> avslutt turen.</li>
-        <li>I kamp: hold fire og trykk en retning for de åtte angrepene (se manualen).</li>
-        <li><b>Home:</b> denne menyen. <b>Page Up / Page Down:</b> lagre / laste. <b>End:</b> neste lagringsplass. <b>F10:</b> start på nytt.</li>
-        <li>På spillkontroller: A = fire, B = mellomrom, Start = E, Back = Esc, LB RB X Y = 1 til 4.</li>
+        <li><b>Intro:</b> Esc, fire, Enter or a tap on the screen skips it.</li>
+        <li><b>Game menus:</b> click or tap an item, or use the arrow keys and Enter (or fire).</li>
+        <li><b>Choices on the map</b> (fire on a location): tap a choice below the picture, use the d-pad and Fire, or the keys 1-9.</li>
+        <li><b>Mouse:</b> outside the menus the left button is fire. Hold it and drag for fire plus a direction (the attacks in battle). Right button and drag is direction only.</li>
+        <li><b>Online play:</b> choose <b>Options</b> and <b>Online Game</b> in the game menu.</li>
+        <li><b>Controls:</b> the keys and buttons below can be changed in the game menu under <b>Options</b> (Keyboard and Gamepad). The list shows the defaults.</li>
+        <li><b>Joystick 1:</b> arrow keys, Ctrl is fire. Gamepad 1.</li>
+        <li><b>Joystick 2:</b> keypad 8 2 4 6 (7 9 1 3 diagonally), 0 is fire. Gamepad 2.</li>
+        <li><b>Space:</b> the knight’s inventory. <b>E:</b> end your turn.</li>
+        <li>In battle: hold fire and press a direction for the eight attacks (see the manual).</li>
+        <li><b>Home:</b> this menu. <b>Page Up / Page Down:</b> save / load. <b>End:</b> next save slot. <b>F10:</b> restart.</li>
+        <li>On a gamepad: A = fire, B = space, Start = E, Back = Esc, LB RB X Y = 1 to 4.</li>
       </ul>
     </section>
-    <div class="rad midt"><button id="omstart" class="knapp"><span class="pt">Start spillet på nytt</span></button></div>
-    <p class="smaa">Moonstone: A Hard Days Knight (Mindscape 1991), kjørt fra originalkoden på en emulert Amiga 500. Kjernen er skrevet i C (WebAssembly), bildet tegnes med three.js, nettspill går med PeerJS. Menyen bruker spillets egen font og grafikk.</p>
+    <div class="rad midt"><button id="omstart" class="knapp"><span class="pt">Restart the game</span></button></div>
+    <p class="smaa">Moonstone: A Hard Days Knight (Mindscape 1991), running the original code on an emulated Amiga 500. The core is written in C (WebAssembly), the picture is drawn with three.js and online play uses PeerJS. The menu uses the game’s own font and graphics.</p>
   </div>
 </div>
 

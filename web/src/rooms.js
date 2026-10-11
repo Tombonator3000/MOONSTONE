@@ -20,7 +20,7 @@ const Romliste = (() => {
 
     function kobl() {
         if (klient) return klient;
-        if (typeof mqtt === 'undefined') throw new Error('MQTT er ikke lastet');
+        if (typeof mqtt === 'undefined') throw new Error(T('MQTT er ikke lastet'));
         klient = mqtt.connect(MEGLER, {
             protocolVersion: VERSJON, clean: true, connectTimeout: 10000, reconnectPeriod: 5000,
             clientId: 'moonstone_' + Math.random().toString(16).slice(2, 10),
