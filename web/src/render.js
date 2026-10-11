@@ -66,6 +66,9 @@ const Visning = (() => {
     let antallBg = 0;                       /* HD-bakgrunner i pakken */
     const originalCeler = new Map();        /* originale indekser, aldri preview-paletten */
     const hdTekstBanker = new Map();
+    const hdIkoner = new Map();
+    let hdIkonFeil = [];
+    let hdMarkor = null;
     let hdTekstGlyfer = new Set();
     let hdTekstMeta = new Map();
     let hdTegnbare = new Set();
@@ -563,10 +566,18 @@ const Visning = (() => {
                             bilder = Spillgrafikk._cel(data).map((g, i) => {
                                 const maske = data[19 + i * 10];
                                 g.planmaske = maske;
-                                return maske <= 31 && !(maske & (maske + 1)) ? g : null;
+                                if (maske > 31) return null;
+                                // CEL lagrer bare planene som er satt i masken.
+                                // F.eks. $17 betyr bit 0,1,2,4, ikke bit 0..3.
+                                if (maske & (maske + 1)) {
+                                    const bits = [1,2,4,8,16].filter(b => maske & b);
+                                    g.px = g.px.map(v => bits.reduce((n,b,i) => n | ((v & (1 << i)) ? b : 0), 0));
+                                }
+                                return g;
                             });
                             originalCeler.set(navn, { data, bilder });
                             forvarmPoseIndekser(navn, bilder);
+                            for (const m of hdIkoner.values()) if (m.source.file === navn && bilder[m.source.frame]) indeksHash(bilder[m.source.frame]);
                         }
                     }
                 }
@@ -898,12 +909,15 @@ const Visning = (() => {
         hdKontroll = { godkjent: 0, utenLag: 0, kilde: 0, overlapp: 0, piksler: 0,
             poseGodkjent: 0, poseGruppe: 0, poseKilde: 0, posePalett: 0, poseOverlapp: 0, posePiksler: 0,
             tekstGodkjent: 0, tekstAvvist: 0, tekstFeil: [] };
+        hdKontroll.ikonGodkjent = 0; hdKontroll.ikonAvvist = 0;
+        hdMarkor=null;
         vernData.fill(0);
         vernTex.needsUpdate = true;
         if (!hdPaa || (!hdPakke.size && !hdPoser.size)) return;
         const lest = new Map();
         const reservert = forberedPoser(lag, lest);
         for (const d of forberedTekst(lag, lest)) reservert.add(d);
+        forberedMarkor(lag,lest);
         for (let nr = 0; nr < visteListe.length; nr++) {
             const d = visteListe[nr];
             if (reservert.has(d)) continue;
@@ -911,6 +925,10 @@ const Visning = (() => {
             if (!lag || !lag.forIdx || lag.forIdx.length !== 320 * 200) { hdKontroll.utenLag++; continue; }
             const g = originalCel(d.fil, lest)?.[d.bilde], x = d.x - d.xoff, y = d.y;
             if (!g || g.w !== d.w || g.h !== d.h || !Number.isInteger(x) || !Number.isInteger(y)) { hdKontroll.kilde++; continue; }
+            const ikey = d.fil.toLowerCase() + '/' + String(d.bilde).padStart(3, '0'), ikon = hdIkoner.get(ikey);
+            if (ikon && (bankHash(originalCeler.get(d.fil.toLowerCase())).hash !== ikon.source.bank_sha256 ||
+                indeksHash(g) !== ikon.indices_sha256 || g.planmaske !== ikon.plane_mask ||
+                !fargeleggIkon(ikon, hdPakke.get(ikey), y))) { hdKontroll.ikonAvvist++; continue; }
             const foran = [];
             let tvetydig = false;
             for (let k = 0; k < visteListe.length; k++) {
@@ -935,6 +953,7 @@ const Visning = (() => {
                 for (let i = 0; i < d.w; i++) {
                     if (x + i < 0 || x + i >= 320) continue;
                     const p = (y + j) * 320 + x + i, indeks = lag.forIdx[p];
+                    if (hdMarkor?.visible.has(p)) continue;
                     let over = 0, hdOver = false;
                     for (const o of foran) {
                         const oi = x + i - o.x, oj = y + j - o.d.y;
@@ -958,8 +977,10 @@ const Visning = (() => {
             for (const p of fjern) forData[p * 4 + 3] = 0;
             for (const p of beskytt) vernData[p * 4 + 3] = 255;
             hdTegnbare.add(d);
+            if (ikon) { hdFigurLys.set(d, 1); hdKontroll.ikonGodkjent++; }
             hdKontroll.godkjent++;
         }
+        if (hdMarkor) for (const p of hdMarkor.visible) vernData[p*4+3]=0;
         return (lag?.hash === 0x55bb9767 && visteListe.some(d => d.fil.toLowerCase() === 'bold.f' &&
             d.bilde === 73 && hdTegnbare.has(d))) || bevarTitteltekst(lag, lest);
     }
@@ -973,6 +994,8 @@ const Visning = (() => {
             let i = 0;
             for (const o of lagNaa.overlays) {
                 const t = hdPakke.get(o.key); if (!t) continue;
+                const ikon = hdIkoner.get(o.key);
+                if (ikon && !fargeleggIkon(ikon,t,o.rect[1])) continue;
                 if (!sceneFlater[i]) {
                     const m = new THREE.Mesh(new THREE.PlaneGeometry(1,1),t.mat);
                     hdGruppe.add(m); sceneFlater[i] = m;
@@ -982,7 +1005,7 @@ const Visning = (() => {
                 m.material=t.mat; t.mat.uniforms.imageRegion.value.set(...o.uv_rect);
                 t.mat.uniforms.vern.value=o.foreground ? sceneVernTex : vernTex;
                 t.mat.uniforms.alphaCutoff.value=o.alpha_cutoff || 0;
-                t.mat.uniforms.lys.value=hdLys;
+                t.mat.uniforms.lys.value=ikon ? 1 : hdLys;
                 t.mat.uniforms.lagPos.value.set(diwNaa[0]/2-ux(),diwNaa[1]-uy());
                 plasser(m,diwNaa[0]/2+x0-ux(),diwNaa[1]+y0-uy(),x1-x0,y1-y0);m.visible=true;
             }
@@ -1012,6 +1035,12 @@ const Visning = (() => {
                 plasser(m, diwNaa[0] / 2 + p.x - ux(), diwNaa[1] + p.y - uy(), p.pose.width, p.pose.height);
                 if (p.speilet) m.scale.x = -p.pose.width;
                 m.visible = true;
+            }
+            if (hdMarkor) {
+                const {x,y,meta,t}=hdMarkor,m=flate(n++);
+                m.material=t.mat;t.mat.uniforms.lys.value=1;
+                t.mat.uniforms.lagPos.value.set(diwNaa[0]/2-ux(),diwNaa[1]-uy());
+                plasser(m,diwNaa[0]/2+x-ux(),diwNaa[1]+y-uy(),meta.width,meta.height);m.visible=true;
             }
         }
         for (let i = n; i < flater.length; i++) flater[i].visible = false;
@@ -1098,11 +1127,72 @@ const Visning = (() => {
         t.generateMipmaps = false;
         t.minFilter = THREE.LinearFilter;
         t.needsUpdate = true;
-        return { tex: t, width: lerret.width, height: lerret.height, mat: new THREE.ShaderMaterial({
+        return { tex: t, canvas: lerret, width: lerret.width, height: lerret.height, mat: new THREE.ShaderMaterial({
             uniforms: { map: { value: t }, vern: { value: vernTex }, lagPos: { value: new THREE.Vector2() }, lys: { value: 1 },
                 imageRegion: { value: region || new THREE.Vector4(0, 0, 1, 1) }, alphaCutoff: { value: 0 } },
             vertexShader: vertHd, fragmentShader: fragHd, transparent: true, depthTest: false, depthWrite: false, side: THREE.DoubleSide,
         }) };
+    }
+
+    /* Konturikonene bruker skjermens virkelige palett, ogsaa ved fading og
+     * fargebytte. Vi lager ikke nye farger, teksturer, lys eller dekorasjoner. */
+    function ikonPalett(m,y,diw=diwNaa) {
+        if (!Kjerne.skanout().gyldig) return null;
+        const pal = Kjerne.skanout().pal, top = diw[1] + y;
+        if (top < 0 || top + m.height > 288) return null;
+        const colors = [...new Set([m.base_index,...m.paths.map(p=>p.index)])];
+        const offset=m.palette_offset||0;
+        const rgb = colors.map(c=>Array.from(pal.subarray((top*32+c+offset)*4,(top*32+c+offset)*4+3)));
+        for (let j=1;j<m.height;j++) for (let k=0;k<colors.length;k++) for (let b=0;b<3;b++) {
+            if (pal[((top+j)*32+colors[k]+offset)*4+b]!==rgb[k][b]) return null;
+        }
+        return {colors,rgb};
+    }
+
+    function fargeleggIkon(m, t, y) {
+        if (!t) return false;
+        const palette=ikonPalett(m,y);if(!palette)return false;
+        const {colors,rgb}=palette;
+        const key=rgb.flat().join(',');
+        if (t.ikonPalett === key) return true;
+        const ctx=t.canvas.getContext('2d'), s=m.scale;
+        ctx.resetTransform();ctx.clearRect(0,0,t.canvas.width,t.canvas.height);ctx.scale(s,s);
+        ctx.save();ctx.clip(m.clipPath,'evenodd');
+        const fill=(c,p)=>{ctx.fillStyle='rgb('+rgb[colors.indexOf(c)].join(',')+')';ctx.fill(p,'evenodd');};
+        fill(m.base_index,m.clipPath);
+        for (const p of m.paths) fill(p.index,p.path);
+        ctx.restore();t.ikonPalett=key;t.tex.needsUpdate=true;
+        return true;
+    }
+
+    /* po.cel blir brukt som hardware-sprite, med fargene 17..19. Det er
+     * derfor ingen tegn_figur-post for den. Identifiser bare den eksakte
+     * originalmasken; bit 7 i skanout skiller sprite fra vanlig grafikk. */
+    function forberedMarkor(lag,lest) {
+        const meta=hdIkoner.get('po.cel/000'),t=hdPakke.get('po.cel/000');
+        if (!meta?.hardware_sprite || !t || !lag) return;
+        const g=originalCel('po.cel',lest)?.[0],bank=originalCeler.get('po.cel'),scan=Kjerne.skanout();
+        if (!g || !scan.gyldig || bankHash(bank).hash!==meta.source.bank_sha256 || indeksHash(g)!==meta.indices_sha256) return;
+        const used=[];for(let j=0;j<g.h;j++)for(let i=0;i<g.w;i++)if(g.px[j*g.w+i])used.push([i,j,g.px[j*g.w+i]]);
+        const anchor=used[Math.floor(used.length/2)],originX=diwNaa[0],originY=diwNaa[1];
+        for(let sy=0;sy<200;sy++)for(let sx=0;sx<320;sx++) {
+            if(scan.idx[(originY+sy)*720+originX+sx*2]!==128+16+anchor[2])continue;
+            const x=sx-anchor[0],y=sy-anchor[1];if(x<0||y<0||x+g.w>320||y+g.h>200)continue;
+            const visible=new Set(),hidden=[];let bad=false;
+            for(let j=0;j<g.h&&!bad;j++)for(let i=0;i<g.w;i++) {
+                const v=g.px[j*g.w+i],actual=scan.idx[(originY+y+j)*720+originX+(x+i)*2];
+                if(actual&128) {if(!v||actual!==144+v){bad=true;break;}visible.add((y+j)*320+x+i);}
+                else if(v)hidden.push([i,j]);
+            }
+            if(bad||visible.size<used.length*.9)continue;
+            const mask=hidden.map(p=>p.join(',')).join(';');if(t.markorMask!==mask)t.ikonPalett=null;
+            if(!fargeleggIkon(meta,t,y))continue;
+            const ctx=t.canvas.getContext('2d');ctx.resetTransform();
+            for(const[i,j]of hidden)ctx.clearRect(i*meta.scale,j*meta.scale,meta.scale,meta.scale);
+            t.markorMask=mask;t.tex.needsUpdate=true;
+            for(const p of visible)forData[p*4+3]=0;
+            hdMarkor={x,y,meta,t,visible};hdKontroll.markorGodkjent=1;return;
+        }
     }
 
     function gyldigPose(p) {
@@ -1131,6 +1221,29 @@ const Visning = (() => {
         let antall = 0;
         const alle = Array.from(filer), stiFor = (f) => (f.webkitRelativePath || f.name).replace(/\\/g, '/');
         const filKart = new Map(alle.map((f) => [stiFor(f).toLowerCase(), f]));
+        for (const f of alle.filter(f=>/(^|\/)icons\.json$/i.test(stiFor(f)))) {
+            hdIkoner.clear();hdIkonFeil=[];
+            try {
+                const data=JSON.parse(await f.text());
+                if (data.schema!==1 || !Array.isArray(data.entries) || data.entries.length>200) throw new Error('Ugyldig ikonmanifest');
+                for (const m of data.entries) {
+                    if (!m || typeof m.key!=='string' || !/^[a-z0-9_.-]+\/[0-9]{3}$/.test(m.key) ||
+                        !Number.isInteger(m.width) || m.width<1 || m.width>320 || !Number.isInteger(m.height) || m.height<1 || m.height>200 ||
+                        m.scale!==8 || !m.source || !/^[0-9a-f]{64}$/.test(m.source.bank_sha256) ||
+                        !/^[0-9a-f]{64}$/.test(m.indices_sha256) || ![0,16].includes(m.palette_offset||0) ||
+                        !Array.isArray(m.paths) || m.paths.length>32 || !Number.isInteger(m.base_index) || m.base_index<0 || m.base_index>31 ||
+                        typeof m.clip!=='string' || m.clip.length>100000 || m.paths.some(p=>!Number.isInteger(p.index)||p.index<0||p.index>31||typeof p.d!=='string'||p.d.length>100000)) throw new Error('Ugyldig ikonkontur');
+                    hdIkoner.set(m.key,{...m,clipPath:new Path2D(m.clip),paths:m.paths.map(p=>({...p,path:new Path2D(p.d)}))});
+                }
+                for (const m of hdIkoner.values()) if (!m.scene) {
+                    const g=originalCel(m.source.file,new Map())?.[m.source.frame];
+                    if (g) {
+                        indeksHasher.set(g,await sha256(g.px));
+                        await bankHash(originalCeler.get(m.source.file)).venter;
+                    }
+                }
+            } catch(e) {hdIkonFeil.push(e.message);hdIkoner.clear();}
+        }
         for (const f of alle.filter(f => /(^|\/)text\.json$/i.test(stiFor(f)))) {
             const tekst = JSON.parse(await f.text());
             hdTekstBanker.clear();
@@ -1193,6 +1306,8 @@ const Visning = (() => {
             if (nokkel.startsWith('poses/')) continue;
             try {
                 const t = await hdTekstur(f);
+                const ikon=hdIkoner.get(nokkel);
+                if (ikon && (t.width!==ikon.width*ikon.scale || t.height!==ikon.height*ikon.scale)) {t.tex.dispose();t.mat.dispose();hdIkonFeil.push(nokkel+': feil maal');continue;}
                 const meta = hdTekstMeta.get(nokkel);
                 if (meta?.raw_rect_px) {
                     const [x,y,w,h] = meta.raw_rect_px;
@@ -1213,6 +1328,7 @@ const Visning = (() => {
     }
 
     function tomHdPakke() {
+        hdIkoner.clear(); hdIkonFeil=[];
         for (const v of hdPakke.values()) { v.tex.dispose(); v.mat.dispose(); }
         hdPakke.clear();
         hdTekstBanker.clear(); hdTekstGlyfer.clear(); hdTekstMeta.clear();
@@ -1249,6 +1365,12 @@ const Visning = (() => {
         tekstPlasseringer: () => visteListe.filter(d => /^(bold\.f|small\.font)$/i.test(d.fil)),
         settRammer: (on) => { visRammer = on; maaTegnes = true; }, hdAntall: () => hdPakke.size + hdPoser.size, scene: () => scene1,
         hdPoseInfo: () => ({ antall: hdPoser.size, kontrakter: hdPoseKontrakter.size, ugyldig: hdPoseUgyldig, feil: hdPoseFeil.slice() }),
+        hdIkonInfo: () => ({ antall: hdIkoner.size, feil: hdIkonFeil.slice(),
+            markor: hdMarkor ? {x:hdMarkor.x,y:hdMarkor.y,synlige:hdMarkor.visible.size} : null,
+            kandidater: visteListe.filter(d=>hdIkoner.has(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'))).map(d=>({...d,godkjent:hdTegnbare.has(d)})),
+            viste: visteListe.filter(d=>hdTegnbare.has(d)&&hdIkoner.has(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'))).map(d=>({fil:d.fil,bilde:d.bilde,x:d.x,y:d.y})) }),
+        sceneIkoner: id => [...hdIkoner.values()].filter(m=>m.scene===id&&m.dynamic&&hdPakke.has(m.key)),
+        sceneIkonKlar: (m,diw) => !!ikonPalett(m,m.rect[1],diw),
         hdBakgrunner: () => antallBg,
         hdKontroll: () => ({ ...hdKontroll }),      /* hvorfor en figur eventuelt bruker originalen */
         viste: () => visteListe.length,             /* figurer som vises med HD-bilde eller gult felt */
