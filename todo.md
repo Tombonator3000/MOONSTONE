@@ -40,7 +40,6 @@
 - [ ] Separate: hverKart() er sann hele spillet (hver.c setter H.kart = 0 bare i tittelmenyen), så en spiller i by eller monsterkamp sier ja til dueller automatisk.
 - [ ] Turns: en gjest med skjult fane holdes i live av pingen, og spillet venter på turen hans.
 - [ ] Turns: gjesten kan ikke lagre, og mister kopien når verten forsvinner.
-- [ ] Nettsiden tror sluttscenen er introen (ms_in_intro ser bare på whd_mog_loaded): fire blir Esc og HD slås av.
 - [ ] Trykk og klikk i inventar, by, butikker og Select Knight gir fire der spillets peker står ($098092/$098094), ikke der man trykker.
 - [ ] Reserve når WebGL-konteksten mistes (svart skjerm på mobil).
 - [ ] Mobil: fullskjerm, manifest for hjemskjermen og Wake Lock.
@@ -55,6 +54,7 @@
 - [ ] Rette memory.md (STATE_VERSION 8) og README (mappen spill/).
 
 ## Ferdig
+- [x] Sluttscenen kjennes igjen på nettsiden (\$080190 bit 7) og hoppes ikke over av et trykk.
 - [x] Lagringer som tåler nye versjoner (MOONSAV2 med deler og standardverdier), går mellom PC og nett, forklarer hvorfor de avvises, automatisk lagring (nett og PC), eksport og import, PC-lagring i brukermappen (atomisk, UTF-8 på Windows).
 - [x] Nettspill: lagringsformatet sendes med i 'hei' og i romlisten; en gjest med annen versjon får beskjed, og en gjest som ikke kan laste tilstanden, går ut med grunnen.
 - [x] Bakgrunnsmusikken i hele spillet fjernet igjen (eieren ville ikke ha den).

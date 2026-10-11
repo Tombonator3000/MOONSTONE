@@ -260,6 +260,8 @@
             /* spillets meny kan ikke klikkes i originalen; si at det gaar her */
             t = beroering() ? 'Trykk på et valg i menyen' : 'Klikk på et valg, eller bruk piltastene og Enter';
             topp = true;
+        } else if (Kjerne.iSlutt()) {
+            t = 'Gratulerer! Esc hopper over sluttscenen.';
         } else if (modus === 'alene' && Kjerne.iIntro()) {
             /* introen gjor ferdig det den holder paa med, det kan ta et par sekunder */
             if (hopper) t = 'Hopper over introen ...';
@@ -1585,7 +1587,7 @@
      * automatiske lagringen aldri blir skrevet over med et spill som ikke er begynt. */
     function kanAutolagre() {
         return (modus === 'alene' || modus === 'vert' || modus === 'hver') && !D
-            && !Kjerne.iIntro() && !Kjerne.iMeny() && Kjerne.hverKart();
+            && !Kjerne.iIntro() && !Kjerne.iSlutt() && !Kjerne.iMeny() && Kjerne.hverKart();
     }
     async function autolagre(tvunget) {
         if (!kanAutolagre()) return;

@@ -385,3 +385,7 @@ art/hd-icons-2026-10-11 har75 kildefaste konturikonruter og redigerbare SVG-kild
 `Visning.lastHdPakke(filer)` bytter bare ikonmetadata når en tilsvarende PNG er dekodet og erstattet. Egen PNG uten ikonmetadata beholder sine egne piksler. Delvis import og bakgrunnslasting bevarer øvrige ikoners palett, kildekontroll og HD-peker. Feil i PNG eller ikonmanifest endrer ikke de øvrige ikonene. Scenefelt krever gyldig rektangel, originalmål og indeksmønster før de blir tilgjengelige for rendereren.
 
 Dynamiske kartmarkører fjernes først fra originalforgrunnen når valgt HD-bakgrunn finnes i standardpakkens ferdiglastede bakgrunnscache. Dette hindrer at markørene blir usynlige under nettverkslasting.
+- Sluttscenen: seierruten i mog ($081834) skriver d7|$80 til $3E0 og hopper til tilbake_til_introen ($081846),
+  som laster program. program kopierer $3E0 til $080190 ($08001E) og viser sluttscenen naar bit 7 er satt
+  ($080064). Ingen andre hopp til $081846. Headless: --press 200:esc:4 --skriv 800:81942:0x4ef9:2
+  --skriv 800:81944:0x0008183c:4 --press 900:down:10 (hex maa ha 0x). Nettsiden: ms_in_ending.

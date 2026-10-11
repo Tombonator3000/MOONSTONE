@@ -189,4 +189,9 @@ EMSCRIPTEN_KEEPALIVE int ms_in_menu(void) { return meny_in_menu() ? 1 : 0; }
 EMSCRIPTEN_KEEPALIVE int ms_menu_row(int y) { return meny_row_at(y); }
 EMSCRIPTEN_KEEPALIVE int ms_menu_page(void) { return meny_side(); }
 /* introen (program) gaar; den hoppes over med Esc */
-EMSCRIPTEN_KEEPALIVE int ms_in_intro(void) { return whd_mog_loaded ? 0 : 1; }
+/* program kjorer baade introen og sluttscenen. Seierruten i mog ($081834-$081846)
+ * skriver et ord med bit 7 til $3E0 foer den laster program; program kopierer det til
+ * $080190 og viser sluttscenen naar bit 7 er satt ($080064). */
+static bool i_slutt(void) { return !whd_mog_loaded && (mem_read16(0x80190) & 0x80); }
+EMSCRIPTEN_KEEPALIVE int ms_in_intro(void) { return !whd_mog_loaded && !i_slutt() ? 1 : 0; }
+EMSCRIPTEN_KEEPALIVE int ms_in_ending(void) { return i_slutt() ? 1 : 0; }

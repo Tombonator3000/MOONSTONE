@@ -150,6 +150,7 @@ const Kjerne = (() => {
         menyHendelse: () => M._ms_menu_event(),
         menyKlar: () => !!(M && M._ms_menu_ready()),     /* tittelmenyen er naadd (false mens kjernen lastes) */
         iIntro: () => !!(M && M._ms_in_intro()),
+        iSlutt: () => !!(M && M._ms_in_ending()),    /* sluttscenen (program etter seieren) */
         iMeny: () => !!(M && M._ms_in_menu()),      /* tittelmenyen eller en nettspillside er framme */
         menyRad: (y) => M._ms_menu_row(y | 0),      /* raden paa linje y, -1 ikke i menyen, -2 ingen rad */
         menySide: () => (M ? M._ms_menu_page() : -1),    /* siden i menyen (2 = romsiden til verten), -1 utenfor */
