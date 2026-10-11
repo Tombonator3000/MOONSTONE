@@ -8,6 +8,7 @@ const url=process.env.MOONSTONE_URL||'http://127.0.0.1:8769/moonstone.html';
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const contracts=JSON.parse(fs.readFileSync(art+'/research/runtime/source-contracts.json'));
 const report={url,checks:[],assets:[],errors:[],scope:'Originale CEL-/inventarpalettfixturer i faktisk WASM-side. Kandidat-PNG importeres bare i testnettleseren. Dette er ikke naturlig bruk av alle gjenstander.'};
+report.production_code_sha256=Object.fromEntries(['web/src/render.js','web/src/scenes.js'].map(f=>[f,sha(fs.readFileSync(root+'/'+f))]));
 const check=(name,value=true)=>{assert(value,name);report.checks.push(name);};
 let browser;
 const {render,stable,fixture}=require('./hd_resterende_ikoner_fixture.cjs');

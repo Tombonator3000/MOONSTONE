@@ -157,6 +157,7 @@
     "altar": 1,
     "portal": 1.3723911918587937,
     "stonehenge-knight": 1.6542554627292727,
+    "loading": 1,
     "world-map": 1.0001079114176754,
     "message-banner": 0.5067755795835498,
     "stonehenge": 1,
@@ -224,6 +225,48 @@
       "frame": 250,
       "mode": "journey",
       "id": "mindscape-logo",
+      "exposure": 0,
+      "shader_light": 0
+    },
+    {
+      "frame": 5825,
+      "mode": "journey",
+      "id": "portal",
+      "exposure": 0.33409992525728743,
+      "shader_light": 0.33409992525728743
+    },
+    {
+      "frame": 5850,
+      "mode": "journey",
+      "id": "portal",
+      "exposure": 0,
+      "shader_light": 0
+    },
+    {
+      "frame": 325,
+      "mode": "journey",
+      "id": "loading",
+      "exposure": 0,
+      "shader_light": 0
+    },
+    {
+      "frame": 225,
+      "mode": "practice",
+      "id": "loading",
+      "exposure": 0,
+      "shader_light": 0
+    },
+    {
+      "frame": 300,
+      "mode": "practice",
+      "id": "loading",
+      "exposure": 0.5343859998671714,
+      "shader_light": 0.5343859998671714
+    },
+    {
+      "frame": 325,
+      "mode": "practice",
+      "id": "loading",
       "exposure": 0,
       "shader_light": 0
     },
@@ -324,10 +367,24 @@
       "id": "message-banner",
       "exposure": 0,
       "shader_light": 0
+    },
+    {
+      "frame": 4450,
+      "mode": "ending",
+      "id": "loading",
+      "exposure": 0.0011539483296805473,
+      "shader_light": 0.0011539483296805473
+    },
+    {
+      "frame": 4475,
+      "mode": "ending",
+      "id": "loading",
+      "exposure": 0,
+      "shader_light": 0
     }
   ],
   "errors": [],
   "not_seen": [],
   "status": "passed",
-  "created_at": "2026-10-11T14:30:16.953Z"
+  "created_at": "2026-10-11T15:14:05.587Z"
 }

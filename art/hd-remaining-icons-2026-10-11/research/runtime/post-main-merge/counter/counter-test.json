@@ -1,0 +1,145 @@
+{
+  "url": "http://127.0.0.1:8769/moonstone.html",
+  "checks": [
+    "candidate_counter_found",
+    "text-first_counter_import_accepted",
+    "text-first_two_HD_digits",
+    "text-first_counter_below_HD_text",
+    "text-first_requested_creation_order",
+    "text-first_HD_edges_outside_original_mask_tested",
+    "text-first_no_HD_text_overdraw",
+    "text-first_Original_roundtrip_exact",
+    "text-first_HD_roundtrip_exact",
+    "text-first_HD_changes_pixels",
+    "text-first_emulated_state_unchanged",
+    "scene-first_counter_import_accepted",
+    "scene-first_two_HD_digits",
+    "scene-first_counter_below_HD_text",
+    "scene-first_requested_creation_order",
+    "scene-first_HD_edges_outside_original_mask_tested",
+    "scene-first_no_HD_text_overdraw",
+    "scene-first_Original_roundtrip_exact",
+    "scene-first_HD_roundtrip_exact",
+    "scene-first_HD_changes_pixels",
+    "scene-first_emulated_state_unchanged",
+    "no_browser_errors"
+  ],
+  "samples": [
+    {
+      "order": "text-first",
+      "scene": {
+        "id": "tavern",
+        "match": 1,
+        "preserved_pixels": 12800,
+        "hash": "44898895",
+        "hd_icons": 0
+      },
+      "control": {
+        "godkjent": 0,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 2,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "bakgrunn": "hd"
+      },
+      "counter": {
+        "id": 24,
+        "renderOrder": 3.5
+      },
+      "text": [
+        {
+          "id": 16,
+          "renderOrder": 4.00001
+        },
+        {
+          "id": 17,
+          "renderOrder": 4.00002
+        }
+      ],
+      "protectedPixels": 20,
+      "unprotectedInkTexels": 194,
+      "overdrawnTexels": 0,
+      "hd_sha256": "eaff0b43655cc22bd3055170591df28a3a9bcbec8b66c49d59e4c9f067d30eef",
+      "original_sha256": "4ebca944893de1c10931425b17b652c858cb25817c600d980a6ab4b460a60748"
+    },
+    {
+      "order": "scene-first",
+      "scene": {
+        "id": "tavern",
+        "match": 1,
+        "preserved_pixels": 12800,
+        "hash": "44898895",
+        "hd_icons": 0
+      },
+      "control": {
+        "godkjent": 0,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 2,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "bakgrunn": "hd"
+      },
+      "counter": {
+        "id": 22,
+        "renderOrder": 3.5
+      },
+      "text": [
+        {
+          "id": 28,
+          "renderOrder": 4.00001
+        },
+        {
+          "id": 29,
+          "renderOrder": 4.00002
+        }
+      ],
+      "protectedPixels": 20,
+      "unprotectedInkTexels": 194,
+      "overdrawnTexels": 0,
+      "hd_sha256": "eaff0b43655cc22bd3055170591df28a3a9bcbec8b66c49d59e4c9f067d30eef",
+      "original_sha256": "4ebca944893de1c10931425b17b652c858cb25817c600d980a6ab4b460a60748"
+    }
+  ],
+  "errors": [],
+  "scope": "Original tav.piv og Small.font/061 som tellerfixture. To HD-glyfer ved originalens (282,14). Begge opprettelsesrekkefolger, lagrekkefolge, Original/HD-retur og uendret emulator kontrolleres.",
+  "production_code_sha256": {
+    "web/src/render.js": "554c11ef0f2cc379e7d6d6a76a3d6039f804a19a6109c92b5289578093315378",
+    "web/src/scenes.js": "129ea5655281c10c7ac4c69103acd38fb6780bd2fc5706bfb16df942182ee7ac"
+  },
+  "candidate_icons_sha256": "1e5daaafe915e47649d16631707c9d35f2d7fca402d44416d70102a4daa02094",
+  "html_sha256": "bdaa21a698cc3d1745d02413e948afa2a494577843a4a2d58af322e2b9586a5a",
+  "status": "passed",
+  "created_at": "2026-10-11T16:14:14.256Z"
+}

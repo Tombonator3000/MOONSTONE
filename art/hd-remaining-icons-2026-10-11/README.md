@@ -60,12 +60,20 @@ Skattekisten pakkes én gang i originalens 59x53-union og klippes til de tre opp
 
 Arbeidet gjelder statiske objektikoner. De tre vinranke-/rammefragmentene, originale fontformer, meldingsrammer, valgkonturer, separat forgrunn, effekter, rulling og figur-/drageanimasjoner er fortsatt egne oppgaver. Tidligere godkjente små kartporter og Math-tårn beholdes, og denne leveransen endrer ingen bakgrunner. Figurrutene tas til sist, som avtalt.
 
-## Verifikasjon av ikonpakken
+## Verifikasjon før fletting av PR #27
 
 Uavhengig leveransekontroll bekrefter 102 rasterkontrakter, 76 nytegnede ruter, 27 nye statiske MI-ruter, 370 PNG-er og 376 manifestfiler. Alle 283 tidligere filer utenfor de erstattede ikonene er identiske, inkludert de 75 bakgrunnene. Originalarkivet og spillkjernen er uendret. Raster-/kildekontrollen består 3774 kontroller for alle 102 rutene.
 
-De 58 opprinnelige nye CEL-rutene består 780 runtimekontroller; de fire siste paddemarkørene består 53. Samlet bevis binder hver kilde, råmaster, prompt, record og pakket PNG til det aktive kontraktsettet. Den siste avgrensede rendererrettingen gjelder utskifting av en fargevariant ved uendret palett: 15 faktiske importkontroller bekrefter ny PNG, riktig blå retur, eksakt gjenoppretting og uendret spilltilstand. Eldre beståtte fixtures gjenbrukes kun når de bundne asset-/kontrakthashene er uendret.
+De 58 opprinnelige nye CEL-rutene bestod 780 runtimekontroller; de fire siste paddemarkørene bestod 53. Dette er historiske prøver fra før flettingen av PR #27, ikke bevis for den nye tegnekoden. Bevisene binder hver kilde, råmaster, prompt, record og pakket PNG til kontraktsettet. Rendererrettingen gjaldt utskifting av en fargevariant ved uendret palett: 15 faktiske importkontroller bekreftet ny PNG, riktig blå retur, eksakt gjenoppretting og uendret spilltilstand.
 
 Den naturlige kartkontrollen avdekket at Waterdeep og elvedetaljen manglet originalens vannsyklus i metadata. Originalkoden roterer bare indeks 21..23; disse to rutene godtar nå akkurat den gruppen. Alle 92 nye PNG-er og de øvrige 100 ikonkontraktene er uendret av rettingen.
 
-Samlet spillkontroll består 59 intro-/inventar-/by-/krokontroller, 27 importkontroller, 106 kartkontroller og 25 standardpakkekontroller med 71 av 71 gangrammer. Math-besøket bevarer 84 HD-glyfer, alle 8705 figurpiksler og eksakt Original-visning. Alle har null nettleserfeil. Kartets palettretur er eksakt uten ekstra stabiliseringsrammer etter at testens framebuffer ble korrigert til samme palett som skanout. De tidligere mislykkede testdiagnosene er bevart og regnes ikke som beståtte.
+Samlet spillkontroll før flettingen bestod 59 intro-/inventar-/by-/krokontroller, 27 importkontroller, 106 kartkontroller og 25 standardpakkekontroller med 71 av 71 gangrammer. Math-besøket bevarte 84 HD-glyfer, alle 8705 figurpiksler og eksakt Original-visning. Alle hadde null nettleserfeil. Kartets palettretur var eksakt uten ekstra stabiliseringsrammer etter at testens framebuffer ble korrigert til samme palett som skanout. De tidligere mislykkede testdiagnosene er bevart og regnes ikke som beståtte.
+
+## Nye prøver etter fletting av PR #27
+
+Main 74ceafb er flettet inn med figurdeling, pikseleierskap, palettmasker, tekst og lys bevart. Ikonets beskyttede originalpiksler respekteres også i den nye felles forgrunnstømmingen. Koden er frosset med SHA-256 i `research/runtime/post-main-merge/runtime-contract.json`.
+
+Alle 62 CEL-ruter er prøvd på nytt i åtte batcher, uten gjenbruk av gamle runtimeprøver: 828 kontroller består, inkludert vanlig/speilet tegning og alle 20 livfargevalg. Eiervern, pulskanter, faktisk variantimport og kroteller består ytterligere 162 kontroller. Den samlede rapporten `research/runtime/post-main-merge/merged-runtime-coverage-test.json` binder disse prøvene til kode, kilde, råmaster, prompt og aktive PNG-er.
+
+Friske integrasjonsprøver ligger i `verification/post-main-merge/`: 3774 rasterkontroller, 59 intro-/inventar-/by-/krokontroller, 27 importkontroller, 106 kartkontroller og 25 standardpakkekontroller med 71 av 71 gangrammer består. Math-besøket bevarer 84 HD-glyfer, alle 8705 figurpiksler og eksakt Original-visning. Ingen nettleserfeil. Inventar, kart og kro er visuelt inspisert i faktisk spillvisning. Dette er avgrensede runtimeprøver, ikke en full gjennomspilling eller fysisk telefontest.

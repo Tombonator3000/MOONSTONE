@@ -11,6 +11,7 @@ const probe=actualArt?{schema:1,entries:JSON.parse(fs.readFileSync(art+'/candida
 assert.equal(probe.entries.length,1);
 const report={url,checks:[],pulses:[],errors:[],candidate_icons_sha256:actualArt?crypto.createHash('sha256').update(fs.readFileSync(art+'/candidate-icons.json')).digest('hex'):null,scope:actualArt?'Gjennomgaatt generert MI009-kropp med original19ytterkant og31pulskant i faktisk frontend og isolert SceneHd. Ingen spillminneskriving.':'Original MI009-CEL som rasterprobe med original kropp og vernet31kant. Ingen nytt kunstmotiv eller produksjonsmetadata. Faktisk frontend og isolert SceneHd kontrolleres; ingen spillminneskriving.'};
 report.art=actualArt?'Gjennomgaatt generert hjelm-body master':'Original rasterprobe';
+report.production_code_sha256=Object.fromEntries(['web/src/render.js','web/src/scenes.js'].map(f=>[f,crypto.createHash('sha256').update(fs.readFileSync(root+'/'+f)).digest('hex')]));
 const check=(n,v=true)=>{assert(v,n);report.checks.push(n);};let browser;
 async function render(p){return p.evaluate(()=>{const K=moonDebug.Kjerne,V=moonDebug.Visning;V.tegn(K.rammebuffer(),K.vindu(),K.lag());return V.hdIkonInfo();});}
 (async()=>{

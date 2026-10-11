@@ -42,13 +42,18 @@ const SceneHd = (() => {
         if (!scan.gyldig) return lag;
         const rows = StandardHd.scener();
         for (const row of rows) klargjor(row).catch(() => {});
-        let valgt = null, best = 0; sisteMatcher = [];
+        let valgt = null, best = 0, bestSkjerm = false; sisteMatcher = [];
         for (const s of kilder.values()) {
             if (!s) continue;
+            // compare "screen": bildet ligger bare paa skjermen, ikke i bakgrunnskopien
+            // (lasteskjermen viser ch.piv over en annen kopi, banneret i Prepare yourself
+            // er message.piv). Er kopien selv bildet, gjelder den vanlige bakgrunnen.
+            const skjerm = s.compare === 'screen';
+            if (skjerm && lag && (lag.hash >>> 0) === parseInt(s.hash, 16)) continue;
             let match = 0, n = 0, detalj = 0, detaljMatch = 0;
             for (let y = 2; y < 200; y += 4) for (let x = 2; x < 320; x += 4) {
                 if ((s.match_ignore_indices || []).includes(s.px[y * 320 + x])) continue;
-                const actual = lag?.bakIdx ? lag.bakIdx[y * 320 + x] : scan.idx[(diw[1] + y) * 720 + diw[0] + x * 2];
+                const actual = lag?.bakIdx && !skjerm ? lag.bakIdx[y * 320 + x] : scan.idx[(diw[1] + y) * 720 + diw[0] + x * 2];
                 if (actual === s.px[y * 320 + x]) match++;
                 if (s.px[y * 320 + x] !== s.vanligst) { detalj++; if (actual === s.px[y * 320 + x]) detaljMatch++; }
                 n++;
@@ -56,8 +61,12 @@ const SceneHd = (() => {
             const ratio = match / n;
             sisteMatcher.push({id:s.id, match:ratio, detail:detaljMatch/detalj});
             // En nesten svart skjerm maa ikke forveksles med en svart PIV.
+            // En scene som stemmer med skjermen, gaar foran en som bare stemmer med
+            // bakgrunnskopien (lasteskjermen over portalen fra introen).
             if (detalj > 40 && detaljMatch / detalj >= (s.minimum_detail || s.minimum_match || 0.98) &&
-                ratio > best && ratio >= (s.minimum_match || 0.98)) { best = ratio; valgt = s; }
+                ratio >= (s.minimum_match || 0.98) && (skjerm && !bestSkjerm || skjerm === bestSkjerm && ratio > best)) {
+                best = ratio; valgt = s; bestSkjerm = skjerm;
+            }
         }
         if (!valgt) return lag;
         const rect = valgt.rect || [0, 0, 320, 200];

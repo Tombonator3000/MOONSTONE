@@ -1698,8 +1698,8 @@
     },
     {
       "path": "text.json",
-      "sha256": "7bf96bbefc3b6f99c63063c1009d8b98bad80f212c28c5dc623f9d7d87580b84",
-      "bytes": 45565,
+      "sha256": "728c71533701bb45f2c1affa06c48309046ef41f62c7be83e51bb2c0ffcd1dbc",
+      "bytes": 45587,
       "kind": "base"
     },
     {
@@ -2403,9 +2403,9 @@
         320,
         200
       ],
-      "minimum_match": 0.55,
+      "minimum_match": 0.5,
       "foreground_padding": 3,
-      "minimum_detail": 0.95
+      "minimum_detail": 0.85
     },
     {
       "id": "altar",
@@ -2419,9 +2419,9 @@
         320,
         200
       ],
-      "minimum_match": 0.92,
+      "minimum_match": 0.85,
       "foreground_padding": 3,
-      "minimum_detail": 0.94
+      "minimum_detail": 0.85
     },
     {
       "id": "portal",
@@ -2435,9 +2435,9 @@
         320,
         200
       ],
-      "minimum_match": 0.85,
+      "minimum_match": 0.65,
       "foreground_padding": 3,
-      "minimum_detail": 0.9
+      "minimum_detail": 0.74
     },
     {
       "id": "world-map",
@@ -3305,6 +3305,23 @@
         30,
         31
       ]
+    },
+    {
+      "id": "loading",
+      "file": "ch.piv",
+      "frame": 0,
+      "source_sha256": "376825107a9f65d264c6e7f36d6eeffd0d23ce55d4ca072b2475dbfcc098ea37",
+      "hash": "55bb9767",
+      "rect": [
+        0,
+        0,
+        320,
+        200
+      ],
+      "compare": "screen",
+      "minimum_match": 0.75,
+      "minimum_detail": 0.8,
+      "foreground_padding": 0
     }
   ]
 }

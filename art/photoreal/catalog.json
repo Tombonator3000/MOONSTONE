@@ -40,7 +40,7 @@
         "Treplassering, steingruppe, fjellrygg, mørke forgrunnsmasser og tomt mørke nederst følger kilden. Bark, stein og gress er fotografisk tolket. Ingen nye personer eller lyskilder.",
         "Ruting og runtime er ikke verifisert."
       ],
-      "enabled_in_game": false
+      "enabled_in_game": true
     },
     {
       "id": "piv_background:bg2a.PIV:000",
@@ -79,9 +79,10 @@
         "Ti synlige steinporter, toppkamera, fire små sirkler, sentralt alter og clearing følger originalen.",
         "Alterets sentrale markering er forenklet til et svart rundt hull; kildens lille indre mønster er borte.",
         "De tynne sammenhengende bakkelinjene er blitt tydelig prikkete/steinlagte og er ikke identiske i strekform.",
-        "Ruting og runtime er ikke verifisert."
+        "Ruting og runtime er ikke verifisert.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet."
       ],
-      "enabled_in_game": false
+      "enabled_in_game": true
     },
     {
       "id": "piv_background:bg4.PIV:000",
@@ -100,7 +101,7 @@
         "Lavt plassert blå skive, mørkt sentrumshull, nederste stativ og forbindelseslinjene på bakken følger originalen. Stor mørk øvre flate er bevart. Små slitasjemerker og prikker er tolket som materialdetaljer; eksakt mikromønster er ikke særskilt godkjent.",
         "Ruting og runtime er ikke verifisert."
       ],
-      "enabled_in_game": false
+      "enabled_in_game": true
     },
     {
       "id": "piv_background:bg5.piv:000",
@@ -119,7 +120,7 @@
         "V2 fjerner de åtte feilaktige brystflammene og beholder små matte gulldetaljer. Åtte grå figurer, fem synlige steinporter, alter/trinn og de to fremre gulvsirklene er kildekontrollert. Orange steinmerker og små stoff-/jorddetaljer er fotografisk tolket.",
         "Ruting og runtime er ikke verifisert."
       ],
-      "enabled_in_game": false
+      "enabled_in_game": true
     },
     {
       "id": "piv_background:bg5a.PIV:000",
@@ -138,7 +139,7 @@
         "Svart ovalt portalsentrum, blå konsentriske skyringer og de to avskårne steinportene beholder plassering og kamera. Den finere skystrukturen er tettere enn originalen og er fotografisk tolket; ingen stjerner, figurer eller innhold er lagt i hullet.",
         "Ruting og runtime er ikke verifisert."
       ],
-      "enabled_in_game": false
+      "enabled_in_game": true
     },
     {
       "id": "piv_background:bg8.PIV:000",
@@ -1437,7 +1438,9 @@
       "notes": [
         "Healer, én synlig hånd, bok, kranium/lys og hyllenes hovedobjekter følger originalen. Det tomme grågrønne tekstfeltet ved y161–199 er bevart uten tekst.",
         "Bokdiagram, bok-/rullstreker og det grønne håndtegnet har endrede former. Ingen av disse er godkjent som eksakt originalskrift.",
-        "Ruting og runtime er ikke verifisert."
+        "Ruting og runtime er ikke verifisert.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -1458,7 +1461,7 @@
         "V2 fjerner de åtte feilaktige brystflammene og beholder små matte gulldetaljer. Åtte grå figurer, fem synlige steinporter, alter/trinn og de to fremre gulvsirklene er kildekontrollert. Orange steinmerker og små stoff-/jorddetaljer er fotografisk tolket.",
         "Ruting og runtime er ikke verifisert."
       ],
-      "enabled_in_game": false
+      "enabled_in_game": true
     },
     {
       "id": "piv_background:HighWood.PIV:000",
@@ -7375,7 +7378,9 @@
         "Figurens positur, forskjellige øyefarger, lilla ermer, turkis kule, bordrefleksjon og tomt brunt tekstfelt ved y161–199 er bevart.",
         "Bakgrunnssirkelens dekorative tegn er nytolket og har andre strekformer.",
         "Noen gullmønstre på ermenes overkant og detaljer i kulestativet avviker fra originalen.",
-        "Ruting og runtime er ikke verifisert."
+        "Ruting og runtime er ikke verifisert.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -7504,7 +7509,7 @@
         "Dette gjelder bare de fire verifiserte tittelvalgene. Andre menyers palett og geometri er ikke godkjent.",
         "Fire faktiske tittelposisjoner viser riktig råtekstur.375 opprinnelige pilpiksler fjernes uten å endre P/G-tekst eller annen forgrunn. Original-HD-Original og spilltilstand er identisk.18-bilders file://-pakken er testet separat; ingen full motivgodkjenning."
       ],
-      "enabled_in_game": true
+      "enabled_in_game": false
     },
     {
       "id": "sprite:sel.cel:001",
@@ -9296,7 +9301,9 @@
         "Ruinens overligger, to korte rundstøtter, to separate grunnblokker, kiste på bakken, steiner og vegetasjon beholder oppsettet. Runene er feilaktig omtegnet og svakere leselige enkelte steder; motivet trenger revisjon.",
         "Alle utdata er rå 1586x992 RGB, opake. Ingen runtime-test utført av bildeagenten.",
         "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
-        "Tidligere runtime-testet bilde beholdes. To forsøk ga ingen klar samlet forbedring; runeavvik og tidligere teknisk bevis står uendret."
+        "Tidligere runtime-testet bilde beholdes. To forsøk ga ingen klar samlet forbedring; runeavvik og tidligere teknisk bevis står uendret.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9316,7 +9323,9 @@
       "notes": [
         "Valgt runes-v3. Første øvre tegn og de kantete ringkonturene er nærmere originalen. De to tegnene etter øvre ring har fortsatt feil korte armretninger; venstre grunnblokk har fortsatt sammenhengende bokstavlike streker der kilden har adskilte deler. Småtekstur er endret noe utenfor runene. Ny råfil krever ny runtime-test.",
         "Forrige runtimebevis gjelder gammel hash i output_history. Den nye råfilen er ikke testet i spillet.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9336,7 +9345,9 @@
       "notes": [
         "Valgt runes-v3. Andre tegn på venstre nederste trommel er rettet fra en ufullstendig bue/strek til kildens vannrett delte ring; nedre gruppers konturer er nærmere originalen. Øverst har nest siste tegn fremdeles vannrette armer og siste tegn er for symmetrisk Y-lignende. Små lav-/steinteksturer er mer mønstret enn før. Komposisjon og fri kampflate er bevart. Ny råfil krever ny runtime-test.",
         "Forrige runtimebevis gjelder gammel hash i output_history. Den nye råfilen er ikke testet i spillet.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9357,7 +9368,9 @@
         "Venstre ruin med to trommelstabler, kiste på bakken, to busker og stort vridd høyretre følger originalen. Ingen kjeder er lagt til. Lang runeinnskrift har tolket strekgeometri og avstand; siste to sirkeltegn er nærmest kilden.",
         "Alle utdata er rå 1586x992 RGB, opake. Ingen runtime-test utført av bildeagenten.",
         "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
-        "Tidligere runtime-testet bilde beholdes. Begge forsøk beholdt de sentrale formfeilene i de tre første runegruppene; ingen klar forbedring."
+        "Tidligere runtime-testet bilde beholdes. Begge forsøk beholdt de sentrale formfeilene i de tre første runegruppene; ingen klar forbedring.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9378,7 +9391,9 @@
         "Den oppdelte steinruinen, egen toppstein, rundblokker, kiste på bakken og treet som overlapper høyresiden følger originalen. Runegrupper beholder plassering, men er typografisk tolket med andre småstreker og gap.",
         "Alle utdata er rå 1586x992 RGB, opake. Ingen runtime-test utført av bildeagenten.",
         "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
-        "Tidligere runtime-testet bilde beholdes. Forsøkene flyttet avvik mellom tegnene, uten klar samlet forbedring. Eksisterende konkrete runeavvik gjelder fortsatt."
+        "Tidligere runtime-testet bilde beholdes. Forsøkene flyttet avvik mellom tegnene, uten klar samlet forbedring. Eksisterende konkrete runeavvik gjelder fortsatt.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9399,7 +9414,9 @@
         "Tre steinrader, begge kjeder, kiste på nederste midtblokk, bruddstein ved midten og de to isolerte gresstuene følger originalen. Runene er tydelige, men flere vinkler og delstreker er omtegnet. Noen små lyse løvgap øverst er lysere enn kilden.",
         "Alle utdata er rå 1586x992 RGB, opake. Ingen runtime-test utført av bildeagenten.",
         "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
-        "Tidligere runtime-testet bilde beholdes. Andre forsøk fjernet pikselpreget fra første forsøk, men løste ikke runegeometrien. Tidligere teknisk bevis gjelder bare den uendrede valgte filen."
+        "Tidligere runtime-testet bilde beholdes. Andre forsøk fjernet pikselpreget fra første forsøk, men løste ikke runegeometrien. Tidligere teknisk bevis gjelder bare den uendrede valgte filen.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9579,7 +9596,9 @@
       "notes": [
         "Portalen, begge kjeder, venstre stein, sentral kiste og høyre tre følger originalen. Runegruppen er ikke identisk.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9599,7 +9618,9 @@
       "notes": [
         "Portalen, soklene, kiste og vridd høyretre følger hovedplasseringen. Små fjernformer ved venstre horisont er mer vegeterte enn kilden.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9619,7 +9640,9 @@
       "notes": [
         "Lav steinnisje, kiste, begge små nisjesteiner og stor høyre stein følger originalen. v2 rettet blokkete gress i v1 til fotografiske strå; steinoverflatens mikrotekstur ble også grovere. Lange runegruppen er fortsatt ikke eksakt.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9639,7 +9662,9 @@
       "notes": [
         "Venstretreet overlapper lav mur som i originalen, og kiste, nisjestein og høyre boulder er bevart. Runegruppenes felt er riktig, men streker avviker.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9659,7 +9684,9 @@
       "notes": [
         "Lang overligger, ujevn venstresøyle, enkel høyresøyle, vridd venstretre og kiste følger originalen. Tre runegrupper har formavvik.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9679,7 +9706,9 @@
       "notes": [
         "Tretrioen, kjedene, kisten i mørk nisje og hele veggkonturen er bevart. Runegruppene ligger i rette felt, men er ikke eksakte.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9859,7 +9888,9 @@
       "notes": [
         "Tre nærstammer, den rotkryssede muren, kisten og én kjede festet i høyrestammen er bevart. Runeformer avviker i alle tre steinnivåer.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9879,7 +9910,9 @@
       "notes": [
         "Lav mur, blank toppstein, kiste på bakken, stor høyrestamme og øvre rankeløkke følger originalen. Alle fire tekstfelt er på rette steder, men runeformen er ikke eksakt.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9899,7 +9932,9 @@
       "notes": [
         "Muren overlapper de to trærne som i originalen. Kiste, begge sirkelpar, blank nedre steinrad og åpen nedre jordflate er bevart. Topplinjen har feil symboler.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9919,7 +9954,9 @@
       "notes": [
         "Portalramme, skjev steinstabling, sentral hengende ranke over liten kiste og åpne jordflate er bevart. Tegnene ligner kilden bedre her, men har ikke eksakt strekføring.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9939,7 +9976,9 @@
       "notes": [
         "Begge kister, to kjeder, midtsøyle, venstre rotkompleks og øvre toppstein er bevart. Gjentatte runegrupper finnes, men er omtolket.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -9959,7 +9998,9 @@
       "notes": [
         "Nisjen, begge sirkelpar, kiste og rankenes kryss foran muren er bevart. Nedre halvdel er fri kampflate. Runeavvik er særlig tydelige i trekantformene.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -10139,7 +10180,9 @@
       "notes": [
         "V2 retter kjedeender og kiste fra omtrent y50/57 til originalens y43/52. Nederste steiner er flyttet opp; høyden er fortsatt rundt 2 prosentpoeng større. Toppbjelke, søyler, to kjeder, én kiste, klippesilhuett og fri kampflate er visuelt bevart. Runde sirkelsymboler er gjenkjennelige; de nederste runerekkene er ikke identiske.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -10159,7 +10202,9 @@
       "notes": [
         "To trær, rotretninger, forskjøvede steinblokker med opprinnelige mellomrom, én sentrert kiste og kampflate er bevart. Fototekstur i bark og klipper er tolket. Begge runefeltene har synlige strekavvik.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -10179,7 +10224,9 @@
       "notes": [
         "To kister på ulike høyder, forankrede kjeder, begge forgrunnsklippene, steinrekker og kampflate følger originalen. Runegruppene i midten og den lange nedre linjen avviker.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -10199,7 +10246,9 @@
       "notes": [
         "Tre steinhøyder, tre kjedefester, to kister, åpningene under bjelkene og høyre overlappende klippe er bevart. De fire runegruppene er ikke identiske med originalen.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -10219,7 +10268,9 @@
       "notes": [
         "Én kiste, ett tre med overlappende krone, busk nederst til venstre, steingap og to store sideklipper er bevart. Kronens øverste grein er litt høyere enn originalen. Alle tre runegruppene har strekavvik.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },
@@ -10239,7 +10290,9 @@
       "notes": [
         "Tre trær, forgrunnssøyler, sentral kiste, nederste steiner, store løse steiner og kampflate følger originalen. Runerekken gjengir flere av grunnformene, men er blitt svart i stedet for lys og har endrede forbindelser.",
         "Råbilde beholdt uendret. Teknisk runtimekontroll utføres separat.",
-        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart."
+        "Denne PNG-hashen består teknisk WASM-kontroll av hash-rute, faktisk tekstur, Original/HD/Original og uendret spilltilstand. Motivstatusen er bevart.",
+        "Slått på i standardpakken 2026-10-11 etter eierens ønske om at alt implementeres. Statusen needs_revision står fortsatt: runene eller avvikene i notatene over er ikke rettet.",
+        "Erstattet i spillet av art/hd-all-locations-2026-10-11 (PR #26)."
       ],
       "enabled_in_game": false
     },

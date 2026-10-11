@@ -200,6 +200,7 @@
         if (!Visning.klar) {
             Visning.init($('lerret'), Kjerne.bredde(), Kjerne.hoyde());
             Visning.klar = true;
+            Visning.settUtsnittBakgrunner(StandardHd.utsnitt());
             StandardHd.start(Visning, (tekst, ...v) => Sprak.sett($('hd-status'), tekst, ...v));
             if (!Visning.hdPaa()) Sprak.sett($('hd-status'), 'HD er av. Velg «HD der den finnes» for å laste standardgrafikken.');
         }

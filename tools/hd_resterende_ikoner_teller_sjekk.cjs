@@ -7,6 +7,7 @@ const out=path.resolve(root,process.env.MOONSTONE_HD_TEST_OUTPUT||'art/hd-remain
 const url=process.env.MOONSTONE_URL||'http://127.0.0.1:8769/moonstone.html';
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const report={url,checks:[],samples:[],errors:[],scope:'Original tav.piv og Small.font/061 som tellerfixture. To HD-glyfer ved originalens (282,14). Begge opprettelsesrekkefolger, lagrekkefolge, Original/HD-retur og uendret emulator kontrolleres.'};
+report.production_code_sha256=Object.fromEntries(['web/src/render.js','web/src/scenes.js'].map(f=>[f,sha(fs.readFileSync(root+'/'+f))]));
 const check=(name,value=true)=>{assert(value,name);report.checks.push(name);};
 let browser;
 async function sample(order,meta,png){
@@ -43,7 +44,8 @@ async function sample(order,meta,png){
     for(let y=0;y<200;y++)for(let x=0;x<320;x++){
      const q=y*320+x,t=(y+19)*720+70+x*2;frontIdx[q]=idx[t];front.set(fb.subarray(t*4,t*4+4),q*4);back.set([...src.pal[src.px[q]],255],q*4);
     }
-    const layer={hash:0xdeadbeef,for:front,bak:back,forIdx:frontIdx,bakIdx:src.px,scene:'tavern'};
+    // Hele fixturen bruker PIV-filens originale, utonede palett. Fullt lys er kjent.
+    const layer={hash:0xdeadbeef,for:front,bak:back,forIdx:frontIdx,bakIdx:src.px,scene:'tavern',lys:1,lysMaks:1};
     addText();for(let i=0;i<5;i++){V.tegn(fb,diw,layer);await new Promise(r=>setTimeout(r,30));}
    }
    V.nullstillScene();S.nullstill();
@@ -56,7 +58,7 @@ async function sample(order,meta,png){
    const control=V.hdKontroll(),layer=V.lagNaa(),meshes=[];
    V.scene().traverse(m=>{const im=m.material?.uniforms?.map?.value?.image;if(m.visible&&im?.toDataURL)meshes.push(m);});
    const counter=meshes.find(m=>m.material.uniforms.map.value.image.width===304&&m.material.uniforms.map.value.image.height===200);
-   const text=meshes.filter(m=>m.renderOrder===4&&m.material.uniforms.map.value.image.width===30&&m.material.uniforms.map.value.image.height===36);
+   const text=meshes.filter(m=>m.renderOrder>=4&&m.renderOrder<4.5&&m.material.uniforms.map.value.image.width===30&&m.material.uniforms.map.value.image.height===36);
    if(!counter||text.length!==2)throw new Error('Teller eller to HD-glyfer mangler');
    let protectedPixels=0,overdrawnTexels=0,unprotectedInkTexels=0;
    for(let y=12;y<24;y++)for(let x=281;x<302;x++)if(layer.sceneVern[y*320+x])protectedPixels++;

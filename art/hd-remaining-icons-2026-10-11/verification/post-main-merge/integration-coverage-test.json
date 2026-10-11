@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-10-11T16:18:07.273017+00:00",
+  "production_code_sha256": {
+    "web/src/render.js": "554c11ef0f2cc379e7d6d6a76a3d6039f804a19a6109c92b5289578093315378",
+    "web/src/scenes.js": "129ea5655281c10c7ac4c69103acd38fb6780bd2fc5706bfb16df942182ee7ac"
+  },
+  "html_sha256": "bdaa21a698cc3d1745d02413e948afa2a494577843a4a2d58af322e2b9586a5a",
+  "manifest_sha256": "a45e3da33ffbd996e98ba0e180c41c86cbc0466e92418906d913c248c6e8b248",
+  "reports": [
+    {
+      "path": "art/hd-remaining-icons-2026-10-11/verification/post-main-merge/raster/raster-test.json",
+      "sha256": "fc0ed36d2d2bf305187366d538b3e05440c7ee6ad454cea6b0a364044c0798fe",
+      "checks": 0,
+      "created_at": "2026-10-11T16:06:12.658Z"
+    },
+    {
+      "path": "art/hd-remaining-icons-2026-10-11/verification/post-main-merge/integration/background-text-test.json",
+      "sha256": "06b577de23bf5e6487920c0d6e13312a83b5d78359b5c2ce14cfaaea604ef529",
+      "checks": 59,
+      "created_at": "2026-10-11T16:15:02.016Z"
+    },
+    {
+      "path": "art/hd-remaining-icons-2026-10-11/verification/post-main-merge/import/import-test.json",
+      "sha256": "6890c5380f0e46130fb66d3d0bc1f2752c4b13bc9a74bd07b950733c8899b269",
+      "checks": 27,
+      "created_at": "2026-10-11T16:15:19.603Z"
+    },
+    {
+      "path": "art/hd-remaining-icons-2026-10-11/verification/post-main-merge/landmarks/landmarks-test.json",
+      "sha256": "566de0b457f695dae6d70036598afd91835e5c1851afcfac5a931cb9570efbb8",
+      "checks": 106,
+      "created_at": "2026-10-11T16:15:47.539Z"
+    },
+    {
+      "path": "art/hd-remaining-icons-2026-10-11/verification/post-main-merge/standard/standard-test.json",
+      "sha256": "7ab057fa0210892964cac016be5a769dc2eaf4aa867b6a8d03c5bab54d53fbb9",
+      "checks": 25,
+      "created_at": "2026-10-11T16:17:10.499Z"
+    },
+    {
+      "path": "art/hd-remaining-icons-2026-10-11/verification/post-main-merge/math/math-animated-test.json",
+      "sha256": "a13c09bc912681172ce2e984fae0de3dd01720ef9003a542e0d5343c9ca1536d",
+      "checks": 0,
+      "created_at": "2026-10-11T16:17:32.229Z"
+    }
+  ],
+  "scope": "Friske lokale prøver etter fletting av PR27. CEL-proever er separat hashbundet i merged-runtime-coverage-test.json. Ikke full gjennomspilling eller fysisk telefonmaaling."
+}

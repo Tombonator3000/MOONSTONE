@@ -1,161 +1,165 @@
 # HD-grafikk til Moonstone: bestilling
 
-Dette er en melding til deg som skal lage HD-bildene. Den sier hva som mangler, hvilket format bildene må ha, og hva du ikke skal lage ennå. Hver påstand viser til fil:linje i repoet https://github.com/Tombonator3000/MOONSTONE (main), så du kan sjekke den selv (linjenumrene er fra 11. oktober 2026 og kan ha flyttet seg litt). Kommandoene kjøres fra roten av repoet.
+Alt under streken er en ferdig melding. Lim den inn til ChatGPT og legg ved `docs/hd-bestilling-liste.csv`. Listen lages på nytt med `python3 tools/hd_bestilling.py Moonstonecd32-AMIGA.zip docs/hd-bestilling-liste.csv`, og tallene under er fra den kjøringen (11. oktober 2026). Bakgrunnen for listen, med belegg, står i `docs/hd-mangler.md`.
+
+Meldingen viser til filer som kommer med samme PR som denne bestillingen (listen, `tools/hd_bestilling.py`, `docs/hd-mangler.md`, maskeformatet i `docs/hd-grafikk.md` og kildebildene i `art/photoreal/references/runtime_background/`). Send den når PR-en er flettet, og sjekk at filene finnes på https://github.com/Tombonator3000/MOONSTONE/tree/main.
+
+---
+
+Hei! Jeg vil ha hjelp til å tegne HD-grafikk til et gammelt Amiga-spill. Vedlagt er en liste med en rad per bilde. Under står hva spillet er, hvordan bildene skal se ut, nøyaktig hvilket format nettsiden trenger, og hvor du finner originalbildet til hver rad. Repoet er https://github.com/Tombonator3000/MOONSTONE (grenen main). Kommandoene kjøres fra roten av repoet og krever Python 3 med Pillow.
 
 ## 1. Spillet og stilen
 
-Moonstone: A Hard Days Knight kom i 1991 på Amiga, fra Mindscape. Det er mørk og brutal fantasy med riddere, monstre, blod, steinsirkler og nattlige skoger. Originalen er pikselgrafikk i 320 x 200 med 32 farger (fem bitplan). HD-bildene skal ha samme motiv, form og plassering, bare tegnet skarpere. Ikke tegn nye motiver.
+Moonstone: A Hard Days Knight kom på Amiga i 1991, fra Mindscape. Det er mørk og brutal fantasy: fire riddere på jakt etter en magisk stein, kamper mot troll, demoner og drager, blod, steinsirkler, skoger om natten. Originalen er pikselgrafikk i 320 x 200 med 32 farger. Nettsiden kjører det originale spillet i en emulator og legger HD-bildene oppå, rute for rute, der spillet tegner originalen.
 
-## 2. Dette virker allerede i nettsiden
+Stilen er den som allerede er i bruk i `web/hd/`: bakgrunnene er malt nesten fotografisk, med mørkt nattlys og jordfarger (se for eksempel `web/hd/bg/62d8d655.png`, øvingskampen). Logoen er gullmetall. De statiske objektikonene er nå kildebundne rasterbilder fra art/hd-remaining-icons-2026-10-11. De beholder originalens motiv, størrelse og dokumenterte palettvarianter.
 
-- Du velger en HD-pakke som en mappe under «Velg HD-mappe» i sidemenyen (web/src/index.html:98, web/src/app.js:1765-1771). Mappen blir ikke husket. Du må velge den på nytt hver gang siden lastes. Velger du en ny mappe, legges filene til de som allerede er lastet (web/src/render.js:529-555). «Fjern» tømmer pakken (web/src/app.js:1772, web/src/render.js:558-563).
-- Bryteren «HD der den finnes / Original» slår HD av og på (web/src/index.html:92, web/src/app.js:1774-1779).
-- Bryteren «Gult felt der HD-bilde mangler» legger en gul flate over hver figur som mangler HD-bilde (web/src/index.html:95, web/src/render.js:270, web/src/render.js:463). Den er slått av hver gang siden lastes (web/src/app.js:1824).
-- Figurer byttes ut én og én ut fra hvilket filnavn og bildenummer spillet tegner (web/src/render.js:458). Bakgrunner byttes ut ut fra en hash av innholdet (web/src/render.js:493).
-- Mangler et HD-bilde, vises originalen (web/src/render.js:459-460, web/src/render.js:504-508).
+Det viktigste: **samme motiv, samme form, samme plassering, bare skarpere.** Ikke legg til ting, ikke flytt noe, ikke endre posen. Et sverd som peker opp til høyre i originalen, skal peke opp til høyre i HD-bildet, og det skal slutte på samme sted. Spillets treffsoner følger originalens piksler.
 
-## 3. Nøyaktig format
+## 2. Listen
 
-### 3.1 Mapper og filnavn
+`docs/hd-bestilling-liste.csv` har 1815 rader, skilt med semikolon. Kolonnene:
 
-Nettsiden lager en nøkkel av de to siste leddene i stien: mappenavnet og filnavnet uten .png, begge med små bokstaver (web/src/render.js:532-534). Mapper lenger opp betyr ingenting. Store og små bokstaver spiller ingen rolle.
+| Kolonne | Hva |
+|---|---|
+| prioritet | 1 er viktigst. «senere» betyr at det ikke kan vises ennå |
+| gruppe | Hva slags grafikk |
+| fil, bilde | Originalfilen i spillet og bildenummeret i den |
+| hd_fil | Eksakt sti i HD-pakken. Bruk den uendret |
+| kilde_bredde, kilde_hoyde | Originalens størrelse i piksler |
+| hd_bredde, hd_hoyde | Størrelsen HD-bildet skal ha |
+| farger_fra_palett | ja: spillet bytter noen av fargene (rustningen til ridderne). Se punkt 3.5 |
+| trenger_maske | ja: lever også en maske. Se punkt 3.5 |
+| hvor_i_spillet | Hvor bildet vises |
+| merknad | Hva som er spesielt: like bilder, utkast som finnes, kilde til bakgrunner |
 
-| Hva | Sti i pakken | Regel |
-|---|---|---|
-| Figur | `KN1.ob/012.png` | Mappen heter som grafikkfilen. Filen er bildenummeret med tre sifre og nuller foran (web/src/render.js:458). |
-| Bakgrunn | `bg/62d8d655.png` | `bg/` + hash med 8 heksadesimale sifre, små bokstaver og nuller foran (web/src/render.js:493, docs/hd-grafikk.md:120-122). |
+Antall per gruppe, i rekkefølgen du bør ta dem:
 
-Eksempler som virker:
-- `MinPakke/figurer/KN1.ob/012.png` gir nøkkelen `kn1.ob/012`
-- `hd/bg/62d8d655.png` gir `bg/62d8d655`
-- `Balok1.CEL/000.png` og `bold.f/073.png` (MOONSTONE-logoen, docs/hd-grafikk.md:136-138)
+| Pri | Gruppe | Rader | Filer |
+|---|---|---|---|
+| 2 | Kartfigurer | 18 | mi.c, bare valgkonturer, meldingsfelt og drageanimasjon |
+| 4 | Byskjermer | 2 | Butikken og inventaret (bakgrunner) |
+| 5 | Riddere | 196 | KN1-4.ob, HE1-3.ob |
+| 7 | Logo | 1 | bold.f/073, på nytt i riktig sideforhold |
+| 7 | Monstre | 1050 | Balok, beistet, Demon, DRAGON, Mudmen, RATMEN, TROGGAxe, TROGGSpear, TROLL |
+| 8 | Steder | 1 | Druidene ved Stonehenge (i bruk som utkast, tegnes på nytt) |
+| 8 | Taverna og by | 31 | dice.cel, mys.cel |
+| 9 | Introscener | 4 | bg1b, og på nytt: bg2a, bg3, mindscape (bakgrunner) |
+| 10 | Blod og sår | 106 | KN5.ob, blo.cel |
+| 10 | Stedsfigurer | 72 | Wi1.C, hen1.c |
+| 11 | Meny, tittelmeny, sluttscene | 5 | sel.cel/001, bold.f 074 og 075, bg7, bg8 |
+| senere | Intro og slutt | 329 | au1, co1, da1, dg1, dw1, ha1, li1, ov1 |
 
-Eksempler som aldri treffer:
-- `KN1.ob/12.png`, fordi bildenummeret må ha tre sifre (web/src/render.js:458)
-- `KN1.ob/012@4x.png` eller `012.png.png`, fordi nøkkelen blir en annen (web/src/render.js:534)
-- `HighWood.PIV/0.png`, `bg1a.PIV/000.png` eller `test/8.png`. Bakgrunner slås bare opp med hash (web/src/render.js:493).
+Det er 9 bakgrunnsrader og 1806 øvrige bilder, totalt 1815 bestillingsrader. Listen omfatter også foreslåtte nytegninger av enkelte bilder som allerede har HD; den er ikke en opptelling av bare manglende runtimefiler. Hulekampene, healeren, Mythrid, Math og terningbordet har fått ferdige HD-bilder (art/hd-all-locations-2026-10-11) og er ikke med. 156 rader trenger maske: ridderbildene og blodbildene som har rustningsfarger i seg (KN1 55, KN3 45, KN2 21, KN5 15, HE1 13, HE2 6, KN4 1). I tillegg kommer 101 masker til HE-kopiene (punkt 3.5). Prioritet 3 i oversikten vår (statusskjermen) er ikke med; den lager vi selv (punkt 7).
 
-Bruk navnene i kolonnen hd_fil i docs/grafikkliste.csv (docs/grafikkliste.md:9-13, docs/grafikkliste.csv:1-2).
+Rekkefølgen følger hvor ofte grafikken vises og hvor lite som skal til før den virker. Prioritet 2 og 4 skal virke så snart filen ligger i en mappe du velger med «Velg HD-mappe» (punkt 6). For bakgrunnene er hashene målt i spillet, de 27 statiske mi.c-ikonene er nytegnet og runtimekontrollert. De 18 øvrige MI-rutene er valgkonturer, ett meldingsfelt og åtte dragebilder. I standardpakken på nettsiden (`web/hd/`) må hver ny eller erstattet fil føres i `web/hd/manifest.json` med sha256 og størrelse. Math, terningspillet og de aktiverte introscenene har allerede scenekoblinger. Nye bakgrunnsnøkler i bestillingen må få en passende scenekobling ved levering. Ridderne, monstrene og blodet har støtte i koden (figurer i flere deler, masker for farge). Lasteskjermen og Prepare yourself-banneret har nå aktive HD-scener og er ikke med i bestillingen (punkt 7). Vi vet ikke hvilke monstre som er vanligst, så ta dem i den rekkefølgen listen har.
 
-To par filer i spillet er byte for byte like:
-- Klift1.CEL og hen1.c er like. Lag tegningene én gang, men legg dem i begge mappene, fordi nettsiden slår opp på filnavnet spillet laster (port/src/game.c:169-178, web/src/render.js:458).
-- hen1.p og bg5.piv er like. De gir samme bakgrunnshash, så ett HD-bilde dekker begge.
+## 3. Format
 
-### 3.2 Skala og størrelse
+### 3.1 Mappe og filnavn
 
-- Lag bildene i nøyaktig 4 x originalens bredde og høyde. Det er tallet i kolonnen hd_4x i CSV-filen, for eksempel 44 x 89 som blir 176 x 356 (docs/grafikkliste.csv:2). En bakgrunn blir 1280 x 800.
-- HD-figuren strekkes til figurens lowres-flate, d.w x d.h (web/src/render.js:465, port/src/game.c:208-209). d.w er den virkelige bredden. Den er ikke rundet opp til 16. Har bildet et annet sideforhold, blir det forvrengt.
-- Bakgrunnen strekkes over 320 x 200 (web/src/render.js:512).
-- Større enn 4x gir ikke skarpere bilde. Det sammensatte bildet er høyst 4 x lowres (web/src/render.js:302). Teksturene har ingen mipmaps (web/src/render.js:544-545), så 8x eller mer kan bli kornete.
+Bruk stien i kolonnen hd_fil, for eksempel `KN1.ob/012.png` eller `bg/3a38d016.png`. Legg alt i én mappe med de samme undermappene. Nettsiden lager nøkkelen av de to siste leddene i stien (mappen og filnavnet uten .png), og store og små bokstaver spiller ingen rolle (web/src/render.js:1327). Derfor:
 
-### 3.3 Farger og palett
+- Figurer: mappen heter som originalfilen, filnavnet er bildenummeret med tre sifre: `KN1.ob/012.png`, ikke `KN1.ob/12.png`.
+- Bakgrunner: `bg/` og åtte heksadesimale sifre, som er en hash av innholdet. Navn etter PIV-filen (`hea.piv/0.png`) blir aldri lest.
+- Ikke legg til noe i navnet (`012@4x.png`, `012_v2.png`). Da treffer det ikke.
 
-- Lever vanlige RGB- eller RGBA-PNG-er. En PNG med palett blir gjort om til RGB, og fargeindeksene betyr ingenting (web/src/render.js:536-549).
-- HD-bildene får ikke fargene fra spillets palett. De har faste farger på alle skjermer (docs/hd-grafikk.md:160-161, docs/grafikkliste.md:16). Velg fargene fra skjermen figuren vanligvis vises på.
-- PNG-ene fra `gfx.py extract` har en forhåndsvisningspalett tatt fra test bilde 4. Det er ikke alltid fargene skjermen bruker (tools/gfx.py:52-58, docs/hd-grafikk.md:155-156). Bruk dem til form, ikke som fasit for farge.
-- Følgen er at riddere som deler et figursett, får samme farge i HD (docs/hd-grafikk.md:160-161).
-- Det eneste nettsiden endrer i HD-bildet, er lysstyrken ved toning (web/src/render.js:464, web/src/render.js:502).
+### 3.2 Størrelse: 4 ganger originalen
+
+Lag hvert bilde i nøyaktig 4 ganger originalens bredde og høyde, slik kolonnene hd_bredde og hd_hoyde sier. En bakgrunn blir 1280 x 800. Logoen blir 1220 x 216.
+
+Hvorfor 4: nettsiden setter sammen bildet i høyst 4 ganger spillets oppløsning (web/src/render.js:356), så mer gir ikke skarpere bilde. Med et helt tall svarer hver originalpiksel til nøyaktig 4 x 4 HD-piksler, så kanter, ankerpunkt og masken (3.5) ligger likt med originalen. Det er også tallet i `docs/grafikkliste.csv` (hd_4x). Bildene som allerede ligger i pakken, er laget i andre skalaer (de fleste bakgrunnene er 1586 x 992, fontene 6x, ikonene 8x). De virker, fordi alt strekkes til originalens flate, men nye bilder skal være 4x. Sideforholdet må være det samme som originalen, ellers blir bildet forvrengt. Logoens PNG er 2172 x 724 mot originalens 305 x 54. Koden viser den nå med bevart sideforhold og fyller bredden. En ny tegning i originalens sideforhold vil også fylle det opprinnelige høydefeltet riktig.
+
+### 3.3 Ett bilde per rute, samme rektangel
+
+Hver rad er én rute i originalen, og HD-bildet strekkes over nøyaktig samme rektangel som den. Altså:
+
+- Lerretet er hele originalruten ganger 4. Ikke beskjær til motivet, og ikke legg til marg.
+- Motivet skal ligge på samme sted i lerretet som i originalen. Øverst til venstre i originalen er øverst til venstre i HD-bildet.
+- Mange figurer er deler av en større figur (ridderens kropp i ett bilde, beina i det neste, sverdet i et tredje). Delene settes sammen av spillet. Tegn hver del for seg, og la kantene slutte der originalen slutter, så delene passer sammen. Ikke tegn hele ridderen i én rute.
+- Ikke lag speilede varianter. Nettsiden snur bildet selv når spillet tegner figuren andre veien.
 
 ### 3.4 Gjennomsiktighet
 
-- Figurer bruker alfakanalen, og myke kanter virker (web/src/render.js:549, docs/hd-grafikk.md:52-53). Fargeindeks 0 betyr ikke gjennomsiktig. Det som skal være gjennomsiktig, må være det i alfa.
-- Originalfiguren ligger fortsatt under HD-bildet (web/src/render.js:488, web/src/render.js:264). Der HD-bildet er gjennomsiktig innenfor figurens felt, synes originalpikslene. HD-bildet må derfor dekke hele originalens silhuett.
-- Skyggen lages av originalen og ikke av HD-bildet (web/src/render.js:259-261).
-- Bakgrunner ignorerer alfa (web/src/render.js:91). Lag dem helt dekkende, 1280 x 800, uten gjennomsiktige deler.
+- Figurer: RGBA-PNG. Det som er gjennomsiktig i originalen (fargeindeks 0), skal ha alfa 0. Myke kanter går fint.
+- HD-bildet må dekke hele originalens silhuett. Der HD-bildet er gjennomsiktig innenfor originalens figur, synes bakgrunnen og ikke figuren.
+- Bakgrunner: helt dekkende, ingen gjennomsiktige deler.
+- Lever figurer som RGBA, ikke som palett-PNG med gjennomsiktig farge. Nettleseren gjør riktignok den om til alfa, men da får du ingen myke kanter, og det er lett å miste gjennomsiktigheten når bildet redigeres.
 
-### 3.5 Speiling
+### 3.5 Maske for figurer som får fargen fra paletten
 
-Ikke lag speilede filer. Nettsiden snur bildet selv (web/src/render.js:466, port/src/game.c:207-211). Tegn hvert bilde vendt samme vei som gfx.py pakker det ut.
+Ridderne (KN1-5.ob og HE1-3.ob) har ikke fast farge på rustningen. Spillet gir hver ridder sin farge ved å bytte fargene i paletten: KN-bildene bruker indeksene 6, 7 og 8 til rustningen og HE-bildene 9, 10 og 11. Den samme tegningen skal derfor kunne vises i alle ridderfargene (blå, grønn, oransje, rød og så videre). Radene med trenger_maske=ja har slike piksler. For dem leverer du to filer:
 
-## 4. Grafikk som må lages, i prioritert rekkefølge
+1. Tegningen, `KN1.ob/012.png`, som vanlig. Tegn i fargene originalen har når du pakker den ut (punkt 4), eller tegn rustningen i grått. Fargen på rustningen kommer uansett fra masken; det som teller der, er lys, skygge og detaljer.
+2. Masken, `KN1.ob/012.mask.png` (navnet i hd_fil uten .png, pluss .mask.png). Samme størrelse som tegningen, RGBA, og den leses piksel for piksel uten utjevning:
 
-Det finnes ingen HD-pakke i repoet ennå (docs/hva-mangler.md:118-147). Totalt har spillet 74 grafikkfiler med 2361 bilder, og 38 av dem er tomme (docs/grafikkliste.md:5). Hopp over de tomme bildene (plan 0 i CSV). Størrelsene er bredde x høyde.
+| Kanal | Betydning |
+|---|---|
+| R | 0 = behold fargen i tegningen. 7, 8, 9 = palettindeks 6, 7, 8 (indeksen + 1); 10, 11, 12 = indeks 9, 10, 11 |
+| G | lysstyrke: 128 gir palettfargen, 0 svart, 255 nesten dobbelt så lyst |
+| B | hvor mye av palettfargen som brukes: 255 helt, 0 ingenting |
+| A | brukes ikke, la den være 255 |
 
-| Pri. | Gruppe | Filer (antall bilder) | Original | HD (4x) |
-|---|---|---|---|---|
-| 1 | Riddere | KN1.ob (60), KN2.ob (24), KN3.ob (64), KN4.ob (26, våpen), KN5.ob (65, blod og sår), HE1.ob (60), HE2.ob (24), HE3.ob (64). Til sammen 387. | Varierer. Bredest er KN5.ob/040 på 126 x 9, høyest KN5.ob/058 på 39 x 74. Eksempel: HE1.ob/000 er 23 x 54. | Fra hd_4x, for eksempel 92 x 216 |
-| 2 | Fonter | bold.f (76, med 69 og 72 tomme), Small.font (72, med 69 tomt) | bold.f 0-71 er 19 høye. 73 er logoen på 305 x 54, 74-75 er copyright-linjene. Small.font er 3-6 x 6. | 4x, logoen blir 1220 x 216 |
-| 3 | Meny og tittel | sel.cel (6: pilen og portrettene) | Pilen 38 x 19, portrettene 64 x 76 | 152 x 76 og 256 x 304 |
-| 4 | Kamp (felles) | au1.cel (92), blo.cel (41), co1.cel (25), da1.cel (52), ov1.cel (4), li1.cel (30, magi) | ov1.cel opptil 51 x 144 og 140 x 96. au1.cel/000 er 44 x 89. | Fra hd_4x |
-| 5 | Inventar | ki.cel (50), mi.c (47, med 019 og 029 tomme), po.cel (1, pekeren) | mi.c/032 er 174 x 51, po.cel er 16 x 18 | Fra hd_4x |
-| 6 | Monstre | Balok1-3, be1.c, be2.c, Demon1-4, dg1.cel, DRAGON1/2/5, Klift1 (= hen1.c), Mudmen1-2, RATMEN1-2, TROGGAxe1-2, TROGGSpear1-2, TROLL1-2. Til sammen 1264, 26 tomme. | Opptil 156 x 15 (DRAGON2/027) og 39 x 97 (DRAGON5/002) | Fra hd_4x |
-| 7 | Steder og figurer der | dw1.cel (53), ha1.cel (22), hen1.c (55, = Klift1), Wi1.C (21), mys.cel (8), dice.cel (23) | Se CSV | Fra hd_4x |
-| 8 | Bakgrunner, etter hash | Én fil per skjerm som allerede er lagret: bg/HASH.png. Kjente hasher: 62d8d655 (øvingskampen), 55bb9767 (stjernehimmelen i tittelmenyen), 045a1ac5. | 320 x 200 | 1280 x 800 |
+Bare rustningen skal ha R satt. Alt annet (hud, lær, sverd, kanter) har R = 0, G = 0, B = 0, og vises med tegningens egne farger. Der R er satt og B er 255, spiller tegningens farge ingen rolle; da bestemmer G hvor lyst det blir. Skyggene og detaljene i HD-rustningen må derfor ligge i G. Mykere overgang mot resten av tegningen får du med B under 255 langs kanten.
 
-Kilder til tabellen: docs/grafikkliste.md:21-94 og docs/grafikkliste.csv. Rekkefølgen er en vurdering av hvor ofte grafikken vises. Den er ikke målt. Ridderne tegnes ti ganger i sekundet i hver kamp (memory.md:66-67). Repoet sier ikke hvilke monstre som er vanligst.
+Masken lages med
 
-For bakgrunner får du hashen fra spillet. Du kan ikke regne den ut fra PIV-filen (se punkt 5).
+```
+python3 tools/hd_bestilling.py --maske assets/gfx/KN1.ob/012.png hd/KN1.ob/012.mask.png hd/KN1.ob/012.png
+```
 
-## 5. Slik får du tak i originalbildene
+Første fil er originalen (punkt 4), andre er masken som lages, og tredje er tegningen din. Kommandoen forstørrer originalens indekser til tegningens størrelse med nærmeste nabo, setter R og B der originalen har indeksene 6-11, og regner ut G av lysstyrken i tegningen delt på lysstyrken til den samme fargen i originalen. Tegner du i originalens farger, blir G 128 der tegningen har samme lysstyrke som originalen, og skyggene i tegningen blir med. Uten den tredje filen blir masken 4x originalen med G = 128 overalt. Etterpå kan du rette kantene for hånd så de følger tegningen. Ikke bytt indeksene, og ikke bruk utjevning i R.
 
-Fra roten av repoet (krever Pillow):
+Mange bilder i HE1-3.ob er de samme som i KN1-3.ob, bare med indeksene 6, 7 og 8 byttet til 9, 10 og 11. De står ikke som egne rader. Merknaden på KN-raden sier hvor tegningen også skal ligge: legg samme tegning der, og legg ved masken med R byttet fra 7, 8, 9 til 10, 11, 12 (G og B som før). Kommandoen over med HE-originalen som første fil gir det samme.
+
+### 3.6 Like bilder
+
+Noen bilder finnes i flere filer, byte for byte like (troggen med øks og troggen med spyd deler 62 bilder, hen1.c og Klift1.CEL er like, sverdene i KN4.ob brukes også av noen monstre). De står bare én gang i listen. Merknaden sier hvor tegningen også skal ligge. Lag en tegning og kopier filen dit.
+
+## 4. Slik finner du originalbildet
+
+Figurer:
 
 ```
 python3 tools/gfx.py extract Moonstonecd32-AMIGA.zip assets/gfx
 ```
 
-- Kommandoen gir 74 mapper og index.json (tools/gfx.py:5, tools/gfx.py:121).
-- Figurfilene blir `NAVN/000.png` (tools/gfx.py:115). Bildefiler som PIV blir `NAVN/0.png` (tools/gfx.py:107). PIV-filene er bare til referanse.
-- Listen over all grafikk lages på nytt med `python3 tools/grafikkliste.py Moonstonecd32-AMIGA.zip docs` (tools/grafikkliste.py:5).
+Det gir en mappe per fil med ett PNG per bilde, med samme navn som i hd_fil: `assets/gfx/KN1.ob/012.png` er originalen til raden med hd_fil `KN1.ob/012.png`. PNG-ene er indekserte. Fargene er en forhåndsvisning med paletten fra skogkampen, ikke alltid fargene skjermen bruker, så bruk dem til form og som utgangspunkt for farge. Størrelser og en kort beskrivelse av hver fil står i `docs/grafikkliste.md`, som lages med `python3 tools/grafikkliste.py Moonstonecd32-AMIGA.zip docs`.
 
-Bakgrunner lagres fra spillet på en av to måter.
+Bakgrunner: merknaden på hver bakgrunnsrad sier hvor kilden ligger.
 
-Med nettsiden: start spillet og gå til skjermen. Vent til den er ferdig tonet inn, og trykk «Lagre bakgrunnen». Du får `HASH.png` på 320 x 200, som legges i `bg/` (web/src/index.html:100, web/src/app.js:1739-1764). Knappen gjør ingenting før spillet er startet. På skjermer uten bakgrunn kommer en melding (web/src/app.js:1740, web/src/app.js:1746).
+- Butikken og inventaret: `art/photoreal/references/runtime_background/e868fda9.png` og `94e65527.png`, lagret fra emulatoren.
+- De andre er bildefiler i spillet: `assets/gfx/hen1.p/0.png`, `assets/gfx/bg3.PIV/0.png` og så videre etter kommandoen over.
 
-Uten vindu:
+Alle er 320 x 200. Det finnes også eldre utkast i `art/photoreal/candidates/` for mange rader (merknaden sier hvilke og hvilken status de har). Ingen av dem er godkjent. Bruk dem gjerne som utgangspunkt, men følg originalen der de avviker.
 
-```
-mkdir -p bg
-port/moonstone-headless --game Moonstonecd32-AMIGA.zip --headless --frames 1400 \
-  --press 100:esc --press 700:down --press 760:down --press 820:fire --lag-dump bg
-```
+## 5. Det som skal tegnes på nytt
 
-- Kommandoen gir 045a1ac5.png, 55bb9767.png og 62d8d655.png.
-- Mappen må finnes på forhånd. Ellers skrives ingenting, og ingen feil vises (port/src/png.c:35-36, port/src/main.c:182).
-- En bakgrunn skrives når den har stått i 50 bilder (port/src/main.c:167-183).
-- `--lag F:PREFIKS` lagrer én bestemt skjerm (port/src/main.c:121, port/src/main.c:156-166).
+- **Logoen** (`bold.f/073.png`, 1220 x 216). Dagens logo er fin, men har feil sideforhold. Behold uttrykket (gullmetall, MOONSTONE med de tre O-diamantene og «A Hard Days Knight» under), men tegn den så den fyller 305 x 54 ganger 4, som originalen.
+- **Druidene og introscenene** (bg2a, bg3, mindscape, stjernene i bg8) er i bruk som eldre utkast der avvikene skjules med masker. Tegn dem på nytt der merknaden sier at de avviker.
+- **Trollet** er blått i spillet. Utkastene er brune og gylne.
 
-En automatisk startpakke, som er nyttig å sammenligne med:
+## 6. Levering og test
 
-```
-python3 tools/hd_skaler.py assets/gfx hd --ganger 4 --bare KN1.ob KN2.ob ... bg
-```
+Lever PNG-filene i en mappe med samme oppbygning som hd_fil (for eksempel `hd/KN1.ob/012.png`, `hd/KN1.ob/012.mask.png`, `hd/bg/3a38d016.png`). Ikke endre noe annet i repoet.
 
-Bruk `--bare` med figurmappene og bg (tools/hd_skaler.py:56-64). Uten `--bare` blir også de 24 bildemappene skalert, og dem leser nettsiden aldri.
+Du kan prøve pakken selv: bygg nettsiden (`make -C port web`) eller bruk https://tombonator3000.github.io/MOONSTONE/, åpne sidemenyen, velg «Velg HD-mappe» og pek på mappen. Slå på «Gult felt der HD-bilde mangler», så ser du hvilke figurer som fortsatt mangler. «HD / Original» bytter mellom HD og originalen, så du kan sjekke at plasseringen stemmer. For ridderne: i øvingskampen skal din ridder være blå og motstanderen grønn med de samme tegningene. Er rustningen i tegningens egne farger, er masken ikke lest (feil navn eller størrelse).
 
-## 6. Slik tester du
+## 7. Dette skal du ikke lage
 
-1. Legg pakken i en mappe, for eksempel `hd/KN1.ob/000.png` og `hd/bg/62d8d655.png`.
-2. Bygg og åpne nettsiden. Velg «Velg HD-mappe» og pek på `hd`. Statusen viser hvor mange bilder som ble lest (web/src/app.js:1768-1769).
-3. Slå på «Gult felt der HD-bilde mangler». Gule felt viser figurer som fortsatt mangler.
-4. Slå «HD/Original» av og på og sammenlign plassering og silhuett.
-5. Sjekk at de utpakkede figurene treffer skjermen. Lag først en lagret tilstand med figurer på skjermen (--save-state i moonstone-headless), og kjør:
+- `bg/045a1ac5.png`. Det er hashen av en helt tom skjerm, og bildet ville vist seg på alle tomme skjermer og i overganger.
+- `bg/8dbce956.png` (månen) og `bg/c234c097.png` (stjernene). De ligger bak lasteskjermen og synes aldri.
+- Bitene i `test` (bilde 0-7). Kampbakgrunnene settes sammen av dem, men bare den ferdige bakgrunnen kan byttes. Alle 56 ferdige kampvarianter har nå HD.
+- Ikke lag nye hele skjermer for lasteskjermen («MOONSTONE ... Loading») eller «Prepare yourself»; de har aktive HD-scener fra ch.piv og message.piv. «Select a Knight» bruker eksisterende HD-tekst og valggrafikk. Den gjenværende menyrammen, sel.cel/001, står som egen rad i listen.
+- Flisene i bg1a, bg1b og bg1c. De settes sammen i introen etter en tabell vi ikke har dekodet.
+- ki.cel 034-036 og 038-044 (statusskjermen). Disse gjenværende tekst-/rammefragmentene kan lages i 8 ganger originalen fra originalens piksler med `tools/hd_ikoner_bygg.py`, med en oppføring i `web/hd/icons.json` som gir dem fargen fra spillet. Nettsiden godtar bare den skalaen for ikonene. Dem lager vi selv.
+- Det som allerede har HD: fontene, ki.cel 000-033 og 037, månefasene ki.cel 045-049, pekeren, riddervalget, 27 statiske mi.c-ruter og 75 bakgrunner (`web/hd/manifest.json`). Ikke tegn disse om med mindre CSV-en uttrykkelig ber om en ny versjon. Logoen og enkelte bakgrunnsrader er slike revisjonsoppgaver.
+- Rader med prioritet «senere» (intro og slutt, 329 rader). Introen og slutten kjøres av et eget program der nettsiden ikke ser hva som tegnes, så bildene kan ikke vises ennå. Vent med dem.
 
-```
-python3 tools/hd_sjekk.py --gfx assets/gfx --state kamp.sav
-```
+## 8. Det som ikke er sikkert
 
-Verktøyet leser `MAPPE/%03d.png` og finner mappen uten å bry seg om store og små bokstaver (tools/hd_sjekk.py:19, tools/hd_sjekk.py:83, tools/hd_sjekk.py:132-133). Det trenger port/moonstone-headless (tools/hd_sjekk.py:80-82).
-
-## 7. Dette skal du IKKE gjøre
-
-- Ikke endre filer i repoet. Lever bare PNG-filer i pakkemappen.
-- Ikke lag bakgrunner med navn etter PIV-filer, som `HighWood.PIV/0.png` eller `bg1a.PIV/000.png`. De blir aldri lest (web/src/render.js:493).
-- Ikke lag HD-bilder av bitene i `test` (bilde 0-8). De blir aldri slått opp (web/src/render.js:458, web/src/render.js:493).
-- Ikke lag speilede varianter, og ikke lag filnavn uten tre sifre.
-- Ikke lag mer enn 4x, og ikke endre sideforholdet.
-- Ikke bruk fargeindeks 0 eller en palett-PNG for gjennomsiktighet. Bruk alfa.
-- Ikke gjør HD-figuren mindre enn originalens silhuett, siden originalen synes under.
-- Ikke flytt eller endre motivet. Treffsonene (collide.hit) følger originalen (docs/hd-grafikk.md:3-4).
-
-## 8. Kan ikke vises i HD ennå. Ikke lag dette, eller merk det som senere
-
-- **Kartet (test bilde 8).** Ridderne tegnes inn i selve bakgrunnskopien når turen starter (port/src/hver.c:15-16). Da endres hashen etter hvor de står. Ett HD-kart passer trolig bare én stilling. Det er ikke målt. Vent.
-- **Kampbakgrunnene fra .t-filene.** De kan bare få HD som én ferdig bakgrunn per hash (web/src/render.js:493). Hvordan .t-filene setter dem sammen, er ukjent (todo.md:19). Lag bare de hashene som er lagret fra spillet. I dag er det øvingskampen, 62d8d655.
-- **Byer, tavernaen og stedene (PIV).** Det går bare etter hash. Hver skjerm må lagres med «Lagre bakgrunnen» først. Skjermer der spillet skriver inn i bakgrunnen, for eksempel en markør, får ny hash (docs/hd-grafikk.md:162-164).
-- **Introen (mindscape, bg8.PIV) og sluttscenen.** Lagene og tegnelisten finnes bare når mog er lastet (port/src/lag.c:54, docs/hd-grafikk.md:23). Nettsiden slår dessuten av HD i sluttscenen (docs/hva-mangler.md:75-81).
-- **Menyrammer og tekst som ikke tegnes med tegn_figur.** De har ingen HD-nøkkel og kan bare byttes som en del av en bakgrunn (docs/hd-grafikk.md:165-169).
-- **Select a Knight.** Hele skjermen er forgrunn, så det finnes ingen bakgrunn å bytte (docs/hd-grafikk.md:99-100). Portrettene i sel.cel kan byttes som figurer. Sjekk i spillet hvilke av bilde 1-5 som er de fire ridderne før du tegner, fordi bilde 1 har fire plan og 2-5 har fem (docs/grafikkliste.csv:1963-1967).
-- **Sidemenyen og knappene på nettsiden.** De bruker ikke HD-pakken (web/src/grafikk.js:1-21).
-- **Inntoning første gang en skjerm vises.** Her vises HD-bildet i full styrke mens originalen toner inn (web/src/render.js:495-497). Det er en feil i koden, ikke noe du skal rette i bildene.
-- **Butikken (Merchant), figurene på kartet og om po.cel er en figur.** Dette er ikke kartlagt. Vent til det er sjekket med `--tegneliste`.
+- Masken (3.5) er prøvd med syntetiske bilder (originalene 4x med rød rustning): samme bilde ble blått, grønt, oransje og rødt etter hvilken ridder som kjemper. Den er ikke prøvd med en ekte HD-tegning ennå.
+- Hvilke indekser hver av de fire ridderne og den svarte ridderen får i kamp, er ikke målt. Masken lages derfor av originalens indekser, ikke av fargene.
+- KN5.ob og blo.cel (blod og sår) er ikke sett på skjermen i målingene våre. Vi antar at de brukes.
+- Math (WI1.P, WI2.P), terningspillet og de aktiverte introscenene har allerede scener i `web/hd/manifest.json`. De skal ikke bestilles på nytt for å løse en manglende scenekobling. Nye eller reviderte bakgrunnsbilder må fortsatt testes mot originaltekst, markører og forgrunn ved levering.
+- Monstre kan ha andre farger i et hi enn ute, fordi paletten er en annen. Vi har bare målt ett hi. Ser et monster feil ut i spillet, kommer vi tilbake til det.

@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / 'art/hd-remaining-icons-2026-10-11'
 ap = argparse.ArgumentParser(description=__doc__)
-ap.add_argument('--baseline', default='4365315fa98f9a0ed27125a05d5515ebf781f289')
+ap.add_argument('--baseline', default='74ceafba35907c30f53ec70f4f230533f1781c61')
 args = ap.parse_args()
 
 
