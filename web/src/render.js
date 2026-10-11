@@ -1290,6 +1290,12 @@ const Visning = (() => {
 
     /* Kalles bare naar kjernen har laget et nytt bilde, eller maaTegnes() er sann.
      * lag: { bak, for (Uint8Array, 320 x 200 RGBA), hash, lys } eller null. */
+    function forgrunnAndel(idx) {
+        let n = 0;
+        for (let p = 0; p < idx.length; p++) if (idx[p] !== 255) n++;
+        return n / idx.length;
+    }
+
     function tegn(fb, diw, lag) {
         tegnNr++;
         maaTegnes = false;
@@ -1317,6 +1323,10 @@ const Visning = (() => {
             /* Et utsnitt (byene, kroen) passer bare der scenen har gitt rektangelet. Uten
              * scenetreff vises originalbakgrunnen, ikke bildet strukket over hele skjermen. */
             if (hd && !lag.hdRect && utsnittBg.has(lag.hash >>> 0)) hd = null;
+            /* Dekker forgrunnen det meste av skjermen, vises ikke bakgrunnskopien (en melding
+             * eller lasteskjerm tegnet rett paa skjermen). Da ville HD-bildet av kopien skinne
+             * gjennom der meldingen og kopien tilfeldigvis har samme indeks (svart). */
+            if (hd && !lag.scene && lag.forIdx && forgrunnAndel(lag.forIdx) > 0.5) hd = null;
             beregnLys(lag);
             if (hd && !lysUkjent) {
                 bakMesh.material = bakMat;

@@ -11,10 +11,16 @@
     "journey-frame2000_HD_differs",
     "journey-frame2000_state_unchanged",
     "all_map_markers_HD",
+    "natural_map_source_selection_visible",
+    "natural_map_HD_selection_visible",
+    "natural_map_HD_selection_approved",
+    "natural_map_HD_background_loaded",
     "nonuniform_palette_keeps_original_marker",
     "inventory_restored_exactly",
     "inventory_HD_differs",
     "inventory_state_unchanged",
+    "inventory_HD_background_loaded",
+    "inventory_source_has_HD_rows",
     "inventory_icons_loaded",
     "no_icon_loading_error",
     "inventory_icons_visible",
@@ -157,6 +163,16 @@
             "id": "loading",
             "match": 0.00575,
             "detail": 0.019524617996604415
+          },
+          {
+            "id": "intro-forest",
+            "match": 0.0395,
+            "detail": 0.06841138659320478
+          },
+          {
+            "id": "intro-water",
+            "match": 0.008,
+            "detail": 0.029117379435850774
           }
         ],
         "menu": false,
@@ -303,6 +319,16 @@
             "id": "loading",
             "match": 0.02425,
             "detail": 0.059422750424448216
+          },
+          {
+            "id": "intro-forest",
+            "match": 0.051,
+            "detail": 0.0775941230486685
+          },
+          {
+            "id": "intro-water",
+            "match": 0.024,
+            "detail": 0.08735213830755233
           }
         ],
         "menu": false,
@@ -449,6 +475,16 @@
             "id": "loading",
             "match": 0.069,
             "detail": 0.19779286926994907
+          },
+          {
+            "id": "intro-forest",
+            "match": 0.11925,
+            "detail": 0.011937557392102846
+          },
+          {
+            "id": "intro-water",
+            "match": 0.01125,
+            "detail": 0.04094631483166515
           }
         ],
         "menu": false,
@@ -551,7 +587,7 @@
           },
           "scene": null,
           "file": "title-hd.png",
-          "sha256": "f6c8e5757909fa760b1834ecb169bb028ee75163ec23f2bc75174f42fb52717e"
+          "sha256": "8af4f4ba1c4600dd633490806def1d8ffeb07074ae9b741949cac5c9cdc7e63e"
         },
         {
           "mode": "restored",
@@ -631,7 +667,7 @@
           "mode": "hd",
           "state": 1575726986,
           "control": {
-            "godkjent": 0,
+            "godkjent": 3,
             "utenLag": 0,
             "kilde": 0,
             "overlapp": 0,
@@ -650,19 +686,19 @@
             "lys": 0,
             "lysUkjent": false,
             "hdLys": 1,
-            "ikonGodkjent": 0,
+            "ikonGodkjent": 3,
             "ikonAvvist": 0,
             "bakgrunn": "hd"
           },
           "scene": {
             "id": "world-map",
             "match": 0.9855,
-            "preserved_pixels": 165,
+            "preserved_pixels": 269,
             "hash": "2c1e0fa5",
             "hd_icons": 26
           },
           "file": "journey-frame2000-hd.png",
-          "sha256": "f0c1640670392c80d3984dc7b010953b75b5649d571a72a6582a86fef5027158"
+          "sha256": "ad5424e17d40adbaa6fad96d5d722d52019555ccbac35af82725d9af64dd5416"
         },
         {
           "mode": "restored",
@@ -728,7 +764,7 @@
             "tekstAvvist": 0,
             "tekstFeil": [],
             "lys": 0,
-            "lysUkjent": true,
+            "lysUkjent": false,
             "hdLys": 1,
             "ikonGodkjent": 0,
             "ikonAvvist": 0,
@@ -742,7 +778,7 @@
           "mode": "hd",
           "state": 1697588080,
           "control": {
-            "godkjent": 17,
+            "godkjent": 23,
             "utenLag": 0,
             "kilde": 0,
             "overlapp": 0,
@@ -761,14 +797,14 @@
             "lys": 0,
             "lysUkjent": false,
             "hdLys": 1,
-            "ikonGodkjent": 17,
+            "ikonGodkjent": 23,
             "ikonAvvist": 0,
             "markorGodkjent": 1,
-            "bakgrunn": "original"
+            "bakgrunn": "hd"
           },
           "scene": null,
           "file": "inventory-hd.png",
-          "sha256": "35c6beb1ab4a9b32dc57ec49fc11872102585e42a090722f2c0457418fbee19f"
+          "sha256": "8bb9809387eb0c90467230cc44b7fd4b34363e40b5aae03294aee5ce122a2257"
         },
         {
           "mode": "restored",
@@ -1347,7 +1383,7 @@
             "hd_icons": 0
           },
           "file": "fixture-world-map-hd.png",
-          "sha256": "c0fee7cdc695c5c9c346c1cecb37c32280379b779cab7f7492ec1aba463b0f62"
+          "sha256": "93b367aa7fee51ff2fb5175d1dbe0956add8f74095122bac06b5051b3d921bb7"
         },
         {
           "mode": "restored",
@@ -1581,7 +1617,7 @@
             "hd_icons": 0
           },
           "file": "fixture-tavern-hd.png",
-          "sha256": "7672e9268e4ef7bba1b0594dee597328a33003bd12281e29ca4fa6ea8d85c24a"
+          "sha256": "455218f6a6b013dc372ac6943aceed36f41fe3557bf5b9141f3fff3151da0e55"
         },
         {
           "mode": "restored",
@@ -1673,7 +1709,7 @@
       "hd_icons": 0
     },
     "control": {
-      "godkjent": 0,
+      "godkjent": 29,
       "utenLag": 0,
       "kilde": 0,
       "overlapp": 0,
@@ -1692,7 +1728,7 @@
       "lys": 0,
       "lysUkjent": false,
       "hdLys": 1,
-      "ikonGodkjent": 0,
+      "ikonGodkjent": 29,
       "ikonAvvist": 0,
       "bakgrunn": "original"
     },
@@ -1797,6 +1833,16 @@
         "id": "loading",
         "match": 0.0415,
         "detail": 0.04499151103565365
+      },
+      {
+        "id": "intro-forest",
+        "match": 0.02525,
+        "detail": 0.03673094582185491
+      },
+      {
+        "id": "intro-water",
+        "match": 0.0495,
+        "detail": 0.040036396724294813
       }
     ],
     "hash": 790419865,
@@ -1810,12 +1856,12 @@
     "scene": {
       "id": "world-map",
       "match": 0.9855,
-      "preserved_pixels": 165,
+      "preserved_pixels": 269,
       "hash": "2c1e0fa5",
       "hd_icons": 26
     },
     "control": {
-      "godkjent": 0,
+      "godkjent": 3,
       "utenLag": 0,
       "kilde": 0,
       "overlapp": 0,
@@ -1834,7 +1880,7 @@
       "lys": 0,
       "lysUkjent": false,
       "hdLys": 1,
-      "ikonGodkjent": 0,
+      "ikonGodkjent": 3,
       "ikonAvvist": 0,
       "bakgrunn": "hd"
     },
@@ -1939,6 +1985,16 @@
         "id": "loading",
         "match": 0.0415,
         "detail": 0.04499151103565365
+      },
+      {
+        "id": "intro-forest",
+        "match": 0.02525,
+        "detail": 0.03673094582185491
+      },
+      {
+        "id": "intro-water",
+        "match": 0.0495,
+        "detail": 0.040036396724294813
       }
     ],
     "hash": 790419865,
@@ -1947,11 +2003,47 @@
     "name": false,
     "map": null
   },
+  "map_selection": {
+    "original": [
+      {
+        "fil": "mi.c",
+        "bilde": 21,
+        "x": 18,
+        "y": 11,
+        "w": 24,
+        "h": 19,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      }
+    ],
+    "shown": [
+      {
+        "fil": "mi.c",
+        "bilde": 21,
+        "x": 18,
+        "y": 11
+      }
+    ],
+    "candidates": [
+      {
+        "fil": "mi.c",
+        "bilde": 21,
+        "x": 18,
+        "y": 11,
+        "w": 24,
+        "h": 19,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      }
+    ]
+  },
   "inventory": {
     "frame": 2150,
     "scene": null,
     "control": {
-      "godkjent": 17,
+      "godkjent": 23,
       "utenLag": 0,
       "kilde": 0,
       "overlapp": 0,
@@ -1964,16 +2056,16 @@
       "posePalett": 0,
       "poseOverlapp": 0,
       "posePiksler": 0,
-      "tekstGodkjent": 0,
+      "tekstGodkjent": 29,
       "tekstAvvist": 0,
       "tekstFeil": [],
       "lys": 0,
-      "lysUkjent": true,
+      "lysUkjent": false,
       "hdLys": 1,
-      "ikonGodkjent": 17,
+      "ikonGodkjent": 23,
       "ikonAvvist": 0,
       "markorGodkjent": 1,
-      "bakgrunn": "original"
+      "bakgrunn": "hd"
     },
     "scan": true,
     "matches": [
@@ -2064,7 +2156,7 @@
       },
       {
         "id": "message-banner",
-        "match": 0.84225,
+        "match": 0.8105,
         "detail": 0
       },
       {
@@ -2076,6 +2168,16 @@
         "id": "loading",
         "match": 0.00425,
         "detail": 0.013582342954159592
+      },
+      {
+        "id": "intro-forest",
+        "match": 0.01575,
+        "detail": 0.0027548209366391185
+      },
+      {
+        "id": "intro-water",
+        "match": 0.67175,
+        "detail": 0.009099181073703366
       }
     ],
     "hash": 2498123047,
@@ -2085,7 +2187,7 @@
     "map": null
   },
   "icons": {
-    "antall": 75,
+    "antall": 124,
     "feil": [],
     "markor": {
       "x": 160,
@@ -2093,6 +2195,72 @@
       "synlige": 82
     },
     "kandidater": [
+      {
+        "fil": "ki.cel",
+        "bilde": 38,
+        "x": 115,
+        "y": 35,
+        "w": 29,
+        "h": 5,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 40,
+        "x": 115,
+        "y": 49,
+        "w": 29,
+        "h": 5,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 39,
+        "x": 115,
+        "y": 42,
+        "w": 29,
+        "h": 5,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 41,
+        "x": 163,
+        "y": 35,
+        "w": 32,
+        "h": 5,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 42,
+        "x": 163,
+        "y": 42,
+        "w": 43,
+        "h": 5,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 43,
+        "x": 163,
+        "y": 49,
+        "w": 56,
+        "h": 5,
+        "xoff": 0,
+        "speilet": false,
+        "godkjent": true
+      },
       {
         "fil": "ki.cel",
         "bilde": 17,
@@ -2284,6 +2452,42 @@
     "viste": [
       {
         "fil": "ki.cel",
+        "bilde": 38,
+        "x": 115,
+        "y": 35
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 40,
+        "x": 115,
+        "y": 49
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 39,
+        "x": 115,
+        "y": 42
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 41,
+        "x": 163,
+        "y": 35
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 42,
+        "x": 163,
+        "y": 42
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 43,
+        "x": 163,
+        "y": 49
+      },
+      {
+        "fil": "ki.cel",
         "bilde": 17,
         "x": 115,
         "y": 59
@@ -2386,8 +2590,291 @@
       }
     ]
   },
+  "inventory_expected": {
+    "source": "Originale synlige CEL-plasseringer, filtrert mot aktive KI-kontrakter",
+    "placements": [
+      {
+        "fil": "ki.cel",
+        "bilde": 38,
+        "x": 115,
+        "y": 35,
+        "w": 29,
+        "h": 5,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 40,
+        "x": 115,
+        "y": 49,
+        "w": 29,
+        "h": 5,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 39,
+        "x": 115,
+        "y": 42,
+        "w": 29,
+        "h": 5,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 41,
+        "x": 163,
+        "y": 35,
+        "w": 32,
+        "h": 5,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 42,
+        "x": 163,
+        "y": 42,
+        "w": 43,
+        "h": 5,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 43,
+        "x": 163,
+        "y": 49,
+        "w": 56,
+        "h": 5,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 115,
+        "y": 59,
+        "w": 13,
+        "h": 15,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 134,
+        "y": 59,
+        "w": 13,
+        "h": 15,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 153,
+        "y": 59,
+        "w": 13,
+        "h": 15,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 172,
+        "y": 59,
+        "w": 13,
+        "h": 15,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 17,
+        "x": 191,
+        "y": 59,
+        "w": 13,
+        "h": 15,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 112,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 122,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 132,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 142,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 152,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 162,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 172,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 182,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 192,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 21,
+        "x": 202,
+        "y": 78,
+        "w": 5,
+        "h": 12,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 22,
+        "x": 117,
+        "y": 95,
+        "w": 65,
+        "h": 9,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      },
+      {
+        "fil": "ki.cel",
+        "bilde": 27,
+        "x": 103,
+        "y": 112,
+        "w": 37,
+        "h": 27,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      }
+    ],
+    "frames": [
+      17,
+      17,
+      17,
+      17,
+      17,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      22,
+      27,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+    ]
+  },
   "status": "passed",
-  "created_at": "2026-10-11T15:31:59.306Z",
-  "manifest_sha256": "94836a1f79c6c0e8b6325f360d3203aa6e03504b87b8fa31e9d42fa3c92b6904",
-  "html_sha256": "46740de379e7442b58c5314d9cd931e3adf54776e6bc8a500f67f5435bfa4265"
+  "created_at": "2026-10-11T18:28:59.372Z",
+  "manifest_sha256": "4893a8d209f54fc552a2388fd0a182c9ab3cd8eb1943522f12bdcb31595adfa2",
+  "html_sha256": "7c88f06328322a1c118de9a47a90579f3b710fb3012d714cd4121a61a49d70c0"
 }

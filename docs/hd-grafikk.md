@@ -152,8 +152,14 @@ En scene (`manifest.scenes`, `web/src/scenes.js`) kjenner igjen en PIV ut fra in
 Vanligvis sammenlignes med bakgrunnskopien. Med `"compare": "screen"` sammenlignes med
 det skjermen viser, for bilder spillet tegner rett på skjermen uten å legge dem i
 kopien. En slik scene går foran en som bare stemmer med kopien, og brukes ikke når kopien
-selv er bildet (da gjelder den vanlige bakgrunnen). Alt som avviker fra PIV-en (teksten),
-blir forgrunn med sine indekser, så tekst og logo kan få HD over scenen.
+selv er bildet (da gjelder den vanlige bakgrunnen). Med `"copy_scene": true` brukes scenen
+også da, sammenlignet med kopien (banneret message.piv i meldinger og Prepare yourself).
+Alt som avviker fra PIV-en (teksten), blir forgrunn med sine indekser, så tekst og logo
+kan få HD over scenen.
+
+Dekker forgrunnen mer enn halve skjermen uten scenetreff, vises ikke HD-bildet av
+bakgrunnskopien: da er det ikke kopien som vises, og HD-bildet ville skinne gjennom der
+meldingen og kopien har samme indeks (svart).
 
 Målt med `--tegneliste` og `LAG_SPOR=1` (11. oktober 2026):
 
