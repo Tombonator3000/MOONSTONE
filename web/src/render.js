@@ -38,6 +38,7 @@ const Visning = (() => {
     let fbData, fbTex, fbMat, fbMesh;
     let bakData, bakTex, bakMat, bakAmigaMat, bakMesh;
     let forData, forTex, forMat, skyggeMat, forMesh, skyggeMesh;
+    let vernData, vernTex;                  /* senere originalfragmenter som skal dekke HD */
     let lagNaa = null;                      /* { hash, lys } for bildet som vises, eller null */
     const lysMaks = new Map();              /* bakgrunn -> lyseste paletten sett (fading av HD-bakgrunner) */
 
@@ -57,9 +58,17 @@ const Visning = (() => {
     let bildeNr = 0, sistTegnet = -99, klynger = [];
     let visteListe = [], visesFra = 0;
     let plasserte = new Map(), sisteBakHash = -1;    /* "x,y,b,h" -> { d, x, y, w, h, hash } */
+    let nyesteMenypil = 0, menypilBakFra = 0;
     const flater = [];
     let rammeMat = null;
     let antallBg = 0;                       /* HD-bakgrunner i pakken */
+    const originalCeler = new Map();        /* originale indekser, aldri preview-paletten */
+    let hdTegnbare = new Set();
+    let hdFigurLys = new Map();             /* ruter med verifisert egen fading */
+    const hdPoser = new Map(), hdPoseKontrakter = new Map(), indeksHasher = new WeakMap(), bankHasher = new WeakMap();
+    let hdPoseViste = [], hdPoseFeil = [];
+    let hdPoseLaster = false, hdPoseUgyldig = false;
+    let hdKontroll = { godkjent: 0, utenLag: 0, kilde: 0, overlapp: 0, piksler: 0 };
 
     const vertPost = `
         varying vec2 vUv;
@@ -67,6 +76,29 @@ const Visning = (() => {
     const vertLag = `
         varying vec2 vUv;
         void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`;
+
+    const vertHd = `
+        varying vec2 vUv, vPos;
+        void main() {
+            vUv = uv; vPos = (modelMatrix * vec4(position, 1.0)).xy;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }`;
+    const fragHd = `
+        precision highp float;
+        uniform sampler2D map, vern;
+        uniform vec2 lagPos;
+        uniform float lys;
+        uniform vec4 imageRegion;
+        varying vec2 vUv, vPos;
+        void main() {
+            vec2 p = vPos - lagPos;
+            if (p.x >= 0.0 && p.y >= 0.0 && p.x < 320.0 && p.y < 200.0 &&
+                texture2D(vern, (floor(p) + 0.5) / vec2(320.0, 200.0)).a > 0.5) discard;
+            vec2 uv = imageRegion.xy + vUv * imageRegion.zw;
+            if (uv.x < 0.0 || uv.y < 0.0 || uv.x > 1.0 || uv.y > 1.0) discard;
+            vec4 c = texture2D(map, uv);
+            gl_FragColor = vec4(c.rgb * lys, c.a);
+        }`;
 
     /* bakgrunnen: Amiga-laget eller et HD-bilde, med fading og eventuelt uskarphet */
     const fragBak = `
@@ -256,6 +288,8 @@ const Visning = (() => {
 
         forData = new Uint8Array(320 * 200 * 4);
         forTex = dataTekstur(forData, 320, 200);
+        vernData = new Uint8Array(320 * 200 * 4);
+        vernTex = dataTekstur(vernData, 320, 200);
         skyggeMat = amigaMat(forTex, 320, 200, 1, true, true);
         skyggeMesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), skyggeMat);
         skyggeMesh.renderOrder = 2;
@@ -379,10 +413,18 @@ const Visning = (() => {
         }
     }
 
+    /* Bare den maalte pilen i originalens fire tittelmenyposisjoner. */
+    function erTittelmenypil(d) {
+        return d.fil.toLowerCase() === 'sel.cel' && d.bilde === 0 && d.w === 38 && d.h === 19 &&
+            !d.speilet && d.xoff === 0 && d.x === 50 && [85, 110, 148, 168].includes(d.y);
+    }
+
     /* kalles etter hvert bilde emulatoren kjorer, med tegnelisten for bildet */
     function nyttBilde(liste) {
         bildeNr++;
         if (liste.length) {
+            // Egen kopi: en nyere pil maa ogsaa kunne avlyse en eldre pil i koeen.
+            liste = liste.map((d) => erTittelmenypil(d) ? { ...d, menypilNr: ++nyesteMenypil, menypilBilde: bildeNr } : d);
             /* tegninger i bilder paa rad hoerer sammen, men en klynge varer hoeyst fire
              * bilder: tegner spillet i hvert bilde (inventaret), ville den ellers aldri
              * blitt vist og vokst uten grense */
@@ -419,17 +461,48 @@ const Visning = (() => {
             if (visteListe.length && bildeNr - visesFra > 50) visteListe = [];
             return;
         }
-        if (lag.hash !== sisteBakHash) { plasserte.clear(); sisteBakHash = lag.hash; }
+        if (lag.hash !== sisteBakHash) { plasserte.clear(); menypilBakFra = bildeNr; sisteBakHash = lag.hash; }
         while (klynger.length && klynger[0].vis <= bildeNr) {
             for (const d of klynger.shift().liste) {
+                const ventMenypil = lag.hash === 0x55bb9767 && erTittelmenypil(d);
+                if (ventMenypil && (d.menypilNr !== nyesteMenypil || d.menypilBilde < menypilBakFra)) continue;
+                if (ventMenypil) for (const [gammel, p] of plasserte) if (erTittelmenypil(p.d)) plasserte.delete(gammel);
+                // P/G stikker inn i pilens transparente hoeyrekant. Bare den
+                // maalte originalglyfen som foelger pilen faar samme ventetid.
+                const menybokstav = d.fil.toLowerCase() === 'bold.f' && !d.speilet && d.xoff === 0 && d.x === 86 && d.h === 19 &&
+                    ((d.bilde === 15 && d.y === 83 && d.w === 17) || (d.bilde === 6 && d.y === 108 && d.w === 14));
+                const bokstavPil = menybokstav ? [...plasserte.values()].find((p) => p.menypilKlar !== null && erTittelmenypil(p.d) &&
+                    p.x < d.x + d.w && p.x + p.w > d.x && p.y < d.y + d.h && p.y + p.h > d.y) : null;
                 const x = d.x - d.xoff, y = d.y, k = x + ',' + y + ',' + d.w + ',' + d.h;
+                const hash = rektHash(lag.forIdx, x, y, d.w, d.h), forrige = plasserte.get(k);
+                const erValgbilde = (v, min, maks) => v && v.fil.toLowerCase() === 'sel.cel' &&
+                    v.w === 64 && v.h === 76 && !v.speilet && v.bilde >= min && v.bilde <= maks;
+                // Bare den kjente cyan valgrammen kan beholde sitt portrett.
+                // Begge originalkildene kontrolleres fortsatt pikselvis nedenfor.
+                let underlag = null;
+                if (erValgbilde(d, 1, 1)) {
+                    if (erValgbilde(forrige?.d, 2, 5)) underlag = forrige.d;
+                    else if (erValgbilde(forrige?.d, 1, 1) && forrige.hash === hash) underlag = forrige.underlag;
+                }
                 plasserte.delete(k);
-                plasserte.set(k, { d, x, y, w: d.w, h: d.h, hash: rektHash(lag.forIdx, x, y, d.w, d.h) });
+                plasserte.set(k, { d, x, y, w: d.w, h: d.h, hash, underlag,
+                    menypilKlar: ventMenypil ? bildeNr + 2 : (bokstavPil?.menypilKlar ?? null),
+                    ventPilNr: ventMenypil ? d.menypilNr : bokstavPil?.ventPilNr });
             }
         }
-        for (const [k, p] of plasserte) if (rektHash(lag.forIdx, p.x, p.y, p.w, p.h) !== p.hash) plasserte.delete(k);
+        for (const [k, p] of plasserte) {
+            if (p.menypilKlar !== null) {
+                if (p.ventPilNr !== nyesteMenypil) { plasserte.delete(k); continue; }
+                if (bildeNr < p.menypilKlar) continue;
+                // Menyen bygger skjermen over flere bilder. Ikke vis pilen foer
+                // siste skjermbytte; deretter gjelder vanlig pikselvalidering.
+                p.hash = rektHash(lag.forIdx, p.x, p.y, p.w, p.h);
+                p.menypilKlar = null;
+            }
+            if (rektHash(lag.forIdx, p.x, p.y, p.w, p.h) !== p.hash) plasserte.delete(k);
+        }
         if (plasserte.size > 2000) plasserte.clear();
-        visteListe = [...plasserte.values()].map((p) => p.d);
+        visteListe = [...plasserte.values()].filter((p) => p.menypilKlar === null).flatMap((p) => p.underlag ? [p.underlag, p.d] : [p.d]);
     }
 
     function flate(i) {
@@ -450,20 +523,366 @@ const Visning = (() => {
         m.scale.set(w, h, 1);
     }
 
+    /* Les gjeldende spillfil, ogsaa etter at egne filer eller en nettvert bytter den.
+     * Byte-sammenligningen hindrer at en gammel maske brukes til en ny CEL-fil. */
+    function originalCel(fil, lest) {
+        const navn = fil.toLowerCase();
+        if (lest.has(navn)) return lest.get(navn);
+        let bilder = null;
+        try {
+            if (typeof Kjerne !== 'undefined' && typeof Spillgrafikk !== 'undefined') {
+                const data = Kjerne.hentFil('data/' + fil);
+                if (data && data.length >= 20) {
+                    const gammel = originalCeler.get(navn);
+                    if (gammel && data.length === gammel.data.length && data.every((v, i) => v === gammel.data[i])) bilder = gammel.bilder;
+                    else {
+                        const n = data[0] * 256 + data[1];
+                        const long = (p) => ((data[p] << 24) | (data[p + 1] << 16) | (data[p + 2] << 8) | data[p + 3]) >>> 0;
+                        let gyldig = n > 0 && n <= 2000 && 10 + n * 10 + long(2) <= data.length;
+                        for (let i = 0; gyldig && i < n; i++) {
+                            const e = 10 + i * 10, w = data[e + 4] * 256 + data[e + 5], h = data[e + 6] * 256 + data[e + 7];
+                            if (w > 320 || h > 200 || long(e) + ((w + 15) >> 4) * 2 * h * 8 > 4 * 1024 * 1024) gyldig = false;
+                        }
+                        if (gyldig) {
+                            bilder = Spillgrafikk._cel(data).map((g, i) => {
+                                const maske = data[19 + i * 10];
+                                g.planmaske = maske;
+                                return maske <= 31 && !(maske & (maske + 1)) ? g : null;
+                            });
+                            originalCeler.set(navn, { data, bilder });
+                            forvarmPoseIndekser(navn, bilder);
+                        }
+                    }
+                }
+            }
+        } catch (e) { /* ingen paalitelig kilde: behold originalen */ }
+        lest.set(navn, bilder);
+        return bilder;
+    }
+
+    async function sha256(data) {
+        if (!globalThis.crypto?.subtle) throw new Error('SHA256 er ikke tilgjengelig');
+        const hash = new Uint8Array(await crypto.subtle.digest('SHA-256', data));
+        return Array.from(hash, (b) => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function bankHash(bank) {
+        if (!bankHasher.has(bank)) {
+            const verdi = { hash: null, venter: null };
+            verdi.venter = sha256(bank.data).then((hash) => { verdi.hash = hash; maaTegnes = true; }).catch(() => {});
+            bankHasher.set(bank, verdi);
+        }
+        return bankHasher.get(bank);
+    }
+
+    /* Hash beregnes bare for en ny, dekodet kilde. En endret CEL faar nye objekter.
+     * Foer hashen er klar, vises originalen. Ingen venting i spillokka. */
+    function indeksHash(g) {
+        if (!indeksHasher.has(g)) {
+            indeksHasher.set(g, null);
+            sha256(g.px).then((hash) => { indeksHasher.set(g, hash); maaTegnes = true; }).catch(() => {});
+        }
+        return indeksHasher.get(g);
+    }
+
+    /* Naar en bank allerede er dekodet, start ogsaa hashene til de andre
+     * manifestmedlemmene i den banken. De forberedes asynkront foer neste pose
+     * blir synlig. Byte-invalidering lager fortsatt nye objekter, og hver pose
+     * maa fortsatt bestaa de samme kilde-, palett- og pikselkontrollene. */
+    function forvarmPoseIndekser(navn, bilder) {
+        for (const pose of hdPoseKontrakter.values()) for (const m of pose.members) {
+            if (m.file !== navn) continue;
+            const g = bilder[m.frame];
+            if (g && g.w === m.width && g.h === m.height && g.planmaske === m.plane_mask) indeksHash(g);
+        }
+    }
+
+    function overlapper(x, y, w, h, d) {
+        const dx = d.x - d.xoff;
+        return x < dx + d.w && x + w > dx && y < d.y + d.h && y + h > d.y;
+    }
+
+    /* I tittelbildet er fontens svarte indeks 5 ogsaa brukt i bakgrunnen.
+     * Laget utelater derfor enkelte ekte tekstpiksler. Bare de kildeverifiserte
+     * tittelfeltene nedenfor kan faa tilbake denne alfaen over en HD-bakgrunn.
+     * Ingen nye tegn beholdes, og endret tekst/palett/kilde gir originalfallback. */
+    function bevarTitteltekst(lag, lest) {
+        if (!lag || lag.hash !== 0x55bb9767 || !hdPakke.has('bg/55bb9767') ||
+            !lag.forIdx || lag.forIdx.length !== 64000 || !lag.for || !lag.bak) return;
+        const bilder = originalCel('bold.f', lest), bank = originalCeler.get('bold.f');
+        if (!bilder || !bank) return;
+        if (bankHash(bank).hash !== '2aec40683ea11d9eed6000e1a32731d65ff1682b89298e5469adeb136fa996f8') return;
+        // Logo, Players, Gore og de maalte verdiene 1 / On. Andre verdier
+        // eller en oversatt/endret meny maa verifiseres separat.
+        const felt = [
+            [10, [[73, 5]]],
+            [83, [[15, 86], [37, 100], [26, 105], [50, 115], [30, 124], [43, 132], [44, 141]]],
+            [108, [[6, 86], [40, 97], [43, 106], [30, 115]]],
+            [83, [[53, 214], [69, 218], [69, 230]]],
+            [108, [[14, 214], [39, 225]]],
+        ];
+        const kjent = (d) => d.fil.toLowerCase() === 'bold.f' && !d.speilet && d.xoff === 0 &&
+            felt.some(([y, ruter]) => d.y === y && ruter.some(([n, x]) => n === d.bilde && x === d.x &&
+                bilder[n]?.w === d.w && bilder[n]?.h === d.h));
+        const pil = visteListe.find(erTittelmenypil), pilKilde = pil ? originalCel(pil.fil, lest)?.[0] : null;
+        const svart = (data, p) => data[p * 4] === 0 && data[p * 4 + 1] === 0 && data[p * 4 + 2] === 0 && data[p * 4 + 3] === 255;
+        let verifiserte = 0;
+        for (const [y, ruter] of felt) {
+            if (ruter.some(([n]) => !bilder[n] || hdPakke.has('bold.f/' + String(n).padStart(3, '0')))) continue;
+            const x = Math.min(...ruter.map(([, x]) => x)), h = bilder[ruter[0][0]].h;
+            const w = Math.max(...ruter.map(([n, x]) => x + bilder[n].w)) - x;
+            if (ruter.some(([n]) => bilder[n].h !== h) ||
+                visteListe.some((d) => overlapper(x, y, w, h, d) && !kjent(d) && d !== pil)) continue;
+            // Nabobokstavene overskriver svarte skygger. Bruk original rekkefolge
+            // til en samlet maske foer noen piksel valideres eller endres.
+            const maske = new Uint8Array(w * h);
+            for (const [n, gx] of ruter) {
+                const g = bilder[n];
+                for (let j = 0; j < h; j++) for (let i = 0; i < g.w; i++) {
+                    const c = g.px[j * g.w + i];
+                    if (c) maske[j * w + gx - x + i] = c;
+                }
+            }
+            let gyldig = true, synlig = 0;
+            const gjenopprett = [];
+            for (let j = 0; gyldig && j < h; j++) for (let i = 0; i < w; i++) {
+                const c = maske[j * w + i], p = (y + j) * 320 + x + i, faktisk = lag.forIdx[p];
+                if (!c) {
+                    if (faktisk === 255) continue;
+                    const px = x + i - (pil?.x ?? -999), py = y + j - (pil?.y ?? -999);
+                    if (pilKilde && pilKilde.w === 38 && pilKilde.h === 19 && px >= 0 && px < 38 && py >= 0 && py < 19 &&
+                        pilKilde.px[py * 38 + px] === faktisk) continue;
+                    gyldig = false; break;
+                }
+                if (faktisk === c && (c !== 5 || svart(lag.for, p))) { synlig++; continue; }
+                if (c === 5 && faktisk === 255 && svart(lag.bak, p)) { gjenopprett.push(p); continue; }
+                gyldig = false; break;
+            }
+            if (!gyldig || !synlig) continue;
+            verifiserte++;
+            for (const p of gjenopprett) {
+                forData.set(lag.bak.subarray(p * 4, p * 4 + 4), p * 4);
+                vernData[p * 4 + 3] = 255;
+            }
+        }
+        return verifiserte === felt.length;
+    }
+
+    /* Et posemanifest eier sine medlemruter mens det er lastet. Hvis gruppen ikke
+     * er komplett, brukes originalen for disse rutene, ikke loese HD-fragmenter.
+     * Andre enkeltfragmenter beholder den eksisterende behandlingen. */
+    function forberedPoser(lag, lest) {
+        const reservert = new Set(), kandidater = [];
+        if (hdPoseLaster || hdPoseUgyldig) return new Set(visteListe);
+        for (const pose of hdPoseKontrakter.values()) for (const d of visteListe) {
+            if (pose.members.some((m) => m.file === d.fil.toLowerCase() && m.frame === d.bilde)) reservert.add(d);
+        }
+        for (const pose of hdPoser.values()) {
+            const forste = pose.members[0];
+            for (const anker of visteListe) {
+                if (anker.fil.toLowerCase() !== forste.file || anker.bilde !== forste.frame) continue;
+                const speilet = !!anker.speilet;
+                if (pose.mirror !== 'both' && (pose.mirror === 'mirrored') !== speilet) { hdKontroll.poseGruppe++; continue; }
+                const x = anker.x - anker.xoff - (speilet ? pose.width - forste.x - forste.width : forste.x);
+                const y = anker.y - forste.y;
+                const gruppe = [], masker = [];
+                let gyldig = Number.isInteger(x) && Number.isInteger(y) && x >= 0 && y >= 0 && x + pose.width <= 320 && y + pose.height <= 200;
+                let forrige = -1;
+                for (const m of pose.members) {
+                    const mx = x + (speilet ? pose.width - m.x - m.width : m.x), my = y + m.y;
+                    const funnet = visteListe.filter((d) => d.fil.toLowerCase() === m.file && d.bilde === m.frame &&
+                        d.x - d.xoff === mx && d.y === my && d.w === m.width && d.h === m.height && !!d.speilet === speilet);
+                    if (funnet.length !== 1 || visteListe.indexOf(funnet[0]) <= forrige) { gyldig = false; break; }
+                    forrige = visteListe.indexOf(funnet[0]); gruppe.push(funnet[0]);
+                }
+                if (!gyldig) { hdKontroll.poseGruppe++; continue; }
+                if (!lag || !lag.forIdx || lag.forIdx.length !== 64000 || !lag.for || !lag.bak) { hdKontroll.utenLag++; continue; }
+                // Alle fremmede rektangler avvises, ogsaa senere og delvis transparente.
+                if (visteListe.some((d) => !gruppe.includes(d) && overlapper(x, y, pose.width, pose.height, d))) { hdKontroll.poseOverlapp++; continue; }
+                for (const m of pose.members) {
+                    const g = originalCel(m.file, lest)?.[m.frame];
+                    if (!g || g.w !== m.width || g.h !== m.height || g.planmaske !== m.plane_mask || indeksHash(g) !== m.indices_sha256) { gyldig = false; break; }
+                    masker.push(g);
+                }
+                if (!gyldig) { hdKontroll.poseKilde++; continue; }
+                const indeks = new Uint8Array(pose.width * pose.height);
+                for (let k = 0; k < pose.members.length; k++) {
+                    const m = pose.members[k], g = masker[k];
+                    for (let j = 0; j < m.height; j++) for (let i = 0; i < m.width; i++) {
+                        const c = g.px[j * m.width + i];
+                        if (c) indeks[(m.y + j) * pose.width + m.x + i] = c;
+                    }
+                }
+                const fjern = [], sett = new Set();
+                let palettFeil = false;
+                for (let j = 0; gyldig && j < pose.height; j++) for (let i = 0; i < pose.width; i++) {
+                    const c = indeks[j * pose.width + (speilet ? pose.width - 1 - i : i)];
+                    const p = (y + j) * 320 + x + i, faktisk = lag.forIdx[p];
+                    if (!c) { if (faktisk !== 255) { gyldig = false; break; } continue; }
+                    if (faktisk !== 255 && faktisk !== c) { gyldig = false; break; }
+                    const rgba = faktisk === 255 ? lag.bak : lag.for, forventet = pose.palette[c];
+                    if (!forventet || forventet.some((v, n) => rgba[p * 4 + n] !== v)) { gyldig = false; palettFeil = true; break; }
+                    if (faktisk !== 255) { fjern.push(p); sett.add(c); }
+                }
+                if (gyldig && pose.identity_indices.some((c) => !sett.has(c))) { gyldig = false; palettFeil = true; }
+                if (!gyldig || !fjern.length) { hdKontroll[palettFeil ? 'posePalett' : 'posePiksler']++; continue; }
+                // Samme indeks fra en ukjent tegner er fortsatt uten eget pikseleierskap.
+                // Ingen rektangler slettes: bare de kildepikslene som ble kontrollert over.
+                kandidater.push({ pose, x, y, speilet, fjern });
+            }
+        }
+        for (const p of kandidater) {
+            if (kandidater.some((o) => o !== p && p.x < o.x + o.pose.width && p.x + p.pose.width > o.x &&
+                p.y < o.y + o.pose.height && p.y + p.pose.height > o.y)) { hdKontroll.poseOverlapp++; continue; }
+            for (const i of p.fjern) forData[i * 4 + 3] = 0;
+            hdPoseViste.push(p);
+            hdKontroll.poseGodkjent++; hdKontroll.godkjent++;
+        }
+        return reservert;
+    }
+
+    /* Next Day fyller himmelen i forgrunnen; baklaget kan fortsatt inneholde
+     * titteltegningen. Det er derfor ikke trygt aa slette maanens alfamaske.
+     * Originale 045–049, hele rektangelet og alle 16 innfadepaletter er maalt
+     * i review/ki-moon-source. Ingen andre KI-ruter arver denne kontrakten. */
+    function forberedMaane(d, g, lag, foran) {
+        const bank = originalCeler.get('ki.cel');
+        if (!bank || bankHash(bank).hash !== '02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104' ||
+            d.x !== 119 || d.y !== 12 || d.xoff !== 0 || d.speilet || d.w !== 57 || d.h !== 44 ||
+            !lag.for || lag.for.length !== 256000 || !lag.bak || lag.bak.length !== 256000) {
+            hdKontroll.kilde++; return;
+        }
+        if (foran.length) { hdKontroll.overlapp++; return; }
+        const palett = [0x000, 0xdef, 0xabc, 0x789, 0x567, 0x000, 0x123, 0x321,
+            0x210, 0xfed, 0xdc9, 0xc95, 0x842, 0x066, 0x034, 0x002];
+        // Indeks 1 finnes i alle fem ruter og har maksimal blaakomponent.
+        const s = g.px.indexOf(1), anker = (12 + Math.floor(s / 57)) * 320 + 119 + s % 57;
+        if (s < 0) { hdKontroll.kilde++; return; }
+        const ankerLag = lag.forIdx[anker] === 255 ? lag.bak : lag.for;
+        const nivaa = ankerLag[anker * 4 + 2] / 17;
+        if (!Number.isInteger(nivaa) || nivaa < 0 || nivaa > 15) { hdKontroll.piksler++; return; }
+        // Maalt fading klipper hver 4-bits fargekomponent til nivaa 0–15.
+        // Kontroller ogsaa $FF-piksler mot baklaget. De er ikke tomme bevis.
+        for (let j = 0; j < 44; j++) for (let i = 0; i < 57; i++) {
+            const p = (12 + j) * 320 + 119 + i, c = g.px[j * 57 + i] || 15;
+            const indeks = lag.forIdx[p], rgba = indeks === 255 ? lag.bak : lag.for;
+            const farge = palett[c];
+            if ((indeks !== 255 && indeks !== c) || rgba[p * 4 + 3] !== 255 ||
+                rgba[p * 4] !== Math.min(farge >> 8 & 15, nivaa) * 17 ||
+                rgba[p * 4 + 1] !== Math.min(farge >> 4 & 15, nivaa) * 17 ||
+                rgba[p * 4 + 2] !== Math.min(farge & 15, nivaa) * 17) {
+                hdKontroll.piksler++; return;
+            }
+        }
+        // Foerst etter full kontroll: behold riktig himmel under fotoets alfa.
+        const himmel = [0, 0, Math.min(2, nivaa) * 17, 255];
+        for (let j = 0; j < 44; j++) for (let i = 0; i < 57; i++)
+            forData.set(himmel, ((12 + j) * 320 + 119 + i) * 4);
+        hdFigurLys.set(d, nivaa / 15);
+        hdTegnbare.add(d);
+        hdKontroll.godkjent++;
+    }
+
+    /* Gjenkjente figurer kan erstattes, med senere originalfragmenter foran seg.
+     * Listen har ikke pikseleierskap for andre tegnerutiner. Ved tvetydig overlapp,
+     * ukjente forgrunnspiksler eller feil maske beholder vi hele originalfiguren.
+     * $FF betyr at pikselen allerede er lik bakgrunnen; den slettes aldri her.
+     * Vi rydder bare kildepiksler som har samme indeks i den viste forgrunnen,
+     * ikke rektangelet og ikke pikslene fra en eksportert preview-palett. */
+    function forberedHd(lag) {
+        hdTegnbare = new Set();
+        hdFigurLys = new Map();
+        hdPoseViste = [];
+        hdKontroll = { godkjent: 0, utenLag: 0, kilde: 0, overlapp: 0, piksler: 0,
+            poseGodkjent: 0, poseGruppe: 0, poseKilde: 0, posePalett: 0, poseOverlapp: 0, posePiksler: 0 };
+        vernData.fill(0);
+        vernTex.needsUpdate = true;
+        if (!hdPaa || (!hdPakke.size && !hdPoser.size)) return;
+        const lest = new Map();
+        const reservert = forberedPoser(lag, lest);
+        for (let nr = 0; nr < visteListe.length; nr++) {
+            const d = visteListe[nr];
+            if (reservert.has(d)) continue;
+            if (!hdPakke.has(d.fil.toLowerCase() + '/' + String(d.bilde).padStart(3, '0'))) continue;
+            if (!lag || !lag.forIdx || lag.forIdx.length !== 320 * 200) { hdKontroll.utenLag++; continue; }
+            const g = originalCel(d.fil, lest)?.[d.bilde], x = d.x - d.xoff, y = d.y;
+            if (!g || g.w !== d.w || g.h !== d.h || !Number.isInteger(x) || !Number.isInteger(y)) { hdKontroll.kilde++; continue; }
+            const foran = [];
+            let tvetydig = false;
+            for (let k = 0; k < visteListe.length; k++) {
+                const o = visteListe[k], ox = o.x - o.xoff;
+                if (o === d || x >= ox + o.w || x + d.w <= ox || y >= o.y + o.h || y + d.h <= o.y) continue;
+                const og = originalCel(o.fil, lest)?.[o.bilde];
+                if (k < nr || hdPakke.has(o.fil.toLowerCase() + '/' + String(o.bilde).padStart(3, '0')) || !og || og.w !== o.w || og.h !== o.h) { tvetydig = true; break; }
+                foran.push({ d: o, g: og, x: ox });
+            }
+            if (tvetydig) { hdKontroll.overlapp++; continue; }
+            if (d.fil.toLowerCase() === 'ki.cel' && d.bilde >= 45 && d.bilde <= 49) {
+                forberedMaane(d, g, lag, foran);
+                continue;
+            }
+            const fjern = [], beskytt = [];
+            let gyldig = true;
+            for (let j = 0; gyldig && j < d.h; j++) {
+                if (y + j < 0 || y + j >= 200) continue;
+                for (let i = 0; i < d.w; i++) {
+                    if (x + i < 0 || x + i >= 320) continue;
+                    const p = (y + j) * 320 + x + i, indeks = lag.forIdx[p];
+                    let over = 0;
+                    for (const o of foran) {
+                        const oi = x + i - o.x, oj = y + j - o.d.y;
+                        if (oi >= 0 && oj >= 0 && oi < o.d.w && oj < o.d.h) {
+                            const c = o.g.px[oj * o.d.w + (o.d.speilet ? o.d.w - 1 - oi : oi)];
+                            if (c) over = c;
+                        }
+                    }
+                    if (over) {
+                        if (indeks !== 255 && indeks !== over) { gyldig = false; break; }
+                        beskytt.push(p);
+                        continue;
+                    }
+                    if (indeks === 255) continue;
+                    const c = g.px[j * d.w + (d.speilet ? d.w - 1 - i : i)];
+                    if (!c || c !== indeks) { gyldig = false; break; }
+                    fjern.push(p);
+                }
+            }
+            if (!gyldig || !fjern.length) { hdKontroll.piksler++; continue; }
+            for (const p of fjern) forData[p * 4 + 3] = 0;
+            for (const p of beskytt) vernData[p * 4 + 3] = 255;
+            hdTegnbare.add(d);
+            hdKontroll.godkjent++;
+        }
+        return bevarTitteltekst(lag, lest);
+    }
+
     let hdLys = 1;                          /* fading for HD-bildene, fra paletten (lagene) */
     function tegnHd() {
         let n = 0;
-        if (hdPaa && (visRammer || hdPakke.size)) {        /* «Original»: ingen HD-bilder og ingen gule felt */
+        if (hdPaa && (visRammer || hdPakke.size || hdPoser.size)) {        /* «Original»: ingen HD-bilder og ingen gule felt */
             for (const d of visteListe) {
                 const nokkel = d.fil.toLowerCase() + '/' + String(d.bilde).padStart(3, '0');
-                const t = hdPakke.get(nokkel);
+                const t = hdTegnbare.has(d) ? hdPakke.get(nokkel) : null;
                 if (!t && !visRammer) continue;
                 const x = diwNaa[0] / 2 + d.x - d.xoff - ux(), y = diwNaa[1] + d.y - uy();
                 const m = flate(n++);
                 m.material = t ? t.mat : rammeMat;
-                if (t) t.mat.color.setScalar(hdLys);
+                if (t) {
+                    t.mat.uniforms.lys.value = hdFigurLys.get(d) ?? hdLys;
+                    t.mat.uniforms.lagPos.value.set(diwNaa[0] / 2 - ux(), diwNaa[1] - uy());
+                }
                 plasser(m, x, y, d.w, d.h);
                 if (d.speilet) m.scale.x = -d.w;           /* negativ bredde snur bildet */
+                m.visible = true;
+            }
+            for (const p of hdPoseViste) {
+                const m = flate(n++), t = p.pose.texture;
+                m.material = t.mat;
+                // Varianten krever eksakt originalpalett. Den tones ikke en gang til.
+                t.mat.uniforms.lys.value = 1;
+                t.mat.uniforms.lagPos.value.set(diwNaa[0] / 2 - ux(), diwNaa[1] - uy());
+                plasser(m, diwNaa[0] / 2 + p.x - ux(), diwNaa[1] + p.y - uy(), p.pose.width, p.pose.height);
+                if (p.speilet) m.scale.x = -p.pose.width;
                 m.visible = true;
             }
         }
@@ -515,6 +934,16 @@ const Visning = (() => {
         }
         if (!lag) hdLys = 1;
         oppdaterViste(lag);
+        const titteltekstKlar = forberedHd(lag);
+        // Ved sen pakkeinnlasting kan den opprinnelige engangstegningen av
+        // pilen mangle i tegnelisten. Behold original bakgrunn til hele den
+        // kjente tekstkontrakten passer, fremfor aa vise hull i svarte tegn.
+        if (hdPaa && lag?.hash === 0x55bb9767 && hdPakke.has('bg/55bb9767') && !titteltekstKlar) {
+            bakMesh.material = bakAmigaMat;
+            bakData.set(lag.bak);
+            bakTex.needsUpdate = true;
+            bakAmigaMat.uniforms.uskarp.value = effekter.dybde ? 0.9 : 0;
+        }
         bakMesh.visible = forMesh.visible = !!lag;
         skyggeMesh.visible = !!lag && effekter.skygge;
         tegnHd();
@@ -524,33 +953,112 @@ const Visning = (() => {
         renderer.render(scene2, kamera2);
     }
 
+    async function hdTekstur(f, region) {
+        const bilde = await createImageBitmap(f);
+        const lerret = document.createElement('canvas');
+        lerret.width = bilde.width; lerret.height = bilde.height;
+        lerret.getContext('2d').drawImage(bilde, 0, 0);
+        bilde.close();
+        const t = new THREE.Texture(lerret);
+        t.colorSpace = THREE.NoColorSpace;
+        t.flipY = false;
+        t.generateMipmaps = false;
+        t.minFilter = THREE.LinearFilter;
+        t.needsUpdate = true;
+        return { tex: t, width: lerret.width, height: lerret.height, mat: new THREE.ShaderMaterial({
+            uniforms: { map: { value: t }, vern: { value: vernTex }, lagPos: { value: new THREE.Vector2() }, lys: { value: 1 },
+                imageRegion: { value: region || new THREE.Vector4(0, 0, 1, 1) } },
+            vertexShader: vertHd, fragmentShader: fragHd, transparent: true, depthTest: false, depthWrite: false, side: THREE.DoubleSide,
+        }) };
+    }
+
+    function gyldigPose(p) {
+        const heltall = (v, min, max) => Number.isInteger(v) && v >= min && v <= max;
+        const hash = (v) => typeof v === 'string' && /^[0-9a-f]{64}$/.test(v);
+        if (!p || typeof p.id !== 'string' || !/^[a-z0-9_.-]{1,80}$/i.test(p.id) ||
+            typeof p.image !== 'string' || !/^poses\/[a-z0-9_.-]+\.png$/i.test(p.image) || !hash(p.image_sha256) ||
+            !heltall(p.width, 1, 320) || !heltall(p.height, 1, 200) || !['normal', 'mirrored', 'both'].includes(p.mirror) ||
+            !Array.isArray(p.members) || p.members.length < 1 || p.members.length > 16 ||
+            !p.palette || typeof p.palette !== 'object' || !Array.isArray(p.identity_indices) || !p.identity_indices.length) return false;
+        if (p.identity_indices.some((c) => !heltall(c, 1, 31) || !Object.hasOwn(p.palette, c))) return false;
+        for (const [k, rgba] of Object.entries(p.palette)) if (!/^[1-9][0-9]?$/.test(k) || +k > 31 ||
+            !Array.isArray(rgba) || rgba.length !== 4 || rgba[3] !== 255 || rgba.some((v) => !heltall(v, 0, 255))) return false;
+        for (const m of p.members) if (!m || typeof m.file !== 'string' || !/^[a-z0-9_.-]+$/i.test(m.file) ||
+            !heltall(m.frame, 0, 1999) || !heltall(m.width, 1, 320) || !heltall(m.height, 1, 200) ||
+            !heltall(m.x, 0, p.width - m.width) || !heltall(m.y, 0, p.height - m.height) ||
+            !heltall(m.plane_mask, 1, 31) || (m.plane_mask & (m.plane_mask + 1)) || !hash(m.indices_sha256)) return false;
+        if (Math.min(...p.members.map((m) => m.x)) !== 0 || Math.min(...p.members.map((m) => m.y)) !== 0 ||
+            Math.max(...p.members.map((m) => m.x + m.width)) !== p.width || Math.max(...p.members.map((m) => m.y + m.height)) !== p.height) return false;
+        return true;
+    }
+
     /* HD-pakke: filer med stier som ".../kn1.ob/012.png" (som tools/gfx.py extract)
      * og ".../bg/1a2b3c4d.png" for bakgrunner (hash fra laget, se lagreBakgrunn) */
     async function lastHdPakke(filer) {
         let antall = 0;
+        const alle = Array.from(filer), stiFor = (f) => (f.webkitRelativePath || f.name).replace(/\\/g, '/');
+        const filKart = new Map(alle.map((f) => [stiFor(f).toLowerCase(), f]));
+        // Pakkeinnlasting kan skje etter at tittelen er tegnet. Klargjor den
+        // eksakte fontkilden foer fotobakgrunnen blir synlig, uten hash-venting
+        // i renderlokka. Senere kildebytte valideres fortsatt av originalCel.
+        if (alle.some((f) => /(^|\/)bg\/55bb9767\.png$/i.test(stiFor(f)))) {
+            if (originalCel('bold.f', new Map())) await bankHash(originalCeler.get('bold.f')).venter;
+        }
+        const manifester = alle.filter((f) => /(^|\/)poses\.json$/i.test(stiFor(f)));
+        if (manifester.length) {
+            for (const p of hdPoser.values()) { p.texture.tex.dispose(); p.texture.mat.dispose(); }
+            hdPoser.clear(); hdPoseKontrakter.clear(); hdPoseFeil = [];
+            hdPoseLaster = true; hdPoseUgyldig = false;
+        }
+        for (const f of manifester) {
+            try {
+                const manifest = JSON.parse(await f.text());
+                if (manifest.schema !== 1 || !Array.isArray(manifest.poses) || manifest.poses.length > 256) throw new Error('Ugyldig posemanifest');
+                const prefiks = stiFor(f).slice(0, -'poses.json'.length);
+                for (const p of manifest.poses) {
+                    let texture = null;
+                    try {
+                        if (!gyldigPose(p) || hdPoseKontrakter.has(p.id)) {
+                            hdPoseUgyldig = true;
+                            throw new Error('Ugyldig eller duplisert pose');
+                        }
+                        const kontrakt = { ...p, members: p.members.map((m) => ({ ...m, file: m.file.toLowerCase() })) };
+                        // Reserver rutene ogsaa hvis bildefilen mangler eller har feil hash.
+                        hdPoseKontrakter.set(p.id, kontrakt);
+                        const bilde = filKart.get((prefiks + p.image).toLowerCase());
+                        if (!bilde || await sha256(await bilde.arrayBuffer()) !== p.image_sha256) throw new Error('Posebildet mangler eller har feil SHA256');
+                        texture = await hdTekstur(bilde);
+                        const r = p.raw_rect_px || [0, 0, texture.width, texture.height];
+                        if (!Array.isArray(r) || r.length !== 4 || r.some((v) => !Number.isFinite(v)) || r[2] <= 0 || r[3] <= 0 ||
+                            Math.abs(r[2] / p.width - r[3] / p.height) > 0.00001 ||
+                            r[0] >= texture.width || r[1] >= texture.height || r[0] + r[2] <= 0 || r[1] + r[3] <= 0 ||
+                            r[2] > texture.width * 4 || r[3] > texture.height * 4) throw new Error('Poseutsnittet mangler ensartet skala');
+                        texture.mat.uniforms.imageRegion.value.set(r[0] / texture.width, r[1] / texture.height, r[2] / texture.width, r[3] / texture.height);
+                        hdPoser.set(p.id, { ...kontrakt, texture });
+                        antall++;
+                    } catch (e) {
+                        if (texture) { texture.tex.dispose(); texture.mat.dispose(); }
+                        hdPoseFeil.push((p?.id || 'pose') + ': ' + e.message);
+                    }
+                }
+            } catch (e) { hdPoseUgyldig = true; hdPoseFeil.push(stiFor(f) + ': ' + e.message); }
+        }
         for (const f of filer) {
             const sti = (f.webkitRelativePath || f.name).split('/');
             if (sti.length < 2 || !/\.png$/i.test(sti[sti.length - 1])) continue;
             const nokkel = sti[sti.length - 2].toLowerCase() + '/' + sti[sti.length - 1].replace(/\.png$/i, '').toLowerCase();
+            if (nokkel.startsWith('poses/')) continue;
             try {
-                const bilde = await createImageBitmap(f);
-                const lerret = document.createElement('canvas');
-                lerret.width = bilde.width; lerret.height = bilde.height;
-                lerret.getContext('2d').drawImage(bilde, 0, 0);
-                bilde.close();
-                const t = new THREE.Texture(lerret);
-                t.colorSpace = THREE.NoColorSpace;
-                t.flipY = false;                            /* trinn 1 har y nedover */
-                t.generateMipmaps = false;
-                t.minFilter = THREE.LinearFilter;
-                t.needsUpdate = true;
+                const t = await hdTekstur(f);
                 const old = hdPakke.get(nokkel);
                 if (old) { old.tex.dispose(); old.mat.dispose(); }
-                hdPakke.set(nokkel, { tex: t, mat: new THREE.MeshBasicMaterial({ map: t, transparent: true, depthTest: false, side: THREE.DoubleSide }) });
+                hdPakke.set(nokkel, t);
                 antall++;
             } catch (e) { /* ikke et bilde */ }
         }
         antallBg = [...hdPakke.keys()].filter((k) => k.startsWith('bg/')).length;
+        hdPoseLaster = false;
+        for (const [navn, kilde] of originalCeler) forvarmPoseIndekser(navn, kilde.bilder);
         maaTegnes = true;
         return antall;
     }
@@ -558,7 +1066,26 @@ const Visning = (() => {
     function tomHdPakke() {
         for (const v of hdPakke.values()) { v.tex.dispose(); v.mat.dispose(); }
         hdPakke.clear();
+        for (const p of hdPoser.values()) { p.texture.tex.dispose(); p.texture.mat.dispose(); }
+        hdPoser.clear(); hdPoseKontrakter.clear(); hdPoseViste = []; hdPoseFeil = [];
+        hdPoseLaster = hdPoseUgyldig = false;
+        originalCeler.clear();
+        nyesteMenypil++;
+        for (const [k, p] of plasserte) {
+            if (p.menypilKlar !== null) plasserte.delete(k);
+            else p.underlag = null;
+        }
         antallBg = 0;
+        maaTegnes = true;
+    }
+
+    /* Standardpakken frigjør bare sine egne bakgrunner ved cacheutkast. */
+    function fjernHdBilde(nokkel) {
+        const t = hdPakke.get(nokkel);
+        if (!t) return;
+        t.tex.dispose(); t.mat.dispose();
+        hdPakke.delete(nokkel);
+        antallBg = [...hdPakke.keys()].filter(k => k.startsWith('bg/')).length;
         maaTegnes = true;
     }
 
@@ -567,15 +1094,17 @@ const Visning = (() => {
     }
 
     return {
-        init, tegn, nyttBilde, tilpass, settFilter, settFormat, settHelt, settEffekter, bildeTilPng, lastHdPakke, tomHdPakke,
-        settRammer: (on) => { visRammer = on; maaTegnes = true; }, hdAntall: () => hdPakke.size, scene: () => scene1,
+        init, tegn, nyttBilde, tilpass, settFilter, settFormat, settHelt, settEffekter, bildeTilPng, lastHdPakke, tomHdPakke, fjernHdBilde,
+        settRammer: (on) => { visRammer = on; maaTegnes = true; }, hdAntall: () => hdPakke.size + hdPoser.size, scene: () => scene1,
+        hdPoseInfo: () => ({ antall: hdPoser.size, kontrakter: hdPoseKontrakter.size, ugyldig: hdPoseUgyldig, feil: hdPoseFeil.slice() }),
         hdBakgrunner: () => antallBg,
+        hdKontroll: () => ({ ...hdKontroll }),      /* hvorfor en figur eventuelt bruker originalen */
         viste: () => visteListe.length,             /* figurer som vises med HD-bilde eller gult felt */
         maaTegnes: () => maaTegnes,
         utsnitt: () => crop.slice(),                /* delen av rammebufferet som vises (x0, y0, x1, y1) */
-        brukerListe: () => hdPaa && (hdPakke.size > 0 || visRammer),   /* trengs tegnelisten fra kjernen? */
+        brukerListe: () => hdPaa && (hdPakke.size > 0 || hdPoser.size > 0 || visRammer),   /* trengs tegnelisten fra kjernen? */
         /* trengs lagene fra kjernen? (HD-bakgrunner eller effekter som skiller lagene) */
-        trengerLag: () => (hdPaa && hdPakke.size > 0) || effekter.skygge || effekter.dybde || tvungetLag,
+        trengerLag: () => (hdPaa && (hdPakke.size > 0 || hdPoser.size > 0)) || effekter.skygge || effekter.dybde || tvungetLag,
         /* HD-grafikk eller originalen (bryteren i menyen) */
         settHd: (on) => { hdPaa = !!on; maaTegnes = true; },
         hdPaa: () => hdPaa,

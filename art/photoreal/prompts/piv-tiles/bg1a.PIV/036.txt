@@ -1,0 +1,7 @@
+Use case: photorealistic-natural
+Asset type: One Moonstone intro STILE tile bg1a.PIV/036. Opaque32:25, approximately1419x1109.
+Input image: Exact original32x25 crop enlarged16x by nearest-neighbor. All silhouette and major color boundaries are fixed composition.
+Primary request: One front-facing telephoto photographic fragment of the original cold cyan lunar disc. Natural fine regolith and small crater texture only inside original lunar patches. This is part of a fixed larger image, never a complete moon and never a receding landscape.
+Exact geometry: Only the small lower-right lunar limb corner occupies TOP LEFT. Smooth diagonal rim starts TOP at x47%, slopes down-left and exits LEFT edge at y48%. Rest of crop is flat navy. Lunar fragment mostly iceblue with a few original gray/teal edge transitions. Exactly one dim darkteal star at x20.3%,y78%. Do not complete the moon, add a landscape or fill the sky.
+Color: Preserve flat navy sky RGB0,0,34; original lunar colors iceblue204,238,255, gray153,170,187, cyan0,153,170 and darkteal0,85,102/0,51,68. Keep broad original patches and brightness hierarchy. No atmospheric rim halo or extra bright edge. Any original stars remain dim teal with no white core, spike, bloom or halo.
+Constraints: No new stars, objects, clouds, text or black padding. Smooth pixel stairs without shifting the mean contour and locked border endpoints. No full moon, new horizon, montage or transparency. No vignetting or feathered borders. Output only this one cropped tile.

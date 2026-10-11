@@ -1,0 +1,7 @@
+Use case: photorealistic-natural
+Asset type: One Moonstone intro STILE tile, opaque 32:25 canvas, approximately 1419 x 1109 pixels.
+Input images: Image 1 is the exact original tile; image 2 is the SAME tile enlarged by nearest-neighbor, not a second composition. Translate the square pixel marks into very subtle photographic optical points while preserving their footprints and positions.
+Primary request: A severely underexposed sparse patch of navy night sky. Flat background RGB approximately 0,0,34 across all four edges. The original marks are DIM DARK TEAL, not white luminous stars. Keep them barely visible, with no bright cores, no white pixels, no luminous halo, no visible glow. Preserve their relative original brightness and original counts. No gradient, vignette, cloud, haze, noise cloud, galaxy, moon, flare, text, border or extra points. Each point stays within the original one-pixel area (1/32 width by 1/25 height); do not add a large blur or light falloff. No transparency or padding.
+
+Composition for bg1a.PIV/002: Exactly THREE points. Centers in percentage coordinates (x%,y%): (64.0625,50), RGB0,153,170; (42.1875,62), darker RGB0,51,68; (70.3125,78), darker RGB0,51,68.
+Output this single source-locked tile only, with natural non-square point shapes and the same large empty areas.

@@ -170,3 +170,15 @@ fra paletten `gfx.py` velger, ikke alltid den skjermen bruker.
 
 Nettspill: listen lages lokalt hos hver spiller (alle kjører samme maskin), så
 HD-pakken kan være forskjellig fra spiller til spiller.
+
+## Standardgrafikk i nettutgaven
+
+Nettutgaven laster nå standardgrafikken automatisk. Den inneholder 48 bilder: 33 bakgrunner, fem blå stå-/gangposer, fire riddervalg, menypilen og fem månefaser. Andre figurer og animasjoner bruker originalgrafikk til deres nye deler er rettet og kontrollert.
+
+Velg **Grafikk → Original** i sidemenyen for å sammenligne. Valget lagres. **Standardgrafikk** henter standardpakken igjen etter at egne filer er valgt eller HD er fjernet. Egne HD-mapper støttes fortsatt; de stopper automatisk innlasting slik at brukerens bilder får overta.
+
+Bildene ligger i `web/hd/`, og alle filstørrelser og SHA-256-hasher er bundet i `manifest.json`. Kjernen og spilltilstanden endres ikke av HD. Bakgrunner hentes først når den tilhørende scenen vises; høyst fire standardbakgrunner holdes i minnet. Hvis en fil mangler, er ødelagt eller ikke kan lastes, beholdes originalgrafikken.
+
+`web/pakk.py` kontrollerer manifestet og kopierer HD-filene ved siden av den bygde HTML-filen. Pages og web-artifaktet inneholder begge deler. Ved direkte `file://`-åpning virker originalspillet; åpne mappen gjennom en lokal HTTP-server for automatisk HD, for eksempel `python3 -m http.server 8000 --directory web/build`.
+
+Alle produserte råbilder og tidligere revisjoner ligger under `art/photoreal/candidates`, med prompter og et lokalt original-/fotogalleri. Arkivets 616 valgte oppføringer er ikke det samme som 616 ferdige spillruter. Se `art/photoreal/README.md` for status og kreditering.

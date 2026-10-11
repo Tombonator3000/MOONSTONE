@@ -92,6 +92,7 @@ jobs:
         run: |
           mkdir -p side
           cp web/build/moonstone.html side/index.html
+          cp -R web/build/hd side/
       - uses: actions/upload-artifact@v4
         with:
           name: moonstone-web

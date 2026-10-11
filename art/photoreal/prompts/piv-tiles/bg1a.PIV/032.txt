@@ -1,0 +1,7 @@
+Use case: photorealistic-natural
+Asset type: One Moonstone intro STILE background tile bg1a.PIV/032, opaque32:25 canvas, approximately1419x1109 pixels.
+Input image: Enlarged nearest-neighbor view of the exact original32x25 source. It defines this tile's composition precisely.
+Primary request: A realistic severely underexposed patch of sparse night sky, translating the source square star marks to tiny natural photographic optical points. Preserve exactly 4 points, no more and no fewer.
+Exact source point centers and original colors: (57.8125%,26.0000%) color RGB(0, 85, 102); (89.0625%,58.0000%) color RGB(0, 51, 68); (48.4375%,66.0000%) color RGB(0, 51, 68); (48.4375%,86.0000%) color RGB(0, 51, 68).
+Background is flat very dark navy RGB0,0,34 all the way to all four borders. Preserve the large empty areas. Each dim point stays inside its original1/32-width by1/25-height footprint. Stars are dim dark teal, barely visible; no white-hot cores, spikes, lens flare, bloom or large halos. Do not move points away from the edges. No gradients, vignettes, clouds, haze, galaxy, moon, trees or extra points.
+Output only this original tile crop. No padding, border, text, layout, checkerboard or transparency. Natural optical detail only, with the original low exposure and positions unchanged.
