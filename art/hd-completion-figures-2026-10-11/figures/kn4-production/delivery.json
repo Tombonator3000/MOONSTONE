@@ -1,0 +1,1314 @@
+{
+  "schema": 1,
+  "status": "ready_for_sequential_integration",
+  "scope": "26 nye separate KN4-vaapen-/bevegelsesruter, 7 eksakte aliaser og 1 palettmaske. Ingen aktive metadata er endret.",
+  "source_contracts_sha256": "0141059c9f9544d06b335321f73b0a8c6c45fc563d02806d9a2021b0cb684baa",
+  "queue_subset_sha256": "0e1a04b85e58482458706103460a20428fd64b3bbbdb0366399187a6dfca5d4f",
+  "generation_records_sha256": "6f5a362902af5532108479e2221c5b10a10e15d7aee07e52dff7adc30b5c1bf6",
+  "packing_test_sha256": "6c1e6d4553ff1b5e35e2497696ce3b0819d19bc9b13e1ca09dfb5ce384b6e3d6",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "63a93d15ee0d36cf0eec6f0ad6b4be5d251f984e13b2634077bd0a9385f2881b",
+    "web/src/scenes.js": "05e7336cd4f92d17ec4dc2172761e7720f80f1532b343a06453f54c505c13c9f"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "html_sha256": "c3a51a59c4fcc554142609b9387c182c84a17bd180a62c9b882ee6720a651ad2",
+  "runtime": {
+    "all-routes": {
+      "path": "verification/all-routes/test.json",
+      "sha256": "b81bdbdfaad1fc7d699c45b90ff9fdab063ebdb845fc1c25e7d3f8ad73d2467a",
+      "checks": 480
+    },
+    "first-route": {
+      "path": "verification/first-route/test.json",
+      "sha256": "fd5e8fd994a9ab6cbc3d997c82fd719b77a5ff59371ca547778d34a9b5753b2e",
+      "checks": 11
+    },
+    "contact-001": {
+      "path": "verification/contact-001/test.json",
+      "sha256": "a13274f40b7bc19afde1991fbef704e4b2463af23504fbb84a61417d92f0fce7",
+      "checks": 11
+    }
+  },
+  "entries": [
+    {
+      "key": "KN4.ob/000.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 0,
+      "source_size": [
+        7,
+        33
+      ],
+      "target_size": [
+        28,
+        132
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/000.png",
+        "sha256": "992be315dd025b9616ce17fad3ed9f164dfa02945096e96a92183b6ac915b68a",
+        "width": 7,
+        "height": 33
+      },
+      "indices_sha256": "c4b650ce99d490da93127a6774c10ce4f987e948c06aa2d088f748a61650e1d7",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/000.png",
+      "png_sha256": "4439daf18c3dcedc64f142fcc9b47905a5fb0a05dc92c1873ec23c584d679748",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/000.png",
+      "raw_sha256": "8b35387a5549c9ba19f317ebc5ed3aebeb296a5fbbac8f95f9c3d72069e96d45",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-000.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/000.png",
+        "png_sha256": "4439daf18c3dcedc64f142fcc9b47905a5fb0a05dc92c1873ec23c584d679748",
+        "covered_source_centers": 100,
+        "transparent_source_centers": 131,
+        "material_colors": 646,
+        "final_alpha_iou": 0.9819875776397515,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/001.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 1,
+      "source_size": [
+        19,
+        30
+      ],
+      "target_size": [
+        76,
+        120
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/001.png",
+        "sha256": "ca5eaec50396cd61e744a291bd65bfa05af74e5e31b3e193b27d87748e5ae79b",
+        "width": 19,
+        "height": 30
+      },
+      "indices_sha256": "48168f515949c2cb0a4a22a5fad2929b02442296bdb8b6d1c8a069985b78fcce",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/001.png",
+      "png_sha256": "e05f3b8ad1d2f7afc92ecc065ff6a24b72a54c913b32fa699e4dde4d3eb92122",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/001.png",
+      "raw_sha256": "63a768c5fb548cde5624053efb6df0719eeb5417116ac8385d8da62e2d3b0068",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-001.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/001.png",
+        "png_sha256": "e05f3b8ad1d2f7afc92ecc065ff6a24b72a54c913b32fa699e4dde4d3eb92122",
+        "covered_source_centers": 98,
+        "transparent_source_centers": 472,
+        "material_colors": 905,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/002.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 2,
+      "source_size": [
+        15,
+        30
+      ],
+      "target_size": [
+        60,
+        120
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/002.png",
+        "sha256": "5f0146edb2bf96198786b4048976ec2ef5e5e35e54dcfbd9c16eb24094aae836",
+        "width": 15,
+        "height": 30
+      },
+      "indices_sha256": "e174736faafd01548d665d4b8c4b97b8311f8deaab5767404c169f4b661c3ca1",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/002.png",
+      "png_sha256": "0abe7a3737ded45051b637e8a23e2469b0e8010c2b0326de755dc8000eb12af1",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/002.png",
+      "raw_sha256": "451c5498f1446cdbd43c936daa40ef14f18f8ecfae5d5867920566d92f659cb9",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-002.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/002.png",
+        "png_sha256": "0abe7a3737ded45051b637e8a23e2469b0e8010c2b0326de755dc8000eb12af1",
+        "covered_source_centers": 87,
+        "transparent_source_centers": 363,
+        "material_colors": 840,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/003.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 3,
+      "source_size": [
+        16,
+        15
+      ],
+      "target_size": [
+        64,
+        60
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/003.png",
+        "sha256": "b8483bef5cb4fcf8153f015a3c6888622e2dacf1394603b2eff6dc4733aaa4ec",
+        "width": 16,
+        "height": 15
+      },
+      "indices_sha256": "d1a259acc7d6393b2daa5336f6c748358e6a5a6da3dbe53c87ff2e596159b3d2",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/003.png",
+      "png_sha256": "771046f66eb5fe6007fa8cf356a4d6af3780b2bc0a806ef0cf0b6252b68fb080",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/003.png",
+      "raw_sha256": "1d45e9078acb0091c936d01b0435faafe944fddc946017de4ddd46b2cdcb31b7",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-003.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/003.png",
+        "png_sha256": "771046f66eb5fe6007fa8cf356a4d6af3780b2bc0a806ef0cf0b6252b68fb080",
+        "covered_source_centers": 62,
+        "transparent_source_centers": 178,
+        "material_colors": 674,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/004.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 4,
+      "source_size": [
+        17,
+        16
+      ],
+      "target_size": [
+        68,
+        64
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/004.png",
+        "sha256": "9cee70d0d4785fb00e14d40e871dfffae565508341220d441432c92e7013cfa8",
+        "width": 17,
+        "height": 16
+      },
+      "indices_sha256": "d246a3323bcf1fcb616ae9ed5e99965ebd32f4db35d9d63d2bae36bd2ffcb32a",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/004.png",
+      "png_sha256": "053bfa095da30fc38bac6f4a13d5e89800138113fdedd4b4d67754184c0e3bbc",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/004.png",
+      "raw_sha256": "8004989624ebf56bdb1f30692e99e1b5a5b146243c2d35bd2831affd8f11c24b",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-004.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/004.png",
+        "png_sha256": "053bfa095da30fc38bac6f4a13d5e89800138113fdedd4b4d67754184c0e3bbc",
+        "covered_source_centers": 69,
+        "transparent_source_centers": 203,
+        "material_colors": 727,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/005.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 5,
+      "source_size": [
+        37,
+        5
+      ],
+      "target_size": [
+        148,
+        20
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/005.png",
+        "sha256": "df1a9f653c1403a1d93aeef4efe2eba24502953c34cb5a529aa636cbbd9e4ac2",
+        "width": 37,
+        "height": 5
+      },
+      "indices_sha256": "9bb6b30a5f03d8649c80af326b78fe192d08e698c7052f69dca54b9597e2ad24",
+      "plane_mask": 7,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/005.png",
+      "png_sha256": "2acca6df7eab5acdfcc9435be84580f5ed4e6b63bfdf78acfeafeebd32addebd",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/005.png",
+      "raw_sha256": "46aa43756c114e188aaa46613fa2289cd3ec43c02a72b533af263b84417eff2b",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-005.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/005.png",
+        "png_sha256": "2acca6df7eab5acdfcc9435be84580f5ed4e6b63bfdf78acfeafeebd32addebd",
+        "covered_source_centers": 116,
+        "transparent_source_centers": 69,
+        "material_colors": 621,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 3,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/006.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 6,
+      "source_size": [
+        20,
+        29
+      ],
+      "target_size": [
+        80,
+        116
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/006.png",
+        "sha256": "29024db40401066f1b3e8797d7e84432b9b9be78550147834320a9027ffb4694",
+        "width": 20,
+        "height": 29
+      },
+      "indices_sha256": "2f7a331b6097c748cffbcea8a67fb0108e0298edb3d17fd5eb3fde7c6e373753",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/006.png",
+      "png_sha256": "e59d342757473bb5e4f01e9346e8a93f9f9a30f40c86db5e55dfd934f4cdcd98",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/006.png",
+      "raw_sha256": "9aae1ac364808914f40ddf666e1777c87c4c98fad57e0fc8cec590ad09f6e4c7",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-006.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/006.png",
+        "png_sha256": "e59d342757473bb5e4f01e9346e8a93f9f9a30f40c86db5e55dfd934f4cdcd98",
+        "covered_source_centers": 97,
+        "transparent_source_centers": 483,
+        "material_colors": 589,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/007.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 7,
+      "source_size": [
+        32,
+        15
+      ],
+      "target_size": [
+        128,
+        60
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/007.png",
+        "sha256": "8ea3916371998f3b8dfed4b91b27e652d63ba794ccc0b9a0efd0c459ce6a90d0",
+        "width": 32,
+        "height": 15
+      },
+      "indices_sha256": "ad6ee8a9375267be57d9cbb2c4dd95c8f85f0bfadb939dec7cdbe61ad5faf0ca",
+      "plane_mask": 7,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/007.png",
+      "png_sha256": "242d9210649edcde8caf52009e45dc4dc4e52ede8ae2a1c896175749c83c59df",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/007.png",
+      "raw_sha256": "92802b58d9b7d5ba44d7bf83ce4738e42b068648e4cc9e12d6336c6912d2cca2",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-007.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/007.png",
+        "png_sha256": "242d9210649edcde8caf52009e45dc4dc4e52ede8ae2a1c896175749c83c59df",
+        "covered_source_centers": 109,
+        "transparent_source_centers": 371,
+        "material_colors": 1106,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 5,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/008.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 8,
+      "source_size": [
+        26,
+        13
+      ],
+      "target_size": [
+        104,
+        52
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/008.png",
+        "sha256": "2f5e29390c0fadc9068eaf6a348b7708ebc2319cd2035f6fed678a1b79389950",
+        "width": 26,
+        "height": 13
+      },
+      "indices_sha256": "0558d3bcf4518aa3f1afe5cf901da02e453865c19212d89d9961fe13853a11b1",
+      "plane_mask": 7,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/008.png",
+      "png_sha256": "13d64e7835768870345982126950261bcede67d0493d3b0779eed705d5943873",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/008.png",
+      "raw_sha256": "73ffd68b8c1c07ef466c90634266931032c4270e946311f3766de6677bb7c9ab",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-008.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/008.png",
+        "png_sha256": "13d64e7835768870345982126950261bcede67d0493d3b0779eed705d5943873",
+        "covered_source_centers": 92,
+        "transparent_source_centers": 246,
+        "material_colors": 842,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 21,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/009.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 9,
+      "source_size": [
+        12,
+        11
+      ],
+      "target_size": [
+        48,
+        44
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/009.png",
+        "sha256": "7783b98676958f2555f08da568d432f41620fc10b6e56103c909a6c46778efa1",
+        "width": 12,
+        "height": 11
+      },
+      "indices_sha256": "9cb7cbc6a042bf0643f782e2c2aa798450934d5e65d1ca39555ac5799ef48657",
+      "plane_mask": 7,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/009.png",
+      "png_sha256": "75fe42965f6e83ba021fbd64c05e6dae7ed3647fbf58f2271b4539c39a6478c6",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/009.png",
+      "raw_sha256": "255a87d16ba6edcf6f023ea2cb23bb5f45db32690553d611eb478041d0cae7a3",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-009.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/009.png",
+        "png_sha256": "75fe42965f6e83ba021fbd64c05e6dae7ed3647fbf58f2271b4539c39a6478c6",
+        "covered_source_centers": 32,
+        "transparent_source_centers": 100,
+        "material_colors": 274,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 12,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/010.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 10,
+      "source_size": [
+        18,
+        4
+      ],
+      "target_size": [
+        72,
+        16
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/010.png",
+        "sha256": "08d7cd3509bf49602de1e8d94c2ecaab1e75fb7710a32ec70eaf2c03bbdf3bf0",
+        "width": 18,
+        "height": 4
+      },
+      "indices_sha256": "980ab427ba73035fd62b5b35579b1ef9c023d692262ac0972e9050dce493e114",
+      "plane_mask": 7,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/010.png",
+      "png_sha256": "b4384bfab57e078d2e5572338841f853f7ad146372e73e369e4588e3b5c36e83",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/010.png",
+      "raw_sha256": "b3a3ce6d81b5e90808e4049ac3ae2badfce3257a1a59c87d76566bcb9bc10119",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-010.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/010.png",
+        "png_sha256": "b4384bfab57e078d2e5572338841f853f7ad146372e73e369e4588e3b5c36e83",
+        "covered_source_centers": 35,
+        "transparent_source_centers": 37,
+        "material_colors": 278,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 12,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/011.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 11,
+      "source_size": [
+        16,
+        44
+      ],
+      "target_size": [
+        64,
+        176
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/011.png",
+        "sha256": "e8450bb457c291eb3ac92a77706556739b135998be38416f84e70ce0cdaa4b9e",
+        "width": 16,
+        "height": 44
+      },
+      "indices_sha256": "5525aaa7dc89f70f905ef63778c67c5e1bea4a892d68170d9ea0869471335f55",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/011.png",
+      "png_sha256": "88a00a59d65d5655ddb3b5d6b189ffae966d54a18c2c65f69e6294e5bc5fd6f2",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/011.png",
+      "raw_sha256": "1fab418a88a479b423e695c59ab4f548e46ee3d6f433b71a832f7e647b3f2c80",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-011.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/011.png",
+        "png_sha256": "88a00a59d65d5655ddb3b5d6b189ffae966d54a18c2c65f69e6294e5bc5fd6f2",
+        "covered_source_centers": 82,
+        "transparent_source_centers": 622,
+        "material_colors": 520,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/012.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 12,
+      "source_size": [
+        29,
+        20
+      ],
+      "target_size": [
+        116,
+        80
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/012.png",
+        "sha256": "01834dbbe9b8f397ec40ed6677abbc65148a922bcf8732b16710e6b32c18bd9b",
+        "width": 29,
+        "height": 20
+      },
+      "indices_sha256": "046484aeb902bd46dea5517e8d5438cc285a957f6abcd83233c807ca9c31b4d1",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/012.png",
+      "png_sha256": "f716cc1a59e8d2e0867493465ef759bffc5f810b9b2e4a97a8212530cdfbbb21",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/012.png",
+      "raw_sha256": "5f2f99f366c912c01d997668c36d5bb1d3d7f0c1e2cecd1a02855d637e06a93e",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-012.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/012.png",
+        "png_sha256": "f716cc1a59e8d2e0867493465ef759bffc5f810b9b2e4a97a8212530cdfbbb21",
+        "covered_source_centers": 71,
+        "transparent_source_centers": 509,
+        "material_colors": 429,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/013.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 13,
+      "source_size": [
+        54,
+        4
+      ],
+      "target_size": [
+        216,
+        16
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/013.png",
+        "sha256": "2d16446a5561ee493edd3a9ca36f94e8f06c890c188384fce6d31ad341506291",
+        "width": 54,
+        "height": 4
+      },
+      "indices_sha256": "2098284917ea6f95bd2394f4592f13f4ed194b65d95924bc02c8253dfa782d49",
+      "plane_mask": 7,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/013.png",
+      "png_sha256": "2a0659eedbf2ad7dbd935c8a7adbddbcd5d7b02f4930e6fa22f62c449c9b9571",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/013.png",
+      "raw_sha256": "d6a38538bf15fb762da57a31ad46ae067dfa33c1dd64de77135a5a106806ddbe",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-013.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/013.png",
+        "png_sha256": "2a0659eedbf2ad7dbd935c8a7adbddbcd5d7b02f4930e6fa22f62c449c9b9571",
+        "covered_source_centers": 86,
+        "transparent_source_centers": 130,
+        "material_colors": 469,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 24,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/014.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 14,
+      "source_size": [
+        21,
+        3
+      ],
+      "target_size": [
+        84,
+        12
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/014.png",
+        "sha256": "e90fe40383489e260ccbdad43b1a0a7e8410495a1c039c82b62527fd481955c7",
+        "width": 21,
+        "height": 3
+      },
+      "indices_sha256": "16a919996f3949d8bf140c6df39c68da6425d699b91233c2d90190a6e9d74ba7",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/014.png",
+      "png_sha256": "2627952aa2aee2453ac77c3358c014d071e3f4a9b58269ce3b20e4976ee98d18",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/014.png",
+      "raw_sha256": "7f670c4767654c36be0ffe8e7fe103ce84580f829586b3de1c6399ecc35892ad",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-014.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/014.png",
+        "png_sha256": "2627952aa2aee2453ac77c3358c014d071e3f4a9b58269ce3b20e4976ee98d18",
+        "covered_source_centers": 20,
+        "transparent_source_centers": 43,
+        "material_colors": 103,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/015.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 15,
+      "source_size": [
+        54,
+        14
+      ],
+      "target_size": [
+        216,
+        56
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/015.png",
+        "sha256": "dbe5de9687a5d66c995f469f1bbd5a7d7978e563a79e408c3fbefb13cdc1f19c",
+        "width": 54,
+        "height": 14
+      },
+      "indices_sha256": "56ae88ed79161e7011af3ec5f3a7494e45e20bdd171c162a6621dcd748380093",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/015.png",
+      "png_sha256": "90924b8da57f7d9a95ec6c93535025f7efdfdc0a30619362b94984d02d5c53f6",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/015.png",
+      "raw_sha256": "d71b6162c5b7da098b082cf8128fd5ab7061cc5c360ab50c4fe1a3ad97110cfc",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-015.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/015.png",
+        "png_sha256": "90924b8da57f7d9a95ec6c93535025f7efdfdc0a30619362b94984d02d5c53f6",
+        "covered_source_centers": 75,
+        "transparent_source_centers": 681,
+        "material_colors": 389,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/016.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 16,
+      "source_size": [
+        28,
+        11
+      ],
+      "target_size": [
+        112,
+        44
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/016.png",
+        "sha256": "fa51a5498fa826866cd3ede374e8c01d661ea621afcb302c5c335586dbc375e4",
+        "width": 28,
+        "height": 11
+      },
+      "indices_sha256": "d7a3078010eb975d9b688853961266b31176c3bb9e980fc945adaef4b1d12944",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/016.png",
+      "png_sha256": "22cf8dfb3b1d7f06bba9d316f39440879967c511d0dc00378eb14c2e9a6ab2dc",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/016.png",
+      "raw_sha256": "e8c78b0e6de30ed711b3a34c3e871456affebccc48242509b316f69e96fe8987",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-016.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/016.png",
+        "png_sha256": "22cf8dfb3b1d7f06bba9d316f39440879967c511d0dc00378eb14c2e9a6ab2dc",
+        "covered_source_centers": 65,
+        "transparent_source_centers": 243,
+        "material_colors": 360,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/017.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 17,
+      "source_size": [
+        31,
+        16
+      ],
+      "target_size": [
+        124,
+        64
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/017.png",
+        "sha256": "427566ae4a4da1552098e214fa6d8a93c39c9f9c86bcb05d9cd39012c3775911",
+        "width": 31,
+        "height": 16
+      },
+      "indices_sha256": "6e2e9e01e6204273d3e6c8daa27c97d31981aa829dc8d032aa50ff7836f713da",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/017.png",
+      "png_sha256": "acce68e735791190f9cf731138a19ecca74e5fbc015f17ea500283e0461230bb",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/017.png",
+      "raw_sha256": "340982f6105dcfa36e29423fd29e189c28cb74ee08c1b948e3d4c671c1b4b966",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-017.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/017.png",
+        "png_sha256": "acce68e735791190f9cf731138a19ecca74e5fbc015f17ea500283e0461230bb",
+        "covered_source_centers": 40,
+        "transparent_source_centers": 456,
+        "material_colors": 113,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/018.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 18,
+      "source_size": [
+        50,
+        13
+      ],
+      "target_size": [
+        200,
+        52
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/018.png",
+        "sha256": "72858a0502dcc9437150aad8561a2cb02ec3626ca70136273a84b7828884a7be",
+        "width": 50,
+        "height": 13
+      },
+      "indices_sha256": "acb2145d0773e18f5fc55d065f8289a0b26d97037f7ebf6279fcfd1e35399a6a",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/018.png",
+      "png_sha256": "aab4b7d5f25f36775bb38570d87f57bd01b33aecd4dd367015086603ae688f49",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/018.png",
+      "raw_sha256": "6f56dfb53538630dc5cde3033164a2290a8da13e61cbef2599dadcf348434ab4",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-018.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/018.png",
+        "png_sha256": "aab4b7d5f25f36775bb38570d87f57bd01b33aecd4dd367015086603ae688f49",
+        "covered_source_centers": 94,
+        "transparent_source_centers": 556,
+        "material_colors": 427,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/019.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 19,
+      "source_size": [
+        26,
+        18
+      ],
+      "target_size": [
+        104,
+        72
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/019.png",
+        "sha256": "297a88173225d7b55922f565a2a145f6206cb60de9fcd9e977142e7eb8d09364",
+        "width": 26,
+        "height": 18
+      },
+      "indices_sha256": "7b27b6218497baa41121a1e27fe7a83269122f0c9625c85f13abc7139a92dcdb",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/019.png",
+      "png_sha256": "200d6e555b705844b25341b8354ea563916d0758d1f80a7430ab50d97dbf65b5",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/019.png",
+      "raw_sha256": "2d88e548269ffb66cd6c62014ffb05de4119d0414b432241cbe121d5fb30b5c1",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-019.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/019.png",
+        "png_sha256": "200d6e555b705844b25341b8354ea563916d0758d1f80a7430ab50d97dbf65b5",
+        "covered_source_centers": 15,
+        "transparent_source_centers": 453,
+        "material_colors": 124,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/020.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 20,
+      "source_size": [
+        14,
+        13
+      ],
+      "target_size": [
+        56,
+        52
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/020.png",
+        "sha256": "b12107d672daf3b25dfbdc9d4093a3aa34d5ee545b9e799dc06dadd29dc85d61",
+        "width": 14,
+        "height": 13
+      },
+      "indices_sha256": "9566ed26982b72fb5811c890f7c149f5f6f53b8cde4433a7093dc4164eef96b4",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/020.png",
+      "png_sha256": "855e19c676c505320bce2e983a7d520c1b07b373cb462d498d548dec364c20ef",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/020.png",
+      "raw_sha256": "f107ea1511d0d2ae8ae6f01726eeeeec98b6c518b13448d51fcd2a83f775c232",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-020.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/020.png",
+        "png_sha256": "855e19c676c505320bce2e983a7d520c1b07b373cb462d498d548dec364c20ef",
+        "covered_source_centers": 25,
+        "transparent_source_centers": 157,
+        "material_colors": 107,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/021.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 21,
+      "source_size": [
+        26,
+        18
+      ],
+      "target_size": [
+        104,
+        72
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/021.png",
+        "sha256": "231e26b3a738b25188251ac0a612ab790f8e55b16b94ed59d36e7258971b033e",
+        "width": 26,
+        "height": 18
+      },
+      "indices_sha256": "2028ffda7625dc5c349b2ceb4fb35d44fd952a9349f909550b34b469ccf393dc",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/021.png",
+      "png_sha256": "252aace51fcf17f71648b1fb24095ee6553c90a8f559be963af726192fefc155",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/021.png",
+      "raw_sha256": "c40404b41132934bfbacb3b033f0ae47bf077ad83bf32e963b0c86f40a132e14",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-021.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/021.png",
+        "png_sha256": "252aace51fcf17f71648b1fb24095ee6553c90a8f559be963af726192fefc155",
+        "covered_source_centers": 16,
+        "transparent_source_centers": 452,
+        "material_colors": 72,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/022.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 22,
+      "source_size": [
+        15,
+        35
+      ],
+      "target_size": [
+        60,
+        140
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/022.png",
+        "sha256": "976f5a1a6880ea58e5a8b02d96caea10e9dc18c6eab9b351a5907da09624cf97",
+        "width": 15,
+        "height": 35
+      },
+      "indices_sha256": "ac11413d679968bc3fa2de49258cfe69ed85fc9bd3e213d094582940e1f8ccc1",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/022.png",
+      "png_sha256": "5fbe4365ce7298b56787dbee7d0cb485fba2e65d4fce7d58302094afabe181ce",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/022.png",
+      "raw_sha256": "aae928896cd01bb8629b31b89f2d64327995ea65063e1c14de449dec698747f7",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-022.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/022.png",
+        "png_sha256": "5fbe4365ce7298b56787dbee7d0cb485fba2e65d4fce7d58302094afabe181ce",
+        "covered_source_centers": 82,
+        "transparent_source_centers": 443,
+        "material_colors": 481,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/023.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 23,
+      "source_size": [
+        10,
+        29
+      ],
+      "target_size": [
+        40,
+        116
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/023.png",
+        "sha256": "3bb3f875f883d828d5dd5e8aa109454ead9d3321867c25650cafcf1c5b707468",
+        "width": 10,
+        "height": 29
+      },
+      "indices_sha256": "62c5271b234091212d18bf7f981df907919ace6fd820e033a64be4111ac48b72",
+      "plane_mask": 3,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/023.png",
+      "png_sha256": "76f1f323f6ec83cff93847ceb251d4cae4af791ba8d0caf016b079e88bdcbc95",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/023.png",
+      "raw_sha256": "f5e216beca1cb17ba3fcfb4abc4d89dc7cc53c5ba997e50ba2c4779afcc1be97",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-023.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/023.png",
+        "png_sha256": "76f1f323f6ec83cff93847ceb251d4cae4af791ba8d0caf016b079e88bdcbc95",
+        "covered_source_centers": 38,
+        "transparent_source_centers": 252,
+        "material_colors": 272,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 0,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/024.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 24,
+      "source_size": [
+        37,
+        5
+      ],
+      "target_size": [
+        148,
+        20
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/024.png",
+        "sha256": "7e48c89daa7a0dc4d98da36d5ff06ea50de8781afbdfc6f33265043b5cd8812e",
+        "width": 37,
+        "height": 5
+      },
+      "indices_sha256": "dcde6330bb3bc78ccba2a7e65e7d1a62848cd6e386bfbb70ba57d26b9ddf79e2",
+      "plane_mask": 7,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/024.png",
+      "png_sha256": "10eb46e799f24062f91005aa5f2125afdbd050684ce1241d88af739987a857c1",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/024.png",
+      "raw_sha256": "56d2d38034a1e6916449e7ee229ddb5fca45f957ee42e7f3ae6517fe14e4dcbe",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-024.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": null,
+      "mask_sha256": null,
+      "packing": {
+        "key": "KN4.ob/024.png",
+        "png_sha256": "10eb46e799f24062f91005aa5f2125afdbd050684ce1241d88af739987a857c1",
+        "covered_source_centers": 116,
+        "transparent_source_centers": 69,
+        "material_colors": 600,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 3,
+        "mask": null
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    },
+    {
+      "key": "KN4.ob/025.png",
+      "source_bank": {
+        "path": "data/KN4.ob",
+        "sha256": "82dfadb1a4990054645197e4765600a84fb85bb877cb85943fdf5d41820e8384",
+        "bytes": 1600,
+        "frames": 26
+      },
+      "frame": 25,
+      "source_size": [
+        15,
+        20
+      ],
+      "target_size": [
+        60,
+        80
+      ],
+      "original": {
+        "path": "references/original/KN4.ob/025.png",
+        "sha256": "84422db35ca316ff7ff7fb31fc528b1c13c1f610f510db627dc3b070dd014efb",
+        "width": 15,
+        "height": 20
+      },
+      "indices_sha256": "fea3dfba4f30112e63694c5f9fe5cd75dac856ab4c7c648824859fb9831a5a1b",
+      "plane_mask": 7,
+      "candidate_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/025.png",
+      "png_sha256": "cd47de50195a11baef67b27f93aca2ec36aae793854616714c59dad155b17374",
+      "raw_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/raw/KN4.ob/025.png",
+      "raw_sha256": "6e427fb88210621d78b3c16d425e7d2fded09ccecbf324fd6e1af345295ec8a9",
+      "prompt_file": "art/hd-completion-figures-2026-10-11/figures/kn4-production/prompts/KN4-025.txt",
+      "generation_tool": "builtin_image_gen",
+      "generation_receipt": "generation-records.json",
+      "mask_png": "art/hd-completion-figures-2026-10-11/figures/kn4-production/packed/KN4.ob/025.mask.png",
+      "mask_sha256": "41374c878362cb6d22594e4fc81b2ec3f3c9cc8f87c26eb8047b6c0fcae8e42a",
+      "packing": {
+        "key": "KN4.ob/025.png",
+        "png_sha256": "cd47de50195a11baef67b27f93aca2ec36aae793854616714c59dad155b17374",
+        "covered_source_centers": 93,
+        "transparent_source_centers": 207,
+        "material_colors": 640,
+        "final_alpha_iou": 1.0,
+        "preserved_dark_centers": 23,
+        "mask": {
+          "sha256": "41374c878362cb6d22594e4fc81b2ec3f3c9cc8f87c26eb8047b6c0fcae8e42a",
+          "live_indices": [
+            6,
+            7
+          ],
+          "colored_pixels": 80
+        }
+      },
+      "quality_status": "source_silhouette_bound_new_photographic_material",
+      "visual_review": "Sammenlignet mot originalen paa comparison.png. Motivet, retningen, utsnittet og alle transparente kildepikselmidtpunkter bevares. Staal/laer og bevegelsesspor er nye fotomaterialer fra separat builtin-generering."
+    }
+  ],
+  "aliases": [
+    {
+      "key": "RATMEN2.CEL/045.png",
+      "master_key": "KN4.ob/000.png",
+      "sha256": "4439daf18c3dcedc64f142fcc9b47905a5fb0a05dc92c1873ec23c584d679748",
+      "source_bank_sha256": "fdfccce1758ce662cc4777ca82fef14c3ed73476767a179df07967a464289f58"
+    },
+    {
+      "key": "RATMEN2.CEL/048.png",
+      "master_key": "KN4.ob/001.png",
+      "sha256": "e05f3b8ad1d2f7afc92ecc065ff6a24b72a54c913b32fa699e4dde4d3eb92122",
+      "source_bank_sha256": "fdfccce1758ce662cc4777ca82fef14c3ed73476767a179df07967a464289f58"
+    },
+    {
+      "key": "Balok2.CEL/014.png",
+      "master_key": "KN4.ob/002.png",
+      "sha256": "0abe7a3737ded45051b637e8a23e2469b0e8010c2b0326de755dc8000eb12af1",
+      "source_bank_sha256": "15e33248d5664523f15bea8cff7c80f0270c41ce655f954015de8670f80cf6c8"
+    },
+    {
+      "key": "be1.c/055.png",
+      "master_key": "KN4.ob/002.png",
+      "sha256": "0abe7a3737ded45051b637e8a23e2469b0e8010c2b0326de755dc8000eb12af1",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e"
+    },
+    {
+      "key": "Balok2.CEL/015.png",
+      "master_key": "KN4.ob/006.png",
+      "sha256": "e59d342757473bb5e4f01e9346e8a93f9f9a30f40c86db5e55dfd934f4cdcd98",
+      "source_bank_sha256": "15e33248d5664523f15bea8cff7c80f0270c41ce655f954015de8670f80cf6c8"
+    },
+    {
+      "key": "be1.c/056.png",
+      "master_key": "KN4.ob/006.png",
+      "sha256": "e59d342757473bb5e4f01e9346e8a93f9f9a30f40c86db5e55dfd934f4cdcd98",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e"
+    },
+    {
+      "key": "RATMEN2.CEL/050.png",
+      "master_key": "KN4.ob/007.png",
+      "sha256": "242d9210649edcde8caf52009e45dc4dc4e52ede8ae2a1c896175749c83c59df",
+      "source_bank_sha256": "fdfccce1758ce662cc4777ca82fef14c3ed73476767a179df07967a464289f58"
+    }
+  ],
+  "limitations": [
+    "Samlet kontroll er en kildebasert frontend-fixtur; den paastaar ikke at alle26 er naturlig utloest i gameplay.",
+    "Reell original kamp med kropp/haandkontakt er visuelt kontrollert for000 og speilet001.",
+    "KN3/001 i kroppskontrollen er blodsprut/draktfragment, ikke en separat arm.",
+    "025 bruker originalens levende ridderfarger6/7 gjennom masken. Den generiske eldre forhåndspalettens roede felt er ikke blod."
+  ]
+}

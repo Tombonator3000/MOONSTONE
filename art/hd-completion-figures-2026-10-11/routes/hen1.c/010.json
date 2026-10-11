@@ -1,0 +1,98 @@
+{
+  "key": "hen1.c/010.png",
+  "master_key": "hen1.c/010.png",
+  "role": "redraw",
+  "package": "03-steder-effekter-intro",
+  "order_group": "Stedsfigurer",
+  "order_priority": "3",
+  "identity": "Tempelet/Stonehenge: originalbank hen1.c, delt indeksgeometri med Klift1.CEL",
+  "master_usage": "Stonehenge og tempelet i slutten: ting og flammer",
+  "identity_limit": "Kildebank og brukssted. Ingen udokumentert handlingsetikett per rute.",
+  "bank": "hen1.c",
+  "frame": 10,
+  "width": 5,
+  "height": 19,
+  "target_width": 20,
+  "target_height": 76,
+  "source_bank": {
+    "path": "data/hen1.c",
+    "sha256": "c79ef41937cdf1a651a68766cfeec5a059fdfc4ca8a721d211a732472b4954ed",
+    "bytes": 12927,
+    "frames": 55
+  },
+  "bitplane_sha256": "d9151e7706b2f0f0d41ee4b134aa113f4d80b895b3f9f1c03665f8c538f9ad12",
+  "packed_indices_sha256": "171476689a75536a3de65751e9931c8b22cc5787307f4bfbcb42e1f250228583",
+  "indices_sha256": "171476689a75536a3de65751e9931c8b22cc5787307f4bfbcb42e1f250228583",
+  "plane_mask": 15,
+  "packed_planes": 4,
+  "source_flag": 1,
+  "source_indices": [
+    0,
+    12,
+    13,
+    14
+  ],
+  "index_remap": {
+    "0": 0,
+    "12": 12,
+    "13": 13,
+    "14": 14
+  },
+  "source_neighbors": [
+    "hen1.c/008.png",
+    "hen1.c/009.png",
+    "hen1.c/011.png",
+    "hen1.c/012.png"
+  ],
+  "neighbor_limit": "Nærliggende kilde-ID-er, ikke en bekreftet animasjonsrekkefølge",
+  "alpha_bounds": [
+    0,
+    0,
+    5,
+    19
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "placement": "Originalens tegnerektangel; ingen ny sentrering eller justering av fotpunkt",
+  "palette_id": "hen1.p",
+  "palette_status": "original_scene_palette; verify_the_route_in_this_scene",
+  "palette_source_sha256": "b67ec5d59178d79814a837776252bcf75c1f7a97f06249ed71d2afaef72b737a",
+  "palette_file_sha256": "e6e82494987acf8a2de475e341b16def3b287c8a5045547c33565ae4464e7be2",
+  "original": {
+    "path": "references/original/hen1.c/010.png",
+    "sha256": "c27245c9ccd87cb2ef8f6c2f3ef66597649b7ff23218851bd047b9a2120ffa9d",
+    "width": 5,
+    "height": 19
+  },
+  "nearest4x_reference": {
+    "path": "references/nearest4x/hen1.c/010.png",
+    "sha256": "576527004b63cadf627f4d066dda9a8602cc917fb071962d9fb72a2f15039847",
+    "width": 20,
+    "height": 76
+  },
+  "packed_original": {
+    "path": "source/packed/hen1.c/010.png",
+    "sha256": "3284bdb4e44f8751d251f1cbb5a18f07d972ef743b639685806ca0000ad7fee8",
+    "width": 5,
+    "height": 19
+  },
+  "silhouette": {
+    "path": "source/alpha/hen1.c/010.png",
+    "sha256": "fe153454b72817022fb97148cc2c3aea12d22f3f4d87c36403738a66c79f2ddb",
+    "width": 5,
+    "height": 19
+  },
+  "needs_mask": false,
+  "neutral_mask_template": null,
+  "live_palette_indices": [],
+  "source_order_mask_override": null,
+  "mask_warning": null,
+  "intro_only": false,
+  "runtime_gate": "new_art_requires_route_runtime_check",
+  "art_status": "pending_individual_redraw",
+  "target_png": "hd/hen1.c/010.png",
+  "target_mask": null,
+  "source_order_note": "Klar, ikke prøvd. Samme bilde brukes også som Klift1.CEL/010.png. Legg samme tegning der. Kopien i introfilen vises ikke ennå, men skader ikke."
+}

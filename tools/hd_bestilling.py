@@ -73,6 +73,10 @@ def maskefarger(bank, frame):
     # Aktiv ridder+0x36 velger fem farger. Balkonens000..014 er faste.
     if bank.lower() == 'wi1.c' and 15 <= frame <= 20:
         return set(range(6, 11))
+    # Tavernaen: $08a3b2 sender tav-palett+12 til samme originale setter.
+    # Bare006/007 har levende draktindekser;008..022 er stålhanske/bord.
+    if bank.lower() == 'dice.cel' and frame in (6, 7):
+        return set(range(6, 11))
     return set()
 
 
@@ -143,8 +147,10 @@ def figur_info(fil, nr):
         if nr <= 5:
             return 1, 'Kro- og byikoner', 'Tavernaen: seks faste terningsutfall', \
                 'Statiske utfallsbilder. Originalkoden velger 0-5 i vis_gull_vunnet ($08a600-$08a690). Bevar hvert symbol.'
-        return 4, 'Kroanimasjoner', 'Tavernaen: hender og terningkast', \
-            'Animasjonsruter, tas til slutt. Bilde 6 og 7 er sett i tegnelisten. Nytegn og kontroller hver rute separat.'
+        return 4, 'Kroanimasjoner', 'Tavernaen: ridderens stålhanske og arm over bordet', \
+            ('Animasjonsruter, tas til slutt.006..022 bruker tav.piv-paletten, ikke dice.piv. '
+             '006/007 bruker levende draktindekser6..10 fra aktiv ridder ($08a3b2→$08a9b6). '
+             'Nytegn og kontroller hver rute separat i tavernascenen.')
     if f == 'mys.cel':
         if nr >= 6:
             hvor = 'Healeren: begge øyne lukket' if nr == 6 else 'Mystikeren: ett øye lukket'

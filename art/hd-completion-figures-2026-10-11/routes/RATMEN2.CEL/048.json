@@ -1,0 +1,98 @@
+{
+  "key": "RATMEN2.CEL/048.png",
+  "master_key": "KN4.ob/001.png",
+  "role": "exact_copy",
+  "package": "02-riddere",
+  "order_group": "Riddere",
+  "order_priority": "3",
+  "identity": "rottemennene, separat originalfragment fra RATMEN2.CEL",
+  "master_usage": "Alle kamper: ridderens våpen (sverd, lanse) over kroppen",
+  "identity_limit": "Kildebank og brukssted. Ingen udokumentert handlingsetikett per rute.",
+  "bank": "RATMEN2.CEL",
+  "frame": 48,
+  "width": 19,
+  "height": 30,
+  "target_width": 76,
+  "target_height": 120,
+  "source_bank": {
+    "path": "data/RATMEN2.CEL",
+    "sha256": "fdfccce1758ce662cc4777ca82fef14c3ed73476767a179df07967a464289f58",
+    "bytes": 12832,
+    "frames": 64
+  },
+  "bitplane_sha256": "0dbf39eb9d09da9305a5b32e86164e347b2c914b6344e7f4b50c7857c39faedc",
+  "packed_indices_sha256": "48168f515949c2cb0a4a22a5fad2929b02442296bdb8b6d1c8a069985b78fcce",
+  "indices_sha256": "48168f515949c2cb0a4a22a5fad2929b02442296bdb8b6d1c8a069985b78fcce",
+  "plane_mask": 3,
+  "packed_planes": 2,
+  "source_flag": 1,
+  "source_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "index_remap": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3
+  },
+  "source_neighbors": [
+    "RATMEN2.CEL/046.png",
+    "RATMEN2.CEL/047.png",
+    "RATMEN2.CEL/049.png",
+    "RATMEN2.CEL/050.png"
+  ],
+  "neighbor_limit": "Nærliggende kilde-ID-er, ikke en bekreftet animasjonsrekkefølge",
+  "alpha_bounds": [
+    0,
+    0,
+    19,
+    30
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "placement": "Originalens tegnerektangel; ingen ny sentrering eller justering av fotpunkt",
+  "palette_id": "combat-preview",
+  "palette_status": "preview_only_not_a_monster_or_player_color_approval",
+  "palette_source_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+  "palette_file_sha256": "9e0b9b6c5798bc2706a91487b5fae02b840c95c20235a5886f0bdba34bbcef35",
+  "original": {
+    "path": "references/original/RATMEN2.CEL/048.png",
+    "sha256": "ca5eaec50396cd61e744a291bd65bfa05af74e5e31b3e193b27d87748e5ae79b",
+    "width": 19,
+    "height": 30
+  },
+  "nearest4x_reference": {
+    "path": "references/nearest4x/RATMEN2.CEL/048.png",
+    "sha256": "4eeb0340d1d99e9858d1e5803d24f3295a59ade87c185ea08af42a0e8e8941dc",
+    "width": 76,
+    "height": 120
+  },
+  "packed_original": {
+    "path": "source/packed/RATMEN2.CEL/048.png",
+    "sha256": "2367aa6827978dbad7a628c5dbc7c5b290f7330716da015641a1467d03500a3d",
+    "width": 19,
+    "height": 30
+  },
+  "silhouette": {
+    "path": "source/alpha/RATMEN2.CEL/048.png",
+    "sha256": "97c81a44f6bf1b1e72b61ff7788a3deea4d66bcfa5bd6fb8c1b871a06592ba45",
+    "width": 19,
+    "height": 30
+  },
+  "needs_mask": false,
+  "neutral_mask_template": null,
+  "live_palette_indices": [],
+  "source_order_mask_override": null,
+  "mask_warning": null,
+  "intro_only": false,
+  "runtime_gate": "new_art_requires_route_runtime_check",
+  "art_status": "pending_master_redraw",
+  "target_png": "hd/RATMEN2.CEL/048.png",
+  "target_mask": null,
+  "source_order_note": "Koden støtter flere deler. Sverdet tegnes over kroppen i KN1-3; ny grafikk må prøves med kroppen. Samme bilde brukes også som RATMEN2.CEL/048.png. Legg samme tegning der. Eldre utkast i art/photoreal/candidates/KN4.ob (generated_pending_qa), ikke godkjent. Bare feilarkiv; bruk originalen som tegnereferanse."
+}

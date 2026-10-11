@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "tested_commit": "afb762b70a87a6e871fb0fdeef8d8eefaa12e771",
+  "scope": "Nye 47 bakgrunns- og58 intro/sluttproever lastet faktisk produksjons-HTML c418 før senere figurretting i scenes.js. Sluttloggen leser arbeidsfilenes hasher ved avslutning; denne bindingen bruker de frosne kildefilene i testetcommit og HTML som faktisk ble lastet. Ingen pikselresultater er endret.",
+  "html_sha256": "c418df2437b41db40a037cb8f14efeea9015c18296232435d238edff2b1ceffc",
+  "production_code_sha256": {
+    "web/src/render.js": "63a93d15ee0d36cf0eec6f0ad6b4be5d251f984e13b2634077bd0a9385f2881b",
+    "web/src/scenes.js": "b2478ae1d299c5a6497624ff851de3e3c932d1adbe633405f6e5700e31dce618",
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97"
+  },
+  "reports": {
+    "backgrounds/backgrounds-test.json": {
+      "sha256": "7ebc6323ca1d2b57352f45e21b5dc36c510f279064cdd1cae23a90ae78c5af57",
+      "checks": 47
+    },
+    "program/program-roll-test.json": {
+      "sha256": "42e7c487b76dd777275753197796eef3fd96cdaca4d6c19cacba66bc369b0179",
+      "checks": 58
+    }
+  }
+}
