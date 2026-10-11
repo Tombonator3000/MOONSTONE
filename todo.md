@@ -41,7 +41,6 @@
 - [ ] Turns: gjesten kan ikke lagre, og mister kopien når verten forsvinner.
 - [ ] Trykk og klikk i inventar, by, butikker og Select Knight gir fire der spillets peker står ($098092/$098094), ikke der man trykker.
 - [ ] Reserve når WebGL-konteksten mistes (svart skjerm på mobil).
-- [ ] Mobil: fullskjerm, manifest for hjemskjermen og Wake Lock.
 - [ ] Utgivelser for PC (GitHub Releases) i stedet for Actions-artefakter, og krav (libSDL2, glibc 2.34) i README.
 - [ ] PC: innstillinger i spillet (volum, beskjeder som vises i fullskjerm), spiller 2 uten talltastatur. --online-meny blir stående på «Creating Room...».
 - [ ] Nettspill på PC, eller et vedtak om å la det være.
@@ -53,6 +52,7 @@
 - [ ] Rette memory.md (STATE_VERSION 8) og README (mappen spill/).
 
 ## Ferdig
+- [x] Mobil: fullskjermknapp, ikon og manifest for hjemskjermen, Wake Lock.
 - [x] Tur for tur: en gjest med skjult fane fjernes etter ett minutt (verten får beskjed i chatten).
 - [x] Sluttscenen kjennes igjen på nettsiden (\$080190 bit 7) og hoppes ikke over av et trykk.
 - [x] Lagringer som tåler nye versjoner (MOONSAV2 med deler og standardverdier), går mellom PC og nett, forklarer hvorfor de avvises, automatisk lagring (nett og PC), eksport og import, PC-lagring i brukermappen (atomisk, UTF-8 på Windows).

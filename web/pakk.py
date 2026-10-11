@@ -8,6 +8,8 @@ Kjernen (WebAssembly innebygd i moonstone-core.js), bibliotekene i web/vendor
 og kildene i web/src legges inn i web/src/index.html. Filen virker fra disk og
 paa GitHub Pages uten noe annet.
 """
+import base64
+import json
 import os
 import sys
 import json
@@ -37,6 +39,15 @@ def main():
         sys.exit(1)
     kjerne, ut = sys.argv[1], sys.argv[2]
     html = les(os.path.join(HER, 'src', 'index.html'))
+    # ikonet (maanen fra introen) og manifestet for hjemskjermen, som data-URL-er
+    with open(os.path.join(HER, 'src', 'ikon.png'), 'rb') as f:
+        ikon = 'data:image/png;base64,' + base64.b64encode(f.read()).decode()
+    manifest = {'name': 'Moonstone', 'short_name': 'Moonstone', 'display': 'fullscreen',
+                'background_color': '#000000', 'theme_color': '#000000',
+                'icons': [{'src': ikon, 'sizes': '192x192', 'type': 'image/png'}]}
+    html = html.replace('%%IKON%%', ikon)
+    html = html.replace('%%MANIFEST%%', 'data:application/manifest+json;base64,'
+                        + base64.b64encode(json.dumps(manifest).encode()).decode())
     stil = les(os.path.join(HER, 'src', 'style.css'))
     stil = stil.replace('%%HD_FONT%%', base64.b64encode((Path(HER) / 'hd/fonts/UncialAntiqua-Regular.ttf').read_bytes()).decode('ascii'))
     vendor = '\n;\n'.join(trygg(les(os.path.join(HER, 'vendor', f))) for f in VENDOR)

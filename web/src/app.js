@@ -1684,6 +1684,34 @@
         if (modus === 'hver') { forlatHver('Du har forlatt rommet'); visMeny(false); return; }
         startPaaNytt(modus === 'vert' || modus === 'gjest' ? 'Du har forlatt nettspillet' : '');
     });
+    /* ---------------------------------------------------------------- fullskjerm og skjermlaas
+     * Paa mobil blir spillbildet lite med nettleserens linjer rundt. Fullskjerm gaar der
+     * nettleseren kan (Android, PC); paa iPhone gir Legg til paa Hjem-skjerm hele skjermen.
+     * Wake Lock holder skjermen paa mens spillet vises (lange turer uten trykk). */
+    const fsEl = document.documentElement;
+    const kanFs = !!(fsEl.requestFullscreen || fsEl.webkitRequestFullscreen);
+    const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const frittstaende = window.matchMedia && window.matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches || navigator.standalone;
+    $('fullskjerm-rad').hidden = !kanFs;
+    $('hjemskjerm-hjelp').hidden = !iOS || !!frittstaende;
+    const iFs = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
+    $('fullskjerm').addEventListener('click', async () => {
+        try {
+            if (iFs()) await (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+            else { await (fsEl.requestFullscreen || fsEl.webkitRequestFullscreen).call(fsEl); visMeny(false); }
+        } catch (e) { status('Nettleseren tillater ikke fullskjerm her'); }
+    });
+    let skjermlaas = null;
+    async function holdSkjermen() {
+        if (!navigator.wakeLock || document.hidden || skjermlaas || !modus) return;
+        try {
+            skjermlaas = await navigator.wakeLock.request('screen');
+            skjermlaas.addEventListener('release', () => { skjermlaas = null; });
+        } catch (e) { skjermlaas = null; }       /* lav batteri, eller ikke tillatt */
+    }
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) holdSkjermen(); });
+    for (const t of ['pointerdown', 'keydown']) window.addEventListener(t, holdSkjermen, { passive: true });
+
     $('lagre').addEventListener('click', lagre);
     $('last').addEventListener('click', last);
     $('last-auto').addEventListener('click', () => lastFra(() => Lager.hent('auto'), 'den automatiske lagringen'));

@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Moonstone (Mindscape 1991) i nettleseren, kjørt fra originalkoden, med nettspill for opptil fire.">
 <title>Moonstone</title>
+<link rel="icon" href="%%IKON%%">
+<link rel="apple-touch-icon" href="%%IKON%%">
+<link rel="manifest" href="%%MANIFEST%%">
+<meta name="theme-color" content="#000000">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Moonstone">
 <style>
 %%STIL%%
 </style>
@@ -72,6 +80,8 @@
         <select id="format"><option value="pal">PAL (kvadratiske piksler)</option><option value="43">4:3</option></select>
         <span class="verdi pt" data-for="format"></span></label>
       <label class="valg"><span class="pt">Hele PAL-bildet (med kanter)</span><input type="checkbox" id="helt"><span class="verdi pt" data-for="helt"></span></label>
+      <div class="rad" id="fullskjerm-rad" hidden><button id="fullskjerm" class="knapp"><span class="pt">Fullskjerm</span></button></div>
+      <p class="hjelp" id="hjemskjerm-hjelp" hidden>På iPhone og iPad: Del og Legg til på Hjem-skjerm gir spillet hele skjermen.</p>
       <label class="valg glider"><span class="pt">Lydstyrke</span><span class="verdi pt" data-for="volum"></span><input type="range" id="volum" min="0" max="2" step="0.05"></label>
       <label class="valg"><span class="pt">Vent på fire før kamp</span><input type="checkbox" id="knappevent"><span class="verdi pt" data-for="knappevent"></span></label>
       <p class="hjelp">ButtonWait: kampen venter på fire, så du får tid til å lese. Gjelder fra neste start.</p>
