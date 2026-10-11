@@ -82,12 +82,22 @@ async function trykk(p, key, ms = 220, etter = 900) { await p.keyboard.down(key)
 /* fra lastingen til tittelmenyen. Forste trykk slaar paa lyden, det andre hopper over introen.
    Med en invitasjonslenke holder ett trykk (klikk: 1). alene: vent ogsaa paa modus 'alene'. */
 async function tilTittel(p, o = {}) {
-  const klikk = o.klikk || 2, tid = o.tid || 30000;
+  const klikk = o.klikk || 2, tid = o.tid || 60000;   /* tregt naar maskinen har mye annet aa gjoere */
   await p.waitForFunction((alene) => window.moonDebug && (!alene || window.moonDebug.modus() === 'alene') && window.moonDebug.Kjerne.iIntro(), !!o.alene, { timeout: tid });
   await p.waitForTimeout(1500);
-  await p.mouse.click(400, 280);
-  if (klikk > 1) { await p.waitForTimeout(1000); await p.mouse.click(400, 280); }
-  await p.waitForFunction(() => window.moonDebug.Kjerne.menyKlar(), null, { timeout: tid });
+  if (klikk > 1) { await p.mouse.click(400, 280); await p.waitForTimeout(1000); }
+  /* introen gjoer ferdig overgangen foer den slutter; kom ikke menyen, proev et trykk til */
+  for (let i = 0; ; i++) {
+    await p.mouse.click(400, 280);
+    try { await p.waitForFunction(() => window.moonDebug.Kjerne.menyKlar(), null, { timeout: 25000 }); break; } catch (e) {}
+    if (!(await p.evaluate(() => window.moonDebug.Kjerne.iIntro()))) {
+      /* introen er over, men menyen er ikke tegnet ennaa (Join Game henter romlisten) */
+      await p.waitForFunction(() => window.moonDebug.Kjerne.menyKlar(), null, { timeout: tid });
+      break;
+    }
+    if (i >= 2) throw new Error('introen sluttet ikke etter ' + (i + 1 + (klikk > 1 ? 1 : 0)) + ' trykk');
+    console.log('   (fortsatt i introen, trykker igjen)');
+  }
   await p.waitForTimeout(o.etter || 800);
 }
 
@@ -135,6 +145,105 @@ async function bliMed(p, lenke, modus = 'gjest', vent = 2500) {
   await p.waitForTimeout(vent);
 }
 
+/* Separate (hver for seg): verten (Tom) lager rommet, Kari blir med med romkoden, og begge
+   starter sitt eget spill fra tittelmenyen til kartet. merke: forstavelse paa skjermbildene. */
+async function hverForSegPaaKartet(b, merke) {
+  const vert = await side(b, { navn: 'vert', konsoll: true, innst: { navn: 'Tom' } });
+  const kari = await side(b, { navn: 'kari', konsoll: true, innst: { navn: 'Kari' } });
+  await vert.goto(U);
+  await tilTittel(vert, { alene: true });
+  for (let i = 0; i < 4; i++) await trykk(vert, 'ArrowDown');
+  await trykk(vert, 'ControlLeft');                        // Options
+  await trykk(vert, 'ControlLeft');                        // Online Game paa Options-siden
+  await skjerm(vert, merke + '-online.png');
+  await trykk(vert, 'ControlLeft');                        // Host Game (pilen staar paa den)
+  await vert.waitForFunction(() => window.moonDebug.modus() === 'hver', null, { timeout: 30000 });
+  sjekk(true, 'vert: rom i Separate, modus hver');
+  await vert.waitForTimeout(1500);
+  const lenke = await vert.evaluate(() => window.moonDebug.Nett.invitasjon());
+  console.log('lenke', lenke);
+  const kode = lenke.match(/rom=([A-Z0-9]{6})/)[1];
+
+  await kari.goto(U + '&rom=' + kode);
+  await tilTittel(kari, { alene: true, klikk: 1 });            // med romkoden holder ett trykk
+  await kari.waitForTimeout(1500);
+  await trykk(kari, 'ControlLeft');                        // rommet er valgt paa Join Game
+  await kari.waitForFunction(() => window.moonDebug.modus() === 'hver', null, { timeout: 30000 });
+  sjekk(true, 'kari: med i rommet, modus hver');
+  await skjerm(kari, merke + '-kari-med.png');
+  await trykk(kari, 'ControlLeft');                        // Back fra meldingen: rett til tittelmenyen
+  await skjerm(kari, merke + '-kari-tittel.png');
+  await trykk(kari, 'ArrowUp');                            // Select Knight
+
+  // verten: Back fra Host-siden (rad 5), saa tittelmenyen; pilen staar paa Options, opp en
+  await trykk(vert, 'ArrowDown'); await trykk(vert, 'ArrowDown');
+  await trykk(vert, 'ControlLeft');
+  await skjerm(vert, merke + '-vert-tittel.png');
+  await trykk(vert, 'ArrowUp');
+  // begge til kartet: Select Knight, ridderen, Return godtar navnet
+  await Promise.all([[vert, 'vert'], [kari, 'kari']].map(async ([p, n]) => {
+    await trykk(p, 'ControlLeft'); await p.waitForTimeout(8000); await skjerm(p, merke + '-' + n + '-a.png');
+    await trykk(p, 'ControlLeft'); await p.waitForTimeout(4000); await skjerm(p, merke + '-' + n + '-b.png');
+    await trykk(p, 'Enter');
+  }));
+  await vert.waitForFunction(() => window.moonDebug.Kjerne.hverKart(), null, { timeout: 40000 }).catch(() => console.log('vert ikke paa kartet'));
+  await kari.waitForFunction(() => window.moonDebug.Kjerne.hverKart(), null, { timeout: 40000 }).catch(() => console.log('kari ikke paa kartet'));
+  await vert.waitForTimeout(5000);
+  return { vert, kari };
+}
+
+/* ridderne slik siden ser dem (hver.c): [x, y, liv, figur, navn] per plass, og hele ridderen paa plass 0 */
+const ridderInfo = (p) => p.evaluate(() => { const K = window.moonDebug.Kjerne; return { r: [0, 1, 2, 3].map((k) => K.hverRidder(k).concat(K.hverNavn(k))), blob0: K.hverBlob(0) }; });
+const duell = (p) => p.evaluate(() => window.moonDebug.duell());
+
+/* fire paa kartet ved siden av den andre ridderen gir valgene; 2 er Battle with. Kommer ikke
+   valgene (turen har ikke begynt ennaa paa en treg maskin), trykkes fire igjen. */
+async function angrip(p, merke) {
+  for (let i = 0; i < 3; i++) {
+    await trykk(p, 'ControlLeft');
+    if (await venter(() => p.evaluate(() => !!window.moonDebug.Kjerne.kartValg()), 10000)) break;
+    console.log('   (ingen valg paa kartet ennaa, trykker fire igjen)');
+  }
+  await skjerm(p, merke + '-valg.png');
+  await trykk(p, 'Digit2');
+}
+
+/* x-posisjonen til ridderen paa plass 1 i kampen (+$04) */
+const kampX1 = (p) => p.evaluate(() => { const K = window.moonDebug.Kjerne; return K.les8(0x8d638 + 4) << 8 | K.les8(0x8d638 + 5); });
+
+/* i en duell: p (som har maskinen) gaar mot den andre ridderen og slaar til kampen er over
+   (den andre staar stille). Tar et skjermbilde hos annen hvert 40. steg. Gir tiden i sekunder. */
+async function slaaTilKampenErOver(p, annen, merke) {
+  const pos = () => p.evaluate(() => { const K = window.moonDebug.Kjerne, w = (a) => (K.les8(a) << 8 | K.les8(a + 1)) << 16 >> 16;
+    return { hx: w(0x8d5b4 + 4), hy: w(0x8d5b4 + 8), kx: w(0x8d638 + 4), ky: w(0x8d638 + 8) }; });
+  const t0 = Date.now();
+  let i = 0;
+  while (Date.now() - t0 < 150000 && await duell(p)) {
+    const q = await pos();
+    const dx = q.kx - q.hx, dy = q.ky - q.hy;
+    const taster = [];
+    if (Math.abs(dy) > 6) taster.push(dy < 0 ? 'ArrowUp' : 'ArrowDown');
+    if (Math.abs(dx) > 60) taster.push(dx < 0 ? 'ArrowLeft' : 'ArrowRight');
+    else if (Math.abs(dy) <= 6) { taster.push('ControlLeft'); taster.push(dx < 0 ? 'ArrowLeft' : 'ArrowRight'); }
+    if (i % 25 === 0) console.log('kamp', JSON.stringify(q), taster.join('+'));
+    for (const t of taster) await p.keyboard.down(t);
+    await p.waitForTimeout(taster.includes('ControlLeft') ? 300 : 200);
+    for (const t of taster) await p.keyboard.up(t);
+    await p.waitForTimeout(100);
+    if (i++ % 40 === 0) await skjerm(annen, merke + '-kamp' + i + '.png');
+  }
+  const s = Math.round((Date.now() - t0) / 1000);
+  console.log('kampen tok', s, 's');
+  return s;
+}
+
+/* bytene i to ridderblobber (heks) som er ulike, som "indeks:foer>etter" */
+function blobForskjell(a, b) {
+  const ut = [];
+  for (let i = 0; i < 312; i += 2) if (a.slice(i, i + 2) !== b.slice(i, i + 2)) ut.push((i / 2).toString(16) + ':' + a.slice(i, i + 2) + '>' + b.slice(i, i + 2));
+  return ut.join(' ');
+}
+
 async function venter(fn, ms = 20000) { const t = Date.now(); while (Date.now() - t < ms) { if (await fn()) return true; await new Promise((r) => setTimeout(r, 200)); } return false; }
 const statusTekst = (p) => p.evaluate(() => document.getElementById('status').textContent);
 const skjerm = (p, navn) => p.screenshot({ path: path.join(UT, navn) });
@@ -164,4 +273,4 @@ function gammelLagring(navn) {
 }
 
 module.exports = { PORT, BASE, U, ORIGIN, UT, HEADLESS, sjekk, kjor, nettleser, side, merk, trykk, tilTittel,
-  les16, valg, rad, rader, venterRad, velg, lagRom, bliMed, venter, statusTekst, skjerm, tilstand, gammelLagring };
+  les16, valg, rad, rader, venterRad, velg, lagRom, bliMed, hverForSegPaaKartet, ridderInfo, duell, angrip, kampX1, slaaTilKampenErOver, blobForskjell, venter, statusTekst, skjerm, tilstand, gammelLagring };
