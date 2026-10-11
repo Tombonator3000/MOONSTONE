@@ -23,7 +23,10 @@
     const $ = (id) => document.getElementById(id);
     const inn = Lager.innstillinger();
     const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false, knapper: false,
-        effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false }, spill: 'hver', hd: 'hd' }, inn);
+        effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false }, spill: 'hver', hd: 'original' }, inn);
+    /* HD er av som standard (eieren 2026-10-11). Tidligere ble hd: 'hd' lagret med de andre
+     * innstillingene uten at noen hadde valgt det; de faar originalen en gang. */
+    if (innst.hdV !== 2) { innst.hd = 'original'; innst.hdV = 2; }
     /* lagringene: automatisk lagring, og hjelpeteksten fra index.html (oppdaterMeny legger til) */
     let sistAuto = 0, baApersist = false, forsteStart = true;
     const HJELP_LAGRING = document.getElementById('lagring-hjelp').textContent;
@@ -196,7 +199,7 @@
         if (!Visning.klar) {
             Visning.init($('lerret'), Kjerne.bredde(), Kjerne.hoyde());
             Visning.klar = true;
-            StandardHd.start(Visning, tekst => { $('hd-status').textContent = tekst; });
+            if (innst.hd !== 'original') StandardHd.start(Visning, tekst => { $('hd-status').textContent = tekst; });
         }
         Visning.settFilter(innst.filter);
         Visning.settFormat(innst.format);
@@ -1881,7 +1884,7 @@
     $('hd-bryter').addEventListener('change', (e) => {
         innst.hd = e.target.value;
         Visning.settHd(innst.hd !== 'original');
-        if (innst.hd !== 'original' && !Visning.hdAntall()) StandardHd.start(Visning);
+        if (innst.hd !== 'original' && !Visning.hdAntall()) StandardHd.start(Visning, tekst => { $('hd-status').textContent = tekst; });
         lagreInnst();
         status(innst.hd === 'original' ? 'Original grafikk' : Visning.hdAntall() ? 'HD-grafikk der den finnes' : 'HD-grafikken lastes automatisk');
     });

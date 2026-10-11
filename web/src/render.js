@@ -55,7 +55,7 @@ const Visning = (() => {
      * uendret (tekst tegnes bare en gang); uten lag vises klyngen til det har gaatt
      * 50 bilder uten nye tegninger. */
     let hdGruppe = null, hdPakke = new Map(), visRammer = false;
-    let hdPaa = true;                       /* false: original grafikk, selv om en HD-pakke er lastet */
+    let hdPaa = false;                      /* false: original grafikk, selv om en HD-pakke er lastet (standard) */
     let bildeNr = 0, sistTegnet = -99, klynger = [];
     let visteListe = [], visesFra = 0;
     let plasserte = new Map(), sisteBakHash = -1;    /* "x,y,b,h" -> { d, x, y, w, h, hash } */
