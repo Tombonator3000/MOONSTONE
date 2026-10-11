@@ -30,7 +30,8 @@ HD-grafikk.
 
 Når Pages er slått på, ligger spillet på **https://tombonator3000.github.io/MOONSTONE/**.
 Hver push til `main` bygger siden på nytt og legger den ut (jobben `pages` i
-`.github/workflows/bygg.yml`), med spillfilen innebygd.
+`.github/workflows/bygg.yml`), med spillfilen innebygd. Den samme pushen oppdaterer
+nedlastingene for Windows og Linux (jobben `utgivelse`, se «Spille på Windows og Linux»).
 
 Slik slås det på (bare eieren av repoet kan gjøre det):
 
@@ -109,10 +110,23 @@ til adressen.
 
 ## Spille på Windows og Linux
 
-Ferdige bygg ligger under **Actions** (filene `moonstone-windows` og `moonstone-linux`).
-Spillfilen er bygget inn i programmet, så det trengs ingen andre filer. På Windows:
-dobbeltklikk `start.bat` eller `moonstone.exe`. Windows kan si at programmet er ukjent
-fordi det ikke er signert; velg «Mer informasjon» og «Kjør likevel».
+### Nedlasting
+
+Siste versjon ligger på **https://github.com/Tombonator3000/MOONSTONE/releases/tag/siste**.
+Den lages på nytt av Actions ved hver push til `main`, og du trenger ikke å logge inn
+for å laste den ned.
+
+- **moonstone-windows.zip**: pakk ut og dobbeltklikk `start.bat` eller `moonstone.exe`.
+  Windows kan si at programmet er ukjent fordi det ikke er signert; velg «Mer
+  informasjon» og «Kjør likevel».
+- **moonstone-linux.zip**: pakk ut og kjør `moonstone/moonstone`. Programmet trenger
+  SDL2 (`sudo apt install libsdl2-2.0-0` på Debian og Ubuntu). Det er bygget på
+  Ubuntu 24.04 mot glibc 2.39, men bruker i dag ingenting nyere enn glibc 2.34, så
+  Ubuntu 22.04, Debian 12 og nyere går. Eldre systemer kan bygge selv (se under).
+
+Spillfilen er bygget inn i programmet, så det trengs ingen andre filer. Byggene fra
+hver enkelt kjøring (også grener og pull requests) ligger fortsatt som artefakter under
+**Actions**, men der må du være logget inn på GitHub.
 
 Med `--game sti` bruker programmet en annen spillfil: zip-filen, ISO-en eller en mappe
 med `Moonstone.Slave` og `data/`. `moonstone --help` viser alle valgene.
