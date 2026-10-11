@@ -46,6 +46,8 @@ I hovedspillet mangler altså 1717 figurbilder med innhold. 1128 av dem er monst
 
 ## 2. Det som mangler, viktigst først
 
+Bestillingen med en rad per bilde ligger i `docs/hd-bestilling-liste.csv` (laget med `tools/hd_bestilling.py`), og meldingen til den som tegner i `docs/hd-bestilling-chatgpt.md`.
+
 «Klar» betyr at en PNG med riktig navn virker uten kodeendring. «Scene» betyr en ny rad i `manifest.scenes` (data, ikke kode), som må prøves. «Kode» betyr at render.js eller porten må endres først.
 
 | Pri | Hva | Fil eller hash | Bilder | Hvor | Bruk | Belegg |
