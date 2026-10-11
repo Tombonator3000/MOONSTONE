@@ -9,7 +9,7 @@ async function draw(p){return p.evaluate(()=>{const{Kjerne:K,Visning:V,SceneHd:S
  fs.mkdirSync(out,{recursive:true});
  b=await chromium.launch({headless:true,executablePath:process.env.CHROME||'/usr/bin/google-chrome',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});const p=await b.newPage({viewport:{width:960,height:700}});p.on('pageerror',e=>report.errors.push(e.message));
  await p.addInitScript(()=>localStorage.setItem('moonstone.innstillinger',JSON.stringify({hd:'hd',hdValgt:true})));
- await p.goto(url);await p.waitForFunction(()=>window.moonDebug&&moonDebug.Kjerne.bildeNr()>1);await p.keyboard.press('Pause');await p.waitForFunction(()=>moonDebug.StandardHd.info().klar);
+ await p.goto(url);await p.waitForFunction(()=>{/* bildeNr kaster til kjernen er lastet */try{return window.moonDebug&&moonDebug.Kjerne.bildeNr()>1;}catch(e){return false;}});await p.keyboard.press('Pause');await p.waitForFunction(()=>moonDebug.StandardHd.info().klar);
  report.visit=await p.evaluate(async()=>{const{Kjerne:K,Visning:V,SceneHd:S,StandardHd:H}=moonDebug;K.start(false);K.menyPaa(true);K.lagPaa(true);V.nullstillScene();S.nullstill();
   while(K.bildeNr()<2000){const n=K.bildeNr();if(n===100)K.tast(0x45,true);if(n===104)K.tast(0x45,false);const down=[700,760,820].some(f=>n>=f&&n<f+4),fire=[880,1100,1200].some(f=>n>=f&&n<f+4);K.inndata(0,down?2:fire?16:0);K.bilde();V.nyttBilde(K.tegneliste());if(n%100===0)await new Promise(r=>setTimeout(r,0));}
   const M=await K.last(),chip=M._ms_chip(),d=new DataView(M.HEAPU8.buffer),r=d.getUint32(chip+0x8d9ac,false);d.setInt16(chip+r+0x7e,220,false);d.setInt16(chip+r+0x80,27,false);

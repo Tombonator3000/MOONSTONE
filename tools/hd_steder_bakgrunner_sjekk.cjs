@@ -14,7 +14,7 @@ async function stable(p){let last=await render(p);for(let n=0;n<20;n++){await p.
  fs.mkdirSync(out,{recursive:true});
  b=await chromium.launch({headless:true,executablePath:process.env.CHROME||'/usr/bin/google-chrome',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  const p=await b.newPage({viewport:{width:960,height:700}});p.on('pageerror',e=>report.errors.push(e.message));
- await p.goto(url);await p.waitForFunction(()=>window.moonDebug&&moonDebug.Kjerne.bildeNr()>1);await p.keyboard.press('Pause');
+ await p.goto(url);await p.waitForFunction(()=>{/* bildeNr kaster til kjernen er lastet */try{return window.moonDebug&&moonDebug.Kjerne.bildeNr()>1;}catch(e){return false;}});await p.keyboard.press('Pause');
  await p.keyboard.press('Home');await p.locator('#hd-bryter').selectOption('hd');await p.keyboard.press('Home');
  await p.waitForFunction(()=>moonDebug.StandardHd.info().klar,null,{timeout:60000});
  const state=await p.evaluate(()=>moonDebug.Kjerne.sjekksum());
