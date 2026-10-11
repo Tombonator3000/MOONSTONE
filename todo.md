@@ -26,10 +26,17 @@
 - [ ] Teste moonstone.exe på ekte Windows.
 - [ ] Nettspill over et ekte nett med to maskiner: hvor mye forsinkelse gjesten og forsvareren i en duell merker i kamp, og om bufferen på tre bilder bør justeres.
 
+## HD: kodeendringer så bildene i docs/hd-bestilling-chatgpt.md blir brukt
+- [ ] Lasteren (render.js lastHdPakke) skal bare godta NAVN/NNN og bg/HHHHHHHH og si fra om resten (i dag tar den alt, ca 4 MB per ubrukt bilde).
+- [ ] tools/hd_skaler.py skal hoppe over bildemappene (PIV) og test/, bare figurmapper og bg.
+- [ ] HD-pakken skal huskes (IndexedDB) og kunne være en zip.
+- [ ] --lag-dump skal lage mappen eller si fra, og prøve igjen når en bakgrunn ikke ble skrevet.
+- [ ] Et skript som spiller gjennom spillet med --lag-dump og knytter hver bakgrunnshash til et skjermnavn.
+- [ ] Sjekke CEL-navnene med --tegneliste (sti foran?) og om MAX_CELS glemmer filer som fortsatt tegnes.
+- [ ] Inntoning av HD-bakgrunnen første gang den vises (render.js lysMaks).
+- [ ] Rette docs/hd-grafikk.md (knappens navn, skala høyst 4) og grafikklisten (hen1.p = bg5.piv, Klift1.CEL = hen1.c).
+
 ## Fra gjennomgangen 2026-10-11 (docs/hva-mangler.md)
-- [ ] Lagringer: overgang fra eldre STATE_VERSION, eksport og import, melding om hvorfor en lagring avvises, PC-lagring i brukermappen. I dag blir lagringene ubrukelige ved hver ny versjon, og PC (64 bit) og nettet (32 bit) kan ikke laste hverandres.
-- [ ] Automatisk lagring på nettsiden (visibilitychange og pagehide) og navigator.storage.persist().
-- [ ] Nettspill: Nett.VERSJON skal følge tilstandsversjonen, og en gjest med feil versjon skal få beskjed i stedet for å henge. Romlisten trenger versjon.
 - [ ] Separate: hverKart() er sann hele spillet (hver.c setter H.kart = 0 bare i tittelmenyen), så en spiller i by eller monsterkamp sier ja til dueller automatisk.
 - [ ] Turns: en gjest med skjult fane holdes i live av pingen, og spillet venter på turen hans.
 - [ ] Turns: gjesten kan ikke lagre, og mister kopien når verten forsvinner.
@@ -37,7 +44,6 @@
 - [ ] Trykk og klikk i inventar, by, butikker og Select Knight gir fire der spillets peker står ($098092/$098094), ikke der man trykker.
 - [ ] Reserve når WebGL-konteksten mistes (svart skjerm på mobil).
 - [ ] Mobil: fullskjerm, manifest for hjemskjermen og Wake Lock.
-- [ ] HD-pakken på nettet: huskes ikke etter omlasting, bare mappevalg (ingen zip), bakgrunnen tones ikke inn første gang.
 - [ ] Utgivelser for PC (GitHub Releases) i stedet for Actions-artefakter, og krav (libSDL2, glibc 2.34) i README.
 - [ ] PC: innstillinger i spillet (volum, beskjeder som vises i fullskjerm), spiller 2 uten talltastatur. --online-meny blir stående på «Creating Room...».
 - [ ] Nettspill på PC, eller et vedtak om å la det være.
@@ -49,6 +55,9 @@
 - [ ] Rette memory.md (STATE_VERSION 8) og README (mappen spill/).
 
 ## Ferdig
+- [x] Lagringer som tåler nye versjoner (MOONSAV2 med deler og standardverdier), går mellom PC og nett, forklarer hvorfor de avvises, automatisk lagring (nett og PC), eksport og import, PC-lagring i brukermappen (atomisk, UTF-8 på Windows).
+- [x] Nettspill: lagringsformatet sendes med i 'hei' og i romlisten; en gjest med annen versjon får beskjed, og en gjest som ikke kan laste tilstanden, går ut med grunnen.
+- [x] Bakgrunnsmusikken i hele spillet fjernet igjen (eieren ville ikke ha den).
 - [x] Lyden startes i selve trykket på mobil og følger ikke lydløs-bryteren på iPhone. (Bakgrunnsmusikken i hele spillet ble fjernet igjen 2026-10-11 etter ønske fra eieren.)
 - [x] Turns testet headless: beskyttelsesrullen styres av den angrepne (og kampen unngås når den brukes), og når datamaskinens ridder angriper, styrer den angrepnes spiller ridderen med port 2.
 - [x] Nettspill tur for tur: joysticken følger rekkefølgen ridderne ble valgt i (ikke figuren), bare den som velger styrer Select a Knight og navnet, møtet mellom to riddere gir portene til riktig spiller (rullen, kampen, plyndringen), Players settes opp til antallet i rommet, og korte trykk fra nettet blir ikke borte.

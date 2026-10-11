@@ -220,9 +220,10 @@ automatisk når du bytter fane eller app, når siden lukkes og hvert andre minut
 «Fortsett» henter det igjen. «Last ned» og «Hent fra fil» flytter lagringer mellom
 nettlesere og til PC-versjonen, og PC-lagringer kan hentes inn på nettet.
 
-PC-versjonen lagrer i brukermappen (`~/.local/share/Moonstone/` på Linux,
+PC-versjonen lagrer i brukermappen (`~/.local/share/Moonstone/Moonstone/` på Linux,
 `%APPDATA%\Moonstone\Moonstone\` på Windows) og lagrer automatisk når du avslutter
-(Shift+Page Down henter den). Lagringer fra før oktober 2026 (versjon 13) kan fortsatt
+(Shift+Page Down henter den; den forrige blir `moonstone_auto_forrige.sav`). Den lagrer
+bare når et spill er i gang, også ved F10. Lagringer fra før oktober 2026 (versjon 13) kan fortsatt
 lastes på samme slags maskin; eldre lagringer gir en melding om hvilken versjon de er.
 
 

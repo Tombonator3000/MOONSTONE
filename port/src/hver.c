@@ -161,10 +161,63 @@ static uint32_t rd32(uint32_t a) { return mem_read32(a); }
 static void gi_tilbake(void);
 
 void hver_reset(void) { memset(&H, 0, sizeof H); kopi_ok = false; n_hev = 0; }
+/* Lagringen er delt i to (state.c): originalene til datamaskinens riddere maa alltid
+ * fram igjen naar en plass er tatt over (de er byttet ut i Amiga-minnet), resten kan
+ * faa standardverdier hvis den er endret i en ny utgave. */
+void hver_state_tatt(StateIO *s)
+{
+    STATE_VAR(s, H.tatt);
+    STATE_VAR(s, H.o36);
+    STATE_VAR(s, H.o6c);
+    STATE_VAR(s, H.o0b);
+    STATE_VAR(s, H.o49);
+    STATE_VAR(s, H.orig);
+}
 void hver_state(StateIO *s)
+{
+    STATE_VAR(s, H.fjern);
+    STATE_VAR(s, H.har);
+    STATE_VAR(s, H.x);
+    STATE_VAR(s, H.y);
+    STATE_VAR(s, H.liv);
+    STATE_VAR(s, H.figur);
+    STATE_VAR(s, H.navn);
+    STATE_VAR(s, H.kart);
+    STATE_VAR(s, H.tx);
+    STATE_VAR(s, H.ty);
+    STATE_VAR(s, H.tliv);
+    STATE_VAR(s, H.tfigur);
+    STATE_VAR(s, H.tvist);
+    STATE_VAR(s, H.sist_tegnet);
+    STATE_VAR(s, H.kamp);
+    STATE_VAR(s, H.blob);
+    STATE_VAR(s, H.har_blob);
+    STATE_VAR(s, H.duell_mulig);
+    STATE_VAR(s, H.duell);
+    STATE_VAR(s, H.i_kamp);
+    STATE_VAR(s, H.rulle);
+    if (!s->saving) { kopi_ok = false; n_hev = 0; }
+}
+/* det gamle formatet (MOONSTAT 13): hele H paa en gang */
+void hver_state_gammel(StateIO *s)
 {
     STATE_VAR(s, H);
     if (!s->saving) { kopi_ok = false; n_hev = 0; }
+}
+/* standard for resten: som en ny maskin, men originalene beholdes */
+void hver_standard(void)
+{
+    uint8_t tatt = H.tatt, o0b[4], o49[4];
+    uint32_t o36[4], o6c[4];
+    static uint8_t orig[4][BLOB];
+    memcpy(o0b, H.o0b, 4); memcpy(o49, H.o49, 4);
+    memcpy(o36, H.o36, sizeof o36); memcpy(o6c, H.o6c, sizeof o6c);
+    memcpy(orig, H.orig, sizeof orig);
+    hver_reset();
+    H.tatt = tatt;
+    memcpy(H.o0b, o0b, 4); memcpy(H.o49, o49, 4);
+    memcpy(H.o36, o36, sizeof o36); memcpy(H.o6c, o6c, sizeof o6c);
+    memcpy(H.orig, orig, sizeof orig);
 }
 bool hver_paa(void) { return H.fjern != 0; }
 bool hver_kart(void) { return H.kart != 0; }

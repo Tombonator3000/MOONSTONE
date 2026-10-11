@@ -109,6 +109,7 @@ EMSCRIPTEN_KEEPALIVE uint8_t *ms_chip(void) { return chip; }
 
 /* hvorfor siste lasting feilet (state.c), til meldingen paa siden */
 EMSCRIPTEN_KEEPALIVE const char *ms_state_error(void) { return state_feil; }
+EMSCRIPTEN_KEEPALIVE uint32_t ms_state_format(void) { return state_format_id(); }
 
 EMSCRIPTEN_KEEPALIVE int ms_state_save(void)
 {

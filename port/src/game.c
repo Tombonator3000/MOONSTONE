@@ -326,6 +326,16 @@ void game_reset(void)
     moete = MOETE_INGEN;
 }
 
+/* lagring uten (passende) tegneliste: tom liste, saa HD-laget viser originalgrafikken
+ * til spillet pakker ut filene paa nytt, i stedet for navn fra et annet spill */
+void game_standard(void)
+{
+    game_reset();
+    memset(cels, 0, sizeof cels);
+    n_cels = 0;
+    background[0] = 0;
+}
+
 void game_state(StateIO *s)
 {
     STATE_VAR(s, cels);

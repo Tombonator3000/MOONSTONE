@@ -284,6 +284,7 @@ bool     game_mog_running(void);
 int      game_port_player(int port);      /* plassen (0-3) til mennesket som styrer port 0/1 naa, -1 = alle/ingen */
 bool     game_velger_ridder(void);        /* Select a Knight eller navnet etterpaa */
 void     game_reset(void);
+void     game_standard(void);              /* lagring uten passende tegneliste (state.c) */
 const char *game_knight_name(int k);
 int      game_knight_player(int k);
 /* tegnelisten: figurene spillet tegnet i siste bilde (game.c). Venstre kant er
@@ -328,6 +329,7 @@ enum { HVER_EV_DUELL = 1, HVER_EV_DUELL_SLUTT };   /* hver_hendelse: kode | plas
 int      hver_hendelse(void);             /* 0 = ingen */
 const char *hver_blob(int k);             /* ridder k (struktur og ting) som heks */
 void     hver_reset(void);
+void     hver_standard(void);              /* resten til standard, originalene beholdes */
 void     hver_register_hooks(void);
 void     hver_kommando(int k, int arg, const char *text);
 void     hver_frame(void);                /* foer hvert bilde: de fjerne ridderne inn i spillet */
@@ -369,11 +371,16 @@ void     game_state(StateIO *s);
 void     patch_state(StateIO *s);
 void     meny_state(StateIO *s);
 void     hver_state(StateIO *s);
+void     hver_state_tatt(StateIO *s);      /* originalene til datamaskinens riddere (maa passe) */
+void     hver_state_gammel(StateIO *s);    /* hele H, det gamle formatet */
 /* hele tilstanden til/fra minnet; kalleren frigjor buf med free() */
 bool     state_save_mem(uint8_t **buf, size_t *size);
 bool     state_load_mem(const uint8_t *buf, size_t size);
 bool     state_save_file(const char *path);
 bool     state_load_file(const char *path);
+bool     state_file_exists(const char *path);
+extern bool amiga_quit_key;                /* F10 (QuitKey) avsluttet, ikke resload_Abort */
+uint32_t state_format_id(void);           /* endres naar en del av lagringen endres (nettspill: samme versjon?) */
 extern const char *state_feil;           /* hvorfor siste lasting feilet (tom hvis den gikk) */
 uint32_t state_ram_hash(void);            /* sjekksum av RAM og registre, for nettspill */
 extern bool state_any_game;               /* gjest uten spillfiler: ikke sjekk hvilke filer tilstanden er laget med */

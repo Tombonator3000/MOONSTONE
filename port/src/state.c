@@ -18,10 +18,11 @@
 /*
  * Formatet (MOONSAV2): magi, formatversjon, CRC for spillfilene, og saa delene.
  * Hver del er merke (4 tegn), versjon, lengde og innhold. Ved lasting maa en del
- * ha samme versjon og nøyaktig samme lengde. Deler porten selv har lagt til
- * (menyen, Hver for seg, tegnelisten, lyden) faar standardverdier hvis de mangler
- * eller er endret, saa en lagring fra en eldre utgave fortsatt kan brukes. Bare
- * delene som er selve Amigaen (minne, CPU, brikkene) maa passe.
+ * ha samme versjon og nøyaktig samme lengde. Deler porten selv har lagt til og som
+ * trygt kan begynne paa nytt (nettspillmenyen, det meste av Hver for seg, tegnelisten,
+ * Blitter-storrelsen) faar standardverdier hvis de mangler eller er endret, saa en
+ * lagring fra en eldre utgave fortsatt kan brukes. Amigaen (minne, CPU, brikkene,
+ * lyden) og originalene til ridderne som er tatt over i Hver for seg, maa passe.
  *
  * Strukturene har bare tall og tegn (ingen pekere), og er like store paa PC
  * (64 bit), Windows og i nettleseren (32 bit), saa lagringene kan flyttes mellom dem.
@@ -70,7 +71,6 @@ static void blit_state(StateIO *s)
     STATE_VAR(s, blit_h);
 }
 static void blit_standard(void) { extern unsigned blit_w, blit_h; blit_w = blit_h = 0; }
-static void game_standard(void) { game_reset(); }
 
 typedef struct {
     char tag[5];
@@ -87,12 +87,13 @@ static const Del deler[] = {
     { "CUST", 1, cust_state,  NULL,           "brikkene" },
     { "CIA ", 1, cia_state,   NULL,           "CIA-brikkene" },
     { "CPU ", 1, cpu_state,   NULL,           "68000" },
-    { "AUD ", 1, paula_state, paula_reset,    "lyden" },
+    { "AUD ", 1, paula_state, NULL,           "lyden" },
     { "WHD ", 1, whd_state,   NULL,           "WHDLoad" },
     { "GAME", 1, game_state,  game_standard,  "tegnelisten" },
     { "PTCH", 1, patch_state, NULL,           "tekstene" },
     { "MENY", 1, meny_state,  meny_standard,  "nettspillmenyen" },
-    { "HVER", 1, hver_state,  hver_reset,     "Hver for seg" },
+    { "HVT ", 1, hver_state_tatt, NULL,       "ridderne som er tatt over" },
+    { "HVER", 1, hver_state,  hver_standard,  "Hver for seg" },
     { "BLIT", 1, blit_state,  blit_standard,  "Blitteren" },
 };
 #define N_DELER (sizeof deler / sizeof deler[0])
@@ -156,6 +157,20 @@ static size_t lengde_naa(size_t i)
     return n;
 }
 
+/* Kjennetegn paa formatet (delenes merke, versjon og lengde). Nettspill sammenligner
+ * det, saa en gjest med en eldre side ikke blir staaende og vente paa en tilstand den
+ * ikke kan lese. */
+uint32_t state_format_id(void)
+{
+    uint32_t h = SAVE_FORMAT;
+    for (size_t i = 0; i < N_DELER; i++) {
+        uint32_t v[2] = { deler[i].ver, (uint32_t)lengde_naa(i) };
+        h = h * 31u + crc32_calc((const uint8_t *)deler[i].tag, 4);
+        h = h * 31u + crc32_calc((const uint8_t *)v, sizeof v);
+    }
+    return h;
+}
+
 static char feiltekst[160];
 
 static bool load_new(const uint8_t *buf, size_t size)
@@ -209,7 +224,7 @@ static bool load_old(const uint8_t *buf, size_t size)
     game_state(&s);
     patch_state(&s);
     meny_state(&s);
-    hver_state(&s);
+    hver_state_gammel(&s);
     blit_state(&s);
     if (s.error) { state_feil = "Lagringen er skadet."; return false; }
     return true;
@@ -241,31 +256,73 @@ bool state_load_mem(const uint8_t *buf, size_t size)
     return false;
 }
 
+/* Filer: stiene er UTF-8 (SDL_GetPrefPath gir det). Windows sin fopen bruker
+ * tegntabellen, saa et brukernavn med ae, oe eller aa ville gi feil; der brukes _wfopen. */
+#ifdef _WIN32
+#include <windows.h>
+static FILE *aapne_fil(const char *path, const wchar_t *mode)
+{
+    wchar_t w[1024];
+    if (!MultiByteToWideChar(CP_UTF8, 0, path, -1, w, 1024)) return NULL;
+    return _wfopen(w, mode);
+}
+#define FIL_SKRIV L"wb"
+#define FIL_LES   L"rb"
+static bool bytt_navn(const char *fra, const char *til)
+{
+    wchar_t a[1024], b[1024];
+    if (!MultiByteToWideChar(CP_UTF8, 0, fra, -1, a, 1024) || !MultiByteToWideChar(CP_UTF8, 0, til, -1, b, 1024)) return false;
+    return MoveFileExW(a, b, MOVEFILE_REPLACE_EXISTING) != 0;
+}
+#else
+static FILE *aapne_fil(const char *path, const char *mode) { return fopen(path, mode); }
+#define FIL_SKRIV "wb"
+#define FIL_LES   "rb"
+static bool bytt_navn(const char *fra, const char *til) { return rename(fra, til) == 0; }
+#endif
+
+/* Skriver til STI.tmp og bytter navn til slutt, saa en god lagring aldri blir
+ * halvveis overskrevet (full disk, krasj midt i skrivingen). */
 bool state_save_file(const char *path)
 {
     uint8_t *buf;
     size_t size;
     if (!state_save_mem(&buf, &size)) return false;
-    FILE *f = fopen(path, "wb");
+    char tmp[1100];
+    snprintf(tmp, sizeof tmp, "%s.tmp", path);
+    FILE *f = aapne_fil(tmp, FIL_SKRIV);
     bool ok = f && fwrite(buf, 1, size, f) == size;
-    if (f) fclose(f);
+    if (f && fclose(f) != 0) ok = false;
     free(buf);
+    if (ok) ok = bytt_navn(tmp, path);
+    if (!ok) remove(tmp);
     return ok;
 }
 
 bool state_load_file(const char *path)
 {
-    FILE *f = fopen(path, "rb");
-    if (!f) return false;
+    state_feil = "";
+    FILE *f = aapne_fil(path, FIL_LES);
+    if (!f) { state_feil = "Fant ikke filen."; return false; }
     fseek(f, 0, SEEK_END);
     long n = ftell(f);
     fseek(f, 0, SEEK_SET);
-    uint8_t *buf = n > 0 ? malloc((size_t)n) : NULL;
+    if (n <= 0) { fclose(f); state_feil = "Filen er tom."; return false; }
+    uint8_t *buf = malloc((size_t)n);
     bool ok = buf && fread(buf, 1, (size_t)n, f) == (size_t)n;
     fclose(f);
+    if (!ok) state_feil = buf ? "Kunne ikke lese filen." : "Ikke nok minne til aa laste.";
     if (ok) ok = state_load_mem(buf, (size_t)n);
     free(buf);
     return ok;
+}
+
+/* finnes filen (for meldingene paa PC) */
+bool state_file_exists(const char *path)
+{
+    FILE *f = aapne_fil(path, FIL_LES);
+    if (f) fclose(f);
+    return f != NULL;
 }
 
 uint32_t state_ram_hash(void)

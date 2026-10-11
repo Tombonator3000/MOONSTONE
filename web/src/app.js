@@ -24,6 +24,9 @@
     const inn = Lager.innstillinger();
     const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false, knapper: false,
         effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false }, spill: 'hver', hd: 'hd' }, inn);
+    /* lagringene: automatisk lagring, og hjelpeteksten fra index.html (oppdaterMeny legger til) */
+    let sistAuto = 0, baApersist = false, forsteStart = true;
+    const HJELP_LAGRING = document.getElementById('lagring-hjelp').textContent;
     const lagreInnst = () => Lager.lagreInnstillinger(innst);
     innst.kontroller = Inndata.settOppsett(innst.kontroller);
 
@@ -149,7 +152,9 @@
             lasting(null);
             const auto = await Lager.hent('auto');
             visAuto(auto && auto.tid);
-            if (auto && auto.tid) status('Spillet ditt fra ' + klokke(auto.tid) + ' er lagret. Velg Fortsett under Lagring i menyen for å spille videre.');
+            const forste = forsteStart;
+            forsteStart = false;                 /* etter et nettspill skal grunnen til at det sluttet, staa */
+            if (forste && auto && auto.tid) status('Spillet ditt fra ' + klokke(auto.tid) + ' er lagret. Velg Fortsett under Lagring i menyen for å spille videre.');
         } catch (e) {
             lasting('Kunne ikke starte spillet: ' + e.message);
         }
@@ -914,7 +919,12 @@
                 },
                 tilstand: (bytes) => {
                     if (min !== okt || !gjestKjerne) return;     /* bare en gjest i tur for tur faar maskinen */
-                    if (!Kjerne.lastTilstand(bytes)) { status('Kunne ikke laste spillet fra verten.'); return; }
+                    if (!Kjerne.lastTilstand(bytes)) {
+                        /* ellers blir gjesten staaende og vente, og verten venter paa turen hans */
+                        const grunn = Kjerne.tilstandFeil();
+                        startPaaNytt('Kunne ikke laste spillet fra verten' + (grunn ? ': ' + grunn : '') + ' Last siden på nytt og prøv igjen.');
+                        return;
+                    }
                     venterSynk = false;
                     akk = 0;
                     if (modus !== 'gjest') {
@@ -1443,18 +1453,18 @@
         $('lagring').hidden = modus === 'gjest';
         Spillgrafikk.sett($('omstart').querySelector('.pt'), modus === 'hver' ? 'Forlat rommet' : nett ? 'Forlat nettspillet og start på nytt' : 'Start spillet på nytt');
         oppdaterVerdier();
-        $('lagring-hjelp').textContent = 'Tilstanden lagres i denne nettleseren.';
+        $('lagring-hjelp').textContent = HJELP_LAGRING;
         if (modus === 'hver') {
             $('rominfo').textContent = (erVert() ? 'Du er vert for rom ' + Nett.kode() + '. Send lenken til opptil tre andre.' : 'Du er med i rom ' + Nett.kode() + '.')
                 + ' Alle spiller sitt eget spill og ser de andre ridderne på kartet.';
             $('lenke').value = erVert() ? Nett.invitasjon() : '';
             $('lenkerad').hidden = !erVert();
-            $('lagring-hjelp').textContent = 'Tilstanden lagres i denne nettleseren og gjelder bare ditt eget spill.';
+            $('lagring-hjelp').textContent = HJELP_LAGRING + ' I et rom gjelder lagringene bare ditt eget spill.';
         } else if (modus === 'vert') {
             $('rominfo').textContent = 'Du er vert for rom ' + Nett.kode() + '. Send lenken til opptil tre gjester.';
             $('lenke').value = Nett.invitasjon();
             $('lenkerad').hidden = false;
-            $('lagring-hjelp').textContent = 'Tilstanden lagres i din nettleser. Laster du en tilstand, får gjestene den også.';
+            $('lagring-hjelp').textContent = HJELP_LAGRING + ' Laster du en lagring, får gjestene den også.';
         } else if (modus === 'gjest') {
             $('rominfo').textContent = 'Du er med i rom ' + Nett.kode() + '. Verten kjører spillet og lagrer.';
             $('lenkerad').hidden = true;
@@ -1562,10 +1572,12 @@
      * Mobilnettlesere kaster ofte fanen naar man bytter app eller laaser telefonen.
      * Spillet lagres derfor naar fanen skjules, naar siden lukkes og hvert andre minutt,
      * men bare naar man spiller (ikke i introen, i en duell eller som gjest). */
-    let sistAuto = 0, baApersist = false;
+    /* bare naar et spill er i gang: en tur har begynt siden tittelmenyen (eller en lagring
+     * med det er lastet). Ikke i introen, tittelmenyen, en duell eller som gjest, saa den
+     * automatiske lagringen aldri blir skrevet over med et spill som ikke er begynt. */
     function kanAutolagre() {
         return (modus === 'alene' || modus === 'vert' || modus === 'hver') && !D && !pause
-            && Kjerne.menyKlar() && !Kjerne.iIntro();
+            && !Kjerne.iIntro() && !Kjerne.iMeny() && Kjerne.hverKart();
     }
     async function autolagre(tvunget) {
         if (!kanAutolagre()) return;
@@ -1591,6 +1603,7 @@
     /* lagringen som fil: kan flyttes til en annen nettleser eller til PC-versjonen */
     function lastNed() {
         if (modus !== 'alene' && modus !== 'vert' && modus !== 'hver') { status('Ingenting å laste ned ennå'); return; }
+        if (D) { status('Ikke under en duell'); return; }
         const s = Kjerne.lagreTilstand();
         if (!s) { status('Kunne ikke lagre.'); return; }
         const d = new Date(), to = (n) => String(n).padStart(2, '0');

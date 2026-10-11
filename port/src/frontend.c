@@ -266,10 +266,8 @@ static void state_path(char *out, size_t n, int s)
     if (s == 0) snprintf(name, sizeof name, "moonstone_auto.sav");
     else snprintf(name, sizeof name, "moonstone_tilstand%d.sav", s);
     snprintf(out, n, "%s%s", pref_dir(), name);
-    FILE *f = fopen(out, "rb");
-    if (f) { fclose(f); return; }
-    f = fopen(name, "rb");                 /* gammel plassering */
-    if (f) { fclose(f); snprintf(out, n, "%s", name); }
+    if (!state_file_exists(out) && state_file_exists(name))
+        snprintf(out, n, "%s", name);      /* gammel plassering (mappen programmet startes fra) */
 }
 static void state_path_save(char *out, size_t n, int s)
 {
@@ -281,9 +279,7 @@ static void load_slot(int s)
 {
     char path[1024];
     state_path(path, sizeof path, s);
-    FILE *f = fopen(path, "rb");
-    if (!f) { show(s ? "Ingen lagring paa plass %d" : "Ingen automatisk lagring%.0d", s); return; }
-    fclose(f);
+    if (!state_file_exists(path)) { show(s ? "Ingen lagring paa plass %d" : "Ingen automatisk lagring%.0d", s); return; }
     if (state_load_file(path)) {
         show(s ? "Lastet plass %d" : "Lastet den automatiske lagringen%.0d", s);
         if (adev) SDL_ClearQueuedAudio(adev);
@@ -431,11 +427,19 @@ int frontend_run(const FrontendOptions *o)
         double wait = emu_time - now;
         if (wait > 0.003) SDL_Delay((Uint32)(wait * 1000.0) - 1);
     }
-    /* automatisk lagring naar man avslutter (Shift+PageDown henter den) */
-    if (whd_mog_loaded && meny_title_seen && !M.aborted) {
-        char path[1024];
+    /* automatisk lagring naar man avslutter (Shift+PageDown henter den): bare naar et
+     * spill er i gang (en tur har begynt siden tittelmenyen, eller en lagring med det
+     * er lastet), ogsaa ved F10, men ikke naar spillet har stoppet med en feil. Den
+     * forrige automatiske lagringen blir moonstone_auto_forrige.sav. */
+    if (whd_mog_loaded && hver_kart() && (!M.aborted || amiga_quit_key)) {
+        char path[1024], forrige[1024];
         state_path_save(path, sizeof path, 0);
-        state_save_file(path);
+        snprintf(forrige, sizeof forrige, "%smoonstone_auto_forrige.sav", pref_dir());
+        if (state_file_exists(path)) {
+            remove(forrige);
+            rename(path, forrige);
+        }
+        if (state_save_file(path)) printf("Lagret automatisk: %s\n", path);
     }
     for (int i = 0; i < MAX_PADS; i++) if (pads[i]) SDL_GameControllerClose(pads[i]);
     if (adev) SDL_CloseAudioDevice(adev);

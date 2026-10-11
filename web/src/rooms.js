@@ -30,6 +30,8 @@ const Romliste = (() => {
 
     /* verten legger ut rommet og oppdaterer det hvert minutt; returnerer stopp(),
      * og stopp.oppdater() legger det ut med en gang (f.eks. naar noen kommer inn) */
+    const format = () => (typeof Kjerne !== 'undefined' && Kjerne.formatId ? Kjerne.formatId() : 0);
+
     function annonser(hentInfo) {
         let c;
         const ingen = () => {};
@@ -40,6 +42,7 @@ const Romliste = (() => {
             if (stoppet) return;
             const info = hentInfo();
             info.tid = Date.now();
+            info.f = format();              /* bare rom med samme versjon vises i Join Game */
             const o = { retain: true, qos: 1 };
             if (VERSJON === 5) o.properties = { messageExpiryInterval: LEVETID };
             c.publish(TEMA + info.kode, JSON.stringify(info), o);
@@ -74,7 +77,8 @@ const Romliste = (() => {
             else {
                 try {
                     const r = JSON.parse(tekst);
-                    if (r && r.kode === k) rom.set(k, r);
+                    if (r && r.kode === k && (r.f >>> 0) === format()) rom.set(k, r);
+                    else rom.delete(k);
                 } catch (e) { /* ugyldig */ }
             }
             vis();
