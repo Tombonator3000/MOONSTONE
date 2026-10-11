@@ -43,7 +43,7 @@
 - [ ] Utgivelser for PC (GitHub Releases) i stedet for Actions-artefakter, og krav (libSDL2, glibc 2.34) i README.
 - [ ] PC: innstillinger i spillet (volum, beskjeder som vises i fullskjerm), spiller 2 uten talltastatur. --online-meny blir stående på «Creating Room...».
 - [ ] Nettspill på PC, eller et vedtak om å la det være.
-- [ ] Testene (test26-36, mus, mobil, Options) og tilstandene de bruker inn i repoet, og check_hooks.py i CI.
+- [ ] check_hooks.py i CI, og kanskje noen av nettlesertestene (tests/kjor.sh) i en egen jobb.
 - [ ] CI: actions på Node 20 er utfaset.
 - [ ] Separate: et rom som forsvinner kan ikke samles igjen, og en død forbindelse blir stående som ridder på kartet.
 - [ ] Et lagret Turns-spill fordeler ridderne etter rekkefølgen gjestene kommer inn i.
@@ -54,6 +54,7 @@
 - [x] Mobil: fullskjermknapp, ikon og manifest for hjemskjermen, Wake Lock.
 - [x] Tur for tur: en gjest med skjult fane fjernes etter ett minutt (verten får beskjed i chatten).
 - [x] Sluttscenen kjennes igjen på nettsiden (\$080190 bit 7) og hoppes ikke over av et trykk.
+- [x] Nettlesertestene inn i repoet: tests/nettleser (Playwright) med felles hjelpefil og lokale PeerJS- og MQTT-servere, tests/kjor.sh og tests/README.md. Tilstandene lages med moonstone-headless når testene kjøres.
 - [x] Lagringer som tåler nye versjoner (MOONSAV2 med deler og standardverdier), går mellom PC og nett, forklarer hvorfor de avvises, automatisk lagring (nett og PC), eksport og import, PC-lagring i brukermappen (atomisk, UTF-8 på Windows).
 - [x] Nettspill: lagringsformatet sendes med i 'hei' og i romlisten; en gjest med annen versjon får beskjed, og en gjest som ikke kan laste tilstanden, går ut med grunnen.
 - [x] Bakgrunnsmusikken i hele spillet fjernet igjen (eieren ville ikke ha den).

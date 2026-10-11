@@ -247,15 +247,16 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   ikke sluppet ennå). Uten tilstand: --press 1400 med --hver før return i 1500, så turen
   starter med de fjerne ridderne.
 - Valgene på kartet venter på tastene 1-9 (`--press 1900:2:4` velger nummer 2).
-- Nettlesertest: $S/test26.js (vert og Kari, Separate, gange, farger, verten går).
-  Playwright ligger i /opt/node-tools/node_modules (NODE_PATH).
+- Nettlesertest: tests/nettleser/test26.js (vert og Kari, Separate, gange, farger, verten går).
+  Playwright ligger i /opt/node-tools/node_modules (NODE_PATH). tests/kjor.sh starter serverne og
+  kjorer testene (tests/README.md); felles.js har hjelpefunksjonene.
 - Dueller (steg 3): HVER_BLOB (hele ridderen som heks, 312 tegn), HVER_MEG (inn paa plass 0
   etter duellen), HVER_DUELL (maske: kan naas), HVER_AI (datamaskinen tar over), hendelser
   HVER_EV_DUELL / HVER_EV_DUELL_SLUTT via ms_hver_hendelse. Nettsiden: D i app.js (rolle 'a'
   angriper / 'b'), Nett.duellKoble (direkte PeerJS med metadata.duell), sendTilstandTil,
   tilstandsMottaker. Protokollversjon 3.
 - Kampposisjonene: +$04 x og +$08 y (ord) i ridderstrukturen. Kampen laster i om lag 8 s.
-- Tester: $S/test27.js (duell, verten angriper, testspiller styrer etter posisjonene),
+- Tester: tests/nettleser/test27.js (duell, verten angriper, testspiller styrer etter posisjonene),
   test28.js (Kari sier nei: datamaskinen tar over), test29.js (Kari angriper verten).
 - Home-tasten aapnet og lukket sidemenyen paa samme trykk (to lyttere); rettet med
   e.defaultPrevented.
@@ -318,7 +319,7 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   To mennesker i moete: Players 2, ridder 2 flyttes til ridder 1 ($8D6B6/$8D6B8 = 300/5 i
   bilde 2100), fire 2200, tasten 2 i 2300; forsvareren gaar med p2-right 62 og p2-down 42
   fra 2850 og slaar med p2-fire + p2-right (angriperen med HIT 1 via $8D604 i 2250).
-- Nettlesertest for Turns-kontrollene: $S/test35.js.
+- Nettlesertest for Turns-kontrollene: tests/nettleser/test35.js.
 - Rullen headless: gi plass 1 en rull med --skriv 2100:8d872:1:1 (tingtabellen til plass 1 er $8D860,
   ting $12), angrip som over; fire i 2450 aapner inventaret, pekeren fra (160,100) til rullen ved ca.
   (110,195) og fire bruker den (ting $12 blir 0, $8BEA4 = $12, ingen kamp).
@@ -348,15 +349,15 @@ Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
   lagringen. Den brukes som "et spill er i gang" for automatisk lagring (nett og PC).
 - Nettspill: 'hei' har f = state_format_id() (delenes merke, versjon, lengde) og v = 4; verten avviser
   et annet format med beskjed. Romlisten (rooms.js) har f og viser bare rom med samme format.
-  Faar en gjest en tilstand den ikke kan laste, gaar den ut av rommet med grunnen. Test: $S/ver1.js.
+  Faar en gjest en tilstand den ikke kan laste, gaar den ut av rommet med grunnen. Test: tests/nettleser/ver1.js.
 - Det gamle formatet (MOONSTAT, versjon 13) leses fortsatt, men bare paa samme maskintype
   (layout_id tok med sizeof(void *)). Eldre versjoner gir en melding med versjonsnummeret.
 - Strukturene er like store paa x86_64, MinGW og wasm32 (M 232, C 280, B 64, AudChan 40, Cia 36,
   Input 6, CPU 488), saa lagringer kan flyttes mellom PC og nett. state_feil har grunnen.
 - Nettsiden: autolagring i IndexedDB-noekkelen 'auto' (visibilitychange, pagehide, hvert 120 s,
   bare naar hver_kart() og ikke i introen, tittelmenyen, en duell eller som gjest),
-  navigator.storage.persist(), Fortsett, Last ned, Hent fra fil. Test: $S/lag1.js (10 sjekker, bruker
-  $S/lt/kart_ny.sav: --online-meny --press 100:esc:4 700/760/820:down:10 880:fire:10 1300:fire:10
+  navigator.storage.persist(), Fortsett, Last ned, Hent fra fil. Test: tests/nettleser/lag1.js (10 sjekker, bruker
+  kart_ny.sav, som testen lager selv: --online-meny --press 100:esc:4 700/760/820:down:10 880:fire:10 1300:fire:10
   1500:return:6, lagret i bilde 2000 paa kartet).
 - PC: SDL_GetPrefPath ("~/.local/share/Moonstone/Moonstone/", %APPDATA%\Moonstone\Moonstone\),
   moonstone_auto.sav ved avslutning (ogsaa F10: amiga_quit_key, ikke ved resload_Abort), den forrige

@@ -371,6 +371,13 @@ make -C port windows SDL2_MINGW=/sti/til/SDL2-2.30.8/x86_64-w64-mingw32
 
 Nettleser (krever emscripten): `make -C port web` gir `web/build/moonstone.html`.
 
+## Tester
+
+`tests/kjor.sh` kjører nettlesertestene (Playwright og Chromium) mot en lokal kopi av
+nettsiden, med egne PeerJS- og MQTT-servere for nettspillet. `tests/kjor.sh lag1 ver1`
+kjører bare de som nevnes. Se `tests/README.md` for hva hver test sjekker og hva som trengs.
+`python3 tools/check_hooks.py` sjekker C-erstatningene mot originalen.
+
 ## Mappene
 
 ```
@@ -390,6 +397,7 @@ web/vendor/       three.js, PeerJS og MQTT.js (MIT)
 tools/            gfx.py, grafikkliste.py, lyd.py, tekst.py, disasm.py, check_hooks.py, hd_sjekk.py, hd_skaler.py, moonfiles.py
 disasm/           symbols.txt, functions.txt, coverage.bin
 docs/             hvordan spillet er bygget, HD-grafikk, flerspiller
+tests/            nettlesertestene (tests/nettleser) og kjor.sh
 windows/          start.bat og LES_MEG.txt til Windows-pakken
 ```
 

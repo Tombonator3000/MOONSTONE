@@ -103,7 +103,7 @@ gjestene 2-4 i den rekkefølgen de kom, og verten kan endre det i sidemenyen).
   gjest som ikke har sagt noe på 30 sekunder, regnes som borte, og verten tar over
   ridderen.
 
-Tester: `$S/test35.js` (vert og gjest; verten velger SIR RICHARD) og `$S/test36.js`
+Tester: `tests/nettleser/test35.js` (vert og gjest; verten velger SIR RICHARD) og `tests/nettleser/test36.js`
 (tre i rommet: Copy Link og F10 fra en gjest, ny forbindelse, nummer uten hull, en side
 som fryser mens en retning holdes).
 
