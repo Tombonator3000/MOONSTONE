@@ -22,6 +22,7 @@
 #include <string.h>
 
 #define BAK_PEKER   0x8cde8                /* long: den rene bakgrunnen */
+#define PROGRAM_BAK_PEKER 0x81bf6          /* program: $080634, $09931c */
 #define PLAN        0x1f40                 /* 40 * 200 byte per plan */
 
 extern uint32_t video_bpl_first[6];
@@ -52,7 +53,12 @@ static inline void indekser(const uint8_t *p, uint32_t off, uint8_t ut[8])
 
 static bool skjermen_passer(uint32_t bak)
 {
-    if (!whd_mog_loaded || video_bpl_planes != 5) return false;
+    if (video_bpl_planes != 5) return false;
+    /* Intro/slutt har samme 320x200-planformat, men en annen bakgrunnspeker.
+     * Originalopkodene ved CEL-rutinen verner mot en annen programfil.
+     * Lagene er kun frontend-data og endrer aldri spillminne eller CPU. */
+    if (!whd_mog_loaded && (mem_read16(0x08c214) != 0x4a79 ||
+        mem_read32(0x08c216) != 0x08cfce || mem_read16(0x08c22a) != 0x4a40)) return false;
     if (C.bplcon0 & 0x8c00) return false;                       /* hires, HAM eller to spillefelt */
     if (C.bpl1mod != 0 || C.bpl2mod != 0) return false;
     if (video_diw[2] - video_diw[0] != LAG_W * 2 || video_diw[3] - video_diw[1] != LAG_H) return false;
@@ -68,7 +74,7 @@ static bool skjermen_passer(uint32_t bak)
 /* Kalles etter hvert bilde naar lag_paa er sann. */
 void lag_bygg(void)
 {
-    uint32_t bak = mem_read32(BAK_PEKER);
+    uint32_t bak = mem_read32(whd_mog_loaded ? BAK_PEKER : PROGRAM_BAK_PEKER);
     lag_gyldig = lag_paa && skjermen_passer(bak);
     if (!lag_gyldig) return;
     const uint8_t *mem = chip;

@@ -90,6 +90,7 @@ void ami_instr_hook(unsigned pc)
         return;
     }
     if (pc - SLAVE_BASE < 0x800) game_slave_pc(pc);
+    if (!whd_mog_loaded && pc == 0x08c214) game_program_pc(pc);
     if (n_open) {
         uint32_t sp = m68k_get_reg(NULL, M68K_REG_SP);
         int k = n_open - 1;

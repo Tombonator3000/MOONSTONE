@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "scope": "Standard-HD med bakgrunner, logo, to skrifttyper og tidligere figurbilder.",
-  "images": 398,
+  "images": 411,
   "background_cache_limit": 4,
   "files": [
     {
@@ -14,6 +14,12 @@
       "path": "bg/09b477b7.png",
       "sha256": "667ed3ce1395fe410efc0008befdfa82b62e0335029a023550727f22acff961c",
       "bytes": 3160095,
+      "kind": "background"
+    },
+    {
+      "path": "bg/0df34a83.png",
+      "sha256": "410161e8229385921d55556ffee8368ce006f18bb91da9cafc7f9a3d3827aba6",
+      "bytes": 2135714,
       "kind": "background"
     },
     {
@@ -102,8 +108,8 @@
     },
     {
       "path": "bg/46963198.png",
-      "sha256": "52a1d913bad5ee93b06db8c1c3fccf41fd464a2c2ccdaac82c787d1043c477a0",
-      "bytes": 1927300,
+      "sha256": "469f05ec69299818ca74a34466080bf1e99ffe5d4dc4c6161179b1541984a669",
+      "bytes": 1191357,
       "kind": "background"
     },
     {
@@ -197,6 +203,12 @@
       "kind": "background"
     },
     {
+      "path": "bg/6b258d27.png",
+      "sha256": "a36a8c470ea66a6172b0a011ff0995002328e3419cfc7579e15500c0b88f9406",
+      "bytes": 5627137,
+      "kind": "background"
+    },
+    {
       "path": "bg/6e5a5c07.png",
       "sha256": "1c24cd110c0776811ff29402990647fd34e0e7653aee56443fa18c8fd89c67cd",
       "bytes": 2277663,
@@ -276,8 +288,8 @@
     },
     {
       "path": "bg/94c7f163.png",
-      "sha256": "fb97f2abccc033ad2086737b6bdb26d25696f585bbe69a76fea131d6aa5b6206",
-      "bytes": 2037203,
+      "sha256": "d8d0d8b42b7c9c01ba6dfda97873c6d4dbb644dce10ba308cf4fe965f15f6d7c",
+      "bytes": 1758312,
       "kind": "background"
     },
     {
@@ -306,8 +318,8 @@
     },
     {
       "path": "bg/a45a2508.png",
-      "sha256": "6a3a6c47cd1b767e99368b40d0730a92adf554855d426f74c881e6479665157a",
-      "bytes": 2047583,
+      "sha256": "d8b5c27774c20692375a0d59484b8dfec3e575f4fafd5ffdfcda28b7e6a65eb6",
+      "bytes": 1860024,
       "kind": "background"
     },
     {
@@ -366,8 +378,8 @@
     },
     {
       "path": "bg/c2501c17.png",
-      "sha256": "ea29f60302df43b5df94d6ef8aabcd11ef53dc6fd641e07b40f538231d3a56d5",
-      "bytes": 2638249,
+      "sha256": "5d4ce800903543377ab2521464fd5c4a463e05de601f09420ea6ab0d91824493",
+      "bytes": 2119898,
       "kind": "background"
     },
     {
@@ -396,8 +408,8 @@
     },
     {
       "path": "bg/d0f67acb.png",
-      "sha256": "d019300e508953a5a86b467a446114677323a0150dbf34addc06d85fa8ae3772",
-      "bytes": 1715965,
+      "sha256": "648dda0dddde9a010fb9a56421549b85d58b4e955e546467ea06fc9ced9ef28d",
+      "bytes": 1375941,
       "kind": "background"
     },
     {
@@ -906,8 +918,8 @@
     },
     {
       "path": "bold.f/073.png",
-      "sha256": "cf92d45dc1e0082f288dfaecccd930248e6cc75ecd4ce8f8bd3ca614a947ee6f",
-      "bytes": 1309077,
+      "sha256": "d7d656cab28178c074feac994a463d1d558ee4bdcfb955675c09881c41071846",
+      "bytes": 197287,
       "kind": "base"
     },
     {
@@ -920,6 +932,42 @@
       "path": "bold.f/075.png",
       "sha256": "82cd6b069c445c9f7fcc687dc2de5edf4b8c9429481545a855ec4432b4b7bc26",
       "bytes": 14381,
+      "kind": "base"
+    },
+    {
+      "path": "dice.cel/000.png",
+      "sha256": "d07b89c14e2c20284aaec6c58d2a7bc94541115d21bff6b81d26306eee69824f",
+      "bytes": 86915,
+      "kind": "base"
+    },
+    {
+      "path": "dice.cel/001.png",
+      "sha256": "1acf56dd327f879b8d894aef0e29f461ccd59ae4780b3a28814f12f2536175ef",
+      "bytes": 60006,
+      "kind": "base"
+    },
+    {
+      "path": "dice.cel/002.png",
+      "sha256": "5c8bac7e2347fd30fa67d733c8ea60f130c5ab88a6e0b0192fff51ce35f1a998",
+      "bytes": 107861,
+      "kind": "base"
+    },
+    {
+      "path": "dice.cel/003.png",
+      "sha256": "b1d85b4d64d2b6735fc9fb49f02d6a605872d8cf61f421aecf7232ff01ac6d71",
+      "bytes": 89365,
+      "kind": "base"
+    },
+    {
+      "path": "dice.cel/004.png",
+      "sha256": "79de726e90f00c26e4acd0d374a29294bc7f0651afa2dce15d07f56608b688cb",
+      "bytes": 107728,
+      "kind": "base"
+    },
+    {
+      "path": "dice.cel/005.png",
+      "sha256": "1fadf76c3a19e5ac03e35d50c7f39b54c7df4e3a8fa2978fe6a4e72489a8949c",
+      "bytes": 91332,
       "kind": "base"
     },
     {
@@ -939,6 +987,12 @@
       "sha256": "33a5128b59d1c95d4f3788164f4ab3a1196f0a982263cb2cd278c47418366766",
       "bytes": 63404,
       "kind": "embedded"
+    },
+    {
+      "path": "icons.json",
+      "sha256": "f51a1277d1c61d191eedfb82483ddf019b923424062b292d0459e339cdcfbfad",
+      "bytes": 1712492,
+      "kind": "base"
     },
     {
       "path": "ki-palettes/017-green.png",
@@ -1238,6 +1292,24 @@
       "path": "ki.cel/033.png",
       "bytes": 157728,
       "sha256": "8302f6995d3138df0e17ecdd58492a72da34717d6136c19a9b5ab007cf7ac469",
+      "kind": "base"
+    },
+    {
+      "path": "ki.cel/034.png",
+      "sha256": "890ae9d817a0a898340d3d7b23afc1aad7367d9b71491aee468945201d327c61",
+      "bytes": 83051,
+      "kind": "base"
+    },
+    {
+      "path": "ki.cel/035.png",
+      "sha256": "792ebe9a0b64cfeb331b90a6104b6ed65f73c4c005561afab71eabd2a458c69a",
+      "bytes": 11263,
+      "kind": "base"
+    },
+    {
+      "path": "ki.cel/036.png",
+      "sha256": "c368789ad81e07a55b71c3a00ee95189330f767e4137e7135d29d802b349e323",
+      "bytes": 57018,
       "kind": "base"
     },
     {
@@ -1730,6 +1802,42 @@
       "path": "mi.c/046.png",
       "bytes": 17792,
       "sha256": "49014b5afedca04f1ac28a57426fde7f7ed85a8c172207736adf0905f5ac1d41",
+      "kind": "base"
+    },
+    {
+      "path": "mys.cel/000.png",
+      "sha256": "40805f4d02aaa7cc33c56722c4e5660b2e9e419611a407953dc5be453b46f6b5",
+      "bytes": 88552,
+      "kind": "base"
+    },
+    {
+      "path": "mys.cel/001.png",
+      "sha256": "45cb99d44db0c97f0feb71d5ce27e692b00ef75dec4d9154b81f097832a61128",
+      "bytes": 91216,
+      "kind": "base"
+    },
+    {
+      "path": "mys.cel/002.png",
+      "bytes": 3941,
+      "sha256": "e65a4ccbfd55f4ff639369b7f9e4ab4d8b3d2fa51f32a94fd39ba1fdedaa8920",
+      "kind": "base"
+    },
+    {
+      "path": "mys.cel/003.png",
+      "bytes": 2877,
+      "sha256": "3f1c012092f0a96c89dc03213bf8750d773845fb76243f3564485c8392a84b4e",
+      "kind": "base"
+    },
+    {
+      "path": "mys.cel/004.png",
+      "bytes": 4094,
+      "sha256": "8888bcdedf8315f51a3b22a10f53dbfa7407edfc3f7543449df5ae3f74e6ebd8",
+      "kind": "base"
+    },
+    {
+      "path": "mys.cel/005.png",
+      "bytes": 4027,
+      "sha256": "8c60e5658f0092d75a33da6715897359a91927bf0a6bffbacc3acadd196a0e80",
       "kind": "base"
     },
     {
@@ -2394,38 +2502,8 @@
     },
     {
       "path": "text.json",
-      "sha256": "b21a7e2876032b14dfaa0d767515edb773cfd81a01b3687d8d2b27b3855619ae",
-      "bytes": 79078,
-      "kind": "base"
-    },
-    {
-      "path": "icons.json",
-      "bytes": 1513609,
-      "sha256": "59d7d4e14dd58f8b5b0585c3d7086cfd0ecf8ed111e526b45578048d9e974e9b",
-      "kind": "base"
-    },
-    {
-      "path": "mys.cel/002.png",
-      "bytes": 3941,
-      "sha256": "e65a4ccbfd55f4ff639369b7f9e4ab4d8b3d2fa51f32a94fd39ba1fdedaa8920",
-      "kind": "base"
-    },
-    {
-      "path": "mys.cel/003.png",
-      "bytes": 2877,
-      "sha256": "3f1c012092f0a96c89dc03213bf8750d773845fb76243f3564485c8392a84b4e",
-      "kind": "base"
-    },
-    {
-      "path": "mys.cel/004.png",
-      "bytes": 4094,
-      "sha256": "8888bcdedf8315f51a3b22a10f53dbfa7407edfc3f7543449df5ae3f74e6ebd8",
-      "kind": "base"
-    },
-    {
-      "path": "mys.cel/005.png",
-      "bytes": 4027,
-      "sha256": "8c60e5658f0092d75a33da6715897359a91927bf0a6bffbacc3acadd196a0e80",
+      "sha256": "b33989b5558b4452c0ff0a90da51520e8a7767f31ce83d363b49558e967919d0",
+      "bytes": 79076,
       "kind": "base"
     }
   ],
@@ -3279,36 +3357,6 @@
       ],
       "match_ignore_indices": [
         0
-      ],
-      "protected_indices": [
-        0
-      ],
-      "preserve_regions": [
-        {
-          "rect": [
-            185,
-            0,
-            320,
-            200
-          ],
-          "indices": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            19,
-            20,
-            21,
-            22
-          ]
-        }
       ]
     },
     {
@@ -3331,31 +3379,6 @@
         0,
         320,
         200
-      ],
-      "protected": [
-        [
-          145,
-          91,
-          175,
-          116
-        ]
-      ],
-      "preserve_regions": [
-        {
-          "rect": [
-            112,
-            70,
-            214,
-            140
-          ],
-          "indices": [
-            1,
-            2,
-            3,
-            4,
-            5
-          ]
-        }
       ]
     },
     {
@@ -3378,34 +3401,6 @@
         0,
         320,
         200
-      ],
-      "protected": [
-        [
-          0,
-          0,
-          320,
-          142
-        ]
-      ],
-      "preserve_regions": [
-        {
-          "rect": [
-            130,
-            126,
-            180,
-            184
-          ],
-          "indices": [
-            5,
-            8,
-            15,
-            19,
-            20,
-            21,
-            30,
-            31
-          ]
-        }
       ]
     },
     {
@@ -3455,23 +3450,7 @@
         200
       ],
       "protected_indices": [
-        0,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31
+        0
       ]
     },
     {

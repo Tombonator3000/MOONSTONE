@@ -1,0 +1,138 @@
+{
+  "url": "http://127.0.0.1:8773/moonstone.html",
+  "checks": [
+    "natural_title_logo_is_drawn",
+    "custom_logo_changes_actual_display",
+    "custom_logo_uses_complete_texture",
+    "custom_logo_does_not_change_game_state",
+    "logo_HD_toggle_restores_exactly",
+    "logo_Original_toggle_changes_pixels",
+    "logo_without_text_metadata_preserves_aspect_ratio",
+    "custom_pack_has_only_own_backgrounds",
+    "waterdeep_custom_scene_matches",
+    "waterdeep_custom_background_loaded",
+    "waterdeep_Original_matches_native",
+    "waterdeep_HD_restores_exactly",
+    "waterdeep_HD_changes_pixels",
+    "waterdeep_display_preserves_game_state",
+    "waterdeep_missing_overlays_are_kept_original",
+    "waterdeep_changed_source_is_rejected",
+    "math-tower_custom_scene_matches",
+    "math-tower_custom_background_loaded",
+    "math-tower_Original_matches_native",
+    "math-tower_HD_restores_exactly",
+    "math-tower_HD_changes_pixels",
+    "math-tower_display_preserves_game_state",
+    "math-tower_missing_overlays_are_kept_original",
+    "math-tower_changed_source_is_rejected",
+    "stonehenge-overhead_custom_scene_matches",
+    "stonehenge-overhead_custom_background_loaded",
+    "stonehenge-overhead_Original_matches_native",
+    "stonehenge-overhead_HD_restores_exactly",
+    "stonehenge-overhead_HD_changes_pixels",
+    "stonehenge-overhead_display_preserves_game_state",
+    "stonehenge-overhead_missing_overlays_are_kept_original",
+    "stonehenge-overhead_changed_source_is_rejected",
+    "custom_pack_does_not_restart_standard_requests",
+    "standard_button_restores_original_standard_logo",
+    "no_browser_errors"
+  ],
+  "errors": [],
+  "captures": [
+    {
+      "name": "title-standard",
+      "scene": null,
+      "state": 4216500838,
+      "sha256": "2d4cb9441f841cf9a764922f6cc170d78890897974f4bc981cd72a5acebc042f"
+    },
+    {
+      "name": "title-custom-logo",
+      "scene": null,
+      "state": 4216500838,
+      "sha256": "631db10bc0275d05c13aa7bdd2ade97e5c84c27bc264f47a6d4cf67c2c65ea64"
+    },
+    {
+      "name": "title-custom-logo-restored",
+      "scene": null,
+      "state": 4216500838,
+      "sha256": "631db10bc0275d05c13aa7bdd2ade97e5c84c27bc264f47a6d4cf67c2c65ea64"
+    },
+    {
+      "name": "waterdeep-custom",
+      "scene": {
+        "id": "waterdeep",
+        "match": 1,
+        "preserved_pixels": 13200,
+        "hash": "d097d0ff",
+        "hd_icons": 0
+      },
+      "state": 4216500838,
+      "sha256": "e501e81f601cc18c28de9baecbd9c7c4d1244607db926c0920fa99d39b1887b0"
+    },
+    {
+      "name": "waterdeep-original",
+      "scene": {
+        "id": "waterdeep",
+        "match": 1,
+        "preserved_pixels": 13200,
+        "hash": "d097d0ff",
+        "hd_icons": 0
+      },
+      "state": 4216500838,
+      "sha256": "7a50ee6f1624a74b19c70f3e6ae17b3df7a135da02bc5161626605fe857990ab"
+    },
+    {
+      "name": "math-tower-custom",
+      "scene": {
+        "id": "math-tower",
+        "match": 1,
+        "preserved_pixels": 0,
+        "hash": "da1dc997",
+        "hd_icons": 0
+      },
+      "state": 4216500838,
+      "sha256": "15b8bc000756ea39b465f377d74cd0466faa60da15389fe1757c92c22244b10f"
+    },
+    {
+      "name": "math-tower-original",
+      "scene": {
+        "id": "math-tower",
+        "match": 1,
+        "preserved_pixels": 0,
+        "hash": "da1dc997",
+        "hd_icons": 0
+      },
+      "state": 4216500838,
+      "sha256": "006a51a7574072a7ed2a50f2dc519d361f15a48fa8bb1df748f9ed5661d8fc6a"
+    },
+    {
+      "name": "stonehenge-overhead-custom",
+      "scene": {
+        "id": "stonehenge-overhead",
+        "match": 1,
+        "preserved_pixels": 0,
+        "hash": "c2501c17",
+        "hd_icons": 0
+      },
+      "state": 4216500838,
+      "sha256": "15b8bc000756ea39b465f377d74cd0466faa60da15389fe1757c92c22244b10f"
+    },
+    {
+      "name": "stonehenge-overhead-original",
+      "scene": {
+        "id": "stonehenge-overhead",
+        "match": 1,
+        "preserved_pixels": 0,
+        "hash": "c2501c17",
+        "hd_icons": 0
+      },
+      "state": 4216500838,
+      "sha256": "8ceb97d13709b4cd1874cb7709e02d9b939de461a4e1d93157a723e4db9d697f"
+    }
+  ],
+  "scope": "Naturlig tittel med importert logo. Math og intro bruker originale PIV-data som eksplisitte visningsfixturer. Ingen emulert minneskriving.",
+  "status": "passed",
+  "created_at": "2026-10-11T18:47:49.325Z",
+  "manifest_sha256": "bc247a702839104fb2a099d05bcf13b714acf63bad67503265bbd31ad09b1dad",
+  "html_sha256": "bb24ae60f9f112ab53bd11b09a8f156b1a758bef0ce37e739e6ce94e01f5680f"
+}

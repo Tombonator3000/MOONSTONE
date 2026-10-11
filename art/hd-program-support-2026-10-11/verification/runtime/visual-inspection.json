@@ -1,0 +1,33 @@
+{
+  "created_at": "2026-10-11T18:44:50.841861+00:00",
+  "kind": "frozen-runtime-visual-inspection",
+  "runtime_report_sha256": "0222df1bf80e0150c68a7284f670d7d445385da74164c133f936130b2cd7dcae",
+  "html_sha256": "c98e94c85ddb92d03e4a73f05b01d11efe0dc29fff58d0488fc7ff59c6e7e5aa",
+  "source_files": {
+    "web/build/moonstone-core.js": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/scenes.js": "72cbde3ba20702b12f0e57ca0c558a1b660c14425de5c7bab8bd0a1c833076bd",
+    "web/src/render.js": "ce5dc12644109fa237b7f0d3dcb961085a5ae98c2c50001df3c9a61d53477f04",
+    "port/src/game.c": "34ef7aca0b80bb36a8359c60d13567a0c070cd5780ef9d4c03036c527497a462",
+    "port/src/hooks.c": "4d465c09a51947563338ab8269ea98dbe881a5d31dba6b168bbec97e49d14fe5",
+    "port/src/lag.c": "528abe0745c84e9384f6a14e183ff7e85b1a1146ab502d10991eaad45fd8443b",
+    "Moonstonecd32-AMIGA.zip": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02"
+  },
+  "images": {
+    "intro-1800-hd.png": "2479773c2025033c194aaaab0ca37376801588b4ba68a6cd15c035e1e79faab3",
+    "intro-1800-original.png": "1b7827db5ba7342a80efc3e575cd9e5030cd184e2e96676a1cd8e2f99ac1feb9",
+    "intro-2000-hd.png": "f5caea1f5f84ba49b2c1966c2b5a7839ab9108287de47e7a038354c2fe9c959f",
+    "intro-2000-original.png": "5d8d6045e2b475a5982e532cb19186d513fbfe8b1f716ae7a8c08ae96565b788",
+    "ending-3300-hd.png": "5f8e61f67d1cee4e2fed0209e385530f452146b2313ceb233e6b1d1d3f4857bf",
+    "ending-3300-original.png": "980782da6fcfa6f82f334cfdd9f73794bf64d108bb8f1e8ccc885516c4573db1",
+    "ending-text-4000-hd.png": "877d4532cd749b748288b7c8373f5955ffa493e48b5ffce08cf3763ce8884898",
+    "ending-text-4000-original.png": "58e19b19f3d0c1f089595c86c30bcff892ad75e96612d02e3441b4f94897b98a"
+  },
+  "findings": [
+    "Introens canopy/trunks har samme utsnitt og plassering som Original ved offset416 og830. HD ruller over komposittens geometri; ingen raaflisbank vises strukket.",
+    "Slutt ved offset915 bevarer hele den originale bla stjernefigurens silhuett/piksler foran HD-stjernene. Figurene er fortsatt originalgrafikk og ikke ferdig nytegnet.",
+    "Slutttekst ved bilde4000 bruker 104 godkjente originalformede HD-glyfer, ingen avviste tekstfelt. Tekstlinjer, ord og plassering matcher Original.",
+    "Original-retur er PNG-byteidentisk ved alle fem rulleproever. Alle emulerte sjekksummer er uendret av visningsbyttene."
+  ],
+  "limit": "Kontrollert sluttgren via testflagg. Ingen paastand om full gjennomspilling eller ferdige HD-figurer."
+}

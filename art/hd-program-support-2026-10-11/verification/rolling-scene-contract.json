@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "kind": "source-validated-rolling-scenes",
+  "runtime": "web/src/scenes.js: korrigerRull; ingen statisk PIV-scenerad skal legges til",
+  "tile_size": [
+    32,
+    25
+  ],
+  "map_grid": [
+    10,
+    48
+  ],
+  "source_size": [
+    320,
+    1200
+  ],
+  "asset_size": [
+    1280,
+    4800
+  ],
+  "scenes": [
+    {
+      "id": "intro-scroll",
+      "path": "bg/6b258d27.png",
+      "kind": "background",
+      "original_reference": "art/hd-completion-runtime-2026-10-11/references/intro-scroll.png",
+      "original_reference_sha256": "a6a9cd97850fc5f31f21d68139398682c2f0daf7f162a33d839f10d8f48bce40",
+      "map_source": {
+        "file": "intro.stile",
+        "sha256": "d98c0d0807f0a18eeb3c1ab519a76e4251fe82ffef28388b640c90b01614d7cc"
+      },
+      "banks": [
+        {
+          "file": "bg1a.PIV",
+          "sha256": "908c0333ed5ce11d345c14b62599df4674aa3039edc2e4c2eb624070ddd1ea66"
+        },
+        {
+          "file": "bg1c.PIV",
+          "sha256": "9046c965c730c323ea6b6d4b8d8da82b9d20c3b69f5d2f629d8aca224d09eede"
+        },
+        {
+          "file": "bg1b.PIV",
+          "sha256": "8c4418f7089f5fb5e60e1e166b8f253b1781b4971eaeee3198c0b60b04d555ac"
+        }
+      ],
+      "index_sha256": "f6a55595b3492690984e8c1d470f88a6e4017867e8368f033b496a92ef00709d",
+      "hd_uv": "[0, actual_visible_offset/1200, 1, 200/1200]",
+      "range": [
+        0,
+        1000
+      ],
+      "requires_source_derived_stars": true,
+      "foreground": "Alle indeks-/fargeavvik fra faktisk originalskjerm beholdes. Slutt krever hele bank0 byteidentisk."
+    },
+    {
+      "id": "ending-scroll",
+      "path": "bg/0df34a83.png",
+      "kind": "background",
+      "original_reference": "art/hd-completion-runtime-2026-10-11/references/ending-scroll.png",
+      "original_reference_sha256": "249ad7e2d73c292930485b000239dd62684bc71bd5af6e3fa6f54f0b30ade845",
+      "map_source": {
+        "file": "co.stile",
+        "sha256": "2401d7f897be714e5ffeac1d3a5ff5a60838e0ce690755e9f940a0888a2151f1"
+      },
+      "banks": [
+        {
+          "file": "bg7.piv",
+          "sha256": "6f01ac4c36c9b33f9f11b812a717c0786c1f4afa663962f854ee73d26853fa52"
+        }
+      ],
+      "index_sha256": "0c1e689ad4290f6eded1e0ac7be25442dcd8c520502a63a1cc45d3cdc68e34b1",
+      "hd_uv": "[0, actual_visible_offset/1200, 1, 200/1200]",
+      "range": [
+        0,
+        1000
+      ],
+      "requires_source_derived_stars": true,
+      "foreground": "Alle indeks-/fargeavvik fra faktisk originalskjerm beholdes. Slutt krever hele bank0 byteidentisk."
+    }
+  ],
+  "program_sha256": "b0a84503c0664515ef8b31072098acd62dbf50de3a36fe4ffe9492b094f593a6",
+  "frontend_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/scenes.js": "72cbde3ba20702b12f0e57ca0c558a1b660c14425de5c7bab8bd0a1c833076bd",
+    "web/src/render.js": "ce5dc12644109fa237b7f0d3dcb961085a5ae98c2c50001df3c9a61d53477f04"
+  },
+  "runtime_proof": {
+    "path": "art/hd-program-support-2026-10-11/verification/runtime/program-roll-test.json",
+    "sha256": "0222df1bf80e0150c68a7284f670d7d445385da74164c133f936130b2cd7dcae",
+    "checks": 58,
+    "status": "passed"
+  }
+}

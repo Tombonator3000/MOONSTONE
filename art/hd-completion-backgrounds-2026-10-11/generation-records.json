@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "tool": "builtin-image_gen",
+  "model_version": "not_exposed",
+  "assets": [
+    {
+      "key": "bg/94c7f163",
+      "raw": "raw/94c7f163-v1.png",
+      "reference": "references/94c7f163.png",
+      "prompt": "prompts/94c7f163-v1.txt",
+      "source_file": "hen1.p",
+      "status": "activated_locally_runtime_and_visual_checked",
+      "method": "individual_builtin_redraw"
+    },
+    {
+      "key": "bg/c2501c17",
+      "raw": "raw/c2501c17-v1.png",
+      "reference": "references/c2501c17.png",
+      "prompt": "prompts/c2501c17-v1.txt",
+      "source_file": "bg3.PIV",
+      "status": "activated_locally_runtime_and_visual_checked",
+      "method": "individual_builtin_redraw"
+    },
+    {
+      "key": "bg/46963198",
+      "raw": "raw/46963198-v1.png",
+      "reference": "references/46963198.png",
+      "prompt": "prompts/46963198-v1.txt",
+      "source_file": "mindscape",
+      "status": "activated_locally_runtime_and_visual_checked",
+      "method": "individual_builtin_material_in_exact_original_contours"
+    },
+    {
+      "key": "bg/a45a2508",
+      "raw": "raw/a45a2508-v1.png",
+      "reference": "references/a45a2508.png",
+      "prompt": "prompts/a45a2508-v1.txt",
+      "source_file": "bg2a.PIV",
+      "status": "activated_locally_runtime_and_visual_checked",
+      "method": "individual_builtin_redraw"
+    },
+    {
+      "key": "bg/d0f67acb",
+      "raw": "raw/d0f67acb-v1.png",
+      "reference": "references/d0f67acb.png",
+      "prompt": "prompts/d0f67acb-v1.txt",
+      "source_file": "bg8.PIV",
+      "status": "activated_locally_runtime_and_visual_checked",
+      "method": "individual_builtin_redraw"
+    },
+    {
+      "key": "bold.f/073",
+      "raw": "raw/logo-v1.png",
+      "reference": "references/logo.png",
+      "prompt": "prompts/logo-v1.txt",
+      "status": "activated_locally_runtime_and_visual_checked",
+      "method": "individual_builtin_material_in_exact_original_contours"
+    },
+    {
+      "key": "bg/6b258d27",
+      "raw": "raw/intro-scroll-v1.png",
+      "reference": "../hd-completion-runtime-2026-10-11/references/intro-scroll.png",
+      "prompt": "prompts/intro-scroll-v1.txt",
+      "source_file": "intro.stile",
+      "status": "activated_locally_runtime_and_visual_checked",
+      "method": "individual_builtin_redraw"
+    },
+    {
+      "key": "bg/0df34a83",
+      "raw": "raw/ending-scroll-v1.png",
+      "reference": "../hd-completion-runtime-2026-10-11/references/ending-scroll.png",
+      "prompt": "prompts/ending-scroll-v1.txt",
+      "source_file": "co.stile",
+      "status": "activated_locally_runtime_and_visual_checked",
+      "method": "individual_builtin_redraw"
+    }
+  ]
+}
