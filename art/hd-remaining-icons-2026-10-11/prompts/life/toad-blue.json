@@ -1,0 +1,16 @@
+{
+  "name": "Toad life icon, blue",
+  "key": "life-toad-blue",
+  "prompt": "Use case: precise-object-edit. Preserve this realistic toad icon's exact anatomy, pose, neutral mouth, pale-gray natural irises with horizontal black pupils, realistic skin bumps, outline, framing and blue rectangular belly mark. Correct ONLY the front skin color to the original Moonstone sprite's leaf green. The belly, throat, lower face and front legs should be medium natural leaf green near RGB102,187,51 in the lit areas, with deeper green shadows near RGB0,85,34. The back and side limbs remain dark green. Remove the beige/cream belly color; the entire toad is green as the original. Keep natural subtle color variation and dry pebbled living-toad skin, no plastic look. The blue belly mark and dark blue lower end remain exactly unchanged. Genuine transparent RGBA background, no props, clothing, ornaments, scene, glow, exterior shadow or text.",
+  "tool": "builtin_imagegen",
+  "transparent_background": true,
+  "reference": "raw/life/toad-blue-v2.png",
+  "output_hint": "Generated images are saved to /home/tombonator3000t/.codex/generated_images/01a12b7a-1e1f-7fd3-b160-eb7eeeee10f5 as /home/tombonator3000t/.codex/generated_images/01a12b7a-1e1f-7fd3-b160-eb7eeeee10f5/exec-5ed0975b-3d56-4eb4-b959-b162bfd3da0a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "review_status": "reviewed_for_runtime",
+  "review": "Visually checked v3 squat front-facing green toad, splayed limbs, original small blue vertical identifier and natural eye/skin treatment. Corrected v1 cartoon eyes/plastic surface and v2 beige belly; restored original green body. Source geometry KI019/020 shared after index remap.",
+  "source_authority": "research/inventory/references-large/ki.cel/019.png",
+  "revision_history": [
+    "prompts/life/toad-blue-v1.json",
+    "prompts/life/toad-blue-v2.json"
+  ]
+}

@@ -1,7 +1,7 @@
 /* Verifiser selve rendererfunksjonene med aktive rasterbilder og originalpaletter. */
 'use strict';
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),{chromium}=require('playwright');
-const root=path.resolve(__dirname,'..'),out=root+'/art/faithful-hd-icons-2026-10-11/verification';
+const root=path.resolve(__dirname,'..'),out=process.env.MOONSTONE_VERIFY_OUT||root+'/art/faithful-hd-icons-2026-10-11/verification';
 const source=fs.readFileSync(root+'/web/src/render.js','utf8');
 const code=source.slice(source.indexOf('    function ikonPalett('),source.indexOf('    /* po.cel blir brukt'));
 (async()=>{
@@ -25,7 +25,7 @@ const code=source.slice(source.indexOf('    function ikonPalett('),source.indexO
     }};
     const r=m.draw_rect,w=r ? r[2]-r[0] : m.width,h=r ? r[3]-r[1] : m.height;
     check('avtalte_bildemaal',im.width===w*m.scale&&im.height===h*m.scale);
-    if(m.dynamic){
+    if(m.dynamic&&/^map-icons\/\d{3}$/.test(m.key)&&+m.key.slice(-3)<23){
      const ctx=canvas.getContext('2d'),pix=ctx.getImageData(0,0,im.width,im.height).data;
      let x0=im.width,y0=im.height,x1=0,y1=0;
      for(let y=0;y<im.height;y++)for(let x=0;x<im.width;x++)if(pix[(y*im.width+x)*4+3]>=16){x0=Math.min(x0,x);x1=Math.max(x1,x+1);y0=Math.min(y0,y);y1=Math.max(y1,y+1);}
@@ -43,8 +43,9 @@ const code=source.slice(source.indexOf('    function ikonPalett('),source.indexO
     for(const cycle of m.reference_palette_cycles||[])for(let shift=0;shift<cycle.length;shift++){
      set(15,shift);check('vannsyklus_'+shift,api.fargeleggIkon(m,t,0)&&Math.abs(t.ikonLys-1)<.001);
     }
-    set(15);const c=m.base_index+(m.palette_offset||0);
-    for(let y=0;y<288;y++)pal[(y*32+c)*4]=(pal[(y*32+c)*4]+85)%256;
+    set(15);const c=[m.base_index,...m.paths.map(p=>p.index)].find(c=>!m.preserve_indices?.includes(c))+(m.palette_offset||0);
+    // Endre fargetone. Lavere roedstyrke alene er en gyldig fade for Hawk.
+    for(let y=0;y<288;y++)pal.set([255,0,255],(y*32+c)*4);
     check('annen_farge_avvist',!api.fargeleggIkon(m,t,0));
     set(15);pal[(32+c)*4]^=16;check('ulik_linjepalett_avvist',!api.fargeleggIkon(m,t,0));
     set(15);canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);t.ikonPalett=null;

@@ -1,0 +1,163 @@
+{
+  "scope": "Teknisk originalrasterprobe, ikke kunstleveranse. Begge paneler og alle fem dokumenterte ridderpaletter, eksakt bildefil, feil kildepalett og manglende bilde.",
+  "checks": [
+    "probe_import_accepted",
+    "ki.cel/017_blue_accepted",
+    "ki.cel/017_blue_exact_image_selected",
+    "ki.cel/017_orange_accepted",
+    "ki.cel/017_orange_exact_image_selected",
+    "ki.cel/017_green_accepted",
+    "ki.cel/017_green_exact_image_selected",
+    "ki.cel/017_red_accepted",
+    "ki.cel/017_red_exact_image_selected",
+    "ki.cel/017_purple_accepted",
+    "ki.cel/017_purple_exact_image_selected",
+    "ki.cel/017_unknown_knight_pair_rejected",
+    "ki.cel/017_unknown_other_palette_rejected",
+    "ki.cel/018_blue_accepted",
+    "ki.cel/018_blue_exact_image_selected",
+    "ki.cel/018_orange_accepted",
+    "ki.cel/018_orange_exact_image_selected",
+    "ki.cel/018_green_accepted",
+    "ki.cel/018_green_exact_image_selected",
+    "ki.cel/018_red_accepted",
+    "ki.cel/018_red_exact_image_selected",
+    "ki.cel/018_purple_accepted",
+    "ki.cel/018_purple_exact_image_selected",
+    "ki.cel/018_unknown_knight_pair_rejected",
+    "ki.cel/018_unknown_other_palette_rejected",
+    "ki.cel/019_blue_accepted",
+    "ki.cel/019_blue_exact_image_selected",
+    "ki.cel/019_orange_accepted",
+    "ki.cel/019_orange_exact_image_selected",
+    "ki.cel/019_green_accepted",
+    "ki.cel/019_green_exact_image_selected",
+    "ki.cel/019_red_accepted",
+    "ki.cel/019_red_exact_image_selected",
+    "ki.cel/019_purple_accepted",
+    "ki.cel/019_purple_exact_image_selected",
+    "ki.cel/019_unknown_knight_pair_rejected",
+    "ki.cel/019_unknown_other_palette_rejected",
+    "ki.cel/020_blue_accepted",
+    "ki.cel/020_blue_exact_image_selected",
+    "ki.cel/020_orange_accepted",
+    "ki.cel/020_orange_exact_image_selected",
+    "ki.cel/020_green_accepted",
+    "ki.cel/020_green_exact_image_selected",
+    "ki.cel/020_red_accepted",
+    "ki.cel/020_red_exact_image_selected",
+    "ki.cel/020_purple_accepted",
+    "ki.cel/020_purple_exact_image_selected",
+    "ki.cel/020_unknown_knight_pair_rejected",
+    "ki.cel/020_unknown_other_palette_rejected",
+    "missing_red_image_rejects_HD",
+    "undocumented_variant_metadata_rejected",
+    "emulated_state_unchanged",
+    "no_browser_errors"
+  ],
+  "samples": [
+    {
+      "key": "ki.cel/017",
+      "id": "blue",
+      "selected_image": "ki.cel/017"
+    },
+    {
+      "key": "ki.cel/017",
+      "id": "orange",
+      "selected_image": "ki-palettes/017-orange"
+    },
+    {
+      "key": "ki.cel/017",
+      "id": "green",
+      "selected_image": "ki-palettes/017-green"
+    },
+    {
+      "key": "ki.cel/017",
+      "id": "red",
+      "selected_image": "ki-palettes/017-red"
+    },
+    {
+      "key": "ki.cel/017",
+      "id": "purple",
+      "selected_image": "ki-palettes/017-purple"
+    },
+    {
+      "key": "ki.cel/018",
+      "id": "blue",
+      "selected_image": "ki.cel/018"
+    },
+    {
+      "key": "ki.cel/018",
+      "id": "orange",
+      "selected_image": "ki-palettes/018-orange"
+    },
+    {
+      "key": "ki.cel/018",
+      "id": "green",
+      "selected_image": "ki-palettes/018-green"
+    },
+    {
+      "key": "ki.cel/018",
+      "id": "red",
+      "selected_image": "ki-palettes/018-red"
+    },
+    {
+      "key": "ki.cel/018",
+      "id": "purple",
+      "selected_image": "ki-palettes/018-purple"
+    },
+    {
+      "key": "ki.cel/019",
+      "id": "blue",
+      "selected_image": "ki.cel/019"
+    },
+    {
+      "key": "ki.cel/019",
+      "id": "orange",
+      "selected_image": "ki-palettes/019-orange"
+    },
+    {
+      "key": "ki.cel/019",
+      "id": "green",
+      "selected_image": "ki-palettes/019-green"
+    },
+    {
+      "key": "ki.cel/019",
+      "id": "red",
+      "selected_image": "ki-palettes/019-red"
+    },
+    {
+      "key": "ki.cel/019",
+      "id": "purple",
+      "selected_image": "ki-palettes/019-purple"
+    },
+    {
+      "key": "ki.cel/020",
+      "id": "blue",
+      "selected_image": "ki.cel/020"
+    },
+    {
+      "key": "ki.cel/020",
+      "id": "orange",
+      "selected_image": "ki-palettes/020-orange"
+    },
+    {
+      "key": "ki.cel/020",
+      "id": "green",
+      "selected_image": "ki-palettes/020-green"
+    },
+    {
+      "key": "ki.cel/020",
+      "id": "red",
+      "selected_image": "ki-palettes/020-red"
+    },
+    {
+      "key": "ki.cel/020",
+      "id": "purple",
+      "selected_image": "ki-palettes/020-purple"
+    }
+  ],
+  "errors": [],
+  "status": "passed",
+  "created_at": "2026-10-11T15:19:53.229Z"
+}

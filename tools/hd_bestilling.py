@@ -73,15 +73,21 @@ MONSTRE = {
 def figur_info(fil, nr):
     f = fil.lower()
     if f == 'mi.c':
-        hvor = 'Kartet hele tiden: ridderhodet i ridderfarger, områdeomrisset, valgrullen (032) og dragen'
-        return 2, 'Kartfigurer', hvor, 'Klar (fil/bilde), ikke prøvd. Hodene i ridderfarger er egne bilder, så faste farger går.'
+        if 34 <= nr <= 41:
+            return 2, 'Kartfigurer', 'Kartet: drageanimasjon, åtte ruter', \
+                'Figuranimasjon, tas etter statiske ikoner. Sammenlign hver rute, bevegelse og overlapping med originalen.'
+        if nr == 32:
+            return 2, 'Kartfigurer', 'Kartet: meldingsfelt eller valgrull (032)', \
+                'UI-fragment. Bevar originalens tekst, plassering og visningstid.'
+        return 2, 'Kartfigurer', 'Kartet: valgkontur eller områdeomriss', \
+            'UI-fragment. Bevar originalens form og levende palett; ikke tegn en ny gjenstand.'
     if f in ('kn1.ob', 'kn2.ob', 'kn3.ob', 'he1.ob', 'he2.ob', 'he3.ob'):
         farge = 'gylden i grafikklisten, indeksene 9-11' if f.startswith('he') else 'indeksene 6-8'
         return 5, 'Riddere', 'Alle kamper: ridderens kropp (%s), tegnes ti ganger i sekundet' % farge, \
-            'Får støtte i koden i en parallell endring (figurer i flere deler og farge fra paletten).'
+            'Koden støtter figurer i flere deler og farge fra paletten. Hver ny rute og overlapping må prøves.'
     if f == 'kn4.ob':
         return 5, 'Riddere', 'Alle kamper: ridderens våpen (sverd, lanse) over kroppen', \
-            'Får støtte i koden i en parallell endring. Sverdet tegnes over kroppen i KN1-3.'
+            'Koden støtter flere deler. Sverdet tegnes over kroppen i KN1-3; ny grafikk må prøves med kroppen.'
     if f == 'kn5.ob':
         return 10, 'Blod og sår', 'Kamp: blod og sår på ridderen', \
             'Ikke sett i tegnelisten ennå (antatt i bruk). Overlapper ridderen.'
@@ -91,13 +97,14 @@ def figur_info(fil, nr):
     for start, navn in MONSTRE.items():
         if fil.lower().startswith(start.lower()):
             return 7, 'Monstre', 'Kamp i hi og ute: %s' % navn, \
-                ('Delvis klar: deler som overlapper en tidligere tegning avvises i dag (render.js:948), '
-                 'støtte kommer i en parallell endring. Bare TroggSpear er målt.')
+                ('Koden støtter eierskap per piksel for deler som overlapper. '
+                 'Ny grafikk og animerte overlappinger må prøves; bare TroggSpear er målt i den eldre kartleggingen.')
     if f == 'bold.f':
         if nr == 73:
             return 7, 'Logo', 'Tittelmenyen: MOONSTONE-logoen', \
                 ('Tegnes på nytt. Dagens web/hd/bold.f/073.png er 2172 x 724 (3,0:1) mot kildens 305 x 54 '
-                 '(5,65:1) og blir flatklemt. Utkastet art/photoreal/candidates/bold.f/073.png har riktig '
+                 '(5,65:1). Visningen bevarer nå sideforholdet, men en trofast nytegning gjenstår. '
+                 'Utkastet art/photoreal/candidates/bold.f/073.png har riktig '
                  'forhold i kjernen, men står i candidate_geometry_review.')
         return 11, 'Tittelmeny', 'Tittelmenyen: copyrightlinjene', 'Klar, ikke prøvd. Tegn teksten nøyaktig som i originalen.'
     if f == 'sel.cel':

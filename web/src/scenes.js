@@ -112,7 +112,10 @@ const SceneHd = (() => {
         for (const m of ikoner) {
             const [x,y]=m.rect;
             for (let j=0;j<m.height;j++) for (let i=0;i<m.width;i++) {
-                const p=(y+j)*320+x+i;maske[p]=0;avvik[p]=0;
+                const p=(y+j)*320+x+i, bevar=(m.preserve_indices||[]).includes(m.expected[j*m.width+i]);
+                // Pulserende valgkanter beholder originalpalett og pikselvern.
+                // Hele kildefeltet er allerede kontrollert eksakt over.
+                maske[p]=bevar?1:0;avvik[p]=bevar?1:0;
             }
         }
         // En liten sikkerhetskant bevarer svarte hull og kanter i forgrunnsfigurer.

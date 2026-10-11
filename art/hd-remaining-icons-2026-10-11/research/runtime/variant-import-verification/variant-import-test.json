@@ -1,0 +1,28 @@
+{
+  "checks": [
+    "patch_only_changes_variant_cache_identity",
+    "scene_code_unchanged",
+    "generated_red_image_selected",
+    "same_red_palette_still_approved",
+    "new_variant_PNG_updates_actual_base_texture",
+    "new_variant_changes_display_pixels",
+    "new_variant_stays_stable",
+    "canonical_blue_image_preserved",
+    "returning_to_red_uses_imported_variant",
+    "HD_toggle_restores_imported_variant",
+    "Original_toggle_has_original_pixels",
+    "same_palette_can_restore_generated_red_PNG",
+    "restored_red_display_is_exact",
+    "emulated_state_unchanged",
+    "no_browser_errors"
+  ],
+  "errors": [],
+  "source_before_render_sha256": "e659122c1a5b84b80b4af882a2c7ee5bfbaf3a362070633b9221202ed99abf7f",
+  "source_after_render_sha256": "0efcbf950cd9da68918007682d1d96ab8be58b2f6521d7b5762ddbb3a337cd66",
+  "scene_code_sha256": "f0c51fcb7ab83529ae89403cc1346434b216728da9d21877913a4d8b06d9b48a",
+  "scope": "Faktisk delvis variant-PNG-import ved stabil roed kildepalett. Testbildet er en ensfarget teknisk probe, aldri produksjonskunst. Bare cacheidentiteten er endret fra det tidligere testede runtime-snapshotet.",
+  "custom_png_sha256": "d048bcb1da0421cc147bee7d24d43a7ca3e9462d215a835fb0b65b0244aef6d0",
+  "generated_red_png_sha256": "2e0c2f278fac7c2379d7dddfe8aabfd83ae8eaa812f4088be5c3c719bf8e5c9d",
+  "status": "passed",
+  "created_at": "2026-10-11T15:53:00.896Z"
+}

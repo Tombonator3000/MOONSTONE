@@ -1,0 +1,583 @@
+{
+  "created_at": "2026-10-11",
+  "archive_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "original_banks": {
+    "mog": "d8cc4ec9f848ee30032f1e0c0db4e37c2484114910d314760956da9fee96da81",
+    "test": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+    "tav.piv": "466c92eac2ddb68f0eb98689db6ad36017683b29b23638c7b5c84fef4f6f3b42",
+    "mi.c": "31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195",
+    "po.cel": "e1b70f3167d100178ef6e439e57cda8c4016cc8242a485edd33e53f0fcb8cdfb",
+    "sel.cel": "30f6b15498f18bdb94e2cfa236c5eff32a0bcd5dc9e457a0391732dfb1e20a77"
+  },
+  "fixed_map_table": {
+    "address": "08ef50",
+    "stride": 6,
+    "format": "signed word frame,x,y; terminator -1,-1,-1",
+    "rows": [
+      {
+        "address": "08ef50",
+        "frame": 21,
+        "x": 18,
+        "y": 11,
+        "identity": "Hjemlandsby, figur 0"
+      },
+      {
+        "address": "08ef56",
+        "frame": 22,
+        "x": 286,
+        "y": 11,
+        "identity": "Hjemlandsby, figur 1"
+      },
+      {
+        "address": "08ef5c",
+        "frame": 23,
+        "x": 0,
+        "y": 187,
+        "identity": "Hjemlandsby, figur 2"
+      },
+      {
+        "address": "08ef62",
+        "frame": 24,
+        "x": 303,
+        "y": 192,
+        "identity": "Hjemlandsby, figur 3"
+      },
+      {
+        "address": "08ef68",
+        "frame": 25,
+        "x": 82,
+        "y": 28,
+        "identity": "Highwood"
+      },
+      {
+        "address": "08ef6e",
+        "frame": 26,
+        "x": 277,
+        "y": 143,
+        "identity": "Waterdeep"
+      },
+      {
+        "address": "08ef74",
+        "frame": 28,
+        "x": 152,
+        "y": 97,
+        "identity": "Valley of the Gods"
+      },
+      {
+        "address": "08ef7a",
+        "frame": 27,
+        "x": 88,
+        "y": 155,
+        "identity": "Stonehenge"
+      },
+      {
+        "address": "08ef80",
+        "frame": 30,
+        "x": 217,
+        "y": 11,
+        "identity": "Math"
+      }
+    ],
+    "terminator": [
+      -1,
+      -1,
+      -1
+    ]
+  },
+  "routes": [
+    {
+      "key": "map-icons/023",
+      "width": 8,
+      "height": 10,
+      "source": {
+        "file": "test",
+        "frame": 8,
+        "bank_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+        "runtime_frame": 2000,
+        "runtime_state": 1575726986
+      },
+      "indices_sha256": "fb052acde9b27e2b96dd40aa9e2d9b5317552e7e2a8e85283021a2451e394296",
+      "rect": [
+        160,
+        20,
+        168,
+        30
+      ]
+    },
+    {
+      "key": "map-icons/024",
+      "width": 8,
+      "height": 10,
+      "source": {
+        "file": "test",
+        "frame": 8,
+        "bank_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+        "runtime_frame": 2000,
+        "runtime_state": 1575726986
+      },
+      "indices_sha256": "1b52d184a4f1c8f95c64013087bac58ef3f161bdaeaba9bd761b66309aab6b77",
+      "rect": [
+        300,
+        100,
+        308,
+        110
+      ]
+    },
+    {
+      "key": "map-icons/025",
+      "width": 8,
+      "height": 10,
+      "source": {
+        "file": "test",
+        "frame": 8,
+        "bank_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+        "runtime_frame": 2000,
+        "runtime_state": 1575726986
+      },
+      "indices_sha256": "47ee8252f99d077a193fbe6783bdb14f1393641eef08abb01e4fe7765ba6db93",
+      "rect": [
+        160,
+        180,
+        168,
+        190
+      ]
+    },
+    {
+      "key": "map-landmarks/000",
+      "width": 27,
+      "height": 31,
+      "source": {
+        "file": "test",
+        "frame": 8,
+        "bank_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+        "rect": [
+          84,
+          31,
+          111,
+          62
+        ],
+        "mask_polygon": [
+          [
+            84,
+            48
+          ],
+          [
+            87,
+            45
+          ],
+          [
+            87,
+            37
+          ],
+          [
+            90,
+            36
+          ],
+          [
+            92,
+            31
+          ],
+          [
+            95,
+            34
+          ],
+          [
+            95,
+            44
+          ],
+          [
+            98,
+            36
+          ],
+          [
+            102,
+            39
+          ],
+          [
+            102,
+            45
+          ],
+          [
+            106,
+            45
+          ],
+          [
+            110,
+            50
+          ],
+          [
+            111,
+            61
+          ],
+          [
+            87,
+            62
+          ]
+        ],
+        "stone_colors": null
+      },
+      "indices_sha256": "a670952774e5dbe3050df10d0ad5da5ff12365e9cf9a7023cadf173537c8cfb2",
+      "rect": [
+        84,
+        31,
+        111,
+        62
+      ]
+    },
+    {
+      "key": "map-landmarks/004",
+      "width": 11,
+      "height": 23,
+      "source": {
+        "file": "test",
+        "frame": 8,
+        "bank_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+        "rect": [
+          242,
+          89,
+          253,
+          112
+        ],
+        "mask_polygon": [
+          [
+            244,
+            89
+          ],
+          [
+            248,
+            91
+          ],
+          [
+            248,
+            97
+          ],
+          [
+            249,
+            103
+          ],
+          [
+            253,
+            109
+          ],
+          [
+            251,
+            112
+          ],
+          [
+            242,
+            112
+          ],
+          [
+            242,
+            108
+          ],
+          [
+            244,
+            102
+          ]
+        ],
+        "stone_colors": null
+      },
+      "indices_sha256": "f941c70a5a0e2eedc142146807c722879f484ea08c5841efb0c85c9de3a523da",
+      "rect": [
+        242,
+        89,
+        253,
+        112
+      ]
+    },
+    {
+      "key": "map-landmarks/005",
+      "width": 28,
+      "height": 29,
+      "source": {
+        "file": "test",
+        "frame": 8,
+        "bank_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+        "rect": [
+          284,
+          146,
+          312,
+          175
+        ],
+        "mask_polygon": [
+          [
+            284,
+            167
+          ],
+          [
+            284,
+            159
+          ],
+          [
+            286,
+            157
+          ],
+          [
+            289,
+            157
+          ],
+          [
+            289,
+            160
+          ],
+          [
+            292,
+            162
+          ],
+          [
+            292,
+            153
+          ],
+          [
+            295,
+            151
+          ],
+          [
+            295,
+            149
+          ],
+          [
+            298,
+            146
+          ],
+          [
+            301,
+            149
+          ],
+          [
+            301,
+            155
+          ],
+          [
+            304,
+            157
+          ],
+          [
+            305,
+            161
+          ],
+          [
+            307,
+            157
+          ],
+          [
+            310,
+            159
+          ],
+          [
+            312,
+            173
+          ],
+          [
+            304,
+            175
+          ],
+          [
+            297,
+            172
+          ],
+          [
+            292,
+            168
+          ]
+        ],
+        "stone_colors": null
+      },
+      "indices_sha256": "152a968f7158cd5cd1eca665126e2db6e7e70f1233a822fb05607535a406f89b",
+      "rect": [
+        284,
+        146,
+        312,
+        175
+      ]
+    },
+    {
+      "key": "po.cel/000",
+      "width": 16,
+      "height": 18,
+      "source": {
+        "file": "po.cel",
+        "frame": 0,
+        "bank_sha256": "e1b70f3167d100178ef6e439e57cda8c4016cc8242a485edd33e53f0fcb8cdfb"
+      },
+      "indices_sha256": "c36a31b0274b2cbccefe16418d41c7f8324c60ff67911f53ddfcab5974217bd3",
+      "plane_mask": 3,
+      "hardware_sprite": true,
+      "palette_offset": 16
+    },
+    {
+      "key": "scene-icons/000",
+      "width": 38,
+      "height": 25,
+      "source": {
+        "file": "tav.piv",
+        "frame": 0,
+        "bank_sha256": "466c92eac2ddb68f0eb98689db6ad36017683b29b23638c7b5c84fef4f6f3b42",
+        "rect": [
+          272,
+          4,
+          310,
+          29
+        ]
+      },
+      "indices_sha256": "97da163514b48fa27cfe12f24da9fe90a74b3d00a042c1fff2eb8b41f9b0e6f6",
+      "rect": [
+        272,
+        4,
+        310,
+        29
+      ]
+    },
+    {
+      "key": "scene-icons/001",
+      "width": 28,
+      "height": 16,
+      "source": {
+        "file": "tav.piv",
+        "frame": 0,
+        "bank_sha256": "466c92eac2ddb68f0eb98689db6ad36017683b29b23638c7b5c84fef4f6f3b42",
+        "rect": [
+          277,
+          35,
+          305,
+          51
+        ]
+      },
+      "indices_sha256": "02c6a088c2b0d9d8510a1fef084f783e61735f2b5f6c71574ee113b354f32a59",
+      "rect": [
+        277,
+        35,
+        305,
+        51
+      ]
+    },
+    {
+      "key": "scene-icons/002",
+      "width": 28,
+      "height": 16,
+      "source": {
+        "file": "tav.piv",
+        "frame": 0,
+        "bank_sha256": "466c92eac2ddb68f0eb98689db6ad36017683b29b23638c7b5c84fef4f6f3b42",
+        "rect": [
+          277,
+          63,
+          305,
+          79
+        ]
+      },
+      "indices_sha256": "3be99226021b29535ffd2a54611f5e692eb6a4cb18ebe8fbd4f56c67ded4f7bd",
+      "rect": [
+        277,
+        63,
+        305,
+        79
+      ]
+    },
+    {
+      "key": "scene-icons/003",
+      "width": 28,
+      "height": 16,
+      "source": {
+        "file": "tav.piv",
+        "frame": 0,
+        "bank_sha256": "466c92eac2ddb68f0eb98689db6ad36017683b29b23638c7b5c84fef4f6f3b42",
+        "rect": [
+          277,
+          91,
+          305,
+          107
+        ]
+      },
+      "indices_sha256": "50407792bbbfa633de99bb3d68e45cec45d6796242d755d7b250bf278d945b43",
+      "rect": [
+        277,
+        91,
+        305,
+        107
+      ]
+    },
+    {
+      "key": "scene-icons/004",
+      "width": 28,
+      "height": 16,
+      "source": {
+        "file": "tav.piv",
+        "frame": 0,
+        "bank_sha256": "466c92eac2ddb68f0eb98689db6ad36017683b29b23638c7b5c84fef4f6f3b42",
+        "rect": [
+          277,
+          119,
+          305,
+          135
+        ]
+      },
+      "indices_sha256": "8e58f900dc5f4507180e0fdb751354c57a5234cf12167f7f95f2a617bc1d7f96",
+      "rect": [
+        277,
+        119,
+        305,
+        135
+      ]
+    },
+    {
+      "key": "scene-icons/005",
+      "width": 28,
+      "height": 16,
+      "source": {
+        "file": "tav.piv",
+        "frame": 0,
+        "bank_sha256": "466c92eac2ddb68f0eb98689db6ad36017683b29b23638c7b5c84fef4f6f3b42",
+        "rect": [
+          277,
+          147,
+          305,
+          163
+        ]
+      },
+      "indices_sha256": "9cd112583c31b679ab967c2277ed2bd223330574f7d6f6d06af30f09d0b5a4e4",
+      "rect": [
+        277,
+        147,
+        305,
+        163
+      ]
+    },
+    {
+      "key": "sel.cel/000",
+      "width": 38,
+      "height": 19,
+      "source": {
+        "file": "sel.cel",
+        "frame": 0,
+        "bank_sha256": "30f6b15498f18bdb94e2cfa236c5eff32a0bcd5dc9e457a0391732dfb1e20a77"
+      },
+      "indices_sha256": "cc4bf88497e8a3de169af4eb8a5f0fd582a1e775bd0d2f877215a9172774e913",
+      "plane_mask": 15
+    }
+  ],
+  "code_evidence": {
+    "mi_bank_load": [
+      "082aea lea 08f58c,a0 = mi.c",
+      "082af0 movea 08e7be,a1",
+      "082af6 jsr last_cel"
+    ],
+    "map_knight": [
+      "0810aa move.l 36(a0),d0",
+      "0810ae addq.l #5,d0",
+      "0810ba move.w 7e(a0),d1",
+      "0810be move.w 80(a0),d2",
+      "0810c2 movea.l 08e7be,a0",
+      "0810c8 jsr tegn_figur"
+    ],
+    "tavern_gold": [
+      "08a472 movea.l 0ada22,a0",
+      "08a478 move.w 4a(a0),d0",
+      "08a48a jsr skriv_tall",
+      "08a496 move.w #011a,d0",
+      "08a49a move.w #000e,d1",
+      "08a4a4 jsr 089038"
+    ]
+  }
+}

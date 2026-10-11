@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "created_at": "2026-10-11T15:40:17.538Z",
+  "checks": [
+    {
+      "name": "three_chest_fragments_share_exact_pixels",
+      "okay": true,
+      "pixels": 163520
+    },
+    {
+      "name": "original_ink_and_transparent_hole_exact_and_bounded",
+      "samples": [
+        [
+          221,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          85,
+          34,
+          17,
+          255
+        ],
+        [
+          110,
+          80,
+          40,
+          255
+        ],
+        [
+          110,
+          80,
+          40,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "approved_gate_preserves_aspect_and_bottom_anchor",
+      "bounds": [
+        31,
+        0,
+        10,
+        40
+      ]
+    }
+  ]
+}

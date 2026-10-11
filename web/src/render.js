@@ -1148,6 +1148,8 @@ const Visning = (() => {
             // Den tidligste HD-figuren som dekker pikselen (rektangelet). Bare piksler
             // fra senere figurer uten HD skal ligge foran et HD-bilde.
             const forsteHd = new Int16Array(320 * 200).fill(32767);
+            const ikonVern = visteListe.map(d => hdIkoner.get(d.fil.toLowerCase() + '/' +
+                String(d.bilde).padStart(3, '0'))?.preserve_indices);
             visteListe.forEach((d, k) => {
                 if (!hdTegnbare.has(d)) return;
                 const x0 = d.x - d.xoff;
@@ -1161,7 +1163,14 @@ const Visning = (() => {
             for (let p = 0; p < 320 * 200; p++) {
                 const e = eie.eier[p];
                 if (e < 0) continue;
-                if (figurHd.has(e)) { if (lag.forIdx[p] !== 255 && !hdMarkor?.visible.has(p)) forData[p * 4 + 3] = 0; }
+                if (figurHd.has(e)) {
+                    if (lag.forIdx[p] !== 255 && !hdMarkor?.visible.has(p)) {
+                        // Bare den validerte pikseleierens egne indeksvern gjelder.
+                        // Valgkanter beholder originalens levende palett foran HD.
+                        if (ikonVern[e]?.includes(lag.forIdx[p])) vernData[p * 4 + 3] = 255;
+                        else forData[p * 4 + 3] = 0;
+                    }
+                }
                 else if (forsteHd[p] < e && !hdTegnbare.has(visteListe[e])) vernData[p * 4 + 3] = 255;
             }
         }
@@ -1219,7 +1228,8 @@ const Visning = (() => {
                     hdGruppe.add(m); sceneFlater[i] = m;
                 }
                 const m=sceneFlater[i++], [x0,y0,x1,y1]=o.rect;
-                m.renderOrder=o.foreground ? 4 : 2.5;
+                // Faste ikonoverlegg maa ligge under nye HD-glyfkanter i samme felt.
+                m.renderOrder=o.foreground ? (ikon&&!ikon.dynamic ? 3.5 : 4) : 2.5;
                 m.material=t.mat; t.mat.uniforms.imageRegion.value.set(...o.uv_rect);
                 t.mat.uniforms.vern.value=o.foreground ? sceneVernTex : vernTex;
                 t.mat.uniforms.alphaCutoff.value=o.alpha_cutoff || 0;
@@ -1402,7 +1412,8 @@ const Visning = (() => {
         if (!Kjerne.skanout().gyldig) return null;
         const pal = Kjerne.skanout().pal, top = diw[1] + y;
         if (top < 0 || top + m.height > 288) return null;
-        const colors = [...new Set([m.base_index,...m.paths.map(p=>p.index)])];
+        const colors = [...new Set([m.base_index,...m.paths.map(p=>p.index)])]
+            .filter(c=>m.render_mode!=='raster'||!m.preserve_indices?.includes(c));
         const offset=m.palette_offset||0;
         const rgb = colors.map(c=>Array.from(pal.subarray((top*32+c+offset)*4,(top*32+c+offset)*4+3)));
         for (let j=1;j<m.height;j++) for (let k=0;k<colors.length;k++) for (let b=0;b<3;b++) {
@@ -1414,25 +1425,34 @@ const Visning = (() => {
     /* Nytegnede rasterikoner beholder bildefilens detaljer. En kjent
      * kildepalett tillater vanlig Amiga-fading, men avviser andre fargevarianter.
      * Avrunding i firebitsfargene kan avvike med ett trinn paa 17. */
-    function rasterIkonLys(m, palette) {
-        if (m.render_mode !== 'raster') return 1;
-        const sykluser=m.reference_palette_cycles||[];
-        const syklus=c=>sykluser.find(gruppe=>gruppe.includes(c));
-        let teller=0, nevner=0;
-        for (let i=0;i<palette.colors.length;i++) {
-            if (syklus(palette.colors[i])) continue;
-            const ref=m.reference_palette[palette.colors[i]], rgb=palette.rgb[i];
-            for (let c=0;c<3;c++) {teller+=ref[c]*rgb[c];nevner+=ref[c]*ref[c];}
+    function rasterIkonVariant(m, palette) {
+        if (m.render_mode !== 'raster') return {lys:1,key:m.key};
+        let beste=null;
+        for (const variant of m.palette_variants || [{key:m.key}]) {
+            const referanse={...m.reference_palette};
+            if (variant.indices) variant.indices.forEach((c,i)=>referanse[c]=variant.colors[i]);
+            const sykluser=m.reference_palette_cycles||[];
+            const syklus=c=>sykluser.find(gruppe=>gruppe.includes(c));
+            let teller=0, nevner=0;
+            for (let i=0;i<palette.colors.length;i++) {
+                if (syklus(palette.colors[i])) continue;
+                const ref=referanse[palette.colors[i]], rgb=palette.rgb[i];
+                for (let c=0;c<3;c++) {teller+=ref[c]*rgb[c];nevner+=ref[c]*ref[c];}
+            }
+            const lys=nevner ? Math.max(0,Math.min(1,teller/nevner)) : 0;
+            let gyldig=true,feil=0;
+            for (let i=0;i<palette.colors.length;i++) {
+                const ref=referanse[palette.colors[i]], rgb=palette.rgb[i];
+                const gruppe=syklus(palette.colors[i]);
+                const mulige=gruppe ? gruppe.map(c=>referanse[c]) : [ref];
+                if (!mulige.some(f=>rgb.every((v,c)=>Math.abs(v-f[c]*lys)<=17.01))) {gyldig=false;break;}
+                feil+=Math.min(...mulige.map(f=>rgb.reduce((sum,v,c)=>sum+(v-f[c]*lys)**2,0)));
+            }
+            if (gyldig&&(!beste||feil<beste.feil)) beste={lys,key:variant.key,feil};
         }
-        const lys=nevner ? Math.max(0,Math.min(1,teller/nevner)) : 0;
-        for (let i=0;i<palette.colors.length;i++) {
-            const ref=m.reference_palette[palette.colors[i]], rgb=palette.rgb[i];
-            const gruppe=syklus(palette.colors[i]);
-            const mulige=gruppe ? gruppe.map(c=>m.reference_palette[c]) : [ref];
-            if (!mulige.some(f=>rgb.every((v,c)=>Math.abs(v-f[c]*lys)<=17.01))) return null;
-        }
-        return lys;
+        return beste;
     }
+    function rasterIkonLys(m,palette) {return rasterIkonVariant(m,palette)?.lys ?? null;}
 
     function fargeleggIkon(m, t, y) {
         if (!t) return false;
@@ -1440,20 +1460,22 @@ const Visning = (() => {
         const {colors,rgb}=palette;
         const key=rgb.flat().join(',');
         if (m.render_mode === 'raster') {
-            const lys=rasterIkonLys(m,palette);
-            if (lys===null) return false;
+            const variant=rasterIkonVariant(m,palette);
+            if (!variant) return false;
+            const lys=variant.lys, bilde=variant.key===m.key?t:hdPakke.get(variant.key);
+            if (!bilde||bilde.width!==t.width||bilde.height!==t.height) return false;
             if (!t.ikonOriginal) {
                 t.ikonOriginal=document.createElement('canvas');
                 t.ikonOriginal.width=t.width;t.ikonOriginal.height=t.height;
                 t.ikonOriginal.getContext('2d').drawImage(t.canvas,0,0);
             }
             // Masken for hardware-pekeren kan ha skjult en annen del sist.
-            if (t.ikonPalett!==key) {
+            if (t.ikonPalett!==key || t.ikonVariantBilde!==bilde) {
                 const ctx=t.canvas.getContext('2d');ctx.resetTransform();
-                ctx.clearRect(0,0,t.width,t.height);ctx.drawImage(t.ikonOriginal,0,0);
+                ctx.clearRect(0,0,t.width,t.height);ctx.drawImage(bilde===t?t.ikonOriginal:bilde.canvas,0,0);
                 t.tex.needsUpdate=true;
             }
-            t.ikonLys=lys;t.ikonPalett=key;return true;
+            t.ikonLys=lys;t.ikonPalett=key;t.ikonVariantBilde=bilde;return true;
         }
         if (t.ikonPalett === key) return true;
         t.ikonLys=1;
@@ -1561,6 +1583,24 @@ const Visning = (() => {
                                 m.reference_palette[c].some(v=>!Number.isInteger(v)||v<0||v>255))) ||
                          new Set(m.reference_palette_cycles.flat()).size!==m.reference_palette_cycles.flat().length))
                         throw new Error('Ugyldig palettsyklus');
+                    if (m.palette_variants!==undefined) {
+                        // Livsymbolenes to paneler bruker bare disse fem kildeparene.
+                        const side={'ki.cel/017':[28,29],'ki.cel/018':[30,31],'ki.cel/019':[28,29],'ki.cel/020':[30,31]}[m.key];
+                        const par={blue:[[0,51,255],[0,34,136]],orange:[[255,187,0],[187,102,0]],green:[[68,204,51],[17,102,0]],red:[[255,0,0],[136,0,0]],purple:[[0,34,119],[0,0,51]]};
+                        if (!side || m.render_mode!=='raster' || !Array.isArray(m.palette_variants) || m.palette_variants.length!==5 ||
+                            new Set(m.palette_variants.map(v=>v?.id)).size!==5 || m.palette_variants.some(v=>
+                                !v || !par[v.id] || JSON.stringify(v.indices)!==JSON.stringify(side) ||
+                                JSON.stringify(v.colors)!==JSON.stringify(par[v.id]) ||
+                                v.key!==(v.id==='blue'?m.key:'ki-palettes/'+m.key.slice(-3)+'-'+v.id)))
+                            throw new Error('Ugyldig ridderpalettvariant');
+                    }
+                    if (m.preserve_indices!==undefined && (m.render_mode!=='raster' ||
+                        !Array.isArray(m.preserve_indices) || !m.preserve_indices.length || m.preserve_indices.length>31 ||
+                        new Set(m.preserve_indices).size!==m.preserve_indices.length ||
+                        m.preserve_indices.some(c=>!Number.isInteger(c)||c<1||c>31||
+                            ![m.base_index,...m.paths.map(p=>p.index)].includes(c)) ||
+                        [m.base_index,...m.paths.map(p=>p.index)].every(c=>m.preserve_indices.includes(c))))
+                        throw new Error('Ugyldig ikonindeksvern');
                     if (m.edge_feather!==undefined && (m.render_mode!=='raster' || !m.scene || m.dynamic ||
                         !Array.isArray(m.edge_feather) || m.edge_feather.length!==2 ||
                         m.edge_feather.some(v=>!Number.isFinite(v)||v<0||v>0.25)))
@@ -1681,6 +1721,11 @@ const Visning = (() => {
             const r=m.draw_rect, w=r ? r[2]-r[0] : m.width, h=r ? r[3]-r[1] : m.height;
             if (t && t.width===w*m.scale && t.height===h*m.scale) hdIkoner.set(key,m);
             else hdIkonFeil.push(key+': ikonbildet mangler eller har feil maal');
+        }
+        for (const m of pakkeIkoner.values()) for (const v of m.palette_variants||[]) {
+            const t=hdPakke.get(v.key);
+            if (!t || t.width!==m.width*m.scale || t.height!==m.height*m.scale)
+                hdIkonFeil.push(v.key+': palettbildet mangler eller har feil maal');
         }
         // Maskene kobles til bildet med samme navn, uansett hvilken som kom foerst.
         for (const [key, t] of hdPakke) koblMaske(key, t);

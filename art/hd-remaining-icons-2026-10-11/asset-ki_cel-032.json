@@ -1,0 +1,22 @@
+{
+  "id": "ki.cel/032",
+  "key": "ki.cel/032",
+  "name": "Open treasure chest fragment 2",
+  "raw": "raw/ki.cel/031.png",
+  "source": "research/inventory/references/ki.cel/032.png",
+  "prompt": "prompts/ki.cel/031.json",
+  "placement": "source_bounds",
+  "review_status": "reviewed_for_runtime",
+  "composite": {
+    "source": "research/inventory/chest-code-composite.png",
+    "width": 59,
+    "height": 53,
+    "rect": [
+      18,
+      0,
+      41,
+      27
+    ]
+  },
+  "review_notes": "One continuous generated chest master for all three CEL pieces, checked against original code composite. Natural red wood, plain silver latch, empty open lid, exact source crop geometry."
+}

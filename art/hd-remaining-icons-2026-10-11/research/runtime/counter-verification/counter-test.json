@@ -1,0 +1,129 @@
+{
+  "url": "http://127.0.0.1:8769/moonstone.html",
+  "checks": [
+    "candidate_counter_found",
+    "text-first_counter_import_accepted",
+    "text-first_two_HD_digits",
+    "text-first_counter_below_HD_text",
+    "text-first_requested_creation_order",
+    "text-first_HD_edges_outside_original_mask_tested",
+    "text-first_no_HD_text_overdraw",
+    "text-first_Original_roundtrip_exact",
+    "text-first_HD_roundtrip_exact",
+    "text-first_HD_changes_pixels",
+    "text-first_emulated_state_unchanged",
+    "scene-first_counter_import_accepted",
+    "scene-first_two_HD_digits",
+    "scene-first_counter_below_HD_text",
+    "scene-first_requested_creation_order",
+    "scene-first_HD_edges_outside_original_mask_tested",
+    "scene-first_no_HD_text_overdraw",
+    "scene-first_Original_roundtrip_exact",
+    "scene-first_HD_roundtrip_exact",
+    "scene-first_HD_changes_pixels",
+    "scene-first_emulated_state_unchanged",
+    "no_browser_errors"
+  ],
+  "samples": [
+    {
+      "order": "text-first",
+      "scene": {
+        "id": "tavern",
+        "match": 1,
+        "preserved_pixels": 12800,
+        "hash": "44898895",
+        "hd_icons": 0
+      },
+      "control": {
+        "godkjent": 0,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 2,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0
+      },
+      "counter": {
+        "id": 24,
+        "renderOrder": 3.5
+      },
+      "text": [
+        {
+          "id": 16,
+          "renderOrder": 4
+        },
+        {
+          "id": 17,
+          "renderOrder": 4
+        }
+      ],
+      "protectedPixels": 20,
+      "unprotectedInkTexels": 194,
+      "overdrawnTexels": 0,
+      "hd_sha256": "cb08019cea4b91b74aa7b27c38c8ccdf1885f0c7747ba51be5a00e78052c528c",
+      "original_sha256": "4ebca944893de1c10931425b17b652c858cb25817c600d980a6ab4b460a60748"
+    },
+    {
+      "order": "scene-first",
+      "scene": {
+        "id": "tavern",
+        "match": 1,
+        "preserved_pixels": 12800,
+        "hash": "44898895",
+        "hd_icons": 0
+      },
+      "control": {
+        "godkjent": 0,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 2,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0
+      },
+      "counter": {
+        "id": 22,
+        "renderOrder": 3.5
+      },
+      "text": [
+        {
+          "id": 28,
+          "renderOrder": 4
+        },
+        {
+          "id": 29,
+          "renderOrder": 4
+        }
+      ],
+      "protectedPixels": 20,
+      "unprotectedInkTexels": 194,
+      "overdrawnTexels": 0,
+      "hd_sha256": "cb08019cea4b91b74aa7b27c38c8ccdf1885f0c7747ba51be5a00e78052c528c",
+      "original_sha256": "4ebca944893de1c10931425b17b652c858cb25817c600d980a6ab4b460a60748"
+    }
+  ],
+  "errors": [],
+  "scope": "Original tav.piv og Small.font/061 som tellerfixture. To HD-glyfer ved originalens (282,14). Begge opprettelsesrekkefolger, lagrekkefolge, Original/HD-retur og uendret emulator kontrolleres.",
+  "candidate_icons_sha256": "4596cac343d6bab6b4427cbb4c7518fb0761ea8a285831fd0f213066c9cd7ae2",
+  "html_sha256": "a9f5781b92ff6e1a7aa9588eecc35079d622f7f518cb8fb6b441cb4ace2c9e45",
+  "status": "passed",
+  "created_at": "2026-10-11T15:24:39.116Z"
+}

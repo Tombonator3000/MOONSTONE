@@ -12,13 +12,13 @@ Hei! Jeg vil ha hjelp til å tegne HD-grafikk til et gammelt Amiga-spill. Vedlag
 
 Moonstone: A Hard Days Knight kom på Amiga i 1991, fra Mindscape. Det er mørk og brutal fantasy: fire riddere på jakt etter en magisk stein, kamper mot troll, demoner og drager, blod, steinsirkler, skoger om natten. Originalen er pikselgrafikk i 320 x 200 med 32 farger. Nettsiden kjører det originale spillet i en emulator og legger HD-bildene oppå, rute for rute, der spillet tegner originalen.
 
-Stilen er den som allerede er i bruk i `web/hd/`: bakgrunnene er malt nesten fotografisk, med mørkt nattlys og jordfarger (se for eksempel `web/hd/bg/62d8d655.png`, øvingskampen). Logoen er gullmetall. Ikonene i inventaret (`web/hd/ki.cel/`) er rene konturtegninger som får fargen fra spillet.
+Stilen er den som allerede er i bruk i `web/hd/`: bakgrunnene er malt nesten fotografisk, med mørkt nattlys og jordfarger (se for eksempel `web/hd/bg/62d8d655.png`, øvingskampen). Logoen er gullmetall. De statiske objektikonene er nå kildebundne rasterbilder fra art/hd-remaining-icons-2026-10-11. De beholder originalens motiv, størrelse og dokumenterte palettvarianter.
 
 Det viktigste: **samme motiv, samme form, samme plassering, bare skarpere.** Ikke legg til ting, ikke flytt noe, ikke endre posen. Et sverd som peker opp til høyre i originalen, skal peke opp til høyre i HD-bildet, og det skal slutte på samme sted. Spillets treffsoner følger originalens piksler.
 
 ## 2. Listen
 
-`docs/hd-bestilling-liste.csv` har 1842 rader, skilt med semikolon. Kolonnene:
+`docs/hd-bestilling-liste.csv` har 1815 rader, skilt med semikolon. Kolonnene:
 
 | Kolonne | Hva |
 |---|---|
@@ -37,7 +37,7 @@ Antall per gruppe, i rekkefølgen du bør ta dem:
 
 | Pri | Gruppe | Rader | Filer |
 |---|---|---|---|
-| 2 | Kartfigurer | 45 | mi.c |
+| 2 | Kartfigurer | 18 | mi.c, bare valgkonturer, meldingsfelt og drageanimasjon |
 | 4 | Byskjermer | 2 | Butikken og inventaret (bakgrunner) |
 | 5 | Riddere | 196 | KN1-4.ob, HE1-3.ob |
 | 7 | Logo | 1 | bold.f/073, på nytt i riktig sideforhold |
@@ -50,9 +50,9 @@ Antall per gruppe, i rekkefølgen du bør ta dem:
 | 11 | Meny, tittelmeny, sluttscene | 5 | sel.cel/001, bold.f 074 og 075, bg7, bg8 |
 | senere | Intro og slutt | 329 | au1, co1, da1, dg1, dw1, ha1, li1, ov1 |
 
-Det er 9 bakgrunner og 1833 figurbilder. Hulekampene, healeren, Mythrid, Math og terningbordet har fått ferdige HD-bilder (art/hd-all-locations-2026-10-11) og er ikke med. 156 rader trenger maske: ridderbildene og blodbildene som har rustningsfarger i seg (KN1 55, KN3 45, KN2 21, KN5 15, HE1 13, HE2 6, KN4 1). I tillegg kommer 101 masker til HE-kopiene (punkt 3.5). Prioritet 3 i oversikten vår (statusskjermen) er ikke med; den lager vi selv (punkt 7).
+Det er 9 bakgrunnsrader og 1806 øvrige bilder, totalt 1815 bestillingsrader. Listen omfatter også foreslåtte nytegninger av enkelte bilder som allerede har HD; den er ikke en opptelling av bare manglende runtimefiler. Hulekampene, healeren, Mythrid, Math og terningbordet har fått ferdige HD-bilder (art/hd-all-locations-2026-10-11) og er ikke med. 156 rader trenger maske: ridderbildene og blodbildene som har rustningsfarger i seg (KN1 55, KN3 45, KN2 21, KN5 15, HE1 13, HE2 6, KN4 1). I tillegg kommer 101 masker til HE-kopiene (punkt 3.5). Prioritet 3 i oversikten vår (statusskjermen) er ikke med; den lager vi selv (punkt 7).
 
-Rekkefølgen følger hvor ofte grafikken vises og hvor lite som skal til før den virker. Prioritet 2 og 4 skal virke så snart filen ligger i en mappe du velger med «Velg HD-mappe» (punkt 6). For bakgrunnene er hashene målt i spillet, for mi.c er det lest ut av koden og ikke prøvd. I standardpakken på nettsiden (`web/hd/`) må hver fil i tillegg føres i `web/hd/manifest.json` med sha256 og størrelse, og bakgrunnene for Math, terningspillet og introen trenger en scene der. Det gjør vi når du leverer. Ridderne, monstrene og blodet har støtte i koden (figurer i flere deler, masker for farge). Prioritet 6 i oversikten vår (lasteskjermen og bannerne) er ikke med, fordi den ikke kan bestilles ennå (punkt 7). Vi vet ikke hvilke monstre som er vanligst, så ta dem i den rekkefølgen listen har.
+Rekkefølgen følger hvor ofte grafikken vises og hvor lite som skal til før den virker. Prioritet 2 og 4 skal virke så snart filen ligger i en mappe du velger med «Velg HD-mappe» (punkt 6). For bakgrunnene er hashene målt i spillet, de 27 statiske mi.c-ikonene er nytegnet og runtimekontrollert. De 18 øvrige MI-rutene er valgkonturer, ett meldingsfelt og åtte dragebilder. I standardpakken på nettsiden (`web/hd/`) må hver ny eller erstattet fil føres i `web/hd/manifest.json` med sha256 og størrelse. Math, terningspillet og de aktiverte introscenene har allerede scenekoblinger. Nye bakgrunnsnøkler i bestillingen må få en passende scenekobling ved levering. Ridderne, monstrene og blodet har støtte i koden (figurer i flere deler, masker for farge). Lasteskjermen og Prepare yourself-banneret har nå aktive HD-scener og er ikke med i bestillingen (punkt 7). Vi vet ikke hvilke monstre som er vanligst, så ta dem i den rekkefølgen listen har.
 
 ## 3. Format
 
@@ -68,7 +68,7 @@ Bruk stien i kolonnen hd_fil, for eksempel `KN1.ob/012.png` eller `bg/3a38d016.p
 
 Lag hvert bilde i nøyaktig 4 ganger originalens bredde og høyde, slik kolonnene hd_bredde og hd_hoyde sier. En bakgrunn blir 1280 x 800. Logoen blir 1220 x 216.
 
-Hvorfor 4: nettsiden setter sammen bildet i høyst 4 ganger spillets oppløsning (web/src/render.js:356), så mer gir ikke skarpere bilde. Med et helt tall svarer hver originalpiksel til nøyaktig 4 x 4 HD-piksler, så kanter, ankerpunkt og masken (3.5) ligger likt med originalen. Det er også tallet i `docs/grafikkliste.csv` (hd_4x). Bildene som allerede ligger i pakken, er laget i andre skalaer (de fleste bakgrunnene er 1586 x 992, fontene 6x, ikonene 8x). De virker, fordi alt strekkes til originalens flate, men nye bilder skal være 4x. Sideforholdet må være det samme som originalen, ellers blir bildet forvrengt. Logoen i pakken i dag er et eksempel på det: 2172 x 724 mot originalens 305 x 54, så den blir flatklemt.
+Hvorfor 4: nettsiden setter sammen bildet i høyst 4 ganger spillets oppløsning (web/src/render.js:356), så mer gir ikke skarpere bilde. Med et helt tall svarer hver originalpiksel til nøyaktig 4 x 4 HD-piksler, så kanter, ankerpunkt og masken (3.5) ligger likt med originalen. Det er også tallet i `docs/grafikkliste.csv` (hd_4x). Bildene som allerede ligger i pakken, er laget i andre skalaer (de fleste bakgrunnene er 1586 x 992, fontene 6x, ikonene 8x). De virker, fordi alt strekkes til originalens flate, men nye bilder skal være 4x. Sideforholdet må være det samme som originalen, ellers blir bildet forvrengt. Logoens PNG er 2172 x 724 mot originalens 305 x 54. Koden viser den nå med bevart sideforhold og fyller bredden. En ny tegning i originalens sideforhold vil også fylle det opprinnelige høydefeltet riktig.
 
 ### 3.3 Ett bilde per rute, samme rektangel
 
@@ -149,11 +149,11 @@ Du kan prøve pakken selv: bygg nettsiden (`make -C port web`) eller bruk https:
 
 - `bg/045a1ac5.png`. Det er hashen av en helt tom skjerm, og bildet ville vist seg på alle tomme skjermer og i overganger.
 - `bg/8dbce956.png` (månen) og `bg/c234c097.png` (stjernene). De ligger bak lasteskjermen og synes aldri.
-- Bitene i `test` (bilde 0-7). Kampbakgrunnene settes sammen av dem, men bare den ferdige bakgrunnen kan byttes, og 32 av 56 har HD allerede.
-- Lasteskjermen («MOONSTONE ... Loading»), «Prepare yourself» og «Select a Knight». Nesten alt der er tegnet oppå en tom bakgrunn, og vi vet ikke hvilke filer banneret og teksten kommer fra. De kommer i en senere bestilling.
+- Bitene i `test` (bilde 0-7). Kampbakgrunnene settes sammen av dem, men bare den ferdige bakgrunnen kan byttes. Alle 56 ferdige kampvarianter har nå HD.
+- Ikke lag nye hele skjermer for lasteskjermen («MOONSTONE ... Loading») eller «Prepare yourself»; de har aktive HD-scener fra ch.piv og message.piv. «Select a Knight» bruker eksisterende HD-tekst og valggrafikk. Den gjenværende menyrammen, sel.cel/001, står som egen rad i listen.
 - Flisene i bg1a, bg1b og bg1c. De settes sammen i introen etter en tabell vi ikke har dekodet.
-- ki.cel 034-036 og 038-044 (statusskjermen). Ikonene i inventaret er konturtegninger i 8 ganger originalen som lages av originalens piksler med `tools/hd_ikoner_bygg.py`, med en oppføring i `web/hd/icons.json` som gir dem fargen fra spillet. Nettsiden godtar bare den skalaen for ikonene. Dem lager vi selv.
-- Det som allerede har HD: fontene, ki.cel 000-033 og 037, pekeren, riddervalget og 40 bakgrunner (`web/hd/manifest.json`). Bare logoen skal tegnes på nytt.
+- ki.cel 034-036 og 038-044 (statusskjermen). Disse gjenværende tekst-/rammefragmentene kan lages i 8 ganger originalen fra originalens piksler med `tools/hd_ikoner_bygg.py`, med en oppføring i `web/hd/icons.json` som gir dem fargen fra spillet. Nettsiden godtar bare den skalaen for ikonene. Dem lager vi selv.
+- Det som allerede har HD: fontene, ki.cel 000-033 og 037, månefasene ki.cel 045-049, pekeren, riddervalget, 27 statiske mi.c-ruter og 75 bakgrunner (`web/hd/manifest.json`). Ikke tegn disse om med mindre CSV-en uttrykkelig ber om en ny versjon. Logoen og enkelte bakgrunnsrader er slike revisjonsoppgaver.
 - Rader med prioritet «senere» (intro og slutt, 329 rader). Introen og slutten kjøres av et eget program der nettsiden ikke ser hva som tegnes, så bildene kan ikke vises ennå. Vent med dem.
 
 ## 8. Det som ikke er sikkert
@@ -161,5 +161,5 @@ Du kan prøve pakken selv: bygg nettsiden (`make -C port web`) eller bruk https:
 - Masken (3.5) er prøvd med syntetiske bilder (originalene 4x med rød rustning): samme bilde ble blått, grønt, oransje og rødt etter hvilken ridder som kjemper. Den er ikke prøvd med en ekte HD-tegning ennå.
 - Hvilke indekser hver av de fire ridderne og den svarte ridderen får i kamp, er ikke målt. Masken lages derfor av originalens indekser, ikke av fargene.
 - KN5.ob og blo.cel (blod og sår) er ikke sett på skjermen i målingene våre. Vi antar at de brukes.
-- Bakgrunnene for Math (WI1.P, WI2.P), terningspillet og introscenene trenger en scene i `web/hd/manifest.json` før de vises. Den lager vi. Tegn bildet uten tekst og markører. WI2.P uten tekst er aldri sett i spillet, så hashen er regnet ut fra filen.
+- Math (WI1.P, WI2.P), terningspillet og de aktiverte introscenene har allerede scener i `web/hd/manifest.json`. De skal ikke bestilles på nytt for å løse en manglende scenekobling. Nye eller reviderte bakgrunnsbilder må fortsatt testes mot originaltekst, markører og forgrunn ved levering.
 - Monstre kan ha andre farger i et hi enn ute, fordi paletten er en annen. Vi har bare målt ett hi. Ser et monster feil ut i spillet, kommer vi tilbake til det.
