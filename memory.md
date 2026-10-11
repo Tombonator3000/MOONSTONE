@@ -2,7 +2,7 @@
 
 26 rasterruter er aktive: Math sitt taarn (map-landmarks/001), dalens steinsirkel med elv/fossefall (002), tre trilitter i skogklaring (003), og 23 steder (map-icons/000..022) med samme Stonehenge-port: to oppreiste stoetter og en overligger, aapen passasje. Brukerens siste foto presiserer denne formen; den enkeltstaaende soeylen var feil. Math har loddrette runde murvegger og brystning; den avviste kjeglen er bevart som eldre utkast. 49 ikonruter har fortsatt konturbehandlet originalgrafikk. Dette er fire motiver, ikke 26 forskjellige nytegninger. Detaljert motivgrunnlag: docs/hd-ikonmotiver.md.
 
-Stedsportene har draw_rect paa 9x11 kartpiksler som bare angir HD-visningsfelt og teksturmaal. Opprinnelig rect, expected, indeks- og bankhash styrer fortsatt kildematching og fjerning av originalmarkoeren. Palett leses ved kilderektangelet; sceneVern beskytter figurer og andre avvik ogsaa over den gamle markoeren. Endret markoerstatus eller overlapp beholder originalgrafikk. Originalmodus bruker ikke disse visningsfeltene.
+Stedsportene er redusert til originalens 9x5 kartpiksler, uten eget draw_rect. Portmasteren pakkes proporsjonalt i 72x40 PNG med transparent sidemarg, sentrert og med samme fotpunkt. Hoeyden er fem kartpiksler mot elleve i den forrige HD-leveransen. Opprinnelig rect, expected, indeks- og bankhash styrer fortsatt kildematching og fjerning av originalmarkoeren. Palett leses ved kilderektangelet; sceneVern beskytter figurer og andre avvik. Endret markoerstatus eller overlapp beholder originalgrafikk. Originalmodus er uendret.
 
 # memory.md
 

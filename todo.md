@@ -1,7 +1,7 @@
 # todo.md
 
 ## Neste
-- [x] HD-retting av Math og stedene: loddrett rundt murtaarn og 23 gjentatte Stonehenge-porter. Siste brukerfoto presiserer to stoetter og en overligger; enkeltstaaende soeyle er erstattet. Originale posisjoner, statusmoenstre og spillregler beholdes.
+- [x] HD-retting av Math og stedene: loddrett rundt murtaarn og 23 gjentatte Stonehenge-porter. Siste brukerfoto presiserer to stoetter og en overligger; enkeltstaaende soeyle er erstattet. Portene er skalert proporsjonalt ned til originalens fem kartpiksler i hoeyden. Originale posisjoner, statusmoenstre og spillregler beholdes.
 - [ ] HD-troskap: fullfoere ikonene etter motivkontroll. Tre landemerker og 23 gjentatte stedsporter er motivrettet; oevrige 49 ikonruter har fortsatt konturbehandling. Avklare Tower2, byetiketter og inventarrutenes betydning foer nye tegninger. Bakgrunner etter ikonene, figurer til sist. Se docs/hd-ikonmotiver.md.
 - [ ] HD-troskap: fullføre de resterende figurene og gjenskape originalens fontformer. 2091 av 2291 ikke-tomme figur-/fontruter mangler aktiv kobling; de 200 koblede rutene er heller ikke alle kunstnerisk ferdige. Se docs/hd-status-2026-10-11.md og rutelisten med alle 2361 originalruter.
 - [ ] HD-troskap: fullføre øvrige PIV-scener, 24 manglende sammensatte kampvarianter, rullegrafikk, underfliser og innebygd font. Vurdere genererte bakgrunner mot originalen før full ferdigstatus.

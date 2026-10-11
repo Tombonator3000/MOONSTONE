@@ -8,7 +8,7 @@ De tidligere utkastene misforstod motivene. De er ikke del av den aktive leveran
 
 Bildene pakkes i 8x størrelse til `packed/`, `web/hd/map-landmarks/001..003.png` og `web/hd/map-icons/000..022.png`. Dalen og skogklaringen bruker hele originalutsnittet og myk kantblanding i renderer. Tårnet og portene har transparent bakgrunn, også gjennom portåpningen. Originalens kildefil og palett kontrolleres; fading og den kjente vannsyklusen tillates. Andre paletter beholder originalutsnittet.
 
-Portene har et eget `draw_rect` på 9x11 kartpiksler, med samme midtpunkt og fotpunkt som den gamle 9x5-markøren. Matching og fjerning bruker fortsatt originalens uendrede `rect` og 45 forventede indekser. Endret status eller ridder over originalmarkøren hindrer erstatning. Forgrunnsvernet beskytter også figurer i portens visningsfelt. Landsbyene og spillerikonene beholdes.
+Portene bruker originalens 9x5 kartpiksler, uten eget `draw_rect`. Den urørte portmasteren skaleres proporsjonalt til fem kartpiksler i høyden, med transparent sidemarg, samme midtpunkt og fotpunkt. Forrige HD-versjon var elleve kartpiksler høy. Matching og fjerning bruker originalens uendrede `rect` og 45 forventede indekser. Endret status eller ridder over originalmarkøren hindrer erstatning. Forgrunnsvernet beskytter figurer. Landsbyene og spillerikonene beholdes. [Originalkartet](verification/original-map-size.png) og [HD-kartet](verification/corrected-map-hd.png) viser samme spilltilstand for størrelsessammenligning.
 
 Gjenta pakking uten ny bildegenerering:
 
