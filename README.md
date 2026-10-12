@@ -5,6 +5,12 @@ CD32-utgaven i `Moonstonecd32-AMIGA.zip`. Målet er å spille det på PC og i ne
 også sammen over nettet, og å lære hvordan spillet er bygget, slik at vi kan endre kode
 og grafikk og på sikt bytte til grafikk i høy oppløsning.
 
+Samlede kildefunn om historiske utelatelser, rapporterte originalfeil og forslag
+til utvidelser ligger i [Kuttet innhold og feil](docs/kuttet-innhold-og-feil.md).
+Dokumentet skiller bekreftet historikk fra hypoteser og moderne ideer.
+[Gjenopptaksnotatet](docs/samtale-gjenopptak-2026-10-12.md) bevarer status fra
+den avbrutte grafikksamtalen og peker til de lokale kandidatene.
+
 Porten kjører originalkoden til spillet på en emulert Amiga 500 skrevet i C. Spillets
 regler og turer er derfor helt som før. Funksjoner i spillet kan byttes ut med C en og
 en (decomp), og hver erstatning sjekkes mot originalen.
