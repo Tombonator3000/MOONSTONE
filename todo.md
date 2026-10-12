@@ -200,4 +200,13 @@
 - [x] HD-bakgrunner under foerstegangslasting, scenebytter og forbigaaende nettfeil.
 - [x] PC-klikk paa kartet gir original bevegelse, med tur- og netteierkontroll.
 - [x] Vurdere brukerens innlimte referansetekst mot aktuelle primaerkilder og gjeldende kode.
-- [ ] Samlet lokal kontroll, groenn CI, Pages og offentlig kontroll av berorte scener.
+- [x] Samlet lokal kontroll, groenn CI, Pages og offentlig kontroll av berorte scener (PR #42;108 nettlesersjekker og13+41 offentlige kontroller).
+
+## HD-oppdatering, kartsteder og logo, 12. oktober 2026
+- [x] Dokumentere faktisk aktiv HD-restliste og separate lokale kandidater.
+- [x] Beholde HD-portretter og karakterark ved klikk, rammer, verdier og ikonoppdatering.
+- [x] Verifisere riktige KI-ikoner, inklusive alternative liv/utstyr og små kartporter.
+- [x] Skjule kildebekreftet vunnet lair i HD uten å slette loot eller endre originalregler.
+- [x] Lage, pakke og kontrollere ny glatt Moonstone-logo i faktisk tittelbilde.
+- [x] Rette Ratmen063-lauvets grove interne fargelegging og kontrollere faktisk kampvisning.
+- [ ] Fullføre relevant regresjon, PR, grønn CI, Pages og offentlig dynamisk kontroll.

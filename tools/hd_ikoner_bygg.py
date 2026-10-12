@@ -10,6 +10,33 @@ ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / 'art/hd-icons-2026-10-11'
 SCALE = 8
 
+# Behold de publiserte noeklene000..025. Den siste av24 huleporter
+# var valgt med indeks31 i originalfangsten, og kom derfor ikke med i23-listen.
+MAP_PORTS = [(96,16),(232,16),(296,32),(136,40),(176,48),(240,48),(32,64),(80,64),
+             (216,72),(272,80),(96,88),(208,104),(24,112),(104,120),(248,120),
+             (48,136),(168,136),(120,144),(24,160),(152,176),(232,176),(288,176),(80,184)]
+
+
+def map_shapes():
+    return ([(x,y,9,5,'bar') for x,y in MAP_PORTS]
+            + [(160,20,8,10,'village'),(300,100,8,10,'village'),(160,180,8,10,'village')]
+            + [(24,24,9,5,'bar')])
+
+
+def map_port_expected(game, x, y):
+    """Originalkartet med originalens normale MI020-port, uten valgt31-glød."""
+    source = game.les('test')
+    planes,_,bp = mf.piv_alle(source)[0][8]
+    background = mf.plan_til_indeks(bp,planes)
+    data = game.les('mi.c')
+    port = mf.cel_les(data)[0][20]
+    assert (port['bredde'],port['hoyde'],port['maske']) == (9,5,31)
+    pixels = mf.plan_til_indeks(port['data'],port['plan'],9,5)
+    assert sha(pixels) == '64edbe34d394dc695891aec0a3234c0b8418df8b1bd8f8acc5e08d7b57700828'
+    expected = [pixels[j*9+i] or background[(y+j)*320+x+i] for j in range(5) for i in range(9)]
+    return list(pixels),expected,{'file':'test','frame':8,'bank_sha256':sha(source),
+        'assembly':{'file':'mi.c','frame':20,'bank_sha256':sha(data),'indices_sha256':sha(pixels)}}
+
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -125,17 +152,16 @@ def main():
     # Kartmarkoerene kommer fra en naturlig, dokumentert originalramme.
     # Bare eksakte kildemønstre erstattes; andre statuser forblir originale.
     sample=json.loads((ART/'source/map-frame2000.json').read_text())
-    bars=[(96,16),(232,16),(296,32),(136,40),(176,48),(240,48),(32,64),(80,64),
-          (216,72),(272,80),(96,88),(208,104),(24,112),(104,120),(248,120),
-          (48,136),(168,136),(120,144),(24,160),(152,176),(232,176),(288,176),(80,184)]
-    shapes=[(x,y,9,5,'bar') for x,y in bars]+[(160,20,8,10,'village'),(300,100,8,10,'village'),(160,180,8,10,'village')]
+    shapes=map_shapes()
     source=game.les('test')
     for i,(x,y,w,h,kind) in enumerate(shapes):
         expected=[sample['indices'][(y+j)*320+x+k] for j in range(h) for k in range(w)]
         px=[c if (kind=='bar' and not (j==3 and k in (0,8))) or (kind=='village' and c in (19,24,2,3)) else 0
             for j in range(h) for k,c in enumerate(expected[j*w:(j+1)*w])]
-        entry=make_entry(f'map-icons/{i:03}',px,w,h,sample['palette'],
-            {'file':'test','frame':8,'bank_sha256':sha(source),'runtime_frame':2000,'runtime_state':sample['state']},
+        provenance={'file':'test','frame':8,'bank_sha256':sha(source),'runtime_frame':2000,'runtime_state':sample['state']}
+        if i==26:
+            px,expected,provenance=map_port_expected(game,x,y)
+        entry=make_entry(f'map-icons/{i:03}',px,w,h,sample['palette'],provenance,
             scene='world-map',rect=[x,y,x+w,y+h],expected=expected,dynamic=True)
         entries.append(entry)
     # Landemerkene beholdes paa kildekartets faktiske posisjoner. Polygonene

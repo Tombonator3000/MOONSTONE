@@ -266,9 +266,13 @@
     function visHint() {
         let t = '', topp = false;
         if ((modus === 'alene' || modus === 'vert' || modus === 'hver') && !menyBrukt && !Kjerne.iIntro() && Kjerne.iMeny()) {
-            /* spillets meny kan ikke klikkes i originalen; si at det gaar her */
-            t = beroering() ? 'Trykk på et valg i menyen' : 'Klikk på et valg, eller bruk piltastene og Enter';
-            topp = true;
+            /* Hjelpeteksten maa ikke dekke den nye HD-logoens oevre svinger. */
+            const logo = Visning.hdPaa() && Visning.hdFigurer().some(d =>
+                d.fil.toLowerCase() === 'bold.f' && d.bilde === 73);
+            if (!logo) {
+                t = beroering() ? 'Trykk på et valg i menyen' : 'Klikk på et valg, eller bruk piltastene og Enter';
+                topp = true;
+            }
         } else if (Kjerne.iSlutt()) {
             t = 'Gratulerer! Esc hopper over sluttscenen.';
         } else if (modus === 'alene' && Kjerne.iIntro()) {

@@ -122,3 +122,21 @@ Loot-prøven lager sin egen avgrensede native fixture med
 encounter- og plyndringstegning, og dokumenterer alle minneinngrep i JSON.
 `MOONSTONE_LOOT_STATE` kan peke paa en slik `loot-redraw-ready.sav` i stedet.
 Dette er en sceneprøve, ikke en naturlig gjennomspilling.
+
+`node tools/hd_redraw_sjekk.cjs` venter til hele HD-pakken er lastet, og bruker
+faktiske museklikk og tastetrykk gjennom alle fire riddervalg, navnerammer og
+inventaroppdateringer. Den kontrollerer fire portretter etter hvert valg og bytte,
+fem livshjelmer, seks statsetiketter, sverd og rustning etter klikk og gjenåpning.
+Endrede KI-/SEL-banker og en ukjent opak piksel skal avvises. Original skal
+matche native-bildet, og HD-rundturen skal bevare emulert tilstand og bilde.
+`MOONSTONE_BUILD` velger en fryst lokal byggmappe i stedet for `web/build`;
+`MOONSTONE_URL` velger en eksisterende nettside. Kvittering og skjermbilder
+lagres i `MOONSTONE_VERIFY_OUT`. `MOONSTONE_DIAGNOSE=1` samler feilende førbevis,
+og `MOONSTONE_VERIFY_KNIGHTS=2` avgrenser en slik diagnose til grønn ridder.
+Avgrensede runder er ikke en full fire-riddersjekk.
+
+`MOONSTONE_VERIFY_COLD_KI=1 node tools/hd_redraw_sjekk.cjs` kontrollerer sen
+KI-innlasting separat: tidlige fonte og portretter lastes, KI blokkeres mens
+spilleren velger grønn ridder og klikker i inventaret. Original CPU pauses før
+KI slippes. Alle hjelmer, etiketter, sverd og rustning skal få HD uten en ny
+originaltegning, med samme emulerte bilde og sjekksum.

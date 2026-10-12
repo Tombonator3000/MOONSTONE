@@ -1,0 +1,71 @@
+{
+  "checks": [
+    "logo_and_HD_background_before_remaining_package",
+    "complete_generated_texture_without_crop",
+    "new_logo_keeps_original_width_and_its_aspect_ratio",
+    "hint_does_not_cover_HD_logo",
+    "Original_returns_original_pixels",
+    "HD_roundtrip_exact",
+    "rendering_preserves_original_CPU_state",
+    "no_browser_errors"
+  ],
+  "errors": [],
+  "scope": "Naturlig introhopp og tittel, ingen kjerneminneskriving. Resten av figurpakken er holdt tilbake.",
+  "url": "http://127.0.0.1:46397/moonstone.html",
+  "html_sha256": "013a3d5087a6fbd84eb038cb0ea5cbed7b86cde4c7d99f0da239e3eb57baeb5e",
+  "logo": {
+    "logo": {
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "x": 157.5,
+      "y": 37,
+      "sx": 305,
+      "sy": 72.625
+    },
+    "control": {
+      "godkjent": 1,
+      "utenLag": 0,
+      "kilde": 0,
+      "overlapp": 0,
+      "piksler": 0,
+      "maske": 0,
+      "masket": 0,
+      "poseGodkjent": 0,
+      "poseGruppe": 0,
+      "poseKilde": 0,
+      "posePalett": 0,
+      "poseOverlapp": 0,
+      "posePiksler": 0,
+      "tekstGodkjent": 42,
+      "tekstAvvist": 0,
+      "tekstFeil": [],
+      "lys": 0,
+      "lysUkjent": false,
+      "hdLys": 1,
+      "ikonGodkjent": 0,
+      "ikonAvvist": 0,
+      "palettFigurGodkjent": 0,
+      "palettFigurFeil": [],
+      "bakgrunn": "hd"
+    },
+    "figures": [
+      {
+        "fil": "bold.f",
+        "bilde": 73,
+        "x": 5,
+        "y": 10,
+        "w": 305,
+        "h": 54,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      }
+    ],
+    "state": 2619409879
+  },
+  "status": "passed"
+}

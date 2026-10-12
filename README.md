@@ -26,8 +26,13 @@ sidemenyen huskes. Velg ridder ved å klikke eller trykke på portrettet, eller 
 venstre/høyre og Enter, mellomrom eller fire. Enter eller fire godtar deretter navnet.
 Bakgrunner og menytekst lastes først, deretter ridderportrettene og resten av
 figurpakken. Førstegangslastingen av hele HD-pakken kan ta noen minutter.
+Oppdatert oversikt over levert og manglende HD ligger i [HD-statusen](docs/hd-status-2026-10-12.md).
+Vunne huleporter skjules i HD, mens gjenstående loot kan hentes på samme sted.
 Spillets tekst vises med skarpe, innebygde fonter i HD. Navn, tall og plasseringer
 kommer fortsatt fra originalspillet.
+Lauvet foran Ratmen bruker sammenhengende fotomateriale i den dokumenterte
+Wa2-paletten. Andre terrengpaletter beholder dette originalfragmentet til en
+kildebekreftet HD-variant finnes; bakgrunnen kan fortsatt vises i HD.
 
 Klikk på kartet for å gå til punktet. Ridderen bruker original gangfart, terreng og
 turens bevegelsesbudsjett. Høyreklikk avbryter, og piltaster eller spillkontroller

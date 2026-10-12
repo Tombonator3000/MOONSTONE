@@ -62,7 +62,7 @@ HE_BYTTE = {6: 9, 7: 10, 8: 11}
 RIDDERFARGER = set(range(6, 12))
 # Har HD i dag, men skal tegnes paa nytt.
 PAA_NYTT = {('bold.f', 73)}
-LOGO_SHA256 = 'd7d656cab28178c074feac994a463d1d558ee4bdcfb955675c09881c41071846'
+LOGO_SHA256 = '11c779b393a15a3d445b4fabf84f7c5e23bc381ec8f3f4c2dfa4b5c9db7df712'
 
 # Innbygde ridderfragmenter bruker kampens felles farger6..8. Originalens
 # $088c4a..$088c74 sender palett+12 til $088ca0, ogsaa i monsteranimasjonene.
@@ -117,7 +117,7 @@ def maskefarger(bank, frame):
 
 
 def logo_gjennomfort(rot, filer):
-    """Bare den kildebundne1220x216-leveransen fjerner logoens revisjon."""
+    """Bare den kontrollerte nygenererte2440x581-logoen fjerner revisjonen."""
     from PIL import Image
     path = os.path.join(rot, 'web/hd/bold.f/073.png')
     entry = next((r for r in filer if r['path'] == 'bold.f/073.png'), None)
@@ -127,7 +127,7 @@ def logo_gjennomfort(rot, filer):
         if hashlib.sha256(f.read()).hexdigest() != LOGO_SHA256:
             return False
     with Image.open(path) as im:
-        return im.size == (1220, 216) and im.mode == 'RGBA'
+        return im.size == (2440, 581) and im.mode == 'RGBA'
 
 MONSTRE = {
     'Balok': 'Balok', 'be1.c': 'beistet', 'be2.c': 'beistet (blod og hugg)', 'Demon': 'demonen',

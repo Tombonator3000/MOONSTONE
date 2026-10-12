@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "method": "builtin_imagegen_new_lettering_black_matte_native_asset_pack",
+  "generator": "built-in image_gen; exact model version not exposed",
+  "raw": "raw/logo-black-master-v3.png",
+  "raw_sha256": "1632c8710d3a9cfab3aa99d5652b9c4ba9f41f7ac0ed0ec73025a465a62f8386",
+  "original_reference": "art/hd-completion-backgrounds-2026-10-11/logo/source/nearest4x-reference.png",
+  "original_bank_sha256": "2aec40683ea11d9eed6000e1a32731d65ff1682b89298e5469adeb136fa996f8",
+  "original_indices_sha256": "9b3127c6cb246f3af2caf2d8707bc5a19785231c2bed5aef0f917bb5088aa38d",
+  "source_size": [
+    305,
+    54
+  ],
+  "raw_size": [
+    1885,
+    834
+  ],
+  "raw_rect": [
+    22,
+    198,
+    1845,
+    439
+  ],
+  "matte": {
+    "transparent_max": 5,
+    "opaque_min": 24,
+    "edge": "linear alpha; no glyph reshaping or pixel-mask snapping"
+  },
+  "target": [
+    2440,
+    581
+  ],
+  "candidate_sha256": "11c779b393a15a3d445b4fabf84f7c5e23bc381ec8f3f4c2dfa4b5c9db7df712",
+  "fit": "width",
+  "text": [
+    "MOONSTONE",
+    "A Hard Days Knight"
+  ],
+  "geometry_policy": "Smooth newly generated lettering. Original source frame, anchor and width retained; aspect ratio preserved and vertically centered by existing logo fit.",
+  "activation": true,
+  "manifest_sha256": "09576ba453efbc3c26bb9716116c6e4ef3e8920d751b84192c06d952e0fd7eab"
+}

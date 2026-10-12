@@ -58,7 +58,8 @@ const Visning = (() => {
      * bildet vises to bilder etter det siste. Vi samler derfor tegninger fra bilder
      * paa rad til en klynge og viser den naar den er to bilder gammel.
      * Med lagene blir en figur staaende saa lenge forgrunnen der den ligger er
-     * uendret (tekst tegnes bare en gang); uten lag vises klyngen til det har gaatt
+     * uendret eller en kjent UI-kildes piksler fortsatt stemmer. Tekst tegnes bare
+     * en gang. Uten lag vises klyngen til det har gaatt
      * 50 bilder uten nye tegninger. */
     let hdGruppe = null, hdPakke = new Map(), visRammer = false;
     let hdPaa = false;                      /* false: original grafikk, selv om en HD-pakke er lastet (standard) */
@@ -681,6 +682,40 @@ const Visning = (() => {
         return synlig > 0 || bakgrunn > 0;
     }
 
+    const valgbankSha = '30f6b15498f18bdb94e2cfa236c5eff32a0bcd5dc9e457a0391732dfb1e20a77';
+    const uiBankSha = '02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104';
+    const erValgspor = d => d.fil.toLowerCase() === 'sel.cel' && d.w === 64 && d.h === 76 &&
+        !d.speilet && d.bilde >= 1 && d.bilde <= 5;
+
+    // Inventaret og riddervalget tegnes over flere bufferbytter. Endringer i
+    // transparente hull tilhoerer andre figurer og skal ikke slette dette sporet.
+    // Avgrens til kjente UI-kilder; de fulle kilde-/palett-/eierskapsvernene ved
+    // HD-tegningen gjelder fortsatt. En SHA som venter gir bare sporet ventetid.
+    function erUiSpor(d, g) {
+        if (!g || g.w !== d.w || g.h !== d.h || d.speilet) return false;
+        const fil = d.fil.toLowerCase(), valg = erValgspor(d);
+        // KI-PNG og ikonmanifest kan komme etter inventarets engangstegninger.
+        // Retensjonen bindes derfor til originalbanken allerede under lasting,
+        // ikke til tilstedevaerelsen av HD-bildet eller dets senere metadata.
+        if (!valg && !(fil === 'ki.cel' && d.bilde >= 0 && d.bilde <= 44)) return false;
+        const bank = originalCeler.get(fil);
+        if (!bank) return false;
+        const hash = bankHash(bank).hash;
+        return hash === null || hash === (valg ? valgbankSha : uiBankSha);
+    }
+
+    function valgRammeStaar(lag, p, g) {
+        let synlig = false;
+        for (let j = 0; j < p.h; j++) for (let i = 0; i < p.w; i++) {
+            const x = p.x + i, y = p.y + j, c = g.px[j * p.w + i];
+            if (!c || x < 0 || y < 0 || x >= 320 || y >= 200) continue;
+            const q = y * 320 + x;
+            if (lag.forIdx[q] === c) synlig = true;
+            else if (lag.forIdx[q] !== 255 || lag.bakIdx?.[q] !== c) return false;
+        }
+        return synlig;
+    }
+
     /* hvilke figurer som vises naa (se over) */
     function oppdaterViste(lag) {
         if (!lag) {
@@ -716,22 +751,16 @@ const Visning = (() => {
                     ((d.bilde === 15 && d.y === 83 && d.w === 17) || (d.bilde === 6 && d.y === 108 && d.w === 14));
                 const bokstavPil = menybokstav ? [...plasserte.values()].find((p) => p.menypilKlar !== null && erTittelmenypil(p.d) &&
                     p.x < d.x + d.w && p.x + p.w > d.x && p.y < d.y + d.h && p.y + p.h > d.y) : null;
-                const x = d.x - d.xoff, y = d.y, k = x + ',' + y + ',' + d.w + ',' + d.h;
-                const hash = rektHash(lag.forIdx, x, y, d.w, d.h), forrige = plasserte.get(k);
-                const erValgbilde = (v, min, maks) => v && v.fil.toLowerCase() === 'sel.cel' &&
-                    v.w === 64 && v.h === 76 && !v.speilet && v.bilde >= min && v.bilde <= maks;
-                // Bare den kjente cyan valgrammen kan beholde sitt portrett.
-                // Begge originalkildene kontrolleres fortsatt pikselvis nedenfor.
-                let underlag = null;
-                if (erValgbilde(d, 1, 1)) {
-                    if (erValgbilde(forrige?.d, 2, 5)) underlag = forrige.d;
-                    else if (erValgbilde(forrige?.d, 1, 1) && forrige.hash === hash) underlag = forrige.underlag;
-                }
+                const x = d.x - d.xoff, y = d.y;
+                // Rammen og portrettet deler maal og plass, men er to kilder med
+                // eget pikseleierskap. Et nytt rammespor maa ikke erstatte portrettet.
+                const k = x + ',' + y + ',' + d.w + ',' + d.h + (erValgspor(d) ? ',sel/' + d.bilde : '');
+                const hash = rektHash(lag.forIdx, x, y, d.w, d.h);
                 if (/^(bold\.f|small\.font)$/i.test(d.fil)) for (const [gammel,p] of plasserte) {
                     if (p.x===x && p.y===y && p.d.fil.toLowerCase()===d.fil.toLowerCase()) plasserte.delete(gammel);
                 }
                 plasserte.delete(k);
-                plasserte.set(k, { d, x, y, w: d.w, h: d.h, hash, underlag, fra: bildeNr, sett: false,
+                plasserte.set(k, { d, x, y, w: d.w, h: d.h, hash, fra: bildeNr, sett: false,
                     menypilKlar: ventMenypil ? bildeNr + 2 : (bokstavPil?.menypilKlar ?? null),
                     ventPilNr: ventMenypil ? d.menypilNr : bokstavPil?.ventPilNr });
             }
@@ -758,6 +787,20 @@ const Visning = (() => {
             if (tekst) {
                 if (staarFortsatt(lag, p, lestTekst)) p.sett = true;
                 else if (p.sett || bildeNr - p.fra > 50) borteTekst.push(k);
+            } else if (p.uiKandidat || erUiSpor(p.d, originalCel(p.d.fil, lestTekst)?.[p.d.bilde])) {
+                // Tegninger kan vaere delvis synlige mens neste buffer bygges.
+                // En kjent kandidat maa ogsaa overleve en midlertidig fremmed
+                // bank. Bare en kildebekreftet, synlig kandidat faar eierskap;
+                // forberedHd krever fortsatt hele kilde-/palett-/pikselbeviset.
+                p.uiKandidat = true;
+                const g = originalCel(p.d.fil, lestTekst)?.[p.d.bilde];
+                p.uiAktiv = erUiSpor(p.d, g) && (erValgspor(p.d) && p.d.bilde === 1 ?
+                    valgRammeStaar(lag, p, g) : staarFortsatt(lag, p, lestTekst));
+                if (p.uiAktiv) {
+                    p.sistSett = bildeNr;
+                    p.hash = rektHash(lag.forIdx, p.x, p.y, p.w, p.h);
+                }
+                else if (bildeNr - (p.sistSett ?? p.fra) > 50) borteTekst.push(k);
             } else if (erBaktKamp(p.d, originalCel(p.d.fil, lestTekst)?.[p.d.bilde])) {
                 if (!staarFortsatt(lag, p, lestTekst)) borteTekst.push(k);
             } else if (erDragon5Spor(p.d, originalCel(p.d.fil, lestTekst)?.[p.d.bilde])) {
@@ -777,7 +820,12 @@ const Visning = (() => {
         }
         for (const k of borteTekst) plasserte.delete(k);
         if (plasserte.size > 2000) plasserte.clear();
-        visteListe = [...plasserte.values()].filter((p) => p.menypilKlar === null).flatMap((p) => p.underlag ? [p.underlag, p.d] : [p.d]);
+        const aktive = [...plasserte.values()].filter(p => p.menypilKlar === null && (!p.uiKandidat || p.uiAktiv));
+        // Dobbelbufferen kan fortsatt vise forrige cyanramme etter at CPU har
+        // tegnet portrettene paa nytt. Den eksakte, synlige rammekilden ligger
+        // foran portrettene; en ventende ramme deltar ikke i pikseleierskapet.
+        const ramme = p => p.uiKandidat && erValgspor(p.d) && p.d.bilde === 1;
+        visteListe = [...aktive.filter(p => !ramme(p)), ...aktive.filter(ramme)].map(p => p.d);
     }
 
     function flate(i) {
@@ -934,6 +982,45 @@ const Visning = (() => {
         t.mat.uniforms.ref.value=palettFigurRefTex.get(navn);
         t.mat.uniforms.maske.value=t.palettSjekk.kantTex;
         return false;
+    }
+
+    // Bare RATMEN1/063 er fotografert med Wa2s groenne bladpalett. Samme
+    // originalrute brukes ogsaa med Gll3s brune/blaa farger, som beholder Original.
+    // Originalens innfade klipper hver firebitskanal til n; utfade trekker n fra.
+    const ratmenLauvReferanse = new Map([[5,[0,0,0]],[22,[2,9,5]],[24,[0,6,1]],
+        [25,[0,4,0]],[28,[4,5,0]]]);
+    const ratmenLauvPaletter = Array.from({length:32}, (_,k) => new Map(
+        [...ratmenLauvReferanse].map(([c,rgb]) => [c,rgb.map(v =>
+            (k < 16 ? Math.min(v,k) : Math.max(v-(k-16),0)) * 17)])));
+    function ratmenLauvKlar(d, g) {
+        const bank = originalCeler.get('ratmen1.cel'), scan = Kjerne.skanout();
+        if (!bank || bankHash(bank).hash !== '6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab' ||
+            !g || g.w !== 44 || g.h !== 35 || g.planmaske !== 31 ||
+            indeksHash(g) !== '52b5a933dd9bc0b295ca6decdc7cc219613254ccdcf7f7658b44457fd267c378' ||
+            !scan.gyldig || scan.pal?.length !== H * 32 * 4) return false;
+        const x = d.x-d.xoff;
+        let kandidater = ratmenLauvPaletter, synlig = false;
+        for (let j=0;j<g.h;j++) {
+            if (d.y+j < 0 || d.y+j >= 200) continue;
+            const rad = diwNaa[1]+d.y+j;
+            if (!Number.isInteger(rad) || rad < 0 || rad >= H) return false;
+            let opak = false;
+            for (let i=0;i<g.w;i++) if (x+i >= 0 && x+i < 320) {
+                const c = g.px[j*g.w+(d.speilet ? g.w-1-i : i)];
+                if (c) { opak = true; break; }
+            }
+            if (!opak) continue;
+            // Hele bladpaletten binder fotomaterialet ogsaa naar klipping bare
+            // viser en svart5-celle. Fotoets RGB foelger ikke enkeltcellene.
+            for (const c of ratmenLauvReferanse.keys()) {
+                const p = (rad*32+c)*4;
+                if (scan.pal[p+3] !== 255) return false;
+                kandidater = kandidater.filter(m => m.get(c).every((v,n) => scan.pal[p+n] === v));
+                if (!kandidater.length) return false;
+                synlig = true;
+            }
+        }
+        return synlig;
     }
 
     const fontTegn = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?.,#$% ' + "'_";
@@ -1363,6 +1450,7 @@ const Visning = (() => {
             poseGodkjent: 0, poseGruppe: 0, poseKilde: 0, posePalett: 0, poseOverlapp: 0, posePiksler: 0,
             tekstGodkjent: 0, tekstAvvist: 0, tekstFeil: [], lys: 0, lysUkjent, hdLys };
         hdKontroll.ikonGodkjent = 0; hdKontroll.ikonAvvist = 0;
+        hdKontroll.foliageAvvist = 0;
         hdKontroll.palettFigurGodkjent=0; hdKontroll.palettFigurFeil=[];
         hdMarkor=null;
         vernData.fill(0);
@@ -1388,6 +1476,8 @@ const Visning = (() => {
             // Gamle tegninger helt utenfor vinduet blir staaende i listen (tomt rektangel).
             if (x >= 320 || y >= 200 || x + d.w <= 0 || y + d.h <= 0) continue;
             if (!g || g.w !== d.w || g.h !== d.h || !Number.isInteger(x) || !Number.isInteger(y)) { hdKontroll.kilde++; continue; }
+            if (erValgspor(d) && bankHash(originalCeler.get('sel.cel')).hash !== valgbankSha) { hdKontroll.kilde++; continue; }
+            if (ikey === 'ratmen1.cel/063' && !ratmenLauvKlar(d,g)) { hdKontroll.foliageAvvist++; continue; }
             // En fremtidig HD026 maa heller ikke tegne den gamle skyggen foran
             // den kildebekreftede kroppen. Originalens svarte piksler blir igjen.
             if (eie.gamleSkygger.has(nr)) { hdKontroll.piksler++; continue; }
@@ -2167,7 +2257,6 @@ const Visning = (() => {
         nyesteMenypil++;
         for (const [k, p] of plasserte) {
             if (p.menypilKlar !== null) plasserte.delete(k);
-            else p.underlag = null;
         }
         antallBg = 0;
         maaTegnes = true;
