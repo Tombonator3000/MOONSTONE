@@ -554,3 +554,7 @@ RATMEN1.CEL063 er et44x35-lauvfragment som gjenbrukes med terrengets globale pal
 - render.js blodNivaa binder bank, mål og synlig radpalett, gir absolutt blodlys og beholder Original i fremmed kilde/palett. Kjerne/save/input er uendret. lastHdPakke venter på originalbankhash før BLO installeres.
 - tools/hd_blod_sjekk.cjs skiller kontrollert original Troll-kamp fra frontendfragmentfixturer. Native CPU ser27 BLO-ruter; nettleserkampen18 synlig HD-godkjente. Hele41 normal/speilet, fire klippkanter,13 fader, fremmed bank/palett og full save/retur prøves. Ingen full naturlig kampanje påstås.
 - Produksjon/brief/proveniens: art/hd-blood-wounds-2026-10-12. Aktivering krever full runtime- og visuell SHA-kvittering. Etter denne leveransen:2005PNG/2011filer,749 manglende mastere/812ruter/59mastermasker. Separate009-kandidater er fortsatt uaktivert her.
+
+## Monsterforarbeid 2026-10-12
+
+Original dg1.cel er ritualdanserne i sluttseremonien, ikke et groent beist/kampmonster. Faktisk original sluttgren er kontrollert med bare originalt seiersflagg ved oppstart; bilde1750, kommando og filspor i art/monster-concepts-2026-10-12/source. Den gamle klassifiseringen er rettet i tools/grafikkliste.py, docs/grafikkliste.md og tools/hd_bestilling.py. Trogg-hammer er et eget vaapen i TROGGAxe2.CEL069 og073..079, med samme kroppsbank som oeksen. Elleve konsepter/individuell analyse i art/monster-concepts-2026-10-12 er kun forarbeid, ikke aktive spritesheets. Dragens komplette anatomi og Guardians faseinndeling maa kildeverifiseres samlet foer full konvertering.

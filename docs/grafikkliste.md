@@ -44,7 +44,7 @@ Figurene i spillet bruker fargene til skjermen de vises på (fargeindeksene 0-31
 | Demon2.CEL | Monster | figurer | 99 | 8-73 x 4-62 | Demonen i kamp, del 2. | `Demon2.CEL/` |
 | Demon3.CEL | Monster | figurer | 50 | 3-90 x 5-49 | Demonen i kamp, del 3 (piskeslag). | `Demon3.CEL/` |
 | Demon4.CEL | Monster | figurer | 27 | 8-107 x 2-84 | Demonen i kamp, del 4. | `Demon4.CEL/` |
-| dg1.cel | Monster | figurer | 55 | 5-83 x 1-61 | Et grønt beist med lange bein, i kamp. | `dg1.cel/` |
+| dg1.cel | Intro og slutt | figurer | 55 | 5-83 x 1-61 | Ritualdanserne i sluttseremonien. Ikke et kampmonster. | `dg1.cel/` |
 | dice.cel | Taverna | figurer | 23 | 12-53 x 14-31 | Terningspillet: terninger, beger, hender og bordet. | `dice.cel/` |
 | dice.piv | Taverna | bilde | 1 | 320 x 200 | Terningspillet i tavernaen. | `bg/` (Lagre bakgrunnen) |
 | DRAGON1.CEL | Monster | figurer | 22 | 3-122 x 3-86 | Dragen i kamp, del 1 (de seks første bildene er tomme). | `DRAGON1.CEL/` |
@@ -255,7 +255,7 @@ Demonen i kamp, del 4.
 
 ### dg1.cel
 
-Et grønt beist med lange bein, i kamp.
+Ritualdanserne i sluttseremonien. Ikke et kampmonster.
 
 000: 50x32 (5), 001: 23x15 (5), 002: 45x23 (5), 003: 13x7 (5), 004: 47x29 (5), 005: 30x39 (5), 006: 56x7 (5), 007: 13x11 (4), 008: 48x20 (5), 009: 30x34 (5), 010: 61x5 (5), 011: 5x6 (4), 012: 65x20 (5), 013: 36x25 (5), 014: 12x12 (5), 015: 64x6 (5), 016: 51x26 (5), 017: 15x11 (4), 018: 47x23 (5), 019: 12x7 (2), 020: 55x26 (5), 021: 21x15 (5), 022: 49x8 (5), 023: 18x3 (2), 024: 53x23 (5), 025: 46x16 (5), 026: 17x11 (4), 027: 83x7 (5), 028: 70x39 (5), 029: 32x5 (2), 030: 21x10 (5), 031: 78x37 (5), 032: 43x5 (2), 033: 37x50 (5), 034: 16x11 (4), 035: 20x34 (5), 036: 5x3 (2), 037: 7x1 (3), 038: 39x42 (5), 039: 27x18 (5), 040: 60x10 (5), 041: 43x27 (5), 042: 42x21 (5), 043: 23x13 (4), 044: 71x6 (5), 045: 16x40 (5), 046: 44x54 (5), 047: 15x38 (5), 048: 36x61 (5), 049: 31x17 (5), 050: 44x38 (5), 051: 64x7 (5), 052: 30x13 (5), 053: 48x44 (5), 054: 58x7 (5)
 

@@ -212,7 +212,7 @@ INTRO_HVOR = {
     'au1.cel': 'Introen eller slutten: et ansikt og hugg og våpenbiter',
     'co1.cel': 'Introen eller slutten: figurer i rødt og gull',
     'da1.cel': 'Introen eller slutten: små røde og hvite figurer',
-    'dg1.cel': 'Introen eller slutten: et grønt beist med lange bein',
+    'dg1.cel': 'Sluttseremonien: ritualdanserne, ikke et kampmonster',
     'dw1.cel': 'Introen eller slutten: druidene ved Stonehenge og flammer',
     'ha1.cel': 'Introen eller slutten: hender og arm i rustning (Valley of the Gods)',
     'Klift1.CEL': 'Introen eller slutten: Klift',

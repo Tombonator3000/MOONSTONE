@@ -61,7 +61,7 @@ OM = {
     'Demon2.CEL': ('Monster', 'Demonen i kamp, del 2.'),
     'Demon3.CEL': ('Monster', 'Demonen i kamp, del 3 (piskeslag).'),
     'Demon4.CEL': ('Monster', 'Demonen i kamp, del 4.'),
-    'dg1.cel': ('Monster', 'Et grønt beist med lange bein, i kamp.'),
+    'dg1.cel': ('Intro og slutt', 'Ritualdanserne i sluttseremonien. Ikke et kampmonster.'),
     'dice.cel': ('Taverna', 'Terningspillet: terninger, beger, hender og bordet.'),
     'DRAGON1.CEL': ('Monster', 'Dragen i kamp, del 1 (de seks første bildene er tomme).'),
     'DRAGON2.CEL': ('Monster', 'Dragen i kamp, del 2.'),

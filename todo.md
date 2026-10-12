@@ -206,7 +206,7 @@
 - [x] Dokumentere faktisk aktiv HD-restliste og separate lokale kandidater.
 - [x] Beholde HD-portretter og karakterark ved klikk, rammer, verdier og ikonoppdatering.
 - [x] Verifisere riktige KI-ikoner, inklusive alternative liv/utstyr og små kartporter.
-- [x] Skjule kildebekreftet vunnet lair i HD uten å slette loot eller endre originalregler.
+- [x] Skjule kildebekreftet vunnet lair i HD uten å slette loot eller endre originalregler. Brukeren bekreftet straks-skjuling; offentlig kontroll gjentatt14/14 den12.oktober.
 - [x] Lage, pakke og kontrollere ny glatt Moonstone-logo i faktisk tittelbilde.
 - [x] Rette Ratmen063-lauvets grove interne fargelegging og kontrollere faktisk kampvisning.
 - [x] Fullføre relevant regresjon, PR43, grønn CI, Pages og111 offentlige nettleserkontroller.
@@ -215,4 +215,10 @@
 - [x]41 separate BLO-materialer generert og kildebundet pakket i4x; KN5/65 eksisterende skadefragmenter beholdt.
 - [x] Hele serien visuelt kontrollert,619 kandidatkontroller inklusive normal/speilet, fire klippkanter,13 rødnivåer, fremmed kilde/palett, full lagring og originalkodekamp.
 - [x] Aktivert41 nye PNG-er,2005 PNG/2011 manifestfiler. Restliste749 mastere/812 ruter/59 mastermasker.
-- [ ] Endelig standardpakke, regresjon, PR, grønn CI, Pages og faktisk offentlig BLO-kontroll.
+- [x] Endelig standard619, UI53 og Ratmen26; PR44 flettet,6/6 byggekontroller og5/5 main-/Pagesjobber grønne. Offentlig BLO661/661, alle41 nye PNG byteidentiske,189 PNG-fangster identiske med lokal kontroll. Automatisk review ferdig uten funn.
+
+## Monsterkonsepter 2026-10-12
+- [x] Kartlegge elleve monster-/vaapenkonsepter; identitet, farger og delingsrisiko. DG1 rettet til ritualdansere.
+- [x] Lage og individuelt analysere elleve kildebundne konsepter; Balok/Mudman korrigert i v2, Trogg-varianter beholder identitet.
+- [x] Levere lokalt galleri, originalark, analyse, prompter og kildekontroll. Ingen konseptgrafikk aktivert.
+- [ ] Foer full HD-konvertering: samle original drageanatomi/Guardian-faser, kartlegg sekvens-/ankerkontrakter og kontroller sammenhengende proevesekvenser i spillet.
