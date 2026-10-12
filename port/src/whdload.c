@@ -233,6 +233,7 @@ static bool apply_patchlist(uint32_t pl, uint32_t base)
         if (word) { off = (uint16_t)mem_read16(p); p += 2; }
         else { off = mem_read32(p); p += 4; }
         uint32_t a = base + off;
+        LOG2("whdload: patch %d paa %06x\n", cmd, a);
         switch (cmd) {
         case 1: mem_write16(a, 0x4e75); break;                                       /* R */
         case 2: mem_write16(a, 0x4ef9); mem_write32(a + 2, pl + (uint16_t)mem_read16(p)); p += 2; break; /* P */

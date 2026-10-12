@@ -2157,7 +2157,11 @@ const Visning = (() => {
             } catch(e) {hdIkonFeil.push(e.message);}
         }
         for (const f of alle.filter(f => /(^|\/)text\.json$/i.test(stiFor(f)))) {
-            const tekst = JSON.parse(await f.text());
+            let tekst;
+            try {
+                tekst = JSON.parse(await f.text());
+                if (!tekst || typeof tekst.banks !== 'object' || !Array.isArray(tekst.glyphs)) throw new Error('mangler banks eller glyphs');
+            } catch (e) { hdIkonFeil.push(stiFor(f) + ': ' + e.message); continue; }
             hdTekstBanker.clear();
             for (const [navn, hash] of Object.entries(tekst.banks)) hdTekstBanker.set(navn, hash);
             hdTekstGlyfer = new Set(tekst.glyphs.map(g => g.file + '/' + String(g.frame).padStart(3, '0')));

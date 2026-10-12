@@ -99,8 +99,10 @@
         e.target.value = '';                    /* samme fil kan velges igjen */
         const innebygd = spillfil === INNEBYGD;
         spillfil = b;
-        if (!innebygd) await Lager.sett('spillfil', b);
-        startPaaNytt(innebygd ? 'Bruker den valgte spillfilen til siden lastes på nytt' : 'Spillfilen er lagret i nettleseren');
+        const lagret = innebygd || await Lager.sett('spillfil', b);
+        startPaaNytt(innebygd ? 'Bruker den valgte spillfilen til siden lastes på nytt'
+            : lagret ? 'Spillfilen er lagret i nettleseren'
+            : 'Nettleseren tok ikke imot spillfilen. Den brukes til siden lastes på nytt.');
     });
 
     function visMod() {
@@ -1835,11 +1837,16 @@
         const lagret = await autolagre(true);
         status(lagret ? 'Grafikken ble borte (vanlig på mobil). Spillet er lagret.' : 'Grafikken ble borte (vanlig på mobil).');
         graftimer = setTimeout(() => {
-            if (!Visning.grafikkBorte() || modus !== 'alene' || !lagret) return;
+            if (!Visning.grafikkBorte()) return;
+            if (modus !== 'alene' || !lagret) {
+                /* uten lagring kan vi ikke laste paa nytt for spilleren; si det i stedet for en svart skjerm */
+                lasting('Grafikken kom ikke tilbake. Last siden på nytt for å spille videre.');
+                return;
+            }
             try { sessionStorage.setItem('moonstone.fortsett', '1'); } catch (e) { /* privat vindu */ }
             location.reload();
         }, 6000);
-    }, () => { clearTimeout(graftimer); status('Grafikken er tilbake'); });
+    }, () => { clearTimeout(graftimer); lasting(null); status('Grafikken er tilbake'); });
 
     let skjermlaas = null;
     async function holdSkjermen() {

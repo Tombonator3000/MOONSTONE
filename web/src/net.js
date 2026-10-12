@@ -47,7 +47,8 @@ const Nett = (() => {
     const HOLD = 3;                           /* et kort trykk fra nettet varer minst saa mange bilder */
     const STILLE_INN = 1500;                  /* ms uten joystick fra den andre: siden dens staar, alt er sluppet */
     const STILLE_GJEST = 30000;               /* ms uten noe fra en gjest foer verten regner den som borte */
-    const SKJULT_GJEST = 60000;               /* ms med skjult fane (pingen gaar, spillet staar) foer verten tar over */
+    const SKJULT_GJEST = 60000;
+    const STILLE_HVER = 120000;               /* hver for seg: ms helt uten noe fra en gjest foer den fjernes */               /* ms med skjult fane (pingen gaar, spillet staar) foer verten tar over */
 
     let peer = null, rolle = null, kode = '', mittNavn = 'Player';
     let h = {};                               /* hendelser til app.js */
@@ -204,8 +205,13 @@ const Nett = (() => {
                      * staar spillet paa turen hans); i hver for seg staar den bare paa kartet. */
                     clearInterval(vaktTimer);
                     vaktTimer = setInterval(() => {
-                        if (romSpill !== 'sammen') return;
                         const naa = performance.now();
+                        if (romSpill !== 'sammen') {
+                            /* hver for seg: ridderen kan staa paa kartet en stund, men en gjest som har
+                             * vaert helt stille lenge (ogsaa en skjult fane pinger minst hvert minutt), er borte */
+                            for (const g of [...gjester.values()]) if (naa - g.sist > STILLE_HVER) fjernGjest(g, '{0} svarer ikke lenger');
+                            return;
+                        }
                         for (const g of [...gjester.values()]) {
                             if (naa - g.sist > STILLE_GJEST) fjernGjest(g, '{0} svarer ikke lenger');
                             else if (g.skjultSiden && naa - g.skjultSiden > SKJULT_GJEST) fjernGjest(g, '{0} har vært borte i ett minutt');
@@ -322,6 +328,10 @@ const Nett = (() => {
     function sendAlle(msg) {
         for (const g of gjester.values()) if (g.conn.open) g.conn.send(msg);
     }
+    /* tur for tur: spillet gaar hos verten, saa gjestene faar vite det naar verten skjuler fanen */
+    document.addEventListener('visibilitychange', () => {
+        if (rolle === 'vert' && romSpill === 'sammen' && gjester.size) sendAlle({ t: 'vertSkjult', skjult: document.hidden });
+    });
 
     function spillere() {
         const l = [{ id: 'vert', navn: mittNavn, port: vertPort, spiller: vertSpiller, vert: true }];
@@ -355,12 +365,15 @@ const Nett = (() => {
     async function sendTilstand(id, bytes, bildeNr) {
         const g = gjester.get(id);
         if (!g) return;
+        /* to kall samtidig (en lagring lastes mens den forste tilstanden pakkes): det siste
+         * vinner, og det forste gir seg etter pakkingen i stedet for aa toemme koen */
+        const nr = g.sendNr = (g.sendNr || 0) + 1;
         g.klar = false;
         g.venter = true;
         g.ko = [];
         g.filer.clear();
         const p = await pakk(bytes);
-        if (!gjester.has(id)) return;
+        if (!gjester.has(id) || g.sendNr !== nr) return;
         const n = Math.ceil(p.data.length / DEL);
         const tid = Date.now();
         for (let i = 0; i < n; i++) {
@@ -546,6 +559,7 @@ const Nett = (() => {
         case 'pong': ping = Math.round(performance.now() - d.tid); h.ping && h.ping(ping); break;
         case 'feil': h.feil && h.feil(d.tekst); break;
         case 'slutt': h.frakoblet && h.frakoblet('Verten avsluttet spillet.'); break;
+        case 'vertSkjult': h.status && h.status(T(d.skjult ? 'Verten har byttet fane. Spillet står til verten kommer tilbake.' : 'Verten er tilbake.')); break;
         }
     }
 
@@ -637,6 +651,9 @@ const Nett = (() => {
         rolle = null;
         romSpill = 'sammen';
         rammer.length = 0;
+        /* neste rom starter med standardvalgene, ikke med det forrige rommets */
+        vertPort = 'p2'; vertSpiller = 0; portModus = 'auto';
+        gjesteTaster.length = 0;
     }
 
     return {

@@ -233,6 +233,8 @@ static bool load_old(const uint8_t *buf, size_t size)
     meny_state(&s);
     hver_state_gammel(&s);
     blit_state(&s);
+    game_peker_standard();                 /* pekeren og kartreisen fra spillet som var i gang */
+    game_maane_standard();                 /* eldre lagringer har ikke maanereglene */
     if (s.error) { state_feil = "Lagringen er skadet."; return false; }
     M.aborted = false;
     M.abort_msg[0] = 0;

@@ -24,7 +24,7 @@
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }      /* ogsaa for knapper med display: inline-flex */
-html, body { margin: 0; height: 100%; background: var(--natt); color: var(--tekst); }
+html, body { margin: 0; height: 100%; background: var(--natt); color: var(--tekst); overscroll-behavior: none; }
 body { font: 16px/1.45 Georgia, "Times New Roman", serif; }
 h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; color: var(--gull); font-weight: normal; margin: 0 0 .5em; }
 h1 { font-size: 2.6rem; letter-spacing: .06em; }
@@ -105,7 +105,7 @@ label.knapp input[type=file] { display: none; }
 
 /* ---------------------------------------------------------------- spillet */
 #spill { position: fixed; inset: 0; background: #000; }
-#skjerm { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+#skjerm { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; touch-action: none; }   /* trykk og dra er spillets, ikke rulling */
 #lerret { display: block; image-rendering: pixelated; }
 #meny-knapp { position: absolute; top: max(10px, env(safe-area-inset-top)); right: 10px; color: var(--krem); background: rgba(34, 17, 0, .6);
         border: calc(var(--pe) * 2) solid rgba(136, 68, 34, .85); border-radius: 0; padding: 6px 10px; cursor: pointer; opacity: .7; font: inherit; font-size: .85rem; }

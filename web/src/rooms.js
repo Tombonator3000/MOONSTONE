@@ -67,9 +67,9 @@ const Romliste = (() => {
         const rom = new Map();
         const vis = () => {
             const grense = Date.now() - LEVETID * 1000;
-            cb([...rom.values()].filter((r) => r.tid > grense).sort((a, b) => b.tid - a.tid));
+            cb([...rom.values()].filter((r) => r.sett > grense).sort((a, b) => b.sett - a.sett));
         };
-        const paaMelding = (tema, data) => {
+        const paaMelding = (tema, data, pakke) => {
             if (!tema.startsWith(TEMA)) return;
             const k = tema.slice(TEMA.length);
             const tekst = data.toString();
@@ -77,6 +77,9 @@ const Romliste = (() => {
             else {
                 try {
                     const r = JSON.parse(tekst);
+                    /* klokka hos verten kan gaa feil: en melding som kommer naa (ikke en lagret),
+                     * er fersk uansett hva verten skrev, og en lagret kan ikke vaere fra framtiden */
+                    if (r) r.sett = pakke && !pakke.retain ? Date.now() : Math.min(Number(r.tid) || 0, Date.now());
                     if (r && r.kode === k && (r.f >>> 0) === format()) rom.set(k, r);
                     else rom.delete(k);
                 } catch (e) { /* ugyldig */ }

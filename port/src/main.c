@@ -122,6 +122,8 @@ static void usage(void)
            "  --lag F:PREFIKS       lagene (lag.c) i bilde F: PREFIKS_bak.png og PREFIKS_for.png\n"
            "  --lag-dump MAPPE      hver ny bakgrunn som MAPPE/HASH.png (til HD-bakgrunner)\n"
            "  --vakt ADR            skriv ut hver gang CPU-en skriver til ADR (heks, 4 byte)\n"
+           "  --unntak N            skriv ut de N foerste ord-/langordtilgangene paa oddetallsadresser\n"
+           "                        (adressefeil paa en ekte 68000) og stopp ved hopp til vektorene\n"
            "  --hver F:K:ARG:TEKST  kommando K til hver.c i bilde F (1 fjerne plasser, 2 ridder)\n"
            "  --wav FIL             ta opp lyden\n"
            "  --log N               0 stille, 1 normal, 2 alt\n");
@@ -237,6 +239,7 @@ int main(int argc, char **argv)
             }
             i++;
         }
+        else if (!strcmp(a, "--unntak") && v) { amiga_unntak = atoi(v); i++; }
         else if (!strcmp(a, "--vakt") && v) { extern uint32_t amiga_vakt; amiga_vakt = (uint32_t)strtoul(v, NULL, 16); i++; }
         else if (!strcmp(a, "--blit-trace") && v) {
             extern int blit_trace_from, blit_trace_n;

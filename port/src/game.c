@@ -123,6 +123,9 @@ static bool observe_rulle_slutt(void) { if (moete) moete = MOETE_FOER; return fa
 static bool observe_kamp(void) { if (moete) moete = MOETE_KAMP; return false; }
 static bool observe_plyndring(void) { if (moete) moete = MOETE_PLYNDRING; return false; }
 static bool observe_moete_slutt(void) { moete = MOETE_INGEN; return false; }
+/* hver.c hopper rett til $080BD8, og da kjoeres ikke krokene der (Musashi kaller ikke
+ * kroken for instruksjonen PC settes til) */
+void game_moete_slutt(void) { observe_moete_slutt(); }
 
 /* navnet til ridder k (0-3), eller "" */
 const char *game_knight_name(int k)
@@ -538,7 +541,13 @@ void game_state(StateIO *s)
     STATE_VAR(s, cels);
     STATE_VAR(s, n_cels);
     STATE_VAR(s, background);
-    if (!s->saving) valg_bilde = navn_bilde = velg_bilde = 0xffffffffu;    /* et annet bilde enn da lokka gikk */
+    if (!s->saving) {
+        valg_bilde = navn_bilde = velg_bilde = 0xffffffffu;    /* et annet bilde enn da lokka gikk */
+        /* en lagring kan vaere skadet eller laget for aa lure: hold oss inne i tabellene */
+        if (n_cels < 0 || n_cels > MAX_CELS) n_cels = 0;
+        for (int i = 0; i < MAX_CELS; i++) cels[i].name[sizeof cels[i].name - 1] = 0;
+        background[sizeof background - 1] = 0;
+    }
 }
 
 /* ------------------------------------------------------------ pekeren (inventar, by, butikker)

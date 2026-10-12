@@ -160,6 +160,8 @@ void     amiga_run_frame(void);           /* kjorer til neste bilde er ferdig */
 uint64_t amiga_now(void);                 /* naa, i CPU-sykluser (ogsaa midt i en instruksjon) */
 void     amiga_update_irq(void);
 void     amiga_end_slice(void);           /* faar CPU-en til aa gi fra seg kontrollen snart */
+extern int amiga_unntak;                  /* --unntak N: oddetallstilganger og hopp til vektorene (B01) */
+void     amiga_regdump(const char *hva);
 int      amiga_hpos(void);                /* naavaerende CCK paa linjen */
 void     amiga_key(int rawcode, bool down);
 extern const uint32_t *amiga_framebuffer; /* FB_W x FB_H, byte R G B A */
@@ -381,6 +383,7 @@ void     video_state(StateIO *s);
 void     whd_state(StateIO *s);
 void     game_state(StateIO *s);
 void     game_state_moete(StateIO *s);
+void     game_moete_slutt(void);           /* moetet er over (hver.c hopper forbi kroken) */
 void     game_state_maane(StateIO *s);     /* maanereglene (valg) */
 void     game_maane_standard(void);
 extern int game_maaneregler;              /* maanereglene fra manualen, 0 = originalen */     /* moetefasen (maa passe med minnet) */

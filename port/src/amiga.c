@@ -130,8 +130,9 @@ uint32_t mem_read8(uint32_t a)
 uint32_t mem_read16(uint32_t a)
 {
     a &= 0xffffff;
-    if (a < CHIP_SIZE) return (uint32_t)chip[a] << 8 | chip[a + 1];
-    if (a - FAST_BASE < FAST_SIZE) { uint8_t *p = fast + (a - FAST_BASE); return (uint32_t)p[0] << 8 | p[1]; }
+    if (a < CHIP_SIZE - 1) return (uint32_t)chip[a] << 8 | chip[a + 1];
+    if (a - FAST_BASE < FAST_SIZE - 1) { uint8_t *p = fast + (a - FAST_BASE); return (uint32_t)p[0] << 8 | p[1]; }
+    if (a == CHIP_SIZE - 1 || a == FAST_BASE + FAST_SIZE - 1) return mem_read8(a) << 8 | mem_read8(a + 1);   /* siste byte: ikke forbi tabellen */
     if ((a & 0xfff000) == 0xdff000) return custom_read(a & 0x1fe);
     return io_read8(a) << 8 | io_read8(a + 1);
 }
@@ -152,8 +153,9 @@ void mem_write8(uint32_t a, uint32_t v)
 void mem_write16(uint32_t a, uint32_t v)
 {
     a &= 0xffffff;
-    if (a < CHIP_SIZE) { chip[a] = (uint8_t)(v >> 8); chip[a + 1] = (uint8_t)v; return; }
-    if (a - FAST_BASE < FAST_SIZE) { uint8_t *p = fast + (a - FAST_BASE); p[0] = (uint8_t)(v >> 8); p[1] = (uint8_t)v; return; }
+    if (a < CHIP_SIZE - 1) { chip[a] = (uint8_t)(v >> 8); chip[a + 1] = (uint8_t)v; return; }
+    if (a - FAST_BASE < FAST_SIZE - 1) { uint8_t *p = fast + (a - FAST_BASE); p[0] = (uint8_t)(v >> 8); p[1] = (uint8_t)v; return; }
+    if (a == CHIP_SIZE - 1 || a == FAST_BASE + FAST_SIZE - 1) { mem_write8(a, v >> 8); mem_write8(a + 1, v & 0xff); return; }
     if ((a & 0xfff000) == 0xdff000) { custom_write(a & 0x1fe, (uint16_t)v); return; }
     if ((a & 0xff0000) == 0xbf0000) { io_write8(a, v >> 8); io_write8(a + 1, v & 0xff); return; }
     LOG2("skriv16 %04x til ukjent adresse %06x\n", v & 0xffff, a);
@@ -166,9 +168,10 @@ void mem_write32(uint32_t a, uint32_t v)
 }
 
 /* Musashi */
+void amiga_odde(unsigned a, int n, bool skriv);
 unsigned int m68k_read_memory_8(unsigned int a)  { return mem_read8(a); }
-unsigned int m68k_read_memory_16(unsigned int a) { return mem_read16(a); }
-unsigned int m68k_read_memory_32(unsigned int a) { return mem_read32(a); }
+unsigned int m68k_read_memory_16(unsigned int a) { if ((a & 1) && amiga_unntak) amiga_odde(a, 2, false); return mem_read16(a); }
+unsigned int m68k_read_memory_32(unsigned int a) { if ((a & 1) && amiga_unntak) amiga_odde(a, 4, false); return mem_read32(a); }
 /* --vakt ADR: skriv ut naar CPU-en skriver til ADR til ADR+3 (analyse) */
 uint32_t amiga_vakt = 0xffffffffu;
 static void vakt(unsigned a, unsigned n, unsigned v)
@@ -177,8 +180,40 @@ static void vakt(unsigned a, unsigned n, unsigned v)
     printf("vakt bilde %u pc %06x: %u byte til %06x = %x\n", M.frame, m68k_get_reg(NULL, M68K_REG_PPC), n, a, v);
 }
 void m68k_write_memory_8(unsigned int a, unsigned int v)  { if (amiga_vakt != 0xffffffffu) vakt(a, 1, v); mem_write8(a, v); }
-void m68k_write_memory_16(unsigned int a, unsigned int v) { if (amiga_vakt != 0xffffffffu) vakt(a, 2, v); mem_write16(a, v); }
-void m68k_write_memory_32(unsigned int a, unsigned int v) { if (amiga_vakt != 0xffffffffu) vakt(a, 4, v); mem_write32(a, v); }
+void m68k_write_memory_16(unsigned int a, unsigned int v) { if (amiga_vakt != 0xffffffffu) vakt(a, 2, v); if ((a & 1) && amiga_unntak) amiga_odde(a, 2, true); mem_write16(a, v); }
+void m68k_write_memory_32(unsigned int a, unsigned int v) { if (amiga_vakt != 0xffffffffu) vakt(a, 4, v); if ((a & 1) && amiga_unntak) amiga_odde(a, 4, true); mem_write32(a, v); }
+
+/* --unntak: analyse (B01, docs/undersokelser/b01-troll.md). Emulatoren er en 68000 uten
+ * adressefeil (M68K_EMULATE_ADDRESS_ERROR er av), saa et ord eller langord paa en
+ * oddetallsadresse gaar bra her, mens en ekte 68000 (A500) stopper med Address Error.
+ * CD32 har 68020, som tillater det. Med --unntak skrives hver slik tilgang ut, og et
+ * hopp til vektorene ($0-$3FF, der et unntak havner fordi vektorene er 0) stopper
+ * maskinen med registrene og stakken. */
+int amiga_unntak;
+static unsigned odde_antall;
+void amiga_regdump(const char *hva)
+{
+    printf("%s bilde %u pc %06x ppc %06x sr %04x\n", hva, M.frame, m68k_get_reg(NULL, M68K_REG_PC),
+           m68k_get_reg(NULL, M68K_REG_PPC), m68k_get_reg(NULL, M68K_REG_SR));
+    static const int d[8] = { M68K_REG_D0, M68K_REG_D1, M68K_REG_D2, M68K_REG_D3, M68K_REG_D4, M68K_REG_D5, M68K_REG_D6, M68K_REG_D7 };
+    static const int ar[8] = { M68K_REG_A0, M68K_REG_A1, M68K_REG_A2, M68K_REG_A3, M68K_REG_A4, M68K_REG_A5, M68K_REG_A6, M68K_REG_A7 };
+    printf("  d:");
+    for (int i = 0; i < 8; i++) printf(" %08x", m68k_get_reg(NULL, d[i]));
+    printf("\n  a:");
+    for (int i = 0; i < 8; i++) printf(" %08x", m68k_get_reg(NULL, ar[i]));
+    uint32_t sp = m68k_get_reg(NULL, M68K_REG_A7);
+    printf("\n  stakk:");
+    for (int i = 0; i < 12; i++) printf(" %08x", mem_read32(sp + 4 * (uint32_t)i));
+    printf("\n");
+}
+void amiga_odde(unsigned a, int n, bool skriv)
+{
+    if (!whd_mog_loaded || odde_antall >= (unsigned)amiga_unntak) return;
+    odde_antall++;
+    char hva[64];
+    snprintf(hva, sizeof hva, "odde %s %d byte %06x:", skriv ? "skriv" : "les", n, a & 0xffffff);
+    amiga_regdump(hva);
+}
 unsigned int m68k_read_disassembler_8(unsigned int a)  { a &= 0xffffff; uint8_t *p = mem_ptr(a, 1); return p ? p[0] : 0; }
 unsigned int m68k_read_disassembler_16(unsigned int a) { return m68k_read_disassembler_8(a) << 8 | m68k_read_disassembler_8(a + 1); }
 unsigned int m68k_read_disassembler_32(unsigned int a) { return m68k_read_disassembler_16(a) << 16 | m68k_read_disassembler_16(a + 2); }

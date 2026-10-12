@@ -280,8 +280,18 @@ void patch_reset(void)
     hver_reset();
 }
 
+/* bold.f: tegntabellen paa $96210 (fra mellomrom) gir '?' den tomme glyfen 69, selv
+ * om glyf 63 i fila er et spoersmaalstegn. Derfor forsvinner spoersmaalstegnene, f.eks.
+ * hos Math. Glyf 63 brukes ellers ikke. */
+#define BOLD_SPM 0x9622f
+static void rett_spoersmaalstegn(void)
+{
+    if (chip[BOLD_SPM] == 69 && chip[0x96210 + 1] == 62) chip[BOLD_SPM] = 63;
+}
+
 void game_mog_ready(void)
 {
+    rett_spoersmaalstegn();
     text_next = TEXT_BASE;
     int changed = apply_texts();
     bool menu = meny_mog_ready();
