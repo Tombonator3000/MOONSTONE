@@ -35,6 +35,9 @@ for row in manifest['files']:
 for key, row in old.items():
     check(active[key] == row, 'Tidligere fil urort ' + key)
 
+# Originalreferansene er regenererbare data og lagres ikke i Git.
+# Dette SHA-bundne skriptet krever byteidentisk eksisterende geometri.
+subprocess.run([sys.executable, str(F / 'production/beast/next006-011-v1/prepare-v3.py')], cwd=R, check=True)
 expected, routes, generated, aliases, shadows, proofs = set(), [], [], [], [], []
 for contract in index['deliveries']:
     p = R / contract['path']
