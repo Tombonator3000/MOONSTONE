@@ -83,6 +83,7 @@ ta dem med; ellers hopper testen over dem med en melding.
 | `ver1` | Versjonssjekk i nettspill: romlisten viser bare rom med samme lagringsformat, og en gjest med et annet format får beskjed og blir ikke stående og vente. | 2 min |
 | `fullt2` | Fullt rom: verten og tre gjester, en femte får beskjed om at rommet er fullt uten at spillet hans startes på nytt. | 3 min |
 | `start1` | HD som standard, ett trykk over introen, alle fire portrettklikk, Enter/mellomrom, lagret Original-valg og mobiltrykk. | 2 min |
+| `hdstart1` | Blokkerer HD-nedlastingen til riddervalget er åpnet. Alle fire engangstegnede portretter skal få HD etter sen lasting, og Enter skal fortsatt velge riktig ridder. | 2 min |
 | `m1` | Mobil (berøring, stående telefon): trykk hopper over introen, styrekorset flytter pilen, Fire går til kartet. | 1 min |
 | `m2` | Mobil: spillets grafikk på siden, sidemenyen med trykk, navnet til ridderen med tekstfelt (æøå blir ae, o, a), valgene på kartet som knapper med styrekorset og Fire. | 1 min |
 

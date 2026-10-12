@@ -24,6 +24,7 @@ den holder på med.
 HD-grafikk lastes automatisk som standard. Et uttrykkelig valg av Original i
 sidemenyen huskes. Velg ridder ved å klikke eller trykke på portrettet, eller bruk
 venstre/høyre og Enter, mellomrom eller fire. Enter eller fire godtar deretter navnet.
+Førstegangslastingen av HD kan ta noen minutter; portrettene får HD når bildene er klare.
 
 Spillfilen (`Moonstonecd32-AMIGA.zip` fra repoet) er bygget inn i siden. En annen
 spillfil, f.eks. «Moonstone CD32.iso», kan velges i menyen (Home eller knappen oppe til

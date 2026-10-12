@@ -2125,7 +2125,8 @@ const Visning = (() => {
         viste: () => visteListe.length,             /* figurer som vises med HD-bilde eller gult felt */
         maaTegnes: () => maaTegnes,
         utsnitt: () => crop.slice(),                /* delen av rammebufferet som vises (x0, y0, x1, y1) */
-        brukerListe: () => hdPaa && (hdPakke.size > 0 || hdPoser.size > 0 || visRammer),   /* trengs tegnelisten fra kjernen? */
+        /* Standardlastingen maa samle engangstegninger foer bildene er lastet. */
+        brukerListe: () => tvungetLag || (hdPaa && (hdPakke.size > 0 || hdPoser.size > 0 || visRammer)),
         /* Lastede pakker trenger lag ogsaa i Original for aa beholde plasseringen
          * av engangstegnet tekst naar HD slaas paa igjen. */
         trengerLag: () => hdPakke.size > 0 || hdPoser.size > 0 || effekter.skygge || effekter.dybde || tvungetLag,
