@@ -3,7 +3,7 @@
 Undersøkt 12. oktober 2026 i Amiga CD32-utgaven vi kjører (punkt 2 i planen i
 [kuttet-innhold-og-feil.md](../kuttet-innhold-og-feil.md)). Hver påstand er merket:
 
-- **målt**: kjørt med `tools/maane.py` eller headless med `--vakt`
+- **målt**: kjørt med `tools/maane.py`, `tools/maane_kamp.py` eller headless med `--vakt`
 - **kode**: lest i `disasm/mog.s`, ikke kjørt
 - **manual**: står i manualen [S3]
 
@@ -33,10 +33,10 @@ Utgaven (fra `tools/maane.py`):
 |---|---|---|---|
 | Hvor ofte månen skifter | hvert tredje døgn | hvert fjerde døgn | målt over 6 skifter: dag 4, 8, 12, 16 ... |
 | Fasene | ny, voksende, full, avtagende | 8 trinn med fem bilder: 45 46 47 48 49 48 47 46 | kode, målt |
-| Moonstone | dobbel hit points med riktig stein | **dobbel skade** fra ridderen når han bærer steinen som passer til bildet (`sub_085ae0`, `$085b2a`-`$085b74`). Ingen endring av hit points funnet. | kode |
-| Hvilke steiner | fire Moonstones | fire stein-biter (`$16` i inventaret, bit 0-3) mot tre bilder: bit 1 = 45, bit 0 og bit 3 = 47, bit 2 = 49. Bilde 46 og 48 gir ingen effekt. | kode |
+| Moonstone | dobbel hit points med riktig stein | **dobbel skade** fra ridderen når han bærer steinen som passer til bildet (`sub_085ae0`, `$085b2a`-`$085b74`). Ingen endring av hit points funnet. | kode, målt: slaget mot en rotte går fra 3 til 6 bare når steinen passer til bildet |
+| Hvilke steiner | fire Moonstones | fire stein-biter (`$16` i inventaret, bit 0-3) mot tre bilder: bit 1 = 45, bit 0 og bit 3 = 47, bit 2 = 49. Bilde 46 og 48 gir ingen effekt. | kode, målt for alle fire biter mot 45, 47 og 49 |
 | Stonehenge | lever steinen i riktig fase | druidene (`$08170a`) tar bare imot en stein som passer til månebildet nå | kode |
-| Ratmen sterkere med månen | ja | **ikke funnet.** Månebildet leses bare tre steder: skadeberegningen over, Stonehenge og tegningen (`$082b6e`). Ingen monsterkode leser fasen eller bildet. | kode |
+| Ratmen sterkere med månen | ja | **nei.** Månebildet leses bare tre steder: skadeberegningen over, Stonehenge og tegningen (`$082b6e`). Ingen monsterkode leser fasen eller bildet. | kode, målt: rottebittet tar 3 ved nymåne, halvmåne og fullmåne |
 | Svart ridder | jakter deltakerne | blir aktiv først når `$08F150` >= 2, altså etter to faseskifter (dag 8) (`sub_0ab03e`) | kode |
 
 ## Feil funnet i originalen
@@ -53,17 +53,30 @@ startes på nytt (game over eller nytt spill fra menyen).
 
 | Punkt | Originalen | Belegg |
 |---|---|---|
-| Hvor smitten settes | treff-rutinen `$0855ce`: et angrep av type 4 (`$40(a0) = 4`) trekker skade og setter `$82 = 1` på ridderen | kode (ligger i et område disassembleren tolker som data) |
-| Hva den gjør | hver ny dag trekkes 1 fra livsnivået `$49` (0-5) for en syk ridder (`$080750`) | kode |
+| Hvem smitter | Ratmen. Slaghandleren deres (`dat_0855ce`, valgt fra tabellen `$08D8DE` med `+$4D = $24`) har to angrep: type 4 er et bitt som trekker skade og setter `$82 = 1` på ridderen (`$0855ec`), type 8 trekker bare skade | kode, målt: tre av fire forsøk med ulik ventetid ga smitte |
+| Hva den gjør | **ved hvert faseskifte**, ikke hver dag, trekkes 1 fra livsnivået `$49` (0-5) for en syk ridder. Trekket ligger i `sub_080704`, som bare kalles når månen skifter (`$08068c`). | kode, målt: livsnivået falt på dag 4, 8 og 12 |
+| Hvor fort | fra fullt (5) til 0 tar fem faseskifter, altså 20 døgn uten andre tap. Et tapt slag i kamp (livet `$50` til 0, `$080446`) koster også ett livsnivå, så i praksis går det fortere. | målt |
 | Hva som kurerer | helbrederen for minst 10 gull (`$089db2`), druidene ved Stonehenge (`$0817b2`), og drikken i inventaret (`sub_08bd44`) | kode |
 
-Ikke målt ennå: hvilket monster som har angrepstype 4 (trolig Ratmen, som manualen sier),
-og hvor mange dager det tar før en syk ridder dør.
+Manualen sier at sykdommen tærer på ridderen over tid. At den følger månen og ikke
+dagene, står ikke der. Med månereglene på skifter fasen hvert tredje døgn, og da
+går sykdommen tilsvarende fortere.
+
+## Valget: månereglene fra manualen
+
+Av som standard. På nettsiden heter det «Moon rules from the manual» under
+innstillingene, på PC `--maaneregler`. Valget lagres i spillet (delen `MAAN` i
+lagringen), så en lagring beholder reglene den ble startet med, og en gjest i
+nettspill får vertens regler. Lappene ligger i `port/src/game.c`:
+
+| Endring | Hvordan | Målt |
+|---|---|---|
+| Fasen skifter hvert tredje døgn | `$080664`: når dagtelleren er 3, settes den til 4 før sammenligningen | `tools/maane.py --maaneregler`: skifte på dag 3, 6, 9 ... |
+| Ratmen sterkere med månen | `$0855de`, `$085608` og `$085b76`: skaden fra en angriper med `+$4D = $24` ganges med (4 + trinn) / 4, der trinn er 0 ved nymåne og 4 ved fullmåne. Altså x1, x1,25, x1,5, x1,75 og x2. | `tools/maane_kamp.py`: bittet tar 3, 4 og 6 ved nymåne, halvmåne og fullmåne |
+| M1 rettet | `$084c7e`: nytt spill nullstiller også `$08F152` | etter game over går bildet 45, 46, 47 som i et nytt spill |
 
 ## Neste målinger
 
-1. Skaden med og uten passende stein, fra én lagring før en kamp: skriv bare
-   `$08CEA6` og bit 0-3 i `$16` i inventaret, og spill av de samme tastetrykkene.
-2. Sykdom: finn angrepstype 4 i monstertabellene, gjenskap smitte, og tell dagene.
-3. M1 i nettversjonen: rett ved å nullstille `$08F152` i nytt spill, men bare som valg,
-   siden det endrer originaloppførselen.
+1. Hva som skjer når en syk ridder står på livsnivå 0 og månen skifter igjen
+   (`subi.b` fra 0 gir 255, men spillet kan fange det før).
+2. Om datamaskinens riddere blir smittet og helbredet på samme måte.

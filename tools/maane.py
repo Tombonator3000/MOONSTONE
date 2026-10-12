@@ -2,14 +2,15 @@
 """
 maane.py - maaler maanefasene i originalkoden (docs/undersokelser/maane.md).
 
-    python3 tools/maane.py [--dager 40] [--game Moonstonecd32-AMIGA.zip] [--nohooks]
+    python3 tools/maane.py [--dager 40] [--game Moonstonecd32-AMIGA.zip] [--nohooks] [--maaneregler]
 
 Lager et spill paa kartet (samme oppskrift som tests/nettleser/felles.js),
 trykker End turn til dagene gaar, og foelger med paa to felt med --vakt:
 dagtelleren ($08CEA8, 1-4) og maanebildet ($08CEA6, ki.cel 45-49) som
 sub_08064a skriver hver ny dag. Skriver utgaven (SHA-256 for spillfilene og
 slaven) og en tabell over dag, fase og bilde. Et nytt spill etter game over
-($084C72) vises som egen linje.
+($084C72) vises som egen linje. Med --maaneregler kjoeres valget som foelger
+manualen (fasen hvert tredje doegn, M1 rettet).
 """
 import argparse
 import hashlib
@@ -45,6 +46,7 @@ def main():
     ap.add_argument('--dager', type=int, default=40)
     ap.add_argument('--game', default=os.path.join(ROT, 'Moonstonecd32-AMIGA.zip'))
     ap.add_argument('--nohooks', action='store_true')
+    ap.add_argument('--maaneregler', action='store_true')
     a = ap.parse_args()
     if not os.path.exists(PROG):
         sys.exit('Bygg foerst: make -C port headless')
@@ -52,7 +54,8 @@ def main():
         print('utgave %-14s %s' % (k, v))
     with tempfile.TemporaryDirectory() as tmp:
         kart = os.path.join(tmp, 'kart.sav')
-        subprocess.run([PROG, '--game', a.game] + TIL_KARTET + ['--save-state', '2000:' + kart, '--frames', '2001'],
+        valg = ['--maaneregler'] if a.maaneregler else []
+        subprocess.run([PROG, '--game', a.game] + valg + TIL_KARTET + ['--save-state', '2000:' + kart, '--frames', '2001'],
                        check=True, capture_output=True)
         bilder = 2000 + a.dager * 2600          # en dag tar rundt 2000 bilder med trykkene under
         trykk = []
@@ -61,7 +64,7 @@ def main():
         for f in range(2350, bilder, 1000):
             trykk += ['--press', '%d:fire:6' % f]
         r = subprocess.run([PROG, '--game', a.game, '--headless', '--load-state', kart, '--frames', str(bilder),
-                            '--log', '0', '--vakt', '8cea6'] + (['--nohooks'] if a.nohooks else []) + trykk,
+                            '--log', '0', '--vakt', '8cea6'] + valg + (['--nohooks'] if a.nohooks else []) + trykk,
                            capture_output=True, text=True)
     dag = 0
     print('%7s %4s %6s  %s' % ('bilde', 'dag', 'teller', 'maane'))
@@ -71,7 +74,8 @@ def main():
             continue
         bilde, pc, adr, verdi = int(m.group(1)), m.group(2), m.group(3), int(m.group(4), 16)
         if pc.endswith('84c72'):
-            print('%7d  nytt spill: maanen settes til nymaane, men faseindeksen $08F152 beholdes' % bilde)
+            print('%7d  nytt spill: maanen settes til nymaane%s' % (bilde, '' if a.maaneregler else
+                  ', men faseindeksen $08F152 beholdes'))
         elif adr.endswith('a8') and pc.endswith('8065e'):
             dag += 1
             print('%7d %4d %6d' % (bilde, dag, verdi))

@@ -49,6 +49,7 @@ const Sprak = (() => {
         'Hele PAL-bildet (med kanter)': 'Full PAL picture (with borders)',
         'Lydstyrke': 'Volume',
         'Vent på fire før kamp': 'Wait for fire before battles',
+        'Månereglene fra manualen': 'Moon rules from the manual',
         'Styrekors og knapper også med mus': 'On-screen controls with a mouse too',
         'Effekter': 'Effects',
         'Skygger under figurer og tekst': 'Shadows under figures and text',
@@ -100,6 +101,8 @@ const Sprak = (() => {
         'Vises for de andre i nettspillet.': 'Shown to the other players online.',
         'Bokstaver, tall og mellomrom, opptil 13 tegn.': 'Letters, numbers and spaces, up to 13 characters.',
         'Skriv romkoden (seks tegn) eller lim inn invitasjonslenken.': 'Type the room code (six characters) or paste the invite link.',
+        'Månen skifter hvert tredje døgn i stedet for hvert fjerde, og Ratmen slår hardere jo fullere månen er, opptil dobbelt ved fullmåne. En lagring beholder reglene den ble startet med. Gjelder fra neste start.':
+            'The moon changes every third day instead of every fourth, and Ratmen hit harder as the moon waxes, up to double at full moon. A saved game keeps the rules it was started with. Takes effect the next time the game starts.',
         'ButtonWait: kampen venter på fire, så du får tid til å lese. Gjelder fra neste start.':
             'ButtonWait: battles wait for fire, so you have time to read. Takes effect the next time the game starts.',
         'Spillet tegnes i lag: bakgrunn, figurer og tekst hver for seg. Effektene bruker det.':

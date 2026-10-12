@@ -380,7 +380,10 @@ void     paula_state(StateIO *s);
 void     video_state(StateIO *s);
 void     whd_state(StateIO *s);
 void     game_state(StateIO *s);
-void     game_state_moete(StateIO *s);     /* moetefasen (maa passe med minnet) */
+void     game_state_moete(StateIO *s);
+void     game_state_maane(StateIO *s);     /* maanereglene (valg) */
+void     game_maane_standard(void);
+extern int game_maaneregler;              /* maanereglene fra manualen, 0 = originalen */     /* moetefasen (maa passe med minnet) */
 void     game_state_peker(StateIO *s);     /* fire-holdet etter et klikk */
 void     patch_state(StateIO *s);
 void     meny_state(StateIO *s);

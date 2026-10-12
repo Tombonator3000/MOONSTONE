@@ -99,6 +99,7 @@ static void usage(void)
            "  --fullscreen          fullskjerm\n"
            "  --volume V            lydstyrke, 1.0 er normal\n"
            "  --buttonwait          vent paa fire for kamp (WHDLoad ButtonWait)\n"
+           "  --maaneregler         maanereglene fra manualen (fase hvert 3. doegn, Ratmen og maanen, M1)\n"
            "  --nohooks             kjor bare originalkoden (ingen C-erstatninger)\n"
            "  --hook-cycles         kjor originalen og mal syklusene til funksjonene i decomp/\n"
            "  --hook-report         skriv hvor ofte hver C-erstatning ble brukt\n"
@@ -208,6 +209,7 @@ int main(int argc, char **argv)
         else if (!strcmp(a, "--fullscreen")) fo.fullscreen = true;
         else if (!strcmp(a, "--volume") && v) { fo.volume = (float)atof(v); i++; }
         else if (!strcmp(a, "--buttonwait")) whd_buttonwait = 1;
+        else if (!strcmp(a, "--maaneregler")) game_maaneregler = 1;
         else if (!strcmp(a, "--nohooks")) nohooks = true;
         else if (!strcmp(a, "--hook-cycles")) hooks_measure = true;
         else if (!strcmp(a, "--hook-report")) hook_report = true;

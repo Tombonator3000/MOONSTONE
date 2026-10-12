@@ -219,7 +219,8 @@
 
 ## Undersøkelser av originalen (docs/undersokelser)
 - [x] Månefasene målt og lest i kode (maane.md, tools/maane.py).
-- [ ] Måle skaden med og uten passende Moonstone fra samme lagring.
-- [ ] Sykdom: finne monsteret med angrepstype 4 og telle dagene til en syk ridder dør.
-- [ ] M1: nytt spill nullstiller ikke faseindeksen; valgfri retting i nettversjonen.
+- [x] Skaden med og uten passende Moonstone målt i en ekte Ratmen-kamp (tools/maane_kamp.py): 3 mot 6.
+- [x] Sykdom: Ratmens bitt (type 4) smitter, og sykdommen tar ett livsnivå per faseskifte, ikke per dag.
+- [x] Månereglene fra manualen som valg (av som standard): fase hvert tredje døgn, Ratmen sterkere med månen, M1 rettet.
+- [ ] Hva som skjer med en syk ridder på livsnivå 0 ved neste faseskifte.
 - [ ] B01: trollkrasjet, med tools/b01_troll.py (utgave, inndata, CPU/stakk, siste bilde, med og uten C-erstatninger).

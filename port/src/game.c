@@ -428,6 +428,58 @@ static bool kart_retning(void)
     return false;
 }
 
+/* ------------------------------------------------------------ maanereglene fra manualen (valg)
+ * docs/undersokelser/maane.md. Originalen skifter maanefase hvert fjerde doegn, og
+ * ingen monsterkode leser maanen. Manualen sier hvert tredje doegn, og at Ratmen
+ * blir sterkere med maanen. Med valget paa:
+ *  - fasen skifter hvert tredje doegn (dagtelleren $08CEA8 i sub_08064a)
+ *  - skaden fra Ratmen (+$4D = $24) gaar fra x1 ved nymaane (bilde $2D) til x2 ved
+ *    fullmaane ($31): i Ratmens slaghandler og paa slutten av skaderutinen sub_085ae0
+ *  - feil M1 rettes: nytt spill nullstiller ogsaa faseindeksen $08F152
+ * Valget er en del av spillet: det lagres (state.c, delen MAAN), saa en gjest i
+ * nettspill og en lastet lagring faar det samme som verten eller lagringen hadde. */
+int game_maaneregler;
+
+static bool maane_dag(void)
+{
+    if (!game_maaneregler || !game_mog_running()) return false;
+    if (rd16(0x8cea8) >= 3) mem_write16(0x8cea8, 4);     /* cmpi #3 / ble tar skiftet naa */
+    return false;
+}
+
+static bool maane_nytt_spill(void)
+{
+    if (game_maaneregler && game_mog_running()) mem_write16(0x8f152, 0);
+    return false;
+}
+
+/* Ratmen har slaghandleren dat_0855ce (tabellen $08D8DE etter +$4D = $24): angrep
+ * type 4 trekker tabell[4] og smitter, type 8 trekker tabell[8], begge med
+ * sub.w d0,$50(a1). Andre angrep gaar via dat_0858A8 og skaderutinen sub_085ae0. */
+static bool ratmen_angriper(void)
+{
+    return game_maaneregler && game_mog_running() && mem_read8(m68k_get_reg(NULL, M68K_REG_A0) + 0x4d) == 0x24;
+}
+
+static void maane_skaler_d0(void)
+{
+    int bilde = (int16_t)rd16(0x8cea6) - 0x2d;
+    if (bilde < 0 || bilde > 4) return;
+    uint32_t d0 = m68k_get_reg(NULL, M68K_REG_D0);
+    uint32_t skade = (d0 & 0xffff) * (uint32_t)(4 + bilde) / 4;
+    if (skade > 0x7fff) skade = 0x7fff;
+    m68k_set_reg(M68K_REG_D0, (d0 & 0xffff0000u) | skade);
+}
+
+static bool maane_skade(void)
+{
+    if (ratmen_angriper()) maane_skaler_d0();
+    return false;
+}
+
+void game_state_maane(StateIO *s) { STATE_VAR(s, game_maaneregler); }
+void game_maane_standard(void) { game_maaneregler = 0; }
+
 /* Observatorene inne i lokker registreres som lapper: de endrer ingenting, og som
  * vanlige kroker ville --hook-cycles tatt dem for funksjoner og maalt feil. */
 void game_register_hooks(void)
@@ -449,6 +501,11 @@ void game_register_hooks(void)
     hooks_register_patch(0x0aad00, kart_retning, "kartet (klikkreise)");
     hooks_register_patch(0x0ab010, kart_slutt, "kartet slutt (klikkreise)");
     hooks_register_patch(0x08188c, kart_slutt, "tittel (klikkreise)");
+    hooks_register_patch(0x080664, maane_dag, "maanereglene: fase hvert tredje doegn");
+    hooks_register_patch(0x084c7e, maane_nytt_spill, "maanereglene: nytt spill nullstiller fasen (M1)");
+    hooks_register_patch(0x0855de, maane_skade, "maanereglene: Ratmen sterkere med maanen (type 4)");
+    hooks_register_patch(0x085608, maane_skade, "maanereglene: Ratmen sterkere med maanen (type 8)");
+    hooks_register_patch(0x085b76, maane_skade, "maanereglene: Ratmen sterkere med maanen (skaderutinen)");
 }
 
 /* ny maskin (amiga_reset): ingen lokker sett, intet moete */

@@ -97,6 +97,7 @@ static const Del deler[] = {
     { "HVT ", 1, hver_state_tatt, NULL,       "ridderne som er tatt over" },
     { "HVER", 1, hver_state,  hver_standard,  "Hver for seg" },
     { "BLIT", 1, blit_state,  blit_standard,  "Blitteren" },
+    { "MAAN", 1, game_state_maane, game_maane_standard, "maanereglene" },
 };
 #define N_DELER (sizeof deler / sizeof deler[0])
 
