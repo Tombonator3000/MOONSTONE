@@ -77,6 +77,7 @@ const Visning = (() => {
     let hdMarkor = null;
     let hdTekstGlyfer = new Set();
     let hdTekstMeta = new Map();
+    let klarFont = false;
     let hdTegnbare = new Set();
     let hdFigurLys = new Map();             /* ruter med verifisert egen fading */
     let hdFigurMaske = new Set();           /* godkjente figurer som farges fra paletten */
@@ -367,6 +368,9 @@ const Visning = (() => {
         canvas.addEventListener('webglcontextrestored', () => { tapt = false; maaTegnes = true; if (vedTilbake) vedTilbake(); });
         renderer.setPixelRatio(window.devicePixelRatio || 1);
         renderer.autoClear = true;
+        // Innebygde fonter maa vaere lastet foer Canvas maaler glyfene.
+        Promise.all([document.fonts.load('100px MoonstoneHD'), document.fonts.load('100px MoonstoneLesbar')])
+            .then(() => { klarFont = true; maaTegnes = true; });
 
         /* trinn 1: lowres-koordinater, y nedover */
         scene1 = new THREE.Scene();
@@ -932,10 +936,75 @@ const Visning = (() => {
         return false;
     }
 
+    const fontTegn = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?.,#$% ' + "'_";
+    const klareEtiketter = new Map([
+        ['ki.cel/038', ['STR', 13, 16, '4a0dfb2ccc76589d4ed92800975cd8362f859223db0059154723e28c3eb6de05']],
+        ['ki.cel/039', ['CON', 13, 16, '417447fce10e24e9563439109aa686d7007d3634495a234627faa91fd39850c7']],
+        ['ki.cel/040', ['END', 13, 16, 'b3f306ad2cb1e08dbc418c31af60bff31988519354e0d8901f6ee604918deeef']],
+        ['ki.cel/041', ['XP', 9, 18, '285fefb3551a28045028cc37be091599a7072cc566b46f7bd44fbe754eee4775']],
+        ['ki.cel/042', ['GOLD', 16, 18, '6b586984726056b4ec6eb352fa81e0ffddb1124690edaf7b5882102b579a440c']],
+        ['ki.cel/043', ['HIT', 10, 18, 'a7c79c9cf92ffaa94a95650c2958af086019bbf9370dcd9f6fa956c91649a5bf']]
+    ]);
+
+    // Lesbar HD-tekst bruker samme tegn, boks og anker som originalen.
+    // Kilde- og pikselkontrollen nedenfor gjelder fortsatt foer noe fjernes.
+    function fyllKlarTekst(ctx, text, rect, familie, farge) {
+        const [x,y,w,h] = rect;
+        ctx.font = '100px ' + familie;
+        const m = ctx.measureText(text), venstre = m.actualBoundingBoxLeft || 0;
+        const topp = m.actualBoundingBoxAscent, bunn = m.actualBoundingBoxDescent;
+        const bredde = venstre + m.actualBoundingBoxRight, hoyde = topp + bunn;
+        if (!(bredde > 0 && hoyde > 0)) return;
+        const s = Math.min(w / bredde, h / hoyde);
+        ctx.save();ctx.translate(x + (w-bredde*s)/2 + venstre*s, y + (h-hoyde*s)/2 + topp*s);ctx.scale(s,s);
+        ctx.fillStyle = farge;ctx.fillText(text,0,0);ctx.restore();
+    }
+
+    function klarGlyf(d) {
+        if (!klarFont) return;
+        const bank = d.fil.toLowerCase(), key = bank + '/' + String(d.bilde).padStart(3,'0');
+        const meta = hdTekstMeta.get(key), t = hdPakke.get(key);
+        const liten = bank === 'small.font';
+        let tegn = fontTegn[d.bilde];
+        if (liten && d.bilde >= 26 && d.bilde < 52) tegn = tegn?.toUpperCase();
+        // Small.font bruker rute71 som skraastrek, mens bold.f bruker
+        // understrek. Det eldre pakkemanifestet deler feilaktig samme tegnkart.
+        const skraastrek = liten && d.bilde === 71;
+        if (skraastrek) {
+            if (hdTekstBanker.get(bank)!=='3a4ebc15f1176ac9428d7abb3f4ceb2b865ed3aa21ffea9068f51ec702f3b52b' ||
+                meta?.source_indices_sha256!=='9ab3c7b93ca805bbf46c5529985abfd756fa005ab3f7ef3b00742d6bf65d4f83') return;
+            tegn='/';
+        }
+        if (!t?.klarKilde || t.klarGlyf || !meta || meta.method !== 'original-source-contours' || meta.character !== (skraastrek ? '_' : tegn) ||
+            !Array.isArray(meta.source_ink_rect) || meta.source_ink_rect.length !== 4 ||
+            meta.width !== d.w || meta.height !== d.h) return;
+        const s = t.width / d.w, [x0,y0,x1,y1] = meta.source_ink_rect;
+        if (!(s > 0 && t.height === d.h*s && x0 >= 0 && y0 >= 0 && x1 <= d.w && y1 <= d.h && x1 > x0 && y1 > y0)) return;
+        const ctx=t.canvas.getContext('2d');ctx.resetTransform();ctx.clearRect(0,0,t.width,t.height);
+        let farge = '#fff6d8';
+        if (!liten) {
+            farge=ctx.createLinearGradient(0,y0*s,0,y1*s);
+            farge.addColorStop(0,'#fff1cc');farge.addColorStop(.55,'#edc47f');farge.addColorStop(1,'#c28d49');
+            ctx.shadowColor='#000';ctx.shadowOffsetX=.4*s;ctx.shadowOffsetY=.5*s;ctx.shadowBlur=.15*s;
+        }
+        if (liten) fyllKlarTekst(ctx,tegn,[x0*s,y0*s,(x1-x0)*s,(y1-y0)*s],'MoonstoneLesbar',farge);
+        else {
+            // Samme grunnlinje og fontstoerrelse paa hele raden. Originalens
+            // ulike glyfbokser skal ikke strekke hver bokstav til ulik hoeyde.
+            ctx.font='100px MoonstoneHD';
+            const m=ctx.measureText(tegn), cap=ctx.measureText('H').actualBoundingBoxAscent;
+            const sy=10*s/cap, sx=Math.min(sy,(d.w-3)*s/(m.actualBoundingBoxLeft+m.actualBoundingBoxRight));
+            ctx.save();ctx.translate(x0*s+m.actualBoundingBoxLeft*sx,13*s);ctx.scale(sx,sy);
+            ctx.fillStyle=farge;ctx.fillText(tegn,0,0);ctx.restore();
+        }
+        ctx.shadowColor='transparent';ctx.shadowBlur=ctx.shadowOffsetX=ctx.shadowOffsetY=0;
+        t.tex.needsUpdate=true;t.klarGlyf=true;t.klarTegn=tegn;
+    }
+
     /* Nabobokstaven overskriver skyggen til forrige bokstav. Valider derfor
      * hele originalraden i tegnerekkefolge foer HD-glyfene erstatter den.
      * Dette virker ogsaa for endrede tall/ord; ingen menytitler hardkodes. */
-    function forberedTekst(lag, lest, figurVern) {
+    function forberedTekst(lag, lest, figurVern, tekstEgne) {
         const reservert = new Set(), grupper = new Map();
         if (!lag?.forIdx) return reservert;
         // Engangstegningen kan ha skjedd mens pakken lastet. Gjenfinn bare
@@ -1016,9 +1085,9 @@ const Visning = (() => {
                     frames: gruppe.map(p => p.d.bilde) }); gyldig = false; break; }
             }
             if (!gyldig || !fjern.length) { hdKontroll.tekstAvvist++; continue; }
-            for (const p of fjern) forData[p * 4 + 3] = 0;
+            for (const p of fjern) { forData[p * 4 + 3] = 0; tekstEgne.add(p); }
             for (const p of vern) { vernData[p * 4 + 3] = 255; figurVern.add(p); }
-            for (const p of gruppe) hdTegnbare.add(p.d);
+            for (const p of gruppe) { klarGlyf(p.d); hdTegnbare.add(p.d); }
             hdKontroll.tekstGodkjent += gruppe.length;
         }
         return reservert;
@@ -1192,8 +1261,8 @@ const Visning = (() => {
     }
 
     /* Next Day fyller himmelen i forgrunnen; baklaget kan fortsatt inneholde
-     * titteltegningen. Det er derfor ikke trygt aa slette maanens alfamaske.
-     * Originale 045–049, hele rektangelet og alle 16 innfadepaletter er maalt
+     * titteltegningen. Bare en faktisk vist, kildeverifisert HD-himmel kan
+     * overta det tomme feltet. Originale 045–049 og 16 innfadepaletter er maalt
      * i review/ki-moon-source. Ingen andre KI-ruter arver denne kontrakten. */
     function forberedMaane(d, g, lag, foran) {
         const bank = originalCeler.get('ki.cel');
@@ -1224,8 +1293,13 @@ const Visning = (() => {
                 hdKontroll.piksler++; return;
             }
         }
-        // Foerst etter full kontroll: behold riktig himmel under fotoets alfa.
-        const himmel = [0, 0, Math.min(2, nivaa) * 17, 255];
+        // Foerst etter full kontroll: den SHA-verifiserte ch.piv-scenen eier
+        // himmelen naar dens HD-bilde faktisk vises. Originalens ensfargede
+        // blaafelt ville ellers dekke fotohimmelen som en firkant rundt maanen.
+        // Uten denne bakgrunnen maa feltet fortsatt skjule den gamle kopien.
+        const hdHimmel = lag.scene === 'loading' && (lag.hash >>> 0) === 0x55bb9767 &&
+            bakMesh.material === bakMat;
+        const himmel = hdHimmel ? [0, 0, 0, 0] : [0, 0, Math.min(2, nivaa) * 17, 255];
         for (let j = 0; j < 44; j++) for (let i = 0; i < 57; i++)
             forData.set(himmel, ((12 + j) * 320 + 119 + i) * 4);
         hdFigurLys.set(d, nivaa / 15);
@@ -1298,7 +1372,8 @@ const Visning = (() => {
         palettKlar = oppdaterPalett();
         const reservert = forberedPoser(lag, lest);
         const tekstFigurVern = new Set();
-        for (const d of forberedTekst(lag, lest, tekstFigurVern)) reservert.add(d);
+        const tekstEgne = new Set();
+        for (const d of forberedTekst(lag, lest, tekstFigurVern, tekstEgne)) reservert.add(d);
         forberedMarkor(lag,lest);
         const harLag = lag && lag.forIdx && lag.forIdx.length === 320 * 200;
         const eie = harLag ? eierskap(lest, lag) : null;
@@ -1428,6 +1503,10 @@ const Visning = (() => {
             }
         }
         if (hdMarkor) for (const p of hdMarkor.visible) vernData[p*4+3]=0;
+        // $FE angir en palettendring paa tooltip-raden. forberedTekst har
+        // kontrollert den faktiske skanout-indeksen mot glyfen; figurvernet
+        // maa ikke gjeninnfoere disse allerede kildebekreftede tekstcellene.
+        for (const p of tekstEgne) vernData[p*4+3]=0;
         // BG-broen gir aldri HD-eierskap til originale deltaceller. Gjenopprett
         // dem etter figurens alfaopprydding og vern hele cellen mot AA-overloep.
         if (lag?.kampDeltaVern) for (let p=0;p<64000;p++) if (lag.kampDeltaVern[p]) {
@@ -1554,6 +1633,9 @@ const Visning = (() => {
             if (hdMarkor) {
                 const {x,y,meta,t}=hdMarkor,m=flate(n++);
                 m.material=t.mat;m.renderOrder=4.6;t.mat.uniforms.lys.value=t.ikonLys ?? 1;
+                // Hardware-pekeren ligger over baade originalen og HD-dekor.
+                // Figurvernet maa ikke klippe bort pilen ved inventarsoeylene.
+                t.mat.uniforms.vern.value=tomTex;
                 t.mat.uniforms.lagPos.value.set(diwNaa[0]/2-ux(),diwNaa[1]-uy());
                 plasser(m,diwNaa[0]/2+x-ux(),diwNaa[1]+y-uy(),meta.width,meta.height);m.visible=true;
             }
@@ -1742,7 +1824,11 @@ const Visning = (() => {
         if (!t) return false;
         const palette=ikonPalett(m,y);if(!palette)return false;
         const {colors,rgb}=palette;
-        const key=rgb.flat().join(',');
+        const etikett = klareEtiketter.get(m.key);
+        const klarEtikett = klarFont && etikett &&
+            m.source.bank_sha256==='02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104' &&
+            m.indices_sha256===etikett[3];
+        const key=rgb.flat().join(',') + (klarEtikett ? ':klar' : '');
         if (m.render_mode === 'raster') {
             const variant=rasterIkonVariant(m,palette);
             if (!variant) return false;
@@ -1765,6 +1851,12 @@ const Visning = (() => {
         t.ikonLys=1;
         const ctx=t.canvas.getContext('2d'), s=m.scale;
         ctx.resetTransform();ctx.clearRect(0,0,t.canvas.width,t.canvas.height);ctx.scale(s,s);
+        if (klarEtikett) {
+            const color='rgb('+rgb[colors.indexOf(m.base_index)].join(',')+')';
+            fyllKlarTekst(ctx,etikett[0],[0,0,etikett[1],5],'MoonstoneLesbar',color);
+            fyllKlarTekst(ctx,':',[etikett[2]-.2,0,1.4,5],'MoonstoneLesbar',color);
+            t.ikonPalett=key;t.tex.needsUpdate=true;return true;
+        }
         ctx.save();ctx.clip(m.clipPath,'evenodd');
         const fill=(c,p)=>{ctx.fillStyle='rgb('+rgb[colors.indexOf(c)].join(',')+')';ctx.fill(p,'evenodd');};
         fill(m.base_index,m.clipPath);
@@ -1783,23 +1875,31 @@ const Visning = (() => {
         if (!g || !scan.gyldig || bankHash(bank).hash!==meta.source.bank_sha256 || indeksHash(g)!==meta.indices_sha256) return;
         const used=[];for(let j=0;j<g.h;j++)for(let i=0;i<g.w;i++)if(g.px[j*g.w+i])used.push([i,j,g.px[j*g.w+i]]);
         const anchor=used[Math.floor(used.length/2)],originX=diwNaa[0],originY=diwNaa[1];
-        for(let sy=0;sy<200;sy++)for(let sx=0;sx<320;sx++) {
-            if(scan.idx[(originY+sy)*720+originX+sx*2]!==128+16+anchor[2])continue;
-            const x=sx-anchor[0],y=sy-anchor[1];if(x<0||y<0||x+g.w>320||y+g.h>200)continue;
+        // Originalens spriteprioritet kan skjule pilen bak inventarsoeylen.
+        // Les den aktive pekerens faktiske koordinater fra originalen, saa den
+        // komplette kildebekreftede HD-pekeren kan tegnes foran dekorasjonen.
+        const peker = Kjerne.pekerAktiv() ? [Kjerne.les16(0x98092),Kjerne.les16(0x98094)] : null;
+        const steder=peker ? [peker] : [];
+        if(!peker)for(let sy=0;sy<200;sy++)for(let sx=0;sx<320;sx++)
+            if(scan.idx[(originY+sy)*720+originX+sx*2]===128+16+anchor[2])steder.push([sx-anchor[0],sy-anchor[1]]);
+        for(const[x,y]of steder) {
+            if(x<0||y<0||x>=320||y>=200||(!peker&&(x+g.w>320||y+g.h>200)))continue;
             const visible=new Set(),hidden=[];let bad=false;
-            for(let j=0;j<g.h&&!bad;j++)for(let i=0;i<g.w;i++) {
+            for(let j=0;j<g.h&&!bad&&y+j<200;j++)for(let i=0;i<g.w&&x+i<320;i++) {
                 const v=g.px[j*g.w+i],actual=scan.idx[(originY+y+j)*720+originX+(x+i)*2];
                 if(actual&128) {if(!v||actual!==144+v){bad=true;break;}visible.add((y+j)*320+x+i);}
                 else if(v)hidden.push([i,j]);
             }
-            if(bad||visible.size<used.length*.9)continue;
-            const mask=hidden.map(p=>p.join(',')).join(';');if(t.markorMask!==mask)t.ikonPalett=null;
+            if(bad||(!peker && visible.size<used.length*.9))continue;
+            const mask=peker ? '' : hidden.map(p=>p.join(',')).join(';');if(t.markorMask!==mask)t.ikonPalett=null;
             if(!fargeleggIkon(meta,t,y))continue;
             const ctx=t.canvas.getContext('2d');ctx.resetTransform();
-            for(const[i,j]of hidden)ctx.clearRect(i*meta.scale,j*meta.scale,meta.scale,meta.scale);
+            if(!peker)for(const[i,j]of hidden)ctx.clearRect(i*meta.scale,j*meta.scale,meta.scale,meta.scale);
             t.markorMask=mask;t.tex.needsUpdate=true;
             for(const p of visible)forData[p*4+3]=0;
-            hdMarkor={x,y,meta,t,visible};hdKontroll.markorGodkjent=1;return;
+            const kildeSynlige=visible.size;
+            if(peker)for(const[i,j]of used)if(x+i<320&&y+j<200)visible.add((y+j)*320+x+i);
+            hdMarkor={x,y,meta,t,visible,kildeSynlige};hdKontroll.markorGodkjent=1;return;
         }
     }
 
@@ -2007,6 +2107,8 @@ const Visning = (() => {
                 if (ikon && (t.width!==(ikonRect ? ikonRect[2]-ikonRect[0] : ikon.width)*ikon.scale ||
                     t.height!==(ikonRect ? ikonRect[3]-ikonRect[1] : ikon.height)*ikon.scale)) {t.tex.dispose();t.mat.dispose();hdIkonFeil.push(nokkel+': feil maal');continue;}
                 const meta = hdTekstMeta.get(nokkel);
+                if (meta?.method==='original-source-contours' && /^[0-9a-f]{64}$/.test(meta.sha256 || ''))
+                    t.klarKilde=await sha256(new Uint8Array(await f.arrayBuffer()))===meta.sha256;
                 if (meta?.raw_rect_px || nokkel === 'bold.f/073') {
                     // Standardmetadata gjelder det leverte standardbildet. Et eget
                     // bilde kan allerede vaere klippet til originalrutens format.
@@ -2089,10 +2191,14 @@ const Visning = (() => {
         init, tegn, nyttBilde, tilpass, settFilter, settFormat, settHelt, settEffekter, bildeTilPng, lastHdPakke, tomHdPakke, fjernHdBilde,
         nullstillScene: () => { plasserte.clear(); visteListe = []; klynger = []; bildeNr = 0; sistTegnet = -99; sisteBakHash = -1; },
         tekstPlasseringer: () => visteListe.filter(d => /^(bold\.f|small\.font)$/i.test(d.fil)),
+        lesbarTekst: () => visteListe.filter(d => hdTegnbare.has(d)).flatMap(d => {
+            const t=hdPakke.get(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'));
+            return t?.klarGlyf ? [{fil:d.fil,bilde:d.bilde,x:d.x-d.xoff,y:d.y,tegn:t.klarTegn}] : [];
+        }),
         settRammer: (on) => { visRammer = on; maaTegnes = true; }, hdAntall: () => hdPakke.size + hdPoser.size, scene: () => scene1,
         hdPoseInfo: () => ({ antall: hdPoser.size, kontrakter: hdPoseKontrakter.size, ugyldig: hdPoseUgyldig, feil: hdPoseFeil.slice() }),
         hdIkonInfo: () => ({ antall: hdIkoner.size, feil: hdIkonFeil.slice(),
-            markor: hdMarkor ? {x:hdMarkor.x,y:hdMarkor.y,synlige:hdMarkor.visible.size} : null,
+            markor: hdMarkor ? {x:hdMarkor.x,y:hdMarkor.y,synlige:hdMarkor.visible.size,kildeSynlige:hdMarkor.kildeSynlige} : null,
             kandidater: visteListe.filter(d=>hdIkoner.has(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'))).map(d=>({...d,godkjent:hdTegnbare.has(d)})),
             viste: visteListe.filter(d=>hdTegnbare.has(d)&&hdIkoner.has(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'))).map(d=>({fil:d.fil,bilde:d.bilde,x:d.x,y:d.y})) }),
         sceneIkoner: id => [...hdIkoner.values()].filter(m=>m.scene===id&&m.dynamic&&hdPakke.has(m.key)),

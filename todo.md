@@ -190,3 +190,14 @@
 - [x] Dobbeltklikkvern og faktisk lasting av eldre PEKR-lagring.
 - [x] Nettleser81/81, inklusive faste porter, og check_hooks25/25. Fysisk mobil og full gjennomspilling er fortsatt egne oppgaver.
 - [x] Beholde engangstegnede portretter under forsinket HD-lasting, med seks faktiske nettleserkontroller.
+
+- [x] Publisert oppstartsrettelsene i PR40/41 med groenn CI og faktisk offentlig HD/riddervalg/intro/omstart10/10.
+
+## Grafikk og mus, 12. oktober 2026
+- [x] Rette firkant rundt Next Day-maanen og kontrollere alle fem faser.
+- [x] Klar tekst i HD, inklusive navn og verdier paa karakterarket.
+- [x] Inventarmarkoer foran HD-soeylene, med original pekerposisjon.
+- [x] HD-bakgrunner under foerstegangslasting, scenebytter og forbigaaende nettfeil.
+- [x] PC-klikk paa kartet gir original bevegelse, med tur- og netteierkontroll.
+- [x] Vurdere brukerens innlimte referansetekst mot aktuelle primaerkilder og gjeldende kode.
+- [ ] Samlet lokal kontroll, groenn CI, Pages og offentlig kontroll av berorte scener.

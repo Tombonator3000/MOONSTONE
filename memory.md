@@ -508,3 +508,32 @@ Aattende lokale kohort har1963 PNG/1969 filer/82 bakgrunner og202 nye ruter:195 
 Standard-HD må samle tegnelisten mens pakken lastes, før hdPakke har bilder. `StandardHd.start` setter tvungetLag, og `Visning.brukerListe` må også følge dette flagget. Portrettene sel.cel2..5 og tittelfonten tegnes bare én gang; uten tidlig innsamling blir de stående i Original ved raskt introhopp og sen HD-lasting. Riddervalget har tom bakgrunn045a1ac5 og får HD gjennom figurene, så hdKontroll().bakgrunn=hd er feil test her. `hdstart1` blokkerer nedlastingen til portrettene er tegnet og krever fire faktisk godkjente HD-portretter etterpå.
 
 Portrettenes x-posisjoner leses fra originaltabellen $8F516, y80..155 og bredde64. Bare ledige figurer i $8F4A2 kan klikkes. MENY_CMD_SELECT (10) gir et ventende portrettvalg utenfor tittelmenyen. Hooken på $081D04, etter btst og før fire-grenen, velger figuren og fortsetter originalens navneflyt. $081D00 ville blitt hoppet over etter C-erstatningen av les_joysticker. Nettlaget sender gjestens betrodde spilleridentitet og port til vertens valgbehandler. Automatisk fordeling følger ridderen som har turen; faste porter krever p2 eller begge uavhengig av spillernummer. Samme kontroll brukes lokalt. PEKR-delen har nå to byte, peker_fire og ridder_klikk. Fe markerer et brukt klikk frem til neste originale valgløkke, så et dobbeltklikk ikke velger for neste spiller. Eldre PEKR-deler får standardverdier, og state_format_id skiller nettutgavene. Originale spillfiler og HD-bilder er uendret.
+
+## Grafikk og kartmus, 12. oktober 2026
+
+StandardHd laster kildeverifiserte bakgrunner uavhengig av hele figurpakken. Tekst,
+menypil og deretter portretter prioriteres. Base og bakgrunner har egne
+AbortController-objekter; en fatal figurfeil skal ikke sperre senere bakgrunner.
+Bare nettfeil/HTTP408,429,5xx proeves inntil tre ganger. SHA-/lengdefeil avvises.
+SceneHd maa identifisere baade PIV- og rullekilder under lasting, med de samme
+kilde-, palett- og pikselkontrollene som etterpaa. Bakgrunnscachen er fortsatt fire.
+
+Lesbar HD-tekst tegnes fra bekreftede originalglyfer. Bold bruker innebygd
+UncialAntiqua med felles grunnlinje; Small bruker innebygd DejaVuSansMono-Bold.
+Small.font071 er skraastrek, selv om eldre text.json deler Bold sitt understrektegn.
+Unntaket er bundet til bank- og indeks-SHA. KI038..043 er de seks statsetikettene,
+ikke fontglyfer; deres klare tekst har egen kildekontrakt. Originalmodus beholder
+originalpikslene. Tooltipens palettrad kan gi forIdx=$FE; allerede validerte egne
+tekstpiksler maa ikke maskeres igjen av det generelle figurvernet.
+
+Next Day-rutene KI045..049 kan fjerne ensfarget blaafelt bare naar faktisk vist,
+kildeverifisert ch.piv-HD-himmel overtar. Ellers beholdes originalfeltet.
+Po.cel000 er den kildebekreftede hardwarepekeren. Aktiv originalpekerposisjon kan
+brukes til aa vise hele pilen foran HD-soeyler, ogsaa ved klipping mot skjermkant.
+
+MENY_CMD_KART15 setter bare maal og retning ved bildegrensen. Patch$0AAD00 etter
+joysticklesingen lar originalkartet styre fart, terreng, grenser og trekkbudsjett.
+Klikk gjelder ikonets fotpunkt; hoeyreklikk/manuell input/ny tur/sceneskift avbryter.
+PEKR-delen er naa18byte, med maal og heltallskoordinater; eldre1/2byte faar standard.
+Netteieren kommer fra betrodd spillernummer eller p2/begge i faste porter, aldri
+fra koordinatpakken. Ugyldige koordinater og CEL-pekere avvises foer minnet leses.

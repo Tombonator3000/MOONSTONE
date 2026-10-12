@@ -289,10 +289,12 @@ bool     game_velger_ridder(void);        /* Select a Knight eller navnet etterp
 bool     game_velg_ridder(int k);         /* portrett 0-3, -1 bekrefter gjeldende valg */
 void     game_reset(void);
 void     game_peker(int x, int y);         /* pekeren til (x, y) og fire (MENY_CMD_PEKER) */
-void     game_frame(void);                 /* holder fire etter et klikk; etter inndataene, foer amiga_run_frame */
+void     game_frame(void);                 /* peker-fire/kartavbrudd; etter inndataene, foer amiga_run_frame */
 bool     game_peker_aktiv(void);           /* spillets peker vises (inventar, by, butikker) */
 int      game_peker_port(void);            /* porten som styrer den (0 = port 1, 1 = port 2) */
 void     game_peker_standard(void);
+bool     game_kart_aktiv(void);            /* originalens kartlokke, aktiv menneskelig ridder */
+void     game_kart_maal(int x, int y);      /* klikkreise til ikonets fotpunkt; -1,-1 avbryter */
 void     game_standard(void);              /* lagring uten passende tegneliste (state.c) */
 const char *game_knight_name(int k);
 int      game_knight_player(int k);
@@ -330,7 +332,7 @@ enum { MENY_EV_HOST = 1, MENY_EV_JOIN_PAGE, MENY_EV_JOIN_ROOM, MENY_EV_ENTER_COD
 /* kommandoer fra frontenden, brukes ved starten av et bilde (i nettspill hos alle) */
 enum { MENY_CMD_HOSTING = 1, MENY_CMD_PLAYERS, MENY_CMD_PUBLIC, MENY_CMD_ROOMS, MENY_CMD_MESSAGE,
        MENY_CMD_SESSION_END, MENY_CMD_NAMES, MENY_CMD_MYNAME, MENY_CMD_PAGE, MENY_CMD_SELECT, MENY_CMD_SPILL,
-       MENY_CMD_CONTROLS, MENY_CMD_KNIGHTS, MENY_CMD_PEKER };
+       MENY_CMD_CONTROLS, MENY_CMD_KNIGHTS, MENY_CMD_PEKER, MENY_CMD_KART };
 enum { MENY_PAGE_ONLINE = 1, MENY_PAGE_JOIN = 3 };   /* for MENY_CMD_PAGE */
 int      meny_take_event(void);           /* 0 = ingen */
 /* hver.c: flerspiller "Hver for seg" (docs/flerspiller.md) */
