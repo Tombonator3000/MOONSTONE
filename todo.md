@@ -189,3 +189,4 @@
 - [x] Fire direkte portrettvalg, Enter/mellomrom, mobil og eierkontroll i Turns.
 - [x] Dobbeltklikkvern og faktisk lasting av eldre PEKR-lagring.
 - [x] Nettleser81/81, inklusive faste porter, og check_hooks25/25. Fysisk mobil og full gjennomspilling er fortsatt egne oppgaver.
+- [x] Beholde engangstegnede portretter under forsinket HD-lasting, med seks faktiske nettleserkontroller.
