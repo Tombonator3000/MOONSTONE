@@ -216,3 +216,10 @@
 - [x] Hele serien visuelt kontrollert,619 kandidatkontroller inklusive normal/speilet, fire klippkanter,13 rødnivåer, fremmed kilde/palett, full lagring og originalkodekamp.
 - [x] Aktivert41 nye PNG-er,2005 PNG/2011 manifestfiler. Restliste749 mastere/812 ruter/59 mastermasker.
 - [ ] Endelig standardpakke, regresjon, PR, grønn CI, Pages og faktisk offentlig BLO-kontroll.
+
+## Undersøkelser av originalen (docs/undersokelser)
+- [x] Månefasene målt og lest i kode (maane.md, tools/maane.py).
+- [ ] Måle skaden med og uten passende Moonstone fra samme lagring.
+- [ ] Sykdom: finne monsteret med angrepstype 4 og telle dagene til en syk ridder dør.
+- [ ] M1: nytt spill nullstiller ikke faseindeksen; valgfri retting i nettversjonen.
+- [ ] B01: trollkrasjet, med tools/b01_troll.py (utgave, inndata, CPU/stakk, siste bilde, med og uten C-erstatninger).
