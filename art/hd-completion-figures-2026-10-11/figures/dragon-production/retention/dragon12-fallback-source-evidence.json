@@ -1,0 +1,545 @@
+{
+  "schema": 1,
+  "status": "source_exact_owner_loss_verified",
+  "runtime_proof_sha256": "1fb390dacfc0f4da8916ab80dc69a3da2c9f3afb0902a1a4c73444baa7ca46fc",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "a84202f81e2c548dc9d09b531afb4bb973fb8afee872abf9053c90a1afee8889",
+    "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "html_sha256": "1cee0c3fb12b368432c91f28e020227c3728bf039c390c27064b01a7ea3108fe",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "bank_sha256": "662891094e0a79b5831fb0c09471852cdb1af340c2bfa6293b6b9d0e5e401599",
+  "frame_indices_sha256": "c6d27218bd4195f57d8f6a91f4fac5d19655204387d06479d0b01c505571a69e",
+  "original_trace_sha256": "2954fbb7a24ad6406ed39aae0258b31d5a5f86da7d63dcd84f9e7a89a5410b27",
+  "original_call": {
+    "file": "Dragon2.cel",
+    "frame": 5,
+    "x": 69,
+    "y": 26,
+    "width": 36,
+    "height": 48,
+    "plane_mask": 15,
+    "caller": "087bf0",
+    "target": "0a2cd6",
+    "observed_frames": [
+      1386,
+      1392,
+      1400,
+      1407
+    ]
+  },
+  "matched_cells": [
+    {
+      "x": 98,
+      "y": 28,
+      "actual": 10,
+      "back": 16,
+      "owner": null
+    },
+    {
+      "x": 99,
+      "y": 30,
+      "actual": 10,
+      "back": 16,
+      "owner": null
+    },
+    {
+      "x": 99,
+      "y": 31,
+      "actual": 10,
+      "back": 16,
+      "owner": null
+    },
+    {
+      "x": 99,
+      "y": 32,
+      "actual": 10,
+      "back": 16,
+      "owner": null
+    },
+    {
+      "x": 100,
+      "y": 32,
+      "actual": 10,
+      "back": 16,
+      "owner": null
+    },
+    {
+      "x": 99,
+      "y": 33,
+      "actual": 10,
+      "back": 16,
+      "owner": null
+    },
+    {
+      "x": 100,
+      "y": 33,
+      "actual": 10,
+      "back": 16,
+      "owner": null
+    },
+    {
+      "x": 100,
+      "y": 34,
+      "actual": 10,
+      "back": 16,
+      "owner": null
+    }
+  ],
+  "matched_count": 8,
+  "retention_timeline": [
+    {
+      "frame": 1389,
+      "body5": [
+        {
+          "fil": "Dragon2.cel",
+          "bilde": 5,
+          "x": 69,
+          "y": 26,
+          "w": 36,
+          "h": 48,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1390,
+      "body5": [
+        {
+          "fil": "Dragon2.cel",
+          "bilde": 5,
+          "x": 69,
+          "y": 26,
+          "w": 36,
+          "h": 48,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1391,
+      "body5": [
+        {
+          "fil": "Dragon2.cel",
+          "bilde": 5,
+          "x": 69,
+          "y": 26,
+          "w": 36,
+          "h": 48,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1392,
+      "body5": [
+        {
+          "fil": "Dragon2.cel",
+          "bilde": 5,
+          "x": 69,
+          "y": 26,
+          "w": 36,
+          "h": 48,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1393,
+      "body5": [
+        {
+          "fil": "Dragon2.cel",
+          "bilde": 5,
+          "x": 69,
+          "y": 26,
+          "w": 36,
+          "h": 48,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1394,
+      "body5": [
+        {
+          "fil": "Dragon2.cel",
+          "bilde": 5,
+          "x": 69,
+          "y": 26,
+          "w": 36,
+          "h": 48,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1395,
+      "body5": [
+        {
+          "fil": "Dragon2.cel",
+          "bilde": 5,
+          "x": 69,
+          "y": 26,
+          "w": 36,
+          "h": 48,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1396,
+      "body5": [
+        {
+          "fil": "Dragon2.cel",
+          "bilde": 5,
+          "x": 69,
+          "y": 26,
+          "w": 36,
+          "h": 48,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1397,
+      "body5": [],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1398,
+      "body5": [],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1399,
+      "body5": [],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1400,
+      "body5": [],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1401,
+      "body5": [],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1402,
+      "body5": [],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1403,
+      "body5": [
+        {
+          "fil": "Dragon2.cel",
+          "bilde": 5,
+          "x": 69,
+          "y": 26,
+          "w": 36,
+          "h": 48,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1404,
+      "body5": [],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1405,
+      "body5": [],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1406,
+      "body5": [],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1407,
+      "body5": [],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "frame": 1408,
+      "body5": [],
+      "head17": [
+        {
+          "fil": "Dragon1.cel",
+          "bilde": 17,
+          "x": 50,
+          "y": 16,
+          "w": 65,
+          "h": 50,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ]
+    }
+  ],
+  "scope": "D2/005 fjernes etter kildeekte kall, selv om8 av dens opake kildeceller fortsatt er synlige. D1/017 avvises strengt fordi eieren mangler. Ingen ukjent forgrunn er godkjent og ingen frontendkode endret.",
+  "proposed_gate": "Bare denne eksakte D2/005-banken/ruten/geometrien/planmasken/kalleren/maalbufferen kan proeves med kildeindeksvalidering og kort pending-retensjon. Wrongcaller/target/source/unknownFG skal fortsatt avvises.",
+  "analyzer_sha256": "3f4b04361949f21438f2bf1ad0b7865e2c6af45905ed1ce79b9a202797234794"
+}

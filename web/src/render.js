@@ -590,6 +590,40 @@ const Visning = (() => {
         return !!bank && bankHash(bank).hash === 'f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e' &&
             indeksHash(g) === kilde[2];
     }
+    // Bare de observerte originalkallene faar vente paa kampens andre buffer.
+    // Pakkeimport kan ikke gi en annen bank eller et annet kall denne retten.
+    function erDragon5Spor(d, g) {
+        if (!g || g.w !== d.w || g.h !== d.h || d.target !== 0x0a2cd6 || d.caller !== 0x087bf0) return false;
+        const navn = d.fil.toLowerCase();
+        if (navn === 'dragon5.cel') return bankHash(originalCeler.get(navn)).hash ===
+            '3f99e992ac1543b44b450fb2374943d0917c5bfe9000f6c91151fa808d3257a2';
+        // Flammen passerer ogsaa over originalens svarte drageskygge. Uten
+        // dens kildebevis ville ekte5-piksler i flammens hull bli ukjente.
+        return navn === 'dragon2.cel' && d.bilde === 27 && d.w === 156 && d.h === 15 && g.planmaske === 5 &&
+            bankHash(originalCeler.get(navn)).hash === '662891094e0a79b5831fb0c09471852cdb1af340c2bfa6293b6b9d0e5e401599';
+    }
+    const balokKilder = new Map([
+        [26, [65, 13, 5, 'af98aa16ec180b8b2016841903bc5a42a57547a7a5dedde272235453388e6d01']],
+        [41, [81, 50, 15, '2d702145e83c53f24a3be8769207944815c3bee519f0ede889cefdc87f7e6ee0']],
+        [42, [46, 22, 15, 'e180d3286fc2355638467ea057de6640d2990a1b368a6d0cb8868af5a4cd58d9']],
+        [43, [75, 10, 15, 'ff57464687c358f6ed29dd7fa9f3ae3636d9be043d87cfdd38918ae8a573742e']]
+    ]);
+    function erBalokKilde(d, g) {
+        const c = balokKilder.get(d.bilde);
+        return d.fil.toLowerCase() === 'balok1.cel' && c && g && d.w === c[0] && d.h === c[1] &&
+            g.w === d.w && g.h === d.h && g.planmaske === c[2] &&
+            d.target === 0x0a2cd6 && d.caller === 0x087bf0 &&
+            bankHash(originalCeler.get('balok1.cel')).hash === 'c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb' &&
+            indeksHash(g) === c[3];
+    }
+    function balok15Vern(d, g, lag, p, i, j) {
+        if (d.bilde !== 41 || !erBalokKilde(d, g) ||
+            g.px[j * d.w + (d.speilet ? d.w - 1 - i : i)] !== 0 || lag.forIdx[p] !== 15) return false;
+        const scan = Kjerne.skanout(), row = diwNaa[1] + d.y + j, q = (row * 32 + 15) * 4;
+        return scan.gyldig && row >= 0 && row < H && scan.pal?.length === H * 32 * 4 &&
+            scan.pal[q] === 204 && scan.pal[q + 1] === 0 && scan.pal[q + 2] === 0 && scan.pal[q + 3] === 255 &&
+            lag.for?.[p * 4] === 204 && lag.for[p * 4 + 1] === 0 && lag.for[p * 4 + 2] === 0 && lag.for[p * 4 + 3] === 255;
+    }
     function staarFortsatt(lag, p, lest) {
         const d = p.d, g = originalCel(d.fil, lest)?.[d.bilde];
         if (!g || g.w !== d.w || g.h !== d.h || !lag.forIdx || !Number.isInteger(p.x) || !Number.isInteger(p.y)) return false;
@@ -702,6 +736,13 @@ const Visning = (() => {
                 else if (p.sett || bildeNr - p.fra > 50) borteTekst.push(k);
             } else if (erBaktTroll(p.d, originalCel(p.d.fil, lestTekst)?.[p.d.bilde])) {
                 if (!staarFortsatt(lag, p, lestTekst)) borteTekst.push(k);
+            } else if (erDragon5Spor(p.d, originalCel(p.d.fil, lestTekst)?.[p.d.bilde])) {
+                // Flammen tegnes foer frontbufferen byttes. Vent paa dens eksakte
+                // kildepiksler; forberedHd tillater ikke foto mens de mangler.
+                if (staarFortsatt(lag, p, lestTekst)) {
+                    p.sett = true;
+                    p.hash = rektHash(lag.forIdx, p.x, p.y, p.w, p.h);
+                } else if (bildeNr - p.fra > 50) borteTekst.push(k);
             } else if (p.d.fil.toLowerCase() === 'li1.cel' && originalCel(p.d.fil, lestTekst)?.[p.d.bilde] &&
                 bankHash(originalCeler.get('li1.cel')).hash === palettFigurBanker.get('li1.cel').bank_sha256) {
                 // Introen kopierer kroppsdeler over haandens transparente hull.
@@ -768,6 +809,9 @@ const Visning = (() => {
                             });
                             originalCeler.set(navn, { data, bilder });
                             forvarmPoseIndekser(navn, bilder);
+                            // SHA er asynkron. Start de faste kampbevisene ved
+                            // banklesing, foer engangstegnet broelepose kommer.
+                            if (navn === 'balok1.cel') for (const nr of balokKilder.keys()) if (bilder[nr]) indeksHash(bilder[nr]);
                             for (const m of hdIkoner.values()) if (m.source.file === navn && bilder[m.source.frame]) indeksHash(bilder[m.source.frame]);
                         }
                     }
@@ -1173,9 +1217,9 @@ const Visning = (() => {
      * som har en ikke-gjennomsiktig kildepiksel der (indeksen i figurNr), og hvilke
      * piksler som ligger i rektangelet til en figur uten paalitelig kilde (ukjent).
      * Speilingen og planmasken er de samme som i pikselkontrollen. */
-    function eierskap(lest) {
+    function eierskap(lest, lag) {
         const eier = new Int16Array(320 * 200).fill(-1), ukjent = new Uint8Array(320 * 200);
-        const kilder = [];
+        const kilder = [], gamleSkygger = new Set();
         for (let k = 0; k < visteListe.length && k < 32000; k++) {
             const o = visteListe[k], ox = o.x - o.xoff, og = originalCel(o.fil, lest)?.[o.bilde];
             const ok = !!og && og.w === o.w && og.h === o.h && Number.isInteger(ox) && Number.isInteger(o.y);
@@ -1185,7 +1229,19 @@ const Visning = (() => {
                 for (let i = Math.max(0, -x0); i < o.w && x0 + i < 320; i++) {
                     const p = (y0 + j) * 320 + x0 + i;
                     if (!ok) { ukjent[p] = 1; continue; }
-                    if (og.px[j * o.w + (o.speilet ? o.w - 1 - i : i)]) eier[p] = k;
+                    const c = og.px[j * o.w + (o.speilet ? o.w - 1 - i : i)];
+                    if (!c) continue;
+                    const forrige = eier[p], f = visteListe[forrige];
+                    // Den gamle026-skyggen kan ha et senere beholdt tegnelistespor
+                    // enn riktig kropp. Bare en eksakt042/043-kilde som faktisk
+                    // staar i frontbufferen faar beholde pikselen foran skyggen.
+                    if (o.bilde === 26 && erBalokKilde(o, og) && forrige >= 0 &&
+                        [42,43].includes(f.bilde) && erBalokKilde(f, kilder[forrige]) &&
+                        lag.forIdx[p] !== c && kildePiksel({d:f,x:f.x-f.xoff,y:f.y}, p % 320, Math.floor(p / 320), lest) === lag.forIdx[p]) {
+                        gamleSkygger.add(k);
+                        continue;
+                    }
+                    eier[p] = k;
                 }
             }
         }
@@ -1193,7 +1249,7 @@ const Visning = (() => {
             const o = visteListe[k], g = kilder[k], i = p % 320 - (o.x - o.xoff), j = Math.floor(p / 320) - o.y;
             return g.px[j * o.w + (o.speilet ? o.w - 1 - i : i)];
         };
-        return { eier, ukjent, farge };
+        return { eier, ukjent, farge, gamleSkygger };
     }
 
     /* Gjenkjente figurer kan erstattes. HD-figurene tegnes i samme rekkefoelge som
@@ -1224,7 +1280,7 @@ const Visning = (() => {
         for (const d of forberedTekst(lag, lest)) reservert.add(d);
         forberedMarkor(lag,lest);
         const harLag = lag && lag.forIdx && lag.forIdx.length === 320 * 200;
-        const eie = harLag ? eierskap(lest) : null;
+        const eie = harLag ? eierskap(lest, lag) : null;
         const figurHd = new Set();
         for (let nr = 0; nr < visteListe.length; nr++) {
             const d = visteListe[nr];
@@ -1236,6 +1292,9 @@ const Visning = (() => {
             // Gamle tegninger helt utenfor vinduet blir staaende i listen (tomt rektangel).
             if (x >= 320 || y >= 200 || x + d.w <= 0 || y + d.h <= 0) continue;
             if (!g || g.w !== d.w || g.h !== d.h || !Number.isInteger(x) || !Number.isInteger(y)) { hdKontroll.kilde++; continue; }
+            // En fremtidig HD026 maa heller ikke tegne den gamle skyggen foran
+            // den kildebekreftede kroppen. Originalens svarte piksler blir igjen.
+            if (eie.gamleSkygger.has(nr)) { hdKontroll.piksler++; continue; }
             const palettFeil = palettFigurKlar(d.fil.toLowerCase(),ikey,hdPakke.get(ikey),g);
             if (palettFeil) { hdKontroll.palettFigurFeil.push({key:ikey,feil:palettFeil}); continue; }
             const ikon = hdIkoner.get(ikey);
@@ -1263,7 +1322,16 @@ const Visning = (() => {
                     // SceneHd kan verne kildebakgrunn rundt en figur. Slike piksler
                     // i gjennomsiktige hull er bakgrunn, og vernes fortsatt nedenfor.
                     const kildeBakgrunn = indeks !== 255 && lag.bakIdx?.[p] === indeks;
-                    if (e < 0) { if (indeks !== 255 && !kildeBakgrunn) { gyldig = false; break; } continue; }
+                    if (e < 0) {
+                        if (indeks !== 255 && !kildeBakgrunn) {
+                            // Bare disse maalte15-pikslene i041s transparente hull
+                            // vernes. De faar aldri HD-eierskap eller alfaopprydding.
+                            // Shaderens hele kildecellevern hindrer AA-overloep.
+                            if (balok15Vern(d, g, lag, p, i, j)) { vernData[p * 4 + 3] = 255; continue; }
+                            gyldig = false; break;
+                        }
+                        continue;
+                    }
                     if (indeks === 255) {
                         if (bakt && e === nr) {
                             if (lag.bakIdx?.[p] !== eie.farge(e, p)) { gyldig = false; break; }

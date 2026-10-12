@@ -1,0 +1,44 @@
+{
+  "key": "be1.c/009.png",
+  "generation_tool": "builtin_image_gen",
+  "call_id": "exec-e9a9c446-e634-4152-85d3-f3740ad8ee8b",
+  "raw": "raw/009-v1.png",
+  "raw_sha256": "56c9bc7a20003dcfe9b1b27a3f9aeae5aaa80ea2a4c734d30983d56770c23ba3",
+  "prompt": "prompts/009-v1.txt",
+  "prompt_sha256": "0621e96495abc083ff3f484a60790c232b2e7028927ea58d4ec03501961c9f5f",
+  "reference": "references/009-original20x.png",
+  "reference_sha256": "ec2aee38a463b4d44d31253cae890bec9ac71ad97e5ecb58372f7b00338d57af",
+  "visual_review": "Frontvendt svart manke, kort graatt munnparti og roede oeyne kontrollert mot original. Raa hornflater er materialkilde; kun originalens egne elfenbensomraader brukes i endelig pakking.",
+  "candidate_sha256": "8a349733b3fe2ae7976b75cbb0ed6535c50b5823cdc414aafd13e0ef5f09feeb",
+  "source_indices_sha256": "3a8a9f164eda0484edcb224b73750cfe9899c2d18c009e345f317a841ecb5c3c",
+  "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+  "raw_size": [
+    1098,
+    1433
+  ],
+  "raw_alpha_bounds": [
+    0,
+    55,
+    1033,
+    1401
+  ],
+  "target_size": [
+    144,
+    188
+  ],
+  "source_centers_opaque": 1227,
+  "source_centers_empty": 465,
+  "original_flat_shadow_cells": 0,
+  "source_material_pixels": {
+    "fur": 9499,
+    "hide": 8017,
+    "bone": 89,
+    "eye": 34,
+    "muzzle": 2544
+  },
+  "visual_status": "reviewed_original_and_runtime",
+  "geometry_sha256": "64953184943b733d069d9a1c81ae770ee95ec3d30e069cf0ba3d9b4bbc1891f9",
+  "packing_script_sha256": "2565a2b3f1be9069d041d7921212f9bc5afcd8b8de91796a3b6d317c6969865b",
+  "runtime_scope": "Controlled original Trogg War Beast combat initializer and terrain only, three source-documented test writes at900. No palette writes or modified combat/animation code; no natural map visit claim. Actual source calls and source scanout palette are checked. Separate normal/mirrored frontend fixtures and negative source/ownership checks never write to emulated memory. Candidate import only, no activation. Only indices actually used by each beast source frame must match its original palette; unrelated live knight6..8 can change naturally. This proof covers ONLY007/008/009;006/010/011 remain unobserved candidates after a failed broader probe.",
+  "method": "Each route uses its own generated photographic master. Original source contours, transparent holes, silhouette and anchors are retained; source-bound material registration and original source material regions, photographic black mane detail and smoothed original skin/bone/eye light, with separately preserved flat black source shadows. This is not a claim of freehand redrawn geometry."
+}

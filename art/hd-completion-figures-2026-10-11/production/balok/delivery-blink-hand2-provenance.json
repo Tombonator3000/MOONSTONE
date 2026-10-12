@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "contracts": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-016-hand017-a842.json",
+      "sha256": "8425cfd84d56fec72272ec9cac412da0289f0fe1ee8fb9f3f80c0d205701298e"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-017-blink012-a842.json",
+      "sha256": "7120c3c5a9fa770afc27b0c15f8980fad5ad26ef53f4e8cb9ea52abca486ad80"
+    }
+  ],
+  "records": [
+    {
+      "key": "Balok1.CEL/012.png",
+      "version": "012-v2",
+      "tool": "builtin_image_gen",
+      "call_id": "exec-2a54c003-5cc2-4fd2-a8b9-0520ec572cd8",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/012-v2.png",
+      "raw_sha256": "7edd279b9e529fd8052d5eba422e04688b4fccee92346462f5ff38f925db9f41",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/012-v2.txt",
+      "prompt_sha256": "d456bd22b4a9cd881227f72dbc05ab45a50ec1fc448dea5a0ec94fa092d3e54b",
+      "status": "geometry_passed_runtime_pending"
+    },
+    {
+      "key": "Balok1.CEL/017.png",
+      "version": "017-v1",
+      "tool": "builtin_image_gen",
+      "call_id": "exec-00e63474-299c-4662-b864-9d21312c24e9",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/017-v1.png",
+      "raw_sha256": "147c2a85a5bd71f7355563d12594a6606271e3f06351b209b7ba58fb46b392ae",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/017-v1.txt",
+      "prompt_sha256": "d3160a629ec9023897af02485fd9cf931ed097f5ce3555238f1d5f10df621578",
+      "status": "geometry_runtime_pending"
+    }
+  ]
+}

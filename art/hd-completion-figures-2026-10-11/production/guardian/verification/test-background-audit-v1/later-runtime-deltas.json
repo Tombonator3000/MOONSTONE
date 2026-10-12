@@ -1,0 +1,1074 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "script_sha256": "53a62ce66dec080ec8dd30735e3198022d85cbfced519b837c31bbac274039a4",
+  "audit_sha256": "03a5c28d26687640ad8479a964e25a322370d1d320ca656b8db80f99125a57ba",
+  "scope": "Exact historical background comparison, no new runtime or art generation.",
+  "rows": [
+    {
+      "case": "balok",
+      "frame": 1500,
+      "actual_terrain": 12,
+      "historical_background_fnv1a": "e8ac7fc2",
+      "nearest_original_layout": "Wa2.t",
+      "nearest_layout_fnv1a": "e8ac7fc2",
+      "nearest_layout_has_hd": true,
+      "different_source_pixels": 0,
+      "difference_bounds": null,
+      "new_indices": {},
+      "index_pairs": [],
+      "index15_rgb": [
+        204,
+        0,
+        0
+      ],
+      "classification": "exact existing terrain layout"
+    },
+    {
+      "case": "beast",
+      "frame": 1500,
+      "actual_terrain": 12,
+      "historical_background_fnv1a": "e8ac7fc2",
+      "nearest_original_layout": "Wa2.t",
+      "nearest_layout_fnv1a": "e8ac7fc2",
+      "nearest_layout_has_hd": true,
+      "different_source_pixels": 0,
+      "difference_bounds": null,
+      "new_indices": {},
+      "index_pairs": [],
+      "index15_rgb": [
+        204,
+        0,
+        0
+      ],
+      "classification": "exact existing terrain layout"
+    },
+    {
+      "case": "dragon",
+      "frame": 1500,
+      "actual_terrain": 12,
+      "historical_background_fnv1a": "e8ac7fc2",
+      "nearest_original_layout": "Wa2.t",
+      "nearest_layout_fnv1a": "e8ac7fc2",
+      "nearest_layout_has_hd": true,
+      "different_source_pixels": 0,
+      "difference_bounds": null,
+      "new_indices": {},
+      "index_pairs": [],
+      "index15_rgb": [
+        170,
+        0,
+        0
+      ],
+      "classification": "exact existing terrain layout"
+    },
+    {
+      "case": "guardian",
+      "frame": 1500,
+      "actual_terrain": 12,
+      "historical_background_fnv1a": "cbc31cbf",
+      "nearest_original_layout": "Wa1.t",
+      "nearest_layout_fnv1a": "62d8d655",
+      "nearest_layout_has_hd": true,
+      "different_source_pixels": 9444,
+      "difference_bounds": [
+        16,
+        20,
+        280,
+        114
+      ],
+      "new_indices": {
+        "5": 4526,
+        "16": 3684,
+        "18": 301,
+        "17": 533,
+        "19": 177,
+        "27": 223
+      },
+      "index_pairs": [
+        {
+          "before": 18,
+          "after": 5,
+          "pixels": 1581
+        },
+        {
+          "before": 18,
+          "after": 16,
+          "pixels": 1241
+        },
+        {
+          "before": 5,
+          "after": 16,
+          "pixels": 1018
+        },
+        {
+          "before": 17,
+          "after": 5,
+          "pixels": 769
+        },
+        {
+          "before": 16,
+          "after": 5,
+          "pixels": 552
+        },
+        {
+          "before": 17,
+          "after": 16,
+          "pixels": 443
+        },
+        {
+          "before": 28,
+          "after": 5,
+          "pixels": 355
+        },
+        {
+          "before": 27,
+          "after": 5,
+          "pixels": 320
+        },
+        {
+          "before": 19,
+          "after": 5,
+          "pixels": 196
+        },
+        {
+          "before": 27,
+          "after": 16,
+          "pixels": 185
+        },
+        {
+          "before": 24,
+          "after": 5,
+          "pixels": 166
+        },
+        {
+          "before": 19,
+          "after": 16,
+          "pixels": 158
+        },
+        {
+          "before": 5,
+          "after": 17,
+          "pixels": 147
+        },
+        {
+          "before": 28,
+          "after": 16,
+          "pixels": 138
+        },
+        {
+          "before": 21,
+          "after": 5,
+          "pixels": 132
+        },
+        {
+          "before": 3,
+          "after": 5,
+          "pixels": 126
+        },
+        {
+          "before": 4,
+          "after": 16,
+          "pixels": 115
+        },
+        {
+          "before": 5,
+          "after": 18,
+          "pixels": 104
+        },
+        {
+          "before": 26,
+          "after": 5,
+          "pixels": 100
+        },
+        {
+          "before": 18,
+          "after": 17,
+          "pixels": 97
+        },
+        {
+          "before": 3,
+          "after": 16,
+          "pixels": 93
+        },
+        {
+          "before": 26,
+          "after": 16,
+          "pixels": 91
+        },
+        {
+          "before": 4,
+          "after": 5,
+          "pixels": 85
+        },
+        {
+          "before": 5,
+          "after": 27,
+          "pixels": 72
+        },
+        {
+          "before": 25,
+          "after": 5,
+          "pixels": 69
+        },
+        {
+          "before": 24,
+          "after": 16,
+          "pixels": 65
+        },
+        {
+          "before": 5,
+          "after": 19,
+          "pixels": 64
+        },
+        {
+          "before": 19,
+          "after": 17,
+          "pixels": 60
+        },
+        {
+          "before": 20,
+          "after": 16,
+          "pixels": 57
+        },
+        {
+          "before": 27,
+          "after": 17,
+          "pixels": 52
+        },
+        {
+          "before": 20,
+          "after": 5,
+          "pixels": 50
+        },
+        {
+          "before": 21,
+          "after": 16,
+          "pixels": 45
+        },
+        {
+          "before": 19,
+          "after": 18,
+          "pixels": 40
+        },
+        {
+          "before": 16,
+          "after": 17,
+          "pixels": 38
+        },
+        {
+          "before": 28,
+          "after": 17,
+          "pixels": 31
+        },
+        {
+          "before": 18,
+          "after": 27,
+          "pixels": 30
+        },
+        {
+          "before": 2,
+          "after": 5,
+          "pixels": 25
+        },
+        {
+          "before": 25,
+          "after": 16,
+          "pixels": 23
+        },
+        {
+          "before": 27,
+          "after": 18,
+          "pixels": 22
+        },
+        {
+          "before": 26,
+          "after": 17,
+          "pixels": 22
+        },
+        {
+          "before": 16,
+          "after": 18,
+          "pixels": 22
+        },
+        {
+          "before": 20,
+          "after": 18,
+          "pixels": 22
+        },
+        {
+          "before": 3,
+          "after": 17,
+          "pixels": 21
+        },
+        {
+          "before": 19,
+          "after": 27,
+          "pixels": 20
+        },
+        {
+          "before": 26,
+          "after": 18,
+          "pixels": 19
+        },
+        {
+          "before": 26,
+          "after": 19,
+          "pixels": 19
+        },
+        {
+          "before": 20,
+          "after": 17,
+          "pixels": 18
+        },
+        {
+          "before": 18,
+          "after": 19,
+          "pixels": 18
+        },
+        {
+          "before": 20,
+          "after": 27,
+          "pixels": 18
+        },
+        {
+          "before": 28,
+          "after": 18,
+          "pixels": 17
+        },
+        {
+          "before": 4,
+          "after": 17,
+          "pixels": 17
+        },
+        {
+          "before": 20,
+          "after": 19,
+          "pixels": 16
+        },
+        {
+          "before": 3,
+          "after": 27,
+          "pixels": 14
+        },
+        {
+          "before": 21,
+          "after": 17,
+          "pixels": 13
+        },
+        {
+          "before": 3,
+          "after": 18,
+          "pixels": 13
+        },
+        {
+          "before": 16,
+          "after": 27,
+          "pixels": 13
+        },
+        {
+          "before": 17,
+          "after": 18,
+          "pixels": 12
+        },
+        {
+          "before": 24,
+          "after": 17,
+          "pixels": 12
+        },
+        {
+          "before": 28,
+          "after": 27,
+          "pixels": 12
+        },
+        {
+          "before": 26,
+          "after": 27,
+          "pixels": 12
+        },
+        {
+          "before": 2,
+          "after": 16,
+          "pixels": 12
+        },
+        {
+          "before": 17,
+          "after": 27,
+          "pixels": 10
+        },
+        {
+          "before": 16,
+          "after": 19,
+          "pixels": 10
+        },
+        {
+          "before": 4,
+          "after": 18,
+          "pixels": 9
+        },
+        {
+          "before": 21,
+          "after": 18,
+          "pixels": 8
+        },
+        {
+          "before": 28,
+          "after": 19,
+          "pixels": 8
+        },
+        {
+          "before": 24,
+          "after": 18,
+          "pixels": 8
+        },
+        {
+          "before": 3,
+          "after": 19,
+          "pixels": 8
+        },
+        {
+          "before": 4,
+          "after": 19,
+          "pixels": 8
+        },
+        {
+          "before": 24,
+          "after": 19,
+          "pixels": 7
+        },
+        {
+          "before": 27,
+          "after": 19,
+          "pixels": 7
+        },
+        {
+          "before": 4,
+          "after": 27,
+          "pixels": 7
+        },
+        {
+          "before": 24,
+          "after": 27,
+          "pixels": 6
+        },
+        {
+          "before": 21,
+          "after": 19,
+          "pixels": 5
+        },
+        {
+          "before": 21,
+          "after": 27,
+          "pixels": 4
+        },
+        {
+          "before": 25,
+          "after": 18,
+          "pixels": 4
+        },
+        {
+          "before": 25,
+          "after": 17,
+          "pixels": 4
+        },
+        {
+          "before": 17,
+          "after": 19,
+          "pixels": 4
+        },
+        {
+          "before": 25,
+          "after": 27,
+          "pixels": 3
+        },
+        {
+          "before": 2,
+          "after": 27,
+          "pixels": 2
+        },
+        {
+          "before": 2,
+          "after": 19,
+          "pixels": 2
+        },
+        {
+          "before": 25,
+          "after": 19,
+          "pixels": 1
+        },
+        {
+          "before": 2,
+          "after": 17,
+          "pixels": 1
+        },
+        {
+          "before": 2,
+          "after": 18,
+          "pixels": 1
+        }
+      ],
+      "index15_rgb": [
+        204,
+        0,
+        0
+      ],
+      "classification": "exact raw Test005, separate source reset; nearest decorated layout is not its identity"
+    },
+    {
+      "case": "mudmen",
+      "frame": 1500,
+      "actual_terrain": 8,
+      "historical_background_fnv1a": "01cf3c9e",
+      "nearest_original_layout": "Sw2.t",
+      "nearest_layout_fnv1a": "013ee13a",
+      "nearest_layout_has_hd": true,
+      "different_source_pixels": 867,
+      "difference_bounds": [
+        139,
+        172,
+        320,
+        198
+      ],
+      "new_indices": {
+        "5": 14,
+        "26": 78,
+        "4": 10,
+        "1": 13,
+        "2": 10,
+        "3": 4,
+        "27": 290,
+        "19": 261,
+        "18": 92,
+        "17": 68,
+        "16": 27
+      },
+      "index_pairs": [
+        {
+          "before": 18,
+          "after": 27,
+          "pixels": 124
+        },
+        {
+          "before": 17,
+          "after": 19,
+          "pixels": 119
+        },
+        {
+          "before": 17,
+          "after": 27,
+          "pixels": 114
+        },
+        {
+          "before": 18,
+          "after": 19,
+          "pixels": 98
+        },
+        {
+          "before": 16,
+          "after": 27,
+          "pixels": 52
+        },
+        {
+          "before": 17,
+          "after": 18,
+          "pixels": 52
+        },
+        {
+          "before": 18,
+          "after": 17,
+          "pixels": 48
+        },
+        {
+          "before": 16,
+          "after": 18,
+          "pixels": 39
+        },
+        {
+          "before": 16,
+          "after": 19,
+          "pixels": 32
+        },
+        {
+          "before": 17,
+          "after": 26,
+          "pixels": 30
+        },
+        {
+          "before": 16,
+          "after": 26,
+          "pixels": 24
+        },
+        {
+          "before": 18,
+          "after": 26,
+          "pixels": 18
+        },
+        {
+          "before": 17,
+          "after": 16,
+          "pixels": 15
+        },
+        {
+          "before": 16,
+          "after": 17,
+          "pixels": 15
+        },
+        {
+          "before": 27,
+          "after": 19,
+          "pixels": 12
+        },
+        {
+          "before": 17,
+          "after": 1,
+          "pixels": 10
+        },
+        {
+          "before": 27,
+          "after": 16,
+          "pixels": 9
+        },
+        {
+          "before": 16,
+          "after": 5,
+          "pixels": 8
+        },
+        {
+          "before": 17,
+          "after": 4,
+          "pixels": 7
+        },
+        {
+          "before": 17,
+          "after": 5,
+          "pixels": 6
+        },
+        {
+          "before": 17,
+          "after": 2,
+          "pixels": 6
+        },
+        {
+          "before": 27,
+          "after": 26,
+          "pixels": 6
+        },
+        {
+          "before": 27,
+          "after": 17,
+          "pixels": 5
+        },
+        {
+          "before": 17,
+          "after": 3,
+          "pixels": 4
+        },
+        {
+          "before": 16,
+          "after": 4,
+          "pixels": 3
+        },
+        {
+          "before": 16,
+          "after": 1,
+          "pixels": 3
+        },
+        {
+          "before": 16,
+          "after": 2,
+          "pixels": 3
+        },
+        {
+          "before": 18,
+          "after": 16,
+          "pixels": 3
+        },
+        {
+          "before": 18,
+          "after": 2,
+          "pixels": 1
+        },
+        {
+          "before": 27,
+          "after": 18,
+          "pixels": 1
+        }
+      ],
+      "index15_rgb": [
+        204,
+        0,
+        0
+      ],
+      "classification": "later original runtime change; source mechanism not fully attributed, no separate art job inferred"
+    },
+    {
+      "case": "ratmen",
+      "frame": 1500,
+      "actual_terrain": 12,
+      "historical_background_fnv1a": "e52767d5",
+      "nearest_original_layout": "Wa2.t",
+      "nearest_layout_fnv1a": "e8ac7fc2",
+      "nearest_layout_has_hd": true,
+      "different_source_pixels": 96,
+      "difference_bounds": [
+        15,
+        182,
+        142,
+        187
+      ],
+      "new_indices": {
+        "5": 19,
+        "15": 77
+      },
+      "index_pairs": [
+        {
+          "before": 18,
+          "after": 15,
+          "pixels": 36
+        },
+        {
+          "before": 17,
+          "after": 15,
+          "pixels": 22
+        },
+        {
+          "before": 27,
+          "after": 15,
+          "pixels": 12
+        },
+        {
+          "before": 17,
+          "after": 5,
+          "pixels": 10
+        },
+        {
+          "before": 16,
+          "after": 15,
+          "pixels": 7
+        },
+        {
+          "before": 18,
+          "after": 5,
+          "pixels": 3
+        },
+        {
+          "before": 27,
+          "after": 5,
+          "pixels": 3
+        },
+        {
+          "before": 16,
+          "after": 5,
+          "pixels": 3
+        }
+      ],
+      "index15_rgb": [
+        204,
+        0,
+        0
+      ],
+      "classification": "later original runtime change; source mechanism not fully attributed, no separate art job inferred"
+    },
+    {
+      "case": "trogg-axe-desert",
+      "frame": 1500,
+      "actual_terrain": 12,
+      "historical_background_fnv1a": "eace8b22",
+      "nearest_original_layout": "Wa2.t",
+      "nearest_layout_fnv1a": "e8ac7fc2",
+      "nearest_layout_has_hd": true,
+      "different_source_pixels": 30,
+      "difference_bounds": [
+        70,
+        183,
+        93,
+        185
+      ],
+      "new_indices": {
+        "15": 30
+      },
+      "index_pairs": [
+        {
+          "before": 18,
+          "after": 15,
+          "pixels": 17
+        },
+        {
+          "before": 17,
+          "after": 15,
+          "pixels": 13
+        }
+      ],
+      "index15_rgb": [
+        204,
+        0,
+        0
+      ],
+      "classification": "later original change consists exclusively of source index15, red in this combat palette; no new terrain drawing"
+    },
+    {
+      "case": "trogg-axe-forest",
+      "frame": 1500,
+      "actual_terrain": 4,
+      "historical_background_fnv1a": "470c7fc2",
+      "nearest_original_layout": "FO2.t",
+      "nearest_layout_fnv1a": "4035f361",
+      "nearest_layout_has_hd": true,
+      "different_source_pixels": 30,
+      "difference_bounds": [
+        97,
+        175,
+        120,
+        177
+      ],
+      "new_indices": {
+        "15": 30
+      },
+      "index_pairs": [
+        {
+          "before": 26,
+          "after": 15,
+          "pixels": 21
+        },
+        {
+          "before": 16,
+          "after": 15,
+          "pixels": 7
+        },
+        {
+          "before": 25,
+          "after": 15,
+          "pixels": 2
+        }
+      ],
+      "index15_rgb": [
+        204,
+        0,
+        0
+      ],
+      "classification": "later original change consists exclusively of source index15, red in this combat palette; no new terrain drawing"
+    },
+    {
+      "case": "trogg-axe-swamp",
+      "frame": 1500,
+      "actual_terrain": 0,
+      "historical_background_fnv1a": "85eb2e7d",
+      "nearest_original_layout": "GL2.t",
+      "nearest_layout_fnv1a": "a154a2e3",
+      "nearest_layout_has_hd": true,
+      "different_source_pixels": 30,
+      "difference_bounds": [
+        68,
+        174,
+        91,
+        176
+      ],
+      "new_indices": {
+        "15": 30
+      },
+      "index_pairs": [
+        {
+          "before": 27,
+          "after": 15,
+          "pixels": 22
+        },
+        {
+          "before": 25,
+          "after": 15,
+          "pixels": 6
+        },
+        {
+          "before": 26,
+          "after": 15,
+          "pixels": 2
+        }
+      ],
+      "index15_rgb": [
+        204,
+        0,
+        0
+      ],
+      "classification": "later original change consists exclusively of source index15, red in this combat palette; no new terrain drawing"
+    },
+    {
+      "case": "trogg-spear-desert",
+      "frame": 1500,
+      "actual_terrain": 12,
+      "historical_background_fnv1a": "e28defb2",
+      "nearest_original_layout": "Wa2.t",
+      "nearest_layout_fnv1a": "e8ac7fc2",
+      "nearest_layout_has_hd": true,
+      "different_source_pixels": 60,
+      "difference_bounds": [
+        74,
+        183,
+        120,
+        185
+      ],
+      "new_indices": {
+        "15": 60
+      },
+      "index_pairs": [
+        {
+          "before": 17,
+          "after": 15,
+          "pixels": 31
+        },
+        {
+          "before": 18,
+          "after": 15,
+          "pixels": 22
+        },
+        {
+          "before": 27,
+          "after": 15,
+          "pixels": 7
+        }
+      ],
+      "index15_rgb": [
+        204,
+        0,
+        0
+      ],
+      "classification": "later original change consists exclusively of source index15, red in this combat palette; no new terrain drawing"
+    },
+    {
+      "case": "trogg-spear-forest",
+      "frame": 1500,
+      "actual_terrain": 4,
+      "historical_background_fnv1a": "081f143c",
+      "nearest_original_layout": "FO2.t",
+      "nearest_layout_fnv1a": "4035f361",
+      "nearest_layout_has_hd": true,
+      "different_source_pixels": 30,
+      "difference_bounds": [
+        19,
+        175,
+        42,
+        177
+      ],
+      "new_indices": {
+        "15": 30
+      },
+      "index_pairs": [
+        {
+          "before": 16,
+          "after": 15,
+          "pixels": 10
+        },
+        {
+          "before": 26,
+          "after": 15,
+          "pixels": 10
+        },
+        {
+          "before": 27,
+          "after": 15,
+          "pixels": 9
+        },
+        {
+          "before": 25,
+          "after": 15,
+          "pixels": 1
+        }
+      ],
+      "index15_rgb": [
+        204,
+        0,
+        0
+      ],
+      "classification": "later original change consists exclusively of source index15, red in this combat palette; no new terrain drawing"
+    },
+    {
+      "case": "trogg-spear-swamp",
+      "frame": 1500,
+      "actual_terrain": 0,
+      "historical_background_fnv1a": "733a7e49",
+      "nearest_original_layout": "GL2.t",
+      "nearest_layout_fnv1a": "a154a2e3",
+      "nearest_layout_has_hd": true,
+      "different_source_pixels": 17,
+      "difference_bounds": [
+        0,
+        174,
+        13,
+        176
+      ],
+      "new_indices": {
+        "15": 17
+      },
+      "index_pairs": [
+        {
+          "before": 27,
+          "after": 15,
+          "pixels": 13
+        },
+        {
+          "before": 25,
+          "after": 15,
+          "pixels": 4
+        }
+      ],
+      "index15_rgb": [
+        204,
+        0,
+        0
+      ],
+      "classification": "later original change consists exclusively of source index15, red in this combat palette; no new terrain drawing"
+    },
+    {
+      "case": "troll",
+      "frame": 1500,
+      "actual_terrain": 12,
+      "historical_background_fnv1a": "b91f7ea2",
+      "nearest_original_layout": "Wa2.t",
+      "nearest_layout_fnv1a": "e8ac7fc2",
+      "nearest_layout_has_hd": true,
+      "different_source_pixels": 30,
+      "difference_bounds": [
+        93,
+        183,
+        116,
+        185
+      ],
+      "new_indices": {
+        "15": 30
+      },
+      "index_pairs": [
+        {
+          "before": 17,
+          "after": 15,
+          "pixels": 16
+        },
+        {
+          "before": 27,
+          "after": 15,
+          "pixels": 8
+        },
+        {
+          "before": 18,
+          "after": 15,
+          "pixels": 6
+        }
+      ],
+      "index15_rgb": [
+        204,
+        0,
+        0
+      ],
+      "classification": "later original change consists exclusively of source index15, red in this combat palette; no new terrain drawing"
+    }
+  ],
+  "all32_clean_layouts_have_direct_hd": true,
+  "source_background_write": {
+    "start": "0x087ae0",
+    "end_exclusive": "0x087b46",
+    "sha256": "d72bea729abe2c3e7747297fdde2d6b0d15794f1104f3a0bce40eb127d7d4566",
+    "proof": "flag4 branch at087b0a selects08cde8 via088f42, draws CEL at087b2e, then restores0aa948; this proves original combat can mutate clean background"
+  },
+  "limitations": [
+    "Red-only changes are mathematically established; attribution to a particular CEL or action requires its exact draw trace.",
+    "Mudmen and ratmen later deltas include additional indices, so they are not called simple blood-only changes.",
+    "Existing HD image coverage is complete for these32 source layouts. Dynamic changed hashes can still cause Original fallback; no presentation fix is implemented here."
+  ]
+}

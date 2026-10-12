@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "key": "Balok1.CEL/012.png",
+      "expected_rejection": "Bare kildeavklart",
+      "status": "passed"
+    },
+    {
+      "key": "Balok1.CEL/051.png",
+      "expected_rejection": "Avvist råbilde",
+      "status": "passed"
+    },
+    {
+      "key": "Balok1.CEL/052.png",
+      "expected_rejection": "Hver effekt",
+      "status": "passed"
+    }
+  ],
+  "script": "art/hd-completion-figures-2026-10-11/production/effect_pack.py",
+  "script_sha256": "6ce5d07c9c9778feb5e32e9e2d3b26e0f54342d1bf0e633113b5cfe4a3860b38"
+}
