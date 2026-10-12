@@ -1,0 +1,1949 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "6b93be5b0e12b458b8005fd891a15c0f5a454e35baa2a2d93cdf33666c5b416c",
+    "web/src/scenes.js": "189eed863fa34e74900f221f7f6078e46036adb41537cb9e27e8f7d5a06eff5f",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "sha256": "13843a28a5f82ce9fe9771664950a55191a5ff7baf23cc9f81f9e96ff33fff51",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/loaded.html",
+      "html_sha256": "1bee3c056f771612b427df9750901ca8829099be8829da55779fb859edf612c3"
+    }
+  ],
+  "companion_derivations": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/geometries.json",
+      "sha256": "815ba9c00703cf593bac13a6d67af7826bd1515e66876989f2370e297c77fa44"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/generation-records-v1.json",
+      "sha256": "e61ff016f3106ac710b61bbea454a222b8b84c7b035fe230c6aee99f1acdd695"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/runtime.cjs",
+      "sha256": "13c59066efa11f57a794b77c363c88fe0bbeabbec75942b3d8b9808807c94332"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/packing-048-059-v1.json",
+      "sha256": "fdf7d6bead623f06cbff5b2c72ba3ad9e8d7700a6af058cba4dd3f1d6a8cbc37"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/generation-records-through-059.json",
+      "sha256": "bf9f5ef945df02b416165cfd214274a62afe15e2a9e0a37fd339f40183c1d7e9"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/packing-knight-v2.json",
+      "sha256": "9b304eeafd4fc88c5ad9c5c14382e62d9f614fe03847250ef07b0a8c891010fb"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/generation-records-knight-v2.json",
+      "sha256": "085c401e2d4f206562014e38ec3fe497ace560ba8f063210c3f4cd7fc51af53d"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/packing-061-074-v1.json",
+      "sha256": "c5eaa7782784a6df86b672ff451281ed9816d64647df5459d92c6e9022859e4e"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/generation-records-through-074.json",
+      "sha256": "80a8838048aa3589b6a265ac9af1452d2c0f6e927197f607bd493f2e93a84d9e"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/packing-075-098-v1.json",
+      "sha256": "1772e5ac8ede87e2ac1bd1274a147d7223f458b3673c42c37da249ad5574efd5"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/generation-records-through-098.json",
+      "sha256": "e61ff016f3106ac710b61bbea454a222b8b84c7b035fe230c6aee99f1acdd695"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/comparison-048-059-v1.png",
+      "sha256": "fd2095bfc467211fd702dbbce6627310eec6e70c22ba9e54cc3fdc7d28a7d74a"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/comparison-knight060-v2.png",
+      "sha256": "bd673de196168c630ad0ebd98ae1f4870071982eff25539a15298f91054a31b7"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/comparison-061-074-v1.png",
+      "sha256": "dd4a5feb08a32b2bacd877b5a20cce761cc0369e22b5e57afff36df6914bc599"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/comparison-075-098-v1.png",
+      "sha256": "7eebec776587d491b7ebe3a812151c08f624fa560b2c679c7c80e9d54cd8c3bb"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/visual-review.json",
+      "sha256": "07ade9cd99d4232ef1eccdf048b53531ef080e31a16c243d4b920fc20eb818dd"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/048-v1.json",
+      "sha256": "02c16d16c45a20555aa442c08d3c2dd00cb79f42ba5b9de5293bdf3b29f4a2a7"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/049-v1.json",
+      "sha256": "b9f175a0746ba915f9b9a536f116d05ad579f909f60e4e1a501656fd117b59eb"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/050-v1.json",
+      "sha256": "e64f67ffe078239f805b296e02974a39566280ba34e869175bcedac13487b115"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/051-v1.json",
+      "sha256": "3311086799e1e8e0ecdcdc3b753eec1c119f485aa6bb08071e4da9c09f2b6259"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/052-v1.json",
+      "sha256": "659619661e72b0df68c83ed54452417b3158fcb4edfcf29a0913fd54a1a1d300"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/053-v1.json",
+      "sha256": "b0de712a770b729f64c28daa6601e9d663f899fb4ce2f9ed90b9af7de4a3e747"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/054-v1.json",
+      "sha256": "b30cc826baa57de22eb013bfc45da2e96569a0774038f4b287b552bf84286139"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/055-v1.json",
+      "sha256": "ff1b69c87aa7b0e1853b41cb06682bd7ce7b1ab5b1c4918f7370199682e25dfb"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/056-v1.json",
+      "sha256": "e5e38b1eb4c127b591d53b0dd227c0a7ce0a770613155ee914588fa7cdfe10a2"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/057-v1.json",
+      "sha256": "3bf6ea9f34b5828b500f36d8ff58c22028ba828bd13159cf7e92333e567ac6ab"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/058-v1.json",
+      "sha256": "5d415f04981c2851d7c49e8c83039ecf5a000c9c2db7a8322728a371b157cb19"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/059-v1.json",
+      "sha256": "4fc69ab23fd9b61e79b6d5a904e6dcb95386605546460afb9c5020b56fb1d595"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/060-v1.json",
+      "sha256": "4c865224beb96034b872fa4ebf5cc585a0c6b3d1392d031d21976fd2c3e4ebce"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/061-v1.json",
+      "sha256": "b0d619a9a509975c63e1623f642b91c244176d8236b796defeea8491e4f57998"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/062-v1.json",
+      "sha256": "20635d32b33ef4e379fc69c428eff7fca4361a2f2db7c9fbce6c4316f6a2dc5f"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/063-v1.json",
+      "sha256": "41f2c45abeab93d3669f1bace41d53e9b81e2555c6dd5de961fc77a5d97be1a3"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/064-v1.json",
+      "sha256": "9d159e2d15634b64e4357d7b2c9954672e5c6bb82f2b077ad9477b257ce3899c"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/065-v1.json",
+      "sha256": "9a65f24ef856356da1e4217880bc58882252760e70f7e6e4a31ea1ab3f23f80e"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/066-v1.json",
+      "sha256": "f5509ed817fc091786461054ce45263dbd09ed626d8abcb94ab68a295e03ef7c"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/067-v1.json",
+      "sha256": "eff71dd2e2e915e68ac416c7fba6d3761e4baa14e6e2f3df06c01f02a8622a57"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/068-v1.json",
+      "sha256": "2c22d1c108e19e0a537b86d96f69744a67000acfafc78d1c57882842aefc48a4"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/069-v1.json",
+      "sha256": "de5acd0b99c1f7bf5cf6ff3ec5db24d1e4c9789c966fd770169f454a37d3c182"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/070-v1.json",
+      "sha256": "4de797f9d7b1a08d381e84a2c647ccb59dc71f1fcd4f4e8406866261f931a871"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/071-v1.json",
+      "sha256": "535382a7d722703e5493d7206b228be285823cc973120b2ec42efa1446e623c3"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/072-v1.json",
+      "sha256": "b385ef59845fa077584546555776280c5b4a69f5379115e9cd7dc3a0232ebe43"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/073-v1.json",
+      "sha256": "c51e9cf7a7919a528a05f73efb9f29b36ec77c8117667d21bbcc014ebbdbbb02"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/074-v1.json",
+      "sha256": "977848f349a228470b4f9564de9d49d4e1c12a0dbdc09f7eeb6db22556e05817"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/075-v1.json",
+      "sha256": "902ee58f4e32b73959bd8907467ea1391b28729ecc51a2f69cf00376d3815321"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/076-v1.json",
+      "sha256": "7e2dc112d8d8b56d32f8f5184492ecbf7b2c0fd99246f09bbd82a35e5779541c"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/077-v1.json",
+      "sha256": "c4fc04aa6e14ba5db7ce569d7d2002008b9703213fbd6356f6645116de224d91"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/078-v1.json",
+      "sha256": "0ff6370bef0386047aad9011f3cee5e8ebe60e409af9d0d06b21835fdf86c529"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/079-v1.json",
+      "sha256": "47319fe305191a2570389450f05ef431c3d80c40706625b86e013812d76c8925"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/080-v1.json",
+      "sha256": "89b9b24ebc39420155164f1124757105d98b7fd0432c640ea55e269c6d89ad23"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/081-v1.json",
+      "sha256": "8ab6f2e98d90bd4ac51f12d4973cf39f921e6d404d5e45c145e978c0ec59600a"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/082-v1.json",
+      "sha256": "c6e9a32e332a1ccdc4dbed182aaaa068a94176de69ecf42c9e9f35d5184c8799"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/083-v1.json",
+      "sha256": "6217bfd544b71c665afb0a87df7720d451ed0c6434e8be387097286d660d9f1c"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/084-v1.json",
+      "sha256": "4f533c7632bd72a044387649124b53998813fb56f265f00affcdbb485df1396a"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/085-v1.json",
+      "sha256": "3b0a19f6c80780314d8ddfc2dfe88c3e712fc38effd759ecd463d07fc3fbbed9"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/086-v1.json",
+      "sha256": "797e3843acdb80900d9e79e5f364119e621040263debda33f912d707a76ea116"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/087-v1.json",
+      "sha256": "2e210d12876b044526584f9e82dfb9301536d2dc7b0561c6bfab0b020c83b5bb"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/088-v1.json",
+      "sha256": "150f258830d2e247aaefa6a286fecc6049e8bd94fd35b7949012c7e53515970e"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/089-v1.json",
+      "sha256": "72ce62eeb576f4acdd7e4a2bf8d4c54f3a4e272363f9cbb0ecc97e112d832a30"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/090-v1.json",
+      "sha256": "75b3accb7c88a94859b9cb3dd7b8fbb0c8c402195435d66577fe7c232289e471"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/091-v1.json",
+      "sha256": "93784859fabbc73685d346e5c4c5e79d2734c31da0791104a374a50edf3cfe06"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/092-v1.json",
+      "sha256": "03e29d6301222b89cbdaa73e1fbc6687f22c2b73d924f94acdc18ff054b69afa"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/093-v1.json",
+      "sha256": "e23a6244c8b6e029db62bcbb50e58dcd2b56b8637a12716729c8b4ab30990b0f"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/094-v1.json",
+      "sha256": "35e6d2e9460055de721edd917b55a7a0175d65377ef1b71192ae6ad8ba15b5cf"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/095-v1.json",
+      "sha256": "9ed827d402a18daf8e104e7eb56ed0c6262fbccee17183efdf6402b7ce83f023"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/096-v1.json",
+      "sha256": "69728ca0469b0be74981b5418cddff3058dad7057be3ceade9a8b2daf7894d1a"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/097-v1.json",
+      "sha256": "93370e52fb76e79085d3292d39ba954ce30e081e3f7ce9af5a3ab06964e56338"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/generation-calls/098-v1.json",
+      "sha256": "f7e4d30d2d384e7be4e204e26bcc9378ed7a4c5aab58ce89019ce59349288758"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/pack.cjs",
+      "sha256": "14c2935f68036b1a3cd12bfd15d325cc04ce604ea1164563508e3414e8a58b31"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/pack-knight-v2.cjs",
+      "sha256": "f821bb1e8252c3d95452f345c5eff865f0a764897b0d2e5b4c7bc8c7d66a6954"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prepare.py",
+      "sha256": "079ea4c9bc222224eadfb4eab843211da73393303c310761857a68b9e5dc89f9"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prepare-prompts.py",
+      "sha256": "c106d40f308dc1a2d35e90d51803a06c2a2cbf88d771c940dcbbb9051e1ef7da"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/record-generated.py",
+      "sha256": "84164a925367e3777e09befa46972e0783b361ce18624481274c85abacb1ea17"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/check-v2.py",
+      "sha256": "8c07012dcaea0205cd049fefaea6da67fdba25fa9abcb5131dc5f35651aadf59"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/compare.py",
+      "sha256": "831337f16324b2e288176be62f54cd7e352a22477f4f20641c97f89c70bb7af8"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/freeze-remainder-v2.py",
+      "sha256": "3ac0f994d93b08acc4982b39b817ce59e6345df2ef7032439ad609a7bfd9099a"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prepare-knight-v2.py",
+      "sha256": "72a2da1352381c9025d5fee171b7af103dee4a7db0e692d3f18a5b5924fb0384"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/geometry-knight-v2.json",
+      "sha256": "83a540e472457c788f8135fb0f25f423a3e209f852a27bfc30b6c25cbe3330e1"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/mask-knight-v2.py",
+      "sha256": "4b1bb7b96a310d3668a9dc9a0abd55edfffa7c4735d2a04c5ef9d2d8c1cfabd8"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/source-usage-audit.py",
+      "sha256": "2e49a394090e056ec4acfd8c50ba9eaad66498b2d35f4ef6fce56860e5eaab12"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/packing-independent-all99-v3.json",
+      "sha256": "22af72abe00eb4d12f666b5cb54854afe4a77a70d1716799e081d61773b61194"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/source-usage-remainder-v1.json",
+      "sha256": "7194083359746f98432646f4525a534bca1b29a1ad806301c6ae86a8925cf20e"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/mask-knight-v2.json",
+      "sha256": "fcf9da76fc4aa8de3d9d4c9975ba18afa02c0b3f3f89041c08a87583fd3ed5e0"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/contours.py",
+      "sha256": "314a0350be803e7314439d14028379954fb363ecc79d6a35eed6b6aabcbfbe2c"
+    },
+    {
+      "path": "tools/hd_resterende_ikoner_fixture.cjs",
+      "sha256": "35d36d2eae833ab8d417746f4ae801ee38ba7926cb1fb597a773c8eb31e2e72a"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/palettes/cases/guardian.json",
+      "sha256": "126b5574df8932352e251ed05bbfb598bc3b1fe163847d8e7ba2144ecf5e323f"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008-candidate-v1/source-map.json",
+      "sha256": "936f6ced4ec623f2631154b419c0e0a9c7e6d3b1f7da6a31db971daff0f5945c"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008-candidate-v1/web/src/core.js",
+      "sha256": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008-candidate-v1/web/src/render.js",
+      "sha256": "6b93be5b0e12b458b8005fd891a15c0f5a454e35baa2a2d93cdf33666c5b416c"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008-candidate-v1/web/src/scenes.js",
+      "sha256": "189eed863fa34e74900f221f7f6078e46036adb41537cb9e27e8f7d5a06eff5f"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008-candidate-v1/web/src/hd.js",
+      "sha256": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+    }
+  ],
+  "scope": "Controlled original Guardian combat initializer and terrain only, three source-documented test writes at900. No palette writes or modified combat/animation code; no natural map visit claim. Actual source calls and every nontransparent original source index in the actual scanout palette are checked. Unused palette changes are reported explicitly; no relaxation for any rendered source color. Remainder048..098 currently unobserved in original replay; never claim these are actual combat captures. Separate normal/mirrored frontend fixtures and negative source/ownership checks never write to emulated memory. Route060 is source-exact embedded knight with mandatory delivery NN mask6..8 and five original knight-palette fixtures. Legacy mode1 keeps its existing optional mask behavior; this test does not claim a new mandatory renderer mask gate. Candidate import only, no activation.",
+  "original_usage_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/source-usage-remainder-v1.json",
+  "visual_reviews": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/comparison-048-059-v1.png",
+      "sha256": "fd2095bfc467211fd702dbbce6627310eec6e70c22ba9e54cc3fdc7d28a7d74a",
+      "reviewer": "root",
+      "approval": "visual_review_confirmed_in_agent_message",
+      "scope": "Original contour, crop, openings and source color. Route060 steel/cloth/pose approved; black fields remain source display surfaces. No actual-runtime-observed claim."
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/comparison-knight060-v2.png",
+      "sha256": "bd673de196168c630ad0ebd98ae1f4870071982eff25539a15298f91054a31b7",
+      "reviewer": "root",
+      "approval": "visual_review_confirmed_in_agent_message",
+      "scope": "Original contour, crop, openings and source color. Route060 steel/cloth/pose approved; black fields remain source display surfaces. No actual-runtime-observed claim."
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/comparison-061-074-v1.png",
+      "sha256": "dd4a5feb08a32b2bacd877b5a20cce761cc0369e22b5e57afff36df6914bc599",
+      "reviewer": "root",
+      "approval": "visual_review_confirmed_in_agent_message",
+      "scope": "Original contour, crop, openings and source color. Route060 steel/cloth/pose approved; black fields remain source display surfaces. No actual-runtime-observed claim."
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/comparison-075-098-v1.png",
+      "sha256": "7eebec776587d491b7ebe3a812151c08f624fa560b2c679c7c80e9d54cd8c3bb",
+      "reviewer": "root",
+      "approval": "visual_review_confirmed_in_agent_message",
+      "scope": "Original contour, crop, openings and source color. Route060 steel/cloth/pose approved; black fields remain source display surfaces. No actual-runtime-observed claim."
+    }
+  ],
+  "entries": [
+    {
+      "key": "Demon2.CEL/048.png",
+      "bank": "Demon2.CEL",
+      "frame": 48,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "4e21a2bf8152758602c51d3c9ff1080630b08fca576d817c9a65e9af2985c3fa",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/048.png",
+      "png_sha256": "5c2ad6448f099040fdd36abb619283ca6390174cd9b8f72fbc3ec33084b10d24",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/048-v1.png",
+      "raw_sha256": "6705538c4eaae2eea7d23c05e60ff655f72b00db4a45ed0143ff01a38255ac72",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/048-v1.txt",
+      "prompt_sha256": "1810f38155f86233c39e53eda0f6bf976a97b7aa8317db95b3249f9b4f3b4bc9",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "5c2ad6448f099040fdd36abb619283ca6390174cd9b8f72fbc3ec33084b10d24",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/048-record.json",
+      "art_record_sha256": "737838db44baafe8527d1e89090f424d3a014ec13c0c69a5b9e6a81a0cae7d20",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 1776,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/049.png",
+      "bank": "Demon2.CEL",
+      "frame": 49,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "78b5fe8cb93d2518bc4f5e72ac440fa4fd52da7b9be4cf37ed3b7a433b625080",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/049.png",
+      "png_sha256": "d040eb97f3ab58efbd568856af0716162a434600ab3867c48b8ef5fb7b3a8b4a",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/049-v1.png",
+      "raw_sha256": "f48bdb7a63959ef25235c3b68399b0d68323046e20e650452fa039f3e8c9e9bf",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/049-v1.txt",
+      "prompt_sha256": "9e6e2c6f40988089ff301e89d322c85968c71aebeda1436fa9d070d3fd7ed4d3",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "d040eb97f3ab58efbd568856af0716162a434600ab3867c48b8ef5fb7b3a8b4a",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/049-record.json",
+      "art_record_sha256": "8e14ab5e5364688fbb46629df281ff33ec5171054f7016b15a923d5a651b1830",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 308,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/050.png",
+      "bank": "Demon2.CEL",
+      "frame": 50,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "7c5af868ca5f458a76bfa09465e5022911413618ef7c34f959ce3c435ffa6044",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/050.png",
+      "png_sha256": "4f904f5fd21667e721bde138f012972830fab248ad67b9d6a23dc0518e33e909",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/050-v1.png",
+      "raw_sha256": "6312f84033fab9e06e70288731c1330b05c52b5fabb4e70b024afcd49e8ba4d5",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/050-v1.txt",
+      "prompt_sha256": "ef1231d111f202c4ca82bf022241998ec7d4a9c19f0004ec3901723339d00ce4",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "4f904f5fd21667e721bde138f012972830fab248ad67b9d6a23dc0518e33e909",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/050-record.json",
+      "art_record_sha256": "4adccfb0ed61826e4c38dcf2dd5eeacde2cd0a8448685f0731f9cab89e3f25bb",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 168,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/051.png",
+      "bank": "Demon2.CEL",
+      "frame": 51,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "a5591d66703a2f0434ed0d11e7f3dd96039d74dfedcd62dab928ebf4a080a75f",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/051.png",
+      "png_sha256": "29122913bd5ea59f9a7a1bf377979aa5e8e1f872a612a7afdf6d57a000c500dd",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/051-v1.png",
+      "raw_sha256": "b38932e6cfa53bf8bad857b6c5e4380639921e085df8a8159bed9e05c81f901c",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/051-v1.txt",
+      "prompt_sha256": "e871a3281f1362bc9be9ddd3571ea6e6935c087ca9b4ec3d3d610b6a69ad71b5",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "29122913bd5ea59f9a7a1bf377979aa5e8e1f872a612a7afdf6d57a000c500dd",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/051-record.json",
+      "art_record_sha256": "16902868d0b1c69b95fc4effc8aaed83da9e29658904634465788b8e05ee9fc3",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 285,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/052.png",
+      "bank": "Demon2.CEL",
+      "frame": 52,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "4d353094f84791fb821b7a88ae032f5fa71878c99f7dd98f3e075dd85d71ac96",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/052.png",
+      "png_sha256": "14541731d6c2bca055db6cadeb7190b0456c226bf4cc4de85eea376d323cf789",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/052-v1.png",
+      "raw_sha256": "0ee332ea16ce5a96d3413600369ec42e6908776e9e7865c13dde7c126c9b53c0",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/052-v1.txt",
+      "prompt_sha256": "8202ae49016188ec29f3d2f7aca621a7b9580a045ceb7fadd5f86472b2b004eb",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "14541731d6c2bca055db6cadeb7190b0456c226bf4cc4de85eea376d323cf789",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/052-record.json",
+      "art_record_sha256": "1a7b650441922f9d6e790383b45862fc3282ba20dc10212355e64a0253007b63",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 286,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/053.png",
+      "bank": "Demon2.CEL",
+      "frame": 53,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "9ca549645f8c790852d71727254afbe32d10d6dfe9ce60f1c7a5438e5e5f6a07",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/053.png",
+      "png_sha256": "ae3738e958af83b6203fa27067d7860170bd2659e96133252a0ebf6d5bc46297",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/053-v1.png",
+      "raw_sha256": "85f992d7b3040f840a903db884b697b610a6890d32a7f0cc5d5cfb4dce259956",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/053-v1.txt",
+      "prompt_sha256": "2b4bd47507ce71c0de188fbf97a0a9a90d1d6b3dc10e507ef3fcd6ead62086bb",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "ae3738e958af83b6203fa27067d7860170bd2659e96133252a0ebf6d5bc46297",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/053-record.json",
+      "art_record_sha256": "713cdd7655c2aae25970713ff1ff4e5f47dec7328b11979613a05fa6c34957be",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 1920,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/054.png",
+      "bank": "Demon2.CEL",
+      "frame": 54,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "228019ee08cbf9f2ca7253a3b5431b6ffa999a0fb3cf582e59e515f9ba8f892c",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/054.png",
+      "png_sha256": "68a2c74142216ebf72c0255db419879d8db2df98a75ee91f42121a6872121599",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/054-v1.png",
+      "raw_sha256": "7d8da3483de69cc5a3cf2a5ce8ba3b0c96dc20c32ad10df9f868f97b85aecda7",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/054-v1.txt",
+      "prompt_sha256": "4782db4840b4d8d935cfdb3cf7f21b3e1be0d6173b9229f56b61f6f6729022e8",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "68a2c74142216ebf72c0255db419879d8db2df98a75ee91f42121a6872121599",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/054-record.json",
+      "art_record_sha256": "8ba23cfff9c0debfe1f242c4005efe2b3d8c3b8b26bed7e4c8f78192b55ee94f",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 476,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/055.png",
+      "bank": "Demon2.CEL",
+      "frame": 55,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "4dc8ccf3730333f2ac01dbb5a5e0c2aad084b3533f4341b2729589bab3664573",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/055.png",
+      "png_sha256": "1bb7095ebcef832084e689861facd9442d2e2b8775ef3b86393497e6f7bdc5c6",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/055-v1.png",
+      "raw_sha256": "953321382be3ac1af602b7153df81286a5cc45a31c011e4d481499e401d15afd",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/055-v1.txt",
+      "prompt_sha256": "7bb44490a6e49b0d0f70398c4ec2f05804290e6b28868676b8113660ce4755a7",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "1bb7095ebcef832084e689861facd9442d2e2b8775ef3b86393497e6f7bdc5c6",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/055-record.json",
+      "art_record_sha256": "dbb1e89d7bb7ae790ea175b2a16cc4be6b1881288c02e0caf169e13ec7c9397b",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 289,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/056.png",
+      "bank": "Demon2.CEL",
+      "frame": 56,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "c034cd0df1b2508bf0bee2378a1a5e0ae981beed8674a1edc7442b0116154533",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/056.png",
+      "png_sha256": "cebd8522a6edb27c0a65df7814f2fb4312619d7f1ccb1bce590c5e6a366a7359",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/056-v1.png",
+      "raw_sha256": "97e446d4ad6898c18e3cdb0de44887c33d6176429525c92df9af92c97992c2b4",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/056-v1.txt",
+      "prompt_sha256": "b828abbbd69a7a64391f0d7bd65666dbf0693120fef50538ad7965ba110ce2ff",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "cebd8522a6edb27c0a65df7814f2fb4312619d7f1ccb1bce590c5e6a366a7359",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/056-record.json",
+      "art_record_sha256": "31aa7b23ce18835cde8e0a8fdeca7a182616740eb895fd6b393e3f820e098a67",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 154,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/057.png",
+      "bank": "Demon2.CEL",
+      "frame": 57,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "e52c24920c5cd3670811ab96a08547d9bb50e290787848f79356d09c1afc73c8",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/057.png",
+      "png_sha256": "faa8896f2b476ffa13008f940763c5d7fe904eaa181f6af05716adcbd793dd30",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/057-v1.png",
+      "raw_sha256": "2182f071bb7a94cddc76e90013f704db863316020e941b199225c425166924f8",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/057-v1.txt",
+      "prompt_sha256": "57a92725f029f3240e55088a9143d6ec2bedfd00c1cc3be53f258eace34210e3",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "faa8896f2b476ffa13008f940763c5d7fe904eaa181f6af05716adcbd793dd30",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/057-record.json",
+      "art_record_sha256": "e91810e658925330edc25d6ff1cf564fa3755d30c8188bcecad2650d1971ae31",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 275,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/058.png",
+      "bank": "Demon2.CEL",
+      "frame": 58,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "dd9832d9569517428fe5a18ce0fdde18e1264374ebecb79ea2cf0420583a7f9f",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/058.png",
+      "png_sha256": "e412958fd02d8bf782205f86c64225fa397fb8dcf00f2fbf789e1e659ce7ec7e",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/058-v1.png",
+      "raw_sha256": "2cfc024b589836c93fe35d111ddae2a536384964941b498e48fc3897a79d54d2",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/058-v1.txt",
+      "prompt_sha256": "6e58a188028ee9038bc2b6d021170296544416d7d4b32b933a4347147fb3ea18",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "e412958fd02d8bf782205f86c64225fa397fb8dcf00f2fbf789e1e659ce7ec7e",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/058-record.json",
+      "art_record_sha256": "ea1e96d81af09c1d70d72195f353d6620a538e51b56eaf394a77f76683bfbb31",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 273,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/059.png",
+      "bank": "Demon2.CEL",
+      "frame": 59,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "0bf30efd161237e97bec6e4f6f64b20bd0239d511da50b0759bef5e47ce60d27",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/059.png",
+      "png_sha256": "166f91e4d09f997b8156638cda2432a3514b24db6315e39c1762174b61d5ea80",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/059-v1.png",
+      "raw_sha256": "fd492207bd9ede327b4f2dc393e2d2d6f8226a82de5684d43bb2b5f6a2dcdbda",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/059-v1.txt",
+      "prompt_sha256": "141dd0c4de784072be43a247ba1c4cdca1873f998276df0d5fc473e22bab1068",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "166f91e4d09f997b8156638cda2432a3514b24db6315e39c1762174b61d5ea80",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/059-record.json",
+      "art_record_sha256": "c61310090288c78e0af38f851b52709c92834993f5d71f95ccb00ddcdc6f94f9",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 550,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/060.png",
+      "bank": "Demon2.CEL",
+      "frame": 60,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "b83e4986087cb016d1c618b07fd8025244e55c2a194a0063564d9614f658d01d",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/060.png",
+      "png_sha256": "6d328630b9b33ea3b16122fe48fd8136ff41376531fdddac669239f51548d384",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/060-v1.png",
+      "raw_sha256": "4ed6772619c99ae8cdcf63be5bba27add35ad198b41f002925efa307965a42d1",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/060-v1.txt",
+      "prompt_sha256": "76d4ace9124b6ad9279441744d34e35579ddc20d75b7248de07458296dd50711",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "6d328630b9b33ea3b16122fe48fd8136ff41376531fdddac669239f51548d384",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/060-record.json",
+      "art_record_sha256": "093aa930e1e30cda45a200e53b78ffa346708ac39792b729eb81a57191856488",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 2728,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only",
+        "five_original_knight_palettes_both_mirrors": true
+      },
+      "mask": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/060.mask.png",
+      "mask_sha256": "43bd5753987d95d22e2c807da77d9b806d46bff3e39e40b36e718073403be8ea"
+    },
+    {
+      "key": "Demon2.CEL/061.png",
+      "bank": "Demon2.CEL",
+      "frame": 61,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "8c19349c456087375aee7c46c63b877d92cd6a45928f1e64a2facb7a9e82e487",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/061.png",
+      "png_sha256": "66fd646c52d247d9cb6861fff06d4cca00a5e54a53499056da323ca7d8c7054d",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/061-v1.png",
+      "raw_sha256": "442f239b569d905a506945435da12cbfe348bbe40e2e336d30c374d9b1790fbe",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/061-v1.txt",
+      "prompt_sha256": "caf85811450d66a4782b70974351f26d13585106a6d193d1736720e4ffd8f580",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "66fd646c52d247d9cb6861fff06d4cca00a5e54a53499056da323ca7d8c7054d",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/061-record.json",
+      "art_record_sha256": "62abccb574553f9d7d9a21a4fb3e353359e62dee7f57b5732af42fd89a8e4560",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 384,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/062.png",
+      "bank": "Demon2.CEL",
+      "frame": 62,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "f61ae7ee153007c2471a0b3b570b77c4ec3e546544f89ce206c583287aa8eb65",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/062.png",
+      "png_sha256": "0bd9d3a4b8e809a1bd5859e5a4d35d00bea0b82e36a2f7fc934af03e1b8448a0",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/062-v1.png",
+      "raw_sha256": "d2c4a6b893b24fc8e0d2e6bdc0753c4159d87c3fbdbcdf6d0e4111f43f805279",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/062-v1.txt",
+      "prompt_sha256": "3c598f27e444ff7904db9c4aafafc6a329fcc4d50ff0ca98b03fa46da7513424",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "0bd9d3a4b8e809a1bd5859e5a4d35d00bea0b82e36a2f7fc934af03e1b8448a0",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/062-record.json",
+      "art_record_sha256": "88c7d161b5ee07f217c517730ebfe28a1636e55a33557a2de32f07f4a5225d84",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 154,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/063.png",
+      "bank": "Demon2.CEL",
+      "frame": 63,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "701768ea49bacfe0817d400bbcb42647f1043ec8d5946d2016fe236cd5b95ae3",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/063.png",
+      "png_sha256": "247bd4eee73256c3a160db217b9f9b02a366bb5431dd3d42fd671e6ada1b4423",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/063-v1.png",
+      "raw_sha256": "8b13bddf23c2736612dc3ac1278a2c21b405a8da37538bf5468dad18b3bfe5ae",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/063-v1.txt",
+      "prompt_sha256": "283091ef8350ef2452733b7ba8efe8969c9a58f427e90f237449115228a12795",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "247bd4eee73256c3a160db217b9f9b02a366bb5431dd3d42fd671e6ada1b4423",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/063-record.json",
+      "art_record_sha256": "ea49120d992d51f83e8df3a83cdde9b55369ad5a3f5ea16ac071a3ceb41cc824",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 780,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/064.png",
+      "bank": "Demon2.CEL",
+      "frame": 64,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "2e28ede86b2271b760611d7abcf3cf1a701781165c77f421dab3005f7d83220e",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/064.png",
+      "png_sha256": "2de99314117493fe90f1e68adebbc4ef66cf2bfd295f5dbb979e4e935f715e11",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/064-v1.png",
+      "raw_sha256": "ebeed425b71074b393a8b2c3435d78b5f1e3a952235d2df7d8b0a0dadae6c9df",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/064-v1.txt",
+      "prompt_sha256": "899e515d1a6d7097747047bc646f678afd23aff96d9b79a0c9f9c44bea527b4c",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "2de99314117493fe90f1e68adebbc4ef66cf2bfd295f5dbb979e4e935f715e11",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/064-record.json",
+      "art_record_sha256": "ba9b18b094d324f380bc7c0c29c1c445b86de87b9ceab30dc378f7ec87a17554",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 357,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/065.png",
+      "bank": "Demon2.CEL",
+      "frame": 65,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "6bf9744efb5fdbbb0d67c152984723eb7adb7b92b9bcaecc7555c0e02c5a6053",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/065.png",
+      "png_sha256": "d0fe0023c24a4b1c53e2fc7a83425611b0c24620a3468578ea31db97bc30c7db",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/065-v1.png",
+      "raw_sha256": "d450edaeea68309ba1d6fadd516fd5a4326a99ed346170bbdfe78c5e8a86854c",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/065-v1.txt",
+      "prompt_sha256": "cbaef9fca9c84433d4f405e75964dd5941c1e9e24773d3226fbbbc191e6a9158",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "d0fe0023c24a4b1c53e2fc7a83425611b0c24620a3468578ea31db97bc30c7db",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/065-record.json",
+      "art_record_sha256": "5026ca9810d35ff3206384153de2466c164bba7e9f10912daf9bdea1cd3f4e97",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 990,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/066.png",
+      "bank": "Demon2.CEL",
+      "frame": 66,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "161cd6fc64e97cf1b2959b82cd1951cad0a73b6f1c33a493c875bf5ebba3a28b",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/066.png",
+      "png_sha256": "0aa4eeb095de4d6dcaf4949e038718314ef30ef39259d54d7ec91c85e62be83a",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/066-v1.png",
+      "raw_sha256": "d1f174557587655018df1918bc40e2c72b20deb727ed44cec9dc2a1ee81a55f8",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/066-v1.txt",
+      "prompt_sha256": "03aaba739993074c2044ffa8e42cdfa4cc4052b7117e393ae4960fe090227c72",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "0aa4eeb095de4d6dcaf4949e038718314ef30ef39259d54d7ec91c85e62be83a",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/066-record.json",
+      "art_record_sha256": "5fc8cba03e30993526955adde41884900c74857666037021eddb670b862ac79e",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 72,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/067.png",
+      "bank": "Demon2.CEL",
+      "frame": 67,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "b2e3cf99c8a986468e2b4b2574c25c2c298091ce177908b8ef124313b9485f22",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/067.png",
+      "png_sha256": "65080ad25453b942ebfced3088ea35f4ecaf621d08d10b8b83a34e81c3198ef5",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/067-v1.png",
+      "raw_sha256": "e69fe3785586f57846fb9f9c11b1b935cdfc4aae00a70f251a0b951212f368ca",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/067-v1.txt",
+      "prompt_sha256": "d46473150daf6dd3b6e1feb850a6b6932b7c68b74ce233ce32f943d7bc8c6135",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "65080ad25453b942ebfced3088ea35f4ecaf621d08d10b8b83a34e81c3198ef5",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/067-record.json",
+      "art_record_sha256": "1d27edfa36731304e72d9efe3fe3580fd473602807b74c324abb29d851313221",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 1665,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/068.png",
+      "bank": "Demon2.CEL",
+      "frame": 68,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "a6e7ef739684e7361f59df9fde6aa0977179d888e6af8d0026644a4b0bf0cbca",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/068.png",
+      "png_sha256": "7e14ab4cf29b3eee6e32124c08fa6357a692de0fee3d2adf74295ef5b593b80a",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/068-v1.png",
+      "raw_sha256": "a9c1745e741dd363c502bc7ac5b6e599c4d93ba784171d515632bf88c3d0fa13",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/068-v1.txt",
+      "prompt_sha256": "da956d4ae032e87d9ce37837fbebb8afc6fa4670576781cbf8cc836d245cc290",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "7e14ab4cf29b3eee6e32124c08fa6357a692de0fee3d2adf74295ef5b593b80a",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/068-record.json",
+      "art_record_sha256": "e66dffd7bd3f4d8434c64bfecbad9c5c3732b617894b5f6014ccf4deee3e9b9b",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 1050,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/069.png",
+      "bank": "Demon2.CEL",
+      "frame": 69,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "55f902f64525ce8789b10ff776912e321f6b3333648ab6f5b4e29c994bd68748",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/069.png",
+      "png_sha256": "003b167d131788b42b66614823ace82b96b2d798f36fd8466bf52a2b8692f8f1",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/069-v1.png",
+      "raw_sha256": "5d8b0103116c13f16a82ce32d38554acb801879bd78a438a9800f53452e669a9",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/069-v1.txt",
+      "prompt_sha256": "f15d0fe6dad1198e1e5eaddb4de04ebc0cfc9359ec214880fbddfd14a292c03d",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "003b167d131788b42b66614823ace82b96b2d798f36fd8466bf52a2b8692f8f1",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/069-record.json",
+      "art_record_sha256": "8165c9ca74dbc215cc4f38a71b2ef34dcbb2ac97760efa84c6e522ff7cb268af",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 2209,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/070.png",
+      "bank": "Demon2.CEL",
+      "frame": 70,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "2e5d97e167671121148078cb7ddde9633c682937058c84721caa8c05b923ddd4",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/070.png",
+      "png_sha256": "22879943b731f903b63781e1f9a9337ce67f1b867b3e5688eda46f826a673b8d",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/070-v1.png",
+      "raw_sha256": "b45874f266ffebc10bbcaeae8eda4d4872b1ea4a97e96121fada54bb5ff4e6de",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/070-v1.txt",
+      "prompt_sha256": "fcf9b8a826d499c5950cbc6e5aec8de7a92cb49816c8077b31078f1ebebe2b87",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "22879943b731f903b63781e1f9a9337ce67f1b867b3e5688eda46f826a673b8d",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/070-record.json",
+      "art_record_sha256": "e249a0565ef873db29da01324b2e89a5ed676c676cfd56749facca93e92f774b",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 780,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/071.png",
+      "bank": "Demon2.CEL",
+      "frame": 71,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "290c33b0e2e0d746400fc9eb93a1b2cd8471a7329a9418f98bfc2a7c19892853",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/071.png",
+      "png_sha256": "b8de4dff148d934b9039367ca87054c072fc5f1d71f04f6f170710a1c3229385",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/071-v1.png",
+      "raw_sha256": "20d7057becd0fbbc9890f68088fb165d3c2ee9fde9868e90163575966da1db4a",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/071-v1.txt",
+      "prompt_sha256": "0b72ca2be86b0060e397604eaedeee86683260c0c093fb3207731f6c88a85f61",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "b8de4dff148d934b9039367ca87054c072fc5f1d71f04f6f170710a1c3229385",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/071-record.json",
+      "art_record_sha256": "406213299013b71033f9dda736589bc8728e0103c397de7a6c50ecf926b42175",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 285,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/072.png",
+      "bank": "Demon2.CEL",
+      "frame": 72,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "7824183005d47d6cf3b463feab18c878f7d14eef3f2bab7b83df54c42062baf8",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/072.png",
+      "png_sha256": "8ff2bfd593adbf224a68f8be3e5aed52146ee1d2410dd18e9c629990d42bca78",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/072-v1.png",
+      "raw_sha256": "8c135d43ba916ee0e545354fc3043991be837b0790a5f691082786d4b428af8a",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/072-v1.txt",
+      "prompt_sha256": "104c2bbdf468aca9ecfe7103c0071900545fac8fcddb950bb7a21d8b2be27e30",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "8ff2bfd593adbf224a68f8be3e5aed52146ee1d2410dd18e9c629990d42bca78",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/072-record.json",
+      "art_record_sha256": "5bd24f4c8b667a998574951512ad3bb6f69de2f0ee8fa5d6dec77e10b236b498",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 168,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/073.png",
+      "bank": "Demon2.CEL",
+      "frame": 73,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "95be20c21eb02262980a7463ea71fe3597754df5b9f54c120321d24fbbe5aec7",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/073.png",
+      "png_sha256": "fa102817a9de35ec3b4d468c0b3b11c4f5b309f132f666026152cc6938a27c26",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/073-v1.png",
+      "raw_sha256": "39bf67c35a49753b44885198a54ac883733eceffa4fb928cb9b5917b2d4a97aa",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/073-v1.txt",
+      "prompt_sha256": "e47f8c7096ecff084dd95fa80ed7f4691f933dc7eff27136f22bb7fd543eb887",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "fa102817a9de35ec3b4d468c0b3b11c4f5b309f132f666026152cc6938a27c26",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/073-record.json",
+      "art_record_sha256": "6d1573ef07947a52361d62a7e6b9fac925a68071829484db1ab199f3427a4fd0",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 240,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/074.png",
+      "bank": "Demon2.CEL",
+      "frame": 74,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "e392ccdb108be69043a3dc89e97f87522374fb99a79b1538d1e44bd3ca681e19",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/074.png",
+      "png_sha256": "2c801b1e4bdaeb9a82b15c0fb0502510ea02f21b01348b033d5c88b9f86d0191",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/074-v1.png",
+      "raw_sha256": "d7fa9214d42973c414d502f088cb9b3187ffcd397d6a823221bdadaba5283f96",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/074-v1.txt",
+      "prompt_sha256": "551d41ea6f182b48873c4f07d8244e696b74e37b350f39f67ea1f26f335816fc",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "2c801b1e4bdaeb9a82b15c0fb0502510ea02f21b01348b033d5c88b9f86d0191",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/074-record.json",
+      "art_record_sha256": "b21811415ec4c2d20746ab2e235208bd9a6308e7f36231299ae644862c5e7116",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 420,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/075.png",
+      "bank": "Demon2.CEL",
+      "frame": 75,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "c38cd89d490fcc05e4a27ec14f2c20d7fcf65ffad24dc1b4f0792a5e26339acc",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/075.png",
+      "png_sha256": "0bc86c393e9cb8089bbf9ae316871e750dde27fa1d65554daa2ab8af20add754",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/075-v1.png",
+      "raw_sha256": "3acbb2bd00d3fe5f8dd034d58986e81771d917dd1db8276915a4b3807ee34cd6",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/075-v1.txt",
+      "prompt_sha256": "526a59eb3ef2287d26093f91f85a28a69c72ca21ea1d4e66b3ecd4d77b34861d",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "0bc86c393e9cb8089bbf9ae316871e750dde27fa1d65554daa2ab8af20add754",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/075-record.json",
+      "art_record_sha256": "0b1959aacb3e7b260a3f4b0e22abcd739b9c5938f823c70247db335cf3343099",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 702,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/076.png",
+      "bank": "Demon2.CEL",
+      "frame": 76,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "6d277c9070fd7af9e040a5094aa8726b453f6489e77423f4e164935bd081aba1",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/076.png",
+      "png_sha256": "cd02a3b32bc9506c6020f2d5f0a61f2fa00374a0d9f555eb044a0363ef950846",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/076-v1.png",
+      "raw_sha256": "3d2e75091078a9a34ac98e37cf11b737c53479c41bfe482e79978eb390a8a108",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/076-v1.txt",
+      "prompt_sha256": "6426e54650c99c6976153ca3bfe4c7d3f19e136a8eb2b3ea9232881187de728d",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "cd02a3b32bc9506c6020f2d5f0a61f2fa00374a0d9f555eb044a0363ef950846",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/076-record.json",
+      "art_record_sha256": "a05a8647fff56066a0e0fa6ca5ff52d83042713509598b3bc0014795ff36e765",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 1110,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/077.png",
+      "bank": "Demon2.CEL",
+      "frame": 77,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "20c56f74e1b24b8be90cb3c8740d6c9ab1dbefb02a8318f68a53f23e884145cb",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/077.png",
+      "png_sha256": "6a501e43fcd7826ac4960dc7bf6cf0d05e2bd00cfa0ef42a6004a8ccb0857f87",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/077-v1.png",
+      "raw_sha256": "e3b02af1b669a4ac220f972ab5a7c10e65759e9922198609a235aa50e54d4f86",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/077-v1.txt",
+      "prompt_sha256": "36e5d63c8f29c43abf89ede4ee1a66dfad1686e460a929661f3a4837dfeec6c9",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "6a501e43fcd7826ac4960dc7bf6cf0d05e2bd00cfa0ef42a6004a8ccb0857f87",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/077-record.json",
+      "art_record_sha256": "92c9c6434019290a5b0ba854fb08a0a73efb96d5290956af16f4b4ccc6e2734b",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 3816,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/078.png",
+      "bank": "Demon2.CEL",
+      "frame": 78,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "491aa26364dbdefa75b2757efc9ab2909ac18a6540e93fdfff271ac067d1d5ac",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/078.png",
+      "png_sha256": "208c13da4b4983d66b7ecad4d743e23d92e3be3780e47c49dd7bc8cf1d0c5aaa",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/078-v1.png",
+      "raw_sha256": "c9c2eb53c9f15cc2f27031256a5b2af775ab2e713f98c9d76c9808c8b617bf4e",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/078-v1.txt",
+      "prompt_sha256": "1800bf99b92e0137f8007f32d936574d60e96d957cca8518598eff66cbdd49c3",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "208c13da4b4983d66b7ecad4d743e23d92e3be3780e47c49dd7bc8cf1d0c5aaa",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/078-record.json",
+      "art_record_sha256": "cd28576ed38f1d4c97010f4a59af093d0cb27298d4cf4229c63444c98bd56d73",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 1260,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/079.png",
+      "bank": "Demon2.CEL",
+      "frame": 79,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "55a6bd7248d85114d793881b525b585840392cc1941901471ea1e97c75f1a52c",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/079.png",
+      "png_sha256": "2c4cf4476cb39e05baba64aa113e644cbf59a32a70c4ea601166eb9b46038de8",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/079-v1.png",
+      "raw_sha256": "88beb17acb45640636002ca3fa2857b0a0c934a7953fdf5adfd0cf7941d99e5e",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/079-v1.txt",
+      "prompt_sha256": "6042d394fcaf910a75d9c2bea3835c9e59c98bae29e59d8e1002774e6c9090f4",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "2c4cf4476cb39e05baba64aa113e644cbf59a32a70c4ea601166eb9b46038de8",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/079-record.json",
+      "art_record_sha256": "9972e4342f1e0b8c8fc57c323c6da7b0095fd7aa95fcdc7d67aed78251621197",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 238,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/080.png",
+      "bank": "Demon2.CEL",
+      "frame": 80,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "d999c4778a42eeffcd6d99dee127a39d45fde6390af6972d1a34a7413fdfcde7",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/080.png",
+      "png_sha256": "3ada8c7b10791d26fa49f5d9da034b25d8b845a246aef81e6ce170e89cd2172c",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/080-v1.png",
+      "raw_sha256": "029df57f8f56479f3dc2b3876dd6d760a82e28923f2672a2e20ab7d06e9b8934",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/080-v1.txt",
+      "prompt_sha256": "67dc7e3a86b0106f6727926664d4f7de3063c4ec24d58866dd48dacf2d89e697",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "3ada8c7b10791d26fa49f5d9da034b25d8b845a246aef81e6ce170e89cd2172c",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/080-record.json",
+      "art_record_sha256": "f871071642241e5f2bbe95f6ad7a55b51e0ca3552cb10a9c21669cc816ca48d1",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 380,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/081.png",
+      "bank": "Demon2.CEL",
+      "frame": 81,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "e41bda23f612bff98ccb5b23dff3217f37cce8af9348a7383384233d94d7b9f3",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/081.png",
+      "png_sha256": "9b4eb4125e56ac6aec91610d2f5bcad827666ba32f014f47470d4e400c652e16",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/081-v1.png",
+      "raw_sha256": "5030ae5e25b024e0e2ae9a8425b2a2d211edb3e3bee7b1fe3cec68416367f0b5",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/081-v1.txt",
+      "prompt_sha256": "01c1f911d99b99d4337ec4ed64e33162d0a5394373cf674d68e2075b7e43526d",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "9b4eb4125e56ac6aec91610d2f5bcad827666ba32f014f47470d4e400c652e16",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/081-record.json",
+      "art_record_sha256": "d6f903e9d4db655b181b1e4f9a4749dc49515a5c9dfeb64eb622baaa47589288",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 396,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/082.png",
+      "bank": "Demon2.CEL",
+      "frame": 82,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "a8dda8975bd67e14b36108b6e96802d7c6999fb3cad247b2a48293c999bb2a82",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/082.png",
+      "png_sha256": "9c0dd29b65206d64591a1a06c23b95fd2a504e3ca4dd3af842943413dd624b08",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/082-v1.png",
+      "raw_sha256": "3690dd369786653f9e717a4b84fdbb81af3f3358a8cdf311c86735a01c1c7aff",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/082-v1.txt",
+      "prompt_sha256": "cd26eca2298f047478628b53d6319591e21311ad1af2088f059ccd7ad9b8d7a6",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "9c0dd29b65206d64591a1a06c23b95fd2a504e3ca4dd3af842943413dd624b08",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/082-record.json",
+      "art_record_sha256": "7fc7fa78f96b95486b0150a308a2fbd11994a83995bb3a06bbf1713b10c28c63",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 216,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/083.png",
+      "bank": "Demon2.CEL",
+      "frame": 83,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "3d50d90d295b35b1e251a2bd6f5ce507e6f1104b6fa48fe96caaf040db238e45",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/083.png",
+      "png_sha256": "2bb0efd5202b67a4b301f378ccd5e423078e90bdaeaaee9cd993b20172190046",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/083-v1.png",
+      "raw_sha256": "f6c9317d91a49ea822b45215d7cc7e7e195e53f6a434877d3717b85dcb170198",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/083-v1.txt",
+      "prompt_sha256": "a0f0cf028b1e487f8da7bce0310a12bf52f84d4888839e38b19daf826716990b",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "2bb0efd5202b67a4b301f378ccd5e423078e90bdaeaaee9cd993b20172190046",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/083-record.json",
+      "art_record_sha256": "8d2c06ba6eac033b69366d39d44cdc0ee0397f513242668a942020447392b2e4",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 130,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/084.png",
+      "bank": "Demon2.CEL",
+      "frame": 84,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "2f8c6fa3b75927dcf1356ea857aa308c3684907cd9ac98e1a7c478fd333cc4c6",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/084.png",
+      "png_sha256": "d451450f7c0c877caa43e7b919f7ac8ef72b4452fb8d178fe65941f113390911",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/084-v1.png",
+      "raw_sha256": "9407e9f4438c1a12b326a79db8a204207b3399745cb89f74949e7f1f2689890b",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/084-v1.txt",
+      "prompt_sha256": "ff242382ce4a385700eb3495bf2e5751a69e31eed3050d93403cac0a5f8b3b38",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "d451450f7c0c877caa43e7b919f7ac8ef72b4452fb8d178fe65941f113390911",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/084-record.json",
+      "art_record_sha256": "346c941e308641a676ad7a54d2ec2ccd079d8a00d2da2bcc8f3fdb442cd72f81",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 480,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/085.png",
+      "bank": "Demon2.CEL",
+      "frame": 85,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "68ae8122c95ce5fda0295c7dfb45fcdc339247c492fd0a0b0e597506be45428c",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/085.png",
+      "png_sha256": "5de888b41fded70accd874b3c13367323105e3ab5b4d5d4994d0df80765b6f83",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/085-v1.png",
+      "raw_sha256": "6821ed956e53713fef5678139642e44d3c8c3b2e654eaa78e68ff23bf56191a8",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/085-v1.txt",
+      "prompt_sha256": "b4b9fbe92c31bde557b4559463821c54fe4699b3d8e7a68d823178004d148603",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "5de888b41fded70accd874b3c13367323105e3ab5b4d5d4994d0df80765b6f83",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/085-record.json",
+      "art_record_sha256": "c934e77c6db9e2a3addfd1375f26acc5b1580042b998b5514992869a2e49dd2e",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 561,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/086.png",
+      "bank": "Demon2.CEL",
+      "frame": 86,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "79052f2f0fc064d291c519034617da48fcbd36c82480066baeb57c8b25a1019a",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/086.png",
+      "png_sha256": "19a2ba1c103d38bb856c4eeffbcbd4631a67c69097158d5da0c88db13ba2620f",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/086-v1.png",
+      "raw_sha256": "33da7d32774279773902f30de74d896d3b0822650645552d21034229be0beaa7",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/086-v1.txt",
+      "prompt_sha256": "93c9113f5d5386d0aa6d8119871fdc0fd377199fb1db8f5681d555bb37ca0124",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "19a2ba1c103d38bb856c4eeffbcbd4631a67c69097158d5da0c88db13ba2620f",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/086-record.json",
+      "art_record_sha256": "109c5e8f51539d9b273c798fff5bb773c32239060388f4e438c40310d7a4fc59",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 2162,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/087.png",
+      "bank": "Demon2.CEL",
+      "frame": 87,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "d129fb7a3b026322b9b295f2b6902975bd3304cb9c89062338440e74e49e4a24",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/087.png",
+      "png_sha256": "332156edf24195e3ca65f6f4c69ad75142fd67727ec42e4588ec77f9053996be",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/087-v1.png",
+      "raw_sha256": "55ec9273dfdc7be763caca51cdc7eefed69b0e2c0f993063d6090488e7fed7f4",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/087-v1.txt",
+      "prompt_sha256": "ce218d04bdb41c7c9693da9109424335cdad7f29e118a68172d63bd83c71464c",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "332156edf24195e3ca65f6f4c69ad75142fd67727ec42e4588ec77f9053996be",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/087-record.json",
+      "art_record_sha256": "a898594a50507e8f3104d8e99935b2b3f5ecb206a7ffc2e83bfefadd3f26b7f9",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 810,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/088.png",
+      "bank": "Demon2.CEL",
+      "frame": 88,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "a1b7e7bab87e446bfb666e06e27a74667f3f61e74cb8a1eaf881472e554c42f2",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/088.png",
+      "png_sha256": "994650364b70c31d64213caa98eb0ce5a02dd85d6eceecbc01b6ba2eba1315ec",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/088-v1.png",
+      "raw_sha256": "f0481b0c329225d123aeaeecf8ceda05c943e0f157889f4b44d013fde237566a",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/088-v1.txt",
+      "prompt_sha256": "58a2033ac4c8d8eab3159444cbcc9f771af6b7f64693b713e20cb8c6dadb0cc2",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "994650364b70c31d64213caa98eb0ce5a02dd85d6eceecbc01b6ba2eba1315ec",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/088-record.json",
+      "art_record_sha256": "ee1fa25e398764f6c47ce96f83f037332462b1d9f7b748ef83156f5ff293c0c5",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 1287,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/089.png",
+      "bank": "Demon2.CEL",
+      "frame": 89,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "dd4e0c632c69b2ac93bbee57886e92bff24f87d6566cf96f2cfd98baf60a4a02",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/089.png",
+      "png_sha256": "046470fad360c497e87fd906495d454a36dd6b3c22c4d23e7e37e70c01f91def",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/089-v1.png",
+      "raw_sha256": "34cc3d561351bb554eb3533e045ad9edc3098ee804d0c345ee136a5338d29207",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/089-v1.txt",
+      "prompt_sha256": "6d4556885ead9beccae9784718c3a85fcd8cd7e55832c1622f032e37c553946c",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "046470fad360c497e87fd906495d454a36dd6b3c22c4d23e7e37e70c01f91def",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/089-record.json",
+      "art_record_sha256": "f131a56e0379636c2c1c65cad814526c6069852c913db27834ef93200ece4216",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 1608,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/090.png",
+      "bank": "Demon2.CEL",
+      "frame": 90,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "a27e7e7024ff7966b148bf62c5a0a270b8d83b5d0426445e7ce0af1651a37a68",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/090.png",
+      "png_sha256": "9667f144ca60c81a9983ad37686981613efa9f1e138b641083f40df4dcd4b619",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/090-v1.png",
+      "raw_sha256": "4bc2e353353698172495511a4f84b3cecf1470c3ff5905ab5e5a60fd96d77852",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/090-v1.txt",
+      "prompt_sha256": "7fed94d49ddf3c5ec285910bba6f202b14822448f354bc5a3530f2d5444f316f",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "9667f144ca60c81a9983ad37686981613efa9f1e138b641083f40df4dcd4b619",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/090-record.json",
+      "art_record_sha256": "eae617bbe8e326bf839321de04a50ff61c521fe8b031dbcac0e04fc0b4c0ba32",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 77,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/091.png",
+      "bank": "Demon2.CEL",
+      "frame": 91,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "ce3f1bf3ae83ee52f71763ee8ddf1d9f38281098756f592c302065af60490540",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/091.png",
+      "png_sha256": "0ff4a1df697a2de4b67ec3152660d372fd80064b16c1b04513ed73c3178c2d28",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/091-v1.png",
+      "raw_sha256": "a606f8820c07d931850171f58a52f7203ee97af525d1dbc3d1c24f5361a7f2df",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/091-v1.txt",
+      "prompt_sha256": "388e3a8166962f66d95987f5388ca21116052c83c96974e5a2811146923e6a2c",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "0ff4a1df697a2de4b67ec3152660d372fd80064b16c1b04513ed73c3178c2d28",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/091-record.json",
+      "art_record_sha256": "aab513ec54db37d1354abb4e3218c519d1d4e0a633d232737e4cee47340d6175",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 98,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/092.png",
+      "bank": "Demon2.CEL",
+      "frame": 92,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "39f72012f0b670b5422417dd2f4d9e11f9f898a2604b3c4c4d7a3e2b9bd0961a",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/092.png",
+      "png_sha256": "5dbd5655675567f55667f08376e22eefa06569a1a9fcf4f4f05d6b044a98156b",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/092-v1.png",
+      "raw_sha256": "90648bd71e768b5cec95c5d79d52def284d07c9ae92c1593965c124d8f7a62b1",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/092-v1.txt",
+      "prompt_sha256": "432efeff1c680bfe352c2725e02c01b009a7102c4501d806a69050a09e96360c",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "5dbd5655675567f55667f08376e22eefa06569a1a9fcf4f4f05d6b044a98156b",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/092-record.json",
+      "art_record_sha256": "377bd2c5e141d00249f22b72d24e16e36fb9722c6be9a08c9f1ce16d9aa92ab8",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 341,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/093.png",
+      "bank": "Demon2.CEL",
+      "frame": 93,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "1b14c76aa9e0cf71c36aec0b2c182efda259b60d92967a06405172af4d86f57a",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/093.png",
+      "png_sha256": "bb25fafc1e242855d331af5931dbc4e63fe7d0ca1bb527f63227f480253c0f57",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/093-v1.png",
+      "raw_sha256": "92094ff03f30d7876f5a8aaab89ec332d204f4cded271ba6072da3167636e0c9",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/093-v1.txt",
+      "prompt_sha256": "b1d05fa66319009de429f3cf8c0c6758e3113d8aa16a0477d7f540b0fe3e664f",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "bb25fafc1e242855d331af5931dbc4e63fe7d0ca1bb527f63227f480253c0f57",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/093-record.json",
+      "art_record_sha256": "0e620698ff0572b41df3bc8d298ab93842345bd6d5d3eac47bbe0f2fe3525c13",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 1560,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/094.png",
+      "bank": "Demon2.CEL",
+      "frame": 94,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "85e6031d04c1e8b43516891342af8f607e4a9e697baefb0e994d5295a5882aa8",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/094.png",
+      "png_sha256": "dbd0f65b12ad026f4b05815961422402a642a5cbeeb2f62162be5294cfb146ef",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/094-v1.png",
+      "raw_sha256": "f21688644bfd35c5872d8bb89279351c0332e1a64611646b0f4793a817ed43ee",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/094-v1.txt",
+      "prompt_sha256": "f5cf7815f52fd7d79d72e66fc647235d8ae876e54b9148dd1f1b7ec012a8cc99",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "dbd0f65b12ad026f4b05815961422402a642a5cbeeb2f62162be5294cfb146ef",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/094-record.json",
+      "art_record_sha256": "d53f86f2b8cc294dd5360eb3eb2455d551ed05540afc76a02e015f94fcad401f",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 686,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/095.png",
+      "bank": "Demon2.CEL",
+      "frame": 95,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "a768964f9e28705721d5cd40ba1cf5b96fa539b9466c1d9e2de2be03b6c80493",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/095.png",
+      "png_sha256": "b276eaa1877df6367b10d04dd00c70cc168e85b494e840f216d8603c3c09fe8e",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/095-v1.png",
+      "raw_sha256": "c15723b22d02f02549be6f5c3e49e9787d0fb2b57c73a40d270d19b0efd26d84",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/095-v1.txt",
+      "prompt_sha256": "371732b5ed13cb1d06b42fded4dd08679a44b67814da0c8846508845bc703304",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "b276eaa1877df6367b10d04dd00c70cc168e85b494e840f216d8603c3c09fe8e",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/095-record.json",
+      "art_record_sha256": "a2a155cca4f61ab313b031b5299977c40ac12dfc12dba59fae93cf2b1d35655b",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 540,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/096.png",
+      "bank": "Demon2.CEL",
+      "frame": 96,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "031e0f3f6f06a4dff87f479c1a0b9810f59bdf24df772d7e53e617660d3d750e",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/096.png",
+      "png_sha256": "63386a224e9cc964db6f5d8c483d939a30c3d4fe5836ae5052c5a3c3e71dcab5",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/096-v1.png",
+      "raw_sha256": "9c08bccaa64f0ad94ea2e8bee60e25a808faa4fb3d015e5c71e33a1af5026f5f",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/096-v1.txt",
+      "prompt_sha256": "57de0a9cfb6075e54ab91bdf3b657bb1f79f8e19fb8078644ac24414849b13a1",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "63386a224e9cc964db6f5d8c483d939a30c3d4fe5836ae5052c5a3c3e71dcab5",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/096-record.json",
+      "art_record_sha256": "4f3276e95899df66b86886aaadc98ea509e987aaa895d4c3dce1b2283260ef71",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 1062,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/097.png",
+      "bank": "Demon2.CEL",
+      "frame": 97,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "a15a5ed817e8f95bab5d3c54224f1447cd496931b212f46ff762cb48ffd04011",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/097.png",
+      "png_sha256": "be2c43e0942e379d5dc30838a1b1ab737e959430746b58dad61668c794cf95e5",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/097-v1.png",
+      "raw_sha256": "1a048a7220029667b0d439178b9b4a48fd656273d7cbb61e2102313c07a64fa8",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/097-v1.txt",
+      "prompt_sha256": "606c11b6ae6e5e1c3d2441f09d6f0cd9bdea92d18f368deba6519d20c30f2f83",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "be2c43e0942e379d5dc30838a1b1ab737e959430746b58dad61668c794cf95e5",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/097-record.json",
+      "art_record_sha256": "9d9a0107fe978a95083d4760470ad271eb66c6c07d59dea9f204b5edfcb3a8bc",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 1488,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    },
+    {
+      "key": "Demon2.CEL/098.png",
+      "bank": "Demon2.CEL",
+      "frame": 98,
+      "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+      "indices_sha256": "006b6ad0b5ffff28c913c0d65a349ad63d497e41c049c619e71ea88dfca07def",
+      "png": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/packed/Demon2.CEL/098.png",
+      "png_sha256": "d269f9a1d25804cf1a55d842ef10d611656f5caa0f9d3b6b5fb047dd046b3c41",
+      "raw": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/raw/098-v1.png",
+      "raw_sha256": "fe76d6e50736d753955a91a472321e8ceddcaebb83dd4c071583d215ee2d9d82",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/prompts/098-v1.txt",
+      "prompt_sha256": "fd6b4a1a97fe7cec042d63fd4eb97f5415e14cc737df9e989dd712cc0ea2847c",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-remainder-008-candidate-v1/test.json",
+      "runtime_asset_sha256": "d269f9a1d25804cf1a55d842ef10d611656f5caa0f9d3b6b5fb047dd046b3c41",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/098-record.json",
+      "art_record_sha256": "7824d82a1de205bbf588cf37c733e2dae09a6f5c144ae41d5b7934fdf3a8df76",
+      "actual_runtime_observed": false,
+      "qa": {
+        "source_alpha_midpoints": 938,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "source_usage": "original_animation_tables_confirmed",
+        "runtime_qualification": "source_exact_frontend_fixture_only"
+      }
+    }
+  ]
+}

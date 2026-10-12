@@ -1,0 +1,244 @@
+{
+  "schema": 1,
+  "status": "read_only_audit_completed",
+  "scope": "R1-rest40 og kombinert008-frontend. Ingen staging, aktivering, gamle kontraktendringer eller ny runtimekjoering.",
+  "required_primary_file_lists": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/delivery-r1-rest40-v2-files.txt",
+      "sha256": "2b0d70d6a3ddf8b14d5d7b2425c731afa1bcf8e77eda629aa7e5827dcb589fc5",
+      "lines": 215
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/delivery-frontend008-v1-files.txt",
+      "sha256": "b3d686029c649b80eeac832caf64ba78a2a2880976c3c069a6c637ac862c32f8",
+      "lines": 44
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/delivery-balok-glyph-fix-v1-files.txt",
+      "sha256": "9e244fbbf3e66719b2e6437a4d15789633a3ee1953ba0eb9093e8a204a36fb0e",
+      "lines": 34
+    }
+  ],
+  "combined_primary_paths": 285,
+  "all_primary_paths_exist": true,
+  "primary_paths_already_tracked": 15,
+  "additional_exact_paths": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/delivery-frontend008-v1-files.txt",
+      "sha256": "b3d686029c649b80eeac832caf64ba78a2a2880976c3c069a6c637ac862c32f8",
+      "already_tracked": false
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/delivery-r1-rest40-v2-files.txt",
+      "sha256": "2b0d70d6a3ddf8b14d5d7b2425c731afa1bcf8e77eda629aa7e5827dcb589fc5",
+      "already_tracked": false
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/run-candidates-frontend008-v1.py",
+      "sha256": "1f300a280d22020a06c04a9b63ab0f6fda77d36b896a3e5f00cd8a854e21e754",
+      "already_tracked": false
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/run-r1-rest40-frontend008-v1.py",
+      "sha256": "bb9943584581788357df6af90f5437cc58be7656e6637b69529b1fa089801fd3",
+      "already_tracked": false
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/runtime-r1-rest40-standard-public-008-v1.cjs",
+      "sha256": "3d3f91effe287d02484a5272b751999669ca3d67ffe1d09bdc2d1ee45da08559",
+      "already_tracked": false
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/candidate-reproofs-v1.json",
+      "sha256": "3a250c4e05933bb0da0c91e6652cf17d00ba76dcb8e6dc058771005555e53a95",
+      "already_tracked": false
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/delivery-balok-glyph-fix-v1-files.txt",
+      "sha256": "9e244fbbf3e66719b2e6437a4d15789633a3ee1953ba0eb9093e8a204a36fb0e",
+      "already_tracked": false
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/ratmen-r1-rest40-standard-v1/RATMEN1.CEL-023-hd.png",
+      "sha256": "80fb4ce69aaa66532aa2aa2db53be8e63dce3b28000005206fe4c109e3306810",
+      "already_tracked": false
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/ratmen-r1-rest40-standard-v1/RATMEN1.CEL-023-original.png",
+      "sha256": "ab1947b28fe1a3ef37f94ffbef93bed823659349e2ebaf15073c05a642802adf",
+      "already_tracked": false
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/ratmen-r1-rest40-standard-v1/RATMEN1.CEL-059-hd.png",
+      "sha256": "e1093a93f878f5289c1e475b278d1b79a2c5504f6c0763a8a599167c81f6b96a",
+      "already_tracked": false
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/ratmen-r1-rest40-standard-v1/RATMEN1.CEL-059-original.png",
+      "sha256": "e1093a93f878f5289c1e475b278d1b79a2c5504f6c0763a8a599167c81f6b96a",
+      "already_tracked": false
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/ratmen-r1-rest40-standard-v1/RATMEN1.CEL-063-hd.png",
+      "sha256": "7f6005bfb500a7b27b28e09b0cd1489069b1ad4072b3d25ed1091965996795cb",
+      "already_tracked": false
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/ratmen-r1-rest40-standard-v1/RATMEN1.CEL-063-original.png",
+      "sha256": "1d05230946c124f052901fcebcd0a627bdeaa34d4abb454d779e190fe81e3220",
+      "already_tracked": false
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/ratmen-r1-rest40-standard-v1/test.json",
+      "sha256": "efc3a61cc1513653ff2b6cf2be8b52bff64ae3f03325a402ccd289c48ec785bd",
+      "already_tracked": false
+    }
+  ],
+  "reproduction_parents": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prepare.py",
+      "sha256": "6c9fb3e7d1150573764d62294515f8d157a6c820850e1f6636d18a690fa55b86",
+      "already_tracked": true
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/prepare.py",
+      "sha256": "45a0f11142b566a5c0587e5cf9b66cd828f7b7f76238770a789e2a4645af7010",
+      "already_tracked": true
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/queue.json",
+      "sha256": "a8ae68c394b7fe25dd7dfbf52bae83c4bf9a4b2f065a5818f7952072a88fa503",
+      "already_tracked": true
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/palettes/cases/balok.json",
+      "sha256": "faf30600b1098c4fbf24fded5ca6cea5690f27b77e31b0b6daba4eb7da1807f2",
+      "already_tracked": true
+    },
+    {
+      "path": "art/hd-faithful-text-2026-10-11/source-contracts.json",
+      "sha256": "eba9586b37b6e47514b5ed7301ecc997ea58277d4ccc87c82341f87ec04f2568",
+      "already_tracked": true
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/kn3-production/runtime-host.cjs",
+      "sha256": "ee9c388254b8eec030452f22639e708e89458fdcb9d935745128f436b61cadb6",
+      "already_tracked": true
+    },
+    {
+      "path": "tools/hd_resterende_ikoner_fixture.cjs",
+      "sha256": "35d36d2eae833ab8d417746f4ae801ee38ba7926cb1fb597a773c8eb31e2e72a",
+      "already_tracked": true
+    },
+    {
+      "path": "tools/hd_resterende_ikoner_canvas.cjs",
+      "sha256": "3bf5617e1bf8c517ddea9a606b0be145d6e66c6177699e7be8eff0a538e8df2f",
+      "already_tracked": true
+    },
+    {
+      "path": "tools/hd_bestilling.py",
+      "sha256": "ef88fa5d516a80e94e965dcbd33b83f196eec397a1516d6a64fcb7dbe4827125",
+      "already_tracked": true
+    },
+    {
+      "path": "tools/hd_figurer_aktiver.py",
+      "sha256": "65e9cdae21daf69471ce7308c0b6a9e6c2bd695b6c2ed61c07a05290255d923c",
+      "already_tracked": true
+    },
+    {
+      "path": "tools/hd_ui_bygg.py",
+      "sha256": "baa8d9703f9c7210077b6b1454b4bf0f659ce952702c3171df58574ab399632f",
+      "already_tracked": true
+    },
+    {
+      "path": "tools/moonfiles.py",
+      "sha256": "cfbc42bd9ebeea700c7b04af6c5af79b7f2a57666d96992848e109386b60a924",
+      "already_tracked": true
+    },
+    {
+      "path": "tools/gfx.py",
+      "sha256": "b4dbd7dc9d95b083ab67202dcf7433d1c8c99d86a93c7b1e8027b7b55fb46720",
+      "already_tracked": true
+    },
+    {
+      "path": "web/pakk.py",
+      "sha256": "4a75fb17be4bf191b70d349789d7adcf43b10584fe0f0142d26d857b8dea2561",
+      "already_tracked": true
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/generation-records-first11.json",
+      "sha256": "07cb118a56828077a596007fc569e219b9d37dc594a13e52b09fa5475a9862f3",
+      "already_tracked": true
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/generation-records-observed13.json",
+      "sha256": "9d77738ea010fd34bb24822cd9c2364239f722bdf1f1d66e143dffdceb75c22b",
+      "already_tracked": true
+    }
+  ],
+  "other_008_group_lists_required_by_reproof_wrapper": [
+    "art/hd-completion-figures-2026-10-11/production/beast/next042-055-v1/delivery-eleven-v2-files.txt",
+    "art/hd-completion-figures-2026-10-11/production/beast/shadow015-v1/delivery-shadow015-v2-files.txt"
+  ],
+  "required_small_frontend_freezes": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008-candidate-v1/source-map.json",
+      "sha256": "936f6ced4ec623f2631154b419c0e0a9c7e6d3b1f7da6a31db971daff0f5945c"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008-candidate-v1/web/src/core.js",
+      "sha256": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008-candidate-v1/web/src/hd.js",
+      "sha256": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008-candidate-v1/web/src/render.js",
+      "sha256": "6b93be5b0e12b458b8005fd891a15c0f5a454e35baa2a2d93cdf33666c5b416c"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008-candidate-v1/web/src/scenes.js",
+      "sha256": "189eed863fa34e74900f221f7f6078e46036adb41537cb9e27e8f7d5a06eff5f"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008/source-map.json",
+      "sha256": "e6885f797fdf7d8d70369da31a3208f923e8e655cd335892155f3ba1d09f122b"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008/web/src/core.js",
+      "sha256": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008/web/src/hd.js",
+      "sha256": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008/web/src/render.js",
+      "sha256": "6b93be5b0e12b458b8005fd891a15c0f5a454e35baa2a2d93cdf33666c5b416c"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008/web/src/scenes.js",
+      "sha256": "189eed863fa34e74900f221f7f6078e46036adb41537cb9e27e8f7d5a06eff5f"
+    }
+  ],
+  "findings": [
+    "R1v2-lista inkluderer historiskv1-kontrakt,39raafoto+originalskygge,42pakkedePNG, frosne generatorkvitteringer, fargerevisjon063, gamle og nye runtimebevis. Ikke ta bare aktivPNG eller v1-lista.",
+    "Frontendlista inkluderer scenes.js, men render.js og glyph-fix-forelderen kommer fra separat delivery-balok-glyph-fix-v1-files.txt. Begge lister maa inn.",
+    "To nye reprowrappere og candidate-reproofs-v1.json er ikke i de opprinnelige listene. De staar eksplisitt i additional_exact_paths.",
+    "Ny R1-standardhelper1517 og proof/utvalgtePNG er egne nye tillegg. Femfargeproeven gjelder normal retning.",
+    "verify.py leser lokal generation-records.json. For historisk R1-replay kan den lokale filen rekonstrueres fra frosne first11+observed13+rest40 (64R1). Ikke Git-legg den loepende123-rutelista med nyeR2-kandidater.",
+    "Originalreferanser/sourcePNG regenereres fra ZIP og skal ikke Git-legges. prepare.py er allerede tracket. Kjoer historiske wrappers kun i riktig isolert kilde-/pakkefrys, ikke direkte mot en senere frontend."
+  ],
+  "exclude": [
+    "Alle R2-kandidater og loepende generation-records.json",
+    "Regenererbare references/source/bank/indeksPNG",
+    "HTML, megasnapshots, WASM-kopier og dupliserte hd-mapper"
+  ],
+  "legacy_failure_to_preserve": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/ratmen/test.json",
+  "current_actual_helper": {
+    "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/runtime-standard-public-v5.cjs",
+    "sha256": "ef76fc7153b8234e54142cd672eb8f9663023cd365fbbde585f3151b91d09d14",
+    "replaces_old_007_v3_expectation_only": true
+  }
+}

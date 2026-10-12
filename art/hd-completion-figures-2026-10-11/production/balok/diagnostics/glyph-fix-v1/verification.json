@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "scope": "Smal tekst-/figureierskapsretting. Foreldede glyfer maa ha egne faktisk synlige kildeceller. Ingen generisk kilde- eller FG-lemping, ingen assetendring.",
+  "render_sha256": "6b93be5b0e12b458b8005fd891a15c0f5a454e35baa2a2d93cdf33666c5b416c",
+  "html_sha256": "e1cd42940edea25d9036c7be20158009e0255075b36de54bd9f1c366fe90d19b",
+  "unchanged_standard_files": 1747,
+  "unchanged_manifest_sha256": "dc97a283f329afb78ee76cf23cc0738fd665bc6ffa45271e9d9ef77de64e24e8",
+  "checks": 593,
+  "proofs": {
+    "actual": {
+      "path": "art/hd-completion-figures-2026-10-11/production/balok/diagnostics/glyph-fix-v1/actual/test.json",
+      "sha256": "65decd4adf69f144af1e9651876bb596079564d23c9d18efad84839116fe4e70",
+      "checks": 106
+    },
+    "font": {
+      "path": "art/hd-completion-figures-2026-10-11/production/balok/diagnostics/glyph-fix-v1/font/font-runtime-test.json",
+      "sha256": "cce78d2c2cb2b3fe9d5c7fbb72fd814fbf47d53b7e1a67b9bfaffe818729617e",
+      "checks": 35
+    },
+    "fixtures": {
+      "path": "art/hd-completion-figures-2026-10-11/production/balok/diagnostics/glyph-fix-v1/fixtures/text-owner-fixtures.json",
+      "sha256": "6630ffc8b76bca2741649863eca0ae6dfdbbcd397adfa56549bb0d9322cb0a58",
+      "checks": 59
+    },
+    "standard": {
+      "path": "art/hd-completion-figures-2026-10-11/production/balok/diagnostics/glyph-fix-v1/standard/test.json",
+      "sha256": "d7043db356b5ceed37a81d57bb4137f68522988b1fa3834dba0c30ffda192f31",
+      "checks": 393
+    }
+  },
+  "original_frame2200_sha256": "858ec96b7c9775cba41a476639814fb68d843f7f6ad2f924993c65c2eb5ce762",
+  "old_diagnostic_scope": "Tidligere standard-025-blocks-v3 har korrekt maalte shaderdata, men er bevart som failed fordi kopiert fullhelper krevde24ruter. Den er ikke telt som bestatt.",
+  "visual_review": "Samme faktiske2200: head/lår har fullt foto uten firkantede bakgrunnsfelt. Tittel/inventar visuelt sett. Root sin siste godkjenning gjenstaar.",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "6b93be5b0e12b458b8005fd891a15c0f5a454e35baa2a2d93cdf33666c5b416c",
+    "web/src/scenes.js": "45ccdcfd02b4f31f2b512a3c8e1b64aceb1f952a3e8ecf91a5149b0d5c8036e0",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  }
+}

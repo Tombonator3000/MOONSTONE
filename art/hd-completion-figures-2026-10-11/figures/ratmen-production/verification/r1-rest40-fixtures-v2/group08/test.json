@@ -1,0 +1,2313 @@
+{
+  "package_ledger_sha256": "66a7d7fb3791f9f3b2882e07aea35c30cbb893344d24bc70330b5e8eccfe7ad3",
+  "package_manifest_sha256": "899a380bd16e9a6c67962220409a20128b1148ff28e93c5257018d986df90cd5",
+  "package_images": 1623,
+  "package_files": 1629,
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "e8ef991b4086c576093991a38d05c8d165426e684adebe9a287b38679b77b916",
+    "web/src/scenes.js": "45ccdcfd02b4f31f2b512a3c8e1b64aceb1f952a3e8ecf91a5149b0d5c8036e0",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "html_sha256": "8fd1d2517aca80f0f71abafc178cccd9c48dd4157f3e3d76de2f98e63b90abf5",
+  "runtime_script_sha256": "6d3800a76b6b8251fb2f204b42cb1d2e90e3de55ed01f2a99f7a6e64e9dc22f9",
+  "schema": 1,
+  "status": "passed",
+  "checks": [
+    "served_frozen_HTML",
+    "served_source_web/src/core.js",
+    "served_source_web/src/render.js",
+    "served_source_web/src/scenes.js",
+    "served_source_web/src/hd.js",
+    "all_images_and_live_masks_imported",
+    "RATMEN1.CEL/051.png_source_bank_exact",
+    "RATMEN1.CEL/053.png_source_bank_exact",
+    "RATMEN1.CEL/054.png_source_bank_exact",
+    "RATMEN1.CEL/055.png_source_bank_exact",
+    "RATMEN1.CEL/051.png_HD_approved_false",
+    "RATMEN1.CEL/051.png_anchor_and_size_false",
+    "RATMEN1.CEL/051.png_mask_mode_false",
+    "RATMEN1.CEL/051.png_changes_pixels_false",
+    "RATMEN1.CEL/051.png_Original_exact_false",
+    "RATMEN1.CEL/051.png_HD_exact_false",
+    "RATMEN1.CEL/051.png_false_wrong_foreground_index_Original_exact",
+    "RATMEN1.CEL/051.png_false_wrong_foreground_index_HD_rejected",
+    "RATMEN1.CEL/051.png_false_unknown_foreground_source_Original_exact",
+    "RATMEN1.CEL/051.png_false_unknown_foreground_source_HD_rejected",
+    "RATMEN1.CEL/051.png_false_wrong_dimensions_Original_exact",
+    "RATMEN1.CEL/051.png_false_wrong_dimensions_HD_rejected",
+    "RATMEN1.CEL/051.png_false_missing_original_bank_Original_exact",
+    "RATMEN1.CEL/051.png_false_missing_original_bank_HD_rejected",
+    "RATMEN1.CEL/051.png_false_missing_foreground_layer_Original_exact",
+    "RATMEN1.CEL/051.png_false_missing_foreground_layer_HD_rejected",
+    "RATMEN1.CEL/051.png_HD_approved_true",
+    "RATMEN1.CEL/051.png_anchor_and_size_true",
+    "RATMEN1.CEL/051.png_mask_mode_true",
+    "RATMEN1.CEL/051.png_changes_pixels_true",
+    "RATMEN1.CEL/051.png_Original_exact_true",
+    "RATMEN1.CEL/051.png_HD_exact_true",
+    "RATMEN1.CEL/051.png_true_wrong_foreground_index_Original_exact",
+    "RATMEN1.CEL/051.png_true_wrong_foreground_index_HD_rejected",
+    "RATMEN1.CEL/051.png_true_unknown_foreground_source_Original_exact",
+    "RATMEN1.CEL/051.png_true_unknown_foreground_source_HD_rejected",
+    "RATMEN1.CEL/051.png_true_wrong_dimensions_Original_exact",
+    "RATMEN1.CEL/051.png_true_wrong_dimensions_HD_rejected",
+    "RATMEN1.CEL/051.png_true_missing_original_bank_Original_exact",
+    "RATMEN1.CEL/051.png_true_missing_original_bank_HD_rejected",
+    "RATMEN1.CEL/051.png_true_missing_foreground_layer_Original_exact",
+    "RATMEN1.CEL/051.png_true_missing_foreground_layer_HD_rejected",
+    "RATMEN1.CEL/053.png_HD_approved_false",
+    "RATMEN1.CEL/053.png_anchor_and_size_false",
+    "RATMEN1.CEL/053.png_mask_mode_false",
+    "RATMEN1.CEL/053.png_changes_pixels_false",
+    "RATMEN1.CEL/053.png_Original_exact_false",
+    "RATMEN1.CEL/053.png_HD_exact_false",
+    "RATMEN1.CEL/053.png_false_wrong_foreground_index_Original_exact",
+    "RATMEN1.CEL/053.png_false_wrong_foreground_index_HD_rejected",
+    "RATMEN1.CEL/053.png_false_unknown_foreground_source_Original_exact",
+    "RATMEN1.CEL/053.png_false_unknown_foreground_source_HD_rejected",
+    "RATMEN1.CEL/053.png_false_wrong_dimensions_Original_exact",
+    "RATMEN1.CEL/053.png_false_wrong_dimensions_HD_rejected",
+    "RATMEN1.CEL/053.png_false_missing_original_bank_Original_exact",
+    "RATMEN1.CEL/053.png_false_missing_original_bank_HD_rejected",
+    "RATMEN1.CEL/053.png_false_missing_foreground_layer_Original_exact",
+    "RATMEN1.CEL/053.png_false_missing_foreground_layer_HD_rejected",
+    "RATMEN1.CEL/053.png_HD_approved_true",
+    "RATMEN1.CEL/053.png_anchor_and_size_true",
+    "RATMEN1.CEL/053.png_mask_mode_true",
+    "RATMEN1.CEL/053.png_changes_pixels_true",
+    "RATMEN1.CEL/053.png_Original_exact_true",
+    "RATMEN1.CEL/053.png_HD_exact_true",
+    "RATMEN1.CEL/053.png_true_wrong_foreground_index_Original_exact",
+    "RATMEN1.CEL/053.png_true_wrong_foreground_index_HD_rejected",
+    "RATMEN1.CEL/053.png_true_unknown_foreground_source_Original_exact",
+    "RATMEN1.CEL/053.png_true_unknown_foreground_source_HD_rejected",
+    "RATMEN1.CEL/053.png_true_wrong_dimensions_Original_exact",
+    "RATMEN1.CEL/053.png_true_wrong_dimensions_HD_rejected",
+    "RATMEN1.CEL/053.png_true_missing_original_bank_Original_exact",
+    "RATMEN1.CEL/053.png_true_missing_original_bank_HD_rejected",
+    "RATMEN1.CEL/053.png_true_missing_foreground_layer_Original_exact",
+    "RATMEN1.CEL/053.png_true_missing_foreground_layer_HD_rejected",
+    "RATMEN1.CEL/054.png_HD_approved_false",
+    "RATMEN1.CEL/054.png_anchor_and_size_false",
+    "RATMEN1.CEL/054.png_mask_mode_false",
+    "RATMEN1.CEL/054.png_changes_pixels_false",
+    "RATMEN1.CEL/054.png_Original_exact_false",
+    "RATMEN1.CEL/054.png_HD_exact_false",
+    "RATMEN1.CEL/054.png_false_wrong_foreground_index_Original_exact",
+    "RATMEN1.CEL/054.png_false_wrong_foreground_index_HD_rejected",
+    "RATMEN1.CEL/054.png_false_unknown_foreground_source_Original_exact",
+    "RATMEN1.CEL/054.png_false_unknown_foreground_source_HD_rejected",
+    "RATMEN1.CEL/054.png_false_wrong_dimensions_Original_exact",
+    "RATMEN1.CEL/054.png_false_wrong_dimensions_HD_rejected",
+    "RATMEN1.CEL/054.png_false_missing_original_bank_Original_exact",
+    "RATMEN1.CEL/054.png_false_missing_original_bank_HD_rejected",
+    "RATMEN1.CEL/054.png_false_missing_foreground_layer_Original_exact",
+    "RATMEN1.CEL/054.png_false_missing_foreground_layer_HD_rejected",
+    "RATMEN1.CEL/054.png_HD_approved_true",
+    "RATMEN1.CEL/054.png_anchor_and_size_true",
+    "RATMEN1.CEL/054.png_mask_mode_true",
+    "RATMEN1.CEL/054.png_changes_pixels_true",
+    "RATMEN1.CEL/054.png_Original_exact_true",
+    "RATMEN1.CEL/054.png_HD_exact_true",
+    "RATMEN1.CEL/054.png_true_wrong_foreground_index_Original_exact",
+    "RATMEN1.CEL/054.png_true_wrong_foreground_index_HD_rejected",
+    "RATMEN1.CEL/054.png_true_unknown_foreground_source_Original_exact",
+    "RATMEN1.CEL/054.png_true_unknown_foreground_source_HD_rejected",
+    "RATMEN1.CEL/054.png_true_wrong_dimensions_Original_exact",
+    "RATMEN1.CEL/054.png_true_wrong_dimensions_HD_rejected",
+    "RATMEN1.CEL/054.png_true_missing_original_bank_Original_exact",
+    "RATMEN1.CEL/054.png_true_missing_original_bank_HD_rejected",
+    "RATMEN1.CEL/054.png_true_missing_foreground_layer_Original_exact",
+    "RATMEN1.CEL/054.png_true_missing_foreground_layer_HD_rejected",
+    "RATMEN1.CEL/055.png_HD_approved_false",
+    "RATMEN1.CEL/055.png_anchor_and_size_false",
+    "RATMEN1.CEL/055.png_mask_mode_false",
+    "RATMEN1.CEL/055.png_changes_pixels_false",
+    "RATMEN1.CEL/055.png_Original_exact_false",
+    "RATMEN1.CEL/055.png_HD_exact_false",
+    "RATMEN1.CEL/055.png_false_wrong_foreground_index_Original_exact",
+    "RATMEN1.CEL/055.png_false_wrong_foreground_index_HD_rejected",
+    "RATMEN1.CEL/055.png_false_unknown_foreground_source_Original_exact",
+    "RATMEN1.CEL/055.png_false_unknown_foreground_source_HD_rejected",
+    "RATMEN1.CEL/055.png_false_wrong_dimensions_Original_exact",
+    "RATMEN1.CEL/055.png_false_wrong_dimensions_HD_rejected",
+    "RATMEN1.CEL/055.png_false_missing_original_bank_Original_exact",
+    "RATMEN1.CEL/055.png_false_missing_original_bank_HD_rejected",
+    "RATMEN1.CEL/055.png_false_missing_foreground_layer_Original_exact",
+    "RATMEN1.CEL/055.png_false_missing_foreground_layer_HD_rejected",
+    "RATMEN1.CEL/055.png_HD_approved_true",
+    "RATMEN1.CEL/055.png_anchor_and_size_true",
+    "RATMEN1.CEL/055.png_mask_mode_true",
+    "RATMEN1.CEL/055.png_changes_pixels_true",
+    "RATMEN1.CEL/055.png_Original_exact_true",
+    "RATMEN1.CEL/055.png_HD_exact_true",
+    "RATMEN1.CEL/055.png_true_wrong_foreground_index_Original_exact",
+    "RATMEN1.CEL/055.png_true_wrong_foreground_index_HD_rejected",
+    "RATMEN1.CEL/055.png_true_unknown_foreground_source_Original_exact",
+    "RATMEN1.CEL/055.png_true_unknown_foreground_source_HD_rejected",
+    "RATMEN1.CEL/055.png_true_wrong_dimensions_Original_exact",
+    "RATMEN1.CEL/055.png_true_wrong_dimensions_HD_rejected",
+    "RATMEN1.CEL/055.png_true_missing_original_bank_Original_exact",
+    "RATMEN1.CEL/055.png_true_missing_original_bank_HD_rejected",
+    "RATMEN1.CEL/055.png_true_missing_foreground_layer_Original_exact",
+    "RATMEN1.CEL/055.png_true_missing_foreground_layer_HD_rejected",
+    "emulated_state_unchanged",
+    "no_browser_errors",
+    "production_source_unchanged_web/src/core.js",
+    "production_source_unchanged_web/src/render.js",
+    "production_source_unchanged_web/src/scenes.js",
+    "production_source_unchanged_web/src/hd.js",
+    "source_contracts_unchanged",
+    "packed_PNG_unchanged_RATMEN1.CEL/051.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/053.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/054.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/055.png"
+  ],
+  "errors": [],
+  "assets": [
+    {
+      "key": "RATMEN1.CEL/051.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 3,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "0d756f9ae2330100fc4b9701de28aac46f4ca6d9d2a4be2afb8ac7ab2b79cf81",
+          "hd_sha256": "4f35856a6faa4ff726d1f9e2796e1d511e15f662bb323f5e52cc2a7262da77d4"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 3,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "0132d5dc5a54fe028067219e774d294512e9ff9a3e98dc0ad175daab5f742ea8",
+          "hd_sha256": "b6cb3593e8bf2e74d6336a51aac3c247109617cbfa4e47278ab8cf00eaff3970"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/053.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 53,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 42,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "5a2c32c98dd50ccb63f7f1a37b20ed45a60894e1b626267451367707c0a826a0",
+          "hd_sha256": "aa8fdbc1c2ad317762f02cd66a09a26b6cf02e5411fb3be63810699160c2a692"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 53,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 42,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "80b485e1d5b3d08895e4537ec7bd6d727c82367672284cf55887e79f7ddc78b4",
+          "hd_sha256": "ab5acd3713a188714e99327971bf990d1f7f8f812898925d9bf56b1485aa4a8c"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/054.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 54,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 45,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "c8a3dae4d966d5ca9e7c576d3f18f508d2e820ff4b8d7efdbb31424e40c8b97e",
+          "hd_sha256": "65b4a8be69fd0123a261afbf406bbec042e6ddc8c6c1dcfedce0ac424d22fdc5"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 54,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 45,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "f04b4d3a9571c5da6b92c7e7f85c59fadc64d02e442f57edd00c9c7008445c3d",
+          "hd_sha256": "c1a760516763fcf846d6cf6f2fb74d3218f8319fef9ac0ba57ffa5f7de19cb93"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/055.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 55,
+            "x": 148,
+            "y": 90,
+            "w": 5,
+            "h": 73,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "0bf12c2207abb5dc99e6c9cd362bde19ddd3f3a72c7388eb9f6ea22973e232f3",
+          "hd_sha256": "32c95a8767547a6b65636c9adf39324ca047fe022f8226700cdeafb7416ff7fb"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 55,
+            "x": 148,
+            "y": 90,
+            "w": 5,
+            "h": 73,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "fd8a87ffc2df6ada5340d2e6a6f6496b642af3894a76cdbea3d3400f13b8310e",
+          "hd_sha256": "424dd6f16301697153a45adf6acda620dc283e48f7267df7a6ae43d8907bf6fe"
+        }
+      ]
+    }
+  ],
+  "source_contracts_sha256": "306bb8651542d60c06f53b59f147614e2a71fb8580646a956e92e7446668600f",
+  "palette_case_sha256": "b74d5e9964807f8e428e8460a7453f96b09317ea0f4b90abffd697a8f0575659",
+  "packed_png_sha256": {
+    "RATMEN1.CEL/051.png": "9f896c6ff930ecca8eba17e927c4ad6be3f0d6eae4c2927506f5ebafe3abe5f2",
+    "RATMEN1.CEL/053.png": "6ce7f77af367d4b3013b932b34ebfe16d36a20600a508482ea8b70a82b0a8cd2",
+    "RATMEN1.CEL/054.png": "434b40156b04f3376b2a39b72f2a1df60747294fd1a4a1961bead52354eee178",
+    "RATMEN1.CEL/055.png": "2774b1ef7c06c5ad7120fd7be71c1050fdbcde393e3efd3d2119084029f81ca6"
+  },
+  "scope": "Kildebaserte tegneliste-/scanout-fixturer i faktisk WASM-frontend. Tilgjengelige separate Ratmen-ruter normal/speilet; alle levende masker i5originalpaletter. Ikke naturlig gameplay. Bare source-fixturer i denne proeven; eventuelle faktiske kampfangster bindes separat. Fem strenge negative kilde-/forgrunnsporter per rute og retning.",
+  "negative": [
+    {
+      "key": "RATMEN1.CEL/051.png",
+      "mirror": false,
+      "failure": "wrong_foreground_index",
+      "Original_HD_sha256": "ca9294a244bab1a81f9b856bf2e1f6f85c81b72d648fa1c676f572d1b18f2b50",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 3,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/051.png",
+      "mirror": false,
+      "failure": "unknown_foreground_source",
+      "Original_HD_sha256": "0d756f9ae2330100fc4b9701de28aac46f4ca6d9d2a4be2afb8ac7ab2b79cf81",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 3,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "unknown.cel",
+            "bilde": 0,
+            "x": 150,
+            "y": 90,
+            "w": 1,
+            "h": 1,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 1,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/051.png",
+      "mirror": false,
+      "failure": "wrong_dimensions",
+      "Original_HD_sha256": "0d756f9ae2330100fc4b9701de28aac46f4ca6d9d2a4be2afb8ac7ab2b79cf81",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 29,
+            "h": 3,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/051.png",
+      "mirror": false,
+      "failure": "missing_original_bank",
+      "Original_HD_sha256": "0d756f9ae2330100fc4b9701de28aac46f4ca6d9d2a4be2afb8ac7ab2b79cf81",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 3,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/051.png",
+      "mirror": false,
+      "failure": "missing_foreground_layer",
+      "Original_HD_sha256": "0d756f9ae2330100fc4b9701de28aac46f4ca6d9d2a4be2afb8ac7ab2b79cf81",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 3,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 1,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": null
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/051.png",
+      "mirror": true,
+      "failure": "wrong_foreground_index",
+      "Original_HD_sha256": "74b0497c7bdf51f30e98a6e746bbad48a8b304f6bb14d7707ce93878db944559",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 3,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/051.png",
+      "mirror": true,
+      "failure": "unknown_foreground_source",
+      "Original_HD_sha256": "0132d5dc5a54fe028067219e774d294512e9ff9a3e98dc0ad175daab5f742ea8",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 3,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "unknown.cel",
+            "bilde": 0,
+            "x": 173,
+            "y": 90,
+            "w": 1,
+            "h": 1,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 1,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/051.png",
+      "mirror": true,
+      "failure": "wrong_dimensions",
+      "Original_HD_sha256": "0132d5dc5a54fe028067219e774d294512e9ff9a3e98dc0ad175daab5f742ea8",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 29,
+            "h": 3,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/051.png",
+      "mirror": true,
+      "failure": "missing_original_bank",
+      "Original_HD_sha256": "0132d5dc5a54fe028067219e774d294512e9ff9a3e98dc0ad175daab5f742ea8",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 3,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/051.png",
+      "mirror": true,
+      "failure": "missing_foreground_layer",
+      "Original_HD_sha256": "0132d5dc5a54fe028067219e774d294512e9ff9a3e98dc0ad175daab5f742ea8",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 3,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 1,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": null
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/053.png",
+      "mirror": false,
+      "failure": "wrong_foreground_index",
+      "Original_HD_sha256": "dc0800b0a4605c6095550b480b400f8565361db636eab1edc11da03c412f1be2",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 53,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 42,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/053.png",
+      "mirror": false,
+      "failure": "unknown_foreground_source",
+      "Original_HD_sha256": "5a2c32c98dd50ccb63f7f1a37b20ed45a60894e1b626267451367707c0a826a0",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 53,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 42,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "unknown.cel",
+            "bilde": 0,
+            "x": 148,
+            "y": 90,
+            "w": 1,
+            "h": 1,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 1,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/053.png",
+      "mirror": false,
+      "failure": "wrong_dimensions",
+      "Original_HD_sha256": "5a2c32c98dd50ccb63f7f1a37b20ed45a60894e1b626267451367707c0a826a0",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 53,
+            "x": 148,
+            "y": 90,
+            "w": 17,
+            "h": 42,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/053.png",
+      "mirror": false,
+      "failure": "missing_original_bank",
+      "Original_HD_sha256": "5a2c32c98dd50ccb63f7f1a37b20ed45a60894e1b626267451367707c0a826a0",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 53,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 42,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/053.png",
+      "mirror": false,
+      "failure": "missing_foreground_layer",
+      "Original_HD_sha256": "5a2c32c98dd50ccb63f7f1a37b20ed45a60894e1b626267451367707c0a826a0",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 53,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 42,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 1,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": null
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/053.png",
+      "mirror": true,
+      "failure": "wrong_foreground_index",
+      "Original_HD_sha256": "7bf992c553ee7611a848b5d3049cee4521a0d9e225bf285e78b20f0844b06c50",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 53,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 42,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/053.png",
+      "mirror": true,
+      "failure": "unknown_foreground_source",
+      "Original_HD_sha256": "80b485e1d5b3d08895e4537ec7bd6d727c82367672284cf55887e79f7ddc78b4",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 53,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 42,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "unknown.cel",
+            "bilde": 0,
+            "x": 163,
+            "y": 90,
+            "w": 1,
+            "h": 1,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 1,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/053.png",
+      "mirror": true,
+      "failure": "wrong_dimensions",
+      "Original_HD_sha256": "80b485e1d5b3d08895e4537ec7bd6d727c82367672284cf55887e79f7ddc78b4",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 53,
+            "x": 148,
+            "y": 90,
+            "w": 17,
+            "h": 42,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/053.png",
+      "mirror": true,
+      "failure": "missing_original_bank",
+      "Original_HD_sha256": "80b485e1d5b3d08895e4537ec7bd6d727c82367672284cf55887e79f7ddc78b4",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 53,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 42,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/053.png",
+      "mirror": true,
+      "failure": "missing_foreground_layer",
+      "Original_HD_sha256": "80b485e1d5b3d08895e4537ec7bd6d727c82367672284cf55887e79f7ddc78b4",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 53,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 42,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 1,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": null
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/054.png",
+      "mirror": false,
+      "failure": "wrong_foreground_index",
+      "Original_HD_sha256": "f9001ebce7bd1720d20708041026fbd5a5f9b6434ff0f3312b737ac98390f069",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 54,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 45,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/054.png",
+      "mirror": false,
+      "failure": "unknown_foreground_source",
+      "Original_HD_sha256": "c8a3dae4d966d5ca9e7c576d3f18f508d2e820ff4b8d7efdbb31424e40c8b97e",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 54,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 45,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "unknown.cel",
+            "bilde": 0,
+            "x": 148,
+            "y": 90,
+            "w": 1,
+            "h": 1,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 1,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/054.png",
+      "mirror": false,
+      "failure": "wrong_dimensions",
+      "Original_HD_sha256": "c8a3dae4d966d5ca9e7c576d3f18f508d2e820ff4b8d7efdbb31424e40c8b97e",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 54,
+            "x": 148,
+            "y": 90,
+            "w": 17,
+            "h": 45,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/054.png",
+      "mirror": false,
+      "failure": "missing_original_bank",
+      "Original_HD_sha256": "c8a3dae4d966d5ca9e7c576d3f18f508d2e820ff4b8d7efdbb31424e40c8b97e",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 54,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 45,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/054.png",
+      "mirror": false,
+      "failure": "missing_foreground_layer",
+      "Original_HD_sha256": "c8a3dae4d966d5ca9e7c576d3f18f508d2e820ff4b8d7efdbb31424e40c8b97e",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 54,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 45,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 1,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": null
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/054.png",
+      "mirror": true,
+      "failure": "wrong_foreground_index",
+      "Original_HD_sha256": "426c56f21806a523400969d49b37191ce70f5acca5fc3361836ef20177d7639e",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 54,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 45,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/054.png",
+      "mirror": true,
+      "failure": "unknown_foreground_source",
+      "Original_HD_sha256": "f04b4d3a9571c5da6b92c7e7f85c59fadc64d02e442f57edd00c9c7008445c3d",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 54,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 45,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "unknown.cel",
+            "bilde": 0,
+            "x": 163,
+            "y": 90,
+            "w": 1,
+            "h": 1,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 1,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/054.png",
+      "mirror": true,
+      "failure": "wrong_dimensions",
+      "Original_HD_sha256": "f04b4d3a9571c5da6b92c7e7f85c59fadc64d02e442f57edd00c9c7008445c3d",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 54,
+            "x": 148,
+            "y": 90,
+            "w": 17,
+            "h": 45,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/054.png",
+      "mirror": true,
+      "failure": "missing_original_bank",
+      "Original_HD_sha256": "f04b4d3a9571c5da6b92c7e7f85c59fadc64d02e442f57edd00c9c7008445c3d",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 54,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 45,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/054.png",
+      "mirror": true,
+      "failure": "missing_foreground_layer",
+      "Original_HD_sha256": "f04b4d3a9571c5da6b92c7e7f85c59fadc64d02e442f57edd00c9c7008445c3d",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 54,
+            "x": 148,
+            "y": 90,
+            "w": 16,
+            "h": 45,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 1,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": null
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/055.png",
+      "mirror": false,
+      "failure": "wrong_foreground_index",
+      "Original_HD_sha256": "2b5a1f39957384bcb1ce39c3f5dde674fb7d5d6b1244270d84d16f7a53f226a7",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 55,
+            "x": 148,
+            "y": 90,
+            "w": 5,
+            "h": 73,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/055.png",
+      "mirror": false,
+      "failure": "unknown_foreground_source",
+      "Original_HD_sha256": "0bf12c2207abb5dc99e6c9cd362bde19ddd3f3a72c7388eb9f6ea22973e232f3",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 55,
+            "x": 148,
+            "y": 90,
+            "w": 5,
+            "h": 73,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "unknown.cel",
+            "bilde": 0,
+            "x": 150,
+            "y": 90,
+            "w": 1,
+            "h": 1,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 1,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/055.png",
+      "mirror": false,
+      "failure": "wrong_dimensions",
+      "Original_HD_sha256": "0bf12c2207abb5dc99e6c9cd362bde19ddd3f3a72c7388eb9f6ea22973e232f3",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 55,
+            "x": 148,
+            "y": 90,
+            "w": 6,
+            "h": 73,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/055.png",
+      "mirror": false,
+      "failure": "missing_original_bank",
+      "Original_HD_sha256": "0bf12c2207abb5dc99e6c9cd362bde19ddd3f3a72c7388eb9f6ea22973e232f3",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 55,
+            "x": 148,
+            "y": 90,
+            "w": 5,
+            "h": 73,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/055.png",
+      "mirror": false,
+      "failure": "missing_foreground_layer",
+      "Original_HD_sha256": "0bf12c2207abb5dc99e6c9cd362bde19ddd3f3a72c7388eb9f6ea22973e232f3",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 55,
+            "x": 148,
+            "y": 90,
+            "w": 5,
+            "h": 73,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 1,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": null
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/055.png",
+      "mirror": true,
+      "failure": "wrong_foreground_index",
+      "Original_HD_sha256": "8a7d95da02764548edb86e7b09e759839ec5c7858f6eab83095e1916519593be",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 55,
+            "x": 148,
+            "y": 90,
+            "w": 5,
+            "h": 73,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/055.png",
+      "mirror": true,
+      "failure": "unknown_foreground_source",
+      "Original_HD_sha256": "fd8a87ffc2df6ada5340d2e6a6f6496b642af3894a76cdbea3d3400f13b8310e",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 55,
+            "x": 148,
+            "y": 90,
+            "w": 5,
+            "h": 73,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "unknown.cel",
+            "bilde": 0,
+            "x": 150,
+            "y": 90,
+            "w": 1,
+            "h": 1,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 1,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/055.png",
+      "mirror": true,
+      "failure": "wrong_dimensions",
+      "Original_HD_sha256": "fd8a87ffc2df6ada5340d2e6a6f6496b642af3894a76cdbea3d3400f13b8310e",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 55,
+            "x": 148,
+            "y": 90,
+            "w": 6,
+            "h": 73,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/055.png",
+      "mirror": true,
+      "failure": "missing_original_bank",
+      "Original_HD_sha256": "fd8a87ffc2df6ada5340d2e6a6f6496b642af3894a76cdbea3d3400f13b8310e",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 55,
+            "x": 148,
+            "y": 90,
+            "w": 5,
+            "h": 73,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/055.png",
+      "mirror": true,
+      "failure": "missing_foreground_layer",
+      "Original_HD_sha256": "fd8a87ffc2df6ada5340d2e6a6f6496b642af3894a76cdbea3d3400f13b8310e",
+      "info": {
+        "figures": [
+          {
+            "fil": "ratmen1.cel",
+            "bilde": 55,
+            "x": 148,
+            "y": 90,
+            "w": 5,
+            "h": 73,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 1,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": null
+        }
+      }
+    }
+  ],
+  "imported_files": 4,
+  "palette_variants": [],
+  "created_at": "2026-10-12T02:41:26.769Z"
+}

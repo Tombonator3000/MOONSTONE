@@ -1,0 +1,813 @@
+{
+  "package_ledger_sha256": "66a7d7fb3791f9f3b2882e07aea35c30cbb893344d24bc70330b5e8eccfe7ad3",
+  "package_manifest_sha256": "899a380bd16e9a6c67962220409a20128b1148ff28e93c5257018d986df90cd5",
+  "package_images": 1623,
+  "package_files": 1629,
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "e8ef991b4086c576093991a38d05c8d165426e684adebe9a287b38679b77b916",
+    "web/src/scenes.js": "45ccdcfd02b4f31f2b512a3c8e1b64aceb1f952a3e8ecf91a5149b0d5c8036e0",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "html_sha256": "8fd1d2517aca80f0f71abafc178cccd9c48dd4157f3e3d76de2f98e63b90abf5",
+  "runtime_script_sha256": "2c936edb43185bb4ae9648577d4b3d44b5db6e92b6c3bf4bff0c15bf6ec11dd1",
+  "schema": 1,
+  "status": "passed",
+  "checks": [
+    "served_frozen_HTML",
+    "served_source_web/src/core.js",
+    "served_source_web/src/render.js",
+    "served_source_web/src/scenes.js",
+    "served_source_web/src/hd.js",
+    "all_images_and_live_masks_imported",
+    "RATMEN1.CEL/038.png_source_bank_exact",
+    "RATMEN1.CEL/039.png_source_bank_exact",
+    "RATMEN1.CEL/040.png_source_bank_exact",
+    "RATMEN1.CEL/041.png_source_bank_exact",
+    "RATMEN1.CEL/042.png_source_bank_exact",
+    "RATMEN1.CEL/043.png_source_bank_exact",
+    "RATMEN1.CEL/045.png_source_bank_exact",
+    "RATMEN1.CEL/046.png_source_bank_exact",
+    "RATMEN1.CEL/047.png_source_bank_exact",
+    "RATMEN1.CEL/048.png_source_bank_exact",
+    "RATMEN1.CEL/049.png_source_bank_exact",
+    "RATMEN1.CEL/050.png_source_bank_exact",
+    "RATMEN1.CEL/051.png_source_bank_exact",
+    "RATMEN1.CEL/052.png_source_bank_exact",
+    "RATMEN1.CEL/038.png_HD_approved_false",
+    "RATMEN1.CEL/038.png_anchor_and_size_false",
+    "RATMEN1.CEL/038.png_mask_mode_false",
+    "RATMEN1.CEL/038.png_changes_pixels_false",
+    "RATMEN1.CEL/038.png_Original_exact_false",
+    "RATMEN1.CEL/038.png_HD_exact_false",
+    "RATMEN1.CEL/038.png_HD_approved_true",
+    "RATMEN1.CEL/038.png_anchor_and_size_true",
+    "RATMEN1.CEL/038.png_mask_mode_true",
+    "RATMEN1.CEL/038.png_changes_pixels_true",
+    "RATMEN1.CEL/038.png_Original_exact_true",
+    "RATMEN1.CEL/038.png_HD_exact_true",
+    "RATMEN1.CEL/039.png_HD_approved_false",
+    "RATMEN1.CEL/039.png_anchor_and_size_false",
+    "RATMEN1.CEL/039.png_mask_mode_false",
+    "RATMEN1.CEL/039.png_changes_pixels_false",
+    "RATMEN1.CEL/039.png_Original_exact_false",
+    "RATMEN1.CEL/039.png_HD_exact_false",
+    "RATMEN1.CEL/039.png_HD_approved_true",
+    "RATMEN1.CEL/039.png_anchor_and_size_true",
+    "RATMEN1.CEL/039.png_mask_mode_true",
+    "RATMEN1.CEL/039.png_changes_pixels_true",
+    "RATMEN1.CEL/039.png_Original_exact_true",
+    "RATMEN1.CEL/039.png_HD_exact_true",
+    "RATMEN1.CEL/040.png_HD_approved_false",
+    "RATMEN1.CEL/040.png_anchor_and_size_false",
+    "RATMEN1.CEL/040.png_mask_mode_false",
+    "RATMEN1.CEL/040.png_changes_pixels_false",
+    "RATMEN1.CEL/040.png_Original_exact_false",
+    "RATMEN1.CEL/040.png_HD_exact_false",
+    "RATMEN1.CEL/040.png_HD_approved_true",
+    "RATMEN1.CEL/040.png_anchor_and_size_true",
+    "RATMEN1.CEL/040.png_mask_mode_true",
+    "RATMEN1.CEL/040.png_changes_pixels_true",
+    "RATMEN1.CEL/040.png_Original_exact_true",
+    "RATMEN1.CEL/040.png_HD_exact_true",
+    "RATMEN1.CEL/041.png_HD_approved_false",
+    "RATMEN1.CEL/041.png_anchor_and_size_false",
+    "RATMEN1.CEL/041.png_mask_mode_false",
+    "RATMEN1.CEL/041.png_changes_pixels_false",
+    "RATMEN1.CEL/041.png_Original_exact_false",
+    "RATMEN1.CEL/041.png_HD_exact_false",
+    "RATMEN1.CEL/041.png_HD_approved_true",
+    "RATMEN1.CEL/041.png_anchor_and_size_true",
+    "RATMEN1.CEL/041.png_mask_mode_true",
+    "RATMEN1.CEL/041.png_changes_pixels_true",
+    "RATMEN1.CEL/041.png_Original_exact_true",
+    "RATMEN1.CEL/041.png_HD_exact_true",
+    "RATMEN1.CEL/042.png_HD_approved_false",
+    "RATMEN1.CEL/042.png_anchor_and_size_false",
+    "RATMEN1.CEL/042.png_mask_mode_false",
+    "RATMEN1.CEL/042.png_changes_pixels_false",
+    "RATMEN1.CEL/042.png_Original_exact_false",
+    "RATMEN1.CEL/042.png_HD_exact_false",
+    "RATMEN1.CEL/042.png_HD_approved_true",
+    "RATMEN1.CEL/042.png_anchor_and_size_true",
+    "RATMEN1.CEL/042.png_mask_mode_true",
+    "RATMEN1.CEL/042.png_changes_pixels_true",
+    "RATMEN1.CEL/042.png_Original_exact_true",
+    "RATMEN1.CEL/042.png_HD_exact_true",
+    "RATMEN1.CEL/043.png_HD_approved_false",
+    "RATMEN1.CEL/043.png_anchor_and_size_false",
+    "RATMEN1.CEL/043.png_mask_mode_false",
+    "RATMEN1.CEL/043.png_changes_pixels_false",
+    "RATMEN1.CEL/043.png_Original_exact_false",
+    "RATMEN1.CEL/043.png_HD_exact_false",
+    "RATMEN1.CEL/043.png_HD_approved_true",
+    "RATMEN1.CEL/043.png_anchor_and_size_true",
+    "RATMEN1.CEL/043.png_mask_mode_true",
+    "RATMEN1.CEL/043.png_changes_pixels_true",
+    "RATMEN1.CEL/043.png_Original_exact_true",
+    "RATMEN1.CEL/043.png_HD_exact_true",
+    "RATMEN1.CEL/045.png_HD_approved_false",
+    "RATMEN1.CEL/045.png_anchor_and_size_false",
+    "RATMEN1.CEL/045.png_mask_mode_false",
+    "RATMEN1.CEL/045.png_changes_pixels_false",
+    "RATMEN1.CEL/045.png_Original_exact_false",
+    "RATMEN1.CEL/045.png_HD_exact_false",
+    "RATMEN1.CEL/045.png_HD_approved_true",
+    "RATMEN1.CEL/045.png_anchor_and_size_true",
+    "RATMEN1.CEL/045.png_mask_mode_true",
+    "RATMEN1.CEL/045.png_changes_pixels_true",
+    "RATMEN1.CEL/045.png_Original_exact_true",
+    "RATMEN1.CEL/045.png_HD_exact_true",
+    "RATMEN1.CEL/046.png_HD_approved_false",
+    "RATMEN1.CEL/046.png_anchor_and_size_false",
+    "RATMEN1.CEL/046.png_mask_mode_false",
+    "RATMEN1.CEL/046.png_changes_pixels_false",
+    "RATMEN1.CEL/046.png_Original_exact_false",
+    "RATMEN1.CEL/046.png_HD_exact_false",
+    "RATMEN1.CEL/046.png_HD_approved_true",
+    "RATMEN1.CEL/046.png_anchor_and_size_true",
+    "RATMEN1.CEL/046.png_mask_mode_true",
+    "RATMEN1.CEL/046.png_changes_pixels_true",
+    "RATMEN1.CEL/046.png_Original_exact_true",
+    "RATMEN1.CEL/046.png_HD_exact_true",
+    "RATMEN1.CEL/047.png_HD_approved_false",
+    "RATMEN1.CEL/047.png_anchor_and_size_false",
+    "RATMEN1.CEL/047.png_mask_mode_false",
+    "RATMEN1.CEL/047.png_changes_pixels_false",
+    "RATMEN1.CEL/047.png_Original_exact_false",
+    "RATMEN1.CEL/047.png_HD_exact_false",
+    "RATMEN1.CEL/047.png_HD_approved_true",
+    "RATMEN1.CEL/047.png_anchor_and_size_true",
+    "RATMEN1.CEL/047.png_mask_mode_true",
+    "RATMEN1.CEL/047.png_changes_pixels_true",
+    "RATMEN1.CEL/047.png_Original_exact_true",
+    "RATMEN1.CEL/047.png_HD_exact_true",
+    "RATMEN1.CEL/048.png_HD_approved_false",
+    "RATMEN1.CEL/048.png_anchor_and_size_false",
+    "RATMEN1.CEL/048.png_mask_mode_false",
+    "RATMEN1.CEL/048.png_changes_pixels_false",
+    "RATMEN1.CEL/048.png_Original_exact_false",
+    "RATMEN1.CEL/048.png_HD_exact_false",
+    "RATMEN1.CEL/048.png_HD_approved_true",
+    "RATMEN1.CEL/048.png_anchor_and_size_true",
+    "RATMEN1.CEL/048.png_mask_mode_true",
+    "RATMEN1.CEL/048.png_changes_pixels_true",
+    "RATMEN1.CEL/048.png_Original_exact_true",
+    "RATMEN1.CEL/048.png_HD_exact_true",
+    "RATMEN1.CEL/049.png_HD_approved_false",
+    "RATMEN1.CEL/049.png_anchor_and_size_false",
+    "RATMEN1.CEL/049.png_mask_mode_false",
+    "RATMEN1.CEL/049.png_changes_pixels_false",
+    "RATMEN1.CEL/049.png_Original_exact_false",
+    "RATMEN1.CEL/049.png_HD_exact_false",
+    "RATMEN1.CEL/049.png_HD_approved_true",
+    "RATMEN1.CEL/049.png_anchor_and_size_true",
+    "RATMEN1.CEL/049.png_mask_mode_true",
+    "RATMEN1.CEL/049.png_changes_pixels_true",
+    "RATMEN1.CEL/049.png_Original_exact_true",
+    "RATMEN1.CEL/049.png_HD_exact_true",
+    "RATMEN1.CEL/050.png_HD_approved_false",
+    "RATMEN1.CEL/050.png_anchor_and_size_false",
+    "RATMEN1.CEL/050.png_mask_mode_false",
+    "RATMEN1.CEL/050.png_changes_pixels_false",
+    "RATMEN1.CEL/050.png_Original_exact_false",
+    "RATMEN1.CEL/050.png_HD_exact_false",
+    "RATMEN1.CEL/050.png_HD_approved_true",
+    "RATMEN1.CEL/050.png_anchor_and_size_true",
+    "RATMEN1.CEL/050.png_mask_mode_true",
+    "RATMEN1.CEL/050.png_changes_pixels_true",
+    "RATMEN1.CEL/050.png_Original_exact_true",
+    "RATMEN1.CEL/050.png_HD_exact_true",
+    "RATMEN1.CEL/051.png_HD_approved_false",
+    "RATMEN1.CEL/051.png_anchor_and_size_false",
+    "RATMEN1.CEL/051.png_mask_mode_false",
+    "RATMEN1.CEL/051.png_changes_pixels_false",
+    "RATMEN1.CEL/051.png_Original_exact_false",
+    "RATMEN1.CEL/051.png_HD_exact_false",
+    "RATMEN1.CEL/051.png_HD_approved_true",
+    "RATMEN1.CEL/051.png_anchor_and_size_true",
+    "RATMEN1.CEL/051.png_mask_mode_true",
+    "RATMEN1.CEL/051.png_changes_pixels_true",
+    "RATMEN1.CEL/051.png_Original_exact_true",
+    "RATMEN1.CEL/051.png_HD_exact_true",
+    "RATMEN1.CEL/052.png_HD_approved_false",
+    "RATMEN1.CEL/052.png_anchor_and_size_false",
+    "RATMEN1.CEL/052.png_mask_mode_false",
+    "RATMEN1.CEL/052.png_changes_pixels_false",
+    "RATMEN1.CEL/052.png_Original_exact_false",
+    "RATMEN1.CEL/052.png_HD_exact_false",
+    "RATMEN1.CEL/052.png_HD_approved_true",
+    "RATMEN1.CEL/052.png_anchor_and_size_true",
+    "RATMEN1.CEL/052.png_mask_mode_true",
+    "RATMEN1.CEL/052.png_changes_pixels_true",
+    "RATMEN1.CEL/052.png_Original_exact_true",
+    "RATMEN1.CEL/052.png_HD_exact_true",
+    "emulated_state_unchanged",
+    "no_browser_errors",
+    "production_source_unchanged_web/src/core.js",
+    "production_source_unchanged_web/src/render.js",
+    "production_source_unchanged_web/src/scenes.js",
+    "production_source_unchanged_web/src/hd.js",
+    "source_contracts_unchanged",
+    "packed_PNG_unchanged_RATMEN1.CEL/038.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/039.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/040.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/041.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/042.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/043.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/045.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/046.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/047.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/048.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/049.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/050.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/051.png",
+    "packed_PNG_unchanged_RATMEN1.CEL/052.png"
+  ],
+  "errors": [],
+  "assets": [
+    {
+      "key": "RATMEN1.CEL/038.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 38,
+            "x": 148,
+            "y": 90,
+            "w": 18,
+            "h": 16,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "e058563f523baa888c88a39ab4a8a3e6f3cbed4ec5f2d687124904ab7bde03b5",
+          "hd_sha256": "53e4e32281093f2b63ace9f11dd5a2b85e8ab73a68e74730e6dcbd50d08d1193"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 38,
+            "x": 148,
+            "y": 90,
+            "w": 18,
+            "h": 16,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "71f8c273261aea0aae19efa3634b0cb09dd28abeff9705889bb9e2af9b4ba606",
+          "hd_sha256": "233e04f140aa9786774332fe71dc51fca81ad896a9263e87edf3adb0ebea54ad"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/039.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 39,
+            "x": 148,
+            "y": 90,
+            "w": 33,
+            "h": 29,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "8e27cab6b08a926428bf9b2c3306be0dda96e75ef690754c093558b2d9cb29dd",
+          "hd_sha256": "2db89de46271479494289a3443bc4022a7b6a955432f6f4b19c8c0a137d3d815"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 39,
+            "x": 148,
+            "y": 90,
+            "w": 33,
+            "h": 29,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "c1feb3fb5800637269d26ea5a1c6520f86e4cc0646b38d6cb37b0559b3d70d2c",
+          "hd_sha256": "80bf4471cf434c39de7054bd00c4678f3e504149447f1055c97caab442a8bfbb"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/040.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 40,
+            "x": 148,
+            "y": 90,
+            "w": 35,
+            "h": 23,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "110ca3d58a7f5948b31c4a389a79777c1d3b2f1095639d13e81fc8dd83b129bb",
+          "hd_sha256": "06f7dff75ae1ab7b16581b92a09102ea4a7b7ac6d875a4abfbbc4f1e1cb8ccbe"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 40,
+            "x": 148,
+            "y": 90,
+            "w": 35,
+            "h": 23,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "8de615b53d43fc1f71db4f77b40b9ebc168f723a909bd1c3b909056c1cabca4f",
+          "hd_sha256": "01826522dfda7d0ff4b6e4740bacf3a4b23b723cf82de4ee60da66adef3530e8"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/041.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 41,
+            "x": 148,
+            "y": 90,
+            "w": 35,
+            "h": 24,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "ff3c5689df43a206a098a13141bab82b258ebbb9f0cf5410d66a26c00e475a7c",
+          "hd_sha256": "c01a2a52d2d2aa8cd9371d738b90a20210b0a8dce793fd9061cb85495850519d"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 41,
+            "x": 148,
+            "y": 90,
+            "w": 35,
+            "h": 24,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "f9989de41536fb3c700b3d6b760ccd67ea4ff9074e997e1cf16e76b58ee6e735",
+          "hd_sha256": "fbe23c0ef56338ad9c5acb91583c88859aac60ac3662b95e465d7387c9ac419a"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/042.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 42,
+            "x": 148,
+            "y": 90,
+            "w": 23,
+            "h": 23,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "9daa19c4bf112ebba67a961c60bbf912635bbb5b0b094c5f249534c7e3372c77",
+          "hd_sha256": "bbf0cedec50727e112700bbd629b5d4c7e4b590b9822aeaa2510f9d05c842904"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 42,
+            "x": 148,
+            "y": 90,
+            "w": 23,
+            "h": 23,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "5d2e3732cd6a790b1f6b2f4cc91abfef91412934ab83dd267723775b12e88a97",
+          "hd_sha256": "a4a3cfd4d9fe808584f308f0f717ab64eb301977a24e692dab109b46d1b89b94"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/043.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 43,
+            "x": 148,
+            "y": 90,
+            "w": 29,
+            "h": 30,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "50dfccd56f57cb47f4bd4aed62e62c5ba598717bfd382de5b13991dbc54968ee",
+          "hd_sha256": "67dcd5a108e88972a90a525646c7ddfaec2d3a51b6c59952a7086c3a4f4d86b0"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 43,
+            "x": 148,
+            "y": 90,
+            "w": 29,
+            "h": 30,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "c223e9bd89228dbce1bf1cc723f31b68f74ead39b84cfba7a3b98c2cb83dc020",
+          "hd_sha256": "4151e5f1d82147dec0811a44f99acf9a5a2878a3b0ab479e6896e3d890d82ebd"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/045.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 45,
+            "x": 148,
+            "y": 90,
+            "w": 42,
+            "h": 26,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "7b5f15a08b6320e6cb5e5330e9895a74f52725e8f9fc61beea3a5fe7b43d96d4",
+          "hd_sha256": "5abe602790118dc1e507faa8d232e3407307029655fd8c1da22d7bfaa87c87b9"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 45,
+            "x": 148,
+            "y": 90,
+            "w": 42,
+            "h": 26,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "29af7068eb8b818f18b9738e81104013382a2a6139af964c70978b7d172b9330",
+          "hd_sha256": "53fa738af7d5a27acb15964f071694c28689836bdb1d37af58363e51c9f42931"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/046.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 46,
+            "x": 148,
+            "y": 90,
+            "w": 41,
+            "h": 9,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "d9b2f0eb7c9c3d06c53765cc9d599d5f9282a60dd284495592504fb3db988c85",
+          "hd_sha256": "7e27763d9935c1d5e3ed60b1c911b37c0e35c9f36885eb9a5ac0b56e9bf10244"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 46,
+            "x": 148,
+            "y": 90,
+            "w": 41,
+            "h": 9,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "491872763c8f497e1775c10b8fd3a26a70bb3737be1afe7921fa8d358257207a",
+          "hd_sha256": "bf8ce9fe02f033f2fb5ece583797aacee79b3dfd0c30c9f59176adbb54b81713"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/047.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 47,
+            "x": 148,
+            "y": 90,
+            "w": 26,
+            "h": 16,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "ec12b3a8a63478a8fce171713342b432f3dbe97a25b2e756f1ae9ddcc8bdb8ff",
+          "hd_sha256": "ba1bbf9d1458169560a20baa64f497469e7be77ab24cacfc980e3b601e5cc8ae"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 47,
+            "x": 148,
+            "y": 90,
+            "w": 26,
+            "h": 16,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "8b94ac3365000cb42c9a21982949a8e8a584ec2e1115dd14ad18c5d56897e6e1",
+          "hd_sha256": "6c57fa392f28f8fc16c6d6dfc526f40b4acb596ba9a3185c40fc114cf7bb0484"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/048.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 48,
+            "x": 148,
+            "y": 90,
+            "w": 44,
+            "h": 17,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "a624d20ff6e489ed303532e5350cfd14007b5a1fe7c1cfe38d034a83801b4f9b",
+          "hd_sha256": "8e55ac1329d53b2a09a12a57d9d2e6dc1e77ed3a817a691df627938c23f28103"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 48,
+            "x": 148,
+            "y": 90,
+            "w": 44,
+            "h": 17,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "28e2474710d9d2bd98e0d460ffe41b261ad2f0f971449226dba63713d23721e6",
+          "hd_sha256": "b0e34b444c3b20bdb24e8ffda1fd8c03128cbcefac4c81d930c59f39c1ee41f0"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/049.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 49,
+            "x": 148,
+            "y": 90,
+            "w": 22,
+            "h": 20,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "c7829d9c3e9fa5ff3e97e9db0ea9194c33046987f5af0c55ab04a73701008656",
+          "hd_sha256": "7b1b231b9660df188e60bd8d04e7480fc5f4891f362830a764995a83d8edadbf"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 49,
+            "x": 148,
+            "y": 90,
+            "w": 22,
+            "h": 20,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "c6dd4ffd1475cb2d530afc2bb1004177a34cedf758c5362194ad03c2b7ffb985",
+          "hd_sha256": "c22d728e372dd605646aa712268e06f939ee1df98ef6f8b533030dc130ded447"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/050.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 50,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 11,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "750e06aaedb60a1fc86efd2efd4c086571237a27e1e20e19503459bac4c248a8",
+          "hd_sha256": "fd68e6bc0e0e4ea661d163cbc3798d05cfdea09d3cfa03bd31d7e41db2c47a6a"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 50,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 11,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "07047ea3335eb58cbbb91c797bc929fdd32cae367e0bd7f85dcacf53c66e6210",
+          "hd_sha256": "5553deef5502aeeb5c0bc2563e341e84bef37bffe3d9d01e500d9d16645b09d5"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/051.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 3,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "0d756f9ae2330100fc4b9701de28aac46f4ca6d9d2a4be2afb8ac7ab2b79cf81",
+          "hd_sha256": "4f35856a6faa4ff726d1f9e2796e1d511e15f662bb323f5e52cc2a7262da77d4"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 51,
+            "x": 148,
+            "y": 90,
+            "w": 28,
+            "h": 3,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "0132d5dc5a54fe028067219e774d294512e9ff9a3e98dc0ad175daab5f742ea8",
+          "hd_sha256": "b6cb3593e8bf2e74d6336a51aac3c247109617cbfa4e47278ab8cf00eaff3970"
+        }
+      ]
+    },
+    {
+      "key": "RATMEN1.CEL/052.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 52,
+            "x": 148,
+            "y": 90,
+            "w": 21,
+            "h": 25,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "c6137ec5cab189ad3e974110e05f33461e39e8f19a7b45da6f8e6e96456880b0",
+          "hd_sha256": "6ba6cca77a522867184124ce5e916ef20297dbae5fa654f6288586a7c93023de"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "ratmen1.cel",
+            "bilde": 52,
+            "x": 148,
+            "y": 90,
+            "w": 21,
+            "h": 25,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "92d049edf93e0a895e2d1421c53ddfff3d9869531fa89061f48093060ce47094",
+          "hd_sha256": "730b7f7fc8c689298c44b5cc9d9707f00ad3120425f797d6feede0db391b189d"
+        }
+      ]
+    }
+  ],
+  "source_contracts_sha256": "306bb8651542d60c06f53b59f147614e2a71fb8580646a956e92e7446668600f",
+  "palette_case_sha256": "b74d5e9964807f8e428e8460a7453f96b09317ea0f4b90abffd697a8f0575659",
+  "packed_png_sha256": {
+    "RATMEN1.CEL/038.png": "d6cdd3e842ba899de43588c4a7469ced693a595289b0c65d76d49c8b7f0eae2b",
+    "RATMEN1.CEL/039.png": "fb4bb5c05afc1f0426d65e3e12692aaba2e5b4d5d3e7a834d59488eb8ded1e60",
+    "RATMEN1.CEL/040.png": "d4148f35df37451ad1a3e0b417a148ede461c59f78364d65fc0b57fc555febe9",
+    "RATMEN1.CEL/041.png": "b0cb32919898b76883b0ff783fe77874867172700aadd08f359c652f356705e3",
+    "RATMEN1.CEL/042.png": "fcc422586ec94a11e55c59b1e37457157f7600575fc46c7027a71aca90eb270f",
+    "RATMEN1.CEL/043.png": "fd6c1b99cfd045c2e36f53795a46df26defe1a5be6b151c6a6e3497c50994b60",
+    "RATMEN1.CEL/045.png": "b595a7b32b4f5eca65d2d6c7724fe59cb0c413babe99c199ef33e39155bb27c6",
+    "RATMEN1.CEL/046.png": "110350d2cf3d2641b5bd4d6a3c26d5025952e6263410330ae89ceb690ef27c9f",
+    "RATMEN1.CEL/047.png": "f3e338cf70e910716f8ca4a004cd9177bd632b99ff7c539cb9847c67a369b4bd",
+    "RATMEN1.CEL/048.png": "1a6fdbab11c14a01e750a887cae017dea9b8d8855c1f40e69b133df5865cda31",
+    "RATMEN1.CEL/049.png": "f1b572dd5439cc16762b617be0a15418b5d7b69aa76dafc5cf9c17c31c2035ad",
+    "RATMEN1.CEL/050.png": "198b40892462ff5b989a1791ffbe809bf35da4e5fb079c887f84c3a1e9425869",
+    "RATMEN1.CEL/051.png": "9f896c6ff930ecca8eba17e927c4ad6be3f0d6eae4c2927506f5ebafe3abe5f2",
+    "RATMEN1.CEL/052.png": "081c57aad63ea139309b4db8c473ca9bd3329bba52532459c187a80e77cf9cbc"
+  },
+  "scope": "Kildebaserte tegneliste-/scanout-fixturer i faktisk WASM-frontend. Tilgjengelige separate Ratmen-ruter normal/speilet; alle levende masker i5originalpaletter. Ikke naturlig gameplay. Egen runtime-dragon viser faktiske komponerte originalkall.",
+  "imported_files": 14,
+  "palette_variants": [],
+  "created_at": "2026-10-12T01:59:42.763Z"
+}

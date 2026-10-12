@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "e8ef991b4086c576093991a38d05c8d165426e684adebe9a287b38679b77b916",
+    "web/src/scenes.js": "45ccdcfd02b4f31f2b512a3c8e1b64aceb1f952a3e8ecf91a5149b0d5c8036e0"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-4593e74189bf98bb-c835cb37/test.json",
+      "sha256": "569d2b3382c50a0287d88f95505d63f83d6ee73a72518d9a88d580f798f82c2e",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-4593e74189bf98bb-c835cb37/loaded.html",
+      "html_sha256": "8fd1d2517aca80f0f71abafc178cccd9c48dd4157f3e3d76de2f98e63b90abf5"
+    }
+  ],
+  "scope": "Separate individuelt genererte ruter, sammenliknet med original og sett samlet i kontrollert originalkamp. Eksakte Original/HD-returer. Original flat skygge beholdes uten nytegningspaastand. Ingen full animasjonsdekning eller naturlig kartreise.",
+  "entries": [
+    {
+      "key": "Balok1.CEL/067.png",
+      "bank": "Balok1.CEL",
+      "frame": 67,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "833664288514e5549c238a8107903ba599f3fcd2cd94685c2f4a5bdf8e8d0be9",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/067/7c6f907084c10287/source-bound-blood-surface-v3/candidate.png",
+      "png_sha256": "512a8c1a09fd418a21274198ee9460e4449ca4a06df30d68326111cf7516eda9",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/067-v1.png",
+      "raw_sha256": "7c6f907084c10287ccbdce9bdb15bfebc27a42398c38c854586388cfa6c0867c",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/067-v1.txt",
+      "prompt_sha256": "4e35f537e5ce72e6ed84096c612492c5eef6721b785aeca913c27d40b7226870",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-4593e74189bf98bb-c835cb37/test.json",
+      "runtime_asset_sha256": "512a8c1a09fd418a21274198ee9460e4449ca4a06df30d68326111cf7516eda9",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/067/7c6f907084c10287/source-bound-blood-surface-v3/art-record.json",
+      "art_record_sha256": "3eedbabe15e4d5b31cac4f1c2647edcce220d6c5965194c2ece1a4968d67af02",
+      "qa": {
+        "frame": 1765,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "Balok1.CEL/068.png",
+      "bank": "Balok1.CEL",
+      "frame": 68,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "081ac0dd193d015665a3f1783d6f79300c93339a0f73244c52db8ff4b362c98c",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/068/37e57f326d8b1702/source-bound-blood-surface-v3/candidate.png",
+      "png_sha256": "5a34755dcbd3ee4b4b44a9b34ec2ea1382e7fed121be1507ba1e394be5422db1",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/068-v1.png",
+      "raw_sha256": "37e57f326d8b17021b9dc5680e0f3010e403612460b0b164bbb9d27fb674f489",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/068-v1.txt",
+      "prompt_sha256": "5ebdb87975016fa18c4bc1d40883e214f8bb108acf8954028f122e5d472447cf",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-4593e74189bf98bb-c835cb37/test.json",
+      "runtime_asset_sha256": "5a34755dcbd3ee4b4b44a9b34ec2ea1382e7fed121be1507ba1e394be5422db1",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/068/37e57f326d8b1702/source-bound-blood-surface-v3/art-record.json",
+      "art_record_sha256": "4864f1927bb2a1b0a5b6b96c1f9d17824df25f8ba9291675728c512debe0e2ad",
+      "qa": {
+        "frame": 1765,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    }
+  ]
+}

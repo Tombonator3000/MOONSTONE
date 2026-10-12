@@ -1,0 +1,87 @@
+diff --git a/web/src/render.js b/web/src/render.js
+index 107b5d8..fc84525 100644
+--- a/web/src/render.js
++++ b/web/src/render.js
+@@ -935,7 +935,7 @@ const Visning = (() => {
+     /* Nabobokstaven overskriver skyggen til forrige bokstav. Valider derfor
+      * hele originalraden i tegnerekkefolge foer HD-glyfene erstatter den.
+      * Dette virker ogsaa for endrede tall/ord; ingen menytitler hardkodes. */
+-    function forberedTekst(lag, lest) {
++    function forberedTekst(lag, lest, figurVern) {
+         const reservert = new Set(), grupper = new Map();
+         if (!lag?.forIdx) return reservert;
+         // Engangstegningen kan ha skjedd mens pakken lastet. Gjenfinn bare
+@@ -979,6 +979,7 @@ const Visning = (() => {
+             if (gruppe.length) felt.push(gruppe);
+         }
+         const scan = typeof Kjerne !== 'undefined' ? Kjerne.skanout() : null;
++        const eie = felt.length ? eierskap(lest, lag) : null;
+         for (const gruppe of felt) {
+             const x = Math.max(0, Math.min(...gruppe.map(p => p.x))), y = gruppe[0].d.y;
+             const w = Math.min(320, Math.max(...gruppe.map(p => p.x + p.d.w))) - x, h = gruppe[0].d.h;
+@@ -991,34 +992,32 @@ const Visning = (() => {
+                 const v = p.g.px[j * p.d.w + i], dx = p.x + i - x;
+                 if (v && dx >= 0 && dx < w) maske[j * w + dx] = v;
+             }
+-            const over = visteListe.filter(d => !medlemmer.has(d) && overlapper(x, y, w, h, d))
+-                .map(d => ({d, g: originalCel(d.fil, lest)?.[d.bilde], x: d.x - d.xoff}));
+             const fjern = [], vern = [];
+             let gyldig = true;
+             for (let j = 0; gyldig && j < hv; j++) for (let i = 0; i < w; i++) {
+                 let c = maske[j * w + i];
+                 const p = (y + j) * 320 + x + i;
+                 let faktisk = lag.forIdx[p];
++                if (eie.ukjent[p]) { gyldig = false; break; }
+                 // $FE betyr en palettendring, mens den faktiske indeksen
+                 // fremdeles kan kontrolleres mot den originale glyfen.
+                 if (faktisk===254 && scan?.gyldig) faktisk=scan.idx[(diwNaa[1]+y+j)*720+diwNaa[0]+(x+i)*2];
+-                if (c && faktisk === c) { fjern.push(p); continue; }
++                const e = eie.eier[p], egen = e >= 0 && medlemmer.has(visteListe[e]);
++                // En foreldet glyf kan ha samme indeks som figuren som siden
++                // dekket den. Bare glyfens egne kildeceller beviser synlig tekst.
++                if (c && faktisk === c && egen) { fjern.push(p); continue; }
+                 if (faktisk === 255 && (!c || lag.bakIdx?.[p] === c)) continue;
+                 // Et kildefast PIV-motiv kan bevares foran HD-bakgrunnen.
+                 // Slike originalpiksler bak tegnets transparente felt er underlag.
+                 if (!c && lag.scene && faktisk === lag.bakIdx?.[p]) continue;
+-                const dekket = over.some(o => {
+-                    const ox = x + i - o.x, oy = y + j - o.d.y;
+-                    return o.g && ox >= 0 && ox < o.g.w && oy >= 0 && oy < o.g.h &&
+-                        o.g.px[oy * o.g.w + (o.d.speilet ? o.g.w - 1 - ox : ox)] === faktisk;
+-                });
++                const dekket = e >= 0 && !egen && eie.farge(e, p) === faktisk;
+                 if (dekket) vern.push(p);
+                 else { hdKontroll.tekstFeil.push({ x: x+i, y: y+j, wanted: c, actual: faktisk,
+                     frames: gruppe.map(p => p.d.bilde) }); gyldig = false; break; }
+             }
+             if (!gyldig || !fjern.length) { hdKontroll.tekstAvvist++; continue; }
+             for (const p of fjern) forData[p * 4 + 3] = 0;
+-            for (const p of vern) vernData[p * 4 + 3] = 255;
++            for (const p of vern) { vernData[p * 4 + 3] = 255; figurVern.add(p); }
+             for (const p of gruppe) hdTegnbare.add(p.d);
+             hdKontroll.tekstGodkjent += gruppe.length;
+         }
+@@ -1298,7 +1297,8 @@ const Visning = (() => {
+         const lest = new Map();
+         palettKlar = oppdaterPalett();
+         const reservert = forberedPoser(lag, lest);
+-        for (const d of forberedTekst(lag, lest)) reservert.add(d);
++        const tekstFigurVern = new Set();
++        for (const d of forberedTekst(lag, lest, tekstFigurVern)) reservert.add(d);
+         forberedMarkor(lag,lest);
+         const harLag = lag && lag.forIdx && lag.forIdx.length === 320 * 200;
+         const eie = harLag ? eierskap(lest, lag) : null;
+@@ -1409,7 +1409,12 @@ const Visning = (() => {
+                         // Bare den validerte pikseleierens egne indeksvern gjelder.
+                         // Valgkanter beholder originalens levende palett foran HD.
+                         if (ikonVern[e]?.includes(lag.forIdx[p])) vernData[p * 4 + 3] = 255;
+-                        else forData[p * 4 + 3] = 0;
++                        else {
++                            forData[p * 4 + 3] = 0;
++                            // Tekstens dekkede felt beholdt originalfiguren.
++                            // Den samme eksakte eieren har naa bestaatt HD-porten.
++                            if (tekstFigurVern.has(p)) vernData[p * 4 + 3] = 0;
++                        }
+                     }
+                 }
+                 else if (forsteHd[p] < e && !hdTegnbare.has(visteListe[e])) {

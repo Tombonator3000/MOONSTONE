@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "status": "ready_not_activated",
+  "group": "shadow015",
+  "routes": 1,
+  "png_files": 1,
+  "photographic_masters": 0,
+  "preserved_original_black_shadows": 1,
+  "source_aliases_not_new_csv_masters": 0,
+  "actual_runtime_observed": false,
+  "activation_contract": "art/hd-completion-figures-2026-10-11/production/beast/shadow015-v1/activation-set-shadow015-v2.json",
+  "activation_contract_sha256": "1d5564b6c449db05cf774cfdb3bd759d2487cccedec733a4086cc9f80c6c3bfa",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "6b93be5b0e12b458b8005fd891a15c0f5a454e35baa2a2d93cdf33666c5b416c",
+    "web/src/scenes.js": "189eed863fa34e74900f221f7f6078e46036adb41537cb9e27e8f7d5a06eff5f",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "html_sha256": "1bee3c056f771612b427df9750901ca8829099be8829da55779fb859edf612c3",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/shadow015-v1/verification/fixtures-frontend008-v1/test.json",
+      "sha256": "65b955b18457b4d706b64095775d669fac7bda743641024576c8c974de58887b",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/beast/shadow015-v1/verification/fixtures-frontend008-v1/loaded.html",
+      "html_sha256": "1bee3c056f771612b427df9750901ca8829099be8829da55779fb859edf612c3"
+    }
+  ]
+}

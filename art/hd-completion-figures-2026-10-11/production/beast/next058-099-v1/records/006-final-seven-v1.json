@@ -1,0 +1,66 @@
+{
+  "key": "be1.c/006.png",
+  "generation": {
+    "key": "be1.c/006.png",
+    "raw": "raw/006-v1.png",
+    "prompt": "prompts/006-v1.txt",
+    "reference": "references/006-original20x.png",
+    "generation_tool": "builtin_image_gen",
+    "generation_model": "not_exposed_by_tool",
+    "generation_call_id": "exec-c080adab-ae89-4ecc-ab7c-6efecfd36815",
+    "original_output_path": "/home/tombonator3000t/.codex/generated_images/01a10201-d4e6-7b43-9cf5-c75c123ccd87/exec-c080adab-ae89-4ecc-ab7c-6efecfd36815.png",
+    "raw_sha256": "097a801310c67ee73de243fc877925f5bc3fec4a59ede0d082bf7ae1060d962c",
+    "prompt_sha256": "990498a8c345941c059329e55c2cc1b96edcd10e174f1204d0f12ffcdb619279",
+    "reference_sha256": "035b0cf9ff3fd43779d870b6cd23b59cb850b67c4fea33b865f6f0629db08d39",
+    "source_generation_record": "generation-006-v1.json",
+    "source_generation_record_sha256": "f534771fa1deef9ffd2a7415a4452a2464361050a50c408fa760fc74e99c64de"
+  },
+  "packed": {
+    "key": "be1.c/006.png",
+    "raw": "raw/006-v1.png",
+    "raw_sha256": "097a801310c67ee73de243fc877925f5bc3fec4a59ede0d082bf7ae1060d962c",
+    "prompt": "prompts/006-v1.txt",
+    "prompt_sha256": "990498a8c345941c059329e55c2cc1b96edcd10e174f1204d0f12ffcdb619279",
+    "candidate_sha256": "87035e8afd9fba34c449e2a0c2cc26c43bcee5b51282d080f8f06fabf2c22c0a",
+    "source_indices_sha256": "328086e1f80adbac3ccc64af8abb78e816362ff73a9f590644601d62181f9fcd",
+    "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+    "raw_size": [
+      1501,
+      1048
+    ],
+    "raw_alpha_bounds": [
+      12,
+      3,
+      1494,
+      1048
+    ],
+    "target_size": [
+      212,
+      148
+    ],
+    "source_centers_opaque": 1318,
+    "source_centers_empty": 643,
+    "original_motion_cells": 0,
+    "source_material_pixels": {
+      "fur": 10080,
+      "hide": 7583,
+      "bone": 231,
+      "eye": 24,
+      "muzzle": 2789
+    }
+  },
+  "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+  "indices_sha256": "328086e1f80adbac3ccc64af8abb78e816362ff73a9f590644601d62181f9fcd",
+  "candidate_sha256": "87035e8afd9fba34c449e2a0c2cc26c43bcee5b51282d080f8f06fabf2c22c0a",
+  "generation_tool": "builtin_image_gen",
+  "actual_runtime_observed": false,
+  "runtime_scope": "source_exact_fixture_only",
+  "source_size": [
+    53,
+    37
+  ],
+  "target_size": [
+    212,
+    148
+  ]
+}

@@ -137,3 +137,21 @@ Bakgrunnens originalbitplan, indekser, RGBA og palettrader er bekreftet mot fakt
 Standardpakken er kontrollert uten kandidatimport: Guardian550,demon2/187,Dragon5/97,krigsbeist49 og slutt1702 kontroller. Samlet fil-/kildekontroll5092 og bestilling255 bestaar. Normale og speilvendte ruter, faktiske originalkall, eksakte Original/HD-returer og uendret emulert tilstand er dokumentert i de separate bevisene. Delvis originalgrafikk for uferdige deler er forventet. Full naturlig gjennomspilling og fysisk telefonproeve er ikke paastaatt. Frontend a842 og alle fire presentasjonsfiler er bevart i `verification/source-freezes-006`.
 
 Sjette leveranses `verification/verify-delivery-006.py` gjenskaper foerst de seks Beast-originalreferansene gjennom det SHA-bundne `production/beast/next006-011-v1/prepare-v3.py`. Eksisterende geometri maa bli byteidentisk og hver referanse maa bestaa sin opprinnelige companion-SHA. Originaleksportene skal fortsatt ikke lagres i Git. WASM og de frosne testpakkene maa bygges lokalt foer full validering.
+
+Sjette pakke er offentlig bekreftet i PR #38/main798b926:125nyePNG,1623PNG/1629filer/82BG. Kvittering: `verification/public-006/publication.json`. Alle nye PNG og HTMLe79f2dc4/manifest899a380b samsvarer; fem faktiske offentlige scenetester bestaar2585kontroller. Original/HD-bildene er visuelt inspisert. Restlisten etter006 er1084mastere;007kandidater er ikke telt som leverte.
+
+## Sjuende lokale figurgruppe, 12. oktober 2026
+
+98 nye originalruter er koblet lokalt: 93 egne fotomaterialmastere og fem kildeidentiske aliaser, med 20 masker. Det gir 118 nye PNG-filer og totalt 1741 PNG i 1747 manifestfiler. Alle 1629 tidligere filer er uendret. Restlisten har 991 mastere, 1055 konkrete ruter og 79 mastermasker.
+
+Ti standardprøver mot samme frosne HTML består 4436 kontroller. Fil-/kildekontroll består 5449 og bestillingskontroll 255. Femten beistruter og ett beistalias er bare kontrollert i strenge kilde-, normal-/speil- og negative frontend-fixturer; faktisk kampobservasjon påstås ikke for dem.
+
+**Publisering holdes tilbake:** visuell kontroll ved Balok-pose2200 viser firkantede bakgrunnsbiter over kildeekte hode-/lårpiksler. Det må rettes og samme spillbilde kontrolleres på nytt. Rottefigurene beholder også originalbakgrunn ved to eksakte kildebakingskall med svart skygge og røde spor. En avgrenset HD-løsning for disse deltaene følger separat. Teknisk beståtte rutetester alene er ikke visuell godkjenning av disse scenene.
+
+## Aattende lokale kohort,12.oktober2026
+
+202 nye kilderuter og222 PNG-filer:195 egne fotografiske materialmastere,sju bevarte originalruter og20 levende riddermasker. Standardpakken har1963 PNG/1969 filer/82 bakgrunner. Ingen av1747 tidligere filer er endret. De ni navngitte kontraktene og kilde-/runtimebevisene samles i delivery-contracts-008.json og delivery-progress-008.json naar siste standardgruppe er ferdig.
+
+Frontend008 retter de synlige Balok-blokkene og beholder HD ved kildebeviste Ratmen-bakinger. Ukjente deltaer og forgrunner gir fortsatt Original. Faktiske kampskjermbilder holdes atskilt fra kontrollerte normal/speil-fixturer. Ingen full naturlig animasjonsdekning eller fysisk telefonproeve paastaas. Restlisten har790 mastere/853 ruter/59 masker. Nye kandidater til009 er separat arbeid og inngaar ikke i008.
+
+008 endelig lokalport:4369 filkontroller,14757 standardkontroller i23 rapporter og1418 frontendregresjoner er bestaaet. Den siste D2/D3-gruppen er ferdig. Offentlig kontroll er fortsatt ikke utfoert.

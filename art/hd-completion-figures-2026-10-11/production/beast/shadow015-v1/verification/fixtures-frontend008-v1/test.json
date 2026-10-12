@@ -1,0 +1,674 @@
+{
+  "package_ledger_sha256": "de10d5da5e40fb413995f6f44099364d7911ff4e47f929593b792b2547a6cde0",
+  "package_manifest_sha256": "dc97a283f329afb78ee76cf23cc0738fd665bc6ffa45271e9d9ef77de64e24e8",
+  "package_images": 1741,
+  "package_files": 1747,
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "6b93be5b0e12b458b8005fd891a15c0f5a454e35baa2a2d93cdf33666c5b416c",
+    "web/src/scenes.js": "189eed863fa34e74900f221f7f6078e46036adb41537cb9e27e8f7d5a06eff5f",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "html_sha256": "1bee3c056f771612b427df9750901ca8829099be8829da55779fb859edf612c3",
+  "runtime_script_sha256": "f312b43fed635d93c3370f74e867e6b4b23989dfd41b905662784372367de96f",
+  "schema": 1,
+  "status": "passed",
+  "checks": [
+    "actual_frozen_HTML",
+    "frozen_web/src/core.js",
+    "frozen_web/src/render.js",
+    "frozen_web/src/scenes.js",
+    "frozen_web/src/hd.js",
+    "015_fixture_HD_used",
+    "015_original_black_shadow_exact",
+    "015_fixture_Original_return",
+    "015_fixture_HD_return",
+    "015_wrong_foreground_index_Original_exact",
+    "015_wrong_foreground_index_HD_rejected",
+    "015_unknown_foreground_source_Original_exact",
+    "015_unknown_foreground_source_HD_rejected",
+    "015_wrong_dimensions_Original_exact",
+    "015_wrong_dimensions_HD_rejected",
+    "015_missing_original_bank_Original_exact",
+    "015_missing_original_bank_HD_rejected",
+    "015_missing_foreground_layer_Original_exact",
+    "015_missing_foreground_layer_HD_rejected",
+    "015-mirror_fixture_HD_used",
+    "015-mirror_original_black_shadow_exact",
+    "015-mirror_fixture_Original_return",
+    "015-mirror_fixture_HD_return",
+    "015-mirror_wrong_foreground_index_Original_exact",
+    "015-mirror_wrong_foreground_index_HD_rejected",
+    "015-mirror_unknown_foreground_source_Original_exact",
+    "015-mirror_unknown_foreground_source_HD_rejected",
+    "015-mirror_wrong_dimensions_Original_exact",
+    "015-mirror_wrong_dimensions_HD_rejected",
+    "015-mirror_missing_original_bank_Original_exact",
+    "015-mirror_missing_original_bank_HD_rejected",
+    "015-mirror_missing_foreground_layer_Original_exact",
+    "015-mirror_missing_foreground_layer_HD_rejected",
+    "fixtures_CPU_unchanged",
+    "no_browser_errors",
+    "final_frozen_web/src/core.js",
+    "final_frozen_web/src/render.js",
+    "final_frozen_web/src/scenes.js",
+    "final_frozen_web/src/hd.js",
+    "frozen_original_WASM",
+    "frozen_original_ZIP",
+    "frozen_be1.c/015.png",
+    "frozen_test",
+    "bound_package_script_and_frozen_frontend_unchanged"
+  ],
+  "errors": [],
+  "assets": {
+    "be1.c/015.png": "f8d9485904407227c511f4093ca7ba7363e4d17bbf7e1262ab64c0196ec73c33"
+  },
+  "geometry_sha256": "408c0a6bc9bbfc74e1ba19effa14868a7543df873fc648aa262293c9fdd6a0ce",
+  "palette_case_sha256": "e0678f8adcbd4fd3c15b61156c8c013d690941662b10ee761d70e9e1b724f017",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "test_sha256": "f312b43fed635d93c3370f74e867e6b4b23989dfd41b905662784372367de96f",
+  "scope": "Controlled original Trogg War Beast combat initializer and terrain only, three source-documented test writes at900. No palette writes or modified combat/animation code; no natural map visit claim. Actual source calls and source scanout palette are checked. Separate normal/mirrored frontend fixtures and negative source/ownership checks never write to emulated memory. Candidate import only, no activation. Only indices actually used by each beast source frame must match its original palette; unrelated live knight6..8 can change naturally. Only original black shadow015 receives frontend fixtures; no new photo; only actually observed routes can enter an activation contract. No actual combat in this fixture-only test. Only actual HD-observed030..041 enter any activation contract. 015 is exact original black source-index5 alpha4x, not newly drawn. Unobserved candidates are explicitly listed and cannot be counted as actual runtime evidence.",
+  "profile": "right",
+  "mode": "fixtures",
+  "mask_sha256": {},
+  "runtime": {
+    "seen": {},
+    "trace": []
+  },
+  "unobserved": [
+    "be1.c/015.png"
+  ],
+  "fixture_helper_sha256": "35d36d2eae833ab8d417746f4ae801ee38ba7926cb1fb597a773c8eb31e2e72a",
+  "fixtures": [
+    {
+      "key": "be1.c/015.png",
+      "mirror": false,
+      "original_sha256": "d52757ab07f7a2e66bb322785dde2903398b315a2bc316a0d1790b57ed16d1ae",
+      "hd_sha256": "d52757ab07f7a2e66bb322785dde2903398b315a2bc316a0d1790b57ed16d1ae",
+      "info": {
+        "figures": [
+          {
+            "fil": "be1.c",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 13,
+            "h": 5,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "be1.c/015.png",
+      "mirror": true,
+      "original_sha256": "d52757ab07f7a2e66bb322785dde2903398b315a2bc316a0d1790b57ed16d1ae",
+      "hd_sha256": "d52757ab07f7a2e66bb322785dde2903398b315a2bc316a0d1790b57ed16d1ae",
+      "info": {
+        "figures": [
+          {
+            "fil": "be1.c",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 13,
+            "h": 5,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    }
+  ],
+  "negative": [
+    {
+      "key": "be1.c/015.png",
+      "mirror": false,
+      "failure": "wrong_foreground_index",
+      "Original_HD_sha256": "c7ba8455274808e3b19f0c6702cdc5827051cff958195d59383f871ff6ab14e5",
+      "info": {
+        "figures": [
+          {
+            "fil": "be1.c",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 13,
+            "h": 5,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "be1.c/015.png",
+      "mirror": false,
+      "failure": "unknown_foreground_source",
+      "Original_HD_sha256": "d52757ab07f7a2e66bb322785dde2903398b315a2bc316a0d1790b57ed16d1ae",
+      "info": {
+        "figures": [
+          {
+            "fil": "be1.c",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 13,
+            "h": 5,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "unknown.cel",
+            "bilde": 0,
+            "x": 153,
+            "y": 90,
+            "w": 1,
+            "h": 1,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 1,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "be1.c/015.png",
+      "mirror": false,
+      "failure": "wrong_dimensions",
+      "Original_HD_sha256": "d52757ab07f7a2e66bb322785dde2903398b315a2bc316a0d1790b57ed16d1ae",
+      "info": {
+        "figures": [
+          {
+            "fil": "be1.c",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 14,
+            "h": 5,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "be1.c/015.png",
+      "mirror": false,
+      "failure": "missing_original_bank",
+      "Original_HD_sha256": "d52757ab07f7a2e66bb322785dde2903398b315a2bc316a0d1790b57ed16d1ae",
+      "info": {
+        "figures": [
+          {
+            "fil": "be1.c",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 13,
+            "h": 5,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "be1.c/015.png",
+      "mirror": false,
+      "failure": "missing_foreground_layer",
+      "Original_HD_sha256": "d52757ab07f7a2e66bb322785dde2903398b315a2bc316a0d1790b57ed16d1ae",
+      "info": {
+        "figures": [
+          {
+            "fil": "be1.c",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 13,
+            "h": 5,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 1,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": null
+        }
+      }
+    },
+    {
+      "key": "be1.c/015.png",
+      "mirror": true,
+      "failure": "wrong_foreground_index",
+      "Original_HD_sha256": "6561260485b6f36831b7192b6e1ffcb1e8add5f4fc529d8b4468166d38bf660c",
+      "info": {
+        "figures": [
+          {
+            "fil": "be1.c",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 13,
+            "h": 5,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 1,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "be1.c/015.png",
+      "mirror": true,
+      "failure": "unknown_foreground_source",
+      "Original_HD_sha256": "d52757ab07f7a2e66bb322785dde2903398b315a2bc316a0d1790b57ed16d1ae",
+      "info": {
+        "figures": [
+          {
+            "fil": "be1.c",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 13,
+            "h": 5,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          },
+          {
+            "fil": "unknown.cel",
+            "bilde": 0,
+            "x": 155,
+            "y": 90,
+            "w": 1,
+            "h": 1,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 1,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "be1.c/015.png",
+      "mirror": true,
+      "failure": "wrong_dimensions",
+      "Original_HD_sha256": "d52757ab07f7a2e66bb322785dde2903398b315a2bc316a0d1790b57ed16d1ae",
+      "info": {
+        "figures": [
+          {
+            "fil": "be1.c",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 14,
+            "h": 5,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "be1.c/015.png",
+      "mirror": true,
+      "failure": "missing_original_bank",
+      "Original_HD_sha256": "d52757ab07f7a2e66bb322785dde2903398b315a2bc316a0d1790b57ed16d1ae",
+      "info": {
+        "figures": [
+          {
+            "fil": "be1.c",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 13,
+            "h": 5,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 0,
+          "kilde": 1,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "be1.c/015.png",
+      "mirror": true,
+      "failure": "missing_foreground_layer",
+      "Original_HD_sha256": "d52757ab07f7a2e66bb322785dde2903398b315a2bc316a0d1790b57ed16d1ae",
+      "info": {
+        "figures": [
+          {
+            "fil": "be1.c",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 13,
+            "h": 5,
+            "speilet": true,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "control": {
+          "godkjent": 0,
+          "utenLag": 1,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": null
+        }
+      }
+    }
+  ],
+  "palette_variants": []
+}

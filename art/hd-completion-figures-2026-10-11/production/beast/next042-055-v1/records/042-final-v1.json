@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "key": "be1.c/042.png",
+  "generation": {
+    "key": "be1.c/042.png",
+    "raw": "raw/042-v1.png",
+    "prompt": "prompts/042-v1.txt",
+    "reference": "references/042-original20x.png",
+    "generation_tool": "builtin_image_gen",
+    "generation_model": "not_exposed_by_tool",
+    "generation_call_id": "exec-e420c44a-9f5d-4779-965a-1af49da99b89",
+    "original_output_path": "/home/tombonator3000t/.codex/generated_images/01a10201-d4e6-7b43-9cf5-c75c123ccd87/exec-e420c44a-9f5d-4779-965a-1af49da99b89.png",
+    "raw_sha256": "7ab04e86e17f4741e92cf1fcdd627ac71f230dbe53f82f6b69151e85715485e7",
+    "prompt_sha256": "b48e003e6246ddaf887032ce5efcf1524a159943ff88a326ca9a5425de20e794",
+    "reference_sha256": "352ed2bb48d7638877ad3ea5d67dc25bc8bc739a8c5048500a378ee17fbd8cd7",
+    "source_generation_record": "generation-042-v1.json",
+    "source_generation_record_sha256": "3f96f8a1f074fc192c6c9395aa9e34edc5ac93dafaf89bf7b6f8834074c4e664"
+  },
+  "candidate_sha256": "4df9066ea47439504570fad6db54407c963c79a9a2e2022f59125be1cfa86b70",
+  "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+  "indices_sha256": "98fdc701c77af1c1707560b47a30c0938fbdbefc5c36955855ff42623e9ba54a",
+  "geometry_sha256": "79e374290b8044176f81ec2442b5051e5a8e48c495db56ba328447e865758c1f",
+  "packed": {
+    "key": "be1.c/042.png",
+    "raw": "raw/042-v1.png",
+    "raw_sha256": "7ab04e86e17f4741e92cf1fcdd627ac71f230dbe53f82f6b69151e85715485e7",
+    "prompt": "prompts/042-v1.txt",
+    "prompt_sha256": "b48e003e6246ddaf887032ce5efcf1524a159943ff88a326ca9a5425de20e794",
+    "candidate_sha256": "4df9066ea47439504570fad6db54407c963c79a9a2e2022f59125be1cfa86b70",
+    "source_indices_sha256": "98fdc701c77af1c1707560b47a30c0938fbdbefc5c36955855ff42623e9ba54a",
+    "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+    "raw_size": [
+      1744,
+      902
+    ],
+    "raw_alpha_bounds": [
+      0,
+      0,
+      1687,
+      844
+    ],
+    "target_size": [
+      116,
+      60
+    ],
+    "source_centers_opaque": 257,
+    "source_centers_empty": 178,
+    "original_motion_cells": 0,
+    "source_material_pixels": {
+      "metal": 1057,
+      "cloth": 3007
+    }
+  },
+  "generation_tool": "builtin_image_gen",
+  "actual_runtime_observed": false,
+  "runtime_scope": "source_exact_fixture_only",
+  "source_size": [
+    29,
+    15
+  ],
+  "target_size": [
+    116,
+    60
+  ],
+  "photo_material": true,
+  "preserved_original_black_shadow": false
+}

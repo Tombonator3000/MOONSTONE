@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "html_sha256": "b1e3496e5d420bd2a8400ee3f0d7703f026a21d7a0a5398bffda6ac2ca932b0d",
+  "manifest_sha256": "6e8d764620ff11b41910dd9fdc9f91af7d667dd17fdbe038c1595bdf494f8fb6",
+  "screenshots": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/balok/Balok3.CEL-025-original.png",
+      "sha256": "858ec96b7c9775cba41a476639814fb68d843f7f6ad2f924993c65c2eb5ce762"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/balok/Balok3.CEL-025-hd.png",
+      "sha256": "cc55af25dc9ee2080504160e215cb6db11d532717961cdb0bb7b46a0d15fc7a6"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/balok/Balok3.CEL-019-hd.png",
+      "sha256": "e93405fb5054f8a50669dd652677cff3775fe540c456881ccc61d780411e87fc"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/ratmen-v5/042-original.png",
+      "sha256": "9fa813ef5a97ab1b10e2428f042d24c99a96c19d49385f8a3caa2252303ba9ca"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/ratmen-v5/042-hd.png",
+      "sha256": "0d517b32dfce11bbb1e543b2dde6c5c0b4bf62ef51b73dceb336e597b93e0762"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/guardian/combat-019-hd.png",
+      "sha256": "fe4cbc1bec436c2e78d7ed529745f9f577e8ba9bdd6bd3987201f731d7b867ce"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/guardian-demon2/combat-040-hd.png",
+      "sha256": "0b5421fea5c2a960237eeaefaf5a2e9770536441e07e8ff61c42cf882d26365c"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/dragon/005-hd.png",
+      "sha256": "e57f07c08faf50a60c26ba855add1333a6a9b29e370cd85706f60289911549c0"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/beast/combat-020-hd.png",
+      "sha256": "8c83272e7da7e231dbe1755f7ac5586cd9b70c7c48abb1f6b7310947b8c58ad3"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/ending/2800-hd.png",
+      "sha256": "5bf9c546372ca8ac43d4300b1fe76a769c5f32f97fa053dea7cb4db1e3ce788c"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/mixed35/TROLL1_CEL-016-hd.png",
+      "sha256": "431a4ab235330b23dde8c5ef6ad17a7dac8b46706e16d98f52df2f94c02ac059"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/mixed35/be1_c-060-mirror-hd.png",
+      "sha256": "60008e4cfb16d68a800d74570d059800cfe1d0d09b8b2755f3142ad787a379c9"
+    }
+  ],
+  "observations": [
+    "Balok025 samme originale pose: bakgrunnsblokker over hodet og laaret er borte; originalens svarte fotskygge bevares.",
+    "Balok019 beholder blod-/kroppsfragmenter, levende blaa ridderdrakt og bakgrunn.",
+    "Ratmen042 samme originalbilde: kildebekreftede svarte5/roede15-bakinger bevares; originalens opake bladfelt foelger originalen. Ingen generell forgrunnsfjerning.",
+    "Guardian, demon2, drage, beist og sluttsekvens beholder kildekomposisjon. Originaldekorer og manglende effekter kan fortsatt vaere pikselgrafikk.",
+    "Troll016 og beist060 er kildeeksakte frontendfixturer, ikke naturlig observerte kampsekvenser. Originalretur og speiling er teknisk kontrollert."
+  ],
+  "resolves_hold": "verification/visual-review-007-v1.json",
+  "scope": "Utvalgte faktiske standardkamper og uttrykkelig merkede normal/speil-fixturer. Ikke full naturlig animasjonsdekning eller fysisk telefonproeve."
+}

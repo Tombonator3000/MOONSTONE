@@ -146,7 +146,7 @@
 - [x] Nytegne og kontrollere alle26 KN4-sverd-/bevegelsesruter,7 identiske kopier og025-masken.
 - [x] Nytegne18 flammer separat og kontrollere dem i original Stonehenge-scene og sluttsekvens;18 identiske Klift-kopier.
 - [x] Publisere og kontrollere den første figurruteleveransen etter grønn CI (PR #33, offentlig70PNG, faktisk kamp og Stonehenge).
-- [ ] Fullføre1084 resterende figurmastere/1153 konkrete ruter; 97 mastermasker for kildebekreftede innbakte ridderdeler og ingen HE-kopier står på restlisten.
+- [ ] Fullføre790 resterende figurmastere/853 konkrete ruter; 59 mastermasker for kildebekreftede innbakte ridderdeler og ingen HE-kopier står på restlisten.
 - [x] Gjøre Math-ansikt, kropp, hår og kappe visuelt sammenhengende i statisk WI1.P-plate og separate Wi1.C-ruter (PR #35).
 - [x] Fjerne hudskjøter fra de to separate MYS-øyefragmentene før aktivering; aktivert lokalt etter14 scene- og30 rutekontroller.
 - [x] Publisere og kontrollere MYS006/007 i standardpakken (PR #34).
@@ -154,22 +154,30 @@
 - [x] Kontrollere og aktivere16 TROLL-ruter, inklusive øyefarge og adskilt fotskygge.
 - [x] Aktivere129 KN3-/HE3-/RATMEN-ruter og90 masker etter1928 rutekontroller og visuell sammenligning. Fire rene svarte skygger bevart.
 - [x] Publisere og kontrollere den andre figurleveransen med237 nye PNG-filer (PR #34).
-- [ ] Fullføre øvrige TROLL-ruter med samme separate bilde-/runtimekrav; KN1/HE1 er levert i PR #35.
+- [x] Fullføre øvrige TROLL-ruter med samme separate bilde-/runtimekrav; KN1/HE1 er levert i PR #35.
 
 - [x] Tredje lokale figurleveranse: KN1/HE1, KN2/HE2, Math, TAV/DICE, kartdrage, OV1, HA1 og ytterligere TROLL,1145PNG/1151filer. Standard- og originalkontroller bundet.
 - [x] Publisere og kontrollere tredje figurleveranse (PR #35, alle433PNG samt281 KN1-/158 KN2-kontroller paa offentlig side).
 - [x] Fullføre LI1/30, HEN/Klift/74, KN5/65, DRAGON1/16, Balok1/28 og TROLL2/2 nye ruter lokalt:178 mastere,215 kilderuter og68 masker,283 nyePNG. Palettblink, LI1-haandens retensjon og eksakt TROLL-likbuffer er kontrollert.
 - [x] Publisere fjerde figurleveranse via PR #36 og groenn CI. Alle283 nyePNG samsvarer offentlig; slutt1507 og LI1/98 kontroller bestaar.
-- [ ] Fortsette resterende drager, Balok, Guardian og resten av1084-masterlisten. Uavklarte TROLL-bruksruter beholdes som originalgrafikk til de kan kontrolleres.
+- [ ] Fortsette resterende drager, Balok, Guardian og resten av790-masterlisten. Uavklarte TROLL-bruksruter beholdes som originalgrafikk til de kan kontrolleres.
 
 - [x] Femte lokale figurleveranse: DRAGON2/26, Balok1/15, Guardian/18 og krigsbeist/6, med to manglende riddermasker rettet.1498PNG/1504filer; alle tidligere publiserte PNG-er uendret.
 - [x] Publisere femte figurleveranse: PR #37, groenn CI, alle70PNG offentlig og Guardian220/krigsbeist76/slutt1577 bestaar.
 
 - [x] Nytegne og lokalt aktivere Guardian-bakgrunn cbc31cbf fra original test005.220 faktiske standardkontroller bestaar;1499PNG/1505filer/82BG lokalt.
-- [ ] Publisere ny Guardian-bakgrunn cbc31cbf.
+- [x] Publisere ny Guardian-bakgrunn cbc31cbf (PR #38, offentlig006).
 - [x] Kontrollere alle32 originale terrengkompositter mot aktive HD-hasher; test000..003 er flisark, ikke manglende bakgrunnsbilder. Senere dynamiske monster-/blodendringer kartlegges separat.
 
 - [x] Sjette lokale leveranse:125 nyePNG og122 ruter, med112 egne fotomastere,aatte konservative flate originaleffekter,en bevart svart skygge,ett eksakt alias,to masker og Guardian-bakgrunn.1623PNG/1629filer; alle1504 tidligere filer uendret.
 - [x] Standardproever006: Guardian550,demon2/187,drage97,krigsbeist49 og slutt1702. Samlet5092fil-/kildekontroller og255bestillingskontroller bestaar.
-- [ ] Publisere sjette leveranse via PR/groennCI og kontrollere offentlige byte/spillbilder.
+- [x] Publisere sjette leveranse via PR #38/groennCI og kontrollere alle125nyePNG/femfaktiske offentlige scener.
 - [ ] Fullfoere kildebundet retensjon for Dragon2/005, Balok067/068 og dynamiske originale kampbakgrunnsdeltaer. Bevar Original ved ukjent kilde.
+
+- [x] Sjuende lokale rutegruppe:93 separate fotomastere,fem aliaser,98 ruter og20 masker. Standard4436 og fil/kilde5449 bestaar.
+- [x] Rette synlige bakgrunnsblokker over Balok1/004 og002 ved pose2200.008 er kontrollert visuelt i samme Original/HD-pose; historisk007-feilrapport beholdes.
+- [ ] Beholde HD-bakgrunn ved eksakte Ratmen-bakinger med svart5 og roedt15, uten aa godta ukjente bakgrunnsendringer.
+
+- [x] Aattende lokale kohort:202 ruter/222 PNG,195 egne fotomaterialmastere,sju bevarte originalruter,20 masker.1963 PNG/1969 filer/82 bakgrunner. Alle1747 tidligere filer uendret.
+- [ ] Publisere008 etter komplett standard-/fil-/kildekontroll og kontrollere samme offentlige HTML, manifest og bilder.
+- [ ] Fullfoere790 resterende mastere,853 konkrete ruter og59 masker; paagaaende009-kandidater telles foerst ved kildeverifisert aktivering.

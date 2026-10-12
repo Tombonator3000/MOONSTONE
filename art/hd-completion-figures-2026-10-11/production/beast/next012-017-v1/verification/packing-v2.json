@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "status": "packed_candidates_not_activated",
+  "scope": "Each route uses its own generated photographic master. Original source contours, transparent holes, silhouette and anchors are retained; source-bound material registration and original source material regions, photographic black mane detail and smoothed original skin/bone/eye light, with separately preserved flat black source shadows. This is not a claim of freehand redrawn geometry.",
+  "packing_script_sha256": "1f59cb8b992d2441d941f576f3c0330fb9cd43ca846e354b77d61c69b9db8db9",
+  "geometry_sha256": "fb7bb25e3538ce1c3937c8ac6ffe248bc27b4affc590c82167728f0bbffbb9fb",
+  "generation_records_sha256": "edb2847899ec00c5962c0988f4c4cbaaeb927616b54f8e730fe28127309dc350",
+  "assets": [
+    {
+      "key": "be1.c/012.png",
+      "raw": "raw/012-v1.png",
+      "raw_sha256": "843828bd4360597babc7613def6f0d64f3676eea4ae76dad4414bed85293eeb1",
+      "prompt": "prompts/012-v1.txt",
+      "prompt_sha256": "a67914ef98eddfa822384c9b3b49b4c10470c9ec281150b9c9361b6c1b9847d1",
+      "candidate_sha256": "9c66e6cc6c3a01387c44f9f944614c16dfda2d21fc81024af08b6cd8a80fc478",
+      "source_indices_sha256": "436eea5801b7d36db154459b949080fff7e817825fb4909045e002d9d96b50de",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1734,
+        907
+      ],
+      "raw_alpha_bounds": [
+        0,
+        0,
+        1734,
+        907
+      ],
+      "target_size": [
+        168,
+        88
+      ],
+      "source_centers_opaque": 766,
+      "source_centers_empty": 158,
+      "original_flat_shadow_cells": 0,
+      "source_material_pixels": {
+        "fur": 7993,
+        "muzzle": 1256
+      }
+    },
+    {
+      "key": "be1.c/013.png",
+      "raw": "raw/013-v1.png",
+      "raw_sha256": "e7374b3154c6a21f05fe04c34d4901b52804ec56f82454fbc0ac34604a55816a",
+      "prompt": "prompts/013-v1.txt",
+      "prompt_sha256": "81a8b07df268d87c1417c7c9ecbc0df8d93d6ac7e0e7fd7c7db8db052c111ede",
+      "candidate_sha256": "150145f5954150b285de2b9d767fbfcec7e6465b4724c70959036e18d5fd68e2",
+      "source_indices_sha256": "3208b15c5711af5acee27c78ceb79938fa11ba24a19a7b47da2505ef73e94a66",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        992,
+        1586
+      ],
+      "raw_alpha_bounds": [
+        0,
+        0,
+        992,
+        1586
+      ],
+      "target_size": [
+        60,
+        96
+      ],
+      "source_centers_opaque": 171,
+      "source_centers_empty": 189,
+      "original_flat_shadow_cells": 0,
+      "source_material_pixels": {
+        "fur": 2085,
+        "hide": 66
+      }
+    },
+    {
+      "key": "be1.c/014.png",
+      "raw": "raw/014-v1.png",
+      "raw_sha256": "62d694abb7c1369c738dd143633c3c10f2b0a9be1aa4e570d067dbe8c501fa44",
+      "prompt": "prompts/014-v1.txt",
+      "prompt_sha256": "6d80ffa03b1c26056e2e8b9dc4afb209be1ca948ca7aaf208b1cb9ae1e31edba",
+      "candidate_sha256": "8fafccff203d3a7893675c99eb82f83fe031942f9ce42510b4daff76b508ef2a",
+      "source_indices_sha256": "e78a22a8f15923110294e1047b68f574e894ae224581cdbbbe60e7de560fdc0a",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1287,
+        1222
+      ],
+      "raw_alpha_bounds": [
+        0,
+        0,
+        1287,
+        1222
+      ],
+      "target_size": [
+        80,
+        76
+      ],
+      "source_centers_opaque": 105,
+      "source_centers_empty": 275,
+      "original_flat_shadow_cells": 0,
+      "source_material_pixels": {
+        "fur": 1052
+      }
+    },
+    {
+      "key": "be1.c/016.png",
+      "raw": "raw/016-v1.png",
+      "raw_sha256": "a9fbbc204f03c0a5930202ac34c783fee76e90f9f9ec65c5db338af8aa55cf90",
+      "prompt": "prompts/016-v1.txt",
+      "prompt_sha256": "cfcd158fd2b64b6b1c93287285a304a342b16bea1537194dc55280036c2152b9",
+      "candidate_sha256": "1b398387b88643a0308ca987a5b4ddcda903c32dddb5243f83f40f316f8c36e7",
+      "source_indices_sha256": "59ccea9d5e6066d0d7b724c8184cc04ded074df139b5033660efab11c076c963",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        2170,
+        725
+      ],
+      "raw_alpha_bounds": [
+        0,
+        0,
+        2170,
+        725
+      ],
+      "target_size": [
+        144,
+        32
+      ],
+      "source_centers_opaque": 137,
+      "source_centers_empty": 151,
+      "original_flat_shadow_cells": 0,
+      "source_material_pixels": {
+        "fur": 710,
+        "hide": 79
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "key": "be1.c/038.png",
+  "raw": "raw/038-v1.png",
+  "prompt": "prompts/038-v1.txt",
+  "reference": "references/038-original20x.png",
+  "generation_tool": "builtin_image_gen",
+  "generation_model": "not_exposed_by_tool",
+  "generation_call_id": "exec-bf7f4feb-ec2d-46c3-bb23-645074cae7f3",
+  "original_output_path": "/home/tombonator3000t/.codex/generated_images/01a10201-d4e6-7b43-9cf5-c75c123ccd87/exec-bf7f4feb-ec2d-46c3-bb23-645074cae7f3.png",
+  "raw_sha256": "1f542dc31f5fc4f0cc1ab1952b2d3ceb82030bc629b536d6107bf31560bea281",
+  "prompt_sha256": "4232f6657d70cfb65b5fca1cca0fe60b9779c9ed9d512702879a46decc983ece",
+  "reference_sha256": "a27a3c2e7180127d0eebf277fa123a0e573121811f2a5cfafd475e5c494ff77b",
+  "candidate_sha256": "1ba8448104f2130791aa63473440051ddc6c62e8cb10358a3c1ec62f33819e9f",
+  "source_indices_sha256": "c875d24633f699e7c38282d16d4bb756e1ff0a4c2c79361f1b693b1e2507c93f",
+  "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+  "raw_size": [
+    1536,
+    1024
+  ],
+  "raw_alpha_bounds": [
+    4,
+    2,
+    1534,
+    1023
+  ],
+  "target_size": [
+    180,
+    120
+  ],
+  "source_centers_opaque": 671,
+  "source_centers_empty": 679,
+  "original_motion_cells": 0,
+  "source_material_pixels": {
+    "metal": 2237,
+    "cloth": 8507
+  },
+  "visual_status": "reviewed_original_and_runtime",
+  "actual_runtime_observed": true,
+  "runtime_scope": "Original CPU-kamp med tre dokumenterte sceneinit-skrivinger og faktisk right/fire-inndata. Ikke naturlig kartreise.",
+  "neutral_template": {
+    "6": 128,
+    "7": 96,
+    "8": 64
+  },
+  "exact_original_gray_motion_cells": [],
+  "geometry_sha256": "7668a1090bf3e4844fe18c79355dfddf99cafe0dbd8cef091ed083d4878bbe8a",
+  "packing_script_sha256": "59545ed68267f694f1c29c16ac0fc91d22dacbce96c46e808a1e173a076f2975",
+  "method": "Each route uses its own generated photographic master. Original source contours, transparent holes, silhouette and anchors are retained; source-bound material registration and original source material regions, photographic black mane detail and smoothed original skin/bone/eye light, with eight neutral photographic knight cloth templates and exact source-bound small gray motion components. This is not a claim of freehand redrawn geometry."
+}
