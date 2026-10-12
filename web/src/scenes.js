@@ -8,6 +8,56 @@ const SceneHd = (() => {
     const avvik = new Uint8Array(64000);
     const summer = new Uint32Array(321 * 201);
     let sist = null, epoch = 0, sisteMatcher = [], rull = null, rullVenter = false, rullSist = 0, kildeRevisjon = -1;
+    let kartPort = null, kartPortVenter = false, kartPortKontrollert = false;
+    const KART_KILDE = '8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5';
+    const KART_PORT_INDEKS = '64edbe34d394dc695891aec0a3234c0b8418df8b1bd8f8acc5e08d7b57700828';
+    // Original $080D1C registrerer foerste lairseier i +$14. $080D80 fjerner
+    // selve stedet foerst naar loot er tomt. HD skjuler porten etter seier,
+    // mens gull, gjenstander, posisjon og Original-visningen beholdes.
+    async function klargjorKartPort() {
+        if (kartPortKontrollert || kartPortVenter) return;
+        const filer = [['mog', 'd8cc4ec9f848ee30032f1e0c0db4e37c2484114910d314760956da9fee96da81'],
+            ['mi.c', '31a9b9d4675600bdfc89ac823e6608be24c539e0edd2c2e251e7041031927195']];
+        const data = filer.map(([f]) => Kjerne.hentFil('data/' + f));
+        if (data.some(d => !d)) return;
+        kartPortVenter = true;
+        const egenEpoch = epoch;
+        const sha = async d => [...new Uint8Array(await crypto.subtle.digest('SHA-256', d))]
+            .map(v => v.toString(16).padStart(2, '0')).join('');
+        try {
+            const hashes = await Promise.all(data.map(sha));
+            if (!hashes.every((h, i) => h === filer[i][1])) return;
+            const g = Spillgrafikk._cel(data[1])[20];
+            if (!g || g.w !== 9 || g.h !== 5 || data[1][19 + 20 * 10] !== 31 ||
+                await sha(g.px) !== KART_PORT_INDEKS) return;
+            if (egenEpoch === epoch) kartPort = g.px.slice();
+        } finally { if (egenEpoch === epoch) { kartPortVenter = false; kartPortKontrollert = true; } }
+    }
+    function beseiredeKartporter(valgt, scan, diw) {
+        if (!Visning.hdPaa() || valgt.id !== 'world-map' || valgt.file !== 'test' || valgt.frame !== 8 ||
+            valgt.source_sha256 !== KART_KILDE || !Visning.harHdBilde('bg/' + valgt.hash)) return [];
+        klargjorKartPort().catch(() => {});
+        if (!kartPort || typeof Kjerne.les16 !== 'function') return [];
+        // Kodekontrakten binder minnefeltene til de kontrollerte originalfilene.
+        // Modifisert kode, feil pekere eller ukjente flagg gir originalmarkoeren.
+        if (Kjerne.les16(0x080d1c) !== 0x337c || Kjerne.les16(0x080d1e) !== 1 ||
+            Kjerne.les16(0x080d20) !== 0x14 || Kjerne.les16(0x0aab8c) !== 0x4a68 ||
+            Kjerne.les16(0x0aab8e) !== 0x0a) return [];
+        const tab = Kjerne.les16(0x8cdb2) * 65536 + Kjerne.les16(0x8cdb4);
+        if (tab < 0x200000 || tab > 0x300000 - 24 * 22 || (tab & 1)) return [];
+        const porter = [];
+        for (let n = 0; n < 24; n++) {
+            const a = tab + n * 22, x = Kjerne.les16(a + 10), y = Kjerne.les16(a + 12);
+            if (Kjerne.les16(a + 20) !== 1 || x > 311 || y > 195) continue;
+            let eksakt = true;
+            for (let j = 0; eksakt && j < 5; j++) for (let i = 0; i < 9; i++) {
+                const c = kartPort[j * 9 + i] || valgt.px[(y + j) * 320 + x + i];
+                if (scan.idx[(diw[1] + y + j) * 720 + diw[0] + (x + i) * 2] !== c) { eksakt = false; break; }
+            }
+            if (eksakt) porter.push({ x, y });
+        }
+        return porter;
+    }
     const RULL_HASH = { intro: '6b258d27', ending: '0df34a83' }; // FNV1a av komposittens320x1200 indekser
     const RULL_KILDER = [
         ['program', 'b0a84503c0664515ef8b31072098acd62dbf50de3a36fe4ffe9492b094f593a6'],
@@ -125,7 +175,7 @@ const SceneHd = (() => {
         sist={id:'combat-delta',hash:kampRen.hash.toString(16).padStart(8,'0'),actual_hash:hash.toString(16).padStart(8,'0'),preserved_pixels:n};
         return {...lag,for:kampFor,forIdx:kampIndeks,hash:kampRen.hash,sceneVern:kampVern,kampDeltaVern:kampVern};
     }
-    function nullstill() { kampRen=null; kampVenter=null; kampSekvens++; ratmenKilder=null; ratmenVenter=false; ratmenBilde=-1; ratmenObservert.clear(); kilder.clear(); sist = null; rull = null; rullVenter = false; rullSist = 0; epoch++; }
+    function nullstill() { kampRen=null; kampVenter=null; kampSekvens++; ratmenKilder=null; ratmenVenter=false; ratmenBilde=-1; ratmenObservert.clear(); kilder.clear(); sist = null; rull = null; rullVenter = false; rullSist = 0; kartPort=null; kartPortVenter=false; kartPortKontrollert=false; epoch++; }
     async function klargjorRull() {
         if (rull || rullVenter) return;
         const data = RULL_KILDER.map(([fil]) => Kjerne.hentFil('data/' + fil));
@@ -301,11 +351,14 @@ const SceneHd = (() => {
         // forgrunnsrektangelet og avlyse de plasserte animasjonsfragmentene.
         const originaleFelt = (valgt.overlays || []).filter(o=>!Visning.sceneOverleggKlar(o.key,diw,o.palette_mask));
         const vernedeFelt = [...(valgt.protected || []),...originaleFelt.map(o=>o.rect)];
+        const beseirede = beseiredeKartporter(valgt, scan, diw);
         // Originalmarkorene beholdes til bakgrunnen og HD-overlegg kan vises sammen.
         const ikoner = (Visning.hdPaa() && Visning.harHdBilde('bg/' + valgt.hash)
             ? Visning.sceneIkoner(valgt.id) : []).filter(m=>{
             if (m.source.bank_sha256!==valgt.source_sha256 || !m.expected || m.expected.length!==m.width*m.height || !Visning.sceneIkonKlar(m,diw)) return false;
             const [x,y]=m.rect;
+            if (m.width === 9 && m.height === 5 && m.source.frame === 8 && m.indices_sha256 === KART_PORT_INDEKS &&
+                /^map-icons\/(?:00\d|01\d|02[0-2]|026)$/.test(m.key) && beseirede.some(p => p.x === x && p.y === y)) return false;
             for (let j=0;j<m.height;j++) for (let i=0;i<m.width;i++) {
                 if (scan.idx[(diw[1]+y+j)*720+diw[0]+(x+i)*2]!==m.expected[j*m.width+i]) return false;
             }
@@ -346,6 +399,12 @@ const SceneHd = (() => {
                 maske[p]=bevar?1:0;avvik[p]=bevar?1:0;
             }
         }
+        // Bare den kontrollerte9x5-kompositten frigis til HD-terrenget. Andre
+        // statuser, riddere og delvis dekkede porter bestaar pikselvernet.
+        for (const {x,y} of beseirede) for (let j=0;j<5;j++) for (let i=0;i<9;i++) {
+            const p=(y+j)*320+x+i;
+            maske[p]=0; avvik[p]=0;
+        }
         // En liten sikkerhetskant bevarer svarte hull og kanter i forgrunnsfigurer.
         let beholdt = 0;
         for (let y = 0; y < 200; y++) for (let x = 0; x < 320; x++) {
@@ -363,6 +422,7 @@ const SceneHd = (() => {
             beholdt++;
         }
         sist = { id: valgt.id, match: best, preserved_pixels: beholdt, hash: valgt.hash, hd_icons: ikoner.length,
+            ...(beseirede.length?{cleared_lairs:beseirede.map(({x,y})=>[x,y])}: {}),
             ...(li1Scene?{hd_background_original:hdBackgroundOriginal}: {}) };
         return { bak, for: foran, forIdx: indeks, bakIdx: valgt.px,
             hash: parseInt(valgt.hash, 16), lys, lysMaks: valgt.lysMaks,

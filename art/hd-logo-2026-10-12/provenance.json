@@ -1,0 +1,20 @@
+{
+  "tool": "built-in image_gen",
+  "exact_model_version": "not exposed by tool",
+  "reference": "art/hd-completion-backgrounds-2026-10-11/logo/source/nearest4x-reference.png",
+  "selected_master": "raw/logo-black-master-v3.png",
+  "selected_master_sha256": "1632c8710d3a9cfab3aa99d5652b9c4ba9f41f7ac0ed0ec73025a465a62f8386",
+  "selected_prompt": "prompts/logo-black-master-v3.txt",
+  "transparent_generation_attempts": [
+    {
+      "sha256": "ecd3a74d8bddf7abce4a27310bef8628a59e6e8350eac0b135599121d1c6c691",
+      "used_as_final": false,
+      "reason": "Low-alpha colored matte visible in image preview; replaced by uniform black master and native asset packing."
+    },
+    {
+      "sha256": "6e39351bd514c930d86070d65bf5802e119b31a879ee38039b0d3b9fb8027da7",
+      "used_as_final": false,
+      "reason": "Low-alpha colored matte visible in image preview; replaced by uniform black master and native asset packing."
+    }
+  ]
+}

@@ -537,3 +537,13 @@ Klikk gjelder ikonets fotpunkt; hoeyreklikk/manuell input/ny tur/sceneskift avbr
 PEKR-delen er naa18byte, med maal og heltallskoordinater; eldre1/2byte faar standard.
 Netteieren kommer fra betrodd spillernummer eller p2/begge i faste porter, aldri
 fra koordinatpakken. Ugyldige koordinater og CEL-pekere avvises foer minnet leses.
+
+## HD-retensjon og lair-visning, 12. oktober 2026
+
+KI000..044 må beholde kildebekreftede instansspor når transparente felt får nye tall eller hardwarepekeren flytter seg. Kandidatretensjon bindes til original KI-bankSHA02287e89 før HD-PNG/ikonmanifest er tilgjengelig. ForberedHd beholder full kilde-/palett-/pikseleierskapskontroll. SEL001-rammen og SEL002..005-portrettene deler mål og posisjon, men må ha separate spor; kjent SEL-bankSHA30f6b154 binder denne regelen. Direkte grønt museklikk kunne ellers slette blå/grønn HD selv etter full lasting.
+
+Original lairseier registreres ved $080D1C i lair+$14. Originalen fjerner posisjonen ved $080D80 først når gull+$08 og alle24 lootbytes er tomme. HD-visningen skjuler etter brukerens ønske den eksakte9x5-portkompositten straks seierflagget er1; ingen loot, originalposisjon eller kjernelogikk endres. SourceMOG/MI/testSHA, opcode, tabellgrenser og faktisk scanout bindes før skjuling. Originalmodus beholder originaloppførselen. Kartet har24 lairs; porten ved24,24 får ny map-icons/026 uten å flytte eksisterende000..025.
+
+Ny Moonstone-logo er generert med innebygd image_gen, med originalen som formreferanse. Den glatte2440x581-RGBA-ruten erstatter den eldre pikselkonturlogoen. Original kildebredde305/anker bevares via fit:width. Råmaster, prompt, pakking og faktisk tittelskjerm ligger i art/hd-logo-2026-10-12. HD-bestillingen godtar bare den nye eksakte PNG-SHA11c779b3 som ferdig logorevisjon.
+
+RATMEN1.CEL063 er et44x35-lauvfragment som gjenbrukes med terrengets globale palett. Wa2 har grønne22/24/25/28, mens Gll3 gir andre farger på de samme indeksene. Den grønne HD-ruten må derfor ha egen kilde-/palettgate. Native originalmåling viser innfade=min(kanal,n) og utfade=max(kanal-n,0) per4bitskanal, med felles n. Hele bladpaletten5/22/24/25/28 kontrolleres på alle synlige opake rader, også når klipping bare viser svart5. Kontinuerlig fotografisk RGB kan ikke bindes til bare de synlige originalcellene. Råfoto og opak alfakontur beholdes ved revisjonen; andre paletter får konservativ Original for063.
