@@ -1,0 +1,757 @@
+{
+  "schema": 1,
+  "status": "source_group_usage_verified_not_runtime_observed",
+  "script_sha256": "2e49a394090e056ec4acfd8c50ba9eaad66498b2d35f4ef6fce56860e5eaab12",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "source_mog_sha256": "d8cc4ec9f848ee30032f1e0c0db4e37c2484114910d314760956da9fee96da81",
+  "source_bank_sha256": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+  "original_instruction_bytes": {
+    "0829cc": "21490000",
+    "0829fa": "21490008",
+    "084a42": "237c000952b60016",
+    "084a4a": "237c000954d2001a",
+    "0acb56": "b27c0082",
+    "0acb6a": "23fc000956940008d8d2",
+    "0aceda": "48e7fffe",
+    "0acef4": "0469000a0050",
+    "0acf6a": "4a690050",
+    "0acf6e": "6e4c",
+    "087a50": "0200001f",
+    "087a58": "102e0001",
+    "087bf2": "06a9000000060002"
+  },
+  "bank_resolution": {
+    "00": "Demon2.CEL via original0829cc loading0829d6",
+    "08": "Demon3.CEL via0829fa",
+    "0c": "Demon4.CEL via08297e",
+    "10": "Demon1.CEL via0829ac"
+  },
+  "groups": [
+    {
+      "name": "avstandsvalgt angrepsstart",
+      "range": [
+        48,
+        54
+      ],
+      "table_range": [
+        "095694",
+        "0956fe"
+      ],
+      "table_sha256": "7bc0bf993189860b52e2472900a7244f6f34a1c937ad0b5cad92d1b3fc49afdc",
+      "source_draws": [
+        {
+          "pc": "0956aa",
+          "frame": 48,
+          "bank_table_byte_offset": 0,
+          "y": -38,
+          "flags": 1,
+          "x": -20,
+          "bytes": "0030da01ffec"
+        },
+        {
+          "pc": "0956b0",
+          "frame": 49,
+          "bank_table_byte_offset": 0,
+          "y": -8,
+          "flags": 64,
+          "x": 28,
+          "bytes": "0031f840001c"
+        },
+        {
+          "pc": "0956b6",
+          "frame": 50,
+          "bank_table_byte_offset": 0,
+          "y": -1,
+          "flags": 0,
+          "x": -12,
+          "bytes": "0032ff00fff4"
+        },
+        {
+          "pc": "0956d6",
+          "frame": 51,
+          "bank_table_byte_offset": 0,
+          "y": -64,
+          "flags": 0,
+          "x": -25,
+          "bytes": "0033c000ffe7"
+        },
+        {
+          "pc": "0956dc",
+          "frame": 52,
+          "bank_table_byte_offset": 0,
+          "y": -49,
+          "flags": 0,
+          "x": -23,
+          "bytes": "0034cf00ffe9"
+        },
+        {
+          "pc": "0956e2",
+          "frame": 53,
+          "bank_table_byte_offset": 0,
+          "y": -42,
+          "flags": 1,
+          "x": -10,
+          "bytes": "0035d601fff6"
+        },
+        {
+          "pc": "0956e8",
+          "frame": 54,
+          "bank_table_byte_offset": 0,
+          "y": -8,
+          "flags": 64,
+          "x": 30,
+          "bytes": "0036f840001e"
+        }
+      ]
+    },
+    {
+      "name": "fortsettelse med innebygd ridder060",
+      "range": [
+        55,
+        60
+      ],
+      "table_range": [
+        "0956fe",
+        "095756"
+      ],
+      "table_sha256": "12c13d45602eb40ab39977f36776813fafe016405cad51b69f9df8497cc42b40",
+      "source_draws": [
+        {
+          "pc": "09572e",
+          "frame": 55,
+          "bank_table_byte_offset": 0,
+          "y": -65,
+          "flags": 0,
+          "x": -18,
+          "bytes": "0037bf00ffee"
+        },
+        {
+          "pc": "095734",
+          "frame": 56,
+          "bank_table_byte_offset": 0,
+          "y": -52,
+          "flags": 0,
+          "x": -1,
+          "bytes": "0038cc00ffff"
+        },
+        {
+          "pc": "09573a",
+          "frame": 57,
+          "bank_table_byte_offset": 0,
+          "y": -38,
+          "flags": 0,
+          "x": 4,
+          "bytes": "0039da000004"
+        },
+        {
+          "pc": "095740",
+          "frame": 58,
+          "bank_table_byte_offset": 0,
+          "y": -27,
+          "flags": 64,
+          "x": 24,
+          "bytes": "003ae5400018"
+        },
+        {
+          "pc": "095746",
+          "frame": 59,
+          "bank_table_byte_offset": 0,
+          "y": -20,
+          "flags": 64,
+          "x": 45,
+          "bytes": "003bec40002d"
+        },
+        {
+          "pc": "09574c",
+          "frame": 60,
+          "bank_table_byte_offset": 0,
+          "y": -13,
+          "flags": 0,
+          "x": 109,
+          "bytes": "003cf300006d"
+        }
+      ]
+    },
+    {
+      "name": "fortsettelse trinn2",
+      "range": [
+        61,
+        70
+      ],
+      "table_range": [
+        "095756",
+        "0957c4"
+      ],
+      "table_sha256": "118aeb98a7a5890a028bfc48024d24cded8aff0473ae4ae928affaf0dfde3c58",
+      "source_draws": [
+        {
+          "pc": "095786",
+          "frame": 61,
+          "bank_table_byte_offset": 0,
+          "y": -63,
+          "flags": 0,
+          "x": -16,
+          "bytes": "003dc100fff0"
+        },
+        {
+          "pc": "09578c",
+          "frame": 62,
+          "bank_table_byte_offset": 0,
+          "y": -44,
+          "flags": 0,
+          "x": 0,
+          "bytes": "003ed4000000"
+        },
+        {
+          "pc": "095792",
+          "frame": 63,
+          "bank_table_byte_offset": 0,
+          "y": -37,
+          "flags": 0,
+          "x": 13,
+          "bytes": "003fdb00000d"
+        },
+        {
+          "pc": "095798",
+          "frame": 64,
+          "bank_table_byte_offset": 0,
+          "y": -14,
+          "flags": 0,
+          "x": 39,
+          "bytes": "0040f2000027"
+        },
+        {
+          "pc": "09579e",
+          "frame": 65,
+          "bank_table_byte_offset": 0,
+          "y": -12,
+          "flags": 0,
+          "x": 56,
+          "bytes": "0041f4000038"
+        },
+        {
+          "pc": "0957a4",
+          "frame": 67,
+          "bank_table_byte_offset": 0,
+          "y": -20,
+          "flags": 0,
+          "x": 136,
+          "bytes": "0043ec000088"
+        },
+        {
+          "pc": "0957aa",
+          "frame": 68,
+          "bank_table_byte_offset": 0,
+          "y": 17,
+          "flags": 0,
+          "x": 136,
+          "bytes": "004411000088"
+        },
+        {
+          "pc": "0957b0",
+          "frame": 69,
+          "bank_table_byte_offset": 0,
+          "y": -16,
+          "flags": 0,
+          "x": 89,
+          "bytes": "0045f0000059"
+        },
+        {
+          "pc": "0957b6",
+          "frame": 70,
+          "bank_table_byte_offset": 0,
+          "y": 31,
+          "flags": 0,
+          "x": 97,
+          "bytes": "00461f000061"
+        },
+        {
+          "pc": "0957bc",
+          "frame": 66,
+          "bank_table_byte_offset": 0,
+          "y": -29,
+          "flags": 0,
+          "x": 136,
+          "bytes": "0042e3000088"
+        }
+      ]
+    },
+    {
+      "name": "fortsettelse trinn3",
+      "range": [
+        71,
+        79
+      ],
+      "table_range": [
+        "0957c4",
+        "09582c"
+      ],
+      "table_sha256": "4ca9c6d012dbf041f689acb258efc41de61879cc91314f2c80354a5ce8027b75",
+      "source_draws": [
+        {
+          "pc": "0957f4",
+          "frame": 71,
+          "bank_table_byte_offset": 0,
+          "y": -66,
+          "flags": 0,
+          "x": -18,
+          "bytes": "0047be00ffee"
+        },
+        {
+          "pc": "0957fa",
+          "frame": 72,
+          "bank_table_byte_offset": 0,
+          "y": -51,
+          "flags": 0,
+          "x": -5,
+          "bytes": "0048cd00fffb"
+        },
+        {
+          "pc": "095800",
+          "frame": 73,
+          "bank_table_byte_offset": 0,
+          "y": -37,
+          "flags": 0,
+          "x": 3,
+          "bytes": "0049db000003"
+        },
+        {
+          "pc": "095806",
+          "frame": 74,
+          "bank_table_byte_offset": 0,
+          "y": -29,
+          "flags": 0,
+          "x": 24,
+          "bytes": "004ae3000018"
+        },
+        {
+          "pc": "09580c",
+          "frame": 75,
+          "bank_table_byte_offset": 0,
+          "y": -13,
+          "flags": 0,
+          "x": 39,
+          "bytes": "004bf3000027"
+        },
+        {
+          "pc": "095812",
+          "frame": 76,
+          "bank_table_byte_offset": 0,
+          "y": -14,
+          "flags": 0,
+          "x": 66,
+          "bytes": "004cf2000042"
+        },
+        {
+          "pc": "095818",
+          "frame": 77,
+          "bank_table_byte_offset": 0,
+          "y": -22,
+          "flags": 0,
+          "x": 96,
+          "bytes": "004dea000060"
+        },
+        {
+          "pc": "09581e",
+          "frame": 78,
+          "bank_table_byte_offset": 0,
+          "y": 31,
+          "flags": 0,
+          "x": 101,
+          "bytes": "004e1f000065"
+        },
+        {
+          "pc": "095824",
+          "frame": 79,
+          "bank_table_byte_offset": 0,
+          "y": -2,
+          "flags": 0,
+          "x": 168,
+          "bytes": "004ffe0000a8"
+        }
+      ]
+    },
+    {
+      "name": "fortsettelse trinn4",
+      "range": [
+        80,
+        91
+      ],
+      "table_range": [
+        "09582c",
+        "0958a6"
+      ],
+      "table_sha256": "974ada52641a97d266d5ea956c0a8723905f3615c849569518460a169a146d41",
+      "source_draws": [
+        {
+          "pc": "09585c",
+          "frame": 80,
+          "bank_table_byte_offset": 0,
+          "y": -64,
+          "flags": 0,
+          "x": -18,
+          "bytes": "0050c000ffee"
+        },
+        {
+          "pc": "095862",
+          "frame": 81,
+          "bank_table_byte_offset": 0,
+          "y": -50,
+          "flags": 0,
+          "x": 1,
+          "bytes": "0051ce000001"
+        },
+        {
+          "pc": "095868",
+          "frame": 82,
+          "bank_table_byte_offset": 0,
+          "y": -28,
+          "flags": 0,
+          "x": 13,
+          "bytes": "0052e400000d"
+        },
+        {
+          "pc": "09586e",
+          "frame": 83,
+          "bank_table_byte_offset": 0,
+          "y": -20,
+          "flags": 0,
+          "x": 31,
+          "bytes": "0053ec00001f"
+        },
+        {
+          "pc": "095874",
+          "frame": 84,
+          "bank_table_byte_offset": 0,
+          "y": -18,
+          "flags": 0,
+          "x": 44,
+          "bytes": "0054ee00002c"
+        },
+        {
+          "pc": "09587a",
+          "frame": 85,
+          "bank_table_byte_offset": 0,
+          "y": -16,
+          "flags": 0,
+          "x": 60,
+          "bytes": "0055f000003c"
+        },
+        {
+          "pc": "095880",
+          "frame": 86,
+          "bank_table_byte_offset": 0,
+          "y": -18,
+          "flags": 0,
+          "x": 77,
+          "bytes": "0056ee00004d"
+        },
+        {
+          "pc": "095886",
+          "frame": 87,
+          "bank_table_byte_offset": 0,
+          "y": -26,
+          "flags": 0,
+          "x": 124,
+          "bytes": "0057e600007c"
+        },
+        {
+          "pc": "09588c",
+          "frame": 88,
+          "bank_table_byte_offset": 0,
+          "y": -11,
+          "flags": 0,
+          "x": 139,
+          "bytes": "0058f500008b"
+        },
+        {
+          "pc": "095892",
+          "frame": 89,
+          "bank_table_byte_offset": 0,
+          "y": 28,
+          "flags": 0,
+          "x": 91,
+          "bytes": "00591c00005b"
+        },
+        {
+          "pc": "095898",
+          "frame": 90,
+          "bank_table_byte_offset": 0,
+          "y": 33,
+          "flags": 0,
+          "x": 157,
+          "bytes": "005a2100009d"
+        },
+        {
+          "pc": "09589e",
+          "frame": 91,
+          "bank_table_byte_offset": 0,
+          "y": 8,
+          "flags": 0,
+          "x": 172,
+          "bytes": "005b080000ac"
+        }
+      ]
+    },
+    {
+      "name": "etter callback0acf04",
+      "range": [
+        92,
+        98
+      ],
+      "table_range": [
+        "0958a6",
+        "095908"
+      ],
+      "table_sha256": "a429293f5e579ec4622371e5729232afb0c8518a377971872593979073968c6d",
+      "source_draws": [
+        {
+          "pc": "0958dc",
+          "frame": 92,
+          "bank_table_byte_offset": 0,
+          "y": -1,
+          "flags": 0,
+          "x": 61,
+          "bytes": "005cff00003d"
+        },
+        {
+          "pc": "0958e2",
+          "frame": 93,
+          "bank_table_byte_offset": 0,
+          "y": -1,
+          "flags": 0,
+          "x": 72,
+          "bytes": "005dff000048"
+        },
+        {
+          "pc": "0958e8",
+          "frame": 94,
+          "bank_table_byte_offset": 0,
+          "y": -30,
+          "flags": 0,
+          "x": 72,
+          "bytes": "005ee2000048"
+        },
+        {
+          "pc": "0958ee",
+          "frame": 95,
+          "bank_table_byte_offset": 0,
+          "y": -16,
+          "flags": 0,
+          "x": 112,
+          "bytes": "005ff0000070"
+        },
+        {
+          "pc": "0958f4",
+          "frame": 96,
+          "bank_table_byte_offset": 0,
+          "y": -21,
+          "flags": 0,
+          "x": 122,
+          "bytes": "0060eb00007a"
+        },
+        {
+          "pc": "0958fa",
+          "frame": 97,
+          "bank_table_byte_offset": 0,
+          "y": -10,
+          "flags": 0,
+          "x": 140,
+          "bytes": "0061f600008c"
+        },
+        {
+          "pc": "095900",
+          "frame": 98,
+          "bank_table_byte_offset": 0,
+          "y": 38,
+          "flags": 0,
+          "x": 94,
+          "bytes": "00622600005e"
+        }
+      ]
+    }
+  ],
+  "table_controls": [
+    {
+      "pc": "095694",
+      "bytes": "a448"
+    },
+    {
+      "pc": "095696",
+      "bytes": "a449"
+    },
+    {
+      "pc": "0956c2",
+      "bytes": "ff00"
+    },
+    {
+      "pc": "0956f4",
+      "bytes": "ff00"
+    },
+    {
+      "pc": "0956f6",
+      "bytes": "a44e"
+    },
+    {
+      "pc": "0956f8",
+      "bytes": "b000000aceda",
+      "pointer": "0aceda"
+    },
+    {
+      "pc": "095752",
+      "bytes": "ff00"
+    },
+    {
+      "pc": "095754",
+      "bytes": "9404"
+    },
+    {
+      "pc": "0957c2",
+      "bytes": "ff00"
+    },
+    {
+      "pc": "09582a",
+      "bytes": "ff00"
+    },
+    {
+      "pc": "0958a4",
+      "bytes": "fffe"
+    },
+    {
+      "pc": "0958a6",
+      "bytes": "b000000acf04",
+      "pointer": "0acf04"
+    },
+    {
+      "pc": "0958ac",
+      "bytes": "8400000954d2",
+      "pointer": "0954d2"
+    },
+    {
+      "pc": "095906",
+      "bytes": "ff00"
+    }
+  ],
+  "selection_evidence": [
+    {
+      "pc": "0acb22..0acb6a",
+      "facts": "Etter cooldown velger d1<=100 tabell09558a; 100<d1<=130 velger095694, som inneholder048..054. d1 settes til absolutt horisontal avstand fra086fa6 ved0aca8e..0aca94. Andre AI-baner kan levere d1; dette er ikke en global inputgaranti."
+    },
+    {
+      "pc": "0acef4",
+      "facts": "Callback fra0956fa trekker10 fra originalridderens HIT."
+    },
+    {
+      "pc": "0acf6a..0acfbc",
+      "facts": "Callback fra0958a8 leser ridderens HIT. VedHIT<=0 nulles seks palettord fra indeks2 og ridderens originale d\u00f8dsliste090778 velges. Disse palettendringene tilh\u00f8rer CPU-koden, ikke grafikkverkt\u00f8yet."
+    }
+  ],
+  "observed_original_case": {
+    "receipt_sha256": "9c244dc34d1983606a18067d825dbf975e1935f2b61726f5c4ccaa42af16b291",
+    "Demon2_frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47
+    ],
+    "unobserved_frames": [
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98
+    ]
+  },
+  "runtime_scope": "048..098 er kildebevist referert i angrepssekvensen, men ikke observert i de dokumenterte originale replays. Normal/speilet frontendfixture og faktisk originalpalett er separate visningsbevis. Ingen p\u00e5stand om naturlig kampgjennomf\u00f8ring eller ubrukte ruter.",
+  "next_input_candidate": "Kortere tiln\u00e6rming med venstre og deretter slipp, slik at horisontal avstand ligger100..130 mens originalridderen lever. Dette er et kildebegrunnet forslag, ikke utf\u00f8rt test eller garanti."
+}

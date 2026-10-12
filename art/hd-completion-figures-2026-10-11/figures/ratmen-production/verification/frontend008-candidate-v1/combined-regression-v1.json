@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "checks": 1418,
+  "combined_balok_text_checks": 593,
+  "scene_VM_checks": 509,
+  "ratmen_actual_checks": 316,
+  "html_sha256": "1bee3c056f771612b427df9750901ca8829099be8829da55779fb859edf612c3",
+  "manifest_sha256": "dc97a283f329afb78ee76cf23cc0738fd665bc6ffa45271e9d9ef77de64e24e8",
+  "package_ledger_sha256": "de10d5da5e40fb413995f6f44099364d7911ff4e47f929593b792b2547a6cde0",
+  "source_map_sha256": "a99a49e6cc4a115a584c985159b1871e24288747f0d2e86e45416ba9a412236d",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "6b93be5b0e12b458b8005fd891a15c0f5a454e35baa2a2d93cdf33666c5b416c",
+    "web/src/scenes.js": "189eed863fa34e74900f221f7f6078e46036adb41537cb9e27e8f7d5a06eff5f",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "name": "ratmen_actual",
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/ratmen-v2/test.json",
+      "sha256": "bd717d933de2a45c2c26d9187467351f2e520fa555e36dc422b50521e78c2342",
+      "checks": 316,
+      "runtime_script": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/runtime-standard-public-v5.cjs",
+      "runtime_script_sha256": "ef76fc7153b8234e54142cd672eb8f9663023cd365fbbde585f3151b91d09d14"
+    },
+    {
+      "name": "balok025_actual",
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/balok-025/test.json",
+      "sha256": "a081d4449cca33591e215db5d3448d56c6878f0192140d869b670d44233505b0",
+      "checks": 106,
+      "runtime_script": "art/hd-completion-figures-2026-10-11/production/runtime-balok-025-frontend008-v1.cjs",
+      "runtime_script_sha256": "c794ba8a242e4f847a071d6f47627a91e12c8e56bc008987cd7a257f93eb2621"
+    },
+    {
+      "name": "balok_standard",
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/balok-standard/test.json",
+      "sha256": "bce7cd518648f9d690c62ceae4e479a728af1fd14bda3f9a5c121b90653b4f95",
+      "checks": 393,
+      "runtime_script": "art/hd-completion-figures-2026-10-11/production/runtime-balok-standard-frontend008-v1.cjs",
+      "runtime_script_sha256": "a610b29f06300e590e8efb00ba49ca5a08d2f3cf950cce00f49d1d9d69605256"
+    },
+    {
+      "name": "natural_font",
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/font/font-runtime-test.json",
+      "sha256": "28514c25a22b5caad1bc2eb796a54f9be888a4466a79182e2f717abe5c0ef5ea",
+      "checks": 35,
+      "runtime_script": "art/hd-completion-figures-2026-10-11/production/runtime-tekst-eierskap-font-v1.cjs",
+      "runtime_script_sha256": "b599d386bc1b7a1caf69b3af153e68e5e9f840d44ee1d46269b663ba6ae5f895"
+    },
+    {
+      "name": "text_negative",
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/text-fixtures/text-owner-fixtures.json",
+      "sha256": "f80e2ecb5f46fec4a522fb96e70e30635aa15ecabd770bb37781c261612e2379",
+      "checks": 59,
+      "runtime_script": "art/hd-completion-figures-2026-10-11/production/runtime-tekst-eierskap-fixtures-v1.cjs",
+      "runtime_script_sha256": "e86d29db3ec27ff1f730061028d040fae40877f35c9fe793727cdce97cba254e"
+    },
+    {
+      "name": "ratmen_baking_VM",
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/baked-background-fixtures-v1/test.json",
+      "sha256": "f7cd0e104160297f8466fe2b0f8b657f5a479e372b413e7cabf0a062fef0593a",
+      "checks": 40,
+      "runtime_script": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/test-baked-background-v1.cjs",
+      "runtime_script_sha256": "7741ae95307c17f2b81c3dea436c8cf8fcd10c2563624d90e6c6f78773471c72"
+    },
+    {
+      "name": "old_combat_VM",
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/original-combat-background-v1.json",
+      "sha256": "0cabb4966332fd5986b274103107be3caea458d64bf45bf675e894b9f008d6f6",
+      "checks": 469,
+      "runtime_script": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/test-original-combat-background-v1.cjs",
+      "runtime_script_sha256": "d0da80adb94335b404e082cedfa2387b195947e6d37b370b96aa358585f9396b"
+    }
+  ],
+  "representative_images": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/ratmen-v2/047-original.png",
+      "sha256": "ef753004c3f40e441f3b4d95193f0bf4e03dfffa1ae83bc541986e0143e1859b"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/ratmen-v2/047-hd.png",
+      "sha256": "13e80d260ab23b097dcf080e559b5dc6fcfa2f6c7094e5b40d84c3bc0b005efa"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/ratmen-v2/048-original.png",
+      "sha256": "a323775aab5219148885ef8e41125e9d3b8b8395b1dd193b36dff1a9d9af4068"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/ratmen-v2/048-hd.png",
+      "sha256": "b84569781c3dc07b6bd9a89b11c9d44ba743536b10d4aabefa7babc02934de1f"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/ratmen-v2/050-original.png",
+      "sha256": "140e600acf14536831c2201de17ce0583ad97e7927d035649707ac9228d109af"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/ratmen-v2/050-hd.png",
+      "sha256": "b2d5f44eb61e72e496c6d4713edc7f17977821e751a8b195dde10bfea8537f34"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/balok-025/Balok3.CEL-025-original.png",
+      "sha256": "858ec96b7c9775cba41a476639814fb68d843f7f6ad2f924993c65c2eb5ce762"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/frontend008-candidate-v1/balok-025/Balok3.CEL-025-hd.png",
+      "sha256": "e52be7283f5333700ffb0ddfbdec15bd2375de1d5f0d920a390f758742a1fe7f"
+    }
+  ],
+  "scope": "Samme uendrede008-kandidat. Standardpakke uten privatimport i Ratmen/Balok/naturfont. Kontrollerte originalkamper, kilde- og tekstfixturer oppgis separat. Original/HD-retur og uendret emulertstate kontrolleres ved fangst. Alle originaldeltaer vernes; ingen generell aksept av ukjent forgrunn. Ingen ny aktivering eller endret spillkjerne."
+}

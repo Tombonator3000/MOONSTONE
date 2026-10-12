@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "key": "be1.c/043.png",
+  "generation": {
+    "key": "be1.c/043.png",
+    "raw": "raw/043-v1.png",
+    "prompt": "prompts/043-v1.txt",
+    "reference": "references/043-original20x.png",
+    "generation_tool": "builtin_image_gen",
+    "generation_model": "not_exposed_by_tool",
+    "generation_call_id": "exec-e79da9bb-0bc2-42c4-a16b-e90768c4ba34",
+    "original_output_path": "/home/tombonator3000t/.codex/generated_images/01a10201-d4e6-7b43-9cf5-c75c123ccd87/exec-e79da9bb-0bc2-42c4-a16b-e90768c4ba34.png",
+    "raw_sha256": "7c5ab27e228ff3ceedcea20a51fb296f1ce5461285cd1318a09bec051bf22cde",
+    "prompt_sha256": "42dd5f0c4088d690193e3b02128d9bd3e20b76ee29a0c78c6d77b463bc6abba6",
+    "reference_sha256": "22d6fd09a129d4acc5afe304d12021d35b39295f0bae2269d01e53c22b619235",
+    "source_generation_record": "generation-043-v1.json",
+    "source_generation_record_sha256": "c303c0824a742b605bc8fa56a6cd9db1c30b5f3e963a037675557962f595d9f4"
+  },
+  "candidate_sha256": "921d5b232ce83bdfd01d936e746e8bcf888540053b441086305a40cb37f4fcd7",
+  "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+  "indices_sha256": "a785ab022958bd8e5f1d9d9b1bf1306f67e935bd2af46a469a6dbc916ff4ada6",
+  "geometry_sha256": "79e374290b8044176f81ec2442b5051e5a8e48c495db56ba328447e865758c1f",
+  "packed": {
+    "key": "be1.c/043.png",
+    "raw": "raw/043-v1.png",
+    "raw_sha256": "7c5ab27e228ff3ceedcea20a51fb296f1ce5461285cd1318a09bec051bf22cde",
+    "prompt": "prompts/043-v1.txt",
+    "prompt_sha256": "42dd5f0c4088d690193e3b02128d9bd3e20b76ee29a0c78c6d77b463bc6abba6",
+    "candidate_sha256": "921d5b232ce83bdfd01d936e746e8bcf888540053b441086305a40cb37f4fcd7",
+    "source_indices_sha256": "a785ab022958bd8e5f1d9d9b1bf1306f67e935bd2af46a469a6dbc916ff4ada6",
+    "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+    "raw_size": [
+      725,
+      2167
+    ],
+    "raw_alpha_bounds": [
+      238,
+      115,
+      488,
+      2051
+    ],
+    "target_size": [
+      12,
+      52
+    ],
+    "source_centers_opaque": 23,
+    "source_centers_empty": 16,
+    "original_motion_cells": 0,
+    "source_material_pixels": {
+      "metal": 223,
+      "blood": 61
+    }
+  },
+  "generation_tool": "builtin_image_gen",
+  "actual_runtime_observed": false,
+  "runtime_scope": "source_exact_fixture_only",
+  "source_size": [
+    3,
+    13
+  ],
+  "target_size": [
+    12,
+    52
+  ],
+  "photo_material": true,
+  "preserved_original_black_shadow": false
+}

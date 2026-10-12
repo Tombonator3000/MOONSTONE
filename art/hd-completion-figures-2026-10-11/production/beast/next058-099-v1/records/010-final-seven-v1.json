@@ -1,0 +1,66 @@
+{
+  "key": "be1.c/010.png",
+  "generation": {
+    "key": "be1.c/010.png",
+    "raw": "raw/010-v1.png",
+    "prompt": "prompts/010-v1.txt",
+    "reference": "references/010-original20x.png",
+    "generation_tool": "builtin_image_gen",
+    "generation_model": "not_exposed_by_tool",
+    "generation_call_id": "exec-0c62f8a1-a1e3-4458-9d10-62c8f06d94c8",
+    "original_output_path": "/home/tombonator3000t/.codex/generated_images/01a10201-d4e6-7b43-9cf5-c75c123ccd87/exec-0c62f8a1-a1e3-4458-9d10-62c8f06d94c8.png",
+    "raw_sha256": "458f2839832c5dbc66e3471d5e0951b90a983723647b94b9c72599e916d8c24d",
+    "prompt_sha256": "f1487a171631535ceb8dca813220cb14f6fa39fe9ebdb5ab619568be351616c4",
+    "reference_sha256": "240f76112606f11731883542946007a6aa7910c7f1f23c7e6c9ac709f35104fe",
+    "source_generation_record": "generation-010-v1.json",
+    "source_generation_record_sha256": "1a4b58d6f14e8b22b10f5a3a741bc5c8ed1fd7ae80ee429a9a2fe94c92e29046"
+  },
+  "packed": {
+    "key": "be1.c/010.png",
+    "raw": "raw/010-v1.png",
+    "raw_sha256": "458f2839832c5dbc66e3471d5e0951b90a983723647b94b9c72599e916d8c24d",
+    "prompt": "prompts/010-v1.txt",
+    "prompt_sha256": "f1487a171631535ceb8dca813220cb14f6fa39fe9ebdb5ab619568be351616c4",
+    "candidate_sha256": "77e220e9f4a8d2f58b731843089fe8dc5267883855a63f2561b971a9cfc5d4ae",
+    "source_indices_sha256": "e9fb6610f1524c54703b6950d4c1782687e52209b11e65c9702739ea349e8dee",
+    "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+    "raw_size": [
+      1371,
+      1147
+    ],
+    "raw_alpha_bounds": [
+      7,
+      61,
+      1371,
+      1122
+    ],
+    "target_size": [
+      172,
+      144
+    ],
+    "source_centers_opaque": 831,
+    "source_centers_empty": 717,
+    "original_motion_cells": 0,
+    "source_material_pixels": {
+      "fur": 9469,
+      "bone": 243,
+      "eye": 32,
+      "mouth": 158,
+      "muzzle": 3002
+    }
+  },
+  "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+  "indices_sha256": "e9fb6610f1524c54703b6950d4c1782687e52209b11e65c9702739ea349e8dee",
+  "candidate_sha256": "77e220e9f4a8d2f58b731843089fe8dc5267883855a63f2561b971a9cfc5d4ae",
+  "generation_tool": "builtin_image_gen",
+  "actual_runtime_observed": false,
+  "runtime_scope": "source_exact_fixture_only",
+  "source_size": [
+    43,
+    36
+  ],
+  "target_size": [
+    172,
+    144
+  ]
+}

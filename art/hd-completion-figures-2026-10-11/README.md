@@ -147,3 +147,11 @@ Sjette pakke er offentlig bekreftet i PR #38/main798b926:125nyePNG,1623PNG/1629f
 Ti standardprøver mot samme frosne HTML består 4436 kontroller. Fil-/kildekontroll består 5449 og bestillingskontroll 255. Femten beistruter og ett beistalias er bare kontrollert i strenge kilde-, normal-/speil- og negative frontend-fixturer; faktisk kampobservasjon påstås ikke for dem.
 
 **Publisering holdes tilbake:** visuell kontroll ved Balok-pose2200 viser firkantede bakgrunnsbiter over kildeekte hode-/lårpiksler. Det må rettes og samme spillbilde kontrolleres på nytt. Rottefigurene beholder også originalbakgrunn ved to eksakte kildebakingskall med svart skygge og røde spor. En avgrenset HD-løsning for disse deltaene følger separat. Teknisk beståtte rutetester alene er ikke visuell godkjenning av disse scenene.
+
+## Aattende lokale kohort,12.oktober2026
+
+202 nye kilderuter og222 PNG-filer:195 egne fotografiske materialmastere,sju bevarte originalruter og20 levende riddermasker. Standardpakken har1963 PNG/1969 filer/82 bakgrunner. Ingen av1747 tidligere filer er endret. De ni navngitte kontraktene og kilde-/runtimebevisene samles i delivery-contracts-008.json og delivery-progress-008.json naar siste standardgruppe er ferdig.
+
+Frontend008 retter de synlige Balok-blokkene og beholder HD ved kildebeviste Ratmen-bakinger. Ukjente deltaer og forgrunner gir fortsatt Original. Faktiske kampskjermbilder holdes atskilt fra kontrollerte normal/speil-fixturer. Ingen full naturlig animasjonsdekning eller fysisk telefonproeve paastaas. Restlisten har790 mastere/853 ruter/59 masker. Nye kandidater til009 er separat arbeid og inngaar ikke i008.
+
+008 endelig lokalport:4369 filkontroller,14757 standardkontroller i23 rapporter og1418 frontendregresjoner er bestaaet. Den siste D2/D3-gruppen er ferdig. Offentlig kontroll er fortsatt ikke utfoert.
