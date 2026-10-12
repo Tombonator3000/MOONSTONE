@@ -11,7 +11,7 @@ Merking: **kode** = lest, ikke kjørt. **målt** = kjørt i emulatoren.
 
 | Hva | Hvor | Hva vi gjorde |
 |---|---|---|
-| Spørsmålstegnet i bold.f vises ikke | tegntabellen `$96210`, plass 31 (`$9622F`) peker på den tomme glyfen 69. Glyf 63 i fila er et spørsmålstegn og brukes ellers ikke. | Rettet når mog lastes (`port/src/patch.c`). Målt: tabellen har 63 etter oppstart. Gjelder bl.a. «What are the creatures of the North?». |
+| Spørsmålstegnet i bold.f vises ikke | tegntabellen `$96210`, plass 31 (`$9622F`) peker på den tomme glyfen 69. Glyf 63 i fila er et spørsmålstegn og brukes ellers ikke. | Rettet sammen med tekstlappene (`data/tekster.txt`, `port/src/patch.c`), som allerede endrer tekstene og lagres i tilstanden. Uten dem er originalen urørt. Målt: 69 uten tekstlapp, 63 med. Gjelder bl.a. «What are the creatures of the North?». |
 | Månereglene fra manualen | se [maane.md](maane.md) | Valg, av som standard. |
 
 ## Funnet, ikke tatt inn

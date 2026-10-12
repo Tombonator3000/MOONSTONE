@@ -282,7 +282,9 @@ void patch_reset(void)
 
 /* bold.f: tegntabellen paa $96210 (fra mellomrom) gir '?' den tomme glyfen 69, selv
  * om glyf 63 i fila er et spoersmaalstegn. Derfor forsvinner spoersmaalstegnene, f.eks.
- * hos Math. Glyf 63 brukes ellers ikke. */
+ * hos Math. Glyf 63 brukes ellers ikke. Rettes bare sammen med tekstlappene
+ * (tekster.txt), som allerede endrer spillets tekster og lagres (texts_patched);
+ * uten dem er originalen urørt. */
 #define BOLD_SPM 0x9622f
 static void rett_spoersmaalstegn(void)
 {
@@ -291,9 +293,9 @@ static void rett_spoersmaalstegn(void)
 
 void game_mog_ready(void)
 {
-    rett_spoersmaalstegn();
     text_next = TEXT_BASE;
     int changed = apply_texts();
+    if (changed > 0) rett_spoersmaalstegn();
     bool menu = meny_mog_ready();
     texts_patched = changed > 0;
     if (changed || menu) widen_restore_lists();
