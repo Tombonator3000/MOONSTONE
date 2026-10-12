@@ -1,0 +1,3777 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "checks": [
+    "actual_frozen_HTML",
+    "0_natural_original_call",
+    "0_natural_HD_used",
+    "0_actual_full_intro_palette",
+    "0_HD_changes",
+    "0_Original_exact_return",
+    "0_HD_exact_return",
+    "0_state_unchanged",
+    "1_natural_original_call",
+    "1_natural_HD_used",
+    "1_actual_full_intro_palette",
+    "1_HD_changes",
+    "1_Original_exact_return",
+    "1_HD_exact_return",
+    "1_state_unchanged",
+    "2_natural_original_call",
+    "2_natural_HD_used",
+    "2_actual_full_intro_palette",
+    "2_HD_changes",
+    "2_Original_exact_return",
+    "2_HD_exact_return",
+    "2_state_unchanged",
+    "3_natural_original_call",
+    "3_natural_HD_used",
+    "3_actual_full_intro_palette",
+    "3_HD_changes",
+    "3_Original_exact_return",
+    "3_HD_exact_return",
+    "3_state_unchanged",
+    "4_natural_original_call",
+    "4_natural_HD_used",
+    "4_actual_full_intro_palette",
+    "4_HD_changes",
+    "4_Original_exact_return",
+    "4_HD_exact_return",
+    "4_state_unchanged",
+    "5_natural_original_call",
+    "5_natural_HD_used",
+    "5_actual_full_intro_palette",
+    "5_HD_changes",
+    "5_Original_exact_return",
+    "5_HD_exact_return",
+    "5_state_unchanged",
+    "6_natural_original_call",
+    "6_natural_HD_used",
+    "6_actual_full_intro_palette",
+    "6_HD_changes",
+    "6_Original_exact_return",
+    "6_HD_exact_return",
+    "6_state_unchanged",
+    "000_fixture_HD_used",
+    "000_fixture_changes",
+    "000_fixture_Original_exact",
+    "000_fixture_HD_exact",
+    "000_unknown_foreground_rejected",
+    "000-mirror_fixture_HD_used",
+    "000-mirror_fixture_changes",
+    "000-mirror_fixture_Original_exact",
+    "000-mirror_fixture_HD_exact",
+    "000-mirror_unknown_foreground_rejected",
+    "001_fixture_HD_used",
+    "001_fixture_changes",
+    "001_fixture_Original_exact",
+    "001_fixture_HD_exact",
+    "001_unknown_foreground_rejected",
+    "001-mirror_fixture_HD_used",
+    "001-mirror_fixture_changes",
+    "001-mirror_fixture_Original_exact",
+    "001-mirror_fixture_HD_exact",
+    "001-mirror_unknown_foreground_rejected",
+    "002_fixture_HD_used",
+    "002_fixture_changes",
+    "002_fixture_Original_exact",
+    "002_fixture_HD_exact",
+    "002_unknown_foreground_rejected",
+    "002-mirror_fixture_HD_used",
+    "002-mirror_fixture_changes",
+    "002-mirror_fixture_Original_exact",
+    "002-mirror_fixture_HD_exact",
+    "002-mirror_unknown_foreground_rejected",
+    "003_fixture_HD_used",
+    "003_fixture_changes",
+    "003_fixture_Original_exact",
+    "003_fixture_HD_exact",
+    "003_unknown_foreground_rejected",
+    "003-mirror_fixture_HD_used",
+    "003-mirror_fixture_changes",
+    "003-mirror_fixture_Original_exact",
+    "003-mirror_fixture_HD_exact",
+    "003-mirror_unknown_foreground_rejected",
+    "004_fixture_HD_used",
+    "004_fixture_changes",
+    "004_fixture_Original_exact",
+    "004_fixture_HD_exact",
+    "004_unknown_foreground_rejected",
+    "004-mirror_fixture_HD_used",
+    "004-mirror_fixture_changes",
+    "004-mirror_fixture_Original_exact",
+    "004-mirror_fixture_HD_exact",
+    "004-mirror_unknown_foreground_rejected",
+    "005_fixture_HD_used",
+    "005_fixture_changes",
+    "005_fixture_Original_exact",
+    "005_fixture_HD_exact",
+    "005_unknown_foreground_rejected",
+    "005-mirror_fixture_HD_used",
+    "005-mirror_fixture_changes",
+    "005-mirror_fixture_Original_exact",
+    "005-mirror_fixture_HD_exact",
+    "005-mirror_unknown_foreground_rejected",
+    "006_fixture_HD_used",
+    "006_fixture_changes",
+    "006_fixture_Original_exact",
+    "006_fixture_HD_exact",
+    "006_unknown_foreground_rejected",
+    "006-mirror_fixture_HD_used",
+    "006-mirror_fixture_changes",
+    "006-mirror_fixture_Original_exact",
+    "006-mirror_fixture_HD_exact",
+    "006-mirror_unknown_foreground_rejected",
+    "007_fixture_HD_used",
+    "007_fixture_changes",
+    "007_fixture_Original_exact",
+    "007_fixture_HD_exact",
+    "007_unknown_foreground_rejected",
+    "007-mirror_fixture_HD_used",
+    "007-mirror_fixture_changes",
+    "007-mirror_fixture_Original_exact",
+    "007-mirror_fixture_HD_exact",
+    "007-mirror_unknown_foreground_rejected",
+    "008_fixture_HD_used",
+    "008_fixture_changes",
+    "008_fixture_Original_exact",
+    "008_fixture_HD_exact",
+    "008_unknown_foreground_rejected",
+    "008-mirror_fixture_HD_used",
+    "008-mirror_fixture_changes",
+    "008-mirror_fixture_Original_exact",
+    "008-mirror_fixture_HD_exact",
+    "008-mirror_unknown_foreground_rejected",
+    "009_fixture_HD_used",
+    "009_fixture_changes",
+    "009_fixture_Original_exact",
+    "009_fixture_HD_exact",
+    "009_unknown_foreground_rejected",
+    "009-mirror_fixture_HD_used",
+    "009-mirror_fixture_changes",
+    "009-mirror_fixture_Original_exact",
+    "009-mirror_fixture_HD_exact",
+    "009-mirror_unknown_foreground_rejected",
+    "010_fixture_HD_used",
+    "010_fixture_changes",
+    "010_fixture_Original_exact",
+    "010_fixture_HD_exact",
+    "010_unknown_foreground_rejected",
+    "010-mirror_fixture_HD_used",
+    "010-mirror_fixture_changes",
+    "010-mirror_fixture_Original_exact",
+    "010-mirror_fixture_HD_exact",
+    "010-mirror_unknown_foreground_rejected",
+    "011_fixture_HD_used",
+    "011_fixture_changes",
+    "011_fixture_Original_exact",
+    "011_fixture_HD_exact",
+    "011_unknown_foreground_rejected",
+    "011-mirror_fixture_HD_used",
+    "011-mirror_fixture_changes",
+    "011-mirror_fixture_Original_exact",
+    "011-mirror_fixture_HD_exact",
+    "011-mirror_unknown_foreground_rejected",
+    "012_fixture_HD_used",
+    "012_fixture_changes",
+    "012_fixture_Original_exact",
+    "012_fixture_HD_exact",
+    "012_unknown_foreground_rejected",
+    "012-mirror_fixture_HD_used",
+    "012-mirror_fixture_changes",
+    "012-mirror_fixture_Original_exact",
+    "012-mirror_fixture_HD_exact",
+    "012-mirror_unknown_foreground_rejected",
+    "013_fixture_HD_used",
+    "013_fixture_changes",
+    "013_fixture_Original_exact",
+    "013_fixture_HD_exact",
+    "013_unknown_foreground_rejected",
+    "013-mirror_fixture_HD_used",
+    "013-mirror_fixture_changes",
+    "013-mirror_fixture_Original_exact",
+    "013-mirror_fixture_HD_exact",
+    "013-mirror_unknown_foreground_rejected",
+    "014_fixture_HD_used",
+    "014_fixture_changes",
+    "014_fixture_Original_exact",
+    "014_fixture_HD_exact",
+    "014_unknown_foreground_rejected",
+    "014-mirror_fixture_HD_used",
+    "014-mirror_fixture_changes",
+    "014-mirror_fixture_Original_exact",
+    "014-mirror_fixture_HD_exact",
+    "014-mirror_unknown_foreground_rejected",
+    "015_fixture_HD_used",
+    "015_fixture_changes",
+    "015_fixture_Original_exact",
+    "015_fixture_HD_exact",
+    "015_unknown_foreground_rejected",
+    "015-mirror_fixture_HD_used",
+    "015-mirror_fixture_changes",
+    "015-mirror_fixture_Original_exact",
+    "015-mirror_fixture_HD_exact",
+    "015-mirror_unknown_foreground_rejected",
+    "016_fixture_HD_used",
+    "016_fixture_changes",
+    "016_fixture_Original_exact",
+    "016_fixture_HD_exact",
+    "016_unknown_foreground_rejected",
+    "016-mirror_fixture_HD_used",
+    "016-mirror_fixture_changes",
+    "016-mirror_fixture_Original_exact",
+    "016-mirror_fixture_HD_exact",
+    "016-mirror_unknown_foreground_rejected",
+    "017_fixture_HD_used",
+    "017_fixture_changes",
+    "017_fixture_Original_exact",
+    "017_fixture_HD_exact",
+    "017_unknown_foreground_rejected",
+    "017-mirror_fixture_HD_used",
+    "017-mirror_fixture_changes",
+    "017-mirror_fixture_Original_exact",
+    "017-mirror_fixture_HD_exact",
+    "017-mirror_unknown_foreground_rejected",
+    "018_fixture_HD_used",
+    "018_fixture_changes",
+    "018_fixture_Original_exact",
+    "018_fixture_HD_exact",
+    "018_unknown_foreground_rejected",
+    "018-mirror_fixture_HD_used",
+    "018-mirror_fixture_changes",
+    "018-mirror_fixture_Original_exact",
+    "018-mirror_fixture_HD_exact",
+    "018-mirror_unknown_foreground_rejected",
+    "019_fixture_HD_used",
+    "019_fixture_changes",
+    "019_fixture_Original_exact",
+    "019_fixture_HD_exact",
+    "019_unknown_foreground_rejected",
+    "019-mirror_fixture_HD_used",
+    "019-mirror_fixture_changes",
+    "019-mirror_fixture_Original_exact",
+    "019-mirror_fixture_HD_exact",
+    "019-mirror_unknown_foreground_rejected",
+    "020_fixture_HD_used",
+    "020_fixture_changes",
+    "020_fixture_Original_exact",
+    "020_fixture_HD_exact",
+    "020_unknown_foreground_rejected",
+    "020-mirror_fixture_HD_used",
+    "020-mirror_fixture_changes",
+    "020-mirror_fixture_Original_exact",
+    "020-mirror_fixture_HD_exact",
+    "020-mirror_unknown_foreground_rejected",
+    "021_fixture_HD_used",
+    "021_fixture_changes",
+    "021_fixture_Original_exact",
+    "021_fixture_HD_exact",
+    "021_unknown_foreground_rejected",
+    "021-mirror_fixture_HD_used",
+    "021-mirror_fixture_changes",
+    "021-mirror_fixture_Original_exact",
+    "021-mirror_fixture_HD_exact",
+    "021-mirror_unknown_foreground_rejected",
+    "fixtures_state_unchanged",
+    "no_browser_errors",
+    "frozen_web/src/core.js",
+    "frozen_web/src/render.js",
+    "frozen_web/src/scenes.js",
+    "frozen_web/src/hd.js",
+    "frozen_web/build/moonstone-core.js",
+    "frozen_Moonstonecd32-AMIGA.zip",
+    "frozen_ha1.cel/000.png",
+    "frozen_ha1.cel/001.png",
+    "frozen_ha1.cel/002.png",
+    "frozen_ha1.cel/003.png",
+    "frozen_ha1.cel/004.png",
+    "frozen_ha1.cel/005.png",
+    "frozen_ha1.cel/006.png",
+    "frozen_ha1.cel/007.png",
+    "frozen_ha1.cel/008.png",
+    "frozen_ha1.cel/009.png",
+    "frozen_ha1.cel/010.png",
+    "frozen_ha1.cel/011.png",
+    "frozen_ha1.cel/012.png",
+    "frozen_ha1.cel/013.png",
+    "frozen_ha1.cel/014.png",
+    "frozen_ha1.cel/015.png",
+    "frozen_ha1.cel/016.png",
+    "frozen_ha1.cel/017.png",
+    "frozen_ha1.cel/018.png",
+    "frozen_ha1.cel/019.png",
+    "frozen_ha1.cel/020.png",
+    "frozen_ha1.cel/021.png",
+    "frozen_test"
+  ],
+  "errors": [],
+  "assets": {
+    "ha1.cel/000.png": "cc90ad922986a295206a8f0d67258b5a90913683a52304b0ada10c4c44e40680",
+    "ha1.cel/001.png": "c6d35f9c11bda9bc084afd3a54d9b94c8ee3d6df4995647d3c038a05fe62d1fb",
+    "ha1.cel/002.png": "1a670064cca6ce19845451d9e3804c345513f994065ea78d949d80ec0a3b2909",
+    "ha1.cel/003.png": "45837a56937ea1af0a36a0ce0a696b3da3977c65d7f327f1877c57d7e44b7b0f",
+    "ha1.cel/004.png": "47db80d551b4991e4e7aa9a2158f66bd6f84d2d3d79d2a0983201ed35e98471f",
+    "ha1.cel/005.png": "672bb7c7a3fb7d024b4a301a7d0c607e67e30597b784224ff404b4206e28dc76",
+    "ha1.cel/006.png": "f589feb7a866b1fd92e21fd8bee3d0d1669046ff954de6ceb6db2c0e6c12063e",
+    "ha1.cel/007.png": "81e6512bb09e88d95fc4abfeb6dc376b59c8d2a1c19698eb8eaf429ce9076649",
+    "ha1.cel/008.png": "f477f7093e09253ea44d7cc355f7dda71c72947d9b95bdaef7b99666b6c8d4db",
+    "ha1.cel/009.png": "adcd909229a9ff136ba9363d36801ddcfb1cfd995b8d427c5a7648f4a50799b7",
+    "ha1.cel/010.png": "fc1b1f251b58ef68e9f4d3ea22097947b80ea441a01756fef961bad669bda217",
+    "ha1.cel/011.png": "e8f43dfc16aa2578546c905d4e8fb7d2dbf668aafc1a0b842bae3901e1ebc66b",
+    "ha1.cel/012.png": "661599c34d7e370c68c73cf856b3a4cdc2dce76b917e8a6fff338c7762e69c84",
+    "ha1.cel/013.png": "5d3aa7d16fffe0b6391447ad8ca32360a1e31576120ba5e58b037e8963052885",
+    "ha1.cel/014.png": "152c71756531dffcac1dd39bc3763329ca744cab26afbd85ee416130e179a3ea",
+    "ha1.cel/015.png": "98fa6314ec6d1ce7668aae7a1e15f4765e99c24e724de98692dfcf8f2975b906",
+    "ha1.cel/016.png": "b20ba4012d1da3dcf0647b0cdac84b2b4d5a7811787340c20afaf05cb87f542f",
+    "ha1.cel/017.png": "10fdd8b4cad2f4f08a763c0e3ba78fcd97026596b3ec3d34d2125a4c3149b3ea",
+    "ha1.cel/018.png": "2d876a3725d3097e957f51e8dcd93056f2865b700c5d4c1071b4cf8126f82b65",
+    "ha1.cel/019.png": "1ee345ba3c6c13b32255e2f1c7138cc040422538002ce9b83186b271b2ea48c7",
+    "ha1.cel/020.png": "d5df92a4f0f75ea712565aa250a3978ae0067c6c57240bae04ec63cecd426c75",
+    "ha1.cel/021.png": "9db9e0597466a80f52ec7a511657655f87f2ad6b288a872d91ccd15813fc7e45"
+  },
+  "context_assets": {
+    "bg/a45a2508.png": "d8b5c27774c20692375a0d59484b8dfec3e575f4fafd5ffdfcda28b7e6a65eb6",
+    "bg/c2501c17.png": "5d4ce800903543377ab2521464fd5c4a463e05de601f09420ea6ab0d91824493",
+    "bg/64e5c054.png": "906b6ac9bc3083db6d6350a88dd771e5c6642dc782eacdc9a86dce74965e0bae",
+    "bg/93153ff2.png": "6b3ba1789a344702f265f739eebf37322e93b8e8bfe43cf3f835a30a7ce2047b"
+  },
+  "scope": "Unchanged original intro, no skips, emulated-memory or palette writes. Actual visible HA1 routes000..006 in composition; all22 normal/mirrored frontend fixtures are separately labeled. Every photograph has original-bound contour/material registration. No claim that unobserved routes007..021 were naturally used.",
+  "package_mode": "candidate_import_on_frozen_standard_HTML",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "9d0e6a66a7597e745d23b0a0516f0c6f8b06f97cb92189613938c14f40aef8bd",
+    "web/src/scenes.js": "f96ca11802910e3291ec7ee4128299f68b73957b3f5f1d0b1435141e1a08ebcd",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "test_sha256": "c3b24b3acbb8bc1e1f626c086fa834dd50d4c9de28634ebf0097e3f05cd5a152",
+  "package_ledger_sha256": "747197ad58371d0aba1927eb727c08485617a4fd6a887653dc6b8e18e48a6d15",
+  "geometry_sha256": "a79f38e09f6c4a3a56dc7b0b6c8fd9f1b65b9ed4d79112b6e9308e3154242e3b",
+  "url": "http://127.0.0.1:35221/moonstone.html",
+  "html_sha256": "8ec46e4a339a44c8bd45db16fda9b2a61b074a911345cf28b41a273583839cc0",
+  "runtime": {
+    "imported": 26,
+    "seen": {
+      "0": {
+        "frame": 4912,
+        "source": {
+          "fil": "ha1.cel",
+          "bilde": 0,
+          "x": 228,
+          "y": 0,
+          "w": 57,
+          "h": 84,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [
+          {
+            "fil": "ha1.cel",
+            "bilde": 0,
+            "x": 228,
+            "y": 0,
+            "w": 57,
+            "h": 84,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ],
+        "figures": [
+          {
+            "fil": "ha1.cel",
+            "bilde": 0,
+            "x": 228,
+            "y": 0,
+            "w": 57,
+            "h": 84,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ha1.cel",
+            "bilde": 1,
+            "x": 215,
+            "y": 83,
+            "w": 46,
+            "h": 36,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 0,
+            "x": 0,
+            "y": 56,
+            "w": 51,
+            "h": 144,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 3,
+            "x": 51,
+            "y": 134,
+            "w": 106,
+            "h": 66,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "stonehenge-knight",
+          "match": 1,
+          "preserved_pixels": 16537,
+          "hash": "a45a2508",
+          "hd_icons": 0
+        },
+        "control": {
+          "godkjent": 4,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "palette": [
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            204,
+            238,
+            255,
+            255
+          ],
+          [
+            170,
+            187,
+            204,
+            255
+          ],
+          [
+            119,
+            136,
+            153,
+            255
+          ],
+          [
+            85,
+            102,
+            119,
+            255
+          ],
+          [
+            51,
+            68,
+            85,
+            255
+          ],
+          [
+            17,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            0,
+            0,
+            255
+          ],
+          [
+            170,
+            0,
+            0,
+            255
+          ],
+          [
+            102,
+            0,
+            0,
+            255
+          ],
+          [
+            51,
+            0,
+            0,
+            255
+          ],
+          [
+            221,
+            0,
+            221,
+            255
+          ],
+          [
+            255,
+            170,
+            0,
+            255
+          ],
+          [
+            255,
+            102,
+            0,
+            255
+          ],
+          [
+            136,
+            0,
+            136,
+            255
+          ],
+          [
+            0,
+            0,
+            68,
+            255
+          ],
+          [
+            0,
+            0,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            34,
+            255
+          ],
+          [
+            34,
+            17,
+            0,
+            255
+          ],
+          [
+            51,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            51,
+            17,
+            255
+          ],
+          [
+            136,
+            85,
+            34,
+            255
+          ],
+          [
+            85,
+            0,
+            85,
+            255
+          ],
+          [
+            0,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            170,
+            187,
+            255
+          ],
+          [
+            0,
+            102,
+            102,
+            255
+          ],
+          [
+            0,
+            51,
+            68,
+            255
+          ],
+          [
+            255,
+            136,
+            85,
+            255
+          ],
+          [
+            204,
+            85,
+            51,
+            255
+          ],
+          [
+            136,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            17,
+            0,
+            255
+          ]
+        ],
+        "state": 3956041900,
+        "state_after": 3956041900,
+        "original_sha256": "52eafbb74a7b56e1563de4ea76e1ae042162638c0a84e9532a924465b6ae9bfb",
+        "hd_sha256": "fb6fbd2bf657778740ff2b0f3377824048a70bf3cf169a10821088aa80501911"
+      },
+      "1": {
+        "frame": 4912,
+        "source": {
+          "fil": "ha1.cel",
+          "bilde": 1,
+          "x": 215,
+          "y": 83,
+          "w": 46,
+          "h": 36,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [
+          {
+            "fil": "ha1.cel",
+            "bilde": 0,
+            "x": 228,
+            "y": 0,
+            "w": 57,
+            "h": 84,
+            "xoff": 0,
+            "speilet": false,
+            "target": 441850,
+            "caller": 549914
+          }
+        ],
+        "figures": [
+          {
+            "fil": "ha1.cel",
+            "bilde": 0,
+            "x": 228,
+            "y": 0,
+            "w": 57,
+            "h": 84,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ha1.cel",
+            "bilde": 1,
+            "x": 215,
+            "y": 83,
+            "w": 46,
+            "h": 36,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 0,
+            "x": 0,
+            "y": 56,
+            "w": 51,
+            "h": 144,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 3,
+            "x": 51,
+            "y": 134,
+            "w": 106,
+            "h": 66,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "stonehenge-knight",
+          "match": 1,
+          "preserved_pixels": 16537,
+          "hash": "a45a2508",
+          "hd_icons": 0
+        },
+        "control": {
+          "godkjent": 4,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "palette": [
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            204,
+            238,
+            255,
+            255
+          ],
+          [
+            170,
+            187,
+            204,
+            255
+          ],
+          [
+            119,
+            136,
+            153,
+            255
+          ],
+          [
+            85,
+            102,
+            119,
+            255
+          ],
+          [
+            51,
+            68,
+            85,
+            255
+          ],
+          [
+            17,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            0,
+            0,
+            255
+          ],
+          [
+            170,
+            0,
+            0,
+            255
+          ],
+          [
+            102,
+            0,
+            0,
+            255
+          ],
+          [
+            51,
+            0,
+            0,
+            255
+          ],
+          [
+            221,
+            0,
+            221,
+            255
+          ],
+          [
+            255,
+            170,
+            0,
+            255
+          ],
+          [
+            255,
+            102,
+            0,
+            255
+          ],
+          [
+            136,
+            0,
+            136,
+            255
+          ],
+          [
+            0,
+            0,
+            68,
+            255
+          ],
+          [
+            0,
+            0,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            34,
+            255
+          ],
+          [
+            34,
+            17,
+            0,
+            255
+          ],
+          [
+            51,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            51,
+            17,
+            255
+          ],
+          [
+            136,
+            85,
+            34,
+            255
+          ],
+          [
+            85,
+            0,
+            85,
+            255
+          ],
+          [
+            0,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            170,
+            187,
+            255
+          ],
+          [
+            0,
+            102,
+            102,
+            255
+          ],
+          [
+            0,
+            51,
+            68,
+            255
+          ],
+          [
+            255,
+            136,
+            85,
+            255
+          ],
+          [
+            204,
+            85,
+            51,
+            255
+          ],
+          [
+            136,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            17,
+            0,
+            255
+          ]
+        ],
+        "state": 3956041900,
+        "state_after": 3956041900,
+        "original_sha256": "52eafbb74a7b56e1563de4ea76e1ae042162638c0a84e9532a924465b6ae9bfb",
+        "hd_sha256": "fb6fbd2bf657778740ff2b0f3377824048a70bf3cf169a10821088aa80501911"
+      },
+      "2": {
+        "frame": 4929,
+        "source": {
+          "fil": "ha1.cel",
+          "bilde": 2,
+          "x": 216,
+          "y": 83,
+          "w": 45,
+          "h": 40,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [],
+        "figures": [
+          {
+            "fil": "ha1.cel",
+            "bilde": 0,
+            "x": 228,
+            "y": 0,
+            "w": 57,
+            "h": 84,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ha1.cel",
+            "bilde": 2,
+            "x": 216,
+            "y": 83,
+            "w": 45,
+            "h": 40,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 0,
+            "x": 0,
+            "y": 56,
+            "w": 51,
+            "h": 144,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 3,
+            "x": 51,
+            "y": 134,
+            "w": 106,
+            "h": 66,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "stonehenge-knight",
+          "match": 1,
+          "preserved_pixels": 16635,
+          "hash": "a45a2508",
+          "hd_icons": 0
+        },
+        "control": {
+          "godkjent": 4,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "palette": [
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            204,
+            238,
+            255,
+            255
+          ],
+          [
+            170,
+            187,
+            204,
+            255
+          ],
+          [
+            119,
+            136,
+            153,
+            255
+          ],
+          [
+            85,
+            102,
+            119,
+            255
+          ],
+          [
+            51,
+            68,
+            85,
+            255
+          ],
+          [
+            17,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            0,
+            0,
+            255
+          ],
+          [
+            170,
+            0,
+            0,
+            255
+          ],
+          [
+            102,
+            0,
+            0,
+            255
+          ],
+          [
+            51,
+            0,
+            0,
+            255
+          ],
+          [
+            221,
+            0,
+            221,
+            255
+          ],
+          [
+            255,
+            170,
+            0,
+            255
+          ],
+          [
+            255,
+            102,
+            0,
+            255
+          ],
+          [
+            136,
+            0,
+            136,
+            255
+          ],
+          [
+            0,
+            0,
+            68,
+            255
+          ],
+          [
+            0,
+            0,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            34,
+            255
+          ],
+          [
+            34,
+            17,
+            0,
+            255
+          ],
+          [
+            51,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            51,
+            17,
+            255
+          ],
+          [
+            136,
+            85,
+            34,
+            255
+          ],
+          [
+            85,
+            0,
+            85,
+            255
+          ],
+          [
+            0,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            170,
+            187,
+            255
+          ],
+          [
+            0,
+            102,
+            102,
+            255
+          ],
+          [
+            0,
+            51,
+            68,
+            255
+          ],
+          [
+            255,
+            136,
+            85,
+            255
+          ],
+          [
+            204,
+            85,
+            51,
+            255
+          ],
+          [
+            136,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            17,
+            0,
+            255
+          ]
+        ],
+        "state": 3160673648,
+        "state_after": 3160673648,
+        "original_sha256": "247924cfc3f108d0a4b815d419a6b81102d85e09edbea46651fabfc63b905a13",
+        "hd_sha256": "ee7652251c37002d30123ed96a07ccf25c80515a8315d156ae5ef618bf808e25"
+      },
+      "3": {
+        "frame": 4949,
+        "source": {
+          "fil": "ha1.cel",
+          "bilde": 3,
+          "x": 212,
+          "y": 83,
+          "w": 48,
+          "h": 19,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [],
+        "figures": [
+          {
+            "fil": "ha1.cel",
+            "bilde": 0,
+            "x": 228,
+            "y": 0,
+            "w": 57,
+            "h": 84,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ha1.cel",
+            "bilde": 3,
+            "x": 212,
+            "y": 83,
+            "w": 48,
+            "h": 19,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ha1.cel",
+            "bilde": 4,
+            "x": 200,
+            "y": 102,
+            "w": 62,
+            "h": 32,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 0,
+            "x": 0,
+            "y": 56,
+            "w": 51,
+            "h": 144,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 3,
+            "x": 51,
+            "y": 134,
+            "w": 106,
+            "h": 66,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "stonehenge-knight",
+          "match": 1,
+          "preserved_pixels": 17077,
+          "hash": "a45a2508",
+          "hd_icons": 0
+        },
+        "control": {
+          "godkjent": 5,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "palette": [
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            204,
+            238,
+            255,
+            255
+          ],
+          [
+            170,
+            187,
+            204,
+            255
+          ],
+          [
+            119,
+            136,
+            153,
+            255
+          ],
+          [
+            85,
+            102,
+            119,
+            255
+          ],
+          [
+            51,
+            68,
+            85,
+            255
+          ],
+          [
+            17,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            0,
+            0,
+            255
+          ],
+          [
+            170,
+            0,
+            0,
+            255
+          ],
+          [
+            102,
+            0,
+            0,
+            255
+          ],
+          [
+            51,
+            0,
+            0,
+            255
+          ],
+          [
+            221,
+            0,
+            221,
+            255
+          ],
+          [
+            255,
+            170,
+            0,
+            255
+          ],
+          [
+            255,
+            102,
+            0,
+            255
+          ],
+          [
+            136,
+            0,
+            136,
+            255
+          ],
+          [
+            0,
+            0,
+            68,
+            255
+          ],
+          [
+            0,
+            0,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            34,
+            255
+          ],
+          [
+            34,
+            17,
+            0,
+            255
+          ],
+          [
+            51,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            51,
+            17,
+            255
+          ],
+          [
+            136,
+            85,
+            34,
+            255
+          ],
+          [
+            85,
+            0,
+            85,
+            255
+          ],
+          [
+            0,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            170,
+            187,
+            255
+          ],
+          [
+            0,
+            102,
+            102,
+            255
+          ],
+          [
+            0,
+            51,
+            68,
+            255
+          ],
+          [
+            255,
+            136,
+            85,
+            255
+          ],
+          [
+            204,
+            85,
+            51,
+            255
+          ],
+          [
+            136,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            17,
+            0,
+            255
+          ]
+        ],
+        "state": 1651022964,
+        "state_after": 1651022964,
+        "original_sha256": "6e50dcffa428b4c541d8d99e7b928c19ca977baa88b45fa6a6db085cf5b7efb2",
+        "hd_sha256": "ef7edcf22c914044cd6ffd23f4c426a9adf381c2c018992bdcd01df350f518d7"
+      },
+      "4": {
+        "frame": 4949,
+        "source": {
+          "fil": "ha1.cel",
+          "bilde": 4,
+          "x": 200,
+          "y": 102,
+          "w": 62,
+          "h": 32,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [],
+        "figures": [
+          {
+            "fil": "ha1.cel",
+            "bilde": 0,
+            "x": 228,
+            "y": 0,
+            "w": 57,
+            "h": 84,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ha1.cel",
+            "bilde": 3,
+            "x": 212,
+            "y": 83,
+            "w": 48,
+            "h": 19,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ha1.cel",
+            "bilde": 4,
+            "x": 200,
+            "y": 102,
+            "w": 62,
+            "h": 32,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 0,
+            "x": 0,
+            "y": 56,
+            "w": 51,
+            "h": 144,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 3,
+            "x": 51,
+            "y": 134,
+            "w": 106,
+            "h": 66,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "stonehenge-knight",
+          "match": 1,
+          "preserved_pixels": 17077,
+          "hash": "a45a2508",
+          "hd_icons": 0
+        },
+        "control": {
+          "godkjent": 5,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "palette": [
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            204,
+            238,
+            255,
+            255
+          ],
+          [
+            170,
+            187,
+            204,
+            255
+          ],
+          [
+            119,
+            136,
+            153,
+            255
+          ],
+          [
+            85,
+            102,
+            119,
+            255
+          ],
+          [
+            51,
+            68,
+            85,
+            255
+          ],
+          [
+            17,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            0,
+            0,
+            255
+          ],
+          [
+            170,
+            0,
+            0,
+            255
+          ],
+          [
+            102,
+            0,
+            0,
+            255
+          ],
+          [
+            51,
+            0,
+            0,
+            255
+          ],
+          [
+            221,
+            0,
+            221,
+            255
+          ],
+          [
+            255,
+            170,
+            0,
+            255
+          ],
+          [
+            255,
+            102,
+            0,
+            255
+          ],
+          [
+            136,
+            0,
+            136,
+            255
+          ],
+          [
+            0,
+            0,
+            68,
+            255
+          ],
+          [
+            0,
+            0,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            34,
+            255
+          ],
+          [
+            34,
+            17,
+            0,
+            255
+          ],
+          [
+            51,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            51,
+            17,
+            255
+          ],
+          [
+            136,
+            85,
+            34,
+            255
+          ],
+          [
+            85,
+            0,
+            85,
+            255
+          ],
+          [
+            0,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            170,
+            187,
+            255
+          ],
+          [
+            0,
+            102,
+            102,
+            255
+          ],
+          [
+            0,
+            51,
+            68,
+            255
+          ],
+          [
+            255,
+            136,
+            85,
+            255
+          ],
+          [
+            204,
+            85,
+            51,
+            255
+          ],
+          [
+            136,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            17,
+            0,
+            255
+          ]
+        ],
+        "state": 1651022964,
+        "state_after": 1651022964,
+        "original_sha256": "6e50dcffa428b4c541d8d99e7b928c19ca977baa88b45fa6a6db085cf5b7efb2",
+        "hd_sha256": "ef7edcf22c914044cd6ffd23f4c426a9adf381c2c018992bdcd01df350f518d7"
+      },
+      "5": {
+        "frame": 4959,
+        "source": {
+          "fil": "ha1.cel",
+          "bilde": 5,
+          "x": 190,
+          "y": 100,
+          "w": 19,
+          "h": 20,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [],
+        "figures": [
+          {
+            "fil": "ha1.cel",
+            "bilde": 0,
+            "x": 228,
+            "y": 0,
+            "w": 57,
+            "h": 84,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ha1.cel",
+            "bilde": 6,
+            "x": 209,
+            "y": 83,
+            "w": 53,
+            "h": 52,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ha1.cel",
+            "bilde": 5,
+            "x": 190,
+            "y": 100,
+            "w": 19,
+            "h": 20,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 0,
+            "x": 0,
+            "y": 56,
+            "w": 51,
+            "h": 144,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 3,
+            "x": 51,
+            "y": 134,
+            "w": 106,
+            "h": 66,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "stonehenge-knight",
+          "match": 1,
+          "preserved_pixels": 17186,
+          "hash": "a45a2508",
+          "hd_icons": 0
+        },
+        "control": {
+          "godkjent": 5,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "palette": [
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            204,
+            238,
+            255,
+            255
+          ],
+          [
+            170,
+            187,
+            204,
+            255
+          ],
+          [
+            119,
+            136,
+            153,
+            255
+          ],
+          [
+            85,
+            102,
+            119,
+            255
+          ],
+          [
+            51,
+            68,
+            85,
+            255
+          ],
+          [
+            17,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            0,
+            0,
+            255
+          ],
+          [
+            170,
+            0,
+            0,
+            255
+          ],
+          [
+            102,
+            0,
+            0,
+            255
+          ],
+          [
+            51,
+            0,
+            0,
+            255
+          ],
+          [
+            221,
+            0,
+            221,
+            255
+          ],
+          [
+            255,
+            170,
+            0,
+            255
+          ],
+          [
+            255,
+            102,
+            0,
+            255
+          ],
+          [
+            136,
+            0,
+            136,
+            255
+          ],
+          [
+            0,
+            0,
+            68,
+            255
+          ],
+          [
+            0,
+            0,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            34,
+            255
+          ],
+          [
+            34,
+            17,
+            0,
+            255
+          ],
+          [
+            51,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            51,
+            17,
+            255
+          ],
+          [
+            136,
+            85,
+            34,
+            255
+          ],
+          [
+            85,
+            0,
+            85,
+            255
+          ],
+          [
+            0,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            170,
+            187,
+            255
+          ],
+          [
+            0,
+            102,
+            102,
+            255
+          ],
+          [
+            0,
+            51,
+            68,
+            255
+          ],
+          [
+            255,
+            136,
+            85,
+            255
+          ],
+          [
+            204,
+            85,
+            51,
+            255
+          ],
+          [
+            136,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            17,
+            0,
+            255
+          ]
+        ],
+        "state": 3301286174,
+        "state_after": 3301286174,
+        "original_sha256": "bd90d2eb5e34bcb176ecd9f38b3dcd195c99b95a17474b976b028baaddd69836",
+        "hd_sha256": "81b9760cdd082e3507e8d7282b18896a3ae6eb3c18b32a207d4b28da7cec9d4b"
+      },
+      "6": {
+        "frame": 4959,
+        "source": {
+          "fil": "ha1.cel",
+          "bilde": 6,
+          "x": 209,
+          "y": 83,
+          "w": 53,
+          "h": 52,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        "latest_original_calls": [],
+        "figures": [
+          {
+            "fil": "ha1.cel",
+            "bilde": 0,
+            "x": 228,
+            "y": 0,
+            "w": 57,
+            "h": 84,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ha1.cel",
+            "bilde": 6,
+            "x": 209,
+            "y": 83,
+            "w": 53,
+            "h": 52,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ha1.cel",
+            "bilde": 5,
+            "x": 190,
+            "y": 100,
+            "w": 19,
+            "h": 20,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 0,
+            "x": 0,
+            "y": 56,
+            "w": 51,
+            "h": 144,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          {
+            "fil": "ov1.cel",
+            "bilde": 3,
+            "x": 51,
+            "y": 134,
+            "w": 106,
+            "h": 66,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "scene": {
+          "id": "stonehenge-knight",
+          "match": 1,
+          "preserved_pixels": 17186,
+          "hash": "a45a2508",
+          "hd_icons": 0
+        },
+        "control": {
+          "godkjent": 5,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 0,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "bakgrunn": "hd"
+        },
+        "palette": [
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            204,
+            238,
+            255,
+            255
+          ],
+          [
+            170,
+            187,
+            204,
+            255
+          ],
+          [
+            119,
+            136,
+            153,
+            255
+          ],
+          [
+            85,
+            102,
+            119,
+            255
+          ],
+          [
+            51,
+            68,
+            85,
+            255
+          ],
+          [
+            17,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            0,
+            255
+          ],
+          [
+            255,
+            0,
+            0,
+            255
+          ],
+          [
+            170,
+            0,
+            0,
+            255
+          ],
+          [
+            102,
+            0,
+            0,
+            255
+          ],
+          [
+            51,
+            0,
+            0,
+            255
+          ],
+          [
+            221,
+            0,
+            221,
+            255
+          ],
+          [
+            255,
+            170,
+            0,
+            255
+          ],
+          [
+            255,
+            102,
+            0,
+            255
+          ],
+          [
+            136,
+            0,
+            136,
+            255
+          ],
+          [
+            0,
+            0,
+            68,
+            255
+          ],
+          [
+            0,
+            0,
+            51,
+            255
+          ],
+          [
+            0,
+            0,
+            34,
+            255
+          ],
+          [
+            34,
+            17,
+            0,
+            255
+          ],
+          [
+            51,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            51,
+            17,
+            255
+          ],
+          [
+            136,
+            85,
+            34,
+            255
+          ],
+          [
+            85,
+            0,
+            85,
+            255
+          ],
+          [
+            0,
+            34,
+            51,
+            255
+          ],
+          [
+            0,
+            170,
+            187,
+            255
+          ],
+          [
+            0,
+            102,
+            102,
+            255
+          ],
+          [
+            0,
+            51,
+            68,
+            255
+          ],
+          [
+            255,
+            136,
+            85,
+            255
+          ],
+          [
+            204,
+            85,
+            51,
+            255
+          ],
+          [
+            136,
+            34,
+            17,
+            255
+          ],
+          [
+            85,
+            17,
+            0,
+            255
+          ]
+        ],
+        "state": 3301286174,
+        "state_after": 3301286174,
+        "original_sha256": "bd90d2eb5e34bcb176ecd9f38b3dcd195c99b95a17474b976b028baaddd69836",
+        "hd_sha256": "81b9760cdd082e3507e8d7282b18896a3ae6eb3c18b32a207d4b28da7cec9d4b"
+      }
+    },
+    "trace": [
+      {
+        "frame": 4767,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 4767,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 4912,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 4913,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 84,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 4915,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 4916,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 84,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 4925,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 4926,
+        "fil": "ha1.cel",
+        "bilde": 2,
+        "x": 216,
+        "y": 83,
+        "w": 45,
+        "h": 40,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 4935,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 4936,
+        "fil": "ha1.cel",
+        "bilde": 2,
+        "x": 216,
+        "y": 83,
+        "w": 45,
+        "h": 40,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 4945,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 4946,
+        "fil": "ha1.cel",
+        "bilde": 3,
+        "x": 212,
+        "y": 83,
+        "w": 48,
+        "h": 19,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 4946,
+        "fil": "ha1.cel",
+        "bilde": 4,
+        "x": 200,
+        "y": 102,
+        "w": 62,
+        "h": 32,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 4955,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 4956,
+        "fil": "ha1.cel",
+        "bilde": 6,
+        "x": 209,
+        "y": 83,
+        "w": 53,
+        "h": 52,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 4956,
+        "fil": "ha1.cel",
+        "bilde": 5,
+        "x": 190,
+        "y": 100,
+        "w": 19,
+        "h": 20,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 4965,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 4966,
+        "fil": "ha1.cel",
+        "bilde": 6,
+        "x": 209,
+        "y": 83,
+        "w": 53,
+        "h": 52,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 4966,
+        "fil": "ha1.cel",
+        "bilde": 5,
+        "x": 190,
+        "y": 100,
+        "w": 19,
+        "h": 20,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 4975,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 4976,
+        "fil": "ha1.cel",
+        "bilde": 6,
+        "x": 209,
+        "y": 83,
+        "w": 53,
+        "h": 52,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 4976,
+        "fil": "ha1.cel",
+        "bilde": 5,
+        "x": 190,
+        "y": 100,
+        "w": 19,
+        "h": 20,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 4985,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 4986,
+        "fil": "ha1.cel",
+        "bilde": 6,
+        "x": 209,
+        "y": 83,
+        "w": 53,
+        "h": 52,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 4986,
+        "fil": "ha1.cel",
+        "bilde": 5,
+        "x": 190,
+        "y": 100,
+        "w": 19,
+        "h": 20,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 4995,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 4996,
+        "fil": "ha1.cel",
+        "bilde": 2,
+        "x": 216,
+        "y": 83,
+        "w": 45,
+        "h": 40,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5005,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5006,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5015,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5016,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5025,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5026,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5035,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5036,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5045,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5046,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5055,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5056,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5065,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5066,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5075,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5076,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5085,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5086,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5095,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5096,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5105,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5106,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5115,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5116,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5125,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5126,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5135,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5136,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5145,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5146,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5155,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5156,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5165,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5166,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5175,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5176,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5185,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5186,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 441850,
+        "caller": 549914
+      },
+      {
+        "frame": 5195,
+        "fil": "ha1.cel",
+        "bilde": 0,
+        "x": 228,
+        "y": 0,
+        "w": 57,
+        "h": 84,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      },
+      {
+        "frame": 5196,
+        "fil": "ha1.cel",
+        "bilde": 1,
+        "x": 215,
+        "y": 83,
+        "w": 46,
+        "h": 36,
+        "xoff": 0,
+        "speilet": false,
+        "target": 481852,
+        "caller": 549914
+      }
+    ],
+    "frame": 5205,
+    "state": 317715570
+  },
+  "fixture_helper_sha256": "35d36d2eae833ab8d417746f4ae801ee38ba7926cb1fb597a773c8eb31e2e72a",
+  "fixtures": [
+    {
+      "key": "ha1.cel/000.png",
+      "mirror": false,
+      "original_sha256": "7447a0e0c1f7109e1375f2706aa360a09641268771c7c23bfc0209cf74b819ba",
+      "hd_sha256": "f4bfaa54149bcee277cd6b5c9c346d0a0dc56bd352a600f60c3b25051c8b0e1e",
+      "unknown_foreground_point": {
+        "x": 188,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/000.png",
+      "mirror": true,
+      "original_sha256": "e9ff12299004cd8c13e4c07e049f63da62e0260abfb887d5b5d2414d7349efe2",
+      "hd_sha256": "0219cff6fb020154b8827c2edf817e77758d52ac92f3c834e367d4a792f902cc",
+      "unknown_foreground_point": {
+        "x": 164,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/001.png",
+      "mirror": false,
+      "original_sha256": "2b8c4b87d752198863a57c26ad63085ba4b30a666517f6838166de4e706bb403",
+      "hd_sha256": "38913cbd813eb23cc37aa7e75cf16ff17101d30718a76477d73e22bf9c06b19d",
+      "unknown_foreground_point": {
+        "x": 160,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/001.png",
+      "mirror": true,
+      "original_sha256": "340bb9e1bcaa53b98cdcc8c8411e1e567512e98aa3bb4123053336fd9044c2b2",
+      "hd_sha256": "778597f962e960ced44d8ac0d609ac78ebd43c925d13df045b1a0ea1e64a744e",
+      "unknown_foreground_point": {
+        "x": 181,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/002.png",
+      "mirror": false,
+      "original_sha256": "0e0f4201cc2221aee5ced90e4fee688496499d449b77d0c77b5512b10c98d3ab",
+      "hd_sha256": "4fbe2d53c0f726d03689cc4f9226435815dcf7d8aeef67b6199ff912e6034465",
+      "unknown_foreground_point": {
+        "x": 160,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/002.png",
+      "mirror": true,
+      "original_sha256": "ead3cd75cdb445017f8aa0b70cc8c9352c3d044e841864dacebf0058b431083c",
+      "hd_sha256": "5219809c6029feaf62d55d07d5a37aa46c6e6b78bbea0826c54f9270677b28ef",
+      "unknown_foreground_point": {
+        "x": 180,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/003.png",
+      "mirror": false,
+      "original_sha256": "1f5d561ebc466b70b1f659b594f51e53d59eb168a4ea16e79f5b9e68c523aa73",
+      "hd_sha256": "6dd789cc8273af5206fcebd597d791722be630988e25d47b77ae4327450d50e2",
+      "unknown_foreground_point": {
+        "x": 164,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/003.png",
+      "mirror": true,
+      "original_sha256": "a73a10bf0ef64612cf766bb990de46f96ba7d01773cdf7f4ff3babe4285c7509",
+      "hd_sha256": "4232d58410f31a43b60b1a6ec4c24a68de3049d03e3558190363abbb778db039",
+      "unknown_foreground_point": {
+        "x": 179,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/004.png",
+      "mirror": false,
+      "original_sha256": "0769743489fd637354f7a5aabc6309f73ad851ffdd17ae4d07a4e4075b9dc892",
+      "hd_sha256": "2d05d544c7ea6c6d58a847fcd636c01e78ddb0930883af266bfa8e233831f7ff",
+      "unknown_foreground_point": {
+        "x": 158,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/004.png",
+      "mirror": true,
+      "original_sha256": "b49eed78d5cfeb742741a2d752d66914a321bd42a37d11d007cbc484e0184168",
+      "hd_sha256": "ffc2072abef9f04ba210513cb1be26a100f9fe13b1f2f950cfd6fdd020341c92",
+      "unknown_foreground_point": {
+        "x": 199,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/005.png",
+      "mirror": false,
+      "original_sha256": "cfb2845465f7769bb4305a38bdca16a458770e9ec0b9cbcad8444d758e87e0ee",
+      "hd_sha256": "3687263c4eee540112811d9bd41409c687143c73e9e7ed7d861a5440e7936bc2",
+      "unknown_foreground_point": {
+        "x": 165,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/005.png",
+      "mirror": true,
+      "original_sha256": "edf13e2224986527d21c088095a6001f5f7195d844dc5789dd3f92a704e5b67d",
+      "hd_sha256": "bb8587bd59e4bb37c9d703f798aa4ef3ce7826a145244b85217f7319acb05579",
+      "unknown_foreground_point": {
+        "x": 149,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/006.png",
+      "mirror": false,
+      "original_sha256": "4ec3669c2ffd0f9e5681ca12d90d9f382f6962aaf17c604df1517c3d8aca1f96",
+      "hd_sha256": "c9504e6feab840650ae41447dcaeeb4224b61a118843300bea2d174687cf909d",
+      "unknown_foreground_point": {
+        "x": 167,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/006.png",
+      "mirror": true,
+      "original_sha256": "8f3256bcda5568a2c79eed266c35a5f61766bf14beb13a2826b01dba0bb2d667",
+      "hd_sha256": "f113c6e34dbeb50d7a14bafe144a0886edd319e2787f1d860b5a75eb36330f1a",
+      "unknown_foreground_point": {
+        "x": 181,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/007.png",
+      "mirror": false,
+      "original_sha256": "69dcfa16487e544e332e7f7643a265a4c9356b16a6e9c52e94483c29a24da442",
+      "hd_sha256": "8a2dbd61be83c539819675f36e835f686091450b610114981ad95c230fbebe86",
+      "unknown_foreground_point": {
+        "x": 167,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/007.png",
+      "mirror": true,
+      "original_sha256": "cdcce4c0ccdadc5a7f73ccf8953cb4f46b2bce711d923e865e84308f7972792b",
+      "hd_sha256": "39169ec085c2547092f840fa1d395bbf570e72259289c414eeaf9a96a35d42d1",
+      "unknown_foreground_point": {
+        "x": 163,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/008.png",
+      "mirror": false,
+      "original_sha256": "b73e1d09ba436eafb1e81c9afa8ebfd2600c1cefe4cafbaf5fc0d3ef9bebcc91",
+      "hd_sha256": "92bcb744f8b2d7b0baf93cb7b09b929ac2d407e1b73a4707818895298f7fc60c",
+      "unknown_foreground_point": {
+        "x": 154,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/008.png",
+      "mirror": true,
+      "original_sha256": "5e9623d9fd3d7123546601fb888611c4c9a3422fa4d98862325010474e871463",
+      "hd_sha256": "bcde1e379459b4145b8f3b0344842a37da8ac994b63c211cfa60a207293713aa",
+      "unknown_foreground_point": {
+        "x": 199,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/009.png",
+      "mirror": false,
+      "original_sha256": "31f3bed6c52e594d41c557961a10274c159dc1d852b0c2b7a3c84b17e40096bf",
+      "hd_sha256": "473eaf657bd470b01c2841fedc9646b28f1ed8cbfeeadacdd2d5fe68f22fca90",
+      "unknown_foreground_point": {
+        "x": 151,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/009.png",
+      "mirror": true,
+      "original_sha256": "0105dde9f389377fcd7c3fcef0215fa23c862f8a90d6c959f86b75a09959d894",
+      "hd_sha256": "456d40dd33c8ed63687a129f7b7fdaddee683e7d80ee66529fd11442fffcf00b",
+      "unknown_foreground_point": {
+        "x": 199,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/010.png",
+      "mirror": false,
+      "original_sha256": "24cc0467dfc27a28f4fac5a93fbdb46b6cb34a847e427c0577b083fe523f4ef0",
+      "hd_sha256": "2b5f1fbcf5e23ca0da2195e7c48d7feba1e79019dd001c678d773667ec7ac618",
+      "unknown_foreground_point": {
+        "x": 154,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/010.png",
+      "mirror": true,
+      "original_sha256": "7bb333c6b1a1c4d23a1873bdf7297af56d5edc627a3b793c2182b8931ee97c6f",
+      "hd_sha256": "12dca103cae2ef5a77617f02b131419ee5c5c73f81f085fbca490847cfad5d85",
+      "unknown_foreground_point": {
+        "x": 193,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/011.png",
+      "mirror": false,
+      "original_sha256": "ca727a0bd50d4aa57cfe6cd3c0aeb6e235449b2dab5b24421ef57614a060ea0c",
+      "hd_sha256": "96611b0a21c7e419d83c355a29c29bf666ae6c93eb02673f597b822e63ba8bda",
+      "unknown_foreground_point": {
+        "x": 165,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/011.png",
+      "mirror": true,
+      "original_sha256": "68fb53e05fe40ab7f8720268cdad0258fcf8d0a31c8b608afb85fcc33aaeec94",
+      "hd_sha256": "dcfafe0b228bca72ddbd582676e372098cc27f4e59a0f3865e6b1c0e3a098dd5",
+      "unknown_foreground_point": {
+        "x": 180,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/012.png",
+      "mirror": false,
+      "original_sha256": "749f21a102a35b3ac85d2b95b615022dcbc4c00827ad169352621f4493ff9dcf",
+      "hd_sha256": "815d1a085b88d83f1470c03ef329a38201427b4f595ba9df7790da435adc10f0",
+      "unknown_foreground_point": {
+        "x": 164,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/012.png",
+      "mirror": true,
+      "original_sha256": "96fe635e8ebef6f41102ea341d3bfbe987390243da6a66aab365b23cb937a6ab",
+      "hd_sha256": "946360ba2d2d55805e705f6564aae7661b224bc336833cf1ba00d8ff52b80ae4",
+      "unknown_foreground_point": {
+        "x": 170,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/013.png",
+      "mirror": false,
+      "original_sha256": "6a3461d6f883dbbe6a4042fe2c89b1c85611890430a8b269f65c78b1f44fcbdf",
+      "hd_sha256": "fec7aa741f54436a08363a64f3288997e790ea6c5ee3feb4bd742961752d31bb",
+      "unknown_foreground_point": {
+        "x": 162,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/013.png",
+      "mirror": true,
+      "original_sha256": "b1d4a4e4e2b35aab773f3e85b92f9bf9dee155a969f187ae23883508d7794986",
+      "hd_sha256": "4789816be9e5ede4f3019e20d9972bed70bc7fdada0b05da0dff60858e0d8f36",
+      "unknown_foreground_point": {
+        "x": 148,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/014.png",
+      "mirror": false,
+      "original_sha256": "e0fa79054f5df07608fc320956066592a034e9542c71e33dba22cf545eced38e",
+      "hd_sha256": "1b12d3933b8247cce54815bf1ac324e887fd14761298445d13f0835941c81bfd",
+      "unknown_foreground_point": {
+        "x": 157,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/014.png",
+      "mirror": true,
+      "original_sha256": "f0e94007b8a887fb2a43a1271621ae5a48df16013095c32842fece674d43cc21",
+      "hd_sha256": "0226254d8d6b32b55a25d440f59edc3c24ec03f80261110b06c2bcee68be35c3",
+      "unknown_foreground_point": {
+        "x": 173,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/015.png",
+      "mirror": false,
+      "original_sha256": "537bed97e4692c2abd0520b7a738fc2f3b4fe2a64fd3aa7b6292749d383ebcd4",
+      "hd_sha256": "7366ee64a422806c93a311cfab454510da94425d318441849509021e53ffca18",
+      "unknown_foreground_point": {
+        "x": 154,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/015.png",
+      "mirror": true,
+      "original_sha256": "9f4a045704a8ff53d8b253b9caea4464f7fe6bfc88437def5d54cedbbb5e5810",
+      "hd_sha256": "f70651ca5953b1c16feccc1f6a2300471ed5a12ca8de6797e44f8fb6fb27e38f",
+      "unknown_foreground_point": {
+        "x": 173,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/016.png",
+      "mirror": false,
+      "original_sha256": "1a5aafd93aed08da43aa1d95b39c28d246006fed0febfa13a330ff0c626eeb92",
+      "hd_sha256": "d9c90e0dd41ecda4a95672eb384f042c287c39da008a25abbcc9cb99ce9281f6",
+      "unknown_foreground_point": {
+        "x": 172,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/016.png",
+      "mirror": true,
+      "original_sha256": "1f72d4d75085c8607692832d918a5aec2fecd8f2ec08b022adc5bee28d7d6553",
+      "hd_sha256": "b83c44570809a3855a92d7a60b106817c6177ac1dccdac5534c6e4ee474a1341",
+      "unknown_foreground_point": {
+        "x": 154,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/017.png",
+      "mirror": false,
+      "original_sha256": "e088a4d7adfa01a758b2707ff3f040031f66355bd73737056d77a4633c65c90c",
+      "hd_sha256": "b8a2aad241711d409d9f2089723ac623b34ae59fdcf6c45f14bb6a0452ae8d56",
+      "unknown_foreground_point": {
+        "x": 203,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/017.png",
+      "mirror": true,
+      "original_sha256": "5a78382fb584a33a2d72070b8ac436775dfc4b67bc7a8a2ffae683dcd32c7472",
+      "hd_sha256": "680ec17b289368333e527305e3fb99872c34e39906d6d4c6411de38ab4d8a030",
+      "unknown_foreground_point": {
+        "x": 169,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/018.png",
+      "mirror": false,
+      "original_sha256": "34565121b3de95b4da0c4192d2feedbe9d849ecdd97e84d4c5dcbfc0b68b6a82",
+      "hd_sha256": "8d9d1c577fb96e13672f8eef722cb5801383ab47b6c59cf7bbc890424024bd36",
+      "unknown_foreground_point": {
+        "x": 162,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/018.png",
+      "mirror": true,
+      "original_sha256": "7b028419d68fc1892d2a2266048081e6f5be1a548bac2621441e1db50e9c1ca3",
+      "hd_sha256": "e3b8df9f7945052872b1cd07b3d02537dfc16f3adc440bfcd735b8510bb842c5",
+      "unknown_foreground_point": {
+        "x": 206,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/019.png",
+      "mirror": false,
+      "original_sha256": "b7e9eded2bafd00b34543d58650a9ce9ecef33e59e181afe5a6673538b313fc1",
+      "hd_sha256": "eacb019acb8dba7b8c8be9f77789c0020ef83a27901087f64f08b5a0b01a262f",
+      "unknown_foreground_point": {
+        "x": 167,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/019.png",
+      "mirror": true,
+      "original_sha256": "9ec605f18e14d3660dca2e04d1882ec6e5092567d748e1087781e47c62311a5e",
+      "hd_sha256": "7437dfe2e6259bd7e5f3ca561e46b6bc7f1b7e52780ab4c150dc6cf85621a4ca",
+      "unknown_foreground_point": {
+        "x": 162,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/020.png",
+      "mirror": false,
+      "original_sha256": "d7b8f0f61d3aea853db4777e20a6701996886fd96a5bb3baa71dbe0756224803",
+      "hd_sha256": "af75b6408de0673a5f445285f74764be5918a7a0fe8fece3aaa6308faff634e5",
+      "unknown_foreground_point": {
+        "x": 168,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/020.png",
+      "mirror": true,
+      "original_sha256": "a7d3fc245dcf9c7e5601c58c9aa7fb25440ca462dcec4bd69608d656323f2777",
+      "hd_sha256": "1ece009c2aa75a5378bd05156c71f484e66231bb7f5a321638afeac7e9034eb8",
+      "unknown_foreground_point": {
+        "x": 148,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/021.png",
+      "mirror": false,
+      "original_sha256": "b277738ab09ccb61eb8eb38551f05ab785fdd89f9caaa19eb6987d2a39d72ef2",
+      "hd_sha256": "c84fcdf1b5b714ae2e8a054e6561fedd7238698e1a33f8de600cf3a2aea4da73",
+      "unknown_foreground_point": {
+        "x": 148,
+        "y": 90
+      }
+    },
+    {
+      "key": "ha1.cel/021.png",
+      "mirror": true,
+      "original_sha256": "44e5ddbe8846f73b4587854cb5b860409b72b23725b43a1cd275f108197b1b6a",
+      "hd_sha256": "e450b1894a50b0b236891d5cec2faebded215da31c68db75313cf6ff44519550",
+      "unknown_foreground_point": {
+        "x": 193,
+        "y": 90
+      }
+    }
+  ],
+  "created_at": "2026-10-11T22:12:37.565Z"
+}

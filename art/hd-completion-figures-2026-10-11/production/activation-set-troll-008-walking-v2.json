@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "9d0e6a66a7597e745d23b0a0516f0c6f8b06f97cb92189613938c14f40aef8bd",
+    "web/src/scenes.js": "f96ca11802910e3291ec7ee4128299f68b73957b3f5f1d0b1435141e1a08ebcd"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-d074af2af2a4ae95-59dfcb6c/test.json",
+      "sha256": "53c197115a1c9aed6c601e9f7e1fd5ff5d18a5cad3cf91d7e44354d66f1bba7b",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-d074af2af2a4ae95-59dfcb6c/loaded.html",
+      "html_sha256": "f55effb64c9e53f118fedb5b2e7d5bf8f31f524642faeb5ff3a98211fe17ae17"
+    }
+  ],
+  "scope": "Separate individuelt genererte ruter, sammenliknet med original og sett samlet i kontrollert originalkamp. Eksakte Original/HD-returer. Original flat skygge beholdes uten nytegningspaastand. Ingen full animasjonsdekning eller naturlig kartreise.",
+  "entries": [
+    {
+      "key": "TROLL1.CEL/002.png",
+      "bank": "TROLL1.CEL",
+      "frame": 2,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "27b8e1683d98374ef92ca91a784d161ea88d680c4c776f590d74bd036c478fb6",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/002/0bd57f6536499b05/separate-shadow-walk-v8-original-flat/candidate.png",
+      "png_sha256": "2522fd3b719bdad6a8d50f395736c1207a8da48fbacd87e96d064ba7f517b739",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-002-v7.png",
+      "raw_sha256": "0bd57f6536499b05fe5bf8902f5eca86f5f7a5a369bedb92dbea4f9a3359550f",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-002-v7.txt",
+      "prompt_sha256": "08f94f54941f7a80e18a1264c72d8ea60797fcf76447aebe6fbe14e88f76caf4",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-d074af2af2a4ae95-59dfcb6c/test.json",
+      "runtime_asset_sha256": "2522fd3b719bdad6a8d50f395736c1207a8da48fbacd87e96d064ba7f517b739",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/002/0bd57f6536499b05/separate-shadow-walk-v8-original-flat/art-record.json",
+      "art_record_sha256": "e164181ea0ee51e30a0711871706f91760f1fafe79e624b57ff228b7175b6b0d",
+      "qa": {
+        "frame": 1329,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": "original_flat_retained_not_redrawn"
+      }
+    },
+    {
+      "key": "TROLL1.CEL/004.png",
+      "bank": "TROLL1.CEL",
+      "frame": 4,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "060c6649e249a4bed256c630e51968df2532979ef0d374a1ce593baa3dff16b2",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/004/c82a697bad1cbb54/separate-shadow-walk-v8-original-flat/candidate.png",
+      "png_sha256": "b7eb803b2f7c61cc53260cf25895356176cd7265f97ba723f81c19a00363cda4",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-004-v4.png",
+      "raw_sha256": "c82a697bad1cbb54c28e2de20756ad40404433c36d9d97e1f712f849f5a18f00",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-004-v4.txt",
+      "prompt_sha256": "1abb4f56a4539bc92ecc3f855c9503c32bd2d42acb047da66968a55968470a3a",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-d074af2af2a4ae95-59dfcb6c/test.json",
+      "runtime_asset_sha256": "b7eb803b2f7c61cc53260cf25895356176cd7265f97ba723f81c19a00363cda4",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/004/c82a697bad1cbb54/separate-shadow-walk-v8-original-flat/art-record.json",
+      "art_record_sha256": "e30632d862cbd8d7035bde463cb6a6f32ad5508fe5691cb95620115657b470c0",
+      "qa": {
+        "frame": 1338,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": "original_flat_retained_not_redrawn"
+      }
+    },
+    {
+      "key": "TROLL1.CEL/005.png",
+      "bank": "TROLL1.CEL",
+      "frame": 5,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "2c5dc1c426e67d4122d8892694775dfb38d9b322b9ac6078995f4861725415fe",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/005/63e6b7a62adc37a5/separate-shadow-walk-v8-original-flat/candidate.png",
+      "png_sha256": "dbdba3e911667979cf847684dd2a6d3eee99f31e69ce9f778c0da608d6e29032",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-005-v2.png",
+      "raw_sha256": "63e6b7a62adc37a57321fb05fd4ae8e2f0f86702a5b2449eddbbfe46d0c14cbd",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-005-v2.txt",
+      "prompt_sha256": "35dbd850d8e18e8f4b0c07161e3b146d0e07d54d7bd1776ac6c680c3be792176",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-d074af2af2a4ae95-59dfcb6c/test.json",
+      "runtime_asset_sha256": "dbdba3e911667979cf847684dd2a6d3eee99f31e69ce9f778c0da608d6e29032",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/005/63e6b7a62adc37a5/separate-shadow-walk-v8-original-flat/art-record.json",
+      "art_record_sha256": "a0daae6ca900c2833372af857b1d2765ff94e923786d0cbe2d12fb80a7c6a367",
+      "qa": {
+        "frame": 1325,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": "original_flat_retained_not_redrawn"
+      }
+    }
+  ]
+}

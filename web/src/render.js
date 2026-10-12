@@ -41,6 +41,7 @@ const Visning = (() => {
     let vernData, vernTex;                  /* senere originalfragmenter som skal dekke HD */
     let sceneVernData, sceneVernTex;
     let palData, palTex, tomTex;            /* skjermens palett per linje (32 x H) til maskene, og en tom tekstur */
+    let fotoPalData, fotoPalTex;            /* kildebekreftet LI1-normaltoning per skanlinje */
     let lagNaa = null;                      /* { hash, lys } for bildet som vises, eller null */
     const lysMaks = new Map();              /* bakgrunn -> lyseste stabile lysstyrke sett (fading av HD-bildene) */
     let lysForrige = { nokkel: null, lys: -1, fra: 0, fraTegn: 0 };  /* lik lysstyrke siden bilde fra / tegning fraTegn */
@@ -57,7 +58,8 @@ const Visning = (() => {
      * bildet vises to bilder etter det siste. Vi samler derfor tegninger fra bilder
      * paa rad til en klynge og viser den naar den er to bilder gammel.
      * Med lagene blir en figur staaende saa lenge forgrunnen der den ligger er
-     * uendret (tekst tegnes bare en gang); uten lag vises klyngen til det har gaatt
+     * uendret eller en kjent UI-kildes piksler fortsatt stemmer. Tekst tegnes bare
+     * en gang. Uten lag vises klyngen til det har gaatt
      * 50 bilder uten nye tegninger. */
     let hdGruppe = null, hdPakke = new Map(), visRammer = false;
     let hdPaa = false;                      /* false: original grafikk, selv om en HD-pakke er lastet (standard) */
@@ -76,10 +78,32 @@ const Visning = (() => {
     let hdMarkor = null;
     let hdTekstGlyfer = new Set();
     let hdTekstMeta = new Map();
+    let klarFont = false;
     let hdTegnbare = new Set();
     let hdFigurLys = new Map();             /* ruter med verifisert egen fading */
     let hdFigurMaske = new Set();           /* godkjente figurer som farges fra paletten */
     const hdMasker = new Map();             /* "kn1.ob/012" -> maske-PNG (navn.mask.png), se fragHd */
+    // LI1 bruker tre kildebekreftede intropaletter: normal, lynblink og svart.
+    // Referansen kommer fra originalintroens bilde4502, ikke CEL-previewen.
+    // Bare den eksakte banken kan bruke forholdsvis fotofarge (modus3).
+    const palettFigurBanker = new Map([['li1.cel', {
+        bank_sha256: 'bd9459d60300d9972b65ebaf10c0213fed1086e9559c755564a1e90e8416691d', antall: 30, skala: 4, fade_indeks: 1,
+        referanse: [[0,0,0,255],[204,238,255,255],[153,170,187,255],[85,85,85,255],[34,34,34,255],[0,0,0,255],[17,17,17,255],[51,51,51,255],[255,0,0,255],[170,0,0,255],[102,0,0,255],[51,0,0,255],[255,204,102,255],[255,170,0,255],[255,102,0,255],[187,85,0,255],[0,0,68,255],[0,0,34,255],[0,0,17,255],[34,17,0,255],[51,34,17,255],[85,51,17,255],[136,85,34,255],[119,119,136,255],[119,187,255,255],[68,119,221,255],[34,51,170,255],[0,0,136,255],[255,136,85,255],[204,85,51,255],[136,34,17,255],[85,17,0,255]]
+    }]]);
+    // Bare oppstigningen040..054 deler hele den faktiske32-paletten med LI1.
+    // De tidligere ritualrutene beholder sin eksisterende, faste fargekontrakt.
+    for (const navn of ['hen1.c', 'klift1.cel']) palettFigurBanker.set(navn, {
+        ...palettFigurBanker.get('li1.cel'),
+        bank_sha256: 'c79ef41937cdf1a651a68766cfeec5a059fdfc4ca8a721d211a732472b4954ed',
+        antall: 55, foerste: 40, siste: 54
+    });
+    const palettFigurPakker = new Map();
+    function harPalettFigur(navn, nr) {
+        const m = palettFigurBanker.get(navn);
+        return !!m && (m.foerste === undefined || (nr >= m.foerste && nr <= m.siste));
+    }
+    let nestePalettFigurPakke = 0;
+    const palettFigurRefTex = new Map();
     let palettKlar = false;                 /* palData er skjermens palett for dette bildet */
     const hdPoser = new Map(), hdPoseKontrakter = new Map(), indeksHasher = new WeakMap(), bankHasher = new WeakMap();
     let hdPoseViste = [], hdPoseFeil = [];
@@ -105,10 +129,13 @@ const Visning = (() => {
      *                 (128 = fargen i paletten), B = hvor mye av palettfargen (255 = helt)
      *   maskeModus 2  posene: originalens indekser i lowres (maske, maskeStr), og fargene
      *                 bildet er tegnet med (ref). Fargen flyttes fra ref til skjermens farge.
+     *   maskeModus 3  separate LI1-foto med streng NN-maske og kildebundet ref.
+     *                 Normalpaletten beholder fotoets RGB. Normaltoning bevarer
+     *                 fotoet; andre paletter bruker lysforhold og faktisk palettfarge.
      * Paletten (pal) er skjermens farger per linje, 32 x palH, ogsaa under toning. */
     const fragHd = `
         precision highp float;
-        uniform sampler2D map, vern, maske, pal, ref;
+        uniform sampler2D map, vern, maske, pal, ref, fotoPal;
         uniform vec2 lagPos, maskeStr;
         uniform float lys, maskeModus, palTop, palH;
         uniform vec4 imageRegion;
@@ -135,6 +162,24 @@ const Visning = (() => {
                 float i = floor(m.r + 0.5) - 1.0;
                 if (i >= 0.0 && i < 32.0)
                     rgb = mix(rgb, min(palFarge(i, floor(p.y)) * m.g / 128.0, vec3(1.0)), m.b / 255.0);
+            } else if (maskeModus > 2.5) {
+                vec3 m = texture2D(maske, uv).rgb * 255.0;
+                float i = floor(m.r + 0.5) - 1.0;
+                vec3 anker = texture2D(ref, vec2(1.5 / 32.0, 0.5)).rgb;
+                float fade = clamp(dot(palFarge(1.0, floor(p.y)), vec3(1.0)) /
+                    max(0.001, dot(anker, vec3(1.0))), 0.0, 1.0);
+                rgb = c.rgb * fade;
+                float normal = texture2D(fotoPal, vec2(0.5,
+                    (clamp(palTop + floor(p.y), 0.0, palH - 1.0) + 0.5) / palH)).r;
+                if (normal < 0.5 && i >= 0.0 && i < 32.0) {
+                    vec3 r = texture2D(ref, vec2((i + 0.5) / 32.0, 0.5)).rgb;
+                    vec3 a = palFarge(i, floor(p.y));
+                    // Et hvitt originalblink skal vaere noeytralt. Kanalvis
+                    // RGB-ratio ville gi groenne/blaa rester fra fotofargene.
+                    vec3 vekt = vec3(0.2126, 0.7152, 0.0722);
+                    float forhold = dot(c.rgb, vekt) / max(dot(r, vekt), 0.004);
+                    rgb = mix(rgb, clamp(a * forhold, 0.0, 1.0), m.b / 255.0);
+                }
             } else if (maskeModus > 1.5) {
                 float i = floor(texture2D(maske, (floor(vUv * maskeStr) + 0.5) / maskeStr).r * 255.0 + 0.5);
                 vec4 r = texture2D(ref, vec2((i + 0.5) / 32.0, 0.5));
@@ -158,9 +203,11 @@ const Visning = (() => {
         uniform float uskarp;      // 0 = skarp
         uniform float lys;         // fading for HD-bakgrunner
         uniform vec4 region;
+        uniform vec4 sourceRegion; // utsnitt av en kompositt, full tekstur ellers
         varying vec2 vUv;
         void main() {
             vec2 uv = (vUv - region.xy) / region.zw;
+            uv = sourceRegion.xy + uv * sourceRegion.zw;
             vec3 c = texture2D(map, uv).rgb;
             if (uskarp > 0.0) {
                 vec2 d = texel * uskarp;
@@ -322,6 +369,9 @@ const Visning = (() => {
         canvas.addEventListener('webglcontextrestored', () => { tapt = false; maaTegnes = true; if (vedTilbake) vedTilbake(); });
         renderer.setPixelRatio(window.devicePixelRatio || 1);
         renderer.autoClear = true;
+        // Innebygde fonter maa vaere lastet foer Canvas maaler glyfene.
+        Promise.all([document.fonts.load('100px MoonstoneHD'), document.fonts.load('100px MoonstoneLesbar')])
+            .then(() => { klarFont = true; maaTegnes = true; });
 
         /* trinn 1: lowres-koordinater, y nedover */
         scene1 = new THREE.Scene();
@@ -337,7 +387,7 @@ const Visning = (() => {
         bakTex = dataTekstur(bakData, 320, 200);
         bakAmigaMat = amigaMat(bakTex, 320, 200, 1, false, false);
         bakMat = new THREE.ShaderMaterial({         /* HD-bakgrunnen */
-            uniforms: { map: { value: bakTex }, texel: { value: new THREE.Vector2(1 / 320, 1 / 200) }, uskarp: { value: 0 }, lys: { value: 1 }, region: { value: new THREE.Vector4(0, 0, 1, 1) } },
+            uniforms: { map: { value: bakTex }, texel: { value: new THREE.Vector2(1 / 320, 1 / 200) }, uskarp: { value: 0 }, lys: { value: 1 }, region: { value: new THREE.Vector4(0, 0, 1, 1) }, sourceRegion: { value: new THREE.Vector4(0, 0, 1, 1) } },
             vertexShader: vertLag, fragmentShader: fragBak, side: THREE.DoubleSide, depthTest: false, depthWrite: false,
         });
         bakMesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), bakAmigaMat);
@@ -352,6 +402,8 @@ const Visning = (() => {
         sceneVernTex = dataTekstur(sceneVernData,320,200);
         palData = new Uint8Array(32 * H * 4);
         palTex = dataTekstur(palData, 32, H);
+        fotoPalData = new Uint8Array(H * 4);
+        fotoPalTex = dataTekstur(fotoPalData, 1, H);
         tomTex = dataTekstur(new Uint8Array(4), 1, 1);
         skyggeMat = amigaMat(forTex, 320, 200, 1, true, true);
         skyggeMesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), skyggeMat);
@@ -525,10 +577,83 @@ const Visning = (() => {
         if (!g || g.w !== d.w || g.h !== d.h || i < 0 || j < 0 || i >= d.w || j >= d.h) return 0;
         return g.px[j * d.w + (d.speilet ? d.w - 1 - i : i)];
     }
+
+    /* Originalens doedskode baker disse tre TROLL2-delene i bakgrunnsbufferen.
+     * Bare maalte kall, buffer og eksakte kildebytes faar bakgrunnseierskap.
+     * Dette er intern kode, ikke en tillatelse som kan importeres med en HD-pakke. */
+    const bakteTrollKilder = new Map([
+        [13, [60, 13, '350e7907bd0e4973db68fb0b1d32ed42bdc41b24f370e09d3af9d46b0eba3d57']],
+        [14, [80, 15, '08e5a0373a80b43565c1ffe9488ee671a8dbd50f73b571fcbe9d53a8c3d9cdad']],
+        [15, [47, 24, '9b414a417a734e702e5dfba3476c9f29375a5072c7aa231a2edccb8f230b15dd']]
+    ]);
+    function erBaktTroll(d, g) {
+        const kilde = bakteTrollKilder.get(d.bilde);
+        if (d.fil.toLowerCase() !== 'troll2.cel' || !kilde || !g ||
+            d.target !== 0x0a2cd6 || ![0x087b34, 0x087bf0].includes(d.caller) ||
+            d.w !== kilde[0] || d.h !== kilde[1] || g.w !== d.w || g.h !== d.h) return false;
+        const bank = originalCeler.get('troll2.cel');
+        return !!bank && bankHash(bank).hash === 'f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e' &&
+            indeksHash(g) === kilde[2];
+    }
+    /* To kildebeviste Balok-sproeyt baker originalen i bakgrunnsbufferen.
+     * Bare disse eksakte rutene har samme bevaring som TROLL-likdelene. */
+    const bakteBalokKilder = new Map([
+        [67, [30, 3, '833664288514e5549c238a8107903ba599f3fcd2cd94685c2f4a5bdf8e8d0be9']],
+        [68, [54, 4, '081ac0dd193d015665a3f1783d6f79300c93339a0f73244c52db8ff4b362c98c']]
+    ]);
+    function erBaktKamp(d, g) {
+        if (erBaktTroll(d, g)) return true;
+        const c = bakteBalokKilder.get(d.bilde);
+        return d.fil.toLowerCase() === 'balok1.cel' && c && g &&
+            d.target === 0x0a2cd6 && [0x087b34, 0x087bf0].includes(d.caller) &&
+            d.w === c[0] && d.h === c[1] && g.w === d.w && g.h === d.h && g.planmaske === 15 &&
+            bankHash(originalCeler.get('balok1.cel')).hash === 'c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb' &&
+            indeksHash(g) === c[2];
+    }
+    // Bare de observerte originalkallene faar vente paa kampens andre buffer.
+    // Pakkeimport kan ikke gi en annen bank eller et annet kall denne retten.
+    function erDragon5Spor(d, g) {
+        if (!g || g.w !== d.w || g.h !== d.h || d.target !== 0x0a2cd6 || d.caller !== 0x087bf0) return false;
+        const navn = d.fil.toLowerCase();
+        if (navn === 'dragon5.cel') return bankHash(originalCeler.get(navn)).hash ===
+            '3f99e992ac1543b44b450fb2374943d0917c5bfe9000f6c91151fa808d3257a2';
+        // Flammen passerer ogsaa over originalens svarte drageskygge. Uten
+        // dens kildebevis ville ekte5-piksler i flammens hull bli ukjente.
+        if (navn !== 'dragon2.cel' || bankHash(originalCeler.get(navn)).hash !==
+            '662891094e0a79b5831fb0c09471852cdb1af340c2bfa6293b6b9d0e5e401599') return false;
+        if (d.bilde === 27) return d.w === 156 && d.h === 15 && g.planmaske === 5;
+        // Den maalte005-halsdelen blir liggende gjennom de samme bufferbyttene.
+        // Dens aatte originale10-piksler maa fortsatt eie hodets transparente hull.
+        return d.bilde === 5 && d.w === 36 && d.h === 48 && g.planmaske === 15 &&
+            indeksHash(g) === 'c6d27218bd4195f57d8f6a91f4fac5d19655204387d06479d0b01c505571a69e';
+    }
+    const balokKilder = new Map([
+        [26, [65, 13, 5, 'af98aa16ec180b8b2016841903bc5a42a57547a7a5dedde272235453388e6d01']],
+        [41, [81, 50, 15, '2d702145e83c53f24a3be8769207944815c3bee519f0ede889cefdc87f7e6ee0']],
+        [42, [46, 22, 15, 'e180d3286fc2355638467ea057de6640d2990a1b368a6d0cb8868af5a4cd58d9']],
+        [43, [75, 10, 15, 'ff57464687c358f6ed29dd7fa9f3ae3636d9be043d87cfdd38918ae8a573742e']]
+    ]);
+    function erBalokKilde(d, g) {
+        const c = balokKilder.get(d.bilde);
+        return d.fil.toLowerCase() === 'balok1.cel' && c && g && d.w === c[0] && d.h === c[1] &&
+            g.w === d.w && g.h === d.h && g.planmaske === c[2] &&
+            d.target === 0x0a2cd6 && d.caller === 0x087bf0 &&
+            bankHash(originalCeler.get('balok1.cel')).hash === 'c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb' &&
+            indeksHash(g) === c[3];
+    }
+    function balok15Vern(d, g, lag, p, i, j) {
+        if (d.bilde !== 41 || !erBalokKilde(d, g) ||
+            g.px[j * d.w + (d.speilet ? d.w - 1 - i : i)] !== 0 || lag.forIdx[p] !== 15) return false;
+        const scan = Kjerne.skanout(), row = diwNaa[1] + d.y + j, q = (row * 32 + 15) * 4;
+        return scan.gyldig && row >= 0 && row < H && scan.pal?.length === H * 32 * 4 &&
+            scan.pal[q] === 204 && scan.pal[q + 1] === 0 && scan.pal[q + 2] === 0 && scan.pal[q + 3] === 255 &&
+            lag.for?.[p * 4] === 204 && lag.for[p * 4 + 1] === 0 && lag.for[p * 4 + 2] === 0 && lag.for[p * 4 + 3] === 255;
+    }
     function staarFortsatt(lag, p, lest) {
         const d = p.d, g = originalCel(d.fil, lest)?.[d.bilde];
         if (!g || g.w !== d.w || g.h !== d.h || !lag.forIdx || !Number.isInteger(p.x) || !Number.isInteger(p.y)) return false;
-        let synlig = 0;
+        const bakt = erBaktKamp(d, g);
+        let synlig = 0, bakgrunn = 0;
         for (let j = 0; j < d.h; j++) {
             const y = p.y + j;
             if (y < 0 || y >= 200) continue;
@@ -538,18 +663,57 @@ const Visning = (() => {
                 const c = g.px[j * d.w + (d.speilet ? d.w - 1 - i : i)];
                 if (!c) continue;
                 const q = y * 320 + x, faktisk = lag.forIdx[q];
+                // Bakgrunnsliket blir staaende ogsaa mens en ny forgrunnsfigur
+                // tegnes over det. Selve HD-tegningen kontrolleres strengere senere.
+                if (bakt && lag.bakIdx?.[q] === c) { bakgrunn++; continue; }
                 if (faktisk === c) { synlig++; continue; }
-                if (faktisk === 255 && lag.bakIdx?.[q] === c) continue;
+                if (faktisk === 255 && lag.bakIdx?.[q] === c) { if (bakt) bakgrunn++; continue; }
                 if (faktisk === 254) continue;      /* palettendring paa linjen ($FE): kontrolleres i forberedTekst */
                 let dekket = false;
                 for (const o of plasserte.values()) {
                     if (o !== p && x >= o.x && y >= o.y && x < o.x + o.w && y < o.y + o.h &&
-                        kildePiksel(o, x, y, lest) === faktisk) { dekket = true; break; }
+                        (kildePiksel(o, x, y, lest) === faktisk ||
+                         (bakt && erBaktKamp(o.d, originalCel(o.d.fil, lest)?.[o.d.bilde]) &&
+                          kildePiksel(o, x, y, lest) === lag.bakIdx?.[q]))) { dekket = true; break; }
                 }
                 if (!dekket) return false;
             }
         }
-        return synlig > 0;
+        return synlig > 0 || bakgrunn > 0;
+    }
+
+    const valgbankSha = '30f6b15498f18bdb94e2cfa236c5eff32a0bcd5dc9e457a0391732dfb1e20a77';
+    const uiBankSha = '02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104';
+    const erValgspor = d => d.fil.toLowerCase() === 'sel.cel' && d.w === 64 && d.h === 76 &&
+        !d.speilet && d.bilde >= 1 && d.bilde <= 5;
+
+    // Inventaret og riddervalget tegnes over flere bufferbytter. Endringer i
+    // transparente hull tilhoerer andre figurer og skal ikke slette dette sporet.
+    // Avgrens til kjente UI-kilder; de fulle kilde-/palett-/eierskapsvernene ved
+    // HD-tegningen gjelder fortsatt. En SHA som venter gir bare sporet ventetid.
+    function erUiSpor(d, g) {
+        if (!g || g.w !== d.w || g.h !== d.h || d.speilet) return false;
+        const fil = d.fil.toLowerCase(), valg = erValgspor(d);
+        // KI-PNG og ikonmanifest kan komme etter inventarets engangstegninger.
+        // Retensjonen bindes derfor til originalbanken allerede under lasting,
+        // ikke til tilstedevaerelsen av HD-bildet eller dets senere metadata.
+        if (!valg && !(fil === 'ki.cel' && d.bilde >= 0 && d.bilde <= 44)) return false;
+        const bank = originalCeler.get(fil);
+        if (!bank) return false;
+        const hash = bankHash(bank).hash;
+        return hash === null || hash === (valg ? valgbankSha : uiBankSha);
+    }
+
+    function valgRammeStaar(lag, p, g) {
+        let synlig = false;
+        for (let j = 0; j < p.h; j++) for (let i = 0; i < p.w; i++) {
+            const x = p.x + i, y = p.y + j, c = g.px[j * p.w + i];
+            if (!c || x < 0 || y < 0 || x >= 320 || y >= 200) continue;
+            const q = y * 320 + x;
+            if (lag.forIdx[q] === c) synlig = true;
+            else if (lag.forIdx[q] !== 255 || lag.bakIdx?.[q] !== c) return false;
+        }
+        return synlig;
     }
 
     /* hvilke figurer som vises naa (se over) */
@@ -587,22 +751,16 @@ const Visning = (() => {
                     ((d.bilde === 15 && d.y === 83 && d.w === 17) || (d.bilde === 6 && d.y === 108 && d.w === 14));
                 const bokstavPil = menybokstav ? [...plasserte.values()].find((p) => p.menypilKlar !== null && erTittelmenypil(p.d) &&
                     p.x < d.x + d.w && p.x + p.w > d.x && p.y < d.y + d.h && p.y + p.h > d.y) : null;
-                const x = d.x - d.xoff, y = d.y, k = x + ',' + y + ',' + d.w + ',' + d.h;
-                const hash = rektHash(lag.forIdx, x, y, d.w, d.h), forrige = plasserte.get(k);
-                const erValgbilde = (v, min, maks) => v && v.fil.toLowerCase() === 'sel.cel' &&
-                    v.w === 64 && v.h === 76 && !v.speilet && v.bilde >= min && v.bilde <= maks;
-                // Bare den kjente cyan valgrammen kan beholde sitt portrett.
-                // Begge originalkildene kontrolleres fortsatt pikselvis nedenfor.
-                let underlag = null;
-                if (erValgbilde(d, 1, 1)) {
-                    if (erValgbilde(forrige?.d, 2, 5)) underlag = forrige.d;
-                    else if (erValgbilde(forrige?.d, 1, 1) && forrige.hash === hash) underlag = forrige.underlag;
-                }
+                const x = d.x - d.xoff, y = d.y;
+                // Rammen og portrettet deler maal og plass, men er to kilder med
+                // eget pikseleierskap. Et nytt rammespor maa ikke erstatte portrettet.
+                const k = x + ',' + y + ',' + d.w + ',' + d.h + (erValgspor(d) ? ',sel/' + d.bilde : '');
+                const hash = rektHash(lag.forIdx, x, y, d.w, d.h);
                 if (/^(bold\.f|small\.font)$/i.test(d.fil)) for (const [gammel,p] of plasserte) {
                     if (p.x===x && p.y===y && p.d.fil.toLowerCase()===d.fil.toLowerCase()) plasserte.delete(gammel);
                 }
                 plasserte.delete(k);
-                plasserte.set(k, { d, x, y, w: d.w, h: d.h, hash, underlag, fra: bildeNr, sett: false,
+                plasserte.set(k, { d, x, y, w: d.w, h: d.h, hash, fra: bildeNr, sett: false,
                     menypilKlar: ventMenypil ? bildeNr + 2 : (bokstavPil?.menypilKlar ?? null),
                     ventPilNr: ventMenypil ? d.menypilNr : bokstavPil?.ventPilNr });
             }
@@ -629,11 +787,45 @@ const Visning = (() => {
             if (tekst) {
                 if (staarFortsatt(lag, p, lestTekst)) p.sett = true;
                 else if (p.sett || bildeNr - p.fra > 50) borteTekst.push(k);
+            } else if (p.uiKandidat || erUiSpor(p.d, originalCel(p.d.fil, lestTekst)?.[p.d.bilde])) {
+                // Tegninger kan vaere delvis synlige mens neste buffer bygges.
+                // En kjent kandidat maa ogsaa overleve en midlertidig fremmed
+                // bank. Bare en kildebekreftet, synlig kandidat faar eierskap;
+                // forberedHd krever fortsatt hele kilde-/palett-/pikselbeviset.
+                p.uiKandidat = true;
+                const g = originalCel(p.d.fil, lestTekst)?.[p.d.bilde];
+                p.uiAktiv = erUiSpor(p.d, g) && (erValgspor(p.d) && p.d.bilde === 1 ?
+                    valgRammeStaar(lag, p, g) : staarFortsatt(lag, p, lestTekst));
+                if (p.uiAktiv) {
+                    p.sistSett = bildeNr;
+                    p.hash = rektHash(lag.forIdx, p.x, p.y, p.w, p.h);
+                }
+                else if (bildeNr - (p.sistSett ?? p.fra) > 50) borteTekst.push(k);
+            } else if (erBaktKamp(p.d, originalCel(p.d.fil, lestTekst)?.[p.d.bilde])) {
+                if (!staarFortsatt(lag, p, lestTekst)) borteTekst.push(k);
+            } else if (erDragon5Spor(p.d, originalCel(p.d.fil, lestTekst)?.[p.d.bilde])) {
+                // Flammen tegnes foer frontbufferen byttes. Vent paa dens eksakte
+                // kildepiksler; forberedHd tillater ikke foto mens de mangler.
+                if (staarFortsatt(lag, p, lestTekst)) {
+                    p.sett = true;
+                    p.hash = rektHash(lag.forIdx, p.x, p.y, p.w, p.h);
+                } else if (bildeNr - p.fra > 50) borteTekst.push(k);
+            } else if (p.d.fil.toLowerCase() === 'li1.cel' && originalCel(p.d.fil, lestTekst)?.[p.d.bilde] &&
+                bankHash(originalCeler.get('li1.cel')).hash === palettFigurBanker.get('li1.cel').bank_sha256) {
+                // Introen kopierer kroppsdeler over haandens transparente hull.
+                // Behold bare sporet naar alle opake kildepiksler fortsatt stemmer.
+                // forberedHd kontrollerer fortsatt hele rektangelets pikseleierskap.
+                if (!staarFortsatt(lag, p, lestTekst)) borteTekst.push(k);
             } else if (rektHash(lag.forIdx, p.x, p.y, p.w, p.h) !== p.hash) borteTekst.push(k);
         }
         for (const k of borteTekst) plasserte.delete(k);
         if (plasserte.size > 2000) plasserte.clear();
-        visteListe = [...plasserte.values()].filter((p) => p.menypilKlar === null).flatMap((p) => p.underlag ? [p.underlag, p.d] : [p.d]);
+        const aktive = [...plasserte.values()].filter(p => p.menypilKlar === null && (!p.uiKandidat || p.uiAktiv));
+        // Dobbelbufferen kan fortsatt vise forrige cyanramme etter at CPU har
+        // tegnet portrettene paa nytt. Den eksakte, synlige rammekilden ligger
+        // foran portrettene; en ventende ramme deltar ikke i pikseleierskapet.
+        const ramme = p => p.uiKandidat && erValgspor(p.d) && p.d.bilde === 1;
+        visteListe = [...aktive.filter(p => !ramme(p)), ...aktive.filter(ramme)].map(p => p.d);
     }
 
     function flate(i) {
@@ -689,6 +881,10 @@ const Visning = (() => {
                             });
                             originalCeler.set(navn, { data, bilder });
                             forvarmPoseIndekser(navn, bilder);
+                            // SHA er asynkron. Start de faste kampbevisene ved
+                            // banklesing, foer engangstegnet broelepose kommer.
+                            if (navn === 'balok1.cel') for (const nr of [...balokKilder.keys(), ...bakteBalokKilder.keys()]) if (bilder[nr]) indeksHash(bilder[nr]);
+                            if (navn === 'dragon2.cel' && bilder[5]) indeksHash(bilder[5]);
                             for (const m of hdIkoner.values()) if (m.source.file === navn && bilder[m.source.frame]) indeksHash(bilder[m.source.frame]);
                         }
                     }
@@ -741,10 +937,191 @@ const Visning = (() => {
         return x < dx + d.w && x + w > dx && y < d.y + d.h && y + h > d.y;
     }
 
+    /* Kilde, bilde og maske maa hoere til samme ferdige innlasting. En ny
+     * egen PNG faar aldri en gammel standardmaske. Ingen hash eller pikseljobb
+     * gjentas i renderlokka naar samme dekodede kilde og teksturpar er kontrollert. */
+    function palettFigurKlar(navn, key, t, g) {
+        const m = palettFigurBanker.get(navn), bank = originalCeler.get(navn);
+        if (!m) return null;
+        const nr = Number(key.slice(key.lastIndexOf('/') + 1));
+        if (Number.isInteger(nr) && m.foerste !== undefined && (nr < m.foerste || nr > m.siste)) return null;
+        if (!bank || bankHash(bank).hash !== m.bank_sha256) return 'kilde';
+        if (!Number.isInteger(nr) || nr < 0 || nr >= m.antall || !g) return 'rute';
+        const mask = t.maske, token = palettFigurPakker.get(key);
+        if (!mask || !token || t.palettPakke !== token || mask.palettPakke !== token) return 'maskepakke';
+        if (!palettKlar) return 'skanout';
+        if (t.width !== g.w * m.skala || t.height !== g.h * m.skala ||
+            mask.width !== t.width || mask.height !== t.height) return 'maal';
+        if (t.palettSjekk?.g !== g || t.palettSjekk?.mask !== mask) {
+            t.palettSjekk?.kantTex?.dispose();
+            let feil = null, kantpiksler=0;
+            const data = mask.data, kantData=new Uint8Array(data), foto = t.canvas.getContext('2d').getImageData(0,0,t.width,t.height).data;
+            for (let y=0; !feil && y<t.height; y++) for (let x=0; x<t.width; x++) {
+                const i=(y*t.width+x)*4, c=g.px[(y/m.skala|0)*g.w+(x/m.skala|0)];
+                if (data[i] !== (c ? c+1 : 0) || data[i+2] !== (c ? 255 : 0) || data[i+3] !== 255) {feil='indeksmaske';break;}
+                // Glattet konturalfa kan dekke en del av en NN-transparent celle.
+                // Bare disse kantpikslene laaner naermeste bekreftede kildeindeks.
+                // Leveransemasken endres aldri, og fotoets geometri/alfa er urort.
+                if (!c && foto[i+3]) {
+                    let indeks=0, best=Infinity;const sx=x/m.skala|0,sy=y/m.skala|0;
+                    for(let yy=Math.max(0,sy-1);yy<=Math.min(g.h-1,sy+1);yy++)
+                        for(let xx=Math.max(0,sx-1);xx<=Math.min(g.w-1,sx+1);xx++) {
+                            const v=g.px[yy*g.w+xx],d=(xx+.5-(x+.5)/m.skala)**2+(yy+.5-(y+.5)/m.skala)**2;
+                            if(v && d<best){indeks=v;best=d;}
+                        }
+                    if(!indeks){feil='alfakant';break;}
+                    kantData[i]=indeks+1;kantData[i+2]=255;kantpiksler++;
+                }
+                if (x%m.skala===2 && y%m.skala===2 && (foto[i+3]>=128)!==!!c) {feil='alfasenter';break;}
+            }
+            t.palettSjekk = {g,mask,feil,kantpiksler,kantTex:feil ? null : dataTekstur(kantData,t.width,t.height)};
+        }
+        if (t.palettSjekk.feil) return t.palettSjekk.feil;
+        if (!palettFigurRefTex.has(navn)) palettFigurRefTex.set(navn,
+            dataTekstur(new Uint8Array(m.referanse.flat()),32,1));
+        t.mat.uniforms.ref.value=palettFigurRefTex.get(navn);
+        t.mat.uniforms.maske.value=t.palettSjekk.kantTex;
+        return false;
+    }
+
+    // Bare RATMEN1/063 er fotografert med Wa2s groenne bladpalett. Samme
+    // originalrute brukes ogsaa med Gll3s brune/blaa farger, som beholder Original.
+    // Originalens innfade klipper hver firebitskanal til n; utfade trekker n fra.
+    const ratmenLauvReferanse = new Map([[5,[0,0,0]],[22,[2,9,5]],[24,[0,6,1]],
+        [25,[0,4,0]],[28,[4,5,0]]]);
+    const ratmenLauvPaletter = Array.from({length:32}, (_,k) => new Map(
+        [...ratmenLauvReferanse].map(([c,rgb]) => [c,rgb.map(v =>
+            (k < 16 ? Math.min(v,k) : Math.max(v-(k-16),0)) * 17)])));
+    function ratmenLauvKlar(d, g) {
+        const bank = originalCeler.get('ratmen1.cel'), scan = Kjerne.skanout();
+        if (!bank || bankHash(bank).hash !== '6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab' ||
+            !g || g.w !== 44 || g.h !== 35 || g.planmaske !== 31 ||
+            indeksHash(g) !== '52b5a933dd9bc0b295ca6decdc7cc219613254ccdcf7f7658b44457fd267c378' ||
+            !scan.gyldig || scan.pal?.length !== H * 32 * 4) return false;
+        const x = d.x-d.xoff;
+        let kandidater = ratmenLauvPaletter, synlig = false;
+        for (let j=0;j<g.h;j++) {
+            if (d.y+j < 0 || d.y+j >= 200) continue;
+            const rad = diwNaa[1]+d.y+j;
+            if (!Number.isInteger(rad) || rad < 0 || rad >= H) return false;
+            let opak = false;
+            for (let i=0;i<g.w;i++) if (x+i >= 0 && x+i < 320) {
+                const c = g.px[j*g.w+(d.speilet ? g.w-1-i : i)];
+                if (c) { opak = true; break; }
+            }
+            if (!opak) continue;
+            // Hele bladpaletten binder fotomaterialet ogsaa naar klipping bare
+            // viser en svart5-celle. Fotoets RGB foelger ikke enkeltcellene.
+            for (const c of ratmenLauvReferanse.keys()) {
+                const p = (rad*32+c)*4;
+                if (scan.pal[p+3] !== 255) return false;
+                kandidater = kandidater.filter(m => m.get(c).every((v,n) => scan.pal[p+n] === v));
+                if (!kandidater.length) return false;
+                synlig = true;
+            }
+        }
+        return synlig;
+    }
+
+    // BLO bruker bare gjennomsiktig0 og kampblod15. Den originale faden
+    // klipper/trekker firebitskanaler; for c00 gir begge modeller nivaa0..12.
+    // Eget lys fra blodindeksen hindrer baade roedt blod i fremmede paletter
+    // og feil fading naar resten av terrengpaletten har et annet maksimum.
+    function blodNivaa(d, g, t) {
+        const bank = originalCeler.get('blo.cel'), scan = Kjerne.skanout();
+        if (!bank || bankHash(bank).hash !== 'd83857454db7f5113598c6a41a46e45f62ecb4936637372b4807e22125bf699e' ||
+            !g || g.planmaske !== 15 || d.bilde < 0 || d.bilde >= 41 ||
+            t.width !== g.w*4 || t.height !== g.h*4 ||
+            !scan.gyldig || scan.pal?.length !== H*32*4) return null;
+        let nivaa = null;
+        const x = d.x-d.xoff;
+        for (let j=0;j<g.h;j++) {
+            if (d.y+j<0 || d.y+j>=200) continue;
+            let opak=false;
+            for (let i=0;i<g.w;i++) {
+                if (x+i<0 || x+i>=320) continue;
+                const c=g.px[j*g.w+(d.speilet ? g.w-1-i : i)];
+                if (c!==0 && c!==15) return null;
+                if (c===15) opak=true;
+            }
+            if (!opak) continue;
+            const p=((diwNaa[1]+d.y+j)*32+15)*4, r=scan.pal[p];
+            if (scan.pal[p+1]!==0 || scan.pal[p+2]!==0 || scan.pal[p+3]!==255 ||
+                r>204 || r%17 || (nivaa!==null && nivaa!==r)) return null;
+            nivaa=r;
+        }
+        return nivaa===null ? null : nivaa/204;
+    }
+
+    const fontTegn = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?.,#$% ' + "'_";
+    const klareEtiketter = new Map([
+        ['ki.cel/038', ['STR', 13, 16, '4a0dfb2ccc76589d4ed92800975cd8362f859223db0059154723e28c3eb6de05']],
+        ['ki.cel/039', ['CON', 13, 16, '417447fce10e24e9563439109aa686d7007d3634495a234627faa91fd39850c7']],
+        ['ki.cel/040', ['END', 13, 16, 'b3f306ad2cb1e08dbc418c31af60bff31988519354e0d8901f6ee604918deeef']],
+        ['ki.cel/041', ['XP', 9, 18, '285fefb3551a28045028cc37be091599a7072cc566b46f7bd44fbe754eee4775']],
+        ['ki.cel/042', ['GOLD', 16, 18, '6b586984726056b4ec6eb352fa81e0ffddb1124690edaf7b5882102b579a440c']],
+        ['ki.cel/043', ['HIT', 10, 18, 'a7c79c9cf92ffaa94a95650c2958af086019bbf9370dcd9f6fa956c91649a5bf']]
+    ]);
+
+    // Lesbar HD-tekst bruker samme tegn, boks og anker som originalen.
+    // Kilde- og pikselkontrollen nedenfor gjelder fortsatt foer noe fjernes.
+    function fyllKlarTekst(ctx, text, rect, familie, farge) {
+        const [x,y,w,h] = rect;
+        ctx.font = '100px ' + familie;
+        const m = ctx.measureText(text), venstre = m.actualBoundingBoxLeft || 0;
+        const topp = m.actualBoundingBoxAscent, bunn = m.actualBoundingBoxDescent;
+        const bredde = venstre + m.actualBoundingBoxRight, hoyde = topp + bunn;
+        if (!(bredde > 0 && hoyde > 0)) return;
+        const s = Math.min(w / bredde, h / hoyde);
+        ctx.save();ctx.translate(x + (w-bredde*s)/2 + venstre*s, y + (h-hoyde*s)/2 + topp*s);ctx.scale(s,s);
+        ctx.fillStyle = farge;ctx.fillText(text,0,0);ctx.restore();
+    }
+
+    function klarGlyf(d) {
+        if (!klarFont) return;
+        const bank = d.fil.toLowerCase(), key = bank + '/' + String(d.bilde).padStart(3,'0');
+        const meta = hdTekstMeta.get(key), t = hdPakke.get(key);
+        const liten = bank === 'small.font';
+        let tegn = fontTegn[d.bilde];
+        if (liten && d.bilde >= 26 && d.bilde < 52) tegn = tegn?.toUpperCase();
+        // Small.font bruker rute71 som skraastrek, mens bold.f bruker
+        // understrek. Det eldre pakkemanifestet deler feilaktig samme tegnkart.
+        const skraastrek = liten && d.bilde === 71;
+        if (skraastrek) {
+            if (hdTekstBanker.get(bank)!=='3a4ebc15f1176ac9428d7abb3f4ceb2b865ed3aa21ffea9068f51ec702f3b52b' ||
+                meta?.source_indices_sha256!=='9ab3c7b93ca805bbf46c5529985abfd756fa005ab3f7ef3b00742d6bf65d4f83') return;
+            tegn='/';
+        }
+        if (!t?.klarKilde || t.klarGlyf || !meta || meta.method !== 'original-source-contours' || meta.character !== (skraastrek ? '_' : tegn) ||
+            !Array.isArray(meta.source_ink_rect) || meta.source_ink_rect.length !== 4 ||
+            meta.width !== d.w || meta.height !== d.h) return;
+        const s = t.width / d.w, [x0,y0,x1,y1] = meta.source_ink_rect;
+        if (!(s > 0 && t.height === d.h*s && x0 >= 0 && y0 >= 0 && x1 <= d.w && y1 <= d.h && x1 > x0 && y1 > y0)) return;
+        const ctx=t.canvas.getContext('2d');ctx.resetTransform();ctx.clearRect(0,0,t.width,t.height);
+        let farge = '#fff6d8';
+        if (!liten) {
+            farge=ctx.createLinearGradient(0,y0*s,0,y1*s);
+            farge.addColorStop(0,'#fff1cc');farge.addColorStop(.55,'#edc47f');farge.addColorStop(1,'#c28d49');
+            ctx.shadowColor='#000';ctx.shadowOffsetX=.4*s;ctx.shadowOffsetY=.5*s;ctx.shadowBlur=.15*s;
+        }
+        if (liten) fyllKlarTekst(ctx,tegn,[x0*s,y0*s,(x1-x0)*s,(y1-y0)*s],'MoonstoneLesbar',farge);
+        else {
+            // Samme grunnlinje og fontstoerrelse paa hele raden. Originalens
+            // ulike glyfbokser skal ikke strekke hver bokstav til ulik hoeyde.
+            ctx.font='100px MoonstoneHD';
+            const m=ctx.measureText(tegn), cap=ctx.measureText('H').actualBoundingBoxAscent;
+            const sy=10*s/cap, sx=Math.min(sy,(d.w-3)*s/(m.actualBoundingBoxLeft+m.actualBoundingBoxRight));
+            ctx.save();ctx.translate(x0*s+m.actualBoundingBoxLeft*sx,13*s);ctx.scale(sx,sy);
+            ctx.fillStyle=farge;ctx.fillText(tegn,0,0);ctx.restore();
+        }
+        ctx.shadowColor='transparent';ctx.shadowBlur=ctx.shadowOffsetX=ctx.shadowOffsetY=0;
+        t.tex.needsUpdate=true;t.klarGlyf=true;t.klarTegn=tegn;
+    }
+
     /* Nabobokstaven overskriver skyggen til forrige bokstav. Valider derfor
      * hele originalraden i tegnerekkefolge foer HD-glyfene erstatter den.
      * Dette virker ogsaa for endrede tall/ord; ingen menytitler hardkodes. */
-    function forberedTekst(lag, lest) {
+    function forberedTekst(lag, lest, figurVern, tekstEgne) {
         const reservert = new Set(), grupper = new Map();
         if (!lag?.forIdx) return reservert;
         // Engangstegningen kan ha skjedd mens pakken lastet. Gjenfinn bare
@@ -788,6 +1165,7 @@ const Visning = (() => {
             if (gruppe.length) felt.push(gruppe);
         }
         const scan = typeof Kjerne !== 'undefined' ? Kjerne.skanout() : null;
+        const eie = felt.length ? eierskap(lest, lag) : null;
         for (const gruppe of felt) {
             const x = Math.max(0, Math.min(...gruppe.map(p => p.x))), y = gruppe[0].d.y;
             const w = Math.min(320, Math.max(...gruppe.map(p => p.x + p.d.w))) - x, h = gruppe[0].d.h;
@@ -800,35 +1178,33 @@ const Visning = (() => {
                 const v = p.g.px[j * p.d.w + i], dx = p.x + i - x;
                 if (v && dx >= 0 && dx < w) maske[j * w + dx] = v;
             }
-            const over = visteListe.filter(d => !medlemmer.has(d) && overlapper(x, y, w, h, d))
-                .map(d => ({d, g: originalCel(d.fil, lest)?.[d.bilde], x: d.x - d.xoff}));
             const fjern = [], vern = [];
             let gyldig = true;
             for (let j = 0; gyldig && j < hv; j++) for (let i = 0; i < w; i++) {
                 let c = maske[j * w + i];
                 const p = (y + j) * 320 + x + i;
                 let faktisk = lag.forIdx[p];
+                if (eie.ukjent[p]) { gyldig = false; break; }
                 // $FE betyr en palettendring, mens den faktiske indeksen
                 // fremdeles kan kontrolleres mot den originale glyfen.
                 if (faktisk===254 && scan?.gyldig) faktisk=scan.idx[(diwNaa[1]+y+j)*720+diwNaa[0]+(x+i)*2];
-                if (c && faktisk === c) { fjern.push(p); continue; }
+                const e = eie.eier[p], egen = e >= 0 && medlemmer.has(visteListe[e]);
+                // En foreldet glyf kan ha samme indeks som figuren som siden
+                // dekket den. Bare glyfens egne kildeceller beviser synlig tekst.
+                if (c && faktisk === c && egen) { fjern.push(p); continue; }
                 if (faktisk === 255 && (!c || lag.bakIdx?.[p] === c)) continue;
                 // Et kildefast PIV-motiv kan bevares foran HD-bakgrunnen.
                 // Slike originalpiksler bak tegnets transparente felt er underlag.
                 if (!c && lag.scene && faktisk === lag.bakIdx?.[p]) continue;
-                const dekket = over.some(o => {
-                    const ox = x + i - o.x, oy = y + j - o.d.y;
-                    return o.g && ox >= 0 && ox < o.g.w && oy >= 0 && oy < o.g.h &&
-                        o.g.px[oy * o.g.w + (o.d.speilet ? o.g.w - 1 - ox : ox)] === faktisk;
-                });
+                const dekket = e >= 0 && !egen && eie.farge(e, p) === faktisk;
                 if (dekket) vern.push(p);
                 else { hdKontroll.tekstFeil.push({ x: x+i, y: y+j, wanted: c, actual: faktisk,
                     frames: gruppe.map(p => p.d.bilde) }); gyldig = false; break; }
             }
             if (!gyldig || !fjern.length) { hdKontroll.tekstAvvist++; continue; }
-            for (const p of fjern) forData[p * 4 + 3] = 0;
-            for (const p of vern) vernData[p * 4 + 3] = 255;
-            for (const p of gruppe) hdTegnbare.add(p.d);
+            for (const p of fjern) { forData[p * 4 + 3] = 0; tekstEgne.add(p); }
+            for (const p of vern) { vernData[p * 4 + 3] = 255; figurVern.add(p); }
+            for (const p of gruppe) { klarGlyf(p.d); hdTegnbare.add(p.d); }
             hdKontroll.tekstGodkjent += gruppe.length;
         }
         return reservert;
@@ -1002,8 +1378,8 @@ const Visning = (() => {
     }
 
     /* Next Day fyller himmelen i forgrunnen; baklaget kan fortsatt inneholde
-     * titteltegningen. Det er derfor ikke trygt aa slette maanens alfamaske.
-     * Originale 045–049, hele rektangelet og alle 16 innfadepaletter er maalt
+     * titteltegningen. Bare en faktisk vist, kildeverifisert HD-himmel kan
+     * overta det tomme feltet. Originale 045–049 og 16 innfadepaletter er maalt
      * i review/ki-moon-source. Ingen andre KI-ruter arver denne kontrakten. */
     function forberedMaane(d, g, lag, foran) {
         const bank = originalCeler.get('ki.cel');
@@ -1034,8 +1410,13 @@ const Visning = (() => {
                 hdKontroll.piksler++; return;
             }
         }
-        // Foerst etter full kontroll: behold riktig himmel under fotoets alfa.
-        const himmel = [0, 0, Math.min(2, nivaa) * 17, 255];
+        // Foerst etter full kontroll: den SHA-verifiserte ch.piv-scenen eier
+        // himmelen naar dens HD-bilde faktisk vises. Originalens ensfargede
+        // blaafelt ville ellers dekke fotohimmelen som en firkant rundt maanen.
+        // Uten denne bakgrunnen maa feltet fortsatt skjule den gamle kopien.
+        const hdHimmel = lag.scene === 'loading' && (lag.hash >>> 0) === 0x55bb9767 &&
+            bakMesh.material === bakMat;
+        const himmel = hdHimmel ? [0, 0, 0, 0] : [0, 0, Math.min(2, nivaa) * 17, 255];
         for (let j = 0; j < 44; j++) for (let i = 0; i < 57; i++)
             forData.set(himmel, ((12 + j) * 320 + 119 + i) * 4);
         hdFigurLys.set(d, nivaa / 15);
@@ -1047,9 +1428,9 @@ const Visning = (() => {
      * som har en ikke-gjennomsiktig kildepiksel der (indeksen i figurNr), og hvilke
      * piksler som ligger i rektangelet til en figur uten paalitelig kilde (ukjent).
      * Speilingen og planmasken er de samme som i pikselkontrollen. */
-    function eierskap(lest) {
+    function eierskap(lest, lag) {
         const eier = new Int16Array(320 * 200).fill(-1), ukjent = new Uint8Array(320 * 200);
-        const kilder = [];
+        const kilder = [], gamleSkygger = new Set();
         for (let k = 0; k < visteListe.length && k < 32000; k++) {
             const o = visteListe[k], ox = o.x - o.xoff, og = originalCel(o.fil, lest)?.[o.bilde];
             const ok = !!og && og.w === o.w && og.h === o.h && Number.isInteger(ox) && Number.isInteger(o.y);
@@ -1059,7 +1440,19 @@ const Visning = (() => {
                 for (let i = Math.max(0, -x0); i < o.w && x0 + i < 320; i++) {
                     const p = (y0 + j) * 320 + x0 + i;
                     if (!ok) { ukjent[p] = 1; continue; }
-                    if (og.px[j * o.w + (o.speilet ? o.w - 1 - i : i)]) eier[p] = k;
+                    const c = og.px[j * o.w + (o.speilet ? o.w - 1 - i : i)];
+                    if (!c) continue;
+                    const forrige = eier[p], f = visteListe[forrige];
+                    // Den gamle026-skyggen kan ha et senere beholdt tegnelistespor
+                    // enn riktig kropp. Bare en eksakt042/043-kilde som faktisk
+                    // staar i frontbufferen faar beholde pikselen foran skyggen.
+                    if (o.bilde === 26 && erBalokKilde(o, og) && forrige >= 0 &&
+                        [42,43].includes(f.bilde) && erBalokKilde(f, kilder[forrige]) &&
+                        lag.forIdx[p] !== c && kildePiksel({d:f,x:f.x-f.xoff,y:f.y}, p % 320, Math.floor(p / 320), lest) === lag.forIdx[p]) {
+                        gamleSkygger.add(k);
+                        continue;
+                    }
+                    eier[p] = k;
                 }
             }
         }
@@ -1067,7 +1460,7 @@ const Visning = (() => {
             const o = visteListe[k], g = kilder[k], i = p % 320 - (o.x - o.xoff), j = Math.floor(p / 320) - o.y;
             return g.px[j * o.w + (o.speilet ? o.w - 1 - i : i)];
         };
-        return { eier, ukjent, farge };
+        return { eier, ukjent, farge, gamleSkygger };
     }
 
     /* Gjenkjente figurer kan erstattes. HD-figurene tegnes i samme rekkefoelge som
@@ -1087,6 +1480,9 @@ const Visning = (() => {
             poseGodkjent: 0, poseGruppe: 0, poseKilde: 0, posePalett: 0, poseOverlapp: 0, posePiksler: 0,
             tekstGodkjent: 0, tekstAvvist: 0, tekstFeil: [], lys: 0, lysUkjent, hdLys };
         hdKontroll.ikonGodkjent = 0; hdKontroll.ikonAvvist = 0;
+        hdKontroll.foliageAvvist = 0;
+        hdKontroll.blodGodkjent = 0; hdKontroll.blodAvvist = 0;
+        hdKontroll.palettFigurGodkjent=0; hdKontroll.palettFigurFeil=[];
         hdMarkor=null;
         vernData.fill(0);
         vernTex.needsUpdate = true;
@@ -1094,10 +1490,12 @@ const Visning = (() => {
         const lest = new Map();
         palettKlar = oppdaterPalett();
         const reservert = forberedPoser(lag, lest);
-        for (const d of forberedTekst(lag, lest)) reservert.add(d);
+        const tekstFigurVern = new Set();
+        const tekstEgne = new Set();
+        for (const d of forberedTekst(lag, lest, tekstFigurVern, tekstEgne)) reservert.add(d);
         forberedMarkor(lag,lest);
         const harLag = lag && lag.forIdx && lag.forIdx.length === 320 * 200;
-        const eie = harLag ? eierskap(lest) : null;
+        const eie = harLag ? eierskap(lest, lag) : null;
         const figurHd = new Set();
         for (let nr = 0; nr < visteListe.length; nr++) {
             const d = visteListe[nr];
@@ -1109,18 +1507,29 @@ const Visning = (() => {
             // Gamle tegninger helt utenfor vinduet blir staaende i listen (tomt rektangel).
             if (x >= 320 || y >= 200 || x + d.w <= 0 || y + d.h <= 0) continue;
             if (!g || g.w !== d.w || g.h !== d.h || !Number.isInteger(x) || !Number.isInteger(y)) { hdKontroll.kilde++; continue; }
+            if (erValgspor(d) && bankHash(originalCeler.get('sel.cel')).hash !== valgbankSha) { hdKontroll.kilde++; continue; }
+            if (ikey === 'ratmen1.cel/063' && !ratmenLauvKlar(d,g)) { hdKontroll.foliageAvvist++; continue; }
+            const erBlod = d.fil.toLowerCase()==='blo.cel';
+            const blodLys = erBlod ? blodNivaa(d,g,hdPakke.get(ikey)) : null;
+            if (erBlod && blodLys===null) { hdKontroll.blodAvvist++; continue; }
+            // En fremtidig HD026 maa heller ikke tegne den gamle skyggen foran
+            // den kildebekreftede kroppen. Originalens svarte piksler blir igjen.
+            if (eie.gamleSkygger.has(nr)) { hdKontroll.piksler++; continue; }
+            const palettFeil = palettFigurKlar(d.fil.toLowerCase(),ikey,hdPakke.get(ikey),g);
+            if (palettFeil) { hdKontroll.palettFigurFeil.push({key:ikey,feil:palettFeil}); continue; }
             const ikon = hdIkoner.get(ikey);
             if (ikon && (bankHash(originalCeler.get(d.fil.toLowerCase())).hash !== ikon.source.bank_sha256 ||
                 indeksHash(g) !== ikon.indices_sha256 || g.planmaske !== ikon.plane_mask ||
                 !fargeleggIkon(ikon, hdPakke.get(ikey), y))) { hdKontroll.ikonAvvist++; continue; }
             if (hdPakke.get(ikey).maske && !palettKlar) { hdKontroll.maske++; continue; }
             // Ukjent fullt lys (skjermen toner inn): bare bilder som farges fra paletten.
-            if (lysUkjent && !ikon && !hdPakke.get(ikey).maske) { hdKontroll.lys++; continue; }
+            if (lysUkjent && !ikon && !erBlod && !hdPakke.get(ikey).maske) { hdKontroll.lys++; continue; }
             if (d.fil.toLowerCase() === 'ki.cel' && d.bilde >= 45 && d.bilde <= 49) {
                 const foran = visteListe.filter((o) => o !== d && overlapper(x, y, d.w, d.h, o));
                 forberedMaane(d, g, lag, foran);
                 continue;
             }
+            const bakt = erBaktKamp(d, g);
             let gyldig = true, tvetydig = false, egne = 0;
             for (let j = 0; gyldig && j < d.h; j++) {
                 if (y + j < 0 || y + j >= 200) continue;
@@ -1130,8 +1539,30 @@ const Visning = (() => {
                     if (hdMarkor?.visible.has(p)) continue;
                     if (eie.ukjent[p]) { tvetydig = true; gyldig = false; break; }
                     const e = eie.eier[p];
-                    if (e < 0) { if (indeks !== 255) { gyldig = false; break; } continue; }
-                    if (indeks === 255) continue;
+                    // SceneHd kan verne kildebakgrunn rundt en figur. Slike piksler
+                    // i gjennomsiktige hull er bakgrunn, og vernes fortsatt nedenfor.
+                    const kildeBakgrunn = indeks !== 255 && lag.bakIdx?.[p] === indeks;
+                    if (e < 0) {
+                        if (indeks !== 255 && !kildeBakgrunn) {
+                            // Bare disse maalte15-pikslene i041s transparente hull
+                            // vernes. De faar aldri HD-eierskap eller alfaopprydding.
+                            // Shaderens hele kildecellevern hindrer AA-overloep.
+                            if (balok15Vern(d, g, lag, p, i, j)) { vernData[p * 4 + 3] = 255; continue; }
+                            gyldig = false; break;
+                        }
+                        continue;
+                    }
+                    if (indeks === 255) {
+                        if (bakt && e === nr) {
+                            if (lag.bakIdx?.[p] !== eie.farge(e, p)) { gyldig = false; break; }
+                            egne++;
+                        }
+                        continue;
+                    }
+                    if (kildeBakgrunn && indeks !== eie.farge(e, p)) {
+                        if (bakt && e === nr) { gyldig = false; break; }
+                        continue;
+                    }
                     if (indeks !== eie.farge(e, p)) { gyldig = false; break; }
                     if (e === nr) egne++;
                 }
@@ -1142,51 +1573,94 @@ const Visning = (() => {
             figurHd.add(nr);
             if (hdPakke.get(ikey).maske) { hdFigurMaske.add(d); hdKontroll.masket++; }
             if (ikon) { hdFigurLys.set(d, hdPakke.get(ikey).ikonLys ?? 1); hdKontroll.ikonGodkjent++; }
+            if (erBlod) { hdFigurLys.set(d,blodLys); hdKontroll.blodGodkjent++; }
             hdKontroll.godkjent++;
+            if (palettFeil === false) hdKontroll.palettFigurGodkjent++;
         }
         if (figurHd.size) {
             // Den tidligste HD-figuren som dekker pikselen (rektangelet). Bare piksler
             // fra senere figurer uten HD skal ligge foran et HD-bilde.
             const forsteHd = new Int16Array(320 * 200).fill(32767);
+            const forsteBaktHd = new Int16Array(320 * 200).fill(32767);
             const ikonVern = visteListe.map(d => hdIkoner.get(d.fil.toLowerCase() + '/' +
                 String(d.bilde).padStart(3, '0'))?.preserve_indices);
             visteListe.forEach((d, k) => {
                 if (!hdTegnbare.has(d)) return;
+                const bakt = erBaktKamp(d, originalCel(d.fil, lest)?.[d.bilde]);
                 const x0 = d.x - d.xoff;
                 if (!Number.isInteger(x0) || !Number.isInteger(d.y)) return;
                 for (let j = Math.max(0, -d.y); j < d.h && d.y + j < 200; j++)
                     for (let i = Math.max(0, -x0); i < d.w && x0 + i < 320; i++) {
                         const p = (d.y + j) * 320 + x0 + i;
                         if (forsteHd[p] > k) forsteHd[p] = k;
+                        if (bakt && forsteBaktHd[p] > k) forsteBaktHd[p] = k;
                     }
             });
             for (let p = 0; p < 320 * 200; p++) {
                 const e = eie.eier[p];
-                if (e < 0) continue;
+                // Vernefeltets bakgrunn og ukjent originalforgrunn maa forbli over
+                // fotoet ogsaa naar de ligger i figurens gjennomsiktige kildehull.
+                if (e < 0 || (lag.forIdx[p] !== 255 && lag.forIdx[p] !== eie.farge(e, p))) {
+                    if (lag.forIdx[p] !== 255) vernData[p * 4 + 3] = 255;
+                    continue;
+                }
                 if (figurHd.has(e)) {
                     if (lag.forIdx[p] !== 255 && !hdMarkor?.visible.has(p)) {
                         // Bare den validerte pikseleierens egne indeksvern gjelder.
                         // Valgkanter beholder originalens levende palett foran HD.
                         if (ikonVern[e]?.includes(lag.forIdx[p])) vernData[p * 4 + 3] = 255;
-                        else forData[p * 4 + 3] = 0;
+                        else {
+                            forData[p * 4 + 3] = 0;
+                            // Tekstens dekkede felt beholdt originalfiguren.
+                            // Den samme eksakte eieren har naa bestaatt HD-porten.
+                            if (tekstFigurVern.has(p)) vernData[p * 4 + 3] = 0;
+                        }
                     }
                 }
-                else if (forsteHd[p] < e && !hdTegnbare.has(visteListe[e])) vernData[p * 4 + 3] = 255;
+                else if (forsteHd[p] < e && !hdTegnbare.has(visteListe[e])) {
+                    if (lag.forIdx[p] === 255 && forsteBaktHd[p] < e && lag.bakIdx?.[p] === eie.farge(e, p)) {
+                        // En senere originaldel kan ogsaa vaere bakt i bakgrunnen.
+                        // Vis bare den eksakt kildebekreftede pikselen foran likfotoet.
+                        forData.set(lag.bak.subarray(p * 4, p * 4 + 4), p * 4);
+                    }
+                    vernData[p * 4 + 3] = 255;
+                }
             }
         }
         if (hdMarkor) for (const p of hdMarkor.visible) vernData[p*4+3]=0;
+        // $FE angir en palettendring paa tooltip-raden. forberedTekst har
+        // kontrollert den faktiske skanout-indeksen mot glyfen; figurvernet
+        // maa ikke gjeninnfoere disse allerede kildebekreftede tekstcellene.
+        for (const p of tekstEgne) vernData[p*4+3]=0;
+        // BG-broen gir aldri HD-eierskap til originale deltaceller. Gjenopprett
+        // dem etter figurens alfaopprydding og vern hele cellen mot AA-overloep.
+        if (lag?.kampDeltaVern) for (let p=0;p<64000;p++) if (lag.kampDeltaVern[p]) {
+            vernData[p*4+3]=255; forData.set(lag.for.subarray(p*4,p*4+4),p*4);
+        }
         return (erTittel(lag) && visteListe.some(d => d.fil.toLowerCase() === 'bold.f' &&
             d.bilde === 73 && hdTegnbare.has(d))) || bevarTitteltekst(lag, lest);
     }
 
     /* Skjermens palett per linje til maskene og posene. Uten gyldig skanout (HAM,
      * hires, flere plan) vises figurene med maske som originalen. */
+    function palettFigurToning(navn, pal, rad) {
+        const m=palettFigurBanker.get(navn);
+        if (!m || !pal || !Number.isInteger(rad) || rad<0 || (rad+1)*128>pal.length) return null;
+        const p=rad*128, a=m.referanse[m.fade_indeks], q=p+m.fade_indeks*4;
+        const fade=Math.min(1,(pal[q]+pal[q+1]+pal[q+2])/(a[0]+a[1]+a[2]));
+        for(let c=0;c<32;c++)for(let k=0;k<3;k++)
+            if(Math.abs(pal[p+c*4+k]-m.referanse[c][k]*fade)>1.5)return null;
+        return fade;
+    }
+
     function oppdaterPalett() {
         if ((!hdMasker.size && !hdPoser.size) || typeof Kjerne === 'undefined') return false;
         const s = Kjerne.skanout();
         if (!s.gyldig || s.pal.length !== palData.length) return false;
         palData.set(s.pal);
         palTex.needsUpdate = true;
+        for(let y=0;y<H;y++)fotoPalData[y*4]=palettFigurToning('li1.cel',s.pal,y)===null?0:255;
+        fotoPalTex.needsUpdate=true;
         return true;
     }
 
@@ -1220,7 +1694,7 @@ const Visning = (() => {
         if (hdPaa && lagNaa?.overlays && hdPakke.has('bg/' + (lagNaa.hash >>> 0).toString(16).padStart(8,'0'))) {
             let i = 0;
             for (const o of lagNaa.overlays) {
-                const t = hdPakke.get(o.key); if (!t) continue;
+                const t = hdPakke.get(o.key); if (!t || (o.palette_mask && (!t.maske || !palettKlar))) continue;
                 const ikon = hdIkoner.get(o.key);
                 if (ikon && !fargeleggIkon(ikon,t,ikon.dynamic ? ikon.rect[1] : o.rect[1])) continue;
                 if (!sceneFlater[i]) {
@@ -1231,6 +1705,9 @@ const Visning = (() => {
                 // Faste ikonoverlegg maa ligge under nye HD-glyfkanter i samme felt.
                 m.renderOrder=o.foreground ? (ikon&&!ikon.dynamic ? 3.5 : 4) : 2.5;
                 m.material=t.mat; t.mat.uniforms.imageRegion.value.set(...o.uv_rect);
+                // Innbygde figurer bruker samme levende indeksmaske som CEL-rutene.
+                t.mat.uniforms.maskeModus.value=o.palette_mask ? 1 : 0;
+                t.mat.uniforms.palTop.value=diwNaa[1];
                 t.mat.uniforms.vern.value=o.foreground ? sceneVernTex : vernTex;
                 t.mat.uniforms.alphaCutoff.value=o.alpha_cutoff || 0;
                 t.mat.uniforms.edgeFeather.value.set(...(ikon?.edge_feather || [0,0]));
@@ -1252,7 +1729,7 @@ const Visning = (() => {
                 if (t) {
                     t.mat.uniforms.lys.value = hdFigurLys.get(d) ?? hdLys;
                     t.mat.uniforms.lagPos.value.set(diwNaa[0] / 2 - ux(), diwNaa[1] - uy());
-                    t.mat.uniforms.maskeModus.value = hdFigurMaske.has(d) ? 1 : 0;
+                    t.mat.uniforms.maskeModus.value = hdFigurMaske.has(d) ? (harPalettFigur(d.fil.toLowerCase(),d.bilde) ? 3 : 1) : 0;
                     t.mat.uniforms.palTop.value = diwNaa[1];
                 }
                 if (t?.fit) {
@@ -1281,6 +1758,9 @@ const Visning = (() => {
             if (hdMarkor) {
                 const {x,y,meta,t}=hdMarkor,m=flate(n++);
                 m.material=t.mat;m.renderOrder=4.6;t.mat.uniforms.lys.value=t.ikonLys ?? 1;
+                // Hardware-pekeren ligger over baade originalen og HD-dekor.
+                // Figurvernet maa ikke klippe bort pilen ved inventarsoeylene.
+                t.mat.uniforms.vern.value=tomTex;
                 t.mat.uniforms.lagPos.value.set(diwNaa[0]/2-ux(),diwNaa[1]-uy());
                 plasser(m,diwNaa[0]/2+x-ux(),diwNaa[1]+y-uy(),meta.width,meta.height);m.visible=true;
             }
@@ -1319,7 +1799,7 @@ const Visning = (() => {
         const lx = diwNaa[0] / 2 - ux(), ly = diwNaa[1] - uy();
         if (lag) {
             const nokkel = 'bg/' + (lag.hash >>> 0).toString(16).padStart(8, '0');
-            let hd = hdPaa ? hdPakke.get(nokkel) : null;
+            let hd = hdPaa && !lag.hdBackgroundOriginal ? hdPakke.get(nokkel) : null;
             /* Et utsnitt (byene, kroen) passer bare der scenen har gitt rektangelet. Uten
              * scenetreff vises originalbakgrunnen, ikke bildet strukket over hele skjermen. */
             if (hd && !lag.hdRect && utsnittBg.has(lag.hash >>> 0)) hd = null;
@@ -1331,10 +1811,11 @@ const Visning = (() => {
             if (hd && !lysUkjent) {
                 bakMesh.material = bakMat;
                 bakMat.uniforms.map.value = hd.tex;
-                bakMat.uniforms.texel.value.set(1 / 320, 1 / 200);
+                bakMat.uniforms.texel.value.set(1 / (lag.sourceSize?.[0] || 320), 1 / (lag.sourceSize?.[1] || 200));
                 bakMat.uniforms.lys.value = hdLys;
                 const r = lag.hdRect || [0,0,320,200];
                 bakMat.uniforms.region.value.set(r[0]/320,r[1]/200,(r[2]-r[0])/320,(r[3]-r[1])/200);
+                bakMat.uniforms.sourceRegion.value.set(...(lag.hdUv || [0,0,1,1]));
                 bakMat.uniforms.uskarp.value = effekter.dybde ? 0.9 : 0;
             } else {
                 bakMesh.material = bakAmigaMat;
@@ -1385,7 +1866,7 @@ const Visning = (() => {
         return { tex: t, canvas: lerret, width: lerret.width, height: lerret.height, mat: new THREE.ShaderMaterial({
             uniforms: { map: { value: t }, vern: { value: vernTex }, lagPos: { value: new THREE.Vector2() }, lys: { value: 1 },
                 imageRegion: { value: region || new THREE.Vector4(0, 0, 1, 1) }, alphaCutoff: { value: 0 },
-                maske: { value: tomTex }, pal: { value: palTex }, ref: { value: tomTex }, maskeStr: { value: new THREE.Vector2(1, 1) },
+                maske: { value: tomTex }, pal: { value: palTex }, ref: { value: tomTex }, fotoPal: {value:fotoPalTex}, maskeStr: { value: new THREE.Vector2(1, 1) },
                 maskeModus: { value: 0 }, palTop: { value: 0 }, palH: { value: H },
                 edgeFeather: { value: new THREE.Vector2(0,0) } },
             vertexShader: vertHd, fragmentShader: fragHd, transparent: true, depthTest: false, depthWrite: false, side: THREE.DoubleSide,
@@ -1406,7 +1887,7 @@ const Visning = (() => {
         t.generateMipmaps = false;
         t.magFilter = t.minFilter = THREE.NearestFilter;
         t.needsUpdate = true;
-        return { tex: t, width: lerret.width, height: lerret.height };
+        return { tex: t, width: lerret.width, height: lerret.height, data: lerret.getContext('2d').getImageData(0,0,lerret.width,lerret.height).data };
     }
 
     function koblMaske(key, t) {
@@ -1468,7 +1949,11 @@ const Visning = (() => {
         if (!t) return false;
         const palette=ikonPalett(m,y);if(!palette)return false;
         const {colors,rgb}=palette;
-        const key=rgb.flat().join(',');
+        const etikett = klareEtiketter.get(m.key);
+        const klarEtikett = klarFont && etikett &&
+            m.source.bank_sha256==='02287e8990919c21e62cf94142d60d9a5fbd0573df5be283eb6e31d367071104' &&
+            m.indices_sha256===etikett[3];
+        const key=rgb.flat().join(',') + (klarEtikett ? ':klar' : '');
         if (m.render_mode === 'raster') {
             const variant=rasterIkonVariant(m,palette);
             if (!variant) return false;
@@ -1491,6 +1976,12 @@ const Visning = (() => {
         t.ikonLys=1;
         const ctx=t.canvas.getContext('2d'), s=m.scale;
         ctx.resetTransform();ctx.clearRect(0,0,t.canvas.width,t.canvas.height);ctx.scale(s,s);
+        if (klarEtikett) {
+            const color='rgb('+rgb[colors.indexOf(m.base_index)].join(',')+')';
+            fyllKlarTekst(ctx,etikett[0],[0,0,etikett[1],5],'MoonstoneLesbar',color);
+            fyllKlarTekst(ctx,':',[etikett[2]-.2,0,1.4,5],'MoonstoneLesbar',color);
+            t.ikonPalett=key;t.tex.needsUpdate=true;return true;
+        }
         ctx.save();ctx.clip(m.clipPath,'evenodd');
         const fill=(c,p)=>{ctx.fillStyle='rgb('+rgb[colors.indexOf(c)].join(',')+')';ctx.fill(p,'evenodd');};
         fill(m.base_index,m.clipPath);
@@ -1509,23 +2000,31 @@ const Visning = (() => {
         if (!g || !scan.gyldig || bankHash(bank).hash!==meta.source.bank_sha256 || indeksHash(g)!==meta.indices_sha256) return;
         const used=[];for(let j=0;j<g.h;j++)for(let i=0;i<g.w;i++)if(g.px[j*g.w+i])used.push([i,j,g.px[j*g.w+i]]);
         const anchor=used[Math.floor(used.length/2)],originX=diwNaa[0],originY=diwNaa[1];
-        for(let sy=0;sy<200;sy++)for(let sx=0;sx<320;sx++) {
-            if(scan.idx[(originY+sy)*720+originX+sx*2]!==128+16+anchor[2])continue;
-            const x=sx-anchor[0],y=sy-anchor[1];if(x<0||y<0||x+g.w>320||y+g.h>200)continue;
+        // Originalens spriteprioritet kan skjule pilen bak inventarsoeylen.
+        // Les den aktive pekerens faktiske koordinater fra originalen, saa den
+        // komplette kildebekreftede HD-pekeren kan tegnes foran dekorasjonen.
+        const peker = Kjerne.pekerAktiv() ? [Kjerne.les16(0x98092),Kjerne.les16(0x98094)] : null;
+        const steder=peker ? [peker] : [];
+        if(!peker)for(let sy=0;sy<200;sy++)for(let sx=0;sx<320;sx++)
+            if(scan.idx[(originY+sy)*720+originX+sx*2]===128+16+anchor[2])steder.push([sx-anchor[0],sy-anchor[1]]);
+        for(const[x,y]of steder) {
+            if(x<0||y<0||x>=320||y>=200||(!peker&&(x+g.w>320||y+g.h>200)))continue;
             const visible=new Set(),hidden=[];let bad=false;
-            for(let j=0;j<g.h&&!bad;j++)for(let i=0;i<g.w;i++) {
+            for(let j=0;j<g.h&&!bad&&y+j<200;j++)for(let i=0;i<g.w&&x+i<320;i++) {
                 const v=g.px[j*g.w+i],actual=scan.idx[(originY+y+j)*720+originX+(x+i)*2];
                 if(actual&128) {if(!v||actual!==144+v){bad=true;break;}visible.add((y+j)*320+x+i);}
                 else if(v)hidden.push([i,j]);
             }
-            if(bad||visible.size<used.length*.9)continue;
-            const mask=hidden.map(p=>p.join(',')).join(';');if(t.markorMask!==mask)t.ikonPalett=null;
+            if(bad||(!peker && visible.size<used.length*.9))continue;
+            const mask=peker ? '' : hidden.map(p=>p.join(',')).join(';');if(t.markorMask!==mask)t.ikonPalett=null;
             if(!fargeleggIkon(meta,t,y))continue;
             const ctx=t.canvas.getContext('2d');ctx.resetTransform();
-            for(const[i,j]of hidden)ctx.clearRect(i*meta.scale,j*meta.scale,meta.scale,meta.scale);
+            if(!peker)for(const[i,j]of hidden)ctx.clearRect(i*meta.scale,j*meta.scale,meta.scale,meta.scale);
             t.markorMask=mask;t.tex.needsUpdate=true;
             for(const p of visible)forData[p*4+3]=0;
-            hdMarkor={x,y,meta,t,visible};hdKontroll.markorGodkjent=1;return;
+            const kildeSynlige=visible.size;
+            if(peker)for(const[i,j]of used)if(x+i<320&&y+j<200)visible.add((y+j)*320+x+i);
+            hdMarkor={x,y,meta,t,visible,kildeSynlige};hdKontroll.markorGodkjent=1;return;
         }
     }
 
@@ -1555,6 +2054,30 @@ const Visning = (() => {
         let antall = 0;
         const alle = Array.from(filer), stiFor = (f) => (f.webkitRelativePath || f.name).replace(/\\/g, '/');
         const filKart = new Map(alle.map((f) => [stiFor(f).toLowerCase(), f]));
+        const palettPakke = ++nestePalettFigurPakke;
+        const palettNokler = new Set();
+        for (const f of alle) {
+            const sti=stiFor(f).toLowerCase().split('/');
+            const bank=sti[sti.length-2], navn=sti[sti.length-1];
+            if (palettFigurBanker.has(bank) && /^[0-9]{3}(?:\.mask)?\.png$/.test(navn))
+                palettNokler.add(bank+'/'+navn.replace(/(?:\.mask)?\.png$/, ''));
+        }
+        // Sperr gammel og halvferdig LI1 straks, ogsaa mens decode venter/feiler.
+        for (const key of palettNokler) palettFigurPakker.set(key,palettPakke);
+        for (const navn of new Set([...palettNokler].map(k=>k.split('/')[0]))) {
+            if (originalCel(navn,new Map())) await bankHash(originalCeler.get(navn)).venter;
+        }
+        if (alle.some(f => /(^|\/)troll2\.cel\/01[345]\.png$/i.test(stiFor(f)))) {
+            const bilder = originalCel('troll2.cel', new Map());
+            if (bilder) {
+                await bankHash(originalCeler.get('troll2.cel')).venter;
+                for (const n of bakteTrollKilder.keys()) if (bilder[n])
+                    indeksHasher.set(bilder[n], await sha256(bilder[n].px));
+            }
+        }
+        if (alle.some(f => /(^|\/)blo\.cel\/[0-9]{3}\.png$/i.test(stiFor(f))) &&
+            originalCel('blo.cel',new Map())) await bankHash(originalCeler.get('blo.cel')).venter;
+
         // En delvis pakke erstatter bare metadata for sine egne bilder.
         // Andre standardikoner beholder palett, kildekontroll og spritepeker.
         hdIkonFeil = [];
@@ -1698,6 +2221,7 @@ const Visning = (() => {
                     const m = await maskeTekstur(f), base = nokkel.slice(0, -'.mask'.length);
                     const old = hdMasker.get(base);
                     if (old) old.tex.dispose();
+                    m.palettPakke=palettPakke;
                     hdMasker.set(base, m);
                     antall++;
                 } catch (e) { /* ikke et bilde */ }
@@ -1710,6 +2234,8 @@ const Visning = (() => {
                 if (ikon && (t.width!==(ikonRect ? ikonRect[2]-ikonRect[0] : ikon.width)*ikon.scale ||
                     t.height!==(ikonRect ? ikonRect[3]-ikonRect[1] : ikon.height)*ikon.scale)) {t.tex.dispose();t.mat.dispose();hdIkonFeil.push(nokkel+': feil maal');continue;}
                 const meta = hdTekstMeta.get(nokkel);
+                if (meta?.method==='original-source-contours' && /^[0-9a-f]{64}$/.test(meta.sha256 || ''))
+                    t.klarKilde=await sha256(new Uint8Array(await f.arrayBuffer()))===meta.sha256;
                 if (meta?.raw_rect_px || nokkel === 'bold.f/073') {
                     // Standardmetadata gjelder det leverte standardbildet. Et eget
                     // bilde kan allerede vaere klippet til originalrutens format.
@@ -1725,7 +2251,8 @@ const Visning = (() => {
                     t.fit = meta?.fit === 'width' || nokkel === 'bold.f/073' ? w / h : 0;
                 }
                 const old = hdPakke.get(nokkel);
-                if (old) { old.tex.dispose(); old.mat.dispose(); }
+                if (old) { old.tex.dispose(); old.mat.dispose(); old.palettSjekk?.kantTex?.dispose(); }
+                t.palettPakke=palettPakke;
                 hdPakke.set(nokkel, t);
                 if (ikon) hdIkoner.set(nokkel,ikon);
                 else hdIkoner.delete(nokkel);
@@ -1754,19 +2281,19 @@ const Visning = (() => {
 
     function tomHdPakke() {
         hdIkoner.clear(); hdIkonFeil=[];
-        for (const v of hdPakke.values()) { v.tex.dispose(); v.mat.dispose(); }
+        for (const v of hdPakke.values()) { v.tex.dispose(); v.mat.dispose(); v.palettSjekk?.kantTex?.dispose(); }
         hdPakke.clear();
         hdTekstBanker.clear(); hdTekstGlyfer.clear(); hdTekstMeta.clear();
         for (const p of hdPoser.values()) { p.texture.tex.dispose(); p.texture.mat.dispose(); p.indeksTex?.dispose(); p.refTex?.dispose(); }
         hdPoser.clear(); hdPoseKontrakter.clear(); hdPoseViste = []; hdPoseFeil = [];
         for (const m of hdMasker.values()) m.tex.dispose();
-        hdMasker.clear();
+        hdMasker.clear(); palettFigurPakker.clear();
+        for(const t of palettFigurRefTex.values())t.dispose();palettFigurRefTex.clear();
         hdPoseLaster = hdPoseUgyldig = false;
         originalCeler.clear();
         nyesteMenypil++;
         for (const [k, p] of plasserte) {
             if (p.menypilKlar !== null) plasserte.delete(k);
-            else p.underlag = null;
         }
         antallBg = 0;
         maaTegnes = true;
@@ -1776,7 +2303,7 @@ const Visning = (() => {
     function fjernHdBilde(nokkel) {
         const t = hdPakke.get(nokkel);
         if (!t) return;
-        t.tex.dispose(); t.mat.dispose();
+        t.tex.dispose(); t.mat.dispose(); t.palettSjekk?.kantTex?.dispose();
         hdPakke.delete(nokkel);
         antallBg = [...hdPakke.keys()].filter(k => k.startsWith('bg/')).length;
         maaTegnes = true;
@@ -1790,28 +2317,48 @@ const Visning = (() => {
         init, tegn, nyttBilde, tilpass, settFilter, settFormat, settHelt, settEffekter, bildeTilPng, lastHdPakke, tomHdPakke, fjernHdBilde,
         nullstillScene: () => { plasserte.clear(); visteListe = []; klynger = []; bildeNr = 0; sistTegnet = -99; sisteBakHash = -1; },
         tekstPlasseringer: () => visteListe.filter(d => /^(bold\.f|small\.font)$/i.test(d.fil)),
+        lesbarTekst: () => visteListe.filter(d => hdTegnbare.has(d)).flatMap(d => {
+            const t=hdPakke.get(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'));
+            return t?.klarGlyf ? [{fil:d.fil,bilde:d.bilde,x:d.x-d.xoff,y:d.y,tegn:t.klarTegn}] : [];
+        }),
         settRammer: (on) => { visRammer = on; maaTegnes = true; }, hdAntall: () => hdPakke.size + hdPoser.size, scene: () => scene1,
         hdPoseInfo: () => ({ antall: hdPoser.size, kontrakter: hdPoseKontrakter.size, ugyldig: hdPoseUgyldig, feil: hdPoseFeil.slice() }),
         hdIkonInfo: () => ({ antall: hdIkoner.size, feil: hdIkonFeil.slice(),
-            markor: hdMarkor ? {x:hdMarkor.x,y:hdMarkor.y,synlige:hdMarkor.visible.size} : null,
+            markor: hdMarkor ? {x:hdMarkor.x,y:hdMarkor.y,synlige:hdMarkor.visible.size,kildeSynlige:hdMarkor.kildeSynlige} : null,
             kandidater: visteListe.filter(d=>hdIkoner.has(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'))).map(d=>({...d,godkjent:hdTegnbare.has(d)})),
             viste: visteListe.filter(d=>hdTegnbare.has(d)&&hdIkoner.has(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'))).map(d=>({fil:d.fil,bilde:d.bilde,x:d.x,y:d.y})) }),
         sceneIkoner: id => [...hdIkoner.values()].filter(m=>m.scene===id&&m.dynamic&&hdPakke.has(m.key)),
         sceneIkonKlar: (m,diw) => {const p=ikonPalett(m,m.rect[1],diw);return !!p&&rasterIkonLys(m,p)!==null;},
-        sceneOverleggKlar: (key,diw) => {if(!hdPakke.has(key))return false;const m=hdIkoner.get(key);if(!m||m.render_mode!=='raster')return true;if(!m.scene||!m.rect)return false;const p=ikonPalett(m,m.rect[1],diw);return !!p&&rasterIkonLys(m,p)!==null;},
+        sceneOverleggKlar: (key,diw,paletteMask=false) => {const t=hdPakke.get(key);if(!t)return false;if(paletteMask){const scan=Kjerne.skanout();if(!t.maske||!scan.gyldig||scan.pal.length!==palData.length)return false;}const m=hdIkoner.get(key);if(!m||m.render_mode!=='raster')return true;if(!m.scene||!m.rect)return false;const p=ikonPalett(m,m.rect[1],diw);return !!p&&rasterIkonLys(m,p)!==null;},
         harHdBilde: key => hdPakke.has(key),
         hdBakgrunner: () => antallBg,
         /* bakgrunner (hash) som bare dekker en del av skjermen og trenger rektangelet fra en scene */
         settUtsnittBakgrunner: (liste) => { utsnittBg.clear(); for (const h of liste) utsnittBg.add(h >>> 0); maaTegnes = true; },
         hdKontroll: () => ({ ...hdKontroll }),      /* hvorfor en figur eventuelt bruker originalen */
+        hdBakteTrollInfo: () => {
+            const lest = new Map();
+            return visteListe.filter(d => d.fil.toLowerCase() === 'troll2.cel' && bakteTrollKilder.has(d.bilde)).map(d => {
+                const g = originalCel(d.fil, lest)?.[d.bilde], bank = originalCeler.get('troll2.cel');
+                return {...d, kilde:erBaktKamp(d,g), bank_sha256:bank ? bankHash(bank).hash : null,
+                    indices_sha256:g ? indeksHash(g) : null, hd:hdTegnbare.has(d)};
+            });
+        },
         /* figurene som vises med HD-bilde naa, i tegnerekkefoelge (testene); alle: ogsaa de uten */
         hdFigurer: (alle) => visteListe.filter((d) => alle || hdTegnbare.has(d)).map((d) => ({ fil: d.fil, bilde: d.bilde,
             x: d.x - d.xoff, y: d.y, w: d.w, h: d.h, speilet: !!d.speilet, hd: hdTegnbare.has(d), maske: hdFigurMaske.has(d) })),
         hdMasker: () => hdMasker.size,
+        li1NormalPalett: (scan,diw) => !!scan?.gyldig && scan.pal?.length===32*H*4 &&
+            Number.isInteger(diw?.[1]) && diw[1]>=0 && diw[1]+200<=H &&
+            Array.from({length:200},(_,y)=>y+diw[1]).every(y=>palettFigurToning('li1.cel',scan.pal,y)!==null),
+        hdPalettFigurInfo: () => ({godkjent:hdKontroll.palettFigurGodkjent||0,
+            feil:(hdKontroll.palettFigurFeil||[]).map(f=>({...f})),
+            kantpiksler:[...hdPakke].reduce((n,[k,t])=>n+(t.palettSjekk?.kantpiksler||0),0),
+            banker:[...palettFigurBanker].map(([file,m])=>({file,bank_sha256:m.bank_sha256,frames:m.antall,scale:m.skala}))}),
         viste: () => visteListe.length,             /* figurer som vises med HD-bilde eller gult felt */
         maaTegnes: () => maaTegnes,
         utsnitt: () => crop.slice(),                /* delen av rammebufferet som vises (x0, y0, x1, y1) */
-        brukerListe: () => hdPaa && (hdPakke.size > 0 || hdPoser.size > 0 || visRammer),   /* trengs tegnelisten fra kjernen? */
+        /* Standardlastingen maa samle engangstegninger foer bildene er lastet. */
+        brukerListe: () => tvungetLag || (hdPaa && (hdPakke.size > 0 || hdPoser.size > 0 || visRammer)),
         /* Lastede pakker trenger lag ogsaa i Original for aa beholde plasseringen
          * av engangstegnet tekst naar HD slaas paa igjen. */
         trengerLag: () => hdPakke.size > 0 || hdPoser.size > 0 || effekter.skygge || effekter.dybde || tvungetLag,

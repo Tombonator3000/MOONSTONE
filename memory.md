@@ -180,17 +180,17 @@ docs/hd-status-2026-10-11.md og den tilhørende CSV-listen gir kontrollert statu
   Feilmeldingene fra kjernen (state.c, files.c, whdload.c) er norske og står også i
   ordboken; navnene på delene i en lagring (`deler[]`) står i `DELER` i sprak.js.
   Tester som leser norsk tekst, setter `sprak: 'no'` i `moonstone.innstillinger`.
-- HD-grafikken er av som standard (bryteren står på Original). Den slås på i sidemenyen,
-  og valget lagres som `hd` sammen med `hdValgt: true`; en gammel lagret `hd` uten
-  `hdValgt` gir Original. HD-testene i tools/ setter `{hd:'hd',hdValgt:true}` før lasting.
+- HD-grafikken er på som standard fra 12. oktober. Valget lagres som `hd` sammen med
+  `hdValgt: true`; en gammel lagret `hd` uten `hdValgt` gir HD. Et uttrykkelig valg av
+  Original beholdes. Standardpakken lastes automatisk fra HTTP(S).
 - Introen ser på den siste tastaturkoden uten slipp-biten, og bare mellom trinnene.
   Esc huskes, men det kan gå opp mot 200 bilder før mog lastes. En annen tast etter Esc
   (Return som slippes) gjør at introen ikke slutter. Målt med moonstone-headless
   `--press F:esc:4`: alltid mog innen +200 bilder, aldri med Return i tillegg.
-- app.js `introTaster`: fire, Enter, mellomrom og trykk på skjermen blir Esc i 4 bilder;
-  Enter og mellomrom sendes ikke til spillet i introen. Det første trykket slår bare på
-  lyden (nettleseren krever det), unntatt med invitasjon. Esc er ikke en brukerhandling
-  for nettleseren, så lyden prøves på nytt ved neste trykk.
+- app.js `introTaster`: fire, Enter, mellomrom og første skjermtrykk ber om introhopp.
+  Esc gjentas hvert bilde frem til mog er lastet og slippes deretter. Originalens
+  lasting/toning kan slette et enkelt tastetrykk. Enter/mellomrom sendes ikke videre
+  i introen; lydstart og introhopp kan skje ved samme brukerhandling.
 - `ms_in_intro()` = mog er ikke lastet (whd_mog_loaded, nullstilles i whd_boot).
   `ms_menu_ready()` = tittelmenyens løkke har kjørt (meny_title_seen). amiga_reset kaller
   patch_reset, som nullstiller tekstlappen og menyen, så en omstart starter rent.
@@ -457,3 +457,100 @@ tools/hd_trofast_font_bygg.py/.cjs bruker originalbanker, utvidet planmaske og k
 Butikkhash e868fda9 er to buer med tre søyler, der midtsøylen deles. Inventarhash94e65527 er en bue med to søyler. bg1b.PIV er et sammenhengende skogsbilde, ikke hele den rullende intrografikken. bg7.PIV viser flat vannvirvel i y153-199; regionen over beholdes original. Egne HD-mapper bruker utgivelsens sceneidentiteter med originalbank-SHA selv etter at standardlastingen stoppes. Bare tilgjengelige overlegg får fjerne originalen; lastede egne pakker beholder lag i Original-modus for engangstegnet tekst. Logo-utsnitt utenfor faktisk PNG avvises til fullramme med bevart sideforhold.
 
 Bestillingsgeneratoren utvider CEL-planmasken før deduplisering og maskeflagg. HE3/031 er HE-kopi av KN3/031, ikke en selvstendig maskeløs rute.156 selvstendige maskeoppgaver og102 HE-kopier. Grånormalisering krever eksplisitt --graa-referanse; ukjent eller endret kildebank avvises. Gjeldende CSV har1796 rader etter deduplisering, inklusive11 ikonmaterialer og fem bakgrunnsrevisjoner; kildeformer til fontene er aktive.
+
+## Kompletteringsarbeid, 11. oktober 2026
+
+Den nyere pakken avløser tallene over:411 PNG-ruter,417 manifestfiler,81 bakgrunner.11 separate ikonmaterialer, fem bakgrunnsrevisjoner, gullmateriale i nøyaktig original logoform og to fullstendige rullestriper er aktivert. Materialene er bundet til kildegeometri; frie logo-/rankeutkast med feil form er ikke geometrigrunnlag. Bestillingen har1779 selvstendige figurmastere med2040 konkrete ruter. Math/Wi1.C015-020 bruker aktiv ridderpalett i indeks6-10, så162 mastere og102 HE-kopier trenger maske,264 totalt. Blå og rød Math er målt i originalspillet.
+
+Program-observatøren ved original PC$08c214 registrerer målbuffer og kilde uten å erstatte originalrutinen. Intro/slutt kan levere385 figurruter. Tegnelistens eksisterende24-byteformat og lagringsformat er uendret. Introens .stile bruker10x48 fliser på32x25 fra bg1a/bg1c/bg1b; co.stile bruker bg7. Begge rekonstrueres til320x1200. HD-filer6b258d27 og0df34a83 er1280x4800. Synlig y finnes med kildepiksler, ikke ved blind bruk av programmets fremtidige rulleposisjon. Full bank0-kontroll avviser annen sluttscene; filrevisjon nullstiller kildecachen.
+
+Emcc3.1.74 finnes lokalt i /home/tombonator3000t/.cache/moonstone-emsdk-3.1.74. Ny faktisk WASM er brukt til141 ikon-,47 bakgrunns-,35 import/logo- og58 program/rullekontroller.25 hook-sammenligninger samt27 intro- og27 sluttfiler er byteidentiske mot originalkjøring/kontrollbygg. Sluttprøven bruker eksplisitt originalt seiersflagg, ikke full gjennomspilling. Figurer produseres separat og er fortsatt på restlisten til egne kilde-, palett-, visuelle og runtimeprøver er bestått.
+
+
+## Foerste separate figurleveranse, 11. oktober 2026
+
+PR #32 er offentlig verifisert, main7bb8c13, bygg38167880982. Neste lokale leveranse har481 PNG-ruter,487 manifestfiler og81 bakgrunner.44 separate nye mastere:26 KN4.ob og18 hen1.c,25 kildeidentiske kopier, en maske paa KN4/025. Bestillingen teller1735 mastere/1971 konkrete ruter;163 mastermasker pluss102 HE-kopier,265 totalt. Dice006/007 bruker levende ridderfarger6..10 fra tav.piv, ikke dice.piv. Math-fastfiguren i WI1.P er en egen oppgave utenfor CEL-listen.
+
+Aktivering krever eksplisitt gjennomgaatt indeks, originalbank/utvidede kildeindekser, eget raabilde/prompt for hver master, eksakt4x-RGBA, kildekorrekt maske og samme PNG i faktisk runtimebevis. tools/hd_figurer_aktiver.py har negativ kontroll i hd_figurer_aktiver_sjekk.py. Kildemasker teller som PNG-importer, men ikke egne GPU-bilder i Visning.hdAntall; standardtesten skiller dette.
+
+Standardpakken prioriterer fem eksisterende hele KN1-poser over KN4/001 i ganganimasjon. Derfor beviser standard-kontakt001 eksisterende helpose og lastet ny tekstur; isolertkontakt001 og alle rute-fixturer beviser selve nytegningen. Faktisk KN3-angrep med KN4/000 viser den separate nye vaapenruten. Naar KN1 er separat ferdig, kan de eldre poseproevene pensjoneres med egne kontroller. Math-tilgjengelighet maa beregnes uavhengig av Original/HD-valg, ellers endres forgrunnsidentiteten og animasjonsfragmenter kan avlyses ved retur til HD.
+
+PR #33 er publisert, main84a8e4e, hovedbygg38169385599. Offentlig HTMLd90dc81f og manifest61fb0076 er byteidentiske med lokal leveranse; alle70 nye PNG-hasher kontrollert. Faktisk offentlig KN4/000 har11 beståtte kontroller, Stonehenge18 ruter har54, uten nettleserfeil. Kvitteringer i art/hd-completion-figures-2026-10-11/verification/public/.
+
+To separate MYS-øyefragmenter006/007 er nå godkjent og aktivert lokalt, men ikke publisert:483PNG/489filer,1733 mastere/1969 konkrete ruter gjenstår. Tavernaens dice006..009 er hanske/arm;010..022 er TRE kastede terninger, ikke hanskefragmenter. Originalsekvens0ad76e tegner009 fast mellom de bevegelige terningrutene. Den frosne queue.json beholdes med separat source/identity-corrections.json; generatoren er rettet. Feil hanskeutkast010/011 skal aldri aktiveres. TAV.PIV har en ekstra innbygd spillerfigur utenfor CEL-listen med levende kappe/fjærindekser6..10; denne må følge faktisk ridderpalett.
+
+Neste lokale figurleveranse har718 PNG/724 filer,81 bakgrunner. Den legger til237PNG fra KN3/HE3/RATMEN129ruter+90masker,TROLL16,MYS2.81 selvstendige kilder er håndtert;77nye fotomaterialer og fire bevarte svarte skygger. Restlisten1654mastere/1824ruter er regenerert. Generic aktiveringsport validerer HE-flytting6..8→9..11, allerede aktiv masterkontekst, frosset materialpost og ekstra råmateriale.72 egne regressjonsporter. DICE010..022 er tre terninger. TAV sin innbakte spiller ligger i[90,65,225,188],7417 kildesilhuettpiksler og3682 levende6..10piksler;16 barmaidpiksler skal ikke følge spillerpaletten. Ny ren bakgrunnskandidat finnes, men spillerplate, DICE og Math må godkjennes samlet før aktivering.
+
+PR #34 er offentlig, main efa5be2, bygg38174386563 grønt. Offentlig718PNG/724filer er kontrollert mot frosset614f803, ikke mot den senere arbeidsmanifesten.237nye PNG eksakte; KN3-kamp15,TROLL16ruter84,MYS-scener15 består. De fire OV1-forgrunnene bruker nattpalett fra naturlig intro3200: efoy indeks24..27 er blaacyan, stein19..22 brun og gress4..7 blaagraa. Global combat-preview med roede blader er ikke deres fargefasit.
+
+Tredje lokale figurleveranse:1145PNG/1151filer/81bakgrunner.206kildemastere håndtert,201med nytt fotomateriale og fem bevarte svarte skygger.269konkrete ruter+160masker+tre ekstra embeddedfiler;432nyePNG, én TAV-bakgrunnsrevisjon, fem hele posePNG pensjonert.1448mastere/1555ruter gjenstår,8KN5-masker, ingen HE-kopier. Source/runtimebinding i delivery-progress-003.json. Standard-Hd antall poser må hentes fra hashkontrollert poses.json; hardkodet fem henger når listen er tom. OV1 nattforgrunn har kjent bakgrunnsindeks3 som intern padding, ukjent forgrunn avvises fortsatt. TAV levende6..10 maskeres i renderOrder2.5 under originalforgrunn3/CEL4, med7431kildemaskepiksler,3682levende og16barmaidpiksler utenfor. DICE006/007 deler210kildefaste draktpiksler med TAV-spillerplaten; hanskefoto/alfa beholdes. WI2.P har ingen ekstra innbakt Math, figuren kommer fra Wi1.C015/017/019.
+
+KN5/058..064 er brennende ridder i original dragekamp:9/11/15 er faste rødfarger,29..31 gul/oransje ild. Bare6..8 følger aktiv ridder. Faktisk original CPU med blå/rød ridder bekrefter dette. Bestilling og masker rettet fra15 til8 masteroppgaver; høye indekser må ikke leses fra global cyan/rosa forhåndspalett.
+
+## Guardian-bakgrunn kontrollert,12.oktober2026
+
+Guardian-kampens rene bakgrunn er `data/test` PIV005, FNV1a `cbc31cbf` over40000 bitplanbyte, kildefil-SHA8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5. Original kamp1243 bekrefter samme bitplan, indekser, RGBA og200 palettrader fra Guardian-initialisereren. `production/guardian/export-background.py` gjenskaper referansen fra originalZIP. Den manglet blant81HD-bakgrunner iPR37; en egen nytegning er lokalt aktivert som82. bakgrunn med220 faktiske kontroller, foreloepig upublisert. Antall bakgrunnsfiler alene bekrefter ikke full dekning.
+
+## Sjette figurleveranse, 12. oktober 2026
+
+Den lokale pakken har1623PNG/1629filer/82bakgrunner etter125nyePNG,122kilderuter.120 egne genererte figurmastere er112 fotomaterialmastere og aatte flate kildeeffekter Dragon5/023..030 med foreloepig konservativ identitet; dessuten en original svart Ratmen-skygge og ett Dragon5-alias. Alle1504filer fra PR37 er uendret. Guardian demon1/000..047 er aktiv, demon2/000..014 er aktiv; neste banker gjenstaar. Restlisten1084mastere/1153ruter/97masker er fortsatt uferdig.
+
+Alle32rene terrengkompositter fra originalens fire Test-baser og flisark har eksakte aktive HD-hasher. Test000..003 er flisark. Guardian-initialisereren fjerner dekorasjoner og bruker rawTest005/cbc31cbf, som naa har egen HD-fil. Senere originalCEL-skriving til08cde8 kan endre bakgrunnshashen; slike deltaer kan fortsatt gi Original-fallback. Ingen ekstra malerier bestilles bare paa grunn av disse hashene. Audit og begrensninger er frosset i production/guardian/verification/test-background-audit-v1.
+
+Sjette figurleveranse er offentlig verifisert: PR38 flettet som798b926, hovedbygg38191612724 har fem vellykkede jobber.125nyePNG, manifest899a380b og HTMLe79f2dc4 er bytekontrollert offentlig. Guardian550,Demon2-retry187,Dragon97,Beast49 og slutt1702 gir2585 bestaaende kontroller; foersteDemon2-forsok feilet kun paa lastetidsgrense og er bevart. Kvittering verification/public-006/publication.json. Kildebundne visningsrettinger for007 er fryst separat fra006.
+
+Sjuende lokale rutegruppe:1741 PNG/1747 filer/82 BG,98 nye ruter,118 PNG,93 egne fotomastere,fem eksakte aliaser og20 masker.991 mastere/1055 ruter/79 mastermasker gjenstaar. Teknisk standard4436 og fil/kilde5449 bestaar, men publisering er holdt for synlige bakgrunnsblokker over Balok1/004 og002 ved faktisk pose2200. Dette er ikke ny kildegeometri eller aliasfeil. Ratmen-bakgrunnens eksakte sene deltaer er19 svart5+77 roedt15, fra R2/056 og R1/051 med caller087b34/target0a2cd6;007 har forventet Originalfallback der. Ikke kall hele HD-arbeidet ferdig.
+
+Aattende lokale kohort har1963 PNG/1969 filer/82 bakgrunner og202 nye ruter:195 egne fotomaterialmastere,sju kildeeksakte originalruter,20 masker. Alle1747 filer fra007 er uendret. Frontend008 er fryst med render6b93be5b og scenes189eed86, samme originalZIP/WASM/core/hd.js. Balok-glyfvernet fjernes bare ved eksakt akseptert figur-HD og dokumentert eierskap; Ratmen Wa2-bro krever eksakt64000-indekskomposisjon og riktige originale bakecaller/target/ankre. Full opak originalforgrunn bevares. EndeligHTMLb1e3496e og manifest6e8d7646 brukes i standardjobber. Rootvisual008 beviser at007s Balok-blokker er borte. Status er foreloepig lokal, publisering er ikke bekreftet.790 mastere/853 konkrete ruter/59 masker gjenstaar;009-kandidater telles ikke foer aktivering.
+
+## Riddervalg og oppstart, 12. oktober 2026
+
+Standard-HD må samle tegnelisten mens pakken lastes, før hdPakke har bilder. `StandardHd.start` setter tvungetLag, og `Visning.brukerListe` må også følge dette flagget. Portrettene sel.cel2..5 og tittelfonten tegnes bare én gang; uten tidlig innsamling blir de stående i Original ved raskt introhopp og sen HD-lasting. Riddervalget har tom bakgrunn045a1ac5 og får HD gjennom figurene, så hdKontroll().bakgrunn=hd er feil test her. `hdstart1` blokkerer nedlastingen til portrettene er tegnet og krever fire faktisk godkjente HD-portretter etterpå.
+
+Portrettenes x-posisjoner leses fra originaltabellen $8F516, y80..155 og bredde64. Bare ledige figurer i $8F4A2 kan klikkes. MENY_CMD_SELECT (10) gir et ventende portrettvalg utenfor tittelmenyen. Hooken på $081D04, etter btst og før fire-grenen, velger figuren og fortsetter originalens navneflyt. $081D00 ville blitt hoppet over etter C-erstatningen av les_joysticker. Nettlaget sender gjestens betrodde spilleridentitet og port til vertens valgbehandler. Automatisk fordeling følger ridderen som har turen; faste porter krever p2 eller begge uavhengig av spillernummer. Samme kontroll brukes lokalt. PEKR-delen har nå to byte, peker_fire og ridder_klikk. Fe markerer et brukt klikk frem til neste originale valgløkke, så et dobbeltklikk ikke velger for neste spiller. Eldre PEKR-deler får standardverdier, og state_format_id skiller nettutgavene. Originale spillfiler og HD-bilder er uendret.
+
+## Grafikk og kartmus, 12. oktober 2026
+
+StandardHd laster kildeverifiserte bakgrunner uavhengig av hele figurpakken. Tekst,
+menypil og deretter portretter prioriteres. Base og bakgrunner har egne
+AbortController-objekter; en fatal figurfeil skal ikke sperre senere bakgrunner.
+Bare nettfeil/HTTP408,429,5xx proeves inntil tre ganger. SHA-/lengdefeil avvises.
+SceneHd maa identifisere baade PIV- og rullekilder under lasting, med de samme
+kilde-, palett- og pikselkontrollene som etterpaa. Bakgrunnscachen er fortsatt fire.
+
+Lesbar HD-tekst tegnes fra bekreftede originalglyfer. Bold bruker innebygd
+UncialAntiqua med felles grunnlinje; Small bruker innebygd DejaVuSansMono-Bold.
+Small.font071 er skraastrek, selv om eldre text.json deler Bold sitt understrektegn.
+Unntaket er bundet til bank- og indeks-SHA. KI038..043 er de seks statsetikettene,
+ikke fontglyfer; deres klare tekst har egen kildekontrakt. Originalmodus beholder
+originalpikslene. Tooltipens palettrad kan gi forIdx=$FE; allerede validerte egne
+tekstpiksler maa ikke maskeres igjen av det generelle figurvernet.
+
+Next Day-rutene KI045..049 kan fjerne ensfarget blaafelt bare naar faktisk vist,
+kildeverifisert ch.piv-HD-himmel overtar. Ellers beholdes originalfeltet.
+Po.cel000 er den kildebekreftede hardwarepekeren. Aktiv originalpekerposisjon kan
+brukes til aa vise hele pilen foran HD-soeyler, ogsaa ved klipping mot skjermkant.
+
+MENY_CMD_KART15 setter bare maal og retning ved bildegrensen. Patch$0AAD00 etter
+joysticklesingen lar originalkartet styre fart, terreng, grenser og trekkbudsjett.
+Klikk gjelder ikonets fotpunkt; hoeyreklikk/manuell input/ny tur/sceneskift avbryter.
+PEKR-delen er naa18byte, med maal og heltallskoordinater; eldre1/2byte faar standard.
+Netteieren kommer fra betrodd spillernummer eller p2/begge i faste porter, aldri
+fra koordinatpakken. Ugyldige koordinater og CEL-pekere avvises foer minnet leses.
+
+## HD-retensjon og lair-visning, 12. oktober 2026
+
+KI000..044 må beholde kildebekreftede instansspor når transparente felt får nye tall eller hardwarepekeren flytter seg. Kandidatretensjon bindes til original KI-bankSHA02287e89 før HD-PNG/ikonmanifest er tilgjengelig. ForberedHd beholder full kilde-/palett-/pikseleierskapskontroll. SEL001-rammen og SEL002..005-portrettene deler mål og posisjon, men må ha separate spor; kjent SEL-bankSHA30f6b154 binder denne regelen. Direkte grønt museklikk kunne ellers slette blå/grønn HD selv etter full lasting.
+
+Original lairseier registreres ved $080D1C i lair+$14. Originalen fjerner posisjonen ved $080D80 først når gull+$08 og alle24 lootbytes er tomme. HD-visningen skjuler etter brukerens ønske den eksakte9x5-portkompositten straks seierflagget er1; ingen loot, originalposisjon eller kjernelogikk endres. SourceMOG/MI/testSHA, opcode, tabellgrenser og faktisk scanout bindes før skjuling. Originalmodus beholder originaloppførselen. Kartet har24 lairs; porten ved24,24 får ny map-icons/026 uten å flytte eksisterende000..025.
+
+Ny Moonstone-logo er generert med innebygd image_gen, med originalen som formreferanse. Den glatte2440x581-RGBA-ruten erstatter den eldre pikselkonturlogoen. Original kildebredde305/anker bevares via fit:width. Råmaster, prompt, pakking og faktisk tittelskjerm ligger i art/hd-logo-2026-10-12. HD-bestillingen godtar bare den nye eksakte PNG-SHA11c779b3 som ferdig logorevisjon.
+
+RATMEN1.CEL063 er et44x35-lauvfragment som gjenbrukes med terrengets globale palett. Wa2 har grønne22/24/25/28, mens Gll3 gir andre farger på de samme indeksene. Den grønne HD-ruten må derfor ha egen kilde-/palettgate. Native originalmåling viser innfade=min(kanal,n) og utfade=max(kanal-n,0) per4bitskanal, med felles n. Hele bladpaletten5/22/24/25/28 kontrolleres på alle synlige opake rader, også når klipping bare viser svart5. Kontinuerlig fotografisk RGB kan ikke bindes til bare de synlige originalcellene. Råfoto og opak alfakontur beholdes ved revisjonen; andre paletter får konservativ Original for063.
+
+
+## BLO-HD 2026-10-12
+- blo.cel har41 uavhengige 0/15-ruter, bankSHA d83857454db7f5113598c6a41a46e45f62ecb4936637372b4807e22125bf699e, planmaske15. Original088c86..088c92 setter kampindeks15 til c00. Native min/subtract-fading gir13 eksakte rødnivåer0..204 i steg17. Alle41 har nå separate genererte væskematerialer med kildekontur4x. KN5.ob sine65 skadefragmenter var allerede HD.
+- render.js blodNivaa binder bank, mål og synlig radpalett, gir absolutt blodlys og beholder Original i fremmed kilde/palett. Kjerne/save/input er uendret. lastHdPakke venter på originalbankhash før BLO installeres.
+- tools/hd_blod_sjekk.cjs skiller kontrollert original Troll-kamp fra frontendfragmentfixturer. Native CPU ser27 BLO-ruter; nettleserkampen18 synlig HD-godkjente. Hele41 normal/speilet, fire klippkanter,13 fader, fremmed bank/palett og full save/retur prøves. Ingen full naturlig kampanje påstås.
+- Produksjon/brief/proveniens: art/hd-blood-wounds-2026-10-12. Aktivering krever full runtime- og visuell SHA-kvittering. Etter denne leveransen:2005PNG/2011filer,749 manglende mastere/812ruter/59mastermasker. Separate009-kandidater er fortsatt uaktivert her.

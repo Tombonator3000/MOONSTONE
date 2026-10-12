@@ -1,0 +1,302 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "9d0e6a66a7597e745d23b0a0516f0c6f8b06f97cb92189613938c14f40aef8bd",
+    "web/src/scenes.js": "f96ca11802910e3291ec7ee4128299f68b73957b3f5f1d0b1435141e1a08ebcd"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-bb2416c990f1c86b-3be45a8c/test.json",
+      "sha256": "09d99260f15ad5b5b6b4180e70878395876237aad083226b9888e2da8d363209",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-bb2416c990f1c86b-3be45a8c/loaded.html",
+      "html_sha256": "5b59aed418f802345119b5f1a3c38613b0fef15598a81b39a86d908e67ce10fd"
+    }
+  ],
+  "scope": "Separate individuelt genererte ruter, sammenliknet med original og sett samlet i kontrollert originalkamp. Eksakte Original/HD-returer. Original flat skygge beholdes uten nytegningspaastand. Ingen full animasjonsdekning eller naturlig kartreise.",
+  "entries": [
+    {
+      "key": "TROLL2.CEL/003.png",
+      "bank": "TROLL2.CEL",
+      "frame": 3,
+      "source_bank_sha256": "f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e",
+      "indices_sha256": "27420a63be551aa94d9ec2ee7afcd110401547b444dbc082947334576806904f",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/003/771f7efe52e06416/rounded-source-edge-v5/source-eye-troll2-v1-photo-skin/candidate.png",
+      "png_sha256": "720e2dfe2d8e59d0d0d17bb182f39b950be30158c8d44ecd02396fa1c0817ffd",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL2-003-v1.png",
+      "raw_sha256": "771f7efe52e06416337c746b2422171e2f99a25e09cbc10f55a33f45959f9df1",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL2-003-v1.txt",
+      "prompt_sha256": "55d7ab6fb694907450b937f63a6264149b1acf5feacfa0b54162ee4a0a85843e",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-bb2416c990f1c86b-3be45a8c/test.json",
+      "runtime_asset_sha256": "720e2dfe2d8e59d0d0d17bb182f39b950be30158c8d44ecd02396fa1c0817ffd",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/003/771f7efe52e06416/rounded-source-edge-v5/source-eye-troll2-v1-photo-skin/art-record.json",
+      "art_record_sha256": "ac6b0d85d7397a29fa57fd525c43f2207b191128b4e6e4921f2d92333c5ab953",
+      "additional_generated_material": {
+        "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL2-003-skin-v1.png",
+        "raw_sha256": "febe2d1360460a2c18d5bf8e3ce8fb2ecc1b4451e4a613b23cfeae789b993178",
+        "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL2-003-skin-v1.txt",
+        "prompt_sha256": "d06cf8a7978324313df7fd6b351476deb10857da72175cb7976358cc1f0cb21e",
+        "used_region": [
+          2,
+          15,
+          21,
+          34
+        ],
+        "method": "Only the generated eyeless photo skin patch is packed; all other RGB and all alpha retain the original candidate. Two HD pixels feather the patch boundary."
+      },
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL2-003-skin-v1.png",
+          "raw_sha256": "febe2d1360460a2c18d5bf8e3ce8fb2ecc1b4451e4a613b23cfeae789b993178",
+          "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL2-003-skin-v1.txt",
+          "prompt_sha256": "d06cf8a7978324313df7fd6b351476deb10857da72175cb7976358cc1f0cb21e",
+          "used_region": [
+            2,
+            15,
+            21,
+            34
+          ],
+          "method": "Only the generated eyeless photo skin patch is packed; all other RGB and all alpha retain the original candidate. Two HD pixels feather the patch boundary."
+        }
+      ],
+      "qa": {
+        "frame": 1381,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "TROLL2.CEL/004.png",
+      "bank": "TROLL2.CEL",
+      "frame": 4,
+      "source_bank_sha256": "f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e",
+      "indices_sha256": "958538ff89f02ea7ea1a044d61ed640b0d3c56fb8d7948b8be24ba31d05157ae",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/004/91bfe5decfaadff7/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "c085cb408a99fb866db0fd8f16ff31b8e898287388523e06136ed849295edf5f",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL2-004-v1.png",
+      "raw_sha256": "91bfe5decfaadff70c0aefe1bf40a5c7ce7d3a1e810ce0e461f2068d7055d1b7",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL2-004-v1.txt",
+      "prompt_sha256": "6657cdd9c0e6d2026aa09650efa2636482706d8f9f9eb038c7a685084f9d292b",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-bb2416c990f1c86b-3be45a8c/test.json",
+      "runtime_asset_sha256": "c085cb408a99fb866db0fd8f16ff31b8e898287388523e06136ed849295edf5f",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/004/91bfe5decfaadff7/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "2767d6111e2d5cf03f45a0095c5a22814d9e809283786a130a4cde1c4c349be2",
+      "qa": {
+        "frame": 1381,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "TROLL2.CEL/005.png",
+      "bank": "TROLL2.CEL",
+      "frame": 5,
+      "source_bank_sha256": "f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e",
+      "indices_sha256": "c75fa9db88383bc244539e96fecfb1792eb39278f07fd52a5374b056c090f7c3",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/005/9d8d41e04b57af6e/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "75c181f5bba92893341a269f590c79242c2e708e9159d3fedfcc62a052b28816",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL2-005-v1.png",
+      "raw_sha256": "9d8d41e04b57af6e2117daad837f8910cf1effdc4de2c901032a0ba0b9f8ab0b",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL2-005-v1.txt",
+      "prompt_sha256": "2b0c4d762105bd3e9cb7eedf0982ea67849e2ea1b0a36e1ef39cc8ccbcbb4793",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-bb2416c990f1c86b-3be45a8c/test.json",
+      "runtime_asset_sha256": "75c181f5bba92893341a269f590c79242c2e708e9159d3fedfcc62a052b28816",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/005/9d8d41e04b57af6e/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "5cbf8350c6c648cbf5458f65baa15de75b96286da5be9708bbc367884f8e9d2a",
+      "qa": {
+        "frame": 1381,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "TROLL2.CEL/006.png",
+      "bank": "TROLL2.CEL",
+      "frame": 6,
+      "source_bank_sha256": "f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e",
+      "indices_sha256": "967c413a0358582a360b4e9497b558f268407ea3a6fe366b5c77bfda9b3ee269",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/006/63211e4e6dc5ffb4/separate-shadow-troll2-v1-original-flat/candidate.png",
+      "png_sha256": "cc75ecfae24cac287b8a9638ae7f70a65d130e1285c90e0b12d47101b7189ee7",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL2-006-v1.png",
+      "raw_sha256": "63211e4e6dc5ffb4b6f8d0d93eda2edd748c43914eb0f10c914ffb48a6db4ce8",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL2-006-v1.txt",
+      "prompt_sha256": "b1c0d11224e0357e3bb1c0dfa2de2a1fba7514fff2602f3ab3ebf5f8ff19f7e5",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-bb2416c990f1c86b-3be45a8c/test.json",
+      "runtime_asset_sha256": "cc75ecfae24cac287b8a9638ae7f70a65d130e1285c90e0b12d47101b7189ee7",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/006/63211e4e6dc5ffb4/separate-shadow-troll2-v1-original-flat/art-record.json",
+      "art_record_sha256": "3326e9143f55cc9c11e0153414762e51a389ceb3d380efa5315a8dbecdada942",
+      "qa": {
+        "frame": 1381,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": "original_flat_retained_not_redrawn"
+      }
+    },
+    {
+      "key": "TROLL2.CEL/007.png",
+      "bank": "TROLL2.CEL",
+      "frame": 7,
+      "source_bank_sha256": "f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e",
+      "indices_sha256": "d792f3d3c679b58771c517fa3f87fec1c0f089dc65e9a85f6e7fbdb588b8a48b",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/007/cb1bfbbf9524b681/rounded-source-edge-v5/source-eye-troll2-v1-photo-skin/candidate.png",
+      "png_sha256": "4f0ec8e0b060b82aa6ba9696a727c1bc7e296368bf52a3fcd1523e38106c6f77",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL2-007-v1.png",
+      "raw_sha256": "cb1bfbbf9524b681065bace6a0c44c2345267ffbd0e100974756295c08ea3ad7",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL2-007-v1.txt",
+      "prompt_sha256": "53da0b5a6277c9aa56c689f54e0da510cf1f59d08e55959ea268a9b73d775f12",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-bb2416c990f1c86b-3be45a8c/test.json",
+      "runtime_asset_sha256": "4f0ec8e0b060b82aa6ba9696a727c1bc7e296368bf52a3fcd1523e38106c6f77",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/007/cb1bfbbf9524b681/rounded-source-edge-v5/source-eye-troll2-v1-photo-skin/art-record.json",
+      "art_record_sha256": "cd40276be98d4a7840ec255c0e50ba1a90498dfba324852d885fd603542013eb",
+      "additional_generated_material": {
+        "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL2-007-skin-v1.png",
+        "raw_sha256": "cce1c68ac35efd48f71ee9e8faa2de81bc9fb495c5383177944a459aeedacbc0",
+        "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL2-007-skin-v1.txt",
+        "prompt_sha256": "fa85b9e59167b0aef3612b7009d7d35443810cba648140d69fb1480d86ceb7c3",
+        "used_region": [
+          65,
+          18,
+          81,
+          34
+        ],
+        "method": "Only the generated eyeless photo skin patch is packed; all other RGB and all alpha retain the original candidate. Two HD pixels feather the patch boundary."
+      },
+      "additional_generated_materials": [
+        {
+          "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL2-007-skin-v1.png",
+          "raw_sha256": "cce1c68ac35efd48f71ee9e8faa2de81bc9fb495c5383177944a459aeedacbc0",
+          "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL2-007-skin-v1.txt",
+          "prompt_sha256": "fa85b9e59167b0aef3612b7009d7d35443810cba648140d69fb1480d86ceb7c3",
+          "used_region": [
+            65,
+            18,
+            81,
+            34
+          ],
+          "method": "Only the generated eyeless photo skin patch is packed; all other RGB and all alpha retain the original candidate. Two HD pixels feather the patch boundary."
+        }
+      ],
+      "qa": {
+        "frame": 1386,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "TROLL2.CEL/008.png",
+      "bank": "TROLL2.CEL",
+      "frame": 8,
+      "source_bank_sha256": "f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e",
+      "indices_sha256": "f2d6b997a6a3c9176e0d1764af2899b1134690460e4f1b47c24fe96e4302cebc",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/008/469173cac2e12e4d/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "1a37f00e7a3df24be7cf1f1ee44394924f7902a275966e47aa3bed1da5ab25b1",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL2-008-v1.png",
+      "raw_sha256": "469173cac2e12e4d9f56d6ba5ecb08a24138da02618c9d4dd030771a0f3aeb65",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL2-008-v1.txt",
+      "prompt_sha256": "dbc9ece7c38876c4d49e903093630564e78d3019efd212b0700c0cbc93a9bc97",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-bb2416c990f1c86b-3be45a8c/test.json",
+      "runtime_asset_sha256": "1a37f00e7a3df24be7cf1f1ee44394924f7902a275966e47aa3bed1da5ab25b1",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/008/469173cac2e12e4d/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "bd314a1d4072c501fdc350eb2c99bd16636a11de6622fa83987f8e5c7a52e47b",
+      "qa": {
+        "frame": 1386,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "TROLL2.CEL/009.png",
+      "bank": "TROLL2.CEL",
+      "frame": 9,
+      "source_bank_sha256": "f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e",
+      "indices_sha256": "ce5370c40ac6fff5cdc03b6aaf636656f6100ca6a7f1e306a243dab92898528a",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/009/7ec62f0ad3f05fc8/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "934b076d5e6dbce984565b6e04ed0fd66e76c6b7548c82eb19c0fa1efbbf8a94",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL2-009-v1.png",
+      "raw_sha256": "7ec62f0ad3f05fc8972bcc5b65dce91e0e18e749c0112d6ee1627f2df84a9b83",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL2-009-v1.txt",
+      "prompt_sha256": "9a90bff4fda49004a3c955fde4f2fbf96a2d956319877b76bc8dc2e691b09273",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-bb2416c990f1c86b-3be45a8c/test.json",
+      "runtime_asset_sha256": "934b076d5e6dbce984565b6e04ed0fd66e76c6b7548c82eb19c0fa1efbbf8a94",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/009/7ec62f0ad3f05fc8/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "94f0aaf883b1242f1e0e9f1bf05cb359e0faedcd2601568de7b94b3bbc27dd32",
+      "qa": {
+        "frame": 1386,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "TROLL1.CEL/017.png",
+      "bank": "TROLL1.CEL",
+      "frame": 17,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "f5af24a55ab8aa42b5d2dc5d307f7f389c6bb9f41c73a6f146dbb6083f799209",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/017/5a24144834b231f4/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "9b851a22c87fa15e864a219e78c54127e15100a7519d41dd0f1fd4fd707e26f1",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-017-v1.png",
+      "raw_sha256": "5a24144834b231f46d478c50635462a75fabeb2216d7e05eae601f0794b3585a",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-017-v1.txt",
+      "prompt_sha256": "ca217b34e8142fddbdc3ef1d9b337358e0bcb0ff4c338f5dae37e65b0737bfd8",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-bb2416c990f1c86b-3be45a8c/test.json",
+      "runtime_asset_sha256": "9b851a22c87fa15e864a219e78c54127e15100a7519d41dd0f1fd4fd707e26f1",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/017/5a24144834b231f4/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "86b0477fee75aa87a486b0d2e451bd7e0a188ca531b563d7849a11b8795a1bc1",
+      "qa": {
+        "frame": 1381,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    }
+  ]
+}

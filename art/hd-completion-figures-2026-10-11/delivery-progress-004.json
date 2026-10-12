@@ -1,0 +1,275 @@
+{
+  "status": "locally_activated_standard_verified_public_pending",
+  "images": 1428,
+  "files": 1434,
+  "backgrounds": 81,
+  "new_png_files": 283,
+  "source_masters": 178,
+  "new_photographic_material_masters": 178,
+  "concrete_routes": 215,
+  "new_palette_masks": 68,
+  "remaining_masters": 1270,
+  "remaining_routes": 1340,
+  "remaining_master_masks": 5,
+  "deliveries": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/kn5-production/activation-set-kn5-001.json",
+      "sha256": "717a8478a09596d44ba65a161ed0f1943e34ecc01098a7fdb9afd2c0b7801d0f"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-003-reaching-five-join-v1.json",
+      "sha256": "e6386295862569f881441c8649c273d40d6b8906105558ea48d36c5cca87766f"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-004-crouch-first-v1.json",
+      "sha256": "eb67f2f241bee5a170ca084ea5ade07d2d00c60fbb6b8d575d4cb298c0219998"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-005-first-eight-li1-v1.json",
+      "sha256": "07b7bd8745ce7f55d727ecb39bef1accc949f1d3575b0736f009a9aa19f6efed"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-007-jump-five-v5.json",
+      "sha256": "59c123900fe5a9692e32f0afffd6964d235bc2ad91723c29f786ccf783a3ca32"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-008-attack-seven-ankle-v5.json",
+      "sha256": "13306ad85263f1e0620982b4184edad3a24eb809ed069be4fa107bd16c6d1b09"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-troll2-006-baked-death-current-v1.json",
+      "sha256": "aa34a4bda40c2e6aa9487a093c15130f9110452c85006035afd1635c5b664994"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/hen-ritual/activation-set-001.json",
+      "sha256": "79fee7ff446574c69d260fd8a751da6fa811f901c11196a90dec82b94674d362"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/li1/activation-set-001.json",
+      "sha256": "1e1f43f206215b6d5d18339f81c07551def0099cfe3b61ebb7c5acfd55f790d7"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/activation-set-dragon1-001.json",
+      "sha256": "ce132b2796dcb268c129ed586f8b8529ab8e7d50bb5b6984272e5c6c3e6c5215"
+    }
+  ],
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/kn5-production/verification/all-routes-final/test.json",
+      "sha256": "a6e5cfcb269dd30d955b9e86a0d215d4a30ebac6ec3edb6c81e3ba2214ece586",
+      "checks": 1051,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "66ec11d9a007834b172f721a6eccfe9be2f0a5a27ecbfc7ea40531a92cfe771a",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+        "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/kn5-production/verification/dragon-final/test.json",
+      "sha256": "fa2e3750bc9e3d26ef0930b8d8c34f94c9f2986c245cd83a1b52273e976e229f",
+      "checks": 136,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "66ec11d9a007834b172f721a6eccfe9be2f0a5a27ecbfc7ea40531a92cfe771a",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+        "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-858228b297c2cb13-d21380f6/test.json",
+      "sha256": "f7a8abd508cede674d16373d46819192c795570460f26b663788306a8e75f7be",
+      "checks": 29,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "66ec11d9a007834b172f721a6eccfe9be2f0a5a27ecbfc7ea40531a92cfe771a",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-f5f459bfbd6d06c7-d21380f6/test.json",
+      "sha256": "b6b1f50034f38c891dc23135b334b564f7097007b0e5e3f5ce75c20e973662fd",
+      "checks": 19,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "66ec11d9a007834b172f721a6eccfe9be2f0a5a27ecbfc7ea40531a92cfe771a",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-da512269af88dbf0-d21380f6/test.json",
+      "sha256": "2efaa520d238f83d92aa1108ff2a018e87bfb5821266705d01d1047e72acb4cc",
+      "checks": 44,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "66ec11d9a007834b172f721a6eccfe9be2f0a5a27ecbfc7ea40531a92cfe771a",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-0453859cc88175ca-8557730b/test.json",
+      "sha256": "f39f8b5b842e1a9de84af58ebd8ecd0fcc87f8c0663e8627522d60077d38c184",
+      "checks": 109,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-7281043271060f45-8557730b/test.json",
+      "sha256": "ff58cc5715345286f760aed9e3f0b30146aa26887ebef441ac8204db171cda20",
+      "checks": 39,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/troll-baked-v5/test.json",
+      "sha256": "c75496789db3e667aac702ca13adf0289b457caf5e3527f9856baca210affc63",
+      "checks": 89,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "eea5eaec6e00fd2f68401341d81bd1cc4bfe6f27979b666e7dc99ea6dea08414",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/hen-ritual/verification/all-current-v4/test.json",
+      "sha256": "634105f34e59cfc1eacdcbda0b05f7e5b0179293fa7cea258e30291e57420373",
+      "checks": 1490,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "eea5eaec6e00fd2f68401341d81bd1cc4bfe6f27979b666e7dc99ea6dea08414",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+        "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/hen-ritual/verification/negative-current-v4/test.json",
+      "sha256": "daa0328d099c17466bad8c785b7e427c2a6eec31f63d268c10d2c159003a96d7",
+      "checks": 110,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "eea5eaec6e00fd2f68401341d81bd1cc4bfe6f27979b666e7dc99ea6dea08414",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+        "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/hen-ritual/verification/negative-klift-current-v4/test.json",
+      "sha256": "5d2a54da7093191dfdcb4d4b02e41e4c3304b773ffe40b4408af5a3385236610",
+      "checks": 110,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "eea5eaec6e00fd2f68401341d81bd1cc4bfe6f27979b666e7dc99ea6dea08414",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+        "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/li1/verification/routes-final-v4/test.json",
+      "sha256": "828ae8b8c8e9d864635138349aba136eef67a95c23e3398d2894cc01da6ca53d",
+      "checks": 1031,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+        "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/li1/verification/natural-final-v5/test.json",
+      "sha256": "c79a7fb4754b3c1989b9c6b766719797ea2984212a1a708f7c402eff618a983a",
+      "checks": 118,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+        "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/li1/verification/negative-final-v4/test.json",
+      "sha256": "8ae496b08c109c2c5ef11251467fb66e374162477fbc4fd20b35a078665e2e76",
+      "checks": 162,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+        "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/li1/verification/mode2-final-v4/test.json",
+      "sha256": "922e77296dce6769444c980802ce3bb694d3c2e4409420735d3e7c9775a50493",
+      "checks": 14,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+        "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/li1/verification/tavern-final-v4/dice-standard.json",
+      "sha256": "908a65c024ef3cbc347c00127915bc7e2fc5e5ecebd5a56f9642dfa366496129",
+      "checks": 55,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+        "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-all-routes-final/test.json",
+      "sha256": "886f343b80fa4a60d429820838fca2f2da230d80ff651d86b748b377ec560f4b",
+      "checks": 237,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+        "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon1-actual-final/test.json",
+      "sha256": "def6b6e78d5beaf7f2f5435f7c7f4084f5e06fa198e9432640d54b01a0d4a3c9",
+      "checks": 39,
+      "production_code_sha256": {
+        "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+        "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+        "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+        "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+      }
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-004-final/ending/test.json",
+      "sha256": "f1ed8b9a10f94d3b678efd9a890fffe1431408e85f6b9557b9b600402cb735fe",
+      "checks": 1507
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/li1/verification/standard-final-v1/test.json",
+      "sha256": "50e0216bbeef24fd67395195e8a2c6849de24c747d188c379d59ec41fbe916a8",
+      "checks": 98
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/troll-baked-v6/test.json",
+      "sha256": "e351ebc49abc2f1b6175aa7b3e2a28c1cb8c39d1b06451a47ab915996ed3f521",
+      "checks": 89
+    }
+  ],
+  "standard_package": {
+    "path": "art/hd-completion-figures-2026-10-11/verification/standard-package-004.json",
+    "sha256": "98e0e77a917bf34e36186538b1c259e10a0b397471fc551a41e4ed76dc6d49f9"
+  },
+  "limits": [
+    "No full natural playthrough or physical phone test.",
+    "Fixture coverage is distinct from natural source use; LI1/023..029 have no natural-use claim.",
+    "Guardian and unfinished Dragon2/5 or Balok candidates are not activated by this delivery.",
+    "Historical code hashes are preserved; fresh standard intro/ending and TROLL persistence use final production code."
+  ]
+}

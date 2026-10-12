@@ -1,0 +1,1638 @@
+{
+  "schema": 1,
+  "status": "source_and_two_original_cpu_colors_verified",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "source_mog_sha256": "d8cc4ec9f848ee30032f1e0c0db4e37c2484114910d314760956da9fee96da81",
+  "source_bank_sha256": "0e4e325fdea1d47f533ecf7000838afea6eb7f9e0a3f31b55779a184ab8eb5da",
+  "headless_sha256": "b70edf0eeb05e853e3ce0e3949548275824c7ff98f723f83697f6564e67db695",
+  "source_palette_code_sha256": "7379023a189a609b1a042b7f138791d4744fb7f91dd8f06a4f11d9dcf0b7b76f",
+  "source_dragon_death_table_sha256": "5355d6137eb062da8e30580823f201e28daa78f83e4bbcac8800881655d51767",
+  "live_palette_indices": [
+    6,
+    7,
+    8
+  ],
+  "fixed_red_indices": [
+    9,
+    11,
+    15
+  ],
+  "fixed_fire_indices": [
+    29,
+    30,
+    31
+  ],
+  "identity": "058..064: brennende ridder som faller i original dragekamp; 000..057: separate blod-/saardeler, ingen ubekreftet handling per rute.",
+  "preview_limit": "Den eldre combat-preview bruker feil cyan/rosa for058..064 og er bare formreferanse.",
+  "cases": [
+    {
+      "case": "dragon-idle-v1",
+      "command": [
+        "/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/port/moonstone-headless",
+        "--headless",
+        "--frames",
+        "4500",
+        "--log",
+        "2",
+        "--press",
+        "100:esc:4",
+        "--press",
+        "700:down:4",
+        "--press",
+        "760:down:4",
+        "--press",
+        "820:fire:4",
+        "--shot-every",
+        "100",
+        "--shot-dir",
+        "/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/figures/kn5-production/identity/dragon-idle-v1",
+        "--tegneliste",
+        "1000:3501",
+        "--skriv",
+        "900:80172:0x845a6:4",
+        "--skriv",
+        "900:8d9ac:0x8d5b4:4",
+        "--skriv",
+        "900:8015c:0xc:4",
+        "--dump",
+        "1400:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/figures/kn5-production/identity/dragon-idle-v1/chip1400.bin",
+        "--dump",
+        "1800:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/figures/kn5-production/identity/dragon-idle-v1/chip1800.bin",
+        "--dump",
+        "2500:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/figures/kn5-production/identity/dragon-idle-v1/chip2500.bin",
+        "--dump",
+        "3500:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/figures/kn5-production/identity/dragon-idle-v1/chip3500.bin",
+        "--dump",
+        "4500:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/figures/kn5-production/identity/dragon-idle-v1/chip4500.bin"
+      ],
+      "trace_sha256": "cb3895ded005c1d371c92d67b2899aa8a486d21c03344d15153ffd7cb03dd51a",
+      "test_scope": "Original CPU med scenestartskrivinger, pluss original ridderfarge-ID i roed kontroll. Ingen palett- eller tegnelisteskriving.",
+      "first_call_per_route": [
+        {
+          "emulator_frame": 1321,
+          "route": 58,
+          "x": 229,
+          "y": 108,
+          "width": 39,
+          "height": 74,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        },
+        {
+          "emulator_frame": 1327,
+          "route": 59,
+          "x": 227,
+          "y": 114,
+          "width": 38,
+          "height": 68,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        },
+        {
+          "emulator_frame": 1380,
+          "route": 60,
+          "x": 221,
+          "y": 137,
+          "width": 55,
+          "height": 46,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        },
+        {
+          "emulator_frame": 1390,
+          "route": 61,
+          "x": 221,
+          "y": 139,
+          "width": 55,
+          "height": 45,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        },
+        {
+          "emulator_frame": 1400,
+          "route": 62,
+          "x": 224,
+          "y": 140,
+          "width": 52,
+          "height": 44,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        },
+        {
+          "emulator_frame": 1419,
+          "route": 63,
+          "x": 230,
+          "y": 153,
+          "width": 61,
+          "height": 30,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        },
+        {
+          "emulator_frame": 1409,
+          "route": 64,
+          "x": 229,
+          "y": 152,
+          "width": 61,
+          "height": 31,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        }
+      ],
+      "samples": [
+        {
+          "path": "dragon-idle-v1/chip1400.bin",
+          "sha256": "e3da172e4b9b86ba941095db4eac03eca9bdcc1d67e455ac333bbc99d0091bf7",
+          "palette_words": [
+            0,
+            4093,
+            2456,
+            1910,
+            1091,
+            0,
+            10,
+            7,
+            4,
+            3072,
+            2422,
+            1792,
+            1280,
+            1876,
+            3120,
+            2560,
+            802,
+            1074,
+            1603,
+            2149,
+            3206,
+            2192,
+            661,
+            370,
+            97,
+            64,
+            2678,
+            1876,
+            1104,
+            4032,
+            3968,
+            3152
+          ]
+        },
+        {
+          "path": "dragon-idle-v1/chip1800.bin",
+          "sha256": "8dda4b223c2a7ed228e9993de2b176df0f25ed5cb45ef90061b9cedc06f46c7a",
+          "palette_words": [
+            0,
+            4093,
+            2456,
+            1910,
+            1091,
+            0,
+            10,
+            7,
+            4,
+            3072,
+            2422,
+            1792,
+            1280,
+            1876,
+            3120,
+            2560,
+            802,
+            1074,
+            1603,
+            2149,
+            3206,
+            2192,
+            661,
+            370,
+            97,
+            64,
+            2678,
+            1876,
+            1104,
+            4032,
+            3968,
+            3152
+          ]
+        },
+        {
+          "path": "dragon-idle-v1/chip2500.bin",
+          "sha256": "2175a600a30569a65fd29227dd6f5af7c6106a2515c96127e2efd684d1680741",
+          "palette_words": [
+            0,
+            4093,
+            2456,
+            1910,
+            1091,
+            0,
+            10,
+            7,
+            4,
+            3072,
+            2422,
+            1792,
+            1280,
+            1876,
+            3120,
+            2560,
+            802,
+            1074,
+            1603,
+            2149,
+            3206,
+            2192,
+            661,
+            370,
+            97,
+            64,
+            2678,
+            1876,
+            1104,
+            4032,
+            3968,
+            3152
+          ]
+        },
+        {
+          "path": "dragon-idle-v1/chip3500.bin",
+          "sha256": "bd9fe1574f331ec08b2b4cdcecd50ea03e34ad7438fc7afb3d7f4659735960f6",
+          "palette_words": [
+            0,
+            4093,
+            2456,
+            1910,
+            1091,
+            0,
+            10,
+            7,
+            4,
+            3072,
+            2422,
+            1792,
+            1280,
+            1876,
+            3120,
+            2560,
+            802,
+            1074,
+            1603,
+            2149,
+            3206,
+            2192,
+            661,
+            370,
+            97,
+            64,
+            2678,
+            1876,
+            1104,
+            4032,
+            3968,
+            3152
+          ]
+        },
+        {
+          "path": "dragon-idle-v1/chip4500.bin",
+          "sha256": "8ff80146233b84a0529029b7ba243b8839efe22c6ccade1010253f1573c2acb0",
+          "palette_words": [
+            0,
+            4093,
+            2456,
+            1910,
+            1091,
+            0,
+            10,
+            7,
+            4,
+            3072,
+            2422,
+            1792,
+            1280,
+            1876,
+            3120,
+            2560,
+            802,
+            1074,
+            1603,
+            2149,
+            3206,
+            2192,
+            661,
+            370,
+            97,
+            64,
+            2678,
+            1876,
+            1104,
+            4032,
+            3968,
+            3152
+          ]
+        }
+      ]
+    },
+    {
+      "case": "dragon-red-v1",
+      "command": [
+        "/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/port/moonstone-headless",
+        "--headless",
+        "--frames",
+        "1600",
+        "--log",
+        "2",
+        "--press",
+        "100:esc:4",
+        "--press",
+        "700:down:4",
+        "--press",
+        "760:down:4",
+        "--press",
+        "820:fire:4",
+        "--shot-every",
+        "25",
+        "--shot-dir",
+        "/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/figures/kn5-production/identity/dragon-red-v1",
+        "--tegneliste",
+        "1280:321",
+        "--skriv",
+        "900:80172:0x845a6:4",
+        "--skriv",
+        "900:8d9ac:0x8d5b4:4",
+        "--skriv",
+        "900:8015c:0xc:4",
+        "--skriv",
+        "900:8d5ea:0x3:4",
+        "--dump",
+        "1321:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/figures/kn5-production/identity/dragon-red-v1/chip1321.bin",
+        "--dump",
+        "1400:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/figures/kn5-production/identity/dragon-red-v1/chip1400.bin",
+        "--dump",
+        "1500:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/figures/kn5-production/identity/dragon-red-v1/chip1500.bin",
+        "--dump",
+        "1600:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/figures/kn5-production/identity/dragon-red-v1/chip1600.bin"
+      ],
+      "trace_sha256": "8e9cf4dd9522e728b66c29d71337a4748a5ec861b1505e353a3d7d1ae6fde1cb",
+      "test_scope": "Original CPU med scenestartskrivinger, pluss original ridderfarge-ID i roed kontroll. Ingen palett- eller tegnelisteskriving.",
+      "first_call_per_route": [
+        {
+          "emulator_frame": 1321,
+          "route": 58,
+          "x": 229,
+          "y": 108,
+          "width": 39,
+          "height": 74,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        },
+        {
+          "emulator_frame": 1327,
+          "route": 59,
+          "x": 227,
+          "y": 114,
+          "width": 38,
+          "height": 68,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        },
+        {
+          "emulator_frame": 1380,
+          "route": 60,
+          "x": 221,
+          "y": 137,
+          "width": 55,
+          "height": 46,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        },
+        {
+          "emulator_frame": 1390,
+          "route": 61,
+          "x": 221,
+          "y": 139,
+          "width": 55,
+          "height": 45,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        },
+        {
+          "emulator_frame": 1400,
+          "route": 62,
+          "x": 224,
+          "y": 140,
+          "width": 52,
+          "height": 44,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        },
+        {
+          "emulator_frame": 1419,
+          "route": 63,
+          "x": 230,
+          "y": 153,
+          "width": 61,
+          "height": 30,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        },
+        {
+          "emulator_frame": 1409,
+          "route": 64,
+          "x": 229,
+          "y": 152,
+          "width": 61,
+          "height": 31,
+          "xoff": 0,
+          "mirrored": true,
+          "buffer": "0a2cd6",
+          "caller": "087bf0"
+        }
+      ],
+      "samples": [
+        {
+          "path": "dragon-red-v1/chip1321.bin",
+          "sha256": "85c582b98014aaf5162ea245c5ef828e60b51fd8402e83e1ccc813c89ed7ddc4",
+          "palette_words": [
+            0,
+            4093,
+            2456,
+            1910,
+            1091,
+            0,
+            3874,
+            2850,
+            1792,
+            3072,
+            2422,
+            1792,
+            1280,
+            1876,
+            3120,
+            2560,
+            802,
+            1074,
+            1603,
+            2149,
+            3206,
+            2192,
+            661,
+            370,
+            97,
+            64,
+            2678,
+            1876,
+            1104,
+            4032,
+            3968,
+            3152
+          ]
+        },
+        {
+          "path": "dragon-red-v1/chip1400.bin",
+          "sha256": "af7b8ae3c8fabfa1abe5e86cd85f971715bc23de98a61316e43eea16e189efbe",
+          "palette_words": [
+            0,
+            4093,
+            2456,
+            1910,
+            1091,
+            0,
+            3874,
+            2850,
+            1792,
+            3072,
+            2422,
+            1792,
+            1280,
+            1876,
+            3120,
+            2560,
+            802,
+            1074,
+            1603,
+            2149,
+            3206,
+            2192,
+            661,
+            370,
+            97,
+            64,
+            2678,
+            1876,
+            1104,
+            4032,
+            3968,
+            3152
+          ]
+        },
+        {
+          "path": "dragon-red-v1/chip1500.bin",
+          "sha256": "6fb609c2d40704ead6391a3f6f6bc30a4a80be46d1c9a6240eb69f3041579214",
+          "palette_words": [
+            0,
+            4093,
+            2456,
+            1910,
+            1091,
+            0,
+            3874,
+            2850,
+            1792,
+            3072,
+            2422,
+            1792,
+            1280,
+            1876,
+            3120,
+            2560,
+            802,
+            1074,
+            1603,
+            2149,
+            3206,
+            2192,
+            661,
+            370,
+            97,
+            64,
+            2678,
+            1876,
+            1104,
+            4032,
+            3968,
+            3152
+          ]
+        },
+        {
+          "path": "dragon-red-v1/chip1600.bin",
+          "sha256": "12504d43cbcb03d70cb77ebe44b6d47f71d0a420022ffc752ebc41507687a2dc",
+          "palette_words": [
+            0,
+            4093,
+            2456,
+            1910,
+            1091,
+            0,
+            3874,
+            2850,
+            1792,
+            3072,
+            2422,
+            1792,
+            1280,
+            1876,
+            3120,
+            2560,
+            802,
+            1074,
+            1603,
+            2149,
+            3206,
+            2192,
+            661,
+            370,
+            97,
+            64,
+            2678,
+            1876,
+            1104,
+            4032,
+            3968,
+            3152
+          ]
+        }
+      ]
+    }
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "width": 38,
+      "height": 40,
+      "plane_mask": 15,
+      "bitplane_sha256": "5aa009fc7935dc9de25c12cde3ab2197fb315bed7fb7412e2da2d6445d4ec822",
+      "indices_sha256": "96da79604c711be7cc9f006bceb9dab34e214992bc7a155e512fcf6105fd2688",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        15
+      ],
+      "needs_mask": true
+    },
+    {
+      "frame": 1,
+      "width": 66,
+      "height": 41,
+      "plane_mask": 15,
+      "bitplane_sha256": "8c89184b17516cf7021207e745a11cbed4152a6cc88b95f0ccba39c5d09b344b",
+      "indices_sha256": "220488ba8711b3679d7ac158c9f344e1b59162b0e4831d2aa4cbbc994a20cc2d",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        15
+      ],
+      "needs_mask": true
+    },
+    {
+      "frame": 2,
+      "width": 32,
+      "height": 14,
+      "plane_mask": 15,
+      "bitplane_sha256": "acefb7131619929b0012bb4869eb779cf159faa194e097cc0676b31a0b840e92",
+      "indices_sha256": "9f20d9247aa36cc47f3733df3da2548422cebc6fcc177c9f79857b3732a7d7d7",
+      "source_indices": [
+        0,
+        3,
+        4,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 3,
+      "width": 44,
+      "height": 17,
+      "plane_mask": 15,
+      "bitplane_sha256": "60da9bc68198387d0b55521117543ecfea121b6355ab738ef261d0ea8b0ee22a",
+      "indices_sha256": "56963d2d369e3dd27033194a012f818d742f392bae38c077e9b3da93ad55c82f",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 4,
+      "width": 28,
+      "height": 30,
+      "plane_mask": 15,
+      "bitplane_sha256": "35f329717c0a1bfa626e5ca4ba4ccdeff716e8723d6149684e0a81c1e6aa38e9",
+      "indices_sha256": "1b9b345b6c5a6bd34d52568034b27b7e1840fb0d5d86653b091f5ad636bd1fb0",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        15
+      ],
+      "needs_mask": true
+    },
+    {
+      "frame": 5,
+      "width": 6,
+      "height": 16,
+      "plane_mask": 15,
+      "bitplane_sha256": "c3ef4ea4285fac3081afe2e592cd7886704f8309172f55fd0d0525a6d7cc247d",
+      "indices_sha256": "fcffec98523d33183b513e21464f9476cc8fadf1bf92fc475235fb4a4ff3f343",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        15
+      ],
+      "needs_mask": true
+    },
+    {
+      "frame": 6,
+      "width": 18,
+      "height": 40,
+      "plane_mask": 15,
+      "bitplane_sha256": "087c0170c1fc2f64c259fd827629eadd908c66a5511d8681a474b66d9e72497b",
+      "indices_sha256": "7e4d02e3292539867897a9fb0edeead2fa11d6a6ec7d17939c35bea595b651b7",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        15
+      ],
+      "needs_mask": true
+    },
+    {
+      "frame": 7,
+      "width": 20,
+      "height": 18,
+      "plane_mask": 15,
+      "bitplane_sha256": "33a1a29dd9a059325e1604ad807031df56fafbe5d6d6c40bb0823f1fe77dd84d",
+      "indices_sha256": "659a358840c1ccc0acf2c4e572b17d9706e21c79806bf39621dfa3652bc5c786",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 8,
+      "width": 36,
+      "height": 10,
+      "plane_mask": 15,
+      "bitplane_sha256": "6673979c250fbf1f31189e8e46a20b8c6618ffba9875b9d6081e3833e01f46aa",
+      "indices_sha256": "3f5e622be648649223d05057366fe3ccf1b666aae9a0b6b0a540c0607317b071",
+      "source_indices": [
+        0,
+        3,
+        4,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 9,
+      "width": 15,
+      "height": 4,
+      "plane_mask": 15,
+      "bitplane_sha256": "f5231a1c34efa894237b2a843edaccab94e604260d342a581eaff6a70d6d4315",
+      "indices_sha256": "faba4f3671e2ed01abf6ac83666184b3763c93c99de8bd6e39b84987666fb71a",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 10,
+      "width": 15,
+      "height": 16,
+      "plane_mask": 15,
+      "bitplane_sha256": "92dd0d28c7c13304e7616396f2ef1379268511d9cc8ee4360f7d185a416e784d",
+      "indices_sha256": "e39826fd510cad3f7a97694e3af3faa4d92e0d58dac1f15dee3ed81d75e4b063",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 11,
+      "width": 17,
+      "height": 17,
+      "plane_mask": 15,
+      "bitplane_sha256": "aa4a215e518f733da4d4d1414f3fab43777c6b65ac618907cb58aeaa3a799b58",
+      "indices_sha256": "af6bec2b321c1a32cb4a6c1a2151e11c5b7e9f3c8e9a1119dce3e123329be772",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 12,
+      "width": 15,
+      "height": 36,
+      "plane_mask": 15,
+      "bitplane_sha256": "46e832f9c243774d7dd11fa80e4007546b8aee773b11a9463cd7822a5e71baf1",
+      "indices_sha256": "b2fe485fd729bb80496d93dea606a8b15147108f7f97a11cf30bc459b16ff586",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 13,
+      "width": 11,
+      "height": 23,
+      "plane_mask": 15,
+      "bitplane_sha256": "bc8a34badad7fd482de235765fbc822515aaef3492aa982c0b1fc488f2c9d470",
+      "indices_sha256": "999135c335eb016b13283a5c22d0500037b02cae81b68bd1ccdbdc8d25093e79",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 14,
+      "width": 20,
+      "height": 39,
+      "plane_mask": 15,
+      "bitplane_sha256": "801a06a4487515afb8f933f9bb3576590a5efd7753c7c68f20c72c3bad106f73",
+      "indices_sha256": "89d5f55519c05a8b51a2647b3c88b3ca6dd8896e85c41c6af3e9c000ba1a3870",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 15,
+      "width": 43,
+      "height": 12,
+      "plane_mask": 15,
+      "bitplane_sha256": "5b97d20ffe1fc1cf8134d276a02e21103684153b64091f05808542bc4762b41e",
+      "indices_sha256": "46e012ed8b65a2dcab2b4f237d806d91b14162abcc7e2483c8b15223c8e4142f",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 16,
+      "width": 33,
+      "height": 13,
+      "plane_mask": 15,
+      "bitplane_sha256": "798e4915a09b7c6bebe1fbbff2f9a8e6d61ba35d1052b8be36ade3daa81d9441",
+      "indices_sha256": "e3687f240bf8683457734ef0f8d32d87eb86e747e2cbc6036fa3a28f9146ec52",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 17,
+      "width": 38,
+      "height": 7,
+      "plane_mask": 15,
+      "bitplane_sha256": "b530b86157704c53a1c5f3a2b05fdd9267b5ce3ba499a3991ada8e6a1d37ab63",
+      "indices_sha256": "bd7f6bf6d0321d2dfa839cdbc6d4a6c8ab4922f9b59f87b275752be2938e241b",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 18,
+      "width": 54,
+      "height": 15,
+      "plane_mask": 15,
+      "bitplane_sha256": "b25cc47048566d7c9413c3f615709002320f49667c21cd0b7ad4a2a845a69854",
+      "indices_sha256": "bad7e6a4e3ac7151972b08af7bd1636c01401504bdf186879d3438ff5624235c",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 19,
+      "width": 44,
+      "height": 6,
+      "plane_mask": 15,
+      "bitplane_sha256": "91e60103e80845c891710682caa9460c7a53125b7f83f95b23098834824bd858",
+      "indices_sha256": "4870d6f15a1291a8b160a90dbadd50d17a89cc884c91a1c60b2a06108a4ed1b2",
+      "source_indices": [
+        0,
+        5,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 20,
+      "width": 39,
+      "height": 16,
+      "plane_mask": 15,
+      "bitplane_sha256": "f7715b15f6b15618491c9fbd520cef5b7bf087707aed10dabed67ddf90fa48eb",
+      "indices_sha256": "6cf4e173f21e0703bf7e097555bc15d7ae3ab9d134b7c6da0917726be8a031e9",
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "needs_mask": true
+    },
+    {
+      "frame": 21,
+      "width": 58,
+      "height": 9,
+      "plane_mask": 15,
+      "bitplane_sha256": "735769b8f658914889e22a514540d461c55910ef926ef06e2b0e5b0161e905ee",
+      "indices_sha256": "65bfc76eea64b18b1770338fc2eaf6e7db716ebc99f89c0b163540e631ec9ba1",
+      "source_indices": [
+        0,
+        3,
+        4,
+        5,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 22,
+      "width": 50,
+      "height": 4,
+      "plane_mask": 15,
+      "bitplane_sha256": "6cfdc1d1eb102342f7661ce537d555480651812a151a979b74329b3ce22be8cb",
+      "indices_sha256": "31a86705d3fb8de2e97ff3fc98dcd20eaeab848b6d29ba196e1c176e17696a25",
+      "source_indices": [
+        0,
+        4,
+        5,
+        6,
+        8,
+        15
+      ],
+      "needs_mask": true
+    },
+    {
+      "frame": 23,
+      "width": 26,
+      "height": 7,
+      "plane_mask": 15,
+      "bitplane_sha256": "e3efd11a57fbc2b6986f9eb26efa1983767a51bcefa61ebaf7370168257584a0",
+      "indices_sha256": "f326276aed16198ff648cb389d9f83051e9060a537362797e2617392cade2912",
+      "source_indices": [
+        0,
+        4,
+        5,
+        7,
+        8,
+        15
+      ],
+      "needs_mask": true
+    },
+    {
+      "frame": 24,
+      "width": 75,
+      "height": 15,
+      "plane_mask": 15,
+      "bitplane_sha256": "5f7225e9b894b44f2950d121b100377bd8c9b38235f1a3e3104cc3d187d9becb",
+      "indices_sha256": "1a179adecb01fe42524e5b1b71b6b78a34f70ca7cd8d3b9d779573f1aad2a970",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 25,
+      "width": 40,
+      "height": 13,
+      "plane_mask": 15,
+      "bitplane_sha256": "e5284d7f8edb92dd897ac55d76c609e6c087561ac1537968cc3b095ffe0c6795",
+      "indices_sha256": "b48b316335810ce6e7dea00157c2a82e601f89fd471e67e8ddc3618811f127c6",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 26,
+      "width": 44,
+      "height": 9,
+      "plane_mask": 15,
+      "bitplane_sha256": "e80b1f13b2583a4a0723b413aee716b44725b77f9f2a4af4dea5bd81b9a42cd4",
+      "indices_sha256": "5092e6cf074eb2262607221cb0de6b5936177a80385a51067735686ffe8b0a13",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 27,
+      "width": 14,
+      "height": 10,
+      "plane_mask": 15,
+      "bitplane_sha256": "7e6eaa77cbba13a64aee6313d1dec435e8daa4859f247ff3eb964c16ed15873d",
+      "indices_sha256": "316401816c751120b78a15eb29eb7c2a3044887e4aa49e4f6dc591cbc279fe41",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 28,
+      "width": 16,
+      "height": 17,
+      "plane_mask": 15,
+      "bitplane_sha256": "387181ba45fa387eb4cd28313cc58872766c4a1f92b07a34991b86cb7327a1a5",
+      "indices_sha256": "6aa65dec18232e2819b86e9eaead2ae5639c1bb449c79bb6435d91a8aa1d602a",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 29,
+      "width": 15,
+      "height": 21,
+      "plane_mask": 15,
+      "bitplane_sha256": "e5a0fd9a2cdd45d4d0fa96531ff60d01b85b19bd43287741060f747b22f2b2f4",
+      "indices_sha256": "2a7d506a9841d6734d756b68de4d7917c97672cc23294dd6994fd935cef22e10",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 30,
+      "width": 22,
+      "height": 29,
+      "plane_mask": 15,
+      "bitplane_sha256": "9f6e4c101154ae67a5abde356a3564396203b4f3cf5f646a51e15c1c278356a3",
+      "indices_sha256": "9b316554f97563b313f8a4380d8b7e8264caa27015ca22e2f9918d75f39fb158",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 31,
+      "width": 11,
+      "height": 30,
+      "plane_mask": 15,
+      "bitplane_sha256": "750846ab01d1232398476eb3697a719ab6c06cb65a036653ccc79816d46a9940",
+      "indices_sha256": "d4d4b2454f754b0a700d6822cb4bcb60a2f7e9b6e37c3039c7d5ed62393f1dc2",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 32,
+      "width": 13,
+      "height": 20,
+      "plane_mask": 15,
+      "bitplane_sha256": "5650972cb0f49974eedbc7be074f6f432c2d5ca78b7ba4a59f19f470e8aef2f1",
+      "indices_sha256": "3ad72be1c9b84abe43236ced8d2ba8feead87df4b29d1226128fc307ea9a0bc2",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 33,
+      "width": 20,
+      "height": 42,
+      "plane_mask": 15,
+      "bitplane_sha256": "e21862ab3d39ce71c4a234225955d292bcea6e37278bad7d158c98f8dd585b51",
+      "indices_sha256": "2ad8d06c8a75ae4d800172ff5c2a4c6238cc3a30116f1b436a5437de6c8eb653",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 34,
+      "width": 52,
+      "height": 30,
+      "plane_mask": 15,
+      "bitplane_sha256": "5986b149798c0bfcfcf4c12bf1ae9c3bb231b0d67f364dcd8930d3d1f1b45555",
+      "indices_sha256": "20d4d2007a3286c12c6af2e4852cb75cd41de0d17b0d40a2e2a4f06cd2630bfe",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 35,
+      "width": 38,
+      "height": 13,
+      "plane_mask": 15,
+      "bitplane_sha256": "88f86c25a05a3c16ac1f4b4e4350efadb1a1bfdba23cd2101de0455bf921940f",
+      "indices_sha256": "90c3f5fcae64ff97b39d1f11a21277811102b97185e3670199ad47e00d51ba5f",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 36,
+      "width": 32,
+      "height": 13,
+      "plane_mask": 15,
+      "bitplane_sha256": "0721b64fdcefc7cdd447d818f411d0be991e6b3a7d221d63f66f3c75eeec1aea",
+      "indices_sha256": "e02ab1eb935b72023c5b11c5a02b8a458ba64d49bf452a5638d0c44059e1f018",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 37,
+      "width": 13,
+      "height": 7,
+      "plane_mask": 15,
+      "bitplane_sha256": "49dbd42b48f1b23d6b5fd99e59669706dc28195c7d8dcdcd321f1c9ab8d6bc49",
+      "indices_sha256": "a29f8c9800582adf00eed2c2b3ec477333bee3677a4e895e357838bd57e668c5",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 38,
+      "width": 14,
+      "height": 11,
+      "plane_mask": 15,
+      "bitplane_sha256": "c65f68b5ff380ee098ac323542c039e4066b03c9c61c03d9e92f4f2e59cd0e9c",
+      "indices_sha256": "214135f2c11b573d923aba76ba6378de2ad7254cceb40552912510e04e86ffca",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 39,
+      "width": 102,
+      "height": 10,
+      "plane_mask": 15,
+      "bitplane_sha256": "79366931e0fdcfa8b5f36392f6c0dcf24f1a69d60219a2deec5dfcbe567d83de",
+      "indices_sha256": "7434da354750ff3ddd7b9b58aaf8a9424a6c28fe276499bf8cfac04854773ba4",
+      "source_indices": [
+        0,
+        3,
+        4,
+        5,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 40,
+      "width": 126,
+      "height": 9,
+      "plane_mask": 15,
+      "bitplane_sha256": "2c9fa1cf8edd6fb0f4f9f92dd46200b325934feca93eb91cd33e7596bb90da03",
+      "indices_sha256": "f1a2d7fdf1ba10af6e51472ac02e9ec19d5aca854122ae21fbe616d821d6686c",
+      "source_indices": [
+        0,
+        3,
+        4,
+        5,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 41,
+      "width": 30,
+      "height": 8,
+      "plane_mask": 15,
+      "bitplane_sha256": "d401c7825308a2317b6cb6f7994ab964beec875dbfa76a84fc5251b95ad3ca1f",
+      "indices_sha256": "968d99c8a6a92f7e93ef006b72d9de16b44520317a351fcee0a5f2f68613c5e6",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 42,
+      "width": 30,
+      "height": 18,
+      "plane_mask": 15,
+      "bitplane_sha256": "e5c4acd7fbb7a3d9f82673926d52b3e080ef542a876cad65ea391084a9517b68",
+      "indices_sha256": "0ec6b3050cc343610e75717b2fba9b3f0e50ed022112432fff3c9e2fc7ef5841",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 43,
+      "width": 29,
+      "height": 20,
+      "plane_mask": 15,
+      "bitplane_sha256": "88a000057be19cc0e9ce6f8b61f567cbb753e9713d81b08d95404edfd2940d9c",
+      "indices_sha256": "82eb83088510d48bf487d91b939c685cb5f54366f78667228b0cb9780cd9f760",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 44,
+      "width": 27,
+      "height": 32,
+      "plane_mask": 15,
+      "bitplane_sha256": "37be0e6c6f1b8eb4370add6ddbcc43db5aaa88af1d01a1e1b6000b1cd22f7f2f",
+      "indices_sha256": "fd8e8f576057346cea48dba75cfcbb4c675f3462211556c0d98316b1c1357a7d",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 45,
+      "width": 24,
+      "height": 28,
+      "plane_mask": 15,
+      "bitplane_sha256": "062ec131e1a8962ebb5ae3a28187fee66c028114ed3d498390e13814d9562603",
+      "indices_sha256": "04decef305b365475e541addf56e7b6a99c9e51bd68dca637a8d1bc455df87db",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 46,
+      "width": 18,
+      "height": 15,
+      "plane_mask": 15,
+      "bitplane_sha256": "83696ddf7099c9affaee30ab15e000911654dc1e4d5bb26f983fc992d43e72e6",
+      "indices_sha256": "12bc7374a0b3c09ff77b2fdd17d17c6d277621740a9027e3ad930fb84aa0476d",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 47,
+      "width": 29,
+      "height": 40,
+      "plane_mask": 15,
+      "bitplane_sha256": "07551aeeaef2f8234d9f6f3610d7c6de97ee879e77011a201c44f2d681dea26c",
+      "indices_sha256": "22abbc2af2659432d20a8fe2ada5244bc6ec040cb75cd30c5d20545e9c44148b",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 48,
+      "width": 14,
+      "height": 16,
+      "plane_mask": 15,
+      "bitplane_sha256": "53c298b3c678f5d0b32a7331e5f3e93c7e4ae690f24844e65cb9f81684d6da19",
+      "indices_sha256": "2d95d1fa689cc66cf4a2d30d50abd6b3e2d3db5c3eccd5cfdba0b1a0dbe0ddeb",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 49,
+      "width": 20,
+      "height": 22,
+      "plane_mask": 15,
+      "bitplane_sha256": "c9a5330574488ac6cf6ab67f3bcfe5b7c7b4683ede3182faad6305115dd519bd",
+      "indices_sha256": "9f09959910d5b9332dccc23031067e716352104bf71c88684b408c12ff4b4854",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 50,
+      "width": 12,
+      "height": 8,
+      "plane_mask": 15,
+      "bitplane_sha256": "a16279f8d2aef45adfad1a8a0031c86b3d173c8fffaf69d622345d192b6b97f4",
+      "indices_sha256": "a0397d81fc25682887a18a9023e82db105ce7d959dd2f7098eb905d16e21134b",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 51,
+      "width": 15,
+      "height": 5,
+      "plane_mask": 15,
+      "bitplane_sha256": "b9eef99d8f9a29231372dda33e1ebca6c030311e252ce6665e5abb1d814034ff",
+      "indices_sha256": "66295bc462a0b457c2d72dc0a141c90b7a604432bfd878160540bd9cc29a11e4",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 52,
+      "width": 14,
+      "height": 10,
+      "plane_mask": 15,
+      "bitplane_sha256": "477fa3f9fd70ad080b387b35c2884076ffe40391d54451c8083a6b2309ba2c49",
+      "indices_sha256": "7912d1dee658a5ebab74e5ce5f5ae0d591abfef079174bb1f6f7c249e4e26621",
+      "source_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 53,
+      "width": 30,
+      "height": 5,
+      "plane_mask": 15,
+      "bitplane_sha256": "0e55eb7679ea535362a062cf79fa0118ee181590d3259c6b0a853e79903ec15e",
+      "indices_sha256": "800593d3657538d29922cee6b029bf62fc3ea2c947f120b4e8c423ef94d311e7",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 54,
+      "width": 32,
+      "height": 9,
+      "plane_mask": 15,
+      "bitplane_sha256": "4302ab416ce048d411d800aadb599547f7ff517b284941976f1d96de7ea31b85",
+      "indices_sha256": "59efd9e4ae179bcd2052d0a9dcd0376c5809ed81ae4ec310fd39dd3473418ec9",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 55,
+      "width": 35,
+      "height": 10,
+      "plane_mask": 15,
+      "bitplane_sha256": "941edbfb026499a1c53c95281584e7c12073c19f06dadafc6764afe97ddfbb97",
+      "indices_sha256": "e019099a9e7ccdd178931f688a21b8b7c7c4ff57097c8c9f66700d2fb4a9aec0",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 56,
+      "width": 35,
+      "height": 11,
+      "plane_mask": 15,
+      "bitplane_sha256": "91732693cc25489d07f801beaccb17a8f5906603ace5ee60bbf192a70c94143f",
+      "indices_sha256": "2abf372784427c2e00bb01f4b18fe18d9233a107861f6d7147fb388d8757c178",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 57,
+      "width": 35,
+      "height": 11,
+      "plane_mask": 15,
+      "bitplane_sha256": "2fa210f48e9b9e3898148bb3400d0f89087508c54474decff90671159982422c",
+      "indices_sha256": "639fc67c7413260dcfd3919db37a31d226fa521de4e9c75b72475dc8c9d48bf5",
+      "source_indices": [
+        0,
+        15
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 58,
+      "width": 39,
+      "height": 74,
+      "plane_mask": 31,
+      "bitplane_sha256": "07bad7eaaa40761c8abfba8954c694e5a3544e1d0aa9326448fe770c87527a9f",
+      "indices_sha256": "8ed1e7dc7560f61ca3c1097d3107eb8b7a5447cd8e1293437348349203637bf9",
+      "source_indices": [
+        0,
+        4,
+        5,
+        9,
+        15,
+        29,
+        30,
+        31
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 59,
+      "width": 38,
+      "height": 68,
+      "plane_mask": 31,
+      "bitplane_sha256": "4ba1dec5cbf3be542d0564abce3c95630c4add1c9fb3d5448798b687de8424af",
+      "indices_sha256": "bfc78c9b1670425beb0389d703463a393cd2817b959090e3009e65a2a8ce3afe",
+      "source_indices": [
+        0,
+        4,
+        5,
+        9,
+        11,
+        15,
+        29,
+        30,
+        31
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 60,
+      "width": 55,
+      "height": 46,
+      "plane_mask": 31,
+      "bitplane_sha256": "13eae12a4836c2e97d879ca9b7d4325b08e35b33d85e6ff1b050c177edf93b04",
+      "indices_sha256": "325f79f222cb413284aa145954e916f2313959b65d10461417537d015fad0327",
+      "source_indices": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        9,
+        15,
+        29,
+        30,
+        31
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 61,
+      "width": 55,
+      "height": 45,
+      "plane_mask": 31,
+      "bitplane_sha256": "be25701fe97aa3ec8e9ad0bf8a4a987219ce45b1c62ff161d66b80322b31b5b4",
+      "indices_sha256": "18354b98d13ee9e4de888e4cd793600c3073c02cacdd60de998dab0be8c4f3e4",
+      "source_indices": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        9,
+        29,
+        30,
+        31
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 62,
+      "width": 52,
+      "height": 44,
+      "plane_mask": 31,
+      "bitplane_sha256": "764a2a27a9e8be2a556e392e3df8c705320f482435fa6d426094b7f5aa8f81a0",
+      "indices_sha256": "0a5b3a05dca05ae6f641821d8272493d4f4367bf22870ec97472640ef99e0413",
+      "source_indices": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        9,
+        29,
+        30,
+        31
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 63,
+      "width": 61,
+      "height": 30,
+      "plane_mask": 31,
+      "bitplane_sha256": "13a21bf06af3792e732d133b11af621c3e9130eed662a874725b75237284fc8b",
+      "indices_sha256": "14a0d3fa1468d5605196e2c973b4e2f31f37dceba392601360f6008894b42dd5",
+      "source_indices": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        9,
+        29,
+        30,
+        31
+      ],
+      "needs_mask": false
+    },
+    {
+      "frame": 64,
+      "width": 61,
+      "height": 31,
+      "plane_mask": 31,
+      "bitplane_sha256": "3ed1c0d8b6a60d9141dd8a2753c079abbf9334d4e90b80c5f0e0ed4352cf1ecf",
+      "indices_sha256": "dc3e56ae35432b2c14f666bddece714fd2227b79ef53485ee0ea210b96991fbf",
+      "source_indices": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        9,
+        29,
+        30,
+        31
+      ],
+      "needs_mask": false
+    }
+  ],
+  "mask_function_sha256": "4a0af475da58f49e393c8373176c25742125fb7e85b38bc9a07a179ca28ac841"
+}

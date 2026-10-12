@@ -1,0 +1,101 @@
+{
+  "key": "Wi1.C/006.png",
+  "master_key": "Wi1.C/006.png",
+  "role": "redraw",
+  "package": "03-steder-effekter-intro",
+  "order_group": "Stedsfigurer",
+  "order_priority": "3",
+  "identity": "Trollmannen Math, separat originalfigur eller animasjonsfragment",
+  "master_usage": "Tårnet i fjellene: trollmannen Math",
+  "identity_limit": "Kildebank og brukssted. Ingen udokumentert handlingsetikett per rute.",
+  "bank": "Wi1.C",
+  "frame": 6,
+  "width": 13,
+  "height": 28,
+  "target_width": 52,
+  "target_height": 112,
+  "source_bank": {
+    "path": "data/Wi1.C",
+    "sha256": "41afa18225536f9793f5f2061a4ec30684e07fc5bf77f739af889e06c4229627",
+    "bytes": 8907,
+    "frames": 21
+  },
+  "bitplane_sha256": "17d8085bc5d11f8092fa20eb26f8e93f843748c53314cecedc02f7bcbf10a7cb",
+  "packed_indices_sha256": "ec075f6a5d6cac61549377c79e0fd3ac8f18a8ecf562afbe449f15d33da47854",
+  "indices_sha256": "ec075f6a5d6cac61549377c79e0fd3ac8f18a8ecf562afbe449f15d33da47854",
+  "plane_mask": 31,
+  "packed_planes": 5,
+  "source_flag": 1,
+  "source_indices": [
+    0,
+    3,
+    4,
+    5,
+    20,
+    24
+  ],
+  "index_remap": {
+    "0": 0,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "20": 20,
+    "24": 24
+  },
+  "source_neighbors": [
+    "Wi1.C/004.png",
+    "Wi1.C/005.png",
+    "Wi1.C/007.png"
+  ],
+  "neighbor_limit": "Nærliggende kilde-ID-er, ikke en bekreftet animasjonsrekkefølge",
+  "alpha_bounds": [
+    0,
+    0,
+    13,
+    28
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "placement": "Originalens tegnerektangel; ingen ny sentrering eller justering av fotpunkt",
+  "palette_id": "math-balcony",
+  "palette_status": "captured_original_Math_palette; tower015..020_live_indices6..10",
+  "palette_source_sha256": "0f6dc23736bb2146b94da6e89daf3d0b3f18671cbd103759eeb52de691de07ef",
+  "palette_file_sha256": "b8b22351a410c3efddaf85720d58a92408c0a22b7dfe9814b77c0fb494002cd1",
+  "original": {
+    "path": "references/original/Wi1.C/006.png",
+    "sha256": "a4b28cb96f43539e3ae2fcf91196f652bcda715966aa98a4c3bb59d437d59eab",
+    "width": 13,
+    "height": 28
+  },
+  "nearest4x_reference": {
+    "path": "references/nearest4x/Wi1.C/006.png",
+    "sha256": "37e96b00b49854e11b5dc049a4a4f343bd5e37ca2478716581cd2765eafe56a4",
+    "width": 52,
+    "height": 112
+  },
+  "packed_original": {
+    "path": "source/packed/Wi1.C/006.png",
+    "sha256": "110fc8bc4d8d65a4a28f9fbad63014f1827167bb343abef6bca464f3814d6805",
+    "width": 13,
+    "height": 28
+  },
+  "silhouette": {
+    "path": "source/alpha/Wi1.C/006.png",
+    "sha256": "c09dcfdb8c1069eadede70631b30503b7f0ccbe44bfee26e8fb4ff7a4f340ed2",
+    "width": 13,
+    "height": 28
+  },
+  "needs_mask": false,
+  "neutral_mask_template": null,
+  "live_palette_indices": [],
+  "source_order_mask_override": null,
+  "mask_warning": null,
+  "intro_only": false,
+  "runtime_gate": "new_art_requires_route_runtime_check",
+  "art_status": "pending_individual_redraw",
+  "target_png": "hd/Wi1.C/006.png",
+  "target_mask": null,
+  "source_order_note": "Klar, ikke prøvd."
+}

@@ -65,6 +65,10 @@ enum { MOETE_INGEN, MOETE_FOER, MOETE_RULLE, MOETE_KAMP, MOETE_PLYNDRING };
 static uint32_t velg_bilde = 0xffffffffu;   /* sist lokka i Select a Knight leste joysticken */
 static uint32_t navn_bilde = 0xffffffffu;   /* sist lokka for navnet leste tastene */
 static uint8_t moete;                       /* MOETE_*, i lagringen */
+static uint8_t ridder_klikk = 0xff;         /* 0-3 venter, 0xfe brukt, 0xff ingen */
+static uint8_t kart_paa, kart_maal = 0xff;
+static int16_t kart_x, kart_y, kart_fra_x, kart_fra_y, kart_sist_x, kart_sist_y;
+static uint16_t kart_stille;
 
 static uint16_t rd16(uint32_t a) { return (uint16_t)(chip[a] << 8 | chip[a + 1]); }
 
@@ -107,7 +111,12 @@ int game_port_player(int port)
     return menneske(k) && styres_med(k) == 2 ? k : -1;
 }
 
-static bool observe_velg(void) { velg_bilde = M.frame; return false; }
+static bool observe_velg(void)
+{
+    velg_bilde = M.frame;
+    if (ridder_klikk == 0xfe) ridder_klikk = 0xff;
+    return false;
+}
 static bool observe_moete(void) { moete = MOETE_FOER; return false; }
 static bool observe_rulle(void) { if (moete) moete = MOETE_RULLE; return false; }
 static bool observe_rulle_slutt(void) { if (moete) moete = MOETE_FOER; return false; }
@@ -183,7 +192,7 @@ void game_slave_pc(uint32_t pc)
     }
 }
 
-static bool observe_draw(void)
+static bool observe_draw_at(uint32_t target_pointer)
 {
     if (game_n_draws >= GAME_MAX_DRAWS) return false;
     uint32_t a0 = m68k_get_reg(NULL, M68K_REG_A0);
@@ -193,7 +202,7 @@ static bool observe_draw(void)
     d->frame = (int16_t)m68k_get_reg(NULL, M68K_REG_D0);
     d->x = (int16_t)m68k_get_reg(NULL, M68K_REG_D1);
     d->y = (int16_t)m68k_get_reg(NULL, M68K_REG_D2);
-    d->target = rd32(0x9e87e);             /* figurbuffer: hvor figuren tegnes */
+    d->target = rd32(target_pointer);     /* figurbuffer: hvor figuren tegnes */
     d->caller = mem_read32(m68k_get_reg(NULL, M68K_REG_A7));   /* returadressen: hvem som tegner */
     /* Bredde og hoyde fra bildetabellen i filen (+10, 10 byte per bilde).
      * Byte +8 er 1 for et vanlig bilde. speil_figur ($9DB16) snur et bilde der
@@ -213,6 +222,19 @@ static bool observe_draw(void)
     return false;                          /* originalen tegner som vanlig */
 }
 
+static bool observe_draw(void) { return observe_draw_at(0x9e87e); }
+
+/* program (intro og slutt) har sin egen IMAGEXCEL-rutine paa $08c214.
+ * $086c02 setter fem maalplan fra $08c72a. Samme CEL-tabell/registerkontrakt
+ * som mog. Dette er en lesende front-end-observator, aldri en CPU-erstatning.
+ * Originalopkodene vernes saa en annen/modifisert programfil ikke feiltolkes. */
+void game_program_pc(uint32_t pc)
+{
+    if (whd_mog_loaded || pc != 0x08c214 || mem_read16(pc) != 0x4a79 ||
+        mem_read32(pc + 2) != 0x08cfce || mem_read16(0x08c22a) != 0x4a40) return;
+    observe_draw_at(0x08c72a);
+}
+
 const char *game_cel_name(int i) { return i >= 0 && i < n_cels ? cels[i].name : ""; }
 const char *game_background(void) { return background; }
 
@@ -227,7 +249,7 @@ const char *game_background(void) { return background; }
 #define VALG_TABELL 0x8eeec
 static uint32_t valg_bilde = 0xffffffffu;  /* sist lokka gikk (ikke i lagringen; nullstilles ved lasting) */
 
-static bool observe_valg(void) { valg_bilde = M.frame; return false; }
+static bool observe_valg(void) { valg_bilde = M.frame; kart_paa = 0; kart_maal = 0xff; return false; }
 
 /* long fra minnet, eller 0 utenfor chip-minnet (pekere fra spillets data) */
 static uint32_t rd32_trygg(uint32_t a) { return a < CHIP_SIZE - 3 ? rd32(a) : 0; }
@@ -285,6 +307,32 @@ int game_valg(char tekst[9][GAME_VALG_LEN], char *tittel)
  * paa mobil og sender en tast om gangen, naar lokka leser igjen (game_navn_klar). */
 static bool observe_navn(void) { navn_bilde = M.frame; return false; }
 
+/* Klikk bruker samme originale valg-/navneflyt som fire. Vent til joysticken
+ * er lest, saa valget ikke forsvinner under tegning eller godtar navnet ogsaa. */
+bool game_velg_ridder(int k)
+{
+    if (!game_velger_ridder() || game_navn() != NULL || ridder_klikk == 0xfe) return false;
+    if (k == -1) k = rd16(0x8f51e);
+    if (k < 0 || k > 3 || !(chip[0x8f4a2] & (1 << k))) return false;
+    ridder_klikk = (uint8_t)k;
+    return true;
+}
+
+static bool klikk_ridder(void)
+{
+    int k = ridder_klikk;
+    if (k > 3) return false;
+    ridder_klikk = 0xff;
+    if (!(chip[0x8f4a2] & (1 << k)) || game_navn() != NULL) return false;
+    ridder_klikk = 0xfe;                    /* dobbeltklikk skal ikke velge for neste spiller */
+    chip[0x8f51e] = 0;
+    chip[0x8f51f] = (uint8_t)k;
+    m68k_set_reg(M68K_REG_D1, m68k_get_reg(NULL, M68K_REG_D1) | JOY_FIRE);
+    /* btst er allerede kjoert. Z=0 velger fire-grenen, ogsaa med C-joysticken. */
+    m68k_set_reg(M68K_REG_SR, m68k_get_reg(NULL, M68K_REG_SR) & ~4u);
+    return false;
+}
+
 bool game_navn_klar(void) { return game_navn() != NULL && M.frame - navn_bilde <= 1; }
 
 /* navnet saa langt, eller NULL naar spillet ikke venter paa navnet */
@@ -301,6 +349,85 @@ const char *game_navn(void)
     return buf;
 }
 
+/* ------------------------------------------------------------ klikkreise paa kartet
+ * Bare maal og retning legges til. Originalen flytter ridderen en kartpiksel,
+ * sjekker grenser, bruker terrengforsinkelsen og trekker fra turens budsjett.
+ * Kartikonets fotpunkt er x + bredde/2, y + hoyde ($0AB79A). */
+bool game_kart_aktiv(void)
+{
+    int k = knight_index(rd32(CUR_KNIGHT));
+    return kart_paa && game_mog_running() && !meny_in_menu() && !game_peker_aktiv() &&
+           menneske(k) && styres_med(k) == 2;
+}
+
+void game_kart_maal(int x, int y)
+{
+    if (x == -1 && y == -1) { kart_maal = 0xff; return; }
+    if (!game_kart_aktiv() || x < 0 || x >= 320 || y < 0 || y >= 200) return;
+    uint32_t r = rd32(CUR_KNIGHT), cel = rd32(0x8e7be);
+    if (cel < 0x100 || cel >= CHIP_SIZE - 18) return;
+    x -= rd16(cel + 14) / 2;
+    y -= rd16(cel + 16);
+    if (x < 0) x = 0;
+    if (x > 310) x = 310;
+    if (y < 0) y = 0;
+    if (y > 190) y = 190;
+    kart_x = (int16_t)x; kart_y = (int16_t)y;
+    kart_fra_x = kart_sist_x = (int16_t)rd16(r + 0x7e);
+    kart_fra_y = kart_sist_y = (int16_t)rd16(r + 0x80);
+    kart_stille = 0;
+    kart_maal = (uint8_t)knight_index(r);
+}
+
+static bool observe_kart(void)
+{
+    kart_paa = 1;
+    if (kart_maal != 0xff && kart_maal != knight_index(rd32(CUR_KNIGHT))) kart_maal = 0xff;
+    return false;
+}
+
+static bool kart_slutt(void) { kart_paa = 0; kart_maal = 0xff; return false; }
+
+/* Etter move.w d1,$8E7A2, ikke paa returadressen rett etter les_joysticker.
+ * Samme patch kjores med og uten C-krokene. En ny, fysisk joystick vinner. */
+static bool kart_retning(void)
+{
+    if (kart_maal == 0xff) return false;
+    if (!game_kart_aktiv() || kart_maal != knight_index(rd32(CUR_KNIGHT)) || rd16(0x8e7a2)) {
+        kart_maal = 0xff; return false;
+    }
+    uint32_t r = rd32(CUR_KNIGHT);
+    int x = (int16_t)rd16(r + 0x7e), y = (int16_t)rd16(r + 0x80);
+    int endret_x = x - kart_sist_x, endret_y = y - kart_sist_y;
+    if (endret_x < -1 || endret_x > 1 || endret_y < -1 || endret_y > 1) {
+        kart_maal = 0xff; return false;    /* original teleport eller endret lagring */
+    }
+    if (x == kart_x && y == kart_y) { kart_maal = 0xff; return false; }
+    if (x == kart_sist_x && y == kart_sist_y) {
+        if (++kart_stille > 200) { kart_maal = 0xff; return false; }
+    } else { kart_stille = 0; kart_sist_x = (int16_t)x; kart_sist_y = (int16_t)y; }
+    int dx = kart_x - kart_fra_x, dy = kart_y - kart_fra_y;
+    int ax = dx < 0 ? -dx : dx, ay = dy < 0 ? -dy : dy;
+    int nx = x, ny = y;
+    /* En rett, heltallsbasert rute. Feilen beregnes fra faktisk posisjon,
+     * saa terrengets ventebilder ikke flytter maal eller spiser rutesteg. */
+    if (ax >= ay && x != kart_x && ax) {
+        nx += dx < 0 ? -1 : 1;
+        int steg = nx - kart_fra_x; if (steg < 0) steg = -steg;
+        ny = kart_fra_y + (dy < 0 ? -1 : 1) * ((steg * ay + ax / 2) / ax);
+    } else if (y != kart_y && ay) {
+        ny += dy < 0 ? -1 : 1;
+        int steg = ny - kart_fra_y; if (steg < 0) steg = -steg;
+        nx = kart_fra_x + (dx < 0 ? -1 : 1) * ((steg * ax + ay / 2) / ay);
+    } else {
+        kart_maal = 0xff; return false;    /* ingen gyldig ruteretning */
+    }
+    uint16_t b = (nx > x ? 1 : nx < x ? 2 : 0) | (ny > y ? 4 : ny < y ? 8 : 0);
+    mem_write16(0x8e7a2, b);
+    m68k_set_reg(M68K_REG_D1, b);
+    return false;
+}
+
 /* Observatorene inne i lokker registreres som lapper: de endrer ingenting, og som
  * vanlige kroker ville --hook-cycles tatt dem for funksjoner og maalt feil. */
 void game_register_hooks(void)
@@ -311,12 +438,17 @@ void game_register_hooks(void)
     hooks_register_patch(0x0abbba, observe_valg, "valgene paa kartet (observer)");
     hooks_register_patch(0x081b7c, observe_navn, "navnet til ridderen (observer)");
     hooks_register_patch(0x081cfa, observe_velg, "Select a Knight (observer)");
+    hooks_register_patch(0x081d04, klikk_ridder, "Select a Knight (klikk)");
     hooks_register_patch(0x080ab8, observe_moete, "moete mellom riddere (observer)");
     hooks_register_patch(0x080c52, observe_rulle, "beskyttelsesrullen (observer)");
     hooks_register_patch(0x080c98, observe_rulle_slutt, "beskyttelsesrullen slutt (observer)");
     hooks_register_patch(0x080b40, observe_kamp, "kampen i moetet (observer)");
     hooks_register_patch(0x080ba4, observe_plyndring, "plyndringen (observer)");
     hooks_register_patch(0x080bd8, observe_moete_slutt, "moetet slutt (observer)");
+    hooks_register_patch(0x0aac8c, observe_kart, "kartet (observer)");
+    hooks_register_patch(0x0aad00, kart_retning, "kartet (klikkreise)");
+    hooks_register_patch(0x0ab010, kart_slutt, "kartet slutt (klikkreise)");
+    hooks_register_patch(0x08188c, kart_slutt, "tittel (klikkreise)");
 }
 
 /* ny maskin (amiga_reset): ingen lokker sett, intet moete */
@@ -324,6 +456,7 @@ void game_reset(void)
 {
     valg_bilde = navn_bilde = velg_bilde = 0xffffffffu;
     moete = MOETE_INGEN;
+    game_peker_standard();
 }
 
 /* lagring uten (passende) tegneliste: tom liste, saa HD-laget viser originalgrafikken
@@ -384,11 +517,23 @@ void game_peker(int x, int y)
 /* etter at inndataene for bildet er satt, foer amiga_run_frame */
 void game_frame(void)
 {
+    if (IN.joy[1] || !game_kart_aktiv()) kart_maal = 0xff;
     if (!peker_fire) return;
     if (!game_peker_aktiv()) { peker_fire = 0; return; }
     IN.joy[0] |= JOY_FIRE;
     IN.joy[1] |= JOY_FIRE;
     peker_fire--;
 }
-void game_state_peker(StateIO *s) { STATE_VAR(s, peker_fire); }
-void game_peker_standard(void) { peker_fire = 0; }
+void game_state_peker(StateIO *s)
+{
+    STATE_VAR(s, peker_fire); STATE_VAR(s, ridder_klikk);
+    STATE_VAR(s, kart_paa); STATE_VAR(s, kart_maal);
+    STATE_VAR(s, kart_x); STATE_VAR(s, kart_y); STATE_VAR(s, kart_fra_x); STATE_VAR(s, kart_fra_y);
+    STATE_VAR(s, kart_sist_x); STATE_VAR(s, kart_sist_y); STATE_VAR(s, kart_stille);
+}
+void game_peker_standard(void)
+{
+    peker_fire = 0; ridder_klikk = 0xff; kart_paa = 0; kart_maal = 0xff;
+    kart_x = kart_y = kart_fra_x = kart_fra_y = kart_sist_x = kart_sist_y = 0;
+    kart_stille = 0;
+}

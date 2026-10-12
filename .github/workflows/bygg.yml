@@ -47,6 +47,8 @@ jobs:
         run: |
           python3 tools/check_hooks.py | tee hooks.txt
           grep -q "OK: 25 av 25" hooks.txt
+      - name: Sjekk kartklikk mot original bevegelse og lagring
+        run: python3 tools/check_map_click.py
       - name: Pakk
         run: |
           mkdir -p pakke/moonstone

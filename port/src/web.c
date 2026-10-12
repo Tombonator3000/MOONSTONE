@@ -199,3 +199,4 @@ EMSCRIPTEN_KEEPALIVE int ms_in_ending(void) { return i_slutt() ? 1 : 0; }
 /* spillets peker (inventar, by, butikker): klikk treffer der man peker (MENY_CMD_PEKER) */
 EMSCRIPTEN_KEEPALIVE int ms_peker_aktiv(void) { return game_peker_aktiv() ? 1 : 0; }
 EMSCRIPTEN_KEEPALIVE int ms_peker_port(void) { return game_peker_port(); }
+EMSCRIPTEN_KEEPALIVE int ms_kart_aktiv(void) { return game_kart_aktiv() ? 1 : 0; }

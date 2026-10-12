@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "status": "original_CPU_and_fixed_palette_code_verified",
+  "original_cpu_observation_path": "identity/original-ratmen-first-v1/source-observation.json",
+  "original_cpu_observation_sha256": "393f61e9a8d64679725b8d74c9b8be865ecefd2bb177ce784a030821ba4f2081",
+  "palette_words": [
+    0,
+    4093,
+    2456,
+    1910,
+    1091,
+    0,
+    10,
+    7,
+    4,
+    1619,
+    2370,
+    1824,
+    1280,
+    2710,
+    2165,
+    3072,
+    802,
+    1074,
+    1603,
+    2149,
+    3206,
+    2192,
+    661,
+    370,
+    97,
+    64,
+    2678,
+    1876,
+    1104,
+    255,
+    153,
+    3979
+  ],
+  "live_palette_indices": [
+    6,
+    7,
+    8
+  ],
+  "fixed_red_index": 15,
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "scope": "Original CPU-palett og kildegren type24 bekreftet. Bare de17 uttrykkelig avleste rutene har6..8. Fast Ratmen-materiale9..14 og roedt15 skal aldri draktmaskeres. Embedded-ruteidentitet ikke utover konkrete originalformer.",
+  "source_mog_sha256": "d8cc4ec9f848ee30032f1e0c0db4e37c2484114910d314760956da9fee96da81",
+  "palette_selector": {
+    "address": "088aa0..088aa6",
+    "type": 36,
+    "branch": "088b12",
+    "source_bytes_sha256": "2191704031af82f296b3eae7aa2adc3a1012d5c324a099134cce8cd3d74ae38e"
+  },
+  "fixed_material_indices": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "fixed_palette_code": {
+    "address": "088b12..088b2c",
+    "bytes_hex": "30fc065330fc094230fc072030fc050030fc0a9630fc087530bc0c00",
+    "sha256": "8448523a5b2b3b242fe9360e7fd9dd34233786406414ec5c3f2026d02528e537"
+  },
+  "live_knight_palette_code": {
+    "address": "088c4a..088cb2",
+    "sha256": "051a941a47d22079f168667057a5f7c415eb061205ca4e4c07ef984f659f868d"
+  },
+  "source_banks": {
+    "Ratmen1.cel": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+    "Ratmen2.cel": "fdfccce1758ce662cc4777ca82fef14c3ed73476767a179df07967a464289f58"
+  }
+}

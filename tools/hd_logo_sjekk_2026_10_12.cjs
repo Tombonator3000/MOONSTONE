@@ -1,0 +1,31 @@
+/* Naturlig tittel med standardlaster: logo foer resten av figurpakken,
+ * hele teksturen, Original/HD-retur og uendret emulert tilstand. */
+'use strict';
+const fs=require('fs'),path=require('path'),crypto=require('crypto'),assert=require('assert/strict'),{chromium}=require('playwright');
+const root=path.resolve(__dirname,'..'),out=process.env.MOONSTONE_VERIFY_OUT||'/tmp/moonstone-logo-runtime';
+const report={checks:[],errors:[],scope:'Naturlig introhopp og tittel, ingen kjerneminneskriving. Resten av figurpakken er holdt tilbake.'};
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex'), check=(n,ok)=>{assert(ok,n);report.checks.push(n)};
+let browser,server,release;
+(async()=>{fs.mkdirSync(out,{recursive:true});
+ if(!process.env.MOONSTONE_URL)server=await require('../art/hd-completion-figures-2026-10-11/figures/kn3-production/runtime-host.cjs')(process.env.MOONSTONE_BUILD||root+'/web/build');
+ const url=process.env.MOONSTONE_URL||server.url;report.url=url;
+ browser=await chromium.launch({executablePath:process.env.CHROME||'/usr/bin/google-chrome',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+ const p=await browser.newPage({viewport:{width:1280,height:900}});p.on('pageerror',e=>report.errors.push(e.message));
+ const gate=new Promise(r=>release=r);
+ await p.route('**/hd/**',async r=>{const u=new URL(r.request().url());if(!u.pathname.includes('/bg/')&&!/\/(text\.json|bold\.f\/[^/]+|small\.font\/[^/]+|sel\.cel\/00[01]\.png)$/.test(u.pathname))await gate;await r.continue().catch(()=>{});});
+ const response=await p.goto(url);report.html_sha256=sha(await response.body());
+ await p.waitForFunction(()=>{try{return window.moonDebug&&moonDebug.Kjerne.bildeNr()>0}catch{return false}},null,{timeout:60000});
+ await p.keyboard.press('Escape');await p.waitForFunction(()=>moonDebug.Kjerne.menyKlar(),null,{timeout:60000});
+ await p.waitForFunction(()=>moonDebug.Visning.hdFigurer().some(d=>d.fil.toLowerCase()==='bold.f'&&d.bilde===73)&&moonDebug.Visning.hdKontroll().bakgrunn==='hd',null,{timeout:60000});
+ await p.waitForFunction(()=>moonDebug.Visning.hdKontroll().hdLys>=0.99,null,{timeout:30000});await p.keyboard.press('Pause');await p.waitForTimeout(500);
+ check('logo_and_HD_background_before_remaining_package',!await p.evaluate(()=>moonDebug.StandardHd.info().klar));
+ const info=await p.evaluate(()=>{let logo;moonDebug.Visning.scene().traverse(m=>{const u=m.material?.uniforms,im=u?.map?.value?.image;if(m.visible&&im?.width===2440&&im?.height===581)logo={region:u.imageRegion.value.toArray(),x:m.position.x,y:m.position.y,sx:m.scale.x,sy:m.scale.y};});return{logo,control:moonDebug.Visning.hdKontroll(),figures:moonDebug.Visning.hdFigurer().filter(d=>d.fil.toLowerCase()==='bold.f'&&d.bilde===73),state:moonDebug.Kjerne.sjekksum()};});
+ report.logo=info;check('complete_generated_texture_without_crop',JSON.stringify(info.logo?.region)==='[0,0,1,1]');
+ check('new_logo_keeps_original_width_and_its_aspect_ratio',Math.abs(Math.abs(info.logo.sx)-305)<.001&&Math.abs(Math.abs(info.logo.sy)-305*581/2440)<.001);
+ check('hint_does_not_cover_HD_logo',await p.locator('#hint').isHidden());const hd=await p.evaluate(()=>{const{Kjerne:K,Visning:V,SceneHd:S}=moonDebug;V.tegn(K.rammebuffer(),K.vindu(),S.korriger(K.rammebuffer(),K.vindu(),K.lag()));return V.bildeTilPng()});fs.writeFileSync(out+'/title-hd.png',Buffer.from(hd.split(',')[1],'base64'));await p.screenshot({path:out+'/title-page-hd.png'});
+ const original=await p.evaluate(()=>{const{Kjerne:K,Visning:V,SceneHd:S}=moonDebug;V.settHd(false);V.tegn(K.rammebuffer(),K.vindu(),S.korriger(K.rammebuffer(),K.vindu(),K.lag()));return{png:V.bildeTilPng(),state:K.sjekksum()};});
+ fs.writeFileSync(out+'/title-original.png',Buffer.from(original.png.split(',')[1],'base64'));check('Original_returns_original_pixels',original.png!==hd);
+ const restored=await p.evaluate(()=>{const{Kjerne:K,Visning:V,SceneHd:S}=moonDebug;V.settHd(true);V.tegn(K.rammebuffer(),K.vindu(),S.korriger(K.rammebuffer(),K.vindu(),K.lag()));return{png:V.bildeTilPng(),state:K.sjekksum()};});
+ check('HD_roundtrip_exact',restored.png===hd);check('rendering_preserves_original_CPU_state',original.state===info.state&&restored.state===info.state);
+ check('no_browser_errors',report.errors.length===0);report.status='passed';
+})().catch(e=>{report.status='failed';report.failure=String(e);process.exitCode=1;console.error(e)}).finally(async()=>{release?.();if(browser)await browser.close();if(server)await server.close();fs.writeFileSync(out+'/report.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({status:report.status,checks:report.checks.length,errors:report.errors}));});

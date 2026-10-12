@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "status": "clarified_without_changing_frozen_proof",
+  "affected_proofs": {
+    "art/hd-completion-figures-2026-10-11/production/beast/next030-041-v1/verification/runtime-right-v1/test.json": "0102a7d7035d52dcc641f9ea895865f24f520697bc9dd164f3021f30182be007",
+    "art/hd-completion-figures-2026-10-11/production/beast/next030-041-v1/verification/runtime-fire-v1/test.json": "f480e2bd38ce436aba17a576d22eac42c1cca07d4f917504c783910411f2d300"
+  },
+  "source_palette_contract": "art/hd-completion-figures-2026-10-11/palettes/cases/beast.json",
+  "source_palette_contract_sha256": "e0678f8adcbd4fd3c15b61156c8c013d690941662b10ee761d70e9e1b724f017",
+  "actual_test_writes": [
+    {
+      "frame": 900,
+      "address": "0x80172",
+      "value": "0x84316",
+      "bytes": 4
+    },
+    {
+      "frame": 900,
+      "address": "0x8d9ac",
+      "value": "0x8d5b4",
+      "bytes": 4
+    },
+    {
+      "frame": 900,
+      "address": "0x8015c",
+      "value": "0xc",
+      "bytes": 4
+    }
+  ],
+  "correction": "Den frosne scopefrasen terrain0 er feil. Begge faktiske private forlop brukte den hashbundne beast.json sin terrengverdi0xc ved900, ikke nativehintets0. Bare right/fire-inndataene er gjenbrukt fra nativeprofilene. Original CPU-kamp, faktisk kildebank/palett/tegneliste og Original/HD-retur er kontrollert; ingen naturlig kartreise er pastatt."
+}

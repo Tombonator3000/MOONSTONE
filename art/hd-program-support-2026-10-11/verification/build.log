@@ -1,0 +1,5 @@
+make: Entering directory '/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/port'
+cc -O2 -g -std=gnu99 -Wall -Wno-misleading-indentation -Iext/musashi -Isrc -c -o src/lag.o src/lag.c
+python3 bin2c.py src/spilldata.c ../Moonstonecd32-AMIGA.zip
+cc -o moonstone-headless src/amiga.o src/custom.o src/blitter.o src/video.o src/paula.o src/cia.o src/whdload.o src/files.o src/unzip.o src/decrunch.o src/hooks.o src/game.o src/patch.o src/meny.o src/hver.o src/lag.o src/state.o src/cpu_state.o src/png.o src/decomp/decomp.o src/spilldata.o ext/musashi/m68kcpu.o ext/musashi/m68kops.o ext/musashi/m68kdasm.o ext/musashi/softfloat/softfloat.o src/main.o src/nofrontend.o -lm
+make: Leaving directory '/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/port'

@@ -1,0 +1,42 @@
+{
+  "key": "be1.c/018.png",
+  "raw": "raw/018-v1.png",
+  "prompt": "prompts/018-v1.txt",
+  "reference": "references/018-original20x.png",
+  "generation_tool": "builtin_image_gen",
+  "generation_model": "not_exposed_by_tool",
+  "generation_call_id": "exec-eb219c71-0205-4666-af19-050227860628",
+  "original_output_path": "/home/tombonator3000t/.codex/generated_images/01a10201-d4e6-7b43-9cf5-c75c123ccd87/exec-eb219c71-0205-4666-af19-050227860628.png",
+  "raw_sha256": "b658c851adf7278a9f7945abe1146bf03280b8f41bcc257843f3ecc7c117d9da",
+  "prompt_sha256": "6c82d22d9fd09497927a59303f99c901ade2d750ca762005d6aab30cf0884514",
+  "reference_sha256": "98f113bb833b292212ca32e585ad39785ec8cabaefd07e8008f17ec94834efaa",
+  "candidate_sha256": "4540ba6e6e7febd58a137f3ffda2b9768b15a1f9ac033192e3279928d9581da6",
+  "source_indices_sha256": "a35355a58aa925118244ae9a2986de161666f294c1fba7a4385f6b0d9c585047",
+  "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+  "raw_size": [
+    2170,
+    725
+  ],
+  "raw_alpha_bounds": [
+    0,
+    72,
+    2164,
+    646
+  ],
+  "target_size": [
+    128,
+    32
+  ],
+  "source_centers_opaque": 69,
+  "source_centers_empty": 187,
+  "original_flat_shadow_cells": 0,
+  "source_material_pixels": {
+    "fur": 1074
+  },
+  "visual_status": "reviewed_original_and_runtime",
+  "geometry_sha256": "67fe07fe76665efa964f9837085ddd1a7d69db1e29e78736cb9869eaebad3d3d",
+  "runtime_geometry_sha256": "61508bc7f42dfafcd2dda9fe6a4dd913f530abfe3594a5747d0cfbb4e4b37360",
+  "packing_script_sha256": "f6e2108b31e9fc07fb3a26ae1af72a956382b476495a0dfb7c339c50583a948d",
+  "runtime_scope": "Controlled original Trogg War Beast combat initializer and terrain only, three source-documented test writes at900. No palette writes or modified combat/animation code; no natural map visit claim. Actual source calls and source scanout palette are checked. Separate normal/mirrored frontend fixtures and negative source/ownership checks never write to emulated memory. Candidate import only, no activation. Only indices actually used by each beast source frame must match its original palette; unrelated live knight6..8 can change naturally. All15 own photo candidates receive frontend fixtures; only actually observed routes can enter an activation contract. Native-left50/fire1050 requires HD-observed014/016/018/020 only.029 source calls were observed but its HD overlay was not visible in v1;029 stays outside activation until separately proved. Unobserved candidates are explicitly listed and cannot be counted as actual runtime evidence.",
+  "method": "Each route uses its own generated photographic master. Original source contours, transparent holes, silhouette and anchors are retained; source-bound material registration and original source material regions, photographic black mane detail and smoothed original skin/bone/eye light, with separately preserved flat black source shadows. This is not a claim of freehand redrawn geometry."
+}

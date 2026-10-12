@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "9d0e6a66a7597e745d23b0a0516f0c6f8b06f97cb92189613938c14f40aef8bd",
+    "web/src/scenes.js": "f96ca11802910e3291ec7ee4128299f68b73957b3f5f1d0b1435141e1a08ebcd"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/ov1/verification/runtime-v5/test.json",
+      "sha256": "9d83c1004548fdbc14bc00b0968e3f8a806b42b65f737b26ac801032b7abedef",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/ov1/verification/runtime-v5/loaded.html",
+      "html_sha256": "8cb9c45be6ae724b054bcdceee7438b7d08f11da934273630f62134661d69466"
+    }
+  ],
+  "scope": "Fire separate fotomaterialmastere med originalgeometri, i naturlig intro3200. Kildepalett fra skanout, ingen minne- eller palettskriving. Ingen ferdige druider eller flammer paastaas.",
+  "entries": [
+    {
+      "key": "ov1.cel/000.png",
+      "bank": "ov1.cel",
+      "frame": 0,
+      "source_bank_sha256": "680d1479bfdbe9debec2c01e1dd073c1c8a5ceaad721512a684329e59932815f",
+      "indices_sha256": "15e27704a76854450f91ee368f58b96a8891ceb21935d5ee7d276de8b268d683",
+      "png": "art/hd-completion-figures-2026-10-11/production/ov1/packed/ov1.cel/000.png",
+      "png_sha256": "0b4500976b8833f4f47454c22c8ea19107ecbdc6aa35f4ffb23379e5b6836451",
+      "raw": "art/hd-completion-figures-2026-10-11/production/ov1/raw/000-v2.png",
+      "raw_sha256": "df0ce512e0efd6a77479320b3e794f138ce6031520b970dcdf0f5932cfd3273a",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/ov1/prompts/000-v2.txt",
+      "prompt_sha256": "22b1d275ea8726340ebf4cd84eb70888dc2b033d2e4e6234390ef0c3b695ca4f",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/ov1/verification/runtime-v5/test.json",
+      "runtime_asset_sha256": "0b4500976b8833f4f47454c22c8ea19107ecbdc6aa35f4ffb23379e5b6836451",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/ov1/records/000-v2.json",
+      "art_record_sha256": "1598e2204e9e9ae23774123623aa10a8f06ac9a2389b691cb6b446f76b80e048",
+      "qa": {
+        "source_centers_opaque": 5991,
+        "source_centers_empty": 1353,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "unknown_hole_rejected": true
+      }
+    },
+    {
+      "key": "ov1.cel/001.png",
+      "bank": "ov1.cel",
+      "frame": 1,
+      "source_bank_sha256": "680d1479bfdbe9debec2c01e1dd073c1c8a5ceaad721512a684329e59932815f",
+      "indices_sha256": "a3492442c6d2ed9e2a2bc771223b4116042e2b6e3adb287b50053bb24a30f4c9",
+      "png": "art/hd-completion-figures-2026-10-11/production/ov1/packed/ov1.cel/001.png",
+      "png_sha256": "b02a6be145155b040d2fab587e0aaa5f6a6b1b9ffb1a54ba9d0b4137767a0d37",
+      "raw": "art/hd-completion-figures-2026-10-11/production/ov1/raw/001-v2.png",
+      "raw_sha256": "e4a00d725bc94dc6495e23fa6dea2d214baade093da27f8503fae5e8ce46c033",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/ov1/prompts/001-v2.txt",
+      "prompt_sha256": "890dc1ac1df57ad7748645e6af41c9b1bbe4ee4c5f24b8df628757770ed8b9c9",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/ov1/verification/runtime-v5/test.json",
+      "runtime_asset_sha256": "b02a6be145155b040d2fab587e0aaa5f6a6b1b9ffb1a54ba9d0b4137767a0d37",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/ov1/records/001-v2.json",
+      "art_record_sha256": "d560539dc1b1355bdcfd46d2107089d2f12af06f052e1ca601d8af901b834744",
+      "qa": {
+        "source_centers_opaque": 11661,
+        "source_centers_empty": 1779,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "unknown_hole_rejected": true
+      }
+    },
+    {
+      "key": "ov1.cel/002.png",
+      "bank": "ov1.cel",
+      "frame": 2,
+      "source_bank_sha256": "680d1479bfdbe9debec2c01e1dd073c1c8a5ceaad721512a684329e59932815f",
+      "indices_sha256": "7bf294934f3ed8e1b2c43176040fe6691859feafb5d3256d3e7b2d0bcfe4c810",
+      "png": "art/hd-completion-figures-2026-10-11/production/ov1/packed/ov1.cel/002.png",
+      "png_sha256": "02a6842c9898f0a9c9b9367278534fd16f5838250af0267955dcce29a2e10a8c",
+      "raw": "art/hd-completion-figures-2026-10-11/production/ov1/raw/002-v2.png",
+      "raw_sha256": "2b68fead51c7e490a2097d5662d5dffd7976b6def890e568e318ff629ef1053f",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/ov1/prompts/002-v2.txt",
+      "prompt_sha256": "2c3209b5cfa61abe03349d249c104d4d4e33b76de5e9de7576ea32d1a64fcefc",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/ov1/verification/runtime-v5/test.json",
+      "runtime_asset_sha256": "02a6842c9898f0a9c9b9367278534fd16f5838250af0267955dcce29a2e10a8c",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/ov1/records/002-v2.json",
+      "art_record_sha256": "6cbb696524e6662d7fee73b0a7607920fd2ba1ec52fe5bd75a803531d002296a",
+      "qa": {
+        "source_centers_opaque": 2500,
+        "source_centers_empty": 214,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "unknown_hole_rejected": true
+      }
+    },
+    {
+      "key": "ov1.cel/003.png",
+      "bank": "ov1.cel",
+      "frame": 3,
+      "source_bank_sha256": "680d1479bfdbe9debec2c01e1dd073c1c8a5ceaad721512a684329e59932815f",
+      "indices_sha256": "a0c82fc83ba4743f17bb0f9bd1837bc8456c18f2f04057437dccc9b1dbee6fa8",
+      "png": "art/hd-completion-figures-2026-10-11/production/ov1/packed/ov1.cel/003.png",
+      "png_sha256": "2fbbab3773b0870b5a6ec83ee7250a3b7ba6f61d18671e415083b3118d684731",
+      "raw": "art/hd-completion-figures-2026-10-11/production/ov1/raw/003-v2.png",
+      "raw_sha256": "040c6f1b61e2cb9b80dbc3c30207bc86d3bd52409bdfbb53daf6afac43a9333f",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/ov1/prompts/003-v2.txt",
+      "prompt_sha256": "d31698f3fd94dd3f2fd251f6a04192fec72414d87f5c38f28a3a48508fe9a399",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/ov1/verification/runtime-v5/test.json",
+      "runtime_asset_sha256": "2fbbab3773b0870b5a6ec83ee7250a3b7ba6f61d18671e415083b3118d684731",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/ov1/records/003-v2.json",
+      "art_record_sha256": "5cf4a5aa8f543b3e67e3b9d9f8759d59b50909015ade15f1cf4330b43cef790d",
+      "qa": {
+        "source_centers_opaque": 5902,
+        "source_centers_empty": 1094,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "unknown_hole_rejected": true
+      }
+    }
+  ]
+}

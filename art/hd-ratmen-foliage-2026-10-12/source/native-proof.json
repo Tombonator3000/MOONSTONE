@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "scope": "Original CPU Practice with controlled Ratmen/terrain selectors; source banks, palette tables and drawing code unchanged. No natural-travel claim.",
+  "local_proof_root": "/tmp/moonstone-ratmen-foliage-native-proof",
+  "reproduction": {
+    "cwd": "repository root",
+    "build": [
+      "make",
+      "-C",
+      "port",
+      "moonstone-headless"
+    ],
+    "replace_PROOF": "Any writable local directory outside the repository, created before running. Redirect stdout to native-wa2.log/native-gll3.log.",
+    "wa2_argv": [
+      "port/moonstone-headless",
+      "--headless",
+      "--frames",
+      "1500",
+      "--log",
+      "0",
+      "--press",
+      "100:esc:4",
+      "--press",
+      "700:down:4",
+      "--press",
+      "760:down:4",
+      "--press",
+      "820:fire:4",
+      "--press",
+      "1200:left:120",
+      "--skriv",
+      "900:80172:0x8440a:4",
+      "--skriv",
+      "900:8d9ac:0x8d5b4:4",
+      "--skriv",
+      "900:8015c:0xc:4",
+      "--shot-every",
+      "100",
+      "--tegneliste",
+      "1160:341",
+      "--shot-dir",
+      "PROOF/wa2",
+      "--dump",
+      "1400:PROOF/chip1400.bin",
+      "--save-state",
+      "1200:PROOF/wa2-frame1200.sav"
+    ],
+    "gll3_argv": [
+      "port/moonstone-headless",
+      "--headless",
+      "--frames",
+      "1500",
+      "--log",
+      "0",
+      "--press",
+      "100:esc:4",
+      "--press",
+      "700:down:4",
+      "--press",
+      "760:down:4",
+      "--press",
+      "820:fire:4",
+      "--press",
+      "1200:left:120",
+      "--skriv",
+      "900:80172:0x8440a:4",
+      "--skriv",
+      "900:8d9ac:0x8d5b4:4",
+      "--skriv",
+      "900:8015c:0xc:4",
+      "--shot-every",
+      "100",
+      "--tegneliste",
+      "1160:341",
+      "--skriv",
+      "907:95f12:0:4",
+      "--skriv",
+      "907:8fb4e:2:4",
+      "--skriv",
+      "907:8fb52:0x9005e:4",
+      "--shot-dir",
+      "PROOF/gll3",
+      "--dump",
+      "1400:PROOF/gll3-chip1400.bin"
+    ],
+    "packing_verification": [
+      "python3",
+      "tools/hd_ratmen_lauv_pakk.py",
+      "--native-chip",
+      "PROOF/chip1400.bin"
+    ],
+    "prepare_directories": [
+      "PROOF",
+      "PROOF/wa2",
+      "PROOF/gll3"
+    ]
+  },
+  "artifacts": [
+    {
+      "file": "chip1400.bin",
+      "bytes": 1048576,
+      "sha256": "8de316a1fb67a7bfe86bd335abf7a9cefa7576525aba16fe770a3653be1316f5",
+      "local_proof_path": "/tmp/moonstone-ratmen-foliage-native-proof/chip1400.bin"
+    },
+    {
+      "file": "gll3-chip1400.bin",
+      "bytes": 1048576,
+      "sha256": "c2c12fc1745ccc382669b8f8625073fa0dc074085fece17ee68d7f035b69b4b3",
+      "local_proof_path": "/tmp/moonstone-ratmen-foliage-native-proof/gll3-chip1400.bin"
+    },
+    {
+      "file": "wa2-frame1200.sav",
+      "bytes": 3152618,
+      "sha256": "bb8604899070e242989b57edc3ecdbe8badaf3931fcee395441fddeee9fce789",
+      "local_proof_path": "/tmp/moonstone-ratmen-foliage-native-proof/wa2-frame1200.sav"
+    }
+  ],
+  "wa2_palette_addresses": [
+    "0x960e0",
+    "0x961a0"
+  ],
+  "wa2_palette_contract": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/identity/source-color-contract.json",
+  "gll3_boundary_palette_words": {
+    "5": 0,
+    "22": 2279,
+    "24": 3748,
+    "25": 2658,
+    "28": 125
+  },
+  "native_logs": {
+    "native-wa2.log": {
+      "bytes": 67321,
+      "sha256": "0c7507f3f06cdfc37ed4356e00b7c218b9413504269941cd40c60870f38d0439"
+    },
+    "native-gll3.log": {
+      "bytes": 66756,
+      "sha256": "a2940fb624ca374378560620dd9c6e127d010b854532dd81d77e688572a957ef"
+    }
+  }
+}

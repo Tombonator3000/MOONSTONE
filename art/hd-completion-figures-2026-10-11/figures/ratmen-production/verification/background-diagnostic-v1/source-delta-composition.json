@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "status": "source_exact_original_fallback_confirmed",
+  "clean_hash": "e8ac7fc2",
+  "clean_indices_sha256": "57848e6ae3393eaadd4255b9964e795edd749f30c2060138e6a6625de8e23d11",
+  "actual_hash": "e52767d5",
+  "actual_indices_sha256": "0d4adbce1bffc70b8bd8582938709402189539bdaa42ad16e4869b77cb092e91",
+  "original_source_baked_delta": [
+    {
+      "key": "RATMEN2.CEL/056.png",
+      "source_bank_sha256": "fdfccce1758ce662cc4777ca82fef14c3ed73476767a179df07967a464289f58",
+      "indices_sha256": "f8309f49b5784273f46aa28a0fa6cc3a270ddf3f0c1d7624fc6b6e68143dc6bb",
+      "x": 15,
+      "y": 185,
+      "mirror": false,
+      "caller": 555828,
+      "target": 666838
+    },
+    {
+      "key": "RATMEN1.CEL/051.png",
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "6c7369d2f81a8655771f6605544cfb60022e8b0aa4060259a3749070c10c44fc",
+      "x": 114,
+      "y": 182,
+      "mirror": true,
+      "caller": 555828,
+      "target": 666838
+    }
+  ],
+  "all64000_indices_match_original_composition": true,
+  "delta_histogram": {
+    "18>5": 3,
+    "27>5": 3,
+    "16>15": 7,
+    "17>5": 10,
+    "17>15": 22,
+    "18>15": 36,
+    "27>15": 12,
+    "16>5": 3
+  },
+  "runtime_proof": "verification/background-diagnostic-v1/test.json",
+  "runtime_proof_sha256": "e6c057dfa6e7a4c99225315b3c7657e5288716296f238998d385b0b0cb46b8fa",
+  "scope": "Original CPU baked CEL-deltaer har baade5 svart og15 blodroedt. Frossen007-bro godtar bare15/c00 og avviser korrekt. Ingen manglende renbakgrunn; ingen produksjonsendring."
+}

@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "method": "Freeze the exact tested bytes as canonical material input. Only redundant self-palettes removed; CEL source fields and every index unchanged.",
+  "full_provenance_sha256": "5e5beec01719cdaf1399e0fc28a78d6fb1b18016fc2d50334fbcdc04446250fa",
+  "canonical_tested_sha256": "34ac812d47a9579c22b692f4dfc696b712e6ac711192d10bdff2220decfdb46c",
+  "proof_sha256": "840607d8712240dee168eb09bf4d6f3e78c4b295bf0839abd7f9ff24dc7a692d",
+  "all_eleven_tested_pngs_byte_identical": true,
+  "source_contracts_sha256": "34ac812d47a9579c22b692f4dfc696b712e6ac711192d10bdff2220decfdb46c",
+  "runtime_contracts_sha256": "34ac812d47a9579c22b692f4dfc696b712e6ac711192d10bdff2220decfdb46c",
+  "fragment_icons_sha256": "703a622851d330619ef90239429a57d622163a978fa2d43bc7147f62c1d45417",
+  "host_build": {
+    "created_at": "2026-10-11T18:44:27.018271+00:00",
+    "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+    "html_sha256": "c98e94c85ddb92d03e4a73f05b01d11efe0dc29fff58d0488fc7ff59c6e7e5aa",
+    "production_code_sha256": {
+      "web/src/render.js": "ce5dc12644109fa237b7f0d3dcb961085a5ae98c2c50001df3c9a61d53477f04",
+      "web/src/scenes.js": "72cbde3ba20702b12f0e57ca0c558a1b660c14425de5c7bab8bd0a1c833076bd"
+    },
+    "scope": "Isolert pakke. Kopiert gjeldende WASM og produksjons-JS, aktive HD-filer bare lest."
+  },
+  "production_core_source_sha256": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+  "png_sha256": {
+    "dice.cel/000.png": "d07b89c14e2c20284aaec6c58d2a7bc94541115d21bff6b81d26306eee69824f",
+    "dice.cel/001.png": "1acf56dd327f879b8d894aef0e29f461ccd59ae4780b3a28814f12f2536175ef",
+    "dice.cel/002.png": "5c8bac7e2347fd30fa67d733c8ea60f130c5ab88a6e0b0192fff51ce35f1a998",
+    "dice.cel/003.png": "b1d85b4d64d2b6735fc9fb49f02d6a605872d8cf61f421aecf7232ff01ac6d71",
+    "dice.cel/004.png": "79de726e90f00c26e4acd0d374a29294bc7f0651afa2dce15d07f56608b688cb",
+    "dice.cel/005.png": "1fadf76c3a19e5ac03e35d50c7f39b54c7df4e3a8fa2978fe6a4e72489a8949c",
+    "ki.cel/034.png": "890ae9d817a0a898340d3d7b23afc1aad7367d9b71491aee468945201d327c61",
+    "ki.cel/035.png": "792ebe9a0b64cfeb331b90a6104b6ed65f73c4c005561afab71eabd2a458c69a",
+    "ki.cel/036.png": "c368789ad81e07a55b71c3a00ee95189330f767e4137e7135d29d802b349e323",
+    "mys.cel/000.png": "40805f4d02aaa7cc33c56722c4e5660b2e9e419611a407953dc5be453b46f6b5",
+    "mys.cel/001.png": "45cb99d44db0c97f0feb71d5ce27e692b00ef75dec4d9154b81f097832a61128"
+  },
+  "runtime_checks": 141,
+  "verified_current_tested_png_sha256": {
+    "ki.cel/034": "890ae9d817a0a898340d3d7b23afc1aad7367d9b71491aee468945201d327c61",
+    "ki.cel/035": "792ebe9a0b64cfeb331b90a6104b6ed65f73c4c005561afab71eabd2a458c69a",
+    "ki.cel/036": "c368789ad81e07a55b71c3a00ee95189330f767e4137e7135d29d802b349e323",
+    "mys.cel/000": "40805f4d02aaa7cc33c56722c4e5660b2e9e419611a407953dc5be453b46f6b5",
+    "mys.cel/001": "45cb99d44db0c97f0feb71d5ce27e692b00ef75dec4d9154b81f097832a61128",
+    "dice.cel/000": "d07b89c14e2c20284aaec6c58d2a7bc94541115d21bff6b81d26306eee69824f",
+    "dice.cel/001": "1acf56dd327f879b8d894aef0e29f461ccd59ae4780b3a28814f12f2536175ef",
+    "dice.cel/002": "5c8bac7e2347fd30fa67d733c8ea60f130c5ab88a6e0b0192fff51ce35f1a998",
+    "dice.cel/003": "b1d85b4d64d2b6735fc9fb49f02d6a605872d8cf61f421aecf7232ff01ac6d71",
+    "dice.cel/004": "79de726e90f00c26e4acd0d374a29294bc7f0651afa2dce15d07f56608b688cb",
+    "dice.cel/005": "1fadf76c3a19e5ac03e35d50c7f39b54c7df4e3a8fa2978fe6a4e72489a8949c"
+  }
+}

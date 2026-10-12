@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "scope": "De to separate blunkruter mys.cel006/007. Healer/mystiker-portrettene er eksisterende godkjente bakgrunner, ikke nye komplette figurmastere.",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "63a93d15ee0d36cf0eec6f0ad6b4be5d251f984e13b2634077bd0a9385f2881b",
+    "web/src/scenes.js": "05e7336cd4f92d17ec4dc2172761e7720f80f1532b343a06453f54c505c13c9f"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "source_contract": "art/hd-mys-eyes-2026-10-11/source-contract.json",
+  "source_contract_sha256": "abdd66713cf88317577300000c8cd1bfe7197fba9898ef4d84cf79b5177ce16f",
+  "proofs": [
+    {
+      "path": "art/hd-mys-eyes-2026-10-11/verification/scenes/mys-scenes-test.json",
+      "sha256": "3ad0bdd9d74b7bd32c4ace7ecd9fc03faad42fbd5e69f7133be7955213db956a",
+      "html_path": "art/hd-mys-eyes-2026-10-11/verification/runtime-baseline/moonstone.html",
+      "html_sha256": "d90dc81fe056bbd6fad7850c2e1628ac695f9b816a0a4ef9cc4b6be8887b9c27"
+    },
+    {
+      "path": "art/hd-mys-eyes-2026-10-11/verification/routes-v2/math-routes-test.json",
+      "sha256": "8f3a8d1b7318e9649a6c2ba41b085b7babe7447c529130d51c99c4e489faf229",
+      "html_path": "art/hd-mys-eyes-2026-10-11/verification/runtime-baseline/moonstone.html",
+      "html_sha256": "d90dc81fe056bbd6fad7850c2e1628ac695f9b816a0a4ef9cc4b6be8887b9c27"
+    }
+  ],
+  "entries": [
+    {
+      "key": "mys.cel/006.png",
+      "bank": "mys.cel",
+      "frame": 6,
+      "source_bank_sha256": "d7fe9eefbde25950db349b4b3f202fcd6bd96195dbe0e61c289a5c662e31a04a",
+      "indices_sha256": "37730bb1646e77137aff47bf83e9601aa501b52d237c3f735416f5849c10872e",
+      "png": "art/hd-mys-eyes-2026-10-11/packed/mys.cel/006.png",
+      "png_sha256": "032d4a194959577b4bfab84c2905ddc153fb43e695b1b9fdc0416ff280900b42",
+      "raw": "art/hd-mys-eyes-2026-10-11/raw/006-v2.png",
+      "raw_sha256": "6b58a11a990145e9ce6a619fc73c29f5b9db80825e60de85d45cf2e17151be54",
+      "prompt": "art/hd-mys-eyes-2026-10-11/prompts/006-v2.txt",
+      "prompt_sha256": "f66f746e1afd7298f67a3d06517298bc3832c1c402590609d760285714621d15",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-mys-eyes-2026-10-11/verification/routes-v2/math-routes-test.json",
+      "runtime_asset_sha256": "032d4a194959577b4bfab84c2905ddc153fb43e695b1b9fdc0416ff280900b42",
+      "scene_proof": "art/hd-mys-eyes-2026-10-11/verification/scenes/mys-scenes-test.json",
+      "background_reference": "web/hd/bg/2e3c32ae.png"
+    },
+    {
+      "key": "mys.cel/007.png",
+      "bank": "mys.cel",
+      "frame": 7,
+      "source_bank_sha256": "d7fe9eefbde25950db349b4b3f202fcd6bd96195dbe0e61c289a5c662e31a04a",
+      "indices_sha256": "f5f294e298dba4fc79d4c0e7145f3e81a2818eb8936f9cee1b03b642a58c1953",
+      "png": "art/hd-mys-eyes-2026-10-11/packed/mys.cel/007.png",
+      "png_sha256": "583e18fa785b848938175c5c852ed666cea819d119a2c2e173d30ba119ad85be",
+      "raw": "art/hd-mys-eyes-2026-10-11/raw/007-v2.png",
+      "raw_sha256": "3091a804e3d0478d2e77da0ba3d482c8dfaa0bdf3298be45a1d2d148a59f4118",
+      "prompt": "art/hd-mys-eyes-2026-10-11/prompts/007-v2.txt",
+      "prompt_sha256": "511839448a633e81c2c55680d1022e5bfe32d5c9bb54d24590258bedae0ee11a",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-mys-eyes-2026-10-11/verification/routes-v2/math-routes-test.json",
+      "runtime_asset_sha256": "583e18fa785b848938175c5c852ed666cea819d119a2c2e173d30ba119ad85be",
+      "scene_proof": "art/hd-mys-eyes-2026-10-11/verification/scenes/mys-scenes-test.json",
+      "background_reference": "web/hd/bg/d8b4018a.png"
+    }
+  ]
+}

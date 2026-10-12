@@ -1,0 +1,469 @@
+{
+  "schema": 1,
+  "status": "ready_for_sequential_integration",
+  "scope": "RATMEN1/038..043,045..050,052:13 separate fotomaterialmastere. Alle13 har faktisk HD-fangst fra original CPU-kamp med tre init-skrivinger og ekte inndata. Ingen naturlig kartreise.",
+  "visible_photo_material_masters": 13,
+  "preserved_opaque_black_shadow_masters": 0,
+  "source_contracts_sha256": "306bb8651542d60c06f53b59f147614e2a71fb8580646a956e92e7446668600f",
+  "source_color_contract_sha256": "b74d5e9964807f8e428e8460a7453f96b09317ea0f4b90abffd697a8f0575659",
+  "generation_records_sha256": "9d77738ea010fd34bb24822cd9c2364239f722bdf1f1d66e143dffdceb75c22b",
+  "activation_set_sha256": "069c4b001954f4ada7ca3fcb1fb69439209149e335bcd8d4f0205ff404044b39",
+  "packing_test_sha256": "4f9c516fd8f6c2c31732beddb827cfb59ec61d84e51e99251fb0b8e40f2e27bf",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "e8ef991b4086c576093991a38d05c8d165426e684adebe9a287b38679b77b916",
+    "web/src/scenes.js": "45ccdcfd02b4f31f2b512a3c8e1b64aceb1f952a3e8ecf91a5149b0d5c8036e0",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "html_sha256": "8fd1d2517aca80f0f71abafc178cccd9c48dd4157f3e3d76de2f98e63b90abf5",
+  "runtime": {
+    "observed14-fixtures-v1": {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "sha256": "6b0f28be97bd236d6353dbdb6ed03ce541918b203fbace742a755ed9df62aed2",
+      "checks": 209
+    },
+    "observed14-actual-v1": {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-actual-v1/proof-summary.json",
+      "sha256": "293d3603f0fa010aef63ee007afa143c2e75dd0e0256ea3a06a0b16e037bbe61",
+      "checks": 127
+    }
+  },
+  "entries": [
+    {
+      "key": "RATMEN1.CEL/038.png",
+      "bank": "RATMEN1.CEL",
+      "frame": 38,
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "aa75088e028f2695b5e36c84a54b56bb4195456473f958bd8321934c2802ab96",
+      "png": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/packed/RATMEN1.CEL/038.png",
+      "png_sha256": "d6cdd3e842ba899de43588c4a7469ced693a595289b0c65d76d49c8b7f0eae2b",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/raw/RATMEN1.CEL/038.png",
+      "raw_sha256": "6f1c57a57d86baf6ed3ce0c3571ae2c2ee416237b0a10357632bd67739c9f479",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prompts/RATMEN1.CEL-038.txt",
+      "prompt_sha256": "a682da4f06de351f50dcb432100194c79d0afce67c6f14d4371ac95468eb03eb",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "runtime_asset_sha256": "d6cdd3e842ba899de43588c4a7469ced693a595289b0c65d76d49c8b7f0eae2b",
+      "source_size": [
+        18,
+        16
+      ],
+      "target_size": [
+        72,
+        64
+      ],
+      "original": {
+        "path": "references/original/RATMEN1.CEL/038.png",
+        "sha256": "1892bdb61bd1d6c4a915e7830ecb903d5c24434efcd8f3ef31fe44a9169222c1",
+        "width": 18,
+        "height": 16
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/039.png",
+      "bank": "RATMEN1.CEL",
+      "frame": 39,
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "717002f0ad1623b3584e0a1f930f77e1f24c3792e6afeccee02e27c84926067d",
+      "png": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/packed/RATMEN1.CEL/039.png",
+      "png_sha256": "fb4bb5c05afc1f0426d65e3e12692aaba2e5b4d5d3e7a834d59488eb8ded1e60",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/raw/RATMEN1.CEL/039.png",
+      "raw_sha256": "9b7d75b6ff6b3b01fd209b22dc0f4022e9103aaab7ff71557599abc3e013ee0c",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prompts/RATMEN1.CEL-039.txt",
+      "prompt_sha256": "267151c1538037173bb080b82fe3392d48728043e18ef7dd199b0197a6ee8341",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "runtime_asset_sha256": "fb4bb5c05afc1f0426d65e3e12692aaba2e5b4d5d3e7a834d59488eb8ded1e60",
+      "source_size": [
+        33,
+        29
+      ],
+      "target_size": [
+        132,
+        116
+      ],
+      "original": {
+        "path": "references/original/RATMEN1.CEL/039.png",
+        "sha256": "ba1fe536fa8f7e5a28a38c2e8cc7073a473dab403aab8b27be9455c860a6656c",
+        "width": 33,
+        "height": 29
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/040.png",
+      "bank": "RATMEN1.CEL",
+      "frame": 40,
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "c634230bca673e375ae1f87b6e892f45a04be746fecae09ba461890c87996c83",
+      "png": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/packed/RATMEN1.CEL/040.png",
+      "png_sha256": "d4148f35df37451ad1a3e0b417a148ede461c59f78364d65fc0b57fc555febe9",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/raw/RATMEN1.CEL/040.png",
+      "raw_sha256": "3b859b94feb0bd110fe31348e4e2bdd0246dcf72790651ad8ea6ba12ffc48969",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prompts/RATMEN1.CEL-040.txt",
+      "prompt_sha256": "fa5864f393afb1defb201fc24eba2223f406a6c2b30f4ab5f0bead4411fecc9d",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "runtime_asset_sha256": "d4148f35df37451ad1a3e0b417a148ede461c59f78364d65fc0b57fc555febe9",
+      "source_size": [
+        35,
+        23
+      ],
+      "target_size": [
+        140,
+        92
+      ],
+      "original": {
+        "path": "references/original/RATMEN1.CEL/040.png",
+        "sha256": "e85846c757d7125bb249a7f53594d53be07bde0db5aa49bdd15dc1baefd3c89f",
+        "width": 35,
+        "height": 23
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/041.png",
+      "bank": "RATMEN1.CEL",
+      "frame": 41,
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "43692c13148beca62b73563f0adc4da166fa4d87e7346e3b9d3ba4576af670e1",
+      "png": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/packed/RATMEN1.CEL/041.png",
+      "png_sha256": "b0cb32919898b76883b0ff783fe77874867172700aadd08f359c652f356705e3",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/raw/RATMEN1.CEL/041.png",
+      "raw_sha256": "d9cff68499b813e3f07204e74583c9760528690479c0f05b9deb07e99788c35e",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prompts/RATMEN1.CEL-041.txt",
+      "prompt_sha256": "40ea3473f3fa7be1fe2e4653728d1781c19c6421662a5e20de835a080f2f647f",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "runtime_asset_sha256": "b0cb32919898b76883b0ff783fe77874867172700aadd08f359c652f356705e3",
+      "source_size": [
+        35,
+        24
+      ],
+      "target_size": [
+        140,
+        96
+      ],
+      "original": {
+        "path": "references/original/RATMEN1.CEL/041.png",
+        "sha256": "f90ebc555b5bde7259d374fe2dc7198eb52ec557862a667da84fc5dfa42773cb",
+        "width": 35,
+        "height": 24
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/042.png",
+      "bank": "RATMEN1.CEL",
+      "frame": 42,
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "8b5d99e52232331e29f5875b5e67fec437895bca06b1c1a70bfe023c9d40176c",
+      "png": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/packed/RATMEN1.CEL/042.png",
+      "png_sha256": "fcc422586ec94a11e55c59b1e37457157f7600575fc46c7027a71aca90eb270f",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/raw/RATMEN1.CEL/042.png",
+      "raw_sha256": "ce17926bef7b79c8efdf7832a467e7b95fcd332607c0c3ba5fa8e346bc8ba74c",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prompts/RATMEN1.CEL-042.txt",
+      "prompt_sha256": "df39e5146f1df97ac88525357f44ccf092f9eea9f00f0b6f49354f2207f5788e",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "runtime_asset_sha256": "fcc422586ec94a11e55c59b1e37457157f7600575fc46c7027a71aca90eb270f",
+      "source_size": [
+        23,
+        23
+      ],
+      "target_size": [
+        92,
+        92
+      ],
+      "original": {
+        "path": "references/original/RATMEN1.CEL/042.png",
+        "sha256": "b22917add5301397abc063fe3745d5e161e0935b658e544f2be373d40e801e48",
+        "width": 23,
+        "height": 23
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/043.png",
+      "bank": "RATMEN1.CEL",
+      "frame": 43,
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "dfd13420c0023971f2c21eb52dbc0ba990167b1cb868b2ad26bdbe8962fee5ba",
+      "png": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/packed/RATMEN1.CEL/043.png",
+      "png_sha256": "fd6c1b99cfd045c2e36f53795a46df26defe1a5be6b151c6a6e3497c50994b60",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/raw/RATMEN1.CEL/043.png",
+      "raw_sha256": "5a369dd67412fa1ad95e9ec4ce5cb8710ad34f3720c0ba7e7da0429a97600a88",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prompts/RATMEN1.CEL-043.txt",
+      "prompt_sha256": "db4fedc59a69b77465193734ee913c0a1dfa34421cff450764453a5efda34d1a",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "runtime_asset_sha256": "fd6c1b99cfd045c2e36f53795a46df26defe1a5be6b151c6a6e3497c50994b60",
+      "source_size": [
+        29,
+        30
+      ],
+      "target_size": [
+        116,
+        120
+      ],
+      "original": {
+        "path": "references/original/RATMEN1.CEL/043.png",
+        "sha256": "6831d706ef549d866634240004fcff74b43581396a33ad377d5c87cc755f68d4",
+        "width": 29,
+        "height": 30
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/045.png",
+      "bank": "RATMEN1.CEL",
+      "frame": 45,
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "b2f8f955de54b236477b66753c1ff0939eacaa401a9ac48a9621d62f821f841d",
+      "png": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/packed/RATMEN1.CEL/045.png",
+      "png_sha256": "b595a7b32b4f5eca65d2d6c7724fe59cb0c413babe99c199ef33e39155bb27c6",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/raw/RATMEN1.CEL/045.png",
+      "raw_sha256": "20b458123c44204e31b4dbc56dda3dcc6057a852a1b281fad211cb1826a9580d",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prompts/RATMEN1.CEL-045.txt",
+      "prompt_sha256": "319321b21207b03ce13faf0bfcd0cefe3feb8bc445a6e16f1ae89b417646cf72",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "runtime_asset_sha256": "b595a7b32b4f5eca65d2d6c7724fe59cb0c413babe99c199ef33e39155bb27c6",
+      "source_size": [
+        42,
+        26
+      ],
+      "target_size": [
+        168,
+        104
+      ],
+      "original": {
+        "path": "references/original/RATMEN1.CEL/045.png",
+        "sha256": "345e24f0681fe8a0b44c12580aca165853048b15fd35a88d587cb06537c88c5f",
+        "width": 42,
+        "height": 26
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/046.png",
+      "bank": "RATMEN1.CEL",
+      "frame": 46,
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "4802fa630b951afefd90ba10ea34629302447ace211b6414c75893e31319b269",
+      "png": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/packed/RATMEN1.CEL/046.png",
+      "png_sha256": "110350d2cf3d2641b5bd4d6a3c26d5025952e6263410330ae89ceb690ef27c9f",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/raw/RATMEN1.CEL/046.png",
+      "raw_sha256": "51b614259e67eed27671cc31cec4146a8fe89e94105ef3356ab48fdc2170a1c0",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prompts/RATMEN1.CEL-046.txt",
+      "prompt_sha256": "840b0bb0a0b6af117080f0b91abd644d2b5b90a1a7be8a5fc349daf1f21170a6",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "runtime_asset_sha256": "110350d2cf3d2641b5bd4d6a3c26d5025952e6263410330ae89ceb690ef27c9f",
+      "source_size": [
+        41,
+        9
+      ],
+      "target_size": [
+        164,
+        36
+      ],
+      "original": {
+        "path": "references/original/RATMEN1.CEL/046.png",
+        "sha256": "0d36ed623cf6d9f00bf671ee194a2959df5de1cb665130f3f8f862b4fe316ad5",
+        "width": 41,
+        "height": 9
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/047.png",
+      "bank": "RATMEN1.CEL",
+      "frame": 47,
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "9269afb1a21a368a11cc4b47b084cc38e51f158a7103b62b2fb47d68f31e85f2",
+      "png": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/packed/RATMEN1.CEL/047.png",
+      "png_sha256": "f3e338cf70e910716f8ca4a004cd9177bd632b99ff7c539cb9847c67a369b4bd",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/raw/RATMEN1.CEL/047.png",
+      "raw_sha256": "a320b4e4f8c8b92329d6fd4858e4833aff1a6960a17ebaa22462e666c04c01ce",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prompts/RATMEN1.CEL-047.txt",
+      "prompt_sha256": "b29416502be613ddbdd122a6d8ec662cbb16e37e1eeaf61abcde3ab39ad29bb7",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "runtime_asset_sha256": "f3e338cf70e910716f8ca4a004cd9177bd632b99ff7c539cb9847c67a369b4bd",
+      "source_size": [
+        26,
+        16
+      ],
+      "target_size": [
+        104,
+        64
+      ],
+      "original": {
+        "path": "references/original/RATMEN1.CEL/047.png",
+        "sha256": "457ee273ad980a75ba2c981d1080d483270fdb51f007a6d0445c0c01c25a16be",
+        "width": 26,
+        "height": 16
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/048.png",
+      "bank": "RATMEN1.CEL",
+      "frame": 48,
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "5a86c2f46cd315cbbd9af5e797f74539d36ba24ecee4befcd9e45f52bad6db35",
+      "png": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/packed/RATMEN1.CEL/048.png",
+      "png_sha256": "1a6fdbab11c14a01e750a887cae017dea9b8d8855c1f40e69b133df5865cda31",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/raw/RATMEN1.CEL/048.png",
+      "raw_sha256": "2609203de05e2ba5b291ca9ba8e1f521a6e19cb67c23b23e628869de9bd2d52d",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prompts/RATMEN1.CEL-048.txt",
+      "prompt_sha256": "6269d6b080612ff9d70241cd9f2b3c511021643aa5cc7d3170d4493f6488df8c",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "runtime_asset_sha256": "1a6fdbab11c14a01e750a887cae017dea9b8d8855c1f40e69b133df5865cda31",
+      "source_size": [
+        44,
+        17
+      ],
+      "target_size": [
+        176,
+        68
+      ],
+      "original": {
+        "path": "references/original/RATMEN1.CEL/048.png",
+        "sha256": "7a169da3b3387ad35c6a95b6148e64cbdfce9354965d786f2f28b72dfcf4c541",
+        "width": 44,
+        "height": 17
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/049.png",
+      "bank": "RATMEN1.CEL",
+      "frame": 49,
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "4007ddeb58b9dfd185e5b1ddb0c2ee5ba6b6628a759c302921bf5daf6bc8af1d",
+      "png": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/packed/RATMEN1.CEL/049.png",
+      "png_sha256": "f1b572dd5439cc16762b617be0a15418b5d7b69aa76dafc5cf9c17c31c2035ad",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/raw/RATMEN1.CEL/049.png",
+      "raw_sha256": "bdefd1e3466bcea1329a12e1c790ad411392b6b91225527a5419ae2dd2a31cc6",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prompts/RATMEN1.CEL-049.txt",
+      "prompt_sha256": "9067d7c2bb32343ef2bba91d6622073cf8c3c33c96c99814be08da31111544f1",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "runtime_asset_sha256": "f1b572dd5439cc16762b617be0a15418b5d7b69aa76dafc5cf9c17c31c2035ad",
+      "source_size": [
+        22,
+        20
+      ],
+      "target_size": [
+        88,
+        80
+      ],
+      "original": {
+        "path": "references/original/RATMEN1.CEL/049.png",
+        "sha256": "70a10b4b251d2ac2c6c4395b3ef3cdae41047292f058252d4db34b0e7634995a",
+        "width": 22,
+        "height": 20
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/050.png",
+      "bank": "RATMEN1.CEL",
+      "frame": 50,
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "f1bac5586746f49ad9fa660bacb2172409ca6ad2618ab21b4315e200c10faf87",
+      "png": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/packed/RATMEN1.CEL/050.png",
+      "png_sha256": "198b40892462ff5b989a1791ffbe809bf35da4e5fb079c887f84c3a1e9425869",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/raw/RATMEN1.CEL/050.png",
+      "raw_sha256": "e332920b112a991cb19f9ac8d5da5e5207d55c4ee89dcac33ed4b6b44d8d09af",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prompts/RATMEN1.CEL-050.txt",
+      "prompt_sha256": "f3f27cea631b32b6e04dd457fd791ee1b51a93ff2dd9fad59ca566b24cb0be02",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "runtime_asset_sha256": "198b40892462ff5b989a1791ffbe809bf35da4e5fb079c887f84c3a1e9425869",
+      "source_size": [
+        28,
+        11
+      ],
+      "target_size": [
+        112,
+        44
+      ],
+      "original": {
+        "path": "references/original/RATMEN1.CEL/050.png",
+        "sha256": "10baeded53493a4064e60b8c5a2ce73e3d713e09ccc0a99c12d2eda4ce9867c6",
+        "width": 28,
+        "height": 11
+      }
+    },
+    {
+      "key": "RATMEN1.CEL/052.png",
+      "bank": "RATMEN1.CEL",
+      "frame": 52,
+      "source_bank_sha256": "6b59eb2aee821f94e9f5ce0fbea17eba0239ce4759a54e7dc2c057c69865f6ab",
+      "indices_sha256": "8faad890c7000006ce827187cb61aaacaae3159efac23e242153cec972bece26",
+      "png": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/packed/RATMEN1.CEL/052.png",
+      "png_sha256": "081c57aad63ea139309b4db8c473ca9bd3329bba52532459c187a80e77cf9cbc",
+      "raw": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/raw/RATMEN1.CEL/052.png",
+      "raw_sha256": "4be365b93a7450741e1c972789c4281293103ed57db99dec60ce6ce576a41063",
+      "prompt": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/prompts/RATMEN1.CEL-052.txt",
+      "prompt_sha256": "43e0de479c9494505b29d78a155ac60628d76dde65b74f46f418dfc166907c34",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed14-fixtures-v1/test.json",
+      "runtime_asset_sha256": "081c57aad63ea139309b4db8c473ca9bd3329bba52532459c187a80e77cf9cbc",
+      "source_size": [
+        21,
+        25
+      ],
+      "target_size": [
+        84,
+        100
+      ],
+      "original": {
+        "path": "references/original/RATMEN1.CEL/052.png",
+        "sha256": "1a6ddb6732e433383db5f68b411f4e6e5f46eba4bf83f96ed7477ea4097e3315",
+        "width": 21,
+        "height": 25
+      }
+    }
+  ],
+  "actual_source_center_proof": {
+    "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/observed13-actual-source-centers.json",
+    "sha256": "f37e6fd90f3058ac90197003c83c01de68446c0b54c58095d9b3d71685494d19"
+  },
+  "native_observed_without_HD_capture": [
+    "RATMEN1.CEL/051.png"
+  ],
+  "not_observed_011_054": [
+    "RATMEN1.CEL/011.png",
+    "RATMEN1.CEL/012.png",
+    "RATMEN1.CEL/013.png",
+    "RATMEN1.CEL/014.png",
+    "RATMEN1.CEL/015.png",
+    "RATMEN1.CEL/016.png",
+    "RATMEN1.CEL/017.png",
+    "RATMEN1.CEL/018.png",
+    "RATMEN1.CEL/019.png",
+    "RATMEN1.CEL/020.png",
+    "RATMEN1.CEL/021.png",
+    "RATMEN1.CEL/022.png",
+    "RATMEN1.CEL/023.png",
+    "RATMEN1.CEL/024.png",
+    "RATMEN1.CEL/025.png",
+    "RATMEN1.CEL/026.png",
+    "RATMEN1.CEL/027.png",
+    "RATMEN1.CEL/028.png",
+    "RATMEN1.CEL/029.png",
+    "RATMEN1.CEL/030.png",
+    "RATMEN1.CEL/031.png",
+    "RATMEN1.CEL/032.png",
+    "RATMEN1.CEL/033.png",
+    "RATMEN1.CEL/034.png",
+    "RATMEN1.CEL/035.png",
+    "RATMEN1.CEL/036.png",
+    "RATMEN1.CEL/037.png",
+    "RATMEN1.CEL/044.png",
+    "RATMEN1.CEL/053.png",
+    "RATMEN1.CEL/054.png"
+  ],
+  "limitations": [
+    "051 inngaar bare i den private14ruters testpakken, aldri i denne13ruters aktiveringen. Nativekall er observert, men ingen HD-fangst i aktuell kampsekvens.",
+    "Begge speilretninger er kildebaserte frontend-fixturer. Faktisk kamp viser alle13 aktiveringsruter med eksakt Original/HD-retur og uendret emulert tilstand.",
+    "Noen originale effektceller og svartskygger beholdes foran HD-materialet. Ingen udokumentert forgrunn godtas.",
+    "Bakgrunn er originalisolert i figurporten; standardbakgrunner kontrolleres separat.",
+    "055..061 nylig genererte raafiler er utenfor denne leveransen. Resten av Ratmen er uferdig."
+  ]
+}

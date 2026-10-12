@@ -1,0 +1,3 @@
+'use strict';
+const fs=require('fs'),{chromium}=require('playwright');
+(async()=>{const [input,output,w,h]=process.argv.slice(2);const b=await chromium.launch({headless:true,executablePath:process.env.CHROME||'/usr/bin/google-chrome',args:['--no-sandbox']});try{const p=await b.newPage();const png=await p.evaluate(async({svg,w,h})=>{const im=new Image();im.src='data:image/svg+xml;base64,'+btoa(svg);await im.decode();const c=document.createElement('canvas');c.width=+w;c.height=+h;c.getContext('2d').drawImage(im,0,0,+w,+h);return c.toDataURL('image/png').split(',')[1];},{svg:fs.readFileSync(input,'utf8'),w,h});fs.writeFileSync(output,Buffer.from(png,'base64'));}finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

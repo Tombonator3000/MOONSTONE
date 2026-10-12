@@ -1,0 +1,102 @@
+{
+  "key": "TROLL2.CEL/013.png",
+  "master_key": "TROLL2.CEL/013.png",
+  "role": "redraw",
+  "package": "01-monstre",
+  "order_group": "Monstre",
+  "order_priority": "3",
+  "identity": "trollet, separat originalfragment fra TROLL2.CEL",
+  "master_usage": "Kamp i hi og ute: trollet",
+  "identity_limit": "Kildebank og brukssted. Ingen udokumentert handlingsetikett per rute.",
+  "bank": "TROLL2.CEL",
+  "frame": 13,
+  "width": 60,
+  "height": 13,
+  "target_width": 240,
+  "target_height": 52,
+  "source_bank": {
+    "path": "data/TROLL2.CEL",
+    "sha256": "f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e",
+    "bytes": 7652,
+    "frames": 16
+  },
+  "bitplane_sha256": "871a0e4cdc04cb8b6f04900f2457b16f777261db837b36e3bf19789cfdfcaf41",
+  "packed_indices_sha256": "2229e4b66a1fe01ab46bcda0372cc665e22db3d346a9096d04ba63e7960f61e9",
+  "indices_sha256": "350e7907bd0e4973db68fb0b1d32ed42bdc41b24f370e09d3af9d46b0eba3d57",
+  "plane_mask": 23,
+  "packed_planes": 4,
+  "source_flag": 1,
+  "source_indices": [
+    0,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "index_remap": {
+    "0": 0,
+    "16": 16,
+    "17": 17,
+    "18": 18,
+    "19": 19,
+    "20": 20
+  },
+  "source_neighbors": [
+    "TROLL2.CEL/011.png",
+    "TROLL2.CEL/012.png",
+    "TROLL2.CEL/014.png",
+    "TROLL2.CEL/015.png"
+  ],
+  "neighbor_limit": "Nærliggende kilde-ID-er, ikke en bekreftet animasjonsrekkefølge",
+  "alpha_bounds": [
+    0,
+    0,
+    60,
+    13
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "placement": "Originalens tegnerektangel; ingen ny sentrering eller justering av fotpunkt",
+  "palette_id": "combat-preview",
+  "palette_status": "preview_only_not_a_monster_or_player_color_approval",
+  "palette_source_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+  "palette_file_sha256": "9e0b9b6c5798bc2706a91487b5fae02b840c95c20235a5886f0bdba34bbcef35",
+  "original": {
+    "path": "references/original/TROLL2.CEL/013.png",
+    "sha256": "3c0c653ce12b6fd1926756bee810d738504994441e94bc4b5bb0ff18e6717e5b",
+    "width": 60,
+    "height": 13
+  },
+  "nearest4x_reference": {
+    "path": "references/nearest4x/TROLL2.CEL/013.png",
+    "sha256": "e110a89429725b5301cc0c3a08bd1cc8e5a6e35bef2935e889f5247ca5d51299",
+    "width": 240,
+    "height": 52
+  },
+  "packed_original": {
+    "path": "source/packed/TROLL2.CEL/013.png",
+    "sha256": "30a77028a63c7018b37a06906be9302171cc9b2f5302e50e5c92a8f61b93c253",
+    "width": 60,
+    "height": 13
+  },
+  "silhouette": {
+    "path": "source/alpha/TROLL2.CEL/013.png",
+    "sha256": "2341ad1ec237da46817c369b24913173fbc07031d27c13fb3d5c592b8deb6acf",
+    "width": 60,
+    "height": 13
+  },
+  "needs_mask": false,
+  "neutral_mask_template": null,
+  "live_palette_indices": [],
+  "source_order_mask_override": null,
+  "mask_warning": null,
+  "intro_only": false,
+  "runtime_gate": "new_art_requires_route_runtime_check",
+  "art_status": "pending_individual_redraw",
+  "target_png": "hd/TROLL2.CEL/013.png",
+  "target_mask": null,
+  "source_order_note": "Koden støtter eierskap per piksel for deler som overlapper. Ny grafikk og animerte overlappinger må prøves; bare TroggSpear er målt i den eldre kartleggingen. Eldre utkast i art/photoreal/candidates/TROLL2.CEL (candidate_geometry_review), ikke godkjent. Bare feilarkiv; bruk originalen som tegnereferanse. Trollet er blått i spillet, utkastene er brune og gylne."
+}

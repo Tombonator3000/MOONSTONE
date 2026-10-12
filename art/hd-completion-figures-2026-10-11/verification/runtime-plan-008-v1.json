@@ -1,0 +1,525 @@
+{
+  "schema": 1,
+  "status": "frozen_final_runtime_pending",
+  "baseline_commit": "19c515d",
+  "baseline_manifest_sha256": "dc97a283f329afb78ee76cf23cc0738fd665bc6ffa45271e9d9ef77de64e24e8",
+  "previous_files": 1747,
+  "new_routes": 202,
+  "new_png_files": 222,
+  "photographic_masters": 195,
+  "preserved_original_routes": 7,
+  "deliveries": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-025-b3-twentysix-v8.json",
+      "sha256": "712dcc67b54d0ace7bc3ad2ae11c88b0e78d7910fbf210df0b7492e30960fb4f",
+      "routes": 26,
+      "png_files": 32
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-026-three-original-shadows-v8.json",
+      "sha256": "5886422c1e9436c530ceb2a35fe0865a4d04cd66d1995454e3db0c0aef712e8c",
+      "routes": 3,
+      "png_files": 3
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/activation-set-ratmen-r1-rest40-v2.json",
+      "sha256": "10f6828fdb65ad0c538448824723f8f4e29590ab467d96f19e5822467a22280a",
+      "routes": 40,
+      "png_files": 42
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/remainder048-098-v2/activation-set-002.json",
+      "sha256": "9ed36959143e0fedf378e6616daef0f6bfe889361a0013ad0a7edd768dc08186",
+      "routes": 51,
+      "png_files": 52
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/delivery008-v1/activation-set-001.json",
+      "sha256": "a314f84af94fed7679bdadb449b19f02a02411ca4b74a8cfd51e73c28ba7e513",
+      "routes": 50,
+      "png_files": 53
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/next042-055-v1/activation-set-eleven-v2.json",
+      "sha256": "57edab3b2462671abed60754afdc6cc1c7379bb1c6340f97f3305bbe94f8b938",
+      "routes": 11,
+      "png_files": 16
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/shadow015-v1/activation-set-shadow015-v2.json",
+      "sha256": "1d5564b6c449db05cf774cfdb3bd759d2487cccedec733a4086cc9f80c6c3bfa",
+      "routes": 1,
+      "png_files": 1
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/activation-set-remainder-008-v1.json",
+      "sha256": "4ea6cd091551c116ff00f9e832f807b22874608d721603f7f2de037e4d7f2d00",
+      "routes": 13,
+      "png_files": 13
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/next058-099-v1/activation-set-seven-008-v1.json",
+      "sha256": "1db90fddeae3da60a9c31af88aa677ec9dfad0f27dc61b7e16d38e00657ba4f3",
+      "routes": 7,
+      "png_files": 10
+    }
+  ],
+  "expected_new_files": {
+    "Balok3.CEL/000.png": "a0d19fa0c4c37a38d58b59e755661ff43dad07077b09b12b4c7e7e2327c2746f",
+    "Balok3.CEL/001.png": "f0d92b8ab33a198c1738889ed282589acc15cb9643261da49cd79176dd985bef",
+    "Balok3.CEL/002.png": "70dd3337da3366dbf7e576b36f7d725da60b5e4663ba915f150818750234d144",
+    "Balok3.CEL/002.mask.png": "f49c4c952cc8732bc7b12b2066bba8ecca54d786fc136b13a8346a8c7e3d3356",
+    "Balok3.CEL/003.png": "a32272c87786d3bf74fc9d93190e01141d223ed51415cda08ced99b9ae093074",
+    "Balok3.CEL/003.mask.png": "7454ed04a5eb88f42511d825ca4b1933ab08a80f9201c9f0754f06e1826583e5",
+    "Balok3.CEL/004.png": "9f3086afc2339b1a5c39e32787496945b03fdd5f3083529441294ebfdabbea88",
+    "Balok3.CEL/004.mask.png": "fda940ebf56d19bac18c15c5a9ea1a8b4640b5ff37caf72ad814de9e5ed3abb7",
+    "Balok3.CEL/005.png": "3f5f3e78c2dd2b1e0386e8d642be66e67100b6f2c44e64acbe84e5461cc09279",
+    "Balok3.CEL/005.mask.png": "adfb108c57b27310ec20dd22be66ecbecc7c22e7016e15933309635fc67f1ef9",
+    "Balok3.CEL/006.png": "830796cb700ee9605da6cd170145bb5df2eda8ce4fa6ff110abfeb165f95f6a9",
+    "Balok3.CEL/006.mask.png": "a3e97fdf9976d70139945769cf75d553cb856e4875280b988e13f6c451e2a5d6",
+    "Balok3.CEL/007.png": "862724d79b7f2d62df9f2c87e7336767168665fb6a29a596bbeb375d6fd37c46",
+    "Balok3.CEL/008.png": "8a4b13ba36bc9821710d8ab24f40af4610293d3163fe969b79856281400640d0",
+    "Balok3.CEL/009.png": "db572735acbad203ab2e9d3da13ee90eb18f5489ebe2b3d6672b3a5d76f298b4",
+    "Balok3.CEL/010.png": "1e392c0f0a0d59e60a0f59fc1df34a828603b01e02001403c926bd9d506523f3",
+    "Balok3.CEL/011.png": "ec6316e525cf81ec82f32b41b210de14b92bb00aae2664865ab5f96b4e610e69",
+    "Balok3.CEL/012.png": "f0fd82a7cf71114d74d8606f4ed9f6b0700f01e238e9ce6a332ce4818500365d",
+    "Balok3.CEL/013.png": "fa4b96cc199b47fa81dda777a33988eb32921a0bae4c39ccfc4fbf5b0c662b7c",
+    "Balok3.CEL/014.png": "ad331bc184649d75f6d6b39df8a15df916092b86e16b9363c94471d832db2c68",
+    "Balok3.CEL/015.png": "cb4f485168f35c259cc1428264d6c69a92ca5d563e38f6d5186bb085e7c15300",
+    "Balok3.CEL/016.png": "ad35d7423a48730f9a59680138a4ede2df0774557e9ebc98e251c901ab59431b",
+    "Balok3.CEL/017.png": "76aebcfa68992cb1fe746e10376f9c3d714899c388e2487a9d60bf9edf5ed05d",
+    "Balok3.CEL/018.png": "e9095cdf60966ead450b7659c0bbe6da188cfb90c1a0bd6c8305e4bd814f6098",
+    "Balok3.CEL/019.png": "eeae35d86d8c7afd19bc9d04e5d6279ee2790419a27d699c76c6e8cc06b0236b",
+    "Balok3.CEL/019.mask.png": "d8e85ed293b0d0a85cb1e167cab026da9932ee1536b023eb1f1c95e9ee0de538",
+    "Balok3.CEL/020.png": "60452c5e2cb8b1b954bed186ef8523978257548a910749af711486eb7bc16a92",
+    "Balok3.CEL/021.png": "ecd82bfb872bfdb8d68337ef0947d5d8d549e6d335dea71005c0a9b05b06902c",
+    "Balok3.CEL/022.png": "31b093346d1b1594ddfb5704e27083022a98f09ab2fb5ff6a673a71f9c2195e5",
+    "Balok3.CEL/023.png": "a7ec75ed2507336fbd9cef7943170b44c0b9ffdabdb1e8aa7c879dd02b39abc6",
+    "Balok3.CEL/028.png": "aa8b1e7e0b9826bfc48266015976550694c1f0ebc5c6e731c653a63710762241",
+    "Balok3.CEL/029.png": "d4520401ec78ead8868242a6d764853550b19b3b3225bf2f2b8544e232159b27",
+    "Balok1.CEL/013.png": "2ad9278288a60833b6be64f6ca4ebd45808fe5fc8c8ec3617e4f34e6d8c8f66f",
+    "Balok1.CEL/026.png": "bf74a278d3cd328cc45705214bd116816d262fb7def3a59f8bd495736bdac906",
+    "Balok2.CEL/000.png": "98218556e3392175c8ed01593ef5ff9eb8009732823d23585e5fae3ef70a3c9f",
+    "RATMEN1.CEL/011.png": "7dc3fe0e87939647cb0ba6dbd016a6eb08cb12c58de78499ed6e4b3dfb9bea69",
+    "RATMEN1.CEL/012.png": "dcb818c60b87059f275b86017b68dd1912979764e57e70154889fd9db6522f06",
+    "RATMEN1.CEL/013.png": "a0ea0b5d948fdd19bb9a8767478b6860a5aa830d5a8864b82abb21776234a9d8",
+    "RATMEN1.CEL/014.png": "6b50ab12b287e2f43a1d37fbb8bd5ea7a4aa1a828fd29fdb1139ed1d9e3a512d",
+    "RATMEN1.CEL/015.png": "7377c6bdb836d6a6d8674e1d96871996d3f66c950d21907da036556910e2bb18",
+    "RATMEN1.CEL/016.png": "5b0ed1a1cdddcdd5bc2f6c0ce4fc5b4f855d0424beb1bbd244970b8b3a3cb1a8",
+    "RATMEN1.CEL/017.png": "585b71a2b2f0432bba69d71b2a267f8e6472ef6e596850ea47b1b1e092140212",
+    "RATMEN1.CEL/018.png": "be7a89c0107078656d0c287f591462d328998b2861ff72b5e33f7fd99c30f5fe",
+    "RATMEN1.CEL/019.png": "8f1f20a67dfa9f4d0d50349fbd56afe6e524ba02753e7be1a4bf72d86965b7d0",
+    "RATMEN1.CEL/020.png": "59f045b260a71f0f9b6a5c06a25b62b7ca8328af018ad51e466d219eef26663e",
+    "RATMEN1.CEL/021.png": "29e5a7050d5b457d8081dce5d16be9c3b991b8ed92566e25bfc0ae3e5ea04dd2",
+    "RATMEN1.CEL/022.png": "5239904c2728242d3d3c302a96e2b3f5513650a6e05ba3af0154e803487c0c1c",
+    "RATMEN1.CEL/023.png": "fa0e3f48fe15b9aeb0ec34b44ded0cee6ea147c855cf3d20a7e39f5fb45da54b",
+    "RATMEN1.CEL/023.mask.png": "6c5156c369ffaf68c0ec945a977c44ba2a7865641fe71c0ec86e80de801d10b2",
+    "RATMEN1.CEL/024.png": "8444dfe6e436156a72e9689c15fc7c744fc63afbc260df18f6c7697dd41d6671",
+    "RATMEN1.CEL/025.png": "ea61f447ac5dcaed181dc83ddd755aca3b5af82864a198d02d5bcf9f2640c608",
+    "RATMEN1.CEL/025.mask.png": "8d319a39eafb7f437938cf3b6af394dbdd577369e4e73f808b111efff5eb6d7c",
+    "RATMEN1.CEL/026.png": "35a559edadb1b2006f8535cc7e2fcb7aecdf450b652f0cba003ed70709bd680d",
+    "RATMEN1.CEL/027.png": "2bbb777fd8073be7b0313319f32039bf7a27f8994e26ad359bc29a45016848e8",
+    "RATMEN1.CEL/028.png": "deea23e3bd4ddd5c4137aca61d1003e835fe1f7e4027f7dc157e4949dc5ede0b",
+    "RATMEN1.CEL/029.png": "8ee8543dd9321794edbb078658c06f8394f9c31119288435263078af97f04604",
+    "RATMEN1.CEL/030.png": "71939faadac26367dbadbb817f13910a0386cd1a09c9feb49133f528b0e44a85",
+    "RATMEN1.CEL/031.png": "d60d1a06d0e1dd6fb98f4b2d382e9534eec0657c5860cd69df573d53ff31d28e",
+    "RATMEN1.CEL/032.png": "4713de3474d6031efdf478ed3e2d5a4c95fa0d56b70697f8880f0f8e520b5a60",
+    "RATMEN1.CEL/033.png": "f730b4671e801505f8fa09609f33ffe83c7fbf981c54833239ca78e1241bf749",
+    "RATMEN1.CEL/034.png": "cc68a173ce9ffa5ca917b4f008e72a4d4494a302c6fe6fac958bd5fecf833617",
+    "RATMEN1.CEL/035.png": "968e1e52e592a7914182f73336e145895dfc15d7356315d8247efaec8a9f1d99",
+    "RATMEN1.CEL/036.png": "beebe34be1925a953b5cfeb9466e8f8c3429eb1b90ee1c9542dc4d040fecd98e",
+    "RATMEN1.CEL/037.png": "21f0e10e71d6c09726be0caf7e71a6ff5e96f55ef8b984e7e7157b63f2c1d311",
+    "RATMEN1.CEL/044.png": "ea88a65246258950fdeaf683d580841967d0fe0ddc1c2476aee72f73c9537d4f",
+    "RATMEN1.CEL/051.png": "9f896c6ff930ecca8eba17e927c4ad6be3f0d6eae4c2927506f5ebafe3abe5f2",
+    "RATMEN1.CEL/053.png": "6ce7f77af367d4b3013b932b34ebfe16d36a20600a508482ea8b70a82b0a8cd2",
+    "RATMEN1.CEL/054.png": "434b40156b04f3376b2a39b72f2a1df60747294fd1a4a1961bead52354eee178",
+    "RATMEN1.CEL/055.png": "2774b1ef7c06c5ad7120fd7be71c1050fdbcde393e3efd3d2119084029f81ca6",
+    "RATMEN1.CEL/056.png": "28e08038e0717839e8efe0ef915ce75587fb32896fe5111f52913a21820f2fce",
+    "RATMEN1.CEL/057.png": "608706cf11bdeff4e8935de1e0203f1c407e024effb2a8db9615a80c43b75259",
+    "RATMEN1.CEL/058.png": "73feaa01a3824a366cf83821c408cdd80fbbedc9442b9401b7fce11afdde9341",
+    "RATMEN1.CEL/059.png": "af425d4445e3c1e270df5dde1bfb0a2da20968b8a8e9a068baea0e3be523e5ef",
+    "RATMEN1.CEL/060.png": "8c762973e36969fc2170d71e4a5c142b9c4881a184409987d52bf55b92a404c6",
+    "RATMEN1.CEL/061.png": "c0b82b288c59ac954604bda1f64ed37f11180e3aaaee6054b9b38212e850b543",
+    "RATMEN1.CEL/062.png": "4eb802781a0f81815930d204aa61f499a40165ff451001e0ece25b00c072fba9",
+    "RATMEN1.CEL/063.png": "1957438f9c8970778fd1254be948148a7a2aacb44439d1883051dfafffa86ede",
+    "Demon2.CEL/048.png": "5c2ad6448f099040fdd36abb619283ca6390174cd9b8f72fbc3ec33084b10d24",
+    "Demon2.CEL/049.png": "d040eb97f3ab58efbd568856af0716162a434600ab3867c48b8ef5fb7b3a8b4a",
+    "Demon2.CEL/050.png": "4f904f5fd21667e721bde138f012972830fab248ad67b9d6a23dc0518e33e909",
+    "Demon2.CEL/051.png": "29122913bd5ea59f9a7a1bf377979aa5e8e1f872a612a7afdf6d57a000c500dd",
+    "Demon2.CEL/052.png": "14541731d6c2bca055db6cadeb7190b0456c226bf4cc4de85eea376d323cf789",
+    "Demon2.CEL/053.png": "ae3738e958af83b6203fa27067d7860170bd2659e96133252a0ebf6d5bc46297",
+    "Demon2.CEL/054.png": "68a2c74142216ebf72c0255db419879d8db2df98a75ee91f42121a6872121599",
+    "Demon2.CEL/055.png": "1bb7095ebcef832084e689861facd9442d2e2b8775ef3b86393497e6f7bdc5c6",
+    "Demon2.CEL/056.png": "cebd8522a6edb27c0a65df7814f2fb4312619d7f1ccb1bce590c5e6a366a7359",
+    "Demon2.CEL/057.png": "faa8896f2b476ffa13008f940763c5d7fe904eaa181f6af05716adcbd793dd30",
+    "Demon2.CEL/058.png": "e412958fd02d8bf782205f86c64225fa397fb8dcf00f2fbf789e1e659ce7ec7e",
+    "Demon2.CEL/059.png": "166f91e4d09f997b8156638cda2432a3514b24db6315e39c1762174b61d5ea80",
+    "Demon2.CEL/060.png": "6d328630b9b33ea3b16122fe48fd8136ff41376531fdddac669239f51548d384",
+    "Demon2.CEL/060.mask.png": "43bd5753987d95d22e2c807da77d9b806d46bff3e39e40b36e718073403be8ea",
+    "Demon2.CEL/061.png": "66fd646c52d247d9cb6861fff06d4cca00a5e54a53499056da323ca7d8c7054d",
+    "Demon2.CEL/062.png": "0bd9d3a4b8e809a1bd5859e5a4d35d00bea0b82e36a2f7fc934af03e1b8448a0",
+    "Demon2.CEL/063.png": "247bd4eee73256c3a160db217b9f9b02a366bb5431dd3d42fd671e6ada1b4423",
+    "Demon2.CEL/064.png": "2de99314117493fe90f1e68adebbc4ef66cf2bfd295f5dbb979e4e935f715e11",
+    "Demon2.CEL/065.png": "d0fe0023c24a4b1c53e2fc7a83425611b0c24620a3468578ea31db97bc30c7db",
+    "Demon2.CEL/066.png": "0aa4eeb095de4d6dcaf4949e038718314ef30ef39259d54d7ec91c85e62be83a",
+    "Demon2.CEL/067.png": "65080ad25453b942ebfced3088ea35f4ecaf621d08d10b8b83a34e81c3198ef5",
+    "Demon2.CEL/068.png": "7e14ab4cf29b3eee6e32124c08fa6357a692de0fee3d2adf74295ef5b593b80a",
+    "Demon2.CEL/069.png": "003b167d131788b42b66614823ace82b96b2d798f36fd8466bf52a2b8692f8f1",
+    "Demon2.CEL/070.png": "22879943b731f903b63781e1f9a9337ce67f1b867b3e5688eda46f826a673b8d",
+    "Demon2.CEL/071.png": "b8de4dff148d934b9039367ca87054c072fc5f1d71f04f6f170710a1c3229385",
+    "Demon2.CEL/072.png": "8ff2bfd593adbf224a68f8be3e5aed52146ee1d2410dd18e9c629990d42bca78",
+    "Demon2.CEL/073.png": "fa102817a9de35ec3b4d468c0b3b11c4f5b309f132f666026152cc6938a27c26",
+    "Demon2.CEL/074.png": "2c801b1e4bdaeb9a82b15c0fb0502510ea02f21b01348b033d5c88b9f86d0191",
+    "Demon2.CEL/075.png": "0bc86c393e9cb8089bbf9ae316871e750dde27fa1d65554daa2ab8af20add754",
+    "Demon2.CEL/076.png": "cd02a3b32bc9506c6020f2d5f0a61f2fa00374a0d9f555eb044a0363ef950846",
+    "Demon2.CEL/077.png": "6a501e43fcd7826ac4960dc7bf6cf0d05e2bd00cfa0ef42a6004a8ccb0857f87",
+    "Demon2.CEL/078.png": "208c13da4b4983d66b7ecad4d743e23d92e3be3780e47c49dd7bc8cf1d0c5aaa",
+    "Demon2.CEL/079.png": "2c4cf4476cb39e05baba64aa113e644cbf59a32a70c4ea601166eb9b46038de8",
+    "Demon2.CEL/080.png": "3ada8c7b10791d26fa49f5d9da034b25d8b845a246aef81e6ce170e89cd2172c",
+    "Demon2.CEL/081.png": "9b4eb4125e56ac6aec91610d2f5bcad827666ba32f014f47470d4e400c652e16",
+    "Demon2.CEL/082.png": "9c0dd29b65206d64591a1a06c23b95fd2a504e3ca4dd3af842943413dd624b08",
+    "Demon2.CEL/083.png": "2bb0efd5202b67a4b301f378ccd5e423078e90bdaeaaee9cd993b20172190046",
+    "Demon2.CEL/084.png": "d451450f7c0c877caa43e7b919f7ac8ef72b4452fb8d178fe65941f113390911",
+    "Demon2.CEL/085.png": "5de888b41fded70accd874b3c13367323105e3ab5b4d5d4994d0df80765b6f83",
+    "Demon2.CEL/086.png": "19a2ba1c103d38bb856c4eeffbcbd4631a67c69097158d5da0c88db13ba2620f",
+    "Demon2.CEL/087.png": "332156edf24195e3ca65f6f4c69ad75142fd67727ec42e4588ec77f9053996be",
+    "Demon2.CEL/088.png": "994650364b70c31d64213caa98eb0ce5a02dd85d6eceecbc01b6ba2eba1315ec",
+    "Demon2.CEL/089.png": "046470fad360c497e87fd906495d454a36dd6b3c22c4d23e7e37e70c01f91def",
+    "Demon2.CEL/090.png": "9667f144ca60c81a9983ad37686981613efa9f1e138b641083f40df4dcd4b619",
+    "Demon2.CEL/091.png": "0ff4a1df697a2de4b67ec3152660d372fd80064b16c1b04513ed73c3178c2d28",
+    "Demon2.CEL/092.png": "5dbd5655675567f55667f08376e22eefa06569a1a9fcf4f4f05d6b044a98156b",
+    "Demon2.CEL/093.png": "bb25fafc1e242855d331af5931dbc4e63fe7d0ca1bb527f63227f480253c0f57",
+    "Demon2.CEL/094.png": "dbd0f65b12ad026f4b05815961422402a642a5cbeeb2f62162be5294cfb146ef",
+    "Demon2.CEL/095.png": "b276eaa1877df6367b10d04dd00c70cc168e85b494e840f216d8603c3c09fe8e",
+    "Demon2.CEL/096.png": "63386a224e9cc964db6f5d8c483d939a30c3d4fe5836ae5052c5a3c3e71dcab5",
+    "Demon2.CEL/097.png": "be2c43e0942e379d5dc30838a1b1ab737e959430746b58dad61668c794cf95e5",
+    "Demon2.CEL/098.png": "d269f9a1d25804cf1a55d842ef10d611656f5caa0f9d3b6b5fb047dd046b3c41",
+    "Demon3.CEL/000.png": "5e18969fe9ed2a2de25a1d513de330ad574c59f92562119719584208aabce92c",
+    "Demon3.CEL/001.png": "93bdb29e903205f5e64e8688bbfba1f60971db929b55ae61684a13e01813343d",
+    "Demon3.CEL/002.png": "f81a51ac097c9a9b0304204ad3d870b40244be209e2a24011925e7d994c5e93f",
+    "Demon3.CEL/003.png": "a4568928186dea62b72f097647ae937a726024ed1768375b42dc1609a101fd93",
+    "Demon3.CEL/004.png": "9d1611c8f0f512d6eef2b6f97139c30b886dca4138ede0bf2f5a84a762dc5579",
+    "Demon3.CEL/005.png": "a3c66281876cc37948933c93841c13c4ddcf79c8a5a68403e28e0b9e033617d8",
+    "Demon3.CEL/006.png": "1a0efc501b10fa1c91fd87bc433ff9005f61db8a14af6311c84df641ab556dfe",
+    "Demon3.CEL/007.png": "bcad3b857c900a6355f824a24a64403914ccab1ea3a2d0d2c1c86c55f2b52260",
+    "Demon3.CEL/008.png": "ab00cdf69539cece8f54f7ff95a912777fc6aafa1294a584406f4af0574a1cba",
+    "Demon3.CEL/009.png": "251c679d03374b7eb2c03ab4dc3d7da398d383de7ea3814c9753de3ea8bac4ef",
+    "Demon3.CEL/010.png": "1aa45600380e74e79648f55741a7d5de77c9e0502bc0e83b7980ef4936ee0a9d",
+    "Demon3.CEL/011.png": "c78782346929fd2cc1401949d5b3f5aad8b2931856b2d50b5967846a44293721",
+    "Demon3.CEL/012.png": "80474d580ee05ba0a31e09a96d3532de33c22467009343b632a9a33106dfa2ba",
+    "Demon3.CEL/013.png": "36ddff9fb6e332c5adad0aa54216b7adba50564d6275b64d6ca2b28b8961dfa7",
+    "Demon3.CEL/014.png": "d77228bd96acc548804874522064fa785eb02146dd07daca628578ad508ed2fb",
+    "Demon3.CEL/015.png": "c77d8f69278981546307cf714b018907a0e002a64101de6967024f7fcf69c1f1",
+    "Demon3.CEL/015.mask.png": "ba26a5e09a7d63d5c4c073ce0317c03c9e0842c99399e801c34a0ba8c88c5d22",
+    "Demon3.CEL/016.png": "be20443a812437b4c25eef5cec0770dce40e34f9a4c3b52ea94df2122703fe57",
+    "Demon3.CEL/017.png": "a0af3ff704074370c55d38392cbbb420a773118a74e543007e8e04161a865955",
+    "Demon3.CEL/018.png": "0907fbecd9cc390f9962e16b85c76830734017ff6b46bb309c2eeda808fe0210",
+    "Demon3.CEL/019.png": "96d3c8a1ef4dc61721fc6531ad5b071c7985f3f74b60baf475babf2545dfd948",
+    "Demon3.CEL/020.png": "95633bf92f524d4135d05f5120fe50312fcc2accf18f3a8cbed7b2192139ae3d",
+    "Demon3.CEL/020.mask.png": "3a9e4b151979dbcd6c4d1626abcd1e87359006613bf075415089c8faa310ee11",
+    "Demon3.CEL/021.png": "16b8871d2a233ce2096829bca9c036911d48b0163dc3ee8a7b77ef4f13acc838",
+    "Demon3.CEL/021.mask.png": "e23bf829c0ad7c5b0183c0bc093e909eafee346ebb99ed64454b9c0f3843b1d1",
+    "Demon3.CEL/022.png": "47e603eedb325019fbe35062f2893fa02d7f9279970574a85c1bccff7884b206",
+    "Demon3.CEL/023.png": "243f515c40ad2dc77bb72e046ca2a9a5f0367832853604bfe53c86e201033e9a",
+    "Demon3.CEL/024.png": "4821827f0d886f40f48a7f785a526b709a2dce7d94338452fef23540dcf6f76a",
+    "Demon3.CEL/025.png": "e3ebb86bf55d1572411585417450585d2b956bc7b74ac422a32ca844be206111",
+    "Demon3.CEL/026.png": "5fc0c84c6d1556718c4da397a3ecb3cfea025b95d5761490cda25a70df6a94ef",
+    "Demon3.CEL/027.png": "7134dba86a2a460bf5c296a09a7017c399872ecbf20a285dcfb8b58ab8fec59a",
+    "Demon3.CEL/028.png": "3afa538bf05fa3f6427eb36cd139b70f337ba2ca55f357baaccd2a7a3220d598",
+    "Demon3.CEL/029.png": "f4b4b1c5c5b44a47da0b8013ca4d1803c12f15db7a623b66ce3b534f07ba7fb6",
+    "Demon3.CEL/030.png": "2e8929dad8f36cd6380a6f1d993b110f02c095764d79fb7010926ca6190131f0",
+    "Demon3.CEL/031.png": "1b01c065ff0c0fe633849f2d0a4936888cd6588f96ff9c7669f66b2140e403f3",
+    "Demon3.CEL/032.png": "3d9f8376ba06752bd5b199a9749e63dfac710c57b1a675fa5312b47121431469",
+    "Demon3.CEL/033.png": "da4ebf50f70bbef55132803ae95331d469ace932a24693dc6371f463fae06abd",
+    "Demon3.CEL/034.png": "463b1ba7ee280404c412517ce98fa61967c6a4014c17004a6b3f8bb3202705be",
+    "Demon3.CEL/035.png": "c46eb7336768e1eb3cd1e5278ff8ce95c9446a7665faf5acd8e8a2b33467ba70",
+    "Demon3.CEL/036.png": "cdd97414ee918b1b6c80845e136e592bc520e03ceb6fb42a0e1c9ba08bd3ee3c",
+    "Demon3.CEL/037.png": "a06981d89ac391670c4e9bd42c28f4b1d2748c6ff98be06a75b375f7970e4e3f",
+    "Demon3.CEL/038.png": "7e199cfc768ecf8830fab4a1ee50d926e6b6e0402bdfaf332d0cc45863e4a936",
+    "Demon3.CEL/039.png": "9b2f70ed3eb95e56ff9d4b0986e05b3dc4fb4485da1f3ff2ab3d6e6baace4445",
+    "Demon3.CEL/040.png": "3c09066aae7caa38a4e2070e657a9fe95a788f15f3868c1ea7a25420ddd6f108",
+    "Demon3.CEL/041.png": "3ae2910d183d12bbe9d2d9dce870d3ea95b4515c33f3922e8a496361a815acb5",
+    "Demon3.CEL/042.png": "2f79f55d76c39630519fb3285207d6c8c089dc184fc1c8fb7158139d4725e409",
+    "Demon3.CEL/043.png": "1d0210b8b4de22d58d32570763c53f707cb79d6625de2ed4d413f8a7f2cce9d6",
+    "Demon3.CEL/044.png": "3f98593d408ef633a3721a9b503a49b269dd05323d1f837cfc8bb29efb5ac774",
+    "Demon3.CEL/045.png": "099d871720c275b7ac62600817cabaa439a8e39aa786a9dcd3214a9ff440e077",
+    "Demon3.CEL/046.png": "340b88b2dc0522075954f1ade9aafb2f2ffdb0206c4b6e111aa4a7a0de32c612",
+    "Demon3.CEL/047.png": "af09b90114fe743eb26dbc946bd27de1a882d7608318acc44496ed61966a3c57",
+    "Demon3.CEL/048.png": "bc843906ddb77cd9d91784f754c46e923335f7cfe3bd059562e56abc0c2d395f",
+    "Demon3.CEL/049.png": "4489762ae8766f4854d78350c7d41cbc1887a17746684b03e62ea4f12ca29197",
+    "be1.c/042.png": "4df9066ea47439504570fad6db54407c963c79a9a2e2022f59125be1cfa86b70",
+    "be1.c/042.mask.png": "77b70f20280ce525a36b160c6d6d54fb401e45790a40814fa194559d2d01718b",
+    "be1.c/043.png": "921d5b232ce83bdfd01d936e746e8bcf888540053b441086305a40cb37f4fcd7",
+    "be1.c/046.png": "b8103871b8e29926f02cd0db95a1265bc83be19a1e3f1b5180ff8cbc33eaa039",
+    "be1.c/046.mask.png": "d3525a2560c361ac9f09260aea6468fe12bb0fdd88f9f3bd6753b73324ddf4d1",
+    "be1.c/047.png": "defe5ae4d9fb54e676c16d088987536dcaaeffcba617369da9f07473fac91705",
+    "be1.c/047.mask.png": "d171b89053d1631586334395cce7bab85b2aa4e6f2c2b025c419ba9982444f68",
+    "be1.c/048.png": "0469af114ce02fbc0d49e88c7db5fd6a8a65568c56fa9a85a6c127f27b37015b",
+    "be1.c/048.mask.png": "d17635e308f0565ea091d9657a1afaa05a3b76d85cc7cc06c1abfd484ab872f4",
+    "be1.c/049.png": "ddc47d68c83e8995ac26c3562ff03f64dd3fc8a4be30d6fd60a6ee61641fe39f",
+    "be1.c/049.mask.png": "6d3f7c7c35f117433c5ef3ab4dfe6f9d829199e0955f99700fc4b57c63bbd80b",
+    "be1.c/050.png": "b802f5307b0eecc0218cbb6feba65468c1a120a93ae5052a770a7488ff64b040",
+    "be1.c/051.png": "7419793dcc2e63f63eb5d290ca8f1a15ebd07124556fac68194e72641aa9c1ab",
+    "be1.c/052.png": "3a513aff4d2376f819ce22cc4c150f081b5db713b03401a1f02f6136fed748da",
+    "be1.c/053.png": "354e07be3d4d9f47b6b203f818b97bb2d001ce7aeb2458c7e967008b52e65abd",
+    "be1.c/054.png": "aef8b78eaac3b3e6880029e6c512373d94d7f1eef33d709603798179a5be6545",
+    "be1.c/015.png": "f8d9485904407227c511f4093ca7ba7363e4d17bbf7e1262ab64c0196ec73c33",
+    "TROLL1.CEL/012.png": "dd56a04af9807fac345abbc2b063ec31db497713dafede2a40ebaabecdbe90ae",
+    "TROLL1.CEL/016.png": "371f5f170912e8537ec59a7ac889e630f769e93f4485731fd7082922f4e6c262",
+    "TROLL1.CEL/018.png": "5fb372300eaf746fcbe7d3081a18ec9a800e599393c606db47ccfc7851a0c2a8",
+    "TROLL1.CEL/019.png": "ad8148705960893c91259883b92f718d35c7a04997eccaf14b9b924cb9c07684",
+    "TROLL1.CEL/036.png": "af31b65e1d09554c38b7b17d4451ca5f6d1b1eb99bea21bcf3a827c66a0f3535",
+    "TROLL1.CEL/041.png": "2942c2014c2a5051e9a7aa35c69ebc70e7808c8a12427c202f1e7c6ea5140e2d",
+    "TROLL1.CEL/042.png": "c7aafb2ed7493b09b2ed096467a6d78f86ad7a4c92ca9193802a507d6672986c",
+    "TROLL1.CEL/043.png": "25a46982b88dc3628c018621237b91e82c33c119090dee04bc02a67498284153",
+    "TROLL1.CEL/044.png": "a0ea8a4bc929c9dd3144df1d12e48b44ef733bd7d3db5849878b010afc51a357",
+    "TROLL1.CEL/045.png": "ce0266e0089d4bf10e5e17df3d88f41232b687d72667aeb9b8538a3497f2a7b1",
+    "TROLL1.CEL/046.png": "37a6a4550979bac61bb20767e053985ae239f2f6462d461a4f83f7f63ea6830c",
+    "TROLL1.CEL/047.png": "a26b0d9a7350e2fbe6daa66f133c8dc44237048ff4869770fbc39b2150ae2743",
+    "TROLL2.CEL/010.png": "8f30253ce4635c952399cb7439c309095a3fbce1176e2e0746f430480d020610",
+    "be1.c/006.png": "87035e8afd9fba34c449e2a0c2cc26c43bcee5b51282d080f8f06fabf2c22c0a",
+    "be1.c/010.png": "77e220e9f4a8d2f58b731843089fe8dc5267883855a63f2561b971a9cfc5d4ae",
+    "be1.c/011.png": "e7b8c9751a2f9532c6aefabf66ab932374a5fddfd89f083d2274080b2630e4f9",
+    "be1.c/058.png": "6d2c82adc233914dd33d4ded713b31cbb8735565e01fd652c05016b678cda39d",
+    "be1.c/058.mask.png": "16d8a1f30a5f129d25b4c36e1cee3d381ac34a7cbb4b1a2a04e1479a2a782b7d",
+    "be1.c/059.png": "7169869bd9df0af321caeae5f0305c526c5c4aa028b3c17d653890ed876c0438",
+    "be1.c/060.png": "9a52b7800f31f8d896eeacf57b479de3c9ce79f892b5a778fb91428e9346148a",
+    "be1.c/060.mask.png": "0ef89baff52079ff3cc93c370f9e790643f883edc8a2b6703b72fcad43ad9ec0",
+    "be1.c/061.png": "14c2e0180e1e6b29484bf19fbb03fbed079dcacbed87eaa9874dea95a1d3ddba",
+    "be1.c/061.mask.png": "6452e6bdcfc419d5653eaab9213baccfc1bdae96d251569e4173d2c01e002859"
+  },
+  "frontend_final_base": "art/hd-completion-figures-2026-10-11/verification/integration-008-base/final-base-receipt-v1.json",
+  "manifest_sha256": "6e8d764620ff11b41910dd9fdc9f91af7d667dd17fdbe038c1595bdf494f8fb6",
+  "images": 1963,
+  "files": 1969,
+  "backgrounds": 82,
+  "final_html": {
+    "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/package/moonstone.html",
+    "sha256": "b1e3496e5d420bd2a8400ee3f0d7703f026a21d7a0a5398bffda6ac2ca932b0d"
+  },
+  "final_package_ledger": {
+    "path": "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/package/package-ledger.json",
+    "sha256": "390d78b0d0450c5c705517149d96e4c0d6cb1e419be8b6b31495693cb31a2a56"
+  },
+  "source_freeze": "art/hd-completion-figures-2026-10-11/verification/source-freezes-008",
+  "runtime_jobs": [
+    {
+      "name": "guardian",
+      "script": "art/hd-completion-figures-2026-10-11/production/guardian/runtime-standard-public-v6.cjs",
+      "sha256": "b9ca3eceaa48d0646c51a9b47730b47283949d9f6e9c0e2be040cdbc9e5d71c8",
+      "package_env": "MOONSTONE_GUARDIAN_PACKAGE"
+    },
+    {
+      "name": "guardian-demon2",
+      "script": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/runtime-standard-public-v2.cjs",
+      "sha256": "347d57540af2585d4caf421819680a35e7ecec7ecdabfa57bb29da054064db30",
+      "package_env": "MOONSTONE_GUARDIAN_PACKAGE"
+    },
+    {
+      "name": "dragon",
+      "script": "art/hd-completion-figures-2026-10-11/figures/dragon-production/runtime-standard-public-v2.cjs",
+      "sha256": "2a3563aef4bd8e0f603f5547de75ccc651fb33c641a3f28ffda662eaa17e63cd",
+      "package_env": "MOONSTONE_DRAGON_PACKAGE"
+    },
+    {
+      "name": "beast",
+      "script": "art/hd-completion-figures-2026-10-11/production/beast/next018-029-v1/runtime-standard-public-v1.cjs",
+      "sha256": "e8093016e3050d14cde6fb611fd59925d49f77a421a955b63693fe56caf0aaf8",
+      "package_env": "MOONSTONE_BEAST_PACKAGE"
+    },
+    {
+      "name": "beast-fixtures",
+      "script": "art/hd-completion-figures-2026-10-11/production/beast/next018-029-v1/runtime-standard-fixtures-public-v1.cjs",
+      "sha256": "d63bed9b8374d84ab4724774739fc52724c12e30d57e66bbc444525066f282f7",
+      "package_env": "MOONSTONE_BEAST_PACKAGE"
+    },
+    {
+      "name": "balok",
+      "script": "art/hd-completion-figures-2026-10-11/production/runtime-balok-standard-public-008.cjs",
+      "sha256": "1c8cd8e64c0afb41aee1bf0afd37dc58abbeb6642b2fe694fd5a075e9181a20f",
+      "package_env": "MOONSTONE_BALOK_PACKAGE"
+    },
+    {
+      "name": "ratmen-v5",
+      "script": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/runtime-standard-public-v5.cjs",
+      "sha256": "ef76fc7153b8234e54142cd672eb8f9663023cd365fbbde585f3151b91d09d14",
+      "package_env": "MOONSTONE_RATMEN_PACKAGE"
+    },
+    {
+      "name": "ending",
+      "script": "art/hd-completion-figures-2026-10-11/production/runtime-integration-ending-frozen-v1.cjs",
+      "sha256": "f1de52a2ca51bfedad4992ed36e15c8c27c674794726939212945e72f500e610",
+      "package_env": "MOONSTONE_HD_PACKAGE"
+    },
+    {
+      "name": "beast-right",
+      "script": "art/hd-completion-figures-2026-10-11/production/beast/next030-041-v1/runtime-standard-public-v1.cjs",
+      "sha256": "6063cec5a536bf59284ebe1431e0b72f38435a16bf22afc54262248fe04e909f",
+      "package_env": "MOONSTONE_BEAST_PACKAGE",
+      "environment": {
+        "MOONSTONE_BEAST_PROFILE": "right"
+      }
+    },
+    {
+      "name": "beast-fire",
+      "script": "art/hd-completion-figures-2026-10-11/production/beast/next030-041-v1/runtime-standard-public-v1.cjs",
+      "sha256": "6063cec5a536bf59284ebe1431e0b72f38435a16bf22afc54262248fe04e909f",
+      "package_env": "MOONSTONE_BEAST_PACKAGE",
+      "environment": {
+        "MOONSTONE_BEAST_PROFILE": "fire"
+      }
+    },
+    {
+      "name": "mixed35",
+      "script": "art/hd-completion-figures-2026-10-11/verification/runtime-standard-mixed35-008-v1.cjs",
+      "sha256": "3bcfdadc6b1b5cec9a6af94334b14bf870351bfb3bc87f1eb894843e905f0032",
+      "package_env": "MOONSTONE_HD_PACKAGE"
+    },
+    {
+      "name": "ratmen-r1-rest40-standard-v1",
+      "script": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/runtime-r1-rest40-standard-public-008-v1.cjs",
+      "sha256": "3d3f91effe287d02484a5272b751999669ca3d67ffe1d09bdc2d1ee45da08559",
+      "package_env": "MOONSTONE_RATMEN_PACKAGE"
+    },
+    {
+      "name": "demon2-demon3-standard-v2/group-00",
+      "script": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/runtime-d2-d3-standard-public-008-v2.cjs",
+      "sha256": "e97978f999e7272e3cb22f081faca1aae48d58b1329df5bb840e4a4d67bd1a36",
+      "package_env": "MOONSTONE_GUARDIAN_PACKAGE",
+      "environment": {
+        "MOONSTONE_HD_TEST_KEYS": "[\"Demon2.CEL/048.png\", \"Demon2.CEL/049.png\", \"Demon2.CEL/050.png\", \"Demon2.CEL/051.png\", \"Demon2.CEL/052.png\", \"Demon2.CEL/053.png\", \"Demon2.CEL/054.png\", \"Demon2.CEL/055.png\", \"Demon2.CEL/056.png\", \"Demon2.CEL/057.png\"]"
+      }
+    },
+    {
+      "name": "demon2-demon3-standard-v2/group-01",
+      "script": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/runtime-d2-d3-standard-public-008-v2.cjs",
+      "sha256": "e97978f999e7272e3cb22f081faca1aae48d58b1329df5bb840e4a4d67bd1a36",
+      "package_env": "MOONSTONE_GUARDIAN_PACKAGE",
+      "environment": {
+        "MOONSTONE_HD_TEST_KEYS": "[\"Demon2.CEL/058.png\", \"Demon2.CEL/059.png\", \"Demon2.CEL/060.png\", \"Demon2.CEL/061.png\", \"Demon2.CEL/062.png\", \"Demon2.CEL/063.png\", \"Demon2.CEL/064.png\", \"Demon2.CEL/065.png\", \"Demon2.CEL/066.png\", \"Demon2.CEL/067.png\"]"
+      }
+    },
+    {
+      "name": "demon2-demon3-standard-v2/group-02",
+      "script": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/runtime-d2-d3-standard-public-008-v2.cjs",
+      "sha256": "e97978f999e7272e3cb22f081faca1aae48d58b1329df5bb840e4a4d67bd1a36",
+      "package_env": "MOONSTONE_GUARDIAN_PACKAGE",
+      "environment": {
+        "MOONSTONE_HD_TEST_KEYS": "[\"Demon2.CEL/068.png\", \"Demon2.CEL/069.png\", \"Demon2.CEL/070.png\", \"Demon2.CEL/071.png\", \"Demon2.CEL/072.png\", \"Demon2.CEL/073.png\", \"Demon2.CEL/074.png\", \"Demon2.CEL/075.png\", \"Demon2.CEL/076.png\", \"Demon2.CEL/077.png\"]"
+      }
+    },
+    {
+      "name": "demon2-demon3-standard-v2/group-03",
+      "script": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/runtime-d2-d3-standard-public-008-v2.cjs",
+      "sha256": "e97978f999e7272e3cb22f081faca1aae48d58b1329df5bb840e4a4d67bd1a36",
+      "package_env": "MOONSTONE_GUARDIAN_PACKAGE",
+      "environment": {
+        "MOONSTONE_HD_TEST_KEYS": "[\"Demon2.CEL/078.png\", \"Demon2.CEL/079.png\", \"Demon2.CEL/080.png\", \"Demon2.CEL/081.png\", \"Demon2.CEL/082.png\", \"Demon2.CEL/083.png\", \"Demon2.CEL/084.png\", \"Demon2.CEL/085.png\", \"Demon2.CEL/086.png\", \"Demon2.CEL/087.png\"]"
+      }
+    },
+    {
+      "name": "demon2-demon3-standard-v2/group-04",
+      "script": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/runtime-d2-d3-standard-public-008-v2.cjs",
+      "sha256": "e97978f999e7272e3cb22f081faca1aae48d58b1329df5bb840e4a4d67bd1a36",
+      "package_env": "MOONSTONE_GUARDIAN_PACKAGE",
+      "environment": {
+        "MOONSTONE_HD_TEST_KEYS": "[\"Demon2.CEL/088.png\", \"Demon2.CEL/089.png\", \"Demon2.CEL/090.png\", \"Demon2.CEL/091.png\", \"Demon2.CEL/092.png\", \"Demon2.CEL/093.png\", \"Demon2.CEL/094.png\", \"Demon2.CEL/095.png\", \"Demon2.CEL/096.png\", \"Demon2.CEL/097.png\"]"
+      }
+    },
+    {
+      "name": "demon2-demon3-standard-v2/group-05",
+      "script": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/runtime-d2-d3-standard-public-008-v2.cjs",
+      "sha256": "e97978f999e7272e3cb22f081faca1aae48d58b1329df5bb840e4a4d67bd1a36",
+      "package_env": "MOONSTONE_GUARDIAN_PACKAGE",
+      "environment": {
+        "MOONSTONE_HD_TEST_KEYS": "[\"Demon2.CEL/098.png\", \"Demon3.CEL/000.png\", \"Demon3.CEL/001.png\", \"Demon3.CEL/002.png\", \"Demon3.CEL/003.png\", \"Demon3.CEL/004.png\", \"Demon3.CEL/005.png\", \"Demon3.CEL/006.png\", \"Demon3.CEL/007.png\", \"Demon3.CEL/008.png\"]"
+      }
+    },
+    {
+      "name": "demon2-demon3-standard-v2/group-06",
+      "script": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/runtime-d2-d3-standard-public-008-v2.cjs",
+      "sha256": "e97978f999e7272e3cb22f081faca1aae48d58b1329df5bb840e4a4d67bd1a36",
+      "package_env": "MOONSTONE_GUARDIAN_PACKAGE",
+      "environment": {
+        "MOONSTONE_HD_TEST_KEYS": "[\"Demon3.CEL/009.png\", \"Demon3.CEL/010.png\", \"Demon3.CEL/011.png\", \"Demon3.CEL/012.png\", \"Demon3.CEL/013.png\", \"Demon3.CEL/014.png\", \"Demon3.CEL/015.png\", \"Demon3.CEL/016.png\", \"Demon3.CEL/017.png\", \"Demon3.CEL/018.png\"]"
+      }
+    },
+    {
+      "name": "demon2-demon3-standard-v2/group-07",
+      "script": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/runtime-d2-d3-standard-public-008-v2.cjs",
+      "sha256": "e97978f999e7272e3cb22f081faca1aae48d58b1329df5bb840e4a4d67bd1a36",
+      "package_env": "MOONSTONE_GUARDIAN_PACKAGE",
+      "environment": {
+        "MOONSTONE_HD_TEST_KEYS": "[\"Demon3.CEL/019.png\", \"Demon3.CEL/020.png\", \"Demon3.CEL/021.png\", \"Demon3.CEL/022.png\", \"Demon3.CEL/023.png\", \"Demon3.CEL/024.png\", \"Demon3.CEL/025.png\", \"Demon3.CEL/026.png\", \"Demon3.CEL/027.png\", \"Demon3.CEL/028.png\"]"
+      }
+    },
+    {
+      "name": "demon2-demon3-standard-v2/group-08",
+      "script": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/runtime-d2-d3-standard-public-008-v2.cjs",
+      "sha256": "e97978f999e7272e3cb22f081faca1aae48d58b1329df5bb840e4a4d67bd1a36",
+      "package_env": "MOONSTONE_GUARDIAN_PACKAGE",
+      "environment": {
+        "MOONSTONE_HD_TEST_KEYS": "[\"Demon3.CEL/029.png\", \"Demon3.CEL/030.png\", \"Demon3.CEL/031.png\", \"Demon3.CEL/032.png\", \"Demon3.CEL/033.png\", \"Demon3.CEL/034.png\", \"Demon3.CEL/035.png\", \"Demon3.CEL/036.png\", \"Demon3.CEL/037.png\", \"Demon3.CEL/038.png\"]"
+      }
+    },
+    {
+      "name": "demon2-demon3-standard-v2/group-09",
+      "script": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/runtime-d2-d3-standard-public-008-v2.cjs",
+      "sha256": "e97978f999e7272e3cb22f081faca1aae48d58b1329df5bb840e4a4d67bd1a36",
+      "package_env": "MOONSTONE_GUARDIAN_PACKAGE",
+      "environment": {
+        "MOONSTONE_HD_TEST_KEYS": "[\"Demon3.CEL/039.png\", \"Demon3.CEL/040.png\", \"Demon3.CEL/041.png\", \"Demon3.CEL/042.png\", \"Demon3.CEL/043.png\", \"Demon3.CEL/044.png\", \"Demon3.CEL/045.png\", \"Demon3.CEL/046.png\", \"Demon3.CEL/047.png\", \"Demon3.CEL/048.png\"]"
+      }
+    },
+    {
+      "name": "demon2-demon3-standard-v2/group-10",
+      "script": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/runtime-d2-d3-standard-public-008-v2.cjs",
+      "sha256": "e97978f999e7272e3cb22f081faca1aae48d58b1329df5bb840e4a4d67bd1a36",
+      "package_env": "MOONSTONE_GUARDIAN_PACKAGE",
+      "environment": {
+        "MOONSTONE_HD_TEST_KEYS": "[\"Demon3.CEL/049.png\"]"
+      }
+    }
+  ],
+  "file_lists": [
+    "art/hd-completion-figures-2026-10-11/production/delivery-balok-b3-twentysix-v8-files.txt",
+    "art/hd-completion-figures-2026-10-11/production/delivery-balok-three-original-shadows-v8-files.txt",
+    "art/hd-completion-figures-2026-10-11/figures/ratmen-production/delivery-r1-rest40-v2-files.txt",
+    "art/hd-completion-figures-2026-10-11/production/guardian-demon2/delivery-demon2-048-098-v2-files.txt",
+    "art/hd-completion-figures-2026-10-11/production/guardian-demon3/delivery-demon3-000-049-files.txt",
+    "art/hd-completion-figures-2026-10-11/production/beast/next042-055-v1/delivery-eleven-v2-files.txt",
+    "art/hd-completion-figures-2026-10-11/production/beast/shadow015-v1/delivery-shadow015-v2-files.txt",
+    "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/delivery-remainder-008-files.txt",
+    "art/hd-completion-figures-2026-10-11/production/beast/next058-099-v1/delivery-seven-008-files.txt",
+    "art/hd-completion-figures-2026-10-11/figures/ratmen-production/delivery-frontend008-v1-files.txt",
+    "art/hd-completion-figures-2026-10-11/production/delivery-balok-glyph-fix-v1-files.txt",
+    "art/hd-completion-figures-2026-10-11/verification/audit-008-r1-frontend-extra-paths-v1.txt"
+  ],
+  "standard_visual_review": "art/hd-completion-figures-2026-10-11/verification/visual-review-008-v1.json",
+  "frontend_delivery": {
+    "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/delivery-frontend008-v1.json",
+    "sha256": "d929d3c07d1cfbaa7a162d43952bd6fe78098df37f8901fb7d5c78a81081c6de"
+  },
+  "additional_files": [
+    "art/hd-completion-figures-2026-10-11/verification/activate-008-v1.py",
+    "art/hd-completion-figures-2026-10-11/delivery-contracts-008-preactivation-v1.json",
+    "art/hd-completion-figures-2026-10-11/delivery-progress-008-activation-v1.json",
+    "art/hd-completion-figures-2026-10-11/verification/integration-008-base/final-base-receipt-v1.json",
+    "art/hd-completion-figures-2026-10-11/verification/integration-008-base/candidate-ledger-v1.json",
+    "art/hd-completion-figures-2026-10-11/verification/prepare-standard-mixed35-008-v1.py",
+    "art/hd-completion-figures-2026-10-11/verification/standard-mixed35-geometries-008-v1.json",
+    "art/hd-completion-figures-2026-10-11/verification/audit-008-r1-frontend-files-v1.json",
+    "art/hd-completion-figures-2026-10-11/verification/runtime-plan-008-v1.json",
+    "art/hd-completion-figures-2026-10-11/verification/verify-delivery-008.py",
+    "art/hd-completion-figures-2026-10-11/verification/run-standard-008-v1.py",
+    "art/hd-completion-figures-2026-10-11/verification/public-assets-008.py",
+    "art/hd-completion-figures-2026-10-11/verification/collect-delivery-008.py",
+    "art/hd-completion-figures-2026-10-11/production/guardian-demon3/run-d2-d3-standard-public-008-v2.py",
+    "art/hd-completion-figures-2026-10-11/production/guardian-demon3/runtime-d2-d3-standard-public-008-v1.cjs",
+    "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/demon2-demon3-standard/test.json",
+    "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/ratmen/test.json",
+    "art/hd-completion-figures-2026-10-11/verification/integration-008-final-v1/demon2-demon3-standard-v2/test.json"
+  ],
+  "public_baseline_commit": "798b9267b2ad9fb99d052bc6745cd765794f9dee",
+  "public_new_png_files": 340
+}

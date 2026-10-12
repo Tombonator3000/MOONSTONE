@@ -1,0 +1,329 @@
+{
+  "schema": 1,
+  "status": "packed_candidates_not_activated",
+  "scope": "Ten separate own photographic masters042,043,046..053. Original source contours, transparent holes, silhouette, crop and anchors are locked. Each photographic material is registered within the original steel1..5, live cloth6..8, fixed brown leather11..13 and red15 fields. Five live cloth templates are neutral and have exact original index masks.054 preserves every black0/5 RGBA subpixel unchanged at4x NN, without a photographic master or visible photo-change. No anatomical interpretation or new motion cells.",
+  "packing_script_sha256": "f3503d3b90f26b2b28d2bf4f3a601a7fe8a2478990d4fbd497a06ac4b88c9180",
+  "geometry_sha256": "79e374290b8044176f81ec2442b5051e5a8e48c495db56ba328447e865758c1f",
+  "generation_records_sha256": "2dc309788e811bb84ceb72faec127727904690631c20831d30fb078129f1d742",
+  "assets": [
+    {
+      "key": "be1.c/042.png",
+      "raw": "raw/042-v1.png",
+      "raw_sha256": "7ab04e86e17f4741e92cf1fcdd627ac71f230dbe53f82f6b69151e85715485e7",
+      "prompt": "prompts/042-v1.txt",
+      "prompt_sha256": "b48e003e6246ddaf887032ce5efcf1524a159943ff88a326ca9a5425de20e794",
+      "candidate_sha256": "4df9066ea47439504570fad6db54407c963c79a9a2e2022f59125be1cfa86b70",
+      "source_indices_sha256": "98fdc701c77af1c1707560b47a30c0938fbdbefc5c36955855ff42623e9ba54a",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1744,
+        902
+      ],
+      "raw_alpha_bounds": [
+        0,
+        0,
+        1687,
+        844
+      ],
+      "target_size": [
+        116,
+        60
+      ],
+      "source_centers_opaque": 257,
+      "source_centers_empty": 178,
+      "original_motion_cells": 0,
+      "source_material_pixels": {
+        "metal": 1057,
+        "cloth": 3007
+      }
+    },
+    {
+      "key": "be1.c/043.png",
+      "raw": "raw/043-v1.png",
+      "raw_sha256": "7c5ab27e228ff3ceedcea20a51fb296f1ce5461285cd1318a09bec051bf22cde",
+      "prompt": "prompts/043-v1.txt",
+      "prompt_sha256": "42dd5f0c4088d690193e3b02128d9bd3e20b76ee29a0c78c6d77b463bc6abba6",
+      "candidate_sha256": "921d5b232ce83bdfd01d936e746e8bcf888540053b441086305a40cb37f4fcd7",
+      "source_indices_sha256": "a785ab022958bd8e5f1d9d9b1bf1306f67e935bd2af46a469a6dbc916ff4ada6",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        725,
+        2167
+      ],
+      "raw_alpha_bounds": [
+        238,
+        115,
+        488,
+        2051
+      ],
+      "target_size": [
+        12,
+        52
+      ],
+      "source_centers_opaque": 23,
+      "source_centers_empty": 16,
+      "original_motion_cells": 0,
+      "source_material_pixels": {
+        "metal": 223,
+        "blood": 61
+      }
+    },
+    {
+      "key": "be1.c/046.png",
+      "raw": "raw/046-v1.png",
+      "raw_sha256": "b6b3fd03ed422c9e30cbd4a5794c761fabeee18289f9581bf37508f13f6189c8",
+      "prompt": "prompts/046-v1.txt",
+      "prompt_sha256": "a6777b34840eb8a19a9eca9f8b99b62ba7eaaff5e03b92a3c5cddbecd70a569a",
+      "candidate_sha256": "b8103871b8e29926f02cd0db95a1265bc83be19a1e3f1b5180ff8cbc33eaa039",
+      "source_indices_sha256": "e35998b41df4c5bd3af1fe61c822bebd1e3e41e4633b0a52e6caba136a74e2a9",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1351,
+        1164
+      ],
+      "raw_alpha_bounds": [
+        2,
+        56,
+        1351,
+        1141
+      ],
+      "target_size": [
+        260,
+        224
+      ],
+      "source_centers_opaque": 2050,
+      "source_centers_empty": 1590,
+      "original_motion_cells": 0,
+      "source_material_pixels": {
+        "hide": 8775,
+        "metal": 11722,
+        "cloth": 12059,
+        "blood": 100
+      }
+    },
+    {
+      "key": "be1.c/047.png",
+      "raw": "raw/047-v1.png",
+      "raw_sha256": "0368e7153f1070db7ed887e819efc4a7f5eb04b640968e5205b18c8d7688c4b5",
+      "prompt": "prompts/047-v1.txt",
+      "prompt_sha256": "587fe754183390b2658b29745bc9b3ed32bbd8f9a637943f0fc340043c107c95",
+      "candidate_sha256": "defe5ae4d9fb54e676c16d088987536dcaaeffcba617369da9f07473fac91705",
+      "source_indices_sha256": "ca25c1e03fda9a8b56c96c5318cddb1c36922b7ff828c7587c2186f628417752",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1476,
+        1066
+      ],
+      "raw_alpha_bounds": [
+        0,
+        0,
+        1476,
+        1066
+      ],
+      "target_size": [
+        72,
+        52
+      ],
+      "source_centers_opaque": 70,
+      "source_centers_empty": 164,
+      "original_motion_cells": 0,
+      "source_material_pixels": {
+        "metal": 41,
+        "cloth": 15,
+        "blood": 1013
+      }
+    },
+    {
+      "key": "be1.c/048.png",
+      "raw": "raw/048-v1.png",
+      "raw_sha256": "f8214f7a0002d3bee3aa529a70b684691d38af2a60abc59dd76897db699ab735",
+      "prompt": "prompts/048-v1.txt",
+      "prompt_sha256": "7781d7caa9a88ede4ec54b2a3c073878227ea0be7cb0605070a70c7e6c657e66",
+      "candidate_sha256": "0469af114ce02fbc0d49e88c7db5fd6a8a65568c56fa9a85a6c127f27b37015b",
+      "source_indices_sha256": "ff1ecf799e054dd011eec1ca407c450b8c925c6d68be71270d5ab4de2e22d3c7",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1173,
+        1341
+      ],
+      "raw_alpha_bounds": [
+        0,
+        0,
+        1173,
+        1341
+      ],
+      "target_size": [
+        112,
+        128
+      ],
+      "source_centers_opaque": 136,
+      "source_centers_empty": 760,
+      "original_motion_cells": 0,
+      "source_material_pixels": {
+        "metal": 123,
+        "cloth": 423,
+        "blood": 1279
+      }
+    },
+    {
+      "key": "be1.c/049.png",
+      "raw": "raw/049-v2.png",
+      "raw_sha256": "6006e8a7e8cd18ddc39fc4f04c3ec93f84f9106cae8e7a538ac2eb0cdf15e3e9",
+      "prompt": "prompts/049-v2.txt",
+      "prompt_sha256": "4e490675ea8e90c524847f8333829a35c5af534e0d8506d8d67dc1e5bbfc14d5",
+      "candidate_sha256": "ddc47d68c83e8995ac26c3562ff03f64dd3fc8a4be30d6fd60a6ee61641fe39f",
+      "source_indices_sha256": "832ed496b4e7c6c157ba5486f6b15a343fba4bc47ea8460f4318f6a8c6f79e98",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1317,
+        1194
+      ],
+      "raw_alpha_bounds": [
+        0,
+        7,
+        1312,
+        1191
+      ],
+      "target_size": [
+        128,
+        116
+      ],
+      "source_centers_opaque": 113,
+      "source_centers_empty": 815,
+      "original_motion_cells": 0,
+      "source_material_pixels": {
+        "metal": 51,
+        "cloth": 19,
+        "blood": 1023
+      }
+    },
+    {
+      "key": "be1.c/050.png",
+      "raw": "raw/050-v2.png",
+      "raw_sha256": "9e6bdd8d9c18d71c6e46b3ff40959fa61b7f89e5262045c7499a7aa35e0c3dc4",
+      "prompt": "prompts/050-v2.txt",
+      "prompt_sha256": "dd87f6ae39fe1520775bfe893efc4edc6fd1a2213f6175c1646b5bd1ec049604",
+      "candidate_sha256": "b802f5307b0eecc0218cbb6feba65468c1a120a93ae5052a770a7488ff64b040",
+      "source_indices_sha256": "a63a61aaa658084cbe01f5a3a98776b7e4ac2cd41a9148528d04fa14d41c8b19",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        980,
+        1604
+      ],
+      "raw_alpha_bounds": [
+        15,
+        12,
+        973,
+        1580
+      ],
+      "target_size": [
+        44,
+        72
+      ],
+      "source_centers_opaque": 14,
+      "source_centers_empty": 184,
+      "original_motion_cells": 0,
+      "source_material_pixels": {
+        "blood": 110
+      }
+    },
+    {
+      "key": "be1.c/051.png",
+      "raw": "raw/051-v1.png",
+      "raw_sha256": "67349ad0b04a6b3f50144f6c8e3793da2ae378ee60385319d823f91561569f27",
+      "prompt": "prompts/051-v1.txt",
+      "prompt_sha256": "168f35438ac82c5742bb136145758750ce2638c42c64de3da2f55d10342e12ae",
+      "candidate_sha256": "7419793dcc2e63f63eb5d290ca8f1a15ebd07124556fac68194e72641aa9c1ab",
+      "source_indices_sha256": "5cf74605cd2af7a4a1ddff5ac31d650454f9f8d88ef169bb3fd1b286d6fe4cd0",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1222,
+        1287
+      ],
+      "raw_alpha_bounds": [
+        0,
+        6,
+        1215,
+        1287
+      ],
+      "target_size": [
+        76,
+        80
+      ],
+      "source_centers_opaque": 58,
+      "source_centers_empty": 322,
+      "original_motion_cells": 0,
+      "source_material_pixels": {
+        "metal": 77,
+        "blood": 612
+      }
+    },
+    {
+      "key": "be1.c/052.png",
+      "raw": "raw/052-v1.png",
+      "raw_sha256": "b526995ac188e81e7416bba020c8fcddcd216bf6b86b48f005e0a4d8a9d93aba",
+      "prompt": "prompts/052-v1.txt",
+      "prompt_sha256": "8be31dd69daca3d30dbd922dbe660280104ffc7cca749ec8ee6eef1141081243",
+      "candidate_sha256": "3a513aff4d2376f819ce22cc4c150f081b5db713b03401a1f02f6136fed748da",
+      "source_indices_sha256": "bb46201cbda1c8b325d85cf62b583846b873957c4850366da15f92e532ec1206",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        725,
+        2170
+      ],
+      "raw_alpha_bounds": [
+        94,
+        8,
+        711,
+        1998
+      ],
+      "target_size": [
+        32,
+        100
+      ],
+      "source_centers_opaque": 34,
+      "source_centers_empty": 166,
+      "original_motion_cells": 0,
+      "source_material_pixels": {
+        "blood": 430
+      }
+    },
+    {
+      "key": "be1.c/053.png",
+      "raw": "raw/053-v1.png",
+      "raw_sha256": "52518773d139621ed107eae3b68695eaccfc1bca21b275270ca2c5813d7fb111",
+      "prompt": "prompts/053-v1.txt",
+      "prompt_sha256": "30f64857f13fb8fb4df8b7317f7cb5a9f60f806f508fa4063a26e891dae23896",
+      "candidate_sha256": "354e07be3d4d9f47b6b203f818b97bb2d001ce7aeb2458c7e967008b52e65abd",
+      "source_indices_sha256": "94bc8a6a011299f64efdfd078ab9f7563291c890b9f39e3786c3af7815822ece",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        725,
+        2170
+      ],
+      "raw_alpha_bounds": [
+        184,
+        16,
+        546,
+        2155
+      ],
+      "target_size": [
+        20,
+        116
+      ],
+      "source_centers_opaque": 28,
+      "source_centers_empty": 117,
+      "original_motion_cells": 0,
+      "source_material_pixels": {
+        "blood": 340
+      }
+    },
+    {
+      "key": "be1.c/054.png",
+      "candidate_sha256": "aef8b78eaac3b3e6880029e6c512373d94d7f1eef33d709603798179a5be6545",
+      "source_indices_sha256": "3c908965c111f1fb9996df86269c4ffb9afe31e8ef0db1e8de1e66627ad28e72",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "generation_tool": "preserved_original_black_shadow"
+    }
+  ]
+}

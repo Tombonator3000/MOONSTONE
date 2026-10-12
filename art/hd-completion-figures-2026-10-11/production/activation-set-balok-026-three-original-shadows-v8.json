@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "6b93be5b0e12b458b8005fd891a15c0f5a454e35baa2a2d93cdf33666c5b416c",
+    "web/src/scenes.js": "189eed863fa34e74900f221f7f6078e46036adb41537cb9e27e8f7d5a06eff5f"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/balok-black-fixtures-008274d71a524674-04ad1af2/test.json",
+      "sha256": "ead15cc7e89b8e750ba52ef61fd8d938f16797d6ec3c7434260711327fa1eadd",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/balok-black-fixtures-008274d71a524674-04ad1af2/loaded.html",
+      "html_sha256": "1bee3c056f771612b427df9750901ca8829099be8829da55779fb859edf612c3"
+    }
+  ],
+  "companion_derivations": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/balok/retained-black-shadows-v1/root-visual-review-v8.json",
+      "sha256": "7ada6783de3ca832f8591e0b0dafb52e3a2ffbdbd425966cc79ca02ec8aeecc5"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/balok/retained-black-shadows-v1/three-original-retained-comparison.png",
+      "sha256": "da2c28b3a8172665d2b8bc0b843dbec987079a20802c10009e38d0451cedf3dc"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/balok/retained-black-shadows-v1/candidates.json",
+      "sha256": "008274d71a524674cd18f14935072b42f0df4f0f46a3f5434f65b6f062e334b9"
+    }
+  ],
+  "scope": "Tre originale svarte skygger bevart eksakt4x, ikke fotografiske nytegninger. Kilde- og normal/speilet frontend-fixture bevist med streng ukjent-opak negativ. Ingen faktisk eller naturlig kampobservasjon av disse HD-rutene paastatt.",
+  "entries": [
+    {
+      "key": "Balok1.CEL/013.png",
+      "bank": "Balok1.CEL",
+      "frame": 13,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "0e0992f04585e7ef410d689f35263aceeef3426b4a3096a6d73e5662c97e1845",
+      "png": "art/hd-completion-figures-2026-10-11/production/balok/retained-black-shadows-v1/Balok1.CEL-013-retained4x.png",
+      "png_sha256": "2ad9278288a60833b6be64f6ca4ebd45808fe5fc8c8ec3617e4f34e6d8c8f66f",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/retained-black-shadows-v1/Balok1.CEL-013-original.png",
+      "raw_sha256": "c4a740c11cadea1f286cfed94f5dd133ce5f8a79886656579c5aae7d5ea46243",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/retained-black-shadows-v1/Balok1.CEL-013-method.txt",
+      "prompt_sha256": "f0f4078cb1e8b630e3f7302254231c6527b11a0fe4a0d4a633be77ddc7b34e2b",
+      "generation_tool": "preserved_original_black_shadow",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/balok-black-fixtures-008274d71a524674-04ad1af2/test.json",
+      "runtime_asset_sha256": "2ad9278288a60833b6be64f6ca4ebd45808fe5fc8c8ec3617e4f34e6d8c8f66f",
+      "qa": {
+        "method": "preserved_original_black_shadow",
+        "counts_as_individual_redraw": false,
+        "actual_runtime_observed": false,
+        "runtime_scope": "source_exact_frontend_fixture_only",
+        "directions": "normal_and_mirrored",
+        "original_hd_rgba": "byteidentical",
+        "emulated_state": "unchanged",
+        "visual": "root_reviewed_exact_original_retention",
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0
+      }
+    },
+    {
+      "key": "Balok1.CEL/026.png",
+      "bank": "Balok1.CEL",
+      "frame": 26,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "af98aa16ec180b8b2016841903bc5a42a57547a7a5dedde272235453388e6d01",
+      "png": "art/hd-completion-figures-2026-10-11/production/balok/retained-black-shadows-v1/Balok1.CEL-026-retained4x.png",
+      "png_sha256": "bf74a278d3cd328cc45705214bd116816d262fb7def3a59f8bd495736bdac906",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/retained-black-shadows-v1/Balok1.CEL-026-original.png",
+      "raw_sha256": "591757676d6bc971864cf77861c9856da34829920907219f9358b4a53dd524ba",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/retained-black-shadows-v1/Balok1.CEL-026-method.txt",
+      "prompt_sha256": "f0f4078cb1e8b630e3f7302254231c6527b11a0fe4a0d4a633be77ddc7b34e2b",
+      "generation_tool": "preserved_original_black_shadow",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/balok-black-fixtures-008274d71a524674-04ad1af2/test.json",
+      "runtime_asset_sha256": "bf74a278d3cd328cc45705214bd116816d262fb7def3a59f8bd495736bdac906",
+      "qa": {
+        "method": "preserved_original_black_shadow",
+        "counts_as_individual_redraw": false,
+        "actual_runtime_observed": false,
+        "runtime_scope": "source_exact_frontend_fixture_only",
+        "directions": "normal_and_mirrored",
+        "original_hd_rgba": "byteidentical",
+        "emulated_state": "unchanged",
+        "visual": "root_reviewed_exact_original_retention",
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0
+      }
+    },
+    {
+      "key": "Balok2.CEL/000.png",
+      "bank": "Balok2.CEL",
+      "frame": 0,
+      "source_bank_sha256": "15e33248d5664523f15bea8cff7c80f0270c41ce655f954015de8670f80cf6c8",
+      "indices_sha256": "3c908965c111f1fb9996df86269c4ffb9afe31e8ef0db1e8de1e66627ad28e72",
+      "png": "art/hd-completion-figures-2026-10-11/production/balok/retained-black-shadows-v1/Balok2.CEL-000-retained4x.png",
+      "png_sha256": "98218556e3392175c8ed01593ef5ff9eb8009732823d23585e5fae3ef70a3c9f",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/retained-black-shadows-v1/Balok2.CEL-000-original.png",
+      "raw_sha256": "48210c422aea7beeb7e5835b4c73053aefc7fd361ce98be12ef5085831b2276b",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/retained-black-shadows-v1/Balok2.CEL-000-method.txt",
+      "prompt_sha256": "f0f4078cb1e8b630e3f7302254231c6527b11a0fe4a0d4a633be77ddc7b34e2b",
+      "generation_tool": "preserved_original_black_shadow",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/balok-black-fixtures-008274d71a524674-04ad1af2/test.json",
+      "runtime_asset_sha256": "98218556e3392175c8ed01593ef5ff9eb8009732823d23585e5fae3ef70a3c9f",
+      "qa": {
+        "method": "preserved_original_black_shadow",
+        "counts_as_individual_redraw": false,
+        "actual_runtime_observed": false,
+        "runtime_scope": "source_exact_frontend_fixture_only",
+        "directions": "normal_and_mirrored",
+        "original_hd_rgba": "byteidentical",
+        "emulated_state": "unchanged",
+        "visual": "root_reviewed_exact_original_retention",
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0
+      }
+    }
+  ]
+}

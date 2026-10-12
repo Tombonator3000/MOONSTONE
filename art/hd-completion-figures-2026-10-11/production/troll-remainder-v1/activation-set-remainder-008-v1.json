@@ -1,0 +1,406 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "6b93be5b0e12b458b8005fd891a15c0f5a454e35baa2a2d93cdf33666c5b416c",
+    "web/src/scenes.js": "189eed863fa34e74900f221f7f6078e46036adb41537cb9e27e8f7d5a06eff5f",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "sha256": "3348e7530c46dd3ba53fc5705e23a78610a8f34f5b5787ac566b347cf40431d0",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/loaded.html",
+      "html_sha256": "1bee3c056f771612b427df9750901ca8829099be8829da55779fb859edf612c3"
+    }
+  ],
+  "companion_derivations": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/freeze-remainder-008-v1.py",
+      "sha256": "e4d6d57a3637b6a4afbfea476e227e9c74611b1c1e1dadcf403f178c1b10dd45"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/prepare-references-v2.py",
+      "sha256": "c7871bedc607035ca7576c82d5ad1108cedb5ee32d421ead57b8f414ea37d000"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/prepare-remainder-v1.py",
+      "sha256": "533fde7500a86b677861d9166f0f6e7140df1645604879043186d2e513d2d44e"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/runtime-fixtures-remainder-v1.cjs",
+      "sha256": "8cdc7987d25a5ad377c6e407bd4f03d1db470e9494e1c7963c5839a93c2f6563"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/runtime-geometries-remainder-v1.json",
+      "sha256": "b31c2a42f409ad7f4dc4f93762626b5a6a9e0efc8976d3e956b4c9560374f9f7"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/pack-exact-shadow-v2.py",
+      "sha256": "c8581972d430ccfcc92f6996d69a07d4797c79dd2a62310d169a8bd5789f4c3d"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/shadow-correction-v2.json",
+      "sha256": "70c74b5003ed81982fbda5d6524fa2b1d844debf19046c90e91ceea5c21720d5"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/pack-v1.py",
+      "sha256": "5d2956d684e5ed901323a792e4ee0f2377cf81b084a352a27ea6c33a2cead243"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/source-qa-v1.json",
+      "sha256": "bcfae8a3a80842bbce72085702f2f16547fb0a9e7afa125a9c5bc0d1f49dcf9e"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/source-qa-four-v1-rejected.json",
+      "sha256": "138b80bfb155d61afeb7194d337a2b81efe5a7b3590edb0753aa1d73a8e5ce8a"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/source-qa-remainder-008-v1.json",
+      "sha256": "5c62619365c5c41514f23cc8bed4243001f37d8dac48f695456ddf37ec3cfb45"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/visual-review-remainder-008-v1.json",
+      "sha256": "fa999a9c1536d1c69a600870b8e3a7ef34fefc8450afd00774def04a5ccf81f6"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/palettes/cases/troll.json",
+      "sha256": "6d8a8ff115611d16d5fc8a491ffcbf77ad8b67c0cc4a0d05753cebe54e8718dc"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/eye_pack.py",
+      "sha256": "1ee8cfe92ac0cbc405aed3abe1c9e6b86517957eb29e347411ad165fd644bdbc"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/effect_pack.py",
+      "sha256": "6ce5d07c9c9778feb5e32e9e2d3b26e0f54342d1bf0e633113b5cfe4a3860b38"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-016-v2-eyeless-material.txt",
+      "sha256": "c5f520233fcf3cb165df687ba71ceb2e097b0282e26eac2df575812c87085d4d"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-016-v2-eyeless-material.png",
+      "sha256": "f5526fd912d1a5327b9a1d0166680e1de98416f84a482c7b7eef13160f021c1c"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/generation-036-v1.json",
+      "sha256": "3483809ac10140380400806aae7603f7e72bc2cf5a6a6e3aa3e124a0d9e36e2f"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/generation-041-v1.json",
+      "sha256": "aebadf054a9f3de64203c1b59993eb1007c41e61196f454e08d0812a3632820b"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/generation-042-v1.json",
+      "sha256": "6dd9155f8cbe833996bfe2fa46858fe34019e56896f4311f9f1fe7d0dd6d23ff"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/generation-043-v1.json",
+      "sha256": "42b5dd18ebc439c11fd3adf4e1e38b6ea5d163da3cfd9bd2c5c4aedb565fb487"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/generation-044-v2.json",
+      "sha256": "7ff780e3b90e31b3f5ce795c0dc5ac612e26ffa1669fd8a7dc0b68597dc66a95"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/generation-045-v2.json",
+      "sha256": "10955fee562d0a0da847d1287bf8125368af221ee9b15c95c788c1efd83ad6a2"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/generation-046-v1.json",
+      "sha256": "9a8173d512eda9ee5df4614d7014aaa40e3e13293ae6320c99096f1d7c88d798"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/generation-047-v1.json",
+      "sha256": "2fba305ff1aea0a240f39f9a1f92b56cafef40d7bc90bf6485d8d7c917a42add"
+    }
+  ],
+  "scope": "Tretten resterende Troll-ruter, fire separate figur/fot-mastere og aatte separate fotografiske bevegelsesmaterialer, pluss en eksakt original svart skygge. Originalens ditherhull og brune makropalett beholdes i klubbebevegelser. Bare normal/speil og strenge negative frontend-fixturer er bevist; ingen faktisk kampobservasjon av de nye HD-rutene paastaas.",
+  "photographic_body_foot_masters": 4,
+  "photographic_motion_materials": 8,
+  "preserved_black_shadows": 1,
+  "fixture_only": [
+    "TROLL1.CEL/012.png",
+    "TROLL1.CEL/016.png",
+    "TROLL1.CEL/018.png",
+    "TROLL1.CEL/019.png",
+    "TROLL1.CEL/036.png",
+    "TROLL1.CEL/041.png",
+    "TROLL1.CEL/042.png",
+    "TROLL1.CEL/043.png",
+    "TROLL1.CEL/044.png",
+    "TROLL1.CEL/045.png",
+    "TROLL1.CEL/046.png",
+    "TROLL1.CEL/047.png",
+    "TROLL2.CEL/010.png"
+  ],
+  "entries": [
+    {
+      "key": "TROLL1.CEL/012.png",
+      "bank": "TROLL1.CEL",
+      "frame": 12,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "e677a94e4abd55666edab3a18d6bc0f8b24eb99a5e324ad9098004dc03fdb196",
+      "png": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/shadow012-v1.png",
+      "png_sha256": "dd56a04af9807fac345abbc2b063ec31db497713dafede2a40ebaabecdbe90ae",
+      "actual_runtime_observed": false,
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "runtime_asset_sha256": "dd56a04af9807fac345abbc2b063ec31db497713dafede2a40ebaabecdbe90ae",
+      "raw": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/shadow012-v1.png",
+      "raw_sha256": "dd56a04af9807fac345abbc2b063ec31db497713dafede2a40ebaabecdbe90ae",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/shadow012-v1.txt",
+      "prompt_sha256": "7fa12f7d5111a908f3380a936165fb412362c570567286db3458eddcd9232aaf",
+      "generation_tool": "preserved_original_black_shadow"
+    },
+    {
+      "key": "TROLL1.CEL/016.png",
+      "bank": "TROLL1.CEL",
+      "frame": 16,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "fdd6732d584cd59998253fc6df07f846311c1800d5c8104a8d0ed917f674ff15",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/016/b3fa3e0424852b00/rounded-source-edge-v5/source-eye-v15-photo-skin/candidate.png",
+      "png_sha256": "371f5f170912e8537ec59a7ac889e630f769e93f4485731fd7082922f4e6c262",
+      "actual_runtime_observed": false,
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "runtime_asset_sha256": "371f5f170912e8537ec59a7ac889e630f769e93f4485731fd7082922f4e6c262",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-016-v1.png",
+      "raw_sha256": "b3fa3e0424852b007e6cb2597abfe9d8aba74c3aa025f54f0818f272fae637a1",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-016-v1.txt",
+      "prompt_sha256": "6a655619362696134e7d6d451fa5f77c483da9b2873ccea956b9884150b96afb",
+      "generation_tool": "builtin_image_gen",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/016/b3fa3e0424852b00/rounded-source-edge-v5/source-eye-v15-photo-skin/art-record.json",
+      "art_record_sha256": "1d269987c0592c0bd9da654dffc29f73fe93fd8da3e19e0ac71c22ae78bc7881",
+      "photographic_scope": "body_or_foot",
+      "additional_generated_material": {
+        "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-016-v2-eyeless-material.png",
+        "raw_sha256": "f5526fd912d1a5327b9a1d0166680e1de98416f84a482c7b7eef13160f021c1c",
+        "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-016-v2-eyeless-material.txt",
+        "prompt_sha256": "c5f520233fcf3cb165df687ba71ceb2e097b0282e26eac2df575812c87085d4d"
+      }
+    },
+    {
+      "key": "TROLL1.CEL/018.png",
+      "bank": "TROLL1.CEL",
+      "frame": 18,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "46dda7135d26d6279e3c5dc52f084cf20a0f6cc6d1d78677b84bad3216c7128e",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/018/0747e38d8e3c5cc2/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "5fb372300eaf746fcbe7d3081a18ec9a800e599393c606db47ccfc7851a0c2a8",
+      "actual_runtime_observed": false,
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "runtime_asset_sha256": "5fb372300eaf746fcbe7d3081a18ec9a800e599393c606db47ccfc7851a0c2a8",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-018-v3.png",
+      "raw_sha256": "0747e38d8e3c5cc240e7bc80c1134006a9c474248fd03486817234f51ec8cbb8",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-018-v3.txt",
+      "prompt_sha256": "b90e9d91d86cb0a58903c4ffb2e498d34bc8d861d95cd838bd5bb0c96eec4507",
+      "generation_tool": "builtin_image_gen",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/018/0747e38d8e3c5cc2/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "148474adf456f13aea36eb25b1baf4f6d73e3c579d38e50073855c073c3a80d5",
+      "photographic_scope": "body_or_foot"
+    },
+    {
+      "key": "TROLL1.CEL/019.png",
+      "bank": "TROLL1.CEL",
+      "frame": 19,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "007c4c25e0d9efbb8f8f2d32f09eac3183193fb32f4d6b1f95e9113dfbe3e40f",
+      "png": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/packed-exact-shadow-v2/TROLL1.CEL/019.png",
+      "png_sha256": "ad8148705960893c91259883b92f718d35c7a04997eccaf14b9b924cb9c07684",
+      "actual_runtime_observed": false,
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "runtime_asset_sha256": "ad8148705960893c91259883b92f718d35c7a04997eccaf14b9b924cb9c07684",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-019-v1.png",
+      "raw_sha256": "2e3daf207c059823a5e02c4ea8e44ac626225b046ef5f9cea53e97ce285ff26a",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-019-v1.txt",
+      "prompt_sha256": "92369299f06713b2a6da86646a5d8a56020df95aa401270eb932ab0f6a9768bb",
+      "generation_tool": "builtin_image_gen",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/packed-exact-shadow-v2/TROLL1.CEL/019.art-record.json",
+      "art_record_sha256": "92aa5c3a5ac3d4a0c354fff006905df52cb8517529ac83b5c84f7994d9ed4dbf",
+      "photographic_scope": "body_or_foot"
+    },
+    {
+      "key": "TROLL1.CEL/036.png",
+      "bank": "TROLL1.CEL",
+      "frame": 36,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "74ea8b4b876dcec50c8b29011083fe1c9fa6ac8550247a78e06c091d6b38baf4",
+      "png": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/036/candidate.png",
+      "png_sha256": "af31b65e1d09554c38b7b17d4451ca5f6d1b1eb99bea21bcf3a827c66a0f3535",
+      "actual_runtime_observed": false,
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "runtime_asset_sha256": "af31b65e1d09554c38b7b17d4451ca5f6d1b1eb99bea21bcf3a827c66a0f3535",
+      "raw": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/raw/036-v1.png",
+      "raw_sha256": "6b3e05b4c8d1df885940bb652bca8e4fff77c966ebcbf3226a705a835ced388a",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/prompts/036-v1.txt",
+      "prompt_sha256": "db36d27fbe2fe726c261b7994243b91373e701725879a85cdef01c72aa2b193c",
+      "generation_tool": "builtin_image_gen",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/036/art-record.json",
+      "art_record_sha256": "3614e0164817e67f02fda08dd33980b6a2386110304bd68c6032d08e1e5fa80c",
+      "photographic_scope": "source_bound_motion_material"
+    },
+    {
+      "key": "TROLL1.CEL/041.png",
+      "bank": "TROLL1.CEL",
+      "frame": 41,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "01adc6bbaf914ab03f803bebacb43ff906c0ba4f0642c171bd55e0a013d3b3af",
+      "png": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/041/candidate.png",
+      "png_sha256": "2942c2014c2a5051e9a7aa35c69ebc70e7808c8a12427c202f1e7c6ea5140e2d",
+      "actual_runtime_observed": false,
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "runtime_asset_sha256": "2942c2014c2a5051e9a7aa35c69ebc70e7808c8a12427c202f1e7c6ea5140e2d",
+      "raw": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/raw/041-v1.png",
+      "raw_sha256": "fb5a6ff3b3115e84535ba3f62dfe53ddd173bd2a4ecaef25e4bb499033b4e281",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/prompts/041-v1.txt",
+      "prompt_sha256": "c941e3a6c3b48ef8c2e24eff3a98b4182ca171f96b1fec73e257b8e2ef81d141",
+      "generation_tool": "builtin_image_gen",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/041/art-record.json",
+      "art_record_sha256": "20a0214ca8be73f65a41c9206a10474b3a54ed7729646b2b430051e1cfbdcf88",
+      "photographic_scope": "source_bound_motion_material"
+    },
+    {
+      "key": "TROLL1.CEL/042.png",
+      "bank": "TROLL1.CEL",
+      "frame": 42,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "ef1f989ee69f2c05a9a20c90f6737f8eb81dd65715217920a99659e0e718bbc5",
+      "png": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/042/candidate.png",
+      "png_sha256": "c7aafb2ed7493b09b2ed096467a6d78f86ad7a4c92ca9193802a507d6672986c",
+      "actual_runtime_observed": false,
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "runtime_asset_sha256": "c7aafb2ed7493b09b2ed096467a6d78f86ad7a4c92ca9193802a507d6672986c",
+      "raw": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/raw/042-v1.png",
+      "raw_sha256": "238b373e97eacfa23fdbd8192c22fd23a6a4445d036155d51110b7ef697e87a0",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/prompts/042-v1.txt",
+      "prompt_sha256": "5e714d6f85d50e3ee08a121f653a2caeeae343ea8f1e6dcb5e52ac1821c83ec8",
+      "generation_tool": "builtin_image_gen",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/042/art-record.json",
+      "art_record_sha256": "8dc8c628551598aac49003a546905fdc54ce612d56872774ba1ca980ed37666a",
+      "photographic_scope": "source_bound_motion_material"
+    },
+    {
+      "key": "TROLL1.CEL/043.png",
+      "bank": "TROLL1.CEL",
+      "frame": 43,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "a9c76d5f941743c7010ba36da9e7b7683dd99c34a8f0c432388296bd88362040",
+      "png": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/043/candidate.png",
+      "png_sha256": "25a46982b88dc3628c018621237b91e82c33c119090dee04bc02a67498284153",
+      "actual_runtime_observed": false,
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "runtime_asset_sha256": "25a46982b88dc3628c018621237b91e82c33c119090dee04bc02a67498284153",
+      "raw": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/raw/043-v1.png",
+      "raw_sha256": "5c2e7c222acb24e92e23fdda8285a5896d5ba727c2af217b0cefded9297eac4c",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/prompts/043-v1.txt",
+      "prompt_sha256": "7a03b261bad069edf660d2447ea3afa5cd0f85063f03f91dd94bf2748ac5c9fb",
+      "generation_tool": "builtin_image_gen",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/043/art-record.json",
+      "art_record_sha256": "3df3e3daa7873b0984f3e02f1513acf3a2828b4fd64f98d16dff2120afd48fea",
+      "photographic_scope": "source_bound_motion_material"
+    },
+    {
+      "key": "TROLL1.CEL/044.png",
+      "bank": "TROLL1.CEL",
+      "frame": 44,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "c244cab377743244f456d640d8260d24a02b97f7cbef4d3a67181b64c4cfeb3c",
+      "png": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/044/candidate.png",
+      "png_sha256": "a0ea8a4bc929c9dd3144df1d12e48b44ef733bd7d3db5849878b010afc51a357",
+      "actual_runtime_observed": false,
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "runtime_asset_sha256": "a0ea8a4bc929c9dd3144df1d12e48b44ef733bd7d3db5849878b010afc51a357",
+      "raw": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/raw/044-v2.png",
+      "raw_sha256": "4651bf3c81234c0900c9abd5af5d68f8451e084adfd0e93b6c3f023f317f6e15",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/prompts/044-v2.txt",
+      "prompt_sha256": "00a5ce1a7f9311285e386e207bdb4cdb917d8ce99a704a49bed098841df76ff0",
+      "generation_tool": "builtin_image_gen",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/044/art-record.json",
+      "art_record_sha256": "207c0cb7129930c9ce94da12db8ce1413da6912e18abcdf854a094108afac419",
+      "photographic_scope": "source_bound_motion_material"
+    },
+    {
+      "key": "TROLL1.CEL/045.png",
+      "bank": "TROLL1.CEL",
+      "frame": 45,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "2e9f04dc5befdf14970171480a69e583b69a65c22bd9c6248af4284b9c5dd3a5",
+      "png": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/045/candidate.png",
+      "png_sha256": "ce0266e0089d4bf10e5e17df3d88f41232b687d72667aeb9b8538a3497f2a7b1",
+      "actual_runtime_observed": false,
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "runtime_asset_sha256": "ce0266e0089d4bf10e5e17df3d88f41232b687d72667aeb9b8538a3497f2a7b1",
+      "raw": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/raw/045-v2.png",
+      "raw_sha256": "1cc09bc835af8dd829c9e28b664ea4317458bf3b210e8dbdf80258cca1ff4845",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/prompts/045-v2.txt",
+      "prompt_sha256": "377a86fdc432c8c47dd488d051ec2b63ca9ff82b9ab6abcd9aea010ec294efa6",
+      "generation_tool": "builtin_image_gen",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/045/art-record.json",
+      "art_record_sha256": "d27550951ae978dc7358ed11caf1920c082c908c3137ae353ed6f2a4be8299bd",
+      "photographic_scope": "source_bound_motion_material"
+    },
+    {
+      "key": "TROLL1.CEL/046.png",
+      "bank": "TROLL1.CEL",
+      "frame": 46,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "765026ad824ffc9070ab7d51556eda6b70842c311039c90616a722a7712fdeff",
+      "png": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/046/candidate.png",
+      "png_sha256": "37a6a4550979bac61bb20767e053985ae239f2f6462d461a4f83f7f63ea6830c",
+      "actual_runtime_observed": false,
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "runtime_asset_sha256": "37a6a4550979bac61bb20767e053985ae239f2f6462d461a4f83f7f63ea6830c",
+      "raw": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/raw/046-v1.png",
+      "raw_sha256": "fdccaf9df7d8e01565b7ffc10259bd1947b1a834c6fcc6a210823a4b4ecbaaaa",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/prompts/046-v1.txt",
+      "prompt_sha256": "357dc1905214a59905957142897c3c080362d26082a88e54080b69a73baa13ca",
+      "generation_tool": "builtin_image_gen",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/046/art-record.json",
+      "art_record_sha256": "8f0fd3ee6953e383a5e35387be883280f40fd03d1571449e3ad8d129b421e47d",
+      "photographic_scope": "source_bound_motion_material"
+    },
+    {
+      "key": "TROLL1.CEL/047.png",
+      "bank": "TROLL1.CEL",
+      "frame": 47,
+      "source_bank_sha256": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+      "indices_sha256": "9d6cb02dc41489519e49718fc6a67b2021f375b0288bf7ad65605dba75600f2b",
+      "png": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/047/candidate.png",
+      "png_sha256": "a26b0d9a7350e2fbe6daa66f133c8dc44237048ff4869770fbc39b2150ae2743",
+      "actual_runtime_observed": false,
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "runtime_asset_sha256": "a26b0d9a7350e2fbe6daa66f133c8dc44237048ff4869770fbc39b2150ae2743",
+      "raw": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/raw/047-v1.png",
+      "raw_sha256": "cd76ce9be5e05ed72374561759116cdc07366647be93d63648c960936e0cfc24",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/prompts/047-v1.txt",
+      "prompt_sha256": "03cc291639d1628fa648e6ac1137f08b09c4db009a5cc7e407db90449918d7d2",
+      "generation_tool": "builtin_image_gen",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/motion/packed-v1/047/art-record.json",
+      "art_record_sha256": "c89f3559128000f86e9e80314b27038fb7e88f2eab6f5fcbd5876446f93a72ae",
+      "photographic_scope": "source_bound_motion_material"
+    },
+    {
+      "key": "TROLL2.CEL/010.png",
+      "bank": "TROLL2.CEL",
+      "frame": 10,
+      "source_bank_sha256": "f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e",
+      "indices_sha256": "d26e3ca5e1a5db53223622c5701bff85e96cdb0501fa1fe3658cd2acaafce74d",
+      "png": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/packed-exact-shadow-v2/TROLL2.CEL/010.png",
+      "png_sha256": "8f30253ce4635c952399cb7439c309095a3fbce1176e2e0746f430480d020610",
+      "actual_runtime_observed": false,
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/verification/fixtures-remainder-008-v1/test.json",
+      "runtime_asset_sha256": "8f30253ce4635c952399cb7439c309095a3fbce1176e2e0746f430480d020610",
+      "raw": "art/hd-completion-figures-2026-10-11/production/raw/TROLL2-010-v1.png",
+      "raw_sha256": "bd5f9173dcfdf933ef22deec05c026cb7757fdaceeea075e280286f872d71e99",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL2-010-v1.txt",
+      "prompt_sha256": "ae925511bc6a619b6e0c8faff321731865ba436b19cfbdde317316b09d75f3f1",
+      "generation_tool": "builtin_image_gen",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/packed-exact-shadow-v2/TROLL2.CEL/010.art-record.json",
+      "art_record_sha256": "e951086de0626f0625649654d8e493f26de9a3256f26c5104c7afb016c5570d3",
+      "photographic_scope": "body_or_foot"
+    }
+  ]
+}

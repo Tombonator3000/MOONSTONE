@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "activation_contract": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-021-arm029-v7.json",
+  "activation_contract_sha256": "5dac03456fa7376134978a6c2457b1280b3e706433e272c1c3af9f9605459ab5",
+  "records": [
+    {
+      "key": "Balok1.CEL/029.png",
+      "version": "029-arm-v1",
+      "tool": "builtin_image_gen",
+      "call_id": "exec-006b8bfb-ea62-4a9c-b50e-828a762d8294",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/029-arm-v1.png",
+      "raw_sha256": "c997b699bef82525e32c1544e3acc870c533a7d64a10cf6bf7ab7db658185256",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/029-arm-v1.txt",
+      "prompt_sha256": "5049b6aa8723eb11473ff8442d3535756680f868feddbe1e224adef470ce4684",
+      "status": "source_geometry_and_actual_runtime_passed_candidate_not_activated",
+      "method": "Eget generert armfoto i201 sammenhengende kildeceller. Kildens adskilte stiplete bevegelsesbue beholdes med eksakt originalRGBA og4x-naermeste pikselform; bevegelsesbuen er ikke fotonytegnet. Eget foto tilpasses bare ett globalt utsnitt; ingen anatomisk per-rad-flytting eller originalRGB i armflaten."
+    }
+  ],
+  "scope": "Eget armfoto i201 kildeceller og200 eksakt bevarte originale bevegelsesceller. Bare029 ny rute; aktive030..033 brukes som samlet runtimekontekst. Ingen aktivering.",
+  "html_sha256": "8fd1d2517aca80f0f71abafc178cccd9c48dd4157f3e3d76de2f98e63b90abf5"
+}

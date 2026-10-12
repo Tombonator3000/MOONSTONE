@@ -1,0 +1,204 @@
+{
+  "schema": 1,
+  "status": "packed_candidates_not_activated",
+  "scope": "Each route uses its own generated photographic master. Original source contours, transparent holes, silhouette and anchors are retained; source-bound material registration and original source material regions, photographic black mane detail and smoothed original skin/bone/eye light, with separately preserved flat black source shadows. This is not a claim of freehand redrawn geometry.",
+  "packing_script_sha256": "82138775fc52589bdd799b4669b4325fc3e7c72f82fc748da9411633cabc8dab",
+  "geometry_sha256": "acd7c5230db7ec17274742b77054698023541bb9e9ed17232c8dc41bd8f069b9",
+  "generation_records_sha256": "fc942360ca1b75f8937db649e4b9fce7b99cb061bf87cbcab07472508f6d48dd",
+  "assets": [
+    {
+      "key": "be1.c/000.png",
+      "raw": "raw/000-v1.png",
+      "raw_sha256": "7d0125067a451197b271c26d21b15ffc62f757b11b6a23ba4276f1e44c8a6a5c",
+      "prompt": "prompts/000-v1.txt",
+      "prompt_sha256": "c2cb8e62d63b35d420e17ee1e73ddbe2500bb8f8f091e9ebd8f85e43fb51e2b7",
+      "candidate_sha256": "d3951622b5da4e137edabe7267ed61529d66e795dc9ffdf0ac29602b2fd0274b",
+      "source_indices_sha256": "28272db9f81eadf6b1f25babdb98c538e3b1d7527c74617df385dda619a08ca5",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1555,
+        1011
+      ],
+      "raw_alpha_bounds": [
+        16,
+        14,
+        1541,
+        995
+      ],
+      "target_size": [
+        240,
+        156
+      ],
+      "source_centers_opaque": 1399,
+      "source_centers_empty": 941,
+      "original_flat_shadow_cells": 138,
+      "source_material_pixels": {
+        "fur": 10024,
+        "hide": 10119,
+        "bone": 762,
+        "eye": 15
+      }
+    },
+    {
+      "key": "be1.c/001.png",
+      "raw": "raw/001-v1.png",
+      "raw_sha256": "cd49956d55991eb8917603d85793dafe159540e068ff97028ccff9bab0f66050",
+      "prompt": "prompts/001-v1.txt",
+      "prompt_sha256": "0eb1a08d216f93bcaadb22695b5c1e32c0b5d7f5a19c26870eb601bb6397e512",
+      "candidate_sha256": "3aed0c2a97e31fc0dbe91941a7df05e7a2a2f46bc35def666804b82f7703b289",
+      "source_indices_sha256": "6de299bde5755e1d769cb8f2c8a8327d7f2904271050241ed6950bdefd4922c3",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1518,
+        1036
+      ],
+      "raw_alpha_bounds": [
+        285,
+        12,
+        1518,
+        1011
+      ],
+      "target_size": [
+        252,
+        172
+      ],
+      "source_centers_opaque": 1559,
+      "source_centers_empty": 1150,
+      "original_flat_shadow_cells": 215,
+      "source_material_pixels": {
+        "fur": 9563,
+        "hide": 11213,
+        "eye": 11
+      }
+    },
+    {
+      "key": "be1.c/002.png",
+      "raw": "raw/002-v1.png",
+      "raw_sha256": "c4667f7969d92c8fb377a7e86f952c32ef1fdb5eaeef81170a8aa0cf3a505dab",
+      "prompt": "prompts/002-v1.txt",
+      "prompt_sha256": "b7b1e75a6258020b460dea4391d1c5fd1e8c9c5a6a3ae624f830576e746e954a",
+      "candidate_sha256": "6f933614f20716067fe294560c74a40c0d72a31ef56c53760965474d0ea00793",
+      "source_indices_sha256": "398c2c6eb783ca534eea809e2d30a1dfed14061aa1a7479cce45c47d78fadc5c",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        811,
+        1940
+      ],
+      "raw_alpha_bounds": [
+        38,
+        151,
+        791,
+        1215
+      ],
+      "target_size": [
+        72,
+        172
+      ],
+      "source_centers_opaque": 148,
+      "source_centers_empty": 626,
+      "original_flat_shadow_cells": 15,
+      "source_material_pixels": {
+        "fur": 1377,
+        "bone": 587,
+        "eye": 5
+      }
+    },
+    {
+      "key": "be1.c/003.png",
+      "raw": "raw/003-v1.png",
+      "raw_sha256": "1f38e31334c90b4836d5e9b4b3b3da3489639848a6a7f873451eeb6bc2237165",
+      "prompt": "prompts/003-v1.txt",
+      "prompt_sha256": "562dd6af81fb5355506e32fbe1ed358f630c152f30829b49e0733d1cf9631a3b",
+      "candidate_sha256": "37f64efa1d62a10f04ecb3c8e1b7bdf633d24588e75eb01e794adee29077c456",
+      "source_indices_sha256": "5e2b5cc73e7c5a16926bd976ead1c707bf0c07993cc8db00e8a696d04e83e00b",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1505,
+        1045
+      ],
+      "raw_alpha_bounds": [
+        72,
+        0,
+        1505,
+        1000
+      ],
+      "target_size": [
+        144,
+        100
+      ],
+      "source_centers_opaque": 508,
+      "source_centers_empty": 392,
+      "original_flat_shadow_cells": 88,
+      "source_material_pixels": {
+        "fur": 1698,
+        "hide": 4954
+      }
+    },
+    {
+      "key": "be1.c/004.png",
+      "raw": "raw/004-v1.png",
+      "raw_sha256": "38df17d42b500899cd73575a8103e2e79efda56009175c46d0b88078781f30ce",
+      "prompt": "prompts/004-v1.txt",
+      "prompt_sha256": "a6d67262615a3846a970feab649866bf5257043a56b578b056a353d40ccd787d",
+      "candidate_sha256": "e5d75150ebeb54e88547d79d7439d5c8b03a3ebaae11473d28cc2516a4381d22",
+      "source_indices_sha256": "45e4f7213aa8db8f1732c61fa89881376cd736a50b633c25247a726a84276d2f",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1536,
+        1024
+      ],
+      "raw_alpha_bounds": [
+        0,
+        8,
+        1531,
+        974
+      ],
+      "target_size": [
+        240,
+        160
+      ],
+      "source_centers_opaque": 1479,
+      "source_centers_empty": 921,
+      "original_flat_shadow_cells": 229,
+      "source_material_pixels": {
+        "fur": 11082,
+        "hide": 7092,
+        "bone": 1166,
+        "eye": 11
+      }
+    },
+    {
+      "key": "be1.c/005.png",
+      "raw": "raw/005-v1.png",
+      "raw_sha256": "9c571284e9bb7a8ac9f9ea6f1c1e74b0f23ca9a8a5a133ad8e28be504a8ea99b",
+      "prompt": "prompts/005-v1.txt",
+      "prompt_sha256": "bf64ecadc0e54173aa55c01b1b343569006a7bef408a75e6a6908b6f87c6a7cf",
+      "candidate_sha256": "5eb0c65f6255d583198f04e151940b97479990bf7c00b2d0a62be064b7d6ddbd",
+      "source_indices_sha256": "37d959328f5d43592d8bd7ebd9041fbe60cdd71e683255c71040cb8b87c721d6",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1530,
+        1028
+      ],
+      "raw_alpha_bounds": [
+        18,
+        7,
+        1513,
+        1008
+      ],
+      "target_size": [
+        256,
+        172
+      ],
+      "source_centers_opaque": 1552,
+      "source_centers_empty": 1200,
+      "original_flat_shadow_cells": 193,
+      "source_material_pixels": {
+        "fur": 9003,
+        "hide": 11955,
+        "bone": 494,
+        "eye": 15
+      }
+    }
+  ]
+}

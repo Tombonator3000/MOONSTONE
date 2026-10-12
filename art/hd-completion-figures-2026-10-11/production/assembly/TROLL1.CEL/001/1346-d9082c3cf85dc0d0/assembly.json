@@ -1,0 +1,67 @@
+{
+  "status": "source_drawlist_composition_checked_not_hd_runtime",
+  "frame": 1346,
+  "key": "TROLL1.CEL/001.png",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "palette_contract_sha256": "6d8a8ff115611d16d5fc8a491ffcbf77ad8b67c0cc4a0d05753cebe54e8718dc",
+  "trace_sha256": "9a622b40420cf0edda2846567f51841bbf03d87f7daead0611ac43533e34d78b",
+  "candidate_sha256": "d9082c3cf85dc0d068ef5be4207a94ad7d9e3ca427f929b409a677bb512c8d15",
+  "replacements": {
+    "TROLL1.CEL/001.png": {
+      "path": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/001/6d7b19ece13a7453/rounded-source-edge-v5/candidate.png",
+      "sha256": "d9082c3cf85dc0d068ef5be4207a94ad7d9e3ca427f929b409a677bb512c8d15"
+    },
+    "TROLL1.CEL/000.png": {
+      "path": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/000/d5c41a541c5da662/rounded-source-edge-v5/candidate.png",
+      "sha256": "d992184e979cf043a267da37ce441ec8759cd24affe837f9efd23636b30623c0"
+    }
+  },
+  "source_banks": {
+    "TROLL1.CEL": "4ecce7854ddefbba3d79cab48c3eb7b1d78b1bcd0fe104d5e0c35df4f00ee66a",
+    "TROLL2.CEL": "f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e"
+  },
+  "draws": [
+    {
+      "frame": 1345,
+      "key": "TROLL1.CEL/002.png",
+      "x": 174,
+      "y": 125,
+      "width": 47,
+      "height": 55,
+      "mirror": true,
+      "buffer": "0a2cd6",
+      "caller": "087bf0"
+    },
+    {
+      "frame": 1346,
+      "key": "TROLL1.CEL/000.png",
+      "x": 183,
+      "y": 85,
+      "width": 33,
+      "height": 52,
+      "mirror": true,
+      "buffer": "0a2cd6",
+      "caller": "087bf0"
+    },
+    {
+      "frame": 1346,
+      "key": "TROLL1.CEL/001.png",
+      "x": 150,
+      "y": 127,
+      "width": 33,
+      "height": 10,
+      "mirror": true,
+      "buffer": "0a2cd6",
+      "caller": "087bf0"
+    }
+  ],
+  "roi": [
+    600,
+    340,
+    884,
+    720
+  ],
+  "missing_opaque_source_midpoints": [],
+  "false_filled_transparent_source_midpoints": [],
+  "limitation": "Two consecutive original CPU draw batches in the same buffer. Art contact assembly only; original background, copper display, animation and HD runtime still require their own checks."
+}

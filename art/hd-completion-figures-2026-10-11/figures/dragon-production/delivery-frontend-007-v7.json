@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "status": "frozen_passed",
+  "created_at": "2026-10-12T01:47:52.743335+00:00",
+  "scope": "007-kildebundet visningsretting for Dragon2/005, Balok067/068 og eksakte originale indeks15-kampbakgrunnsdeltaer. Ingen emulert kilde/CPU/WASM endret. Ingen ny figuraktivering. Naturlig kartreise er ikke testet.",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "e8ef991b4086c576093991a38d05c8d165426e684adebe9a287b38679b77b916",
+    "web/src/scenes.js": "45ccdcfd02b4f31f2b512a3c8e1b64aceb1f952a3e8ecf91a5149b0d5c8036e0",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "package_html_sha256": "8fd1d2517aca80f0f71abafc178cccd9c48dd4157f3e3d76de2f98e63b90abf5",
+  "package_manifest_sha256": "899a380bd16e9a6c67962220409a20128b1148ff28e93c5257018d986df90cd5",
+  "package_ledger_sha256": "66a7d7fb3791f9f3b2882e07aea35c30cbb893344d24bc70330b5e8eccfe7ad3",
+  "package_images": 1623,
+  "package_files": 1629,
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/retention/combat-background-fixture-proof.json",
+      "sha256": "f6a7f91e28d7e1cf0f2c8df7237d5f87a5c87bae31f79e82cc9ce7a4af77170c",
+      "checks": 469
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/retention-fixtures-v7/test.json",
+      "sha256": "005246a16f752822a34be5e9e12eb4d7f70e2f897d9d730741f2f9ac37d45522",
+      "checks": 532
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/combat-background-bridge-v7/test.json",
+      "sha256": "c3aa8896aec5d1c5163ab3e1da68f38af423724a21a61d2f1819222e88e9642b",
+      "checks": 12
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/combat-background-actual-v7/test.json",
+      "sha256": "b37ba8f04af7b40b1fb95ce0fe440bcc81be48bb952c7f45bef56da62821ce5b",
+      "checks": 20
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon12-retention-v7/proof-summary.json",
+      "sha256": "967c94643ca342c8f663f9469e4c46c62b8579495e56ee75538bea4c1dcd56dd",
+      "checks": 97
+    }
+  ],
+  "visual_review": {
+    "troll1500": "Begge faktiske original/HD-bilder kontrollert. Begge figurer og tre-/bergformer beholdt; alle30 originale blodceller foran HD-terreng.",
+    "dragon1405": "Faktisk original/HD-par kontrollert av underagent og rot. Dragon1/017 og Dragon2/005 fotografisk synlig med original ild foran."
+  },
+  "fixture_input_sha256": "d503998d637fa0125bbb3b25ac139879e74491981118846adc0d7c99a385e1df",
+  "source_contract_sha256": "58a1085c2bcb53e072fba7361b122144ad48e322117c9cd4a7041a17ccd7ca6e",
+  "limitations": [
+    "Bakgrunnsbroen krever tidligere observert, SHA-bekreftet ren originalbakgrunn.",
+    "Kun indekstillegg15 med eksakt c00-palett/RGBA aksepteres. Andre deltaer gir Original.",
+    "Mog, program, Test og aktuelt originalflisark krever eksakt SHA.",
+    "Balok067/068 er i tillegg faktisk runtimekontrollert av ordreagenten; egen pr\u00f8ve her er streng syntetisk kildefixtur."
+  ],
+  "checks_total": 1130,
+  "files_sha256": {
+    "web/src/render.js": "e8ef991b4086c576093991a38d05c8d165426e684adebe9a287b38679b77b916",
+    "web/src/scenes.js": "45ccdcfd02b4f31f2b512a3c8e1b64aceb1f952a3e8ecf91a5149b0d5c8036e0",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/retention/combat-background-source-contract.json": "58a1085c2bcb53e072fba7361b122144ad48e322117c9cd4a7041a17ccd7ca6e",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/retention/combat-background-fixture-input.json.gz": "42c13ed721c0ec00145d0473696ac7e59da6450f8ab390479d077fa81281233d",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/retention/restore-combat-background-fixture.py": "0b528fa577a0ba644071de376b0d73c4a258e2373007c696a7acfdd6ce300e81",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/retention/test-combat-background-bridge.cjs": "9dc701c616dea7c8340e533043afc3bff6b46e14b454003b9f1e7dd54aec1d37",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/retention/source-fixture-cases-v4.json": "823b30094dbab12686b2bf87980ab17159a67f4efd8f0188f833e40c9c9ef90e",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/retention/Balok1.CEL-026-original-shadow4x.png": "bf74a278d3cd328cc45705214bd116816d262fb7def3a59f8bd495736bdac906",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/runtime-retention-fixtures-v4.cjs": "b87d2f04d787d910fb58a7e98d35ecddce83d90efd9563a0d31990785fd57778",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/runtime-combat-background-bridge-v1.cjs": "9232977dcfb5423b4159d015ee2b2dcc64b27399c8e40e85c061365b2b6dc3bc",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/runtime-combat-background-actual-v2.cjs": "4cf438fb177475392f69e83dc49a80b3ed74b81d38ac4deb1dd91f8dabcaa3a1",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/runtime-dragon12-retention-v5.cjs": "b712500654d83d5b976b3477a388dc26912437f49fd00f3ae074196fa141b485",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/runtime-host.cjs": "ee9c388254b8eec030452f22639e708e89458fdcb9d935745128f436b61cadb6",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/runtime-proof.cjs": "996d15aa184c04e33b1c712f968e2058a6d751de8b6f76cd6e53b24711cef451",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/build-runtime.py": "9d2eed8332d2e170b0c4274fd01278d3fb10ab067a9838902b2971563e1b6834",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/retention/dragon12-fallback-source-evidence.json": "a56a30564c6bb85910abcc33a68c97cead216f3e82d343cb981650feae90d611",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/retention/analyze-dragon12-fallback.py": "3f4b04361949f21438f2bf1ad0b7865e2c6af45905ed1ce79b9a202797234794",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/retention/combat-background-fixture-proof.json": "f6a7f91e28d7e1cf0f2c8df7237d5f87a5c87bae31f79e82cc9ce7a4af77170c",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/retention-fixtures-v7/test.json": "005246a16f752822a34be5e9e12eb4d7f70e2f897d9d730741f2f9ac37d45522",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/combat-background-bridge-v7/test.json": "c3aa8896aec5d1c5163ab3e1da68f38af423724a21a61d2f1819222e88e9642b",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/combat-background-actual-v7/test.json": "b37ba8f04af7b40b1fb95ce0fe440bcc81be48bb952c7f45bef56da62821ce5b",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon12-retention-v7/proof-summary.json": "967c94643ca342c8f663f9469e4c46c62b8579495e56ee75538bea4c1dcd56dd",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/combat-background-actual-v7/original-run-original.png": "bdea8fd52d0a1d905c3943c8075eb8ddf609a62f79c4e0963d9aedb50f9198d1",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/combat-background-actual-v7/hd-run-hd.png": "2ac7525b7d98a13514bae462736343f2c9027fea890861f958043da1e6b32aad",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/combat-background-bridge-v7/delta-original.png": "914a4a89bd025750c90d029ad6389a7c24fbb6e831920006aeb606e6fd7cb7d7",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/combat-background-bridge-v7/delta-hd.png": "7291914ed4fd51a7e5ec8365aadc623fde1c97e1fb596f417badf245f7ad59bd",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon12-retention-v7/1405-original.png": "8c05f3a99ad2a854af38d87327e39f9e95a532d560d45193a614f1d4ffa6733f",
+    "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon12-retention-v7/1405-hd.png": "e57f07c08faf50a60c26ba855add1333a6a9b29e370cd85706f60289911549c0"
+  }
+}

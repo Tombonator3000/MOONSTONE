@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "script_sha256": "1c8c0c5cbaba031faac800163ac2eb5a0d355a09c86b73a94ff94eae92f6f7d6",
+  "source_contracts_sha256": "506c4659068ff75d17f13c6155fe68585eabd867e2d04b1c59512664a5ca9461",
+  "assets": [
+    {
+      "key": "Demon3.CEL/015.png",
+      "source_bank_sha256": "6c647e9bc97a89fa77e6aed8ec049b91122aee6cf7a5df9a9eab83db6b44ab20",
+      "source_indices_sha256": "241a7af60e399d9b8160b5dfe799a24762121807cf13259c0a53fd9d4a546af5",
+      "photo_sha256": "c77d8f69278981546307cf714b018907a0e002a64101de6967024f7fcf69c1f1",
+      "mask_sha256": "ba26a5e09a7d63d5c4c073ce0317c03c9e0842c99399e801c34a0ba8c88c5d22",
+      "live_source_cells": 54,
+      "live_HD_pixels": 864
+    },
+    {
+      "key": "Demon3.CEL/020.png",
+      "source_bank_sha256": "6c647e9bc97a89fa77e6aed8ec049b91122aee6cf7a5df9a9eab83db6b44ab20",
+      "source_indices_sha256": "e9608f44e1903d45958c2c9a43423e00c75e455ad44dcb57f759ef8a8cc5c6ea",
+      "photo_sha256": "95633bf92f524d4135d05f5120fe50312fcc2accf18f3a8cbed7b2192139ae3d",
+      "mask_sha256": "3a9e4b151979dbcd6c4d1626abcd1e87359006613bf075415089c8faa310ee11",
+      "live_source_cells": 206,
+      "live_HD_pixels": 3296
+    },
+    {
+      "key": "Demon3.CEL/021.png",
+      "source_bank_sha256": "6c647e9bc97a89fa77e6aed8ec049b91122aee6cf7a5df9a9eab83db6b44ab20",
+      "source_indices_sha256": "e541fb5aa2d4ab461fa7a010a5f6429e8732f80655c5ec20b81d7a944c734907",
+      "photo_sha256": "16b8871d2a233ce2096829bca9c036911d48b0163dc3ee8a7b77ef4f13acc838",
+      "mask_sha256": "e23bf829c0ad7c5b0183c0bc093e909eafee346ebb99ed64454b9c0f3843b1d1",
+      "live_source_cells": 295,
+      "live_HD_pixels": 4720
+    }
+  ],
+  "contract": "R=source NN index+1 for6..8 and B=255 otherwise R/B=0, independent of alpha. G=photographic luminance/reference*128. A=255."
+}

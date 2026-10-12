@@ -2,9 +2,9 @@
 
 ## Neste
 - [x] HD-retting av Math og stedene: loddrett rundt murtaarn og 23 gjentatte Stonehenge-porter. Siste brukerfoto presiserer to stoetter og en overligger; enkeltstaaende soeyle er erstattet. Portene er skalert proporsjonalt ned til originalens fem kartpiksler i hoeyden. Originale posisjoner, statusmoenstre og spillregler beholdes.
-- [ ] HD-troskap: fullføre de tre KI-rankene034-036, de to donasjonssekkene i mys.cel000-001 og seks DragonDice-symboler000-005. De tidligere49 konturikonene er nytegnet;102 gamle rasterruter er bevart. Ny pakke har124 ikonkontrakter, inkludert21 kildefaste UI-konturer og nytt pergament. Se docs/hd-bestilling-chatgpt.md.
-- [ ] HD-troskap: nytegne hver resterende figur-/animasjonsrute separat og kontrollere deler, eierskap og palettvarianter. Bestillingen har1796 rader etter deduplisering, inkludert11 ikonmaterialer, fem bakgrunnsrevisjoner og logoen. Hele ridderposer regnes ikke som ferdige separate ruter.
-- [ ] HD-troskap: revidere hen1/bg5, bg2a, bg3, mindscape, bg8 og logo073 mot originalen. Rullegrafikk, PIV-fliser og underlag gjenstår. Alle56 sammensatte kampvarianter er allerede aktive; nå79 bakgrunner totalt.
+- [x] HD-troskap: KI-rankene034-036, mys.cel000-001 og seks DragonDice-symboler000-005 er separat generert, kildebundet og aktivert.141 runtimekontroller består.
+- [ ] HD-troskap: fullføre1779 separate figur-/animasjonsmastere med2040 konkrete PNG-ruter og264 masker. Math, KN4, hen1-flammer og TROLL er under produksjon; kandidater regnes ikke som ferdige. Hele ridderposer erstatter ikke separate ruter.
+- [x] HD-troskap: fem bakgrunnsrevisjoner, kildeformet gulllogo og begge komplette rullestriper er aktivert.81 bakgrunner,411 PNG/417 filer.47+35+58 berørte runtimekontroller består; figurene gjenstår.
 - [ ] HD-bakgrunner etter filnavn (bg1a.PIV/0.png) i tillegg til hash, for bildene som vises som de er.
 - [ ] Valgene paa kartet i PC-versjonen: LB, RB, X og Y velger 1-4 i dag; mangler valg 5-9 og en liste paa skjermen. Nevn det i windows/LES_MEG.txt.
 - [ ] Options paa mobil: oppsett av styrekorset og knappene (storrelse, venstrehendt).
@@ -17,7 +17,7 @@
 - [x] HD-bilder som får fargene fra skjermen: maske <navn>.mask.png (docs/hd-grafikk.md), 2026-10-11.
 - [ ] HD-bakgrunner som tåler små endringer i bakgrunnskopien (legg forskjellene over).
 - [ ] Effektene og HD-laget også i PC-versjonen: trenger en PNG-leser (png.c kan bare skrive) og HD-tegningen skrevet i C (SDL_Renderer holder).
-- [ ] Prøve «Run workflow» for hånd én gang (rettelsen a998217 er på main, men ikke prøvd).
+- [x] Prøve «Run workflow» for hånd én gang: bygg.yml på main26b6f86, kjøring38159533435, Linux/Windows/web/Pages grønne 2026-10-11.
 - [ ] HD-grafikk: bakgrunner i HD (PIV, og .t for kampene), fargeeffekter (fading) på HD-bildene, andre tegnerutiner enn tegn_figur (tekst, menyer).
 - [ ] Lage en liten HD-pakke som eksempel (f.eks. ridderne i fire ganger størrelse).
 - [ ] Finne ut hvordan .t-filene bygger kampbakgrunnene.
@@ -26,18 +26,19 @@
 - [ ] Teste nettspill (også «Online Game» i tittelmenyen) mot PeerJS Cloud og HiveMQ fra en vanlig nettleser (proxyen i skymiljøet stopper WebSocket; lokalt testet med egne servere).
 - [ ] Teste den nye oppstarten på en ekte mobil (lyd ved første trykk, også med lydløs-bryteren på iPhone, trykk på skjermen hopper over introen, navnefeltet med skjermtastatur).
 - [ ] Klikk i menyene også i PC-versjonen (meny_row_at finnes; PC slår ikke på menylappen i dag).
-- [ ] Mus på andre skjermer enn tittelmenyen: velge ridder, butikker og inventar med klikk (krever å finne valgvariablene for hver skjerm).
+- [x] Riddervalg med portrettklikk, Enter og mellomrom. Butikker og inventar har egen pekerkommando.
 - [ ] Teste moonstone.exe på ekte Windows.
 - [ ] Nettspill over et ekte nett med to maskiner: hvor mye forsinkelse gjesten og forsvareren i en duell merker i kamp, og om bufferen på tre bilder bør justeres.
 
-- [ ] Klikk der man peker også i Select a Knight (ingen peker der; feltene for figurene er ikke kartlagt) og for forsvareren i en duell.
+- [x] Klikk der man peker i Select a Knight, med spillereierskap i Turns.
+- [ ] Klikk der man peker for forsvareren i en duell.
 - [ ] Et trykk på kartet blir fire og kan åpne et sted; la det bare gi retning når man drar (observatør på \$0AACFA).
 
 ## HD: kodeendringer så bildene i docs/hd-bestilling-chatgpt.md blir brukt
 - [ ] Prøve HD-figurer i en ekte monsterkamp i et hi og i en kamp med fire riddere (ikke målt etter at figurer i flere deler kom).
 - [x] Banneret i Prepare yourself: bg/931f9b1d.png kom med PR #26.
-- [ ] Introen og slutten: tegneliste fra programmet program, så de 385 figurbildene kan få HD.
-- [x] bg1b.PIV: originalbundet skogsbilde og kildevalidert scene. Andre rullende introfliser gjenstår.
+- [x] Introen og slutten: originalbundet programtrace, målbuffer og rullekompositt.385 figurruter kan nå vises;329 uavhengige nytegninger er fortsatt på restlisten.
+- [x] bg1b.PIV og komplette intro-/sluttrullestriper er kildevaliderte. Alle synlige atlasfliser dekkes av rekonstruerte320x1200-kompositter.
 - [ ] Lasteren (render.js lastHdPakke) skal bare godta NAVN/NNN og bg/HHHHHHHH og si fra om resten (i dag tar den alt, ca 4 MB per ubrukt bilde).
 - [ ] tools/hd_skaler.py skal hoppe over bildemappene (PIV) og test/, bare figurmapper og bg.
 - [ ] HD-pakken skal huskes (IndexedDB) og kunne være en zip.
@@ -101,6 +102,7 @@
 
 ## HD-integrasjon, 11. oktober 2026
 - [x]144 originale fontformer inklusive opphavsrettsfeltene,21 palettstyrte UI-konturer, pergamentpanel og fire nye bakgrunner koblet til standardpakken. Nye materialutkast som mister originalsilhuetten holdes utenfor.
+- [x] Publisere UI-/font-/bakgrunnsoppfølgingen via PR #30. Offentlig filkontroll og99 runtimekontroller består; fire nye bakgrunner og naturlig kart/inventar er visuelt kontrollert.
 - [x] Rette bestillingens CEL-planmasker, grånormalisering, prioritering og mappeimport for kildevaliderte scener.
 - [x] Nytegne kart, byer og kro; aktivere tre bevarte introbakgrunner med kildevalidering og beskyttet originalforgrunn.
 - [x] HD-logo, 142 konturglyfer, 20 faste menytekster og seks separate kartlandemerker; Original-valget bevares.
@@ -126,7 +128,7 @@
 - [x] Kontrollere alle 56 sammensatte kampbakgrunner i faktisk WASM, og de tolv nye PIV-koblingene med originalfixturer.
 - [x] Bevare små kartporter, Original-valg, spilltilstand, originalfiler og fungerende HD-import/cache.
 - [x] Lage galleri, master-/promptarkiv og kildeoversikt for alle 75 aktive bakgrunner.
-- [ ] Fullføre selvstendige PIV-fliser/rulling og rullende sluttsekvenser; dette inngår ikke i de 56 faste kampvariantene.
+- [x] Fullføre selvstendige PIV-fliser/rulling og rullende sluttsekvenser; dette inngår ikke i de 56 faste kampvariantene.
 - [ ] Nytegne de resterende figurrutene separat etter bakgrunnsarbeidet, som avtalt med brukeren.
 - [x] Koble inn de fem øvrige faste intro-/meldingsbildene med bevarte originalfigurer, symboler, stjerner og logo.
 
@@ -137,5 +139,80 @@
 - [x] Legge til manglende statiske ridder-, Gem of Seeing-, Hawk-, port-, grav- og paddemarkører.
 - [x] Fullføre samlet runtime-/import-/integrasjonskontroll for ikonpakken.
 - [x] Publisere ikonpakken via PR, grønn CI og offentlig kontroll.
-- [ ] Fullføre originaltro fontformer, vinranke-/rammefragmenter, meldingspaneler og valgkonturer som egne oppgaver.
+- [x] Fullføre originaltro fontformer, meldingspanelet, riddervalgrammen og valgkonturene som egne oppgaver.
+- [x] Fullføre de tre vinrankefragmentene034-036; avviste kandidater beholdes som negative eksempler.
 - [ ] Ta figur- og drageanimasjoner, separat forgrunn, effekter og rulling etter ikon-/bakgrunnsarbeidet.
+
+## Separate figurruter, 11. oktober 2026
+- [x] Nytegne og kontrollere alle26 KN4-sverd-/bevegelsesruter,7 identiske kopier og025-masken.
+- [x] Nytegne18 flammer separat og kontrollere dem i original Stonehenge-scene og sluttsekvens;18 identiske Klift-kopier.
+- [x] Publisere og kontrollere den første figurruteleveransen etter grønn CI (PR #33, offentlig70PNG, faktisk kamp og Stonehenge).
+- [ ] Fullføre749 resterende figurmastere/812 konkrete ruter; 59 mastermasker for kildebekreftede innbakte ridderdeler og ingen HE-kopier står på restlisten.
+- [x] Gjøre Math-ansikt, kropp, hår og kappe visuelt sammenhengende i statisk WI1.P-plate og separate Wi1.C-ruter (PR #35).
+- [x] Fjerne hudskjøter fra de to separate MYS-øyefragmentene før aktivering; aktivert lokalt etter14 scene- og30 rutekontroller.
+- [x] Publisere og kontrollere MYS006/007 i standardpakken (PR #34).
+- [x] Fullføre tavernahansker006..009 og tre kastede terninger010..022, samt innbygd TAV-figur med aktiv spillerfarge (PR #35).
+- [x] Kontrollere og aktivere16 TROLL-ruter, inklusive øyefarge og adskilt fotskygge.
+- [x] Aktivere129 KN3-/HE3-/RATMEN-ruter og90 masker etter1928 rutekontroller og visuell sammenligning. Fire rene svarte skygger bevart.
+- [x] Publisere og kontrollere den andre figurleveransen med237 nye PNG-filer (PR #34).
+- [x] Fullføre øvrige TROLL-ruter med samme separate bilde-/runtimekrav; KN1/HE1 er levert i PR #35.
+
+- [x] Tredje lokale figurleveranse: KN1/HE1, KN2/HE2, Math, TAV/DICE, kartdrage, OV1, HA1 og ytterligere TROLL,1145PNG/1151filer. Standard- og originalkontroller bundet.
+- [x] Publisere og kontrollere tredje figurleveranse (PR #35, alle433PNG samt281 KN1-/158 KN2-kontroller paa offentlig side).
+- [x] Fullføre LI1/30, HEN/Klift/74, KN5/65, DRAGON1/16, Balok1/28 og TROLL2/2 nye ruter lokalt:178 mastere,215 kilderuter og68 masker,283 nyePNG. Palettblink, LI1-haandens retensjon og eksakt TROLL-likbuffer er kontrollert.
+- [x] Publisere fjerde figurleveranse via PR #36 og groenn CI. Alle283 nyePNG samsvarer offentlig; slutt1507 og LI1/98 kontroller bestaar.
+- [ ] Fortsette resterende drager, Balok, Guardian og resten av749-masterlisten. Uavklarte TROLL-bruksruter beholdes som originalgrafikk til de kan kontrolleres.
+
+- [x] Femte lokale figurleveranse: DRAGON2/26, Balok1/15, Guardian/18 og krigsbeist/6, med to manglende riddermasker rettet.1498PNG/1504filer; alle tidligere publiserte PNG-er uendret.
+- [x] Publisere femte figurleveranse: PR #37, groenn CI, alle70PNG offentlig og Guardian220/krigsbeist76/slutt1577 bestaar.
+
+- [x] Nytegne og lokalt aktivere Guardian-bakgrunn cbc31cbf fra original test005.220 faktiske standardkontroller bestaar;1499PNG/1505filer/82BG lokalt.
+- [x] Publisere ny Guardian-bakgrunn cbc31cbf (PR #38, offentlig006).
+- [x] Kontrollere alle32 originale terrengkompositter mot aktive HD-hasher; test000..003 er flisark, ikke manglende bakgrunnsbilder. Senere dynamiske monster-/blodendringer kartlegges separat.
+
+- [x] Sjette lokale leveranse:125 nyePNG og122 ruter, med112 egne fotomastere,aatte konservative flate originaleffekter,en bevart svart skygge,ett eksakt alias,to masker og Guardian-bakgrunn.1623PNG/1629filer; alle1504 tidligere filer uendret.
+- [x] Standardproever006: Guardian550,demon2/187,drage97,krigsbeist49 og slutt1702. Samlet5092fil-/kildekontroller og255bestillingskontroller bestaar.
+- [x] Publisere sjette leveranse via PR #38/groennCI og kontrollere alle125nyePNG/femfaktiske offentlige scener.
+- [ ] Fullfoere kildebundet retensjon for Dragon2/005, Balok067/068 og dynamiske originale kampbakgrunnsdeltaer. Bevar Original ved ukjent kilde.
+
+- [x] Sjuende lokale rutegruppe:93 separate fotomastere,fem aliaser,98 ruter og20 masker. Standard4436 og fil/kilde5449 bestaar.
+- [x] Rette synlige bakgrunnsblokker over Balok1/004 og002 ved pose2200.008 er kontrollert visuelt i samme Original/HD-pose; historisk007-feilrapport beholdes.
+- [ ] Beholde HD-bakgrunn ved eksakte Ratmen-bakinger med svart5 og roedt15, uten aa godta ukjente bakgrunnsendringer.
+
+- [x] Aattende lokale kohort:202 ruter/222 PNG,195 egne fotomaterialmastere,sju bevarte originalruter,20 masker.1963 PNG/1969 filer/82 bakgrunner. Alle1747 tidligere filer uendret.
+- [ ] Publisere008 etter komplett standard-/fil-/kildekontroll og kontrollere samme offentlige HTML, manifest og bilder.
+- [ ] Fullfoere749 resterende mastere,812 konkrete ruter og59 masker; paagaaende009-kandidater telles foerst ved kildeverifisert aktivering.
+
+## Oppstart og riddervalg, 12. oktober 2026
+- [x] HD som standard, med bevart uttrykkelig Original-valg.
+- [x] Ett trykk over introen, ogsaa under lasting og toning.
+- [x] Fire direkte portrettvalg, Enter/mellomrom, mobil og eierkontroll i Turns.
+- [x] Dobbeltklikkvern og faktisk lasting av eldre PEKR-lagring.
+- [x] Nettleser81/81, inklusive faste porter, og check_hooks25/25. Fysisk mobil og full gjennomspilling er fortsatt egne oppgaver.
+- [x] Beholde engangstegnede portretter under forsinket HD-lasting, med seks faktiske nettleserkontroller.
+
+- [x] Publisert oppstartsrettelsene i PR40/41 med groenn CI og faktisk offentlig HD/riddervalg/intro/omstart10/10.
+
+## Grafikk og mus, 12. oktober 2026
+- [x] Rette firkant rundt Next Day-maanen og kontrollere alle fem faser.
+- [x] Klar tekst i HD, inklusive navn og verdier paa karakterarket.
+- [x] Inventarmarkoer foran HD-soeylene, med original pekerposisjon.
+- [x] HD-bakgrunner under foerstegangslasting, scenebytter og forbigaaende nettfeil.
+- [x] PC-klikk paa kartet gir original bevegelse, med tur- og netteierkontroll.
+- [x] Vurdere brukerens innlimte referansetekst mot aktuelle primaerkilder og gjeldende kode.
+- [x] Samlet lokal kontroll, groenn CI, Pages og offentlig kontroll av berorte scener (PR #42;108 nettlesersjekker og13+41 offentlige kontroller).
+
+## HD-oppdatering, kartsteder og logo, 12. oktober 2026
+- [x] Dokumentere faktisk aktiv HD-restliste og separate lokale kandidater.
+- [x] Beholde HD-portretter og karakterark ved klikk, rammer, verdier og ikonoppdatering.
+- [x] Verifisere riktige KI-ikoner, inklusive alternative liv/utstyr og små kartporter.
+- [x] Skjule kildebekreftet vunnet lair i HD uten å slette loot eller endre originalregler.
+- [x] Lage, pakke og kontrollere ny glatt Moonstone-logo i faktisk tittelbilde.
+- [x] Rette Ratmen063-lauvets grove interne fargelegging og kontrollere faktisk kampvisning.
+- [x] Fullføre relevant regresjon, PR43, grønn CI, Pages og111 offentlige nettleserkontroller.
+
+## Blod og sår 2026-10-12
+- [x]41 separate BLO-materialer generert og kildebundet pakket i4x; KN5/65 eksisterende skadefragmenter beholdt.
+- [x] Hele serien visuelt kontrollert,619 kandidatkontroller inklusive normal/speilet, fire klippkanter,13 rødnivåer, fremmed kilde/palett, full lagring og originalkodekamp.
+- [x] Aktivert41 nye PNG-er,2005 PNG/2011 manifestfiler. Restliste749 mastere/812 ruter/59 mastermasker.
+- [ ] Endelig standardpakke, regresjon, PR, grønn CI, Pages og faktisk offentlig BLO-kontroll.

@@ -1,0 +1,42 @@
+{
+  "key": "be1.c/013.png",
+  "call_id": "exec-b1ee7317-ac0a-4f6b-9276-5bee0c3c134d",
+  "raw": "raw/013-v1.png",
+  "prompt": "prompts/013-v1.txt",
+  "reference": "references/013-original20x.png",
+  "visual_note": "Svart kroket pelsfragment med lite brunlig endeparti. Originalt tomrom bevart; kandidat, ikke aktivert.",
+  "raw_sha256": "e7374b3154c6a21f05fe04c34d4901b52804ec56f82454fbc0ac34604a55816a",
+  "prompt_sha256": "81a8b07df268d87c1417c7c9ecbc0df8d93d6ac7e0e7fd7c7db8db052c111ede",
+  "reference_sha256": "612348b5826395d1c9c9b59d4318d7930cb9e09edac514002c258b3abb52bc36",
+  "generation_tool": "builtin_image_gen",
+  "candidate_sha256": "150145f5954150b285de2b9d767fbfcec7e6465b4724c70959036e18d5fd68e2",
+  "source_indices_sha256": "3208b15c5711af5acee27c78ceb79938fa11ba24a19a7b47da2505ef73e94a66",
+  "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+  "raw_size": [
+    992,
+    1586
+  ],
+  "raw_alpha_bounds": [
+    0,
+    0,
+    992,
+    1586
+  ],
+  "target_size": [
+    60,
+    96
+  ],
+  "source_centers_opaque": 171,
+  "source_centers_empty": 189,
+  "original_flat_shadow_cells": 0,
+  "source_material_pixels": {
+    "fur": 2085,
+    "hide": 66
+  },
+  "visual_status": "reviewed_original_and_runtime",
+  "geometry_sha256": "fb7bb25e3538ce1c3937c8ac6ffe248bc27b4affc590c82167728f0bbffbb9fb",
+  "runtime_geometry_sha256": "61508bc7f42dfafcd2dda9fe6a4dd913f530abfe3594a5747d0cfbb4e4b37360",
+  "packing_script_sha256": "1f59cb8b992d2441d941f576f3c0330fb9cd43ca846e354b77d61c69b9db8db9",
+  "runtime_scope": "Controlled original Trogg War Beast combat initializer and terrain only, three source-documented test writes at900. No palette writes or modified combat/animation code; no natural map visit claim. Actual source calls and source scanout palette are checked. Separate normal/mirrored frontend fixtures and negative source/ownership checks never write to emulated memory. Candidate import only, no activation. Only indices actually used by each beast source frame must match its original palette; unrelated live knight6..8 can change naturally. All15 own photo candidates receive frontend fixtures; only actually observed routes can enter an activation contract. Native-left50/fire1050 requires HD-observed014/016/018/020 only.029 source calls were observed but its HD overlay was not visible in v1;029 stays outside activation until separately proved. Unobserved candidates are explicitly listed and cannot be counted as actual runtime evidence.",
+  "method": "Each route uses its own generated photographic master. Original source contours, transparent holes, silhouette and anchors are retained; source-bound material registration and original source material regions, photographic black mane detail and smoothed original skin/bone/eye light, with separately preserved flat black source shadows. This is not a claim of freehand redrawn geometry."
+}

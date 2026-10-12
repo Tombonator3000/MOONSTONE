@@ -51,7 +51,7 @@ function kjor(fn) {
 
 /* ---- nettleser og sider ---- */
 async function nettleser() {
-  const b = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+  const b = await chromium.launch({ executablePath: process.env.CHROME || undefined, args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
   nettlesere.push(b);
   return b;
 }
@@ -82,10 +82,10 @@ function merk(p, navn, konsoll) {
 /* tast ned i ms, saa vent (menyen tegnes paa nytt i opptil 0,7 s) */
 async function trykk(p, key, ms = 220, etter = 900) { await p.keyboard.down(key); await p.waitForTimeout(ms); await p.keyboard.up(key); await p.waitForTimeout(etter); }
 
-/* fra lastingen til tittelmenyen. Forste trykk slaar paa lyden, det andre hopper over introen.
-   Med en invitasjonslenke holder ett trykk (klikk: 1). alene: vent ogsaa paa modus 'alene'. */
+/* fra lastingen til tittelmenyen. Ett trykk slaar paa lyden og hopper over introen.
+   alene: vent ogsaa paa modus 'alene'. */
 async function tilTittel(p, o = {}) {
-  const klikk = o.klikk || 2, tid = o.tid || 60000;   /* tregt naar maskinen har mye annet aa gjoere */
+  const klikk = o.klikk || 1, tid = o.tid || 60000;   /* tregt naar maskinen har mye annet aa gjoere */
   await p.waitForFunction((alene) => window.moonDebug && (!alene || window.moonDebug.modus() === 'alene') && window.moonDebug.Kjerne.iIntro(), !!o.alene, { timeout: tid });
   await p.waitForTimeout(1500);
   if (klikk > 1) { await p.mouse.click(400, 280); await p.waitForTimeout(1000); }

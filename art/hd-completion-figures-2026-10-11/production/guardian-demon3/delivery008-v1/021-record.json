@@ -1,0 +1,48 @@
+{
+  "key": "Demon3.CEL/021.png",
+  "generation_tool": "builtin_image_gen",
+  "tool_call_id": "exec-7d8edcf8-940c-4b53-8935-7f9895e67060",
+  "generated_source_path": "/home/tombonator3000t/.codex/generated_images/01a12bdd-775f-7861-a140-acf03481be58/exec-7d8edcf8-940c-4b53-8935-7f9895e67060.png",
+  "raw": "raw/021-v1.png",
+  "raw_sha256": "6b70afa11fc96bbd2b7c9bdc6f788f76c109d01359540a9ef24dbeaa525c0939",
+  "prompt": "prompts/021-v1.txt",
+  "prompt_sha256": "ab81ee75342776d4a2c7b06bc497738fd259cccfd325f4e230f7ddc4d75063cb",
+  "source_reference": "references/021-nearest20x.png",
+  "source_reference_sha256": "49f49c439db03a9897402df50e042fc4812fa67c53d154ddb3863292ed6b51cf",
+  "status": "generated_candidate_not_activated",
+  "candidate_sha256": "16b8871d2a233ce2096829bca9c036911d48b0163dc3ee8a7b77ef4f13acc838",
+  "source_indices_sha256": "e541fb5aa2d4ab461fa7a010a5f6429e8732f80655c5ec20b81d7a944c734907",
+  "source_bank_sha256": "6c647e9bc97a89fa77e6aed8ec049b91122aee6cf7a5df9a9eab83db6b44ab20",
+  "raw_size": [
+    1487,
+    1058
+  ],
+  "raw_alpha_bounds": [
+    1,
+    0,
+    1487,
+    1058
+  ],
+  "target_size": [
+    208,
+    148
+  ],
+  "source_centers_opaque": 770,
+  "source_centers_empty": 1154,
+  "moonstone_source_centers": 0,
+  "source_material_pixels": {
+    "cloth": 4113,
+    "pale": 484,
+    "steel": 4998,
+    "black": 1286,
+    "light": 1373
+  },
+  "packing_script_path": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/pack-knights-v1.cjs",
+  "packing_script_sha256": "e1e394dfc373e65918ffa8f0972c56a62b4e1a4b620047fd2c51ea697124ecc5",
+  "geometry_path": "art/hd-completion-figures-2026-10-11/production/guardian-demon3/geometries-knights-v1.json",
+  "geometry_sha256": "8ad8393376fc26f4dacd9e3476ae841516b7437fd130e2e5f48aa95d8c94d8a8",
+  "method": "This embedded knight uses its own independently generated photographic master. Photographed cloth, steel, pale source highlights and cyan energy are registered only into matching original index regions, and original black joint shadows are exact. Original source contours, transparent holes, silhouette and anchors are retained; source-bound material registration and smoothed observed Guardian combat lighting. This is not a claim of freehand redrawn geometry.",
+  "visual_status": "reviewed_original_and_runtime",
+  "actual_runtime_observed": false,
+  "runtime_scope": "Controlled original Guardian combat initializer and terrain only, three source-documented test writes at900. No palette writes or modified combat/animation code; no natural map visit claim. Actual source calls and every nontransparent original source index in the actual scanout palette are checked. Unused palette changes are reported explicitly; no relaxation for any rendered source color. Demon3/000..049 currently unobserved in original replay; never claim these are actual combat captures. Separate normal/mirrored frontend fixtures and negative source/ownership checks never write to emulated memory. Routes015/020/021 are source-exact embedded knight fragments with mandatory delivery NN mask6..8 and five original knight-palette fixtures. Legacy mode1 keeps its existing optional mask behavior; this test does not claim a new mandatory renderer mask gate. Candidate import only, no activation."
+}

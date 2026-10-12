@@ -1,0 +1,46 @@
+{
+  "command": [
+    "port/moonstone-headless",
+    "--headless",
+    "--frames",
+    "1652",
+    "--log",
+    "2",
+    "--press",
+    "100:esc:4",
+    "--press",
+    "700:down:4",
+    "--press",
+    "760:down:4",
+    "--press",
+    "820:fire:4",
+    "--press",
+    "1200:left:120",
+    "--press",
+    "1350:up:600",
+    "--press",
+    "1350:fire:600",
+    "--tegneliste",
+    "1637:16",
+    "--skriv",
+    "900:80172:0x84780:4",
+    "--skriv",
+    "900:8d9ac:0x8d5b4:4",
+    "--skriv",
+    "900:8015c:0xc:4",
+    "--shot-every",
+    "1642",
+    "--shot-dir",
+    "/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/production/balok/probes/original-arc029-v1/shots"
+  ],
+  "exit_code": 0,
+  "headless_sha256": "b70edf0eeb05e853e3ce0e3949548275824c7ff98f723f83697f6564e67db695",
+  "trace_sha256": "c479a566600e1be4fe7a13167abca92c3b49d4ac909a22bdcde14648b833d01f",
+  "scope": "Originalkamp etter tre eksplisitte scene-init-skrivinger og faktisk tastinndata. Ingen palett- eller tegnelisteskriving; ikke naturlig kartreise.",
+  "screenshots": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/balok/probes/original-arc029-v1/shots/shot_01642.png",
+      "sha256": "fe8e559ca7e33311150f544aed2dac7836effa37e591c6b81e90cd2c73937fc4"
+    }
+  ]
+}

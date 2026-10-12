@@ -1,0 +1,80 @@
+{
+  "package_ledger_sha256": "66a7d7fb3791f9f3b2882e07aea35c30cbb893344d24bc70330b5e8eccfe7ad3",
+  "package_manifest_sha256": "899a380bd16e9a6c67962220409a20128b1148ff28e93c5257018d986df90cd5",
+  "package_images": 1623,
+  "package_files": 1629,
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "e8ef991b4086c576093991a38d05c8d165426e684adebe9a287b38679b77b916",
+    "web/src/scenes.js": "45ccdcfd02b4f31f2b512a3c8e1b64aceb1f952a3e8ecf91a5149b0d5c8036e0",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "html_sha256": "8fd1d2517aca80f0f71abafc178cccd9c48dd4157f3e3d76de2f98e63b90abf5",
+  "runtime_script_sha256": "9232977dcfb5423b4159d015ee2b2dcc64b27399c8e40e85c061365b2b6dc3bc",
+  "schema": 1,
+  "status": "passed",
+  "checks": [
+    "clean_original_HD_background",
+    "delta_exact_clean_identity",
+    "delta_HD_background",
+    "source_CEL_still_strictly_accepted",
+    "HD_visible_change",
+    "whole_delta_cell_preserved_false",
+    "whole_delta_cell_preserved_true",
+    "Original_exact_return",
+    "HD_exact_return",
+    "one_non15_delta_falls_back",
+    "emulated_state_unchanged",
+    "no_browser_errors"
+  ],
+  "errors": [],
+  "scope": "Standardpakken i faktisk WASM/GPU. Syntetiske kildeindekslag fra original Wa2.t, ekte Dragon2/005-kilde og originalpalett. Ingen spillminneskriving. Ikke en naturlig kampsekvens; separat original CPU-kamp kreves.",
+  "detail": {
+    "scene": {
+      "id": "combat-delta",
+      "hash": "e8ac7fc2",
+      "actual_hash": "11112222",
+      "preserved_pixels": 2
+    },
+    "control": {
+      "godkjent": 1,
+      "utenLag": 0,
+      "kilde": 0,
+      "overlapp": 0,
+      "piksler": 0,
+      "maske": 0,
+      "masket": 0,
+      "poseGodkjent": 0,
+      "poseGruppe": 0,
+      "poseKilde": 0,
+      "posePalett": 0,
+      "poseOverlapp": 0,
+      "posePiksler": 0,
+      "tekstGodkjent": 0,
+      "tekstAvvist": 0,
+      "tekstFeil": [],
+      "lys": 0,
+      "lysUkjent": false,
+      "hdLys": 1,
+      "ikonGodkjent": 0,
+      "ikonAvvist": 0,
+      "palettFigurGodkjent": 0,
+      "palettFigurFeil": [],
+      "bakgrunn": "hd"
+    },
+    "visible": [
+      {
+        "fil": "dragon2.cel",
+        "bilde": 5,
+        "x": 148,
+        "y": 90,
+        "w": 36,
+        "h": 48,
+        "speilet": false,
+        "hd": true,
+        "maske": false
+      }
+    ]
+  }
+}

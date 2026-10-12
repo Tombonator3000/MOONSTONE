@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "faktisk frosset bygget HTML",
+      "passed": true
+    },
+    {
+      "name": "endret kode foer manifest avvises",
+      "passed": true
+    },
+    {
+      "name": "endret kode etter manifest avvises",
+      "passed": true
+    },
+    {
+      "name": "tomt JSON-objekt bevarer kode",
+      "passed": true
+    },
+    {
+      "name": "JSON-liste avvises",
+      "passed": true
+    },
+    {
+      "name": "ugyldig JSON avvises",
+      "passed": true
+    },
+    {
+      "name": "ekstra kode etter JSON avvises",
+      "passed": true
+    }
+  ],
+  "html_sha256": "5b59aed418f802345119b5f1a3c38613b0fef15598a81b39a86d908e67ce10fd",
+  "production_hd_js_sha256": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+}

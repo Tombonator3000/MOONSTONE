@@ -1,0 +1,345 @@
+{
+  "key": "TROLL2.CEL/006.png",
+  "candidate_sha256": "cc75ecfae24cac287b8a9638ae7f70a65d130e1285c90e0b12d47101b7189ee7",
+  "source_indices_sha256": "967c413a0358582a360b4e9497b558f268407ea3a6fe366b5c77bfda9b3ee269",
+  "authoring_method": "individual_redraw",
+  "generator": "built-in ChatGPT image generator; exact model version not exposed",
+  "raw_sha256": "63211e4e6dc5ffb4b6f8d0d93eda2edd748c43914eb0f10c914ffb48a6db4ce8",
+  "raw_file": "art/hd-completion-figures-2026-10-11/production/raw/TROLL2-006-v1.png",
+  "raw_padding_window": [
+    0,
+    99,
+    2170,
+    620
+  ],
+  "raw_margin_proof": {
+    "removed_pixels": 442680,
+    "nonzero_alpha_pixels": 1944,
+    "max_alpha": 4,
+    "visible_content_clipped": false,
+    "target_aspect_height": 521,
+    "preserved_window_height": 521
+  },
+  "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL2-006-v1.txt",
+  "prompt_sha256": "b1c0d11224e0357e3bb1c0dfa2de2a1fba7514fff2602f3ab3ebf5f8ff19f7e5",
+  "palette_case": "troll",
+  "palette_contract_sha256": "6d8a8ff115611d16d5fc8a491ffcbf77ad8b67c0cc4a0d05753cebe54e8718dc",
+  "palette_reference_sha256": "6eed8fb1db78463ef82b9a0afcfcfcd815c547082a2d85a9354d006e93b20dac",
+  "packing": "Generated RGBA resized to source4x and minimally globally aligned. Original alpha via marching-squares contours with <=.4sourcepx rounded corners; every original pixel midpoint preserved. Aligned generated interior RGB unchanged, missing edge RGB extended from nearest generated material. No original RGB, per-row anatomy warp, or raster replacement.",
+  "raw_silhouette_iou": 0.9698375870069605,
+  "aligned_silhouette_iou": 0.9698375870069605,
+  "alignment_gate": 0.9,
+  "max_opaque_edge_extension_px": 2,
+  "geometry_gate_passed": true,
+  "original_flat_shadow_packing": {
+    "indices": [
+      5
+    ],
+    "source_rect": [
+      0,
+      0,
+      50,
+      12
+    ],
+    "source_pixels": 204,
+    "method": "Original constant-black index5 within known footshadow region is antialiased separately. Frame008 contains only cropped feet and shadow; frames002..005 restrict this to bottom8 rows. Black index5 above that region remains generated body material. Frame008, Frame011, Frame013 and Frame029 preserve sparse flat source shadow with exact nearest4x alpha; other footshadows use rounded contours. Not claimed as a new shadow redraw"
+  },
+  "source_pixel_midpoints_checked": 600,
+  "missing_opaque_source_midpoints": [],
+  "false_filled_transparent_source_midpoints": [],
+  "retained_generated_rgb_pixels": 1667,
+  "extended_edge_pixels": 39,
+  "max_edge_extension_px": 2,
+  "edge_extension_map": [
+    {
+      "x": 93,
+      "y": 0,
+      "from_x": 94,
+      "from_y": 0,
+      "distance": 1
+    },
+    {
+      "x": 44,
+      "y": 1,
+      "from_x": 45,
+      "from_y": 1,
+      "distance": 1
+    },
+    {
+      "x": 92,
+      "y": 1,
+      "from_x": 94,
+      "from_y": 1,
+      "distance": 2
+    },
+    {
+      "x": 93,
+      "y": 1,
+      "from_x": 94,
+      "from_y": 1,
+      "distance": 1
+    },
+    {
+      "x": 44,
+      "y": 2,
+      "from_x": 45,
+      "from_y": 2,
+      "distance": 1
+    },
+    {
+      "x": 92,
+      "y": 2,
+      "from_x": 94,
+      "from_y": 2,
+      "distance": 2
+    },
+    {
+      "x": 93,
+      "y": 2,
+      "from_x": 94,
+      "from_y": 2,
+      "distance": 1
+    },
+    {
+      "x": 128,
+      "y": 2,
+      "from_x": 127,
+      "from_y": 2,
+      "distance": 1
+    },
+    {
+      "x": 44,
+      "y": 3,
+      "from_x": 45,
+      "from_y": 3,
+      "distance": 1
+    },
+    {
+      "x": 92,
+      "y": 3,
+      "from_x": 93,
+      "from_y": 3,
+      "distance": 1
+    },
+    {
+      "x": 128,
+      "y": 3,
+      "from_x": 127,
+      "from_y": 3,
+      "distance": 1
+    },
+    {
+      "x": 129,
+      "y": 3,
+      "from_x": 129,
+      "from_y": 4,
+      "distance": 1
+    },
+    {
+      "x": 44,
+      "y": 4,
+      "from_x": 45,
+      "from_y": 4,
+      "distance": 1
+    },
+    {
+      "x": 92,
+      "y": 4,
+      "from_x": 93,
+      "from_y": 4,
+      "distance": 1
+    },
+    {
+      "x": 44,
+      "y": 5,
+      "from_x": 45,
+      "from_y": 5,
+      "distance": 1
+    },
+    {
+      "x": 92,
+      "y": 5,
+      "from_x": 93,
+      "from_y": 5,
+      "distance": 1
+    },
+    {
+      "x": 44,
+      "y": 6,
+      "from_x": 45,
+      "from_y": 6,
+      "distance": 1
+    },
+    {
+      "x": 92,
+      "y": 6,
+      "from_x": 93,
+      "from_y": 6,
+      "distance": 1
+    },
+    {
+      "x": 44,
+      "y": 7,
+      "from_x": 45,
+      "from_y": 7,
+      "distance": 1
+    },
+    {
+      "x": 92,
+      "y": 7,
+      "from_x": 93,
+      "from_y": 7,
+      "distance": 1
+    },
+    {
+      "x": 44,
+      "y": 8,
+      "from_x": 45,
+      "from_y": 8,
+      "distance": 1
+    },
+    {
+      "x": 92,
+      "y": 8,
+      "from_x": 93,
+      "from_y": 8,
+      "distance": 1
+    },
+    {
+      "x": 128,
+      "y": 8,
+      "from_x": 128,
+      "from_y": 7,
+      "distance": 1
+    },
+    {
+      "x": 129,
+      "y": 8,
+      "from_x": 129,
+      "from_y": 7,
+      "distance": 1
+    },
+    {
+      "x": 44,
+      "y": 9,
+      "from_x": 45,
+      "from_y": 9,
+      "distance": 1
+    },
+    {
+      "x": 72,
+      "y": 9,
+      "from_x": 71,
+      "from_y": 9,
+      "distance": 1
+    },
+    {
+      "x": 92,
+      "y": 9,
+      "from_x": 93,
+      "from_y": 9,
+      "distance": 1
+    },
+    {
+      "x": 128,
+      "y": 9,
+      "from_x": 127,
+      "from_y": 9,
+      "distance": 1
+    },
+    {
+      "x": 72,
+      "y": 10,
+      "from_x": 71,
+      "from_y": 10,
+      "distance": 1
+    },
+    {
+      "x": 73,
+      "y": 11,
+      "from_x": 72,
+      "from_y": 11,
+      "distance": 1
+    },
+    {
+      "x": 43,
+      "y": 13,
+      "from_x": 44,
+      "from_y": 13,
+      "distance": 1
+    },
+    {
+      "x": 43,
+      "y": 14,
+      "from_x": 44,
+      "from_y": 14,
+      "distance": 1
+    },
+    {
+      "x": 42,
+      "y": 15,
+      "from_x": 43,
+      "from_y": 15,
+      "distance": 1
+    },
+    {
+      "x": 76,
+      "y": 17,
+      "from_x": 75,
+      "from_y": 17,
+      "distance": 1
+    },
+    {
+      "x": 76,
+      "y": 18,
+      "from_x": 75,
+      "from_y": 18,
+      "distance": 1
+    },
+    {
+      "x": 77,
+      "y": 19,
+      "from_x": 76,
+      "from_y": 19,
+      "distance": 1
+    },
+    {
+      "x": 76,
+      "y": 32,
+      "from_x": 76,
+      "from_y": 31,
+      "distance": 1
+    },
+    {
+      "x": 77,
+      "y": 32,
+      "from_x": 77,
+      "from_y": 31,
+      "distance": 1
+    },
+    {
+      "x": 76,
+      "y": 33,
+      "from_x": 75,
+      "from_y": 33,
+      "distance": 1
+    }
+  ],
+  "global_affine": {
+    "scale_x": 1,
+    "scale_y": 1,
+    "translate_x_px": 0,
+    "translate_y_px": 0
+  },
+  "visual_checks": {
+    "pose": "pending",
+    "crop": "pending",
+    "equipment": "pending",
+    "source_colors": "pending",
+    "anatomy": "pending",
+    "material": "pending",
+    "runtime_overlap": "pending",
+    "original_hd_return": "pending"
+  },
+  "status": "source_guided_candidate_not_activated"
+}

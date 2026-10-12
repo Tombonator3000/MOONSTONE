@@ -1,0 +1,205 @@
+{
+  "key": "TROLL1.CEL/019.png",
+  "candidate_sha256": "ad8148705960893c91259883b92f718d35c7a04997eccaf14b9b924cb9c07684",
+  "source_indices_sha256": "007c4c25e0d9efbb8f8f2d32f09eac3183193fb32f4d6b1f95e9113dfbe3e40f",
+  "authoring_method": "individual_redraw",
+  "generator": "built-in ChatGPT image generator; exact model version not exposed",
+  "raw_sha256": "2e3daf207c059823a5e02c4ea8e44ac626225b046ef5f9cea53e97ce285ff26a",
+  "raw_file": "art/hd-completion-figures-2026-10-11/production/raw/TROLL1-019-v1.png",
+  "raw_padding_window": [
+    0,
+    189,
+    2170,
+    526
+  ],
+  "raw_margin_proof": {
+    "removed_pixels": 841960,
+    "nonzero_alpha_pixels": 538,
+    "max_alpha": 7,
+    "visible_content_clipped": false,
+    "target_aspect_height": 337,
+    "preserved_window_height": 337
+  },
+  "prompt": "art/hd-completion-figures-2026-10-11/production/prompts/TROLL1-019-v1.txt",
+  "prompt_sha256": "92369299f06713b2a6da86646a5d8a56020df95aa401270eb932ab0f6a9768bb",
+  "palette_case": "troll",
+  "palette_contract_sha256": "6d8a8ff115611d16d5fc8a491ffcbf77ad8b67c0cc4a0d05753cebe54e8718dc",
+  "palette_reference_sha256": "c35f1d80c7bc6eadfb8ebebb9f02f0a4e48292a8930042717ac7e96820a38a0f",
+  "packing": "Generated RGBA resized to source4x and minimally globally aligned. Original alpha via marching-squares contours with <=.4sourcepx rounded corners; every original pixel midpoint preserved. Aligned generated interior RGB unchanged, missing edge RGB extended from nearest generated material. No original RGB, per-row anatomy warp, or raster replacement.",
+  "raw_silhouette_iou": 0.9855072463768116,
+  "aligned_silhouette_iou": 0.9855072463768116,
+  "alignment_gate": 0.85,
+  "max_opaque_edge_extension_px": 1,
+  "geometry_gate_passed": true,
+  "original_flat_shadow_packing": {
+    "indices": [
+      5
+    ],
+    "source_rect": [
+      0,
+      0,
+      58,
+      9
+    ],
+    "source_pixels": 136,
+    "method": "Alle16 HD-piksler per original indeks5-celle er eksakt svart RGBA0,0,0,255. Alt oevrig fotografisk materiale og alfa er byteuendret."
+  },
+  "source_pixel_midpoints_checked": 522,
+  "missing_opaque_source_midpoints": [],
+  "false_filled_transparent_source_midpoints": [],
+  "retained_generated_rgb_pixels": 877,
+  "extended_edge_pixels": 16,
+  "max_edge_extension_px": 1,
+  "edge_extension_map": [
+    {
+      "x": 95,
+      "y": 1,
+      "from_x": 94,
+      "from_y": 1,
+      "distance": 1
+    },
+    {
+      "x": 95,
+      "y": 2,
+      "from_x": 94,
+      "from_y": 2,
+      "distance": 1
+    },
+    {
+      "x": 95,
+      "y": 3,
+      "from_x": 94,
+      "from_y": 3,
+      "distance": 1
+    },
+    {
+      "x": 95,
+      "y": 4,
+      "from_x": 94,
+      "from_y": 4,
+      "distance": 1
+    },
+    {
+      "x": 67,
+      "y": 5,
+      "from_x": 68,
+      "from_y": 5,
+      "distance": 1
+    },
+    {
+      "x": 95,
+      "y": 5,
+      "from_x": 94,
+      "from_y": 5,
+      "distance": 1
+    },
+    {
+      "x": 67,
+      "y": 6,
+      "from_x": 68,
+      "from_y": 6,
+      "distance": 1
+    },
+    {
+      "x": 95,
+      "y": 6,
+      "from_x": 94,
+      "from_y": 6,
+      "distance": 1
+    },
+    {
+      "x": 66,
+      "y": 7,
+      "from_x": 66,
+      "from_y": 8,
+      "distance": 1
+    },
+    {
+      "x": 67,
+      "y": 7,
+      "from_x": 68,
+      "from_y": 7,
+      "distance": 1
+    },
+    {
+      "x": 95,
+      "y": 7,
+      "from_x": 94,
+      "from_y": 7,
+      "distance": 1
+    },
+    {
+      "x": 95,
+      "y": 8,
+      "from_x": 94,
+      "from_y": 8,
+      "distance": 1
+    },
+    {
+      "x": 103,
+      "y": 9,
+      "from_x": 102,
+      "from_y": 9,
+      "distance": 1
+    },
+    {
+      "x": 66,
+      "y": 24,
+      "from_x": 66,
+      "from_y": 23,
+      "distance": 1
+    },
+    {
+      "x": 67,
+      "y": 24,
+      "from_x": 67,
+      "from_y": 23,
+      "distance": 1
+    },
+    {
+      "x": 67,
+      "y": 25,
+      "from_x": 68,
+      "from_y": 25,
+      "distance": 1
+    }
+  ],
+  "global_affine": {
+    "scale_x": 1,
+    "scale_y": 1,
+    "translate_x_px": 0,
+    "translate_y_px": 0
+  },
+  "visual_checks": {
+    "pose": "pending",
+    "crop": "pending",
+    "equipment": "pending",
+    "source_colors": "pending",
+    "anatomy": "pending",
+    "material": "pending",
+    "runtime_overlap": "pending",
+    "original_hd_return": "pending"
+  },
+  "status": "source_guided_candidate_not_activated",
+  "source_shadow_correction_v2": {
+    "parent_candidate": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/019/2e3daf207c059823/separate-shadow-bottom8-v7/candidate.png",
+    "parent_candidate_sha256": "8b6bf76d1763dfd0b871bb09ea2b84682c83539235e2832d6ba19b9114facbc9",
+    "corrected_hd_pixels": [
+      [
+        66,
+        24
+      ],
+      [
+        67,
+        24
+      ],
+      [
+        67,
+        25
+      ]
+    ],
+    "changed_pixels_outside_original_index5": 0,
+    "helper": "art/hd-completion-figures-2026-10-11/production/troll-remainder-v1/pack-exact-shadow-v2.py",
+    "helper_sha256": "c8581972d430ccfcc92f6996d69a07d4797c79dd2a62310d169a8bd5789f4c3d"
+  }
+}

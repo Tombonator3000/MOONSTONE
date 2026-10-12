@@ -16,10 +16,27 @@ med three.js og lyden med WebAudio. Den lages med `make -C port web` og legges u
 GitHub Pages av Actions. Det finnes ingen egen startside: spillet starter med introen
 med en gang siden er lastet, og alt annet velges i spillets egen tittelmeny.
 
-Nettleseren slipper ikke ut lyd før du har trykket på noe, så det første trykket slår på
-lyden. Deretter hopper Esc, fire, Enter, mellomrom eller et trykk på skjermen over
-introen. Det kan ta et par sekunder før den slutter, for introen gjør ferdig overgangen
+Esc, fire, Enter, mellomrom eller ett trykk på skjermen hopper over introen.
+Det samme trykket starter lyden når nettleseren tillater det.
+Det kan ta et par sekunder før introen slutter, for den gjør ferdig overgangen
 den holder på med.
+
+HD-grafikk lastes automatisk som standard. Et uttrykkelig valg av Original i
+sidemenyen huskes. Velg ridder ved å klikke eller trykke på portrettet, eller bruk
+venstre/høyre og Enter, mellomrom eller fire. Enter eller fire godtar deretter navnet.
+Bakgrunner og menytekst lastes først, deretter ridderportrettene og resten av
+figurpakken. Førstegangslastingen av hele HD-pakken kan ta noen minutter.
+Oppdatert oversikt over levert og manglende HD ligger i [HD-statusen](docs/hd-status-2026-10-12.md).
+Vunne huleporter skjules i HD, mens gjenstående loot kan hentes på samme sted.
+Spillets tekst vises med skarpe, innebygde fonter i HD. Navn, tall og plasseringer
+kommer fortsatt fra originalspillet.
+Lauvet foran Ratmen bruker sammenhengende fotomateriale i den dokumenterte
+Wa2-paletten. Andre terrengpaletter beholder dette originalfragmentet til en
+kildebekreftet HD-variant finnes; bakgrunnen kan fortsatt vises i HD.
+
+Klikk på kartet for å gå til punktet. Ridderen bruker original gangfart, terreng og
+turens bevegelsesbudsjett. Høyreklikk avbryter, og piltaster eller spillkontroller
+tar over med en gang. Trykk fire når du vil gå inn i et sted.
 
 Spillfilen (`Moonstonecd32-AMIGA.zip` fra repoet) er bygget inn i siden. En annen
 spillfil, f.eks. «Moonstone CD32.iso», kan velges i menyen (Home eller knappen oppe til

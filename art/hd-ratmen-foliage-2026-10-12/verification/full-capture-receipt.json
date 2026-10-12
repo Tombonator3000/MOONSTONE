@@ -1,0 +1,2240 @@
+{
+  "scope": "Original CPU Practice med dokumenterte Ratmen-/terrengpekere. Ingen naturlig kartreise paastaas. Bare selektiv standardpakke og kandidat063 importeres. Samme CPU-tilstand brukes i alle bilde-/palett-/kildeproever.",
+  "checks": [
+    "selective_candidate_imported",
+    "wa2_three_original_CPU_placements",
+    "wa2_rendering_preserves_full_saved_state",
+    "wa2_HD_original_HD_roundtrip",
+    "wa2_HD_background_visible",
+    "Wa2_three_source_validated_HD_canopies",
+    "candidate_actually_replaces_old_material",
+    "all_three_instances_show_new_photographic_material",
+    "missing_original_bank_rejects_foliage_HD",
+    "restored_original_bank_restores_exact_HD",
+    "source_negative_preserves_full_saved_state",
+    "modified_original_bank_SHA_rejects_foliage_HD",
+    "changed_bank_restore_is_exact_and_CPU_unchanged",
+    "all_32_original_fading_models_keep_HD_foliage",
+    "fading_probes_preserve_full_saved_state",
+    "fading_restore_is_exact",
+    "gll3_three_original_CPU_placements",
+    "gll3_rendering_preserves_full_saved_state",
+    "gll3_HD_original_HD_roundtrip",
+    "gll3_HD_background_visible",
+    "Gll3_unsupported_palette_keeps_three_original_canopies",
+    "Gll3_palette_rejection_recorded",
+    "clipped_black_only_Gll3_still_rejected",
+    "same_clipped_geometry_Wa2_can_use_HD",
+    "clipped_palette_probes_preserve_full_saved_state",
+    "no_browser_errors"
+  ],
+  "captures": [
+    {
+      "frame": 1400,
+      "state": 3999589718,
+      "saved_sha256": "e66747e2a971e1593097973f6b0af18abbe5f1a190c0927e4fddcd416d33a1ed",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          34,
+          153,
+          85
+        ],
+        "24": [
+          0,
+          102,
+          17
+        ],
+        "25": [
+          0,
+          68,
+          0
+        ],
+        "28": [
+          68,
+          85,
+          0
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 13,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 2,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 0,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "hd"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 20,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": 23,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": 16,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "raw_background": "e8ac7fc2",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "38ae6ffd9ba32209eb27bf2c7fff79780a4c40afc90664977602a94882f885f2",
+      "path": "wa2-candidate-hd.png"
+    },
+    {
+      "frame": 1400,
+      "state": 3999589718,
+      "saved_sha256": "e66747e2a971e1593097973f6b0af18abbe5f1a190c0927e4fddcd416d33a1ed",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          34,
+          153,
+          85
+        ],
+        "24": [
+          0,
+          102,
+          17
+        ],
+        "25": [
+          0,
+          68,
+          0
+        ],
+        "28": [
+          68,
+          85,
+          0
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 0,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 0,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "original"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 20,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": 23,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": 16,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ],
+      "raw_background": "e8ac7fc2",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "8ebe5797ae7c26d4be6ba1c24863e3dd674dbfa048622960fba68767723e2611",
+      "path": "wa2-original.png"
+    },
+    {
+      "frame": 1400,
+      "state": 3999589718,
+      "saved_sha256": "e66747e2a971e1593097973f6b0af18abbe5f1a190c0927e4fddcd416d33a1ed",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          34,
+          153,
+          85
+        ],
+        "24": [
+          0,
+          102,
+          17
+        ],
+        "25": [
+          0,
+          68,
+          0
+        ],
+        "28": [
+          68,
+          85,
+          0
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 13,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 2,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 0,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "hd"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 20,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": 23,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": 16,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "raw_background": "e8ac7fc2",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "38ae6ffd9ba32209eb27bf2c7fff79780a4c40afc90664977602a94882f885f2",
+      "path": "wa2-candidate-hd-return.png"
+    },
+    {
+      "frame": 1400,
+      "state": 3999589718,
+      "saved_sha256": "e66747e2a971e1593097973f6b0af18abbe5f1a190c0927e4fddcd416d33a1ed",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          34,
+          153,
+          85
+        ],
+        "24": [
+          0,
+          102,
+          17
+        ],
+        "25": [
+          0,
+          68,
+          0
+        ],
+        "28": [
+          68,
+          85,
+          0
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 13,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 2,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 0,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "hd"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 20,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": 23,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": 16,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "raw_background": "e8ac7fc2",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "ea4fd2a41d2b9e5aa32f3b960b7e87ce247ee40b780159226e7bdc22f1e24b30",
+      "path": "wa2-previous-hd.png"
+    },
+    {
+      "frame": 1400,
+      "state": 3999589718,
+      "saved_sha256": "e66747e2a971e1593097973f6b0af18abbe5f1a190c0927e4fddcd416d33a1ed",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          34,
+          153,
+          85
+        ],
+        "24": [
+          0,
+          102,
+          17
+        ],
+        "25": [
+          0,
+          68,
+          0
+        ],
+        "28": [
+          68,
+          85,
+          0
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 13,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 2,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 0,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "hd"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 20,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": 23,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": 16,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "raw_background": "e8ac7fc2",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "2f87563f36b9ec3e5f4b450cd38ba70ff0a4b09aef0e0aba1dc7899b3bf5d59a",
+      "path": "wa2-candidate-v2-shadow.png"
+    },
+    {
+      "frame": 1400,
+      "state": 3999589718,
+      "saved_sha256": "e66747e2a971e1593097973f6b0af18abbe5f1a190c0927e4fddcd416d33a1ed",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          34,
+          153,
+          85
+        ],
+        "24": [
+          0,
+          102,
+          17
+        ],
+        "25": [
+          0,
+          68,
+          0
+        ],
+        "28": [
+          68,
+          85,
+          0
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 13,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 2,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 0,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "hd"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 20,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": 23,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": 16,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "raw_background": "e8ac7fc2",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "38ae6ffd9ba32209eb27bf2c7fff79780a4c40afc90664977602a94882f885f2",
+      "path": "wa2-candidate-restored.png"
+    },
+    {
+      "frame": 1400,
+      "state": 3999589718,
+      "saved_sha256": "e66747e2a971e1593097973f6b0af18abbe5f1a190c0927e4fddcd416d33a1ed",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          34,
+          153,
+          85
+        ],
+        "24": [
+          0,
+          102,
+          17
+        ],
+        "25": [
+          0,
+          68,
+          0
+        ],
+        "28": [
+          68,
+          85,
+          0
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 3,
+        "utenLag": 0,
+        "kilde": 10,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 2,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 0,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "hd"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 20,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": 23,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": 16,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ],
+      "raw_background": "e8ac7fc2",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "d5570c4e4faf5c1543c8a2aa323a3f278f54b18f488adb663889d1aaf7ddcae6",
+      "path": "wa2-source-missing.png"
+    },
+    {
+      "frame": 1400,
+      "state": 3999589718,
+      "saved_sha256": "e66747e2a971e1593097973f6b0af18abbe5f1a190c0927e4fddcd416d33a1ed",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          34,
+          153,
+          85
+        ],
+        "24": [
+          0,
+          102,
+          17
+        ],
+        "25": [
+          0,
+          68,
+          0
+        ],
+        "28": [
+          68,
+          85,
+          0
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 13,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 2,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 0,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "hd"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 20,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": 23,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": 16,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "raw_background": "e8ac7fc2",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "38ae6ffd9ba32209eb27bf2c7fff79780a4c40afc90664977602a94882f885f2",
+      "path": "wa2-source-restored.png"
+    },
+    {
+      "frame": 1400,
+      "state": 3999589718,
+      "saved_sha256": "e66747e2a971e1593097973f6b0af18abbe5f1a190c0927e4fddcd416d33a1ed",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          34,
+          153,
+          85
+        ],
+        "24": [
+          0,
+          102,
+          17
+        ],
+        "25": [
+          0,
+          68,
+          0
+        ],
+        "28": [
+          68,
+          85,
+          0
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 7,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 2,
+        "maske": 0,
+        "masket": 2,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 4,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "hd"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 20,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": 23,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": 16,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ],
+      "raw_background": "e8ac7fc2",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "4a6df6ba368f02d37439e17a99d99e750e4599ad49e595a4e3367356c248a544",
+      "path": "wa2-source-changed.png"
+    },
+    {
+      "frame": 1400,
+      "state": 3999589718,
+      "saved_sha256": "e66747e2a971e1593097973f6b0af18abbe5f1a190c0927e4fddcd416d33a1ed",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          34,
+          153,
+          85
+        ],
+        "24": [
+          0,
+          102,
+          17
+        ],
+        "25": [
+          0,
+          68,
+          0
+        ],
+        "28": [
+          68,
+          85,
+          0
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 13,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 2,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 0,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "hd"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 20,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": 23,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": 16,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "raw_background": "e8ac7fc2",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "38ae6ffd9ba32209eb27bf2c7fff79780a4c40afc90664977602a94882f885f2",
+      "path": "wa2-changed-source-restored.png"
+    },
+    {
+      "frame": 1400,
+      "state": 3999589718,
+      "saved_sha256": "e66747e2a971e1593097973f6b0af18abbe5f1a190c0927e4fddcd416d33a1ed",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          34,
+          153,
+          85
+        ],
+        "24": [
+          0,
+          102,
+          17
+        ],
+        "25": [
+          0,
+          68,
+          0
+        ],
+        "28": [
+          68,
+          85,
+          0
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 13,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 2,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 0,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "hd"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 20,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": 23,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": 16,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": 22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ],
+      "raw_background": "e8ac7fc2",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "38ae6ffd9ba32209eb27bf2c7fff79780a4c40afc90664977602a94882f885f2",
+      "path": "wa2-fading-restored.png"
+    },
+    {
+      "frame": 1400,
+      "state": 770609759,
+      "saved_sha256": "609c55f59065ebe33154e790dc2ce07939344a91d641b8e4180420a2fdc093f9",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          136,
+          238,
+          119
+        ],
+        "24": [
+          238,
+          170,
+          68
+        ],
+        "25": [
+          170,
+          102,
+          34
+        ],
+        "28": [
+          0,
+          119,
+          221
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 9,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 2,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 4,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "hd"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": -18,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": -15,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": -22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": -17,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ],
+      "raw_background": "6113f65e",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "56fd4e34aa78ecf62b6a0d7dccec47b49b986d355a30f8cb27991b923f3a8028",
+      "path": "gll3-candidate-hd.png"
+    },
+    {
+      "frame": 1400,
+      "state": 770609759,
+      "saved_sha256": "609c55f59065ebe33154e790dc2ce07939344a91d641b8e4180420a2fdc093f9",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          136,
+          238,
+          119
+        ],
+        "24": [
+          238,
+          170,
+          68
+        ],
+        "25": [
+          170,
+          102,
+          34
+        ],
+        "28": [
+          0,
+          119,
+          221
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 0,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 0,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 0,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "original"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": -18,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": -15,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": -22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": -17,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ],
+      "raw_background": "6113f65e",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "d7bcb23483c7bc094c8f3a26399a73da6dcf5d144a1a3c497ac6aa782e5b5679",
+      "path": "gll3-original.png"
+    },
+    {
+      "frame": 1400,
+      "state": 770609759,
+      "saved_sha256": "609c55f59065ebe33154e790dc2ce07939344a91d641b8e4180420a2fdc093f9",
+      "palette": {
+        "5": [
+          0,
+          0,
+          0
+        ],
+        "22": [
+          136,
+          238,
+          119
+        ],
+        "24": [
+          238,
+          170,
+          68
+        ],
+        "25": [
+          170,
+          102,
+          34
+        ],
+        "28": [
+          0,
+          119,
+          221
+        ]
+      },
+      "scene": null,
+      "control": {
+        "godkjent": 9,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 2,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "foliageAvvist": 4,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "hd"
+      },
+      "figures": [
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": -18,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 155,
+          "y": -15,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 173,
+          "y": -22,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Ratmen1.cel",
+          "bilde": 63,
+          "x": 137,
+          "y": -17,
+          "w": 44,
+          "h": 35,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        }
+      ],
+      "raw_background": "6113f65e",
+      "geometry": {
+        "vindu": [
+          70,
+          19,
+          710,
+          219
+        ],
+        "utsnitt": [
+          70,
+          19,
+          710,
+          219
+        ]
+      },
+      "png_sha256": "56fd4e34aa78ecf62b6a0d7dccec47b49b986d355a30f8cb27991b923f3a8028",
+      "path": "gll3-candidate-hd-return.png"
+    }
+  ],
+  "errors": [],
+  "manifest_sha256": "11bf45c353608a4f08f48d17b80f284bef137f575724db71324becbdae91b45d",
+  "candidate_sha256": "9e37291650c6abbb564ca3fab27dd68b625971de34410af9423218832f564cb7",
+  "previous_sha256": "1957438f9c8970778fd1254be948148a7a2aacb44439d1883051dfafffa86ede",
+  "selective_files": 106,
+  "selective_bytes": 8561771,
+  "url": "http://127.0.0.1:39669/moonstone.html",
+  "html_sha256": "c58aa677518a0de392dc2e9a9a866d56a6ec410a157a6bb8e485dda7ca0e576c",
+  "wa2_journey": {
+    "frame": 1400,
+    "observed": [
+      {
+        "frame": 1168,
+        "fil": "Ratmen1.cel",
+        "bilde": 63,
+        "x": 137,
+        "y": 20,
+        "w": 44,
+        "h": 35,
+        "xoff": 0,
+        "speilet": false,
+        "target": 666838,
+        "caller": 556016
+      },
+      {
+        "frame": 1168,
+        "fil": "Ratmen1.cel",
+        "bilde": 63,
+        "x": 155,
+        "y": 23,
+        "w": 44,
+        "h": 35,
+        "xoff": 0,
+        "speilet": false,
+        "target": 666838,
+        "caller": 556016
+      },
+      {
+        "frame": 1168,
+        "fil": "Ratmen1.cel",
+        "bilde": 63,
+        "x": 173,
+        "y": 16,
+        "w": 44,
+        "h": 35,
+        "xoff": 0,
+        "speilet": false,
+        "target": 666838,
+        "caller": 556016
+      },
+      {
+        "frame": 1172,
+        "fil": "Ratmen1.cel",
+        "bilde": 63,
+        "x": 137,
+        "y": 20,
+        "w": 44,
+        "h": 35,
+        "xoff": 0,
+        "speilet": false,
+        "target": 666838,
+        "caller": 556016
+      },
+      {
+        "frame": 1172,
+        "fil": "Ratmen1.cel",
+        "bilde": 63,
+        "x": 155,
+        "y": 23,
+        "w": 44,
+        "h": 35,
+        "xoff": 0,
+        "speilet": false,
+        "target": 666838,
+        "caller": 556016
+      },
+      {
+        "frame": 1173,
+        "fil": "Ratmen1.cel",
+        "bilde": 63,
+        "x": 173,
+        "y": 16,
+        "w": 44,
+        "h": 35,
+        "xoff": 0,
+        "speilet": false,
+        "target": 666838,
+        "caller": 556016
+      }
+    ],
+    "stopped": false
+  },
+  "exclusive_visible_region_changed_pixels": [
+    563,
+    614,
+    1308
+  ],
+  "fading": {
+    "scope": "32 exact source-model frontend palette probes, no emulated RAM/palette mutation",
+    "rows": [
+      {
+        "model": "channel_cap_in",
+        "level": 0,
+        "total": 4,
+        "approved": 4,
+        "light": 0,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 1,
+        "total": 4,
+        "approved": 4,
+        "light": 0.15031315240083507,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 2,
+        "total": 4,
+        "approved": 4,
+        "light": 0.2964509394572025,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 3,
+        "total": 4,
+        "approved": 4,
+        "light": 0.4279749478079332,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 4,
+        "total": 4,
+        "approved": 4,
+        "light": 0.5490605427974948,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 5,
+        "total": 4,
+        "approved": 4,
+        "light": 0.651356993736952,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 6,
+        "total": 4,
+        "approved": 4,
+        "light": 0.7390396659707724,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 7,
+        "total": 4,
+        "approved": 4,
+        "light": 0.8100208768267223,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 8,
+        "total": 4,
+        "approved": 4,
+        "light": 0.8643006263048016,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 9,
+        "total": 4,
+        "approved": 4,
+        "light": 0.906054279749478,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 10,
+        "total": 4,
+        "approved": 4,
+        "light": 0.9311064718162839,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 11,
+        "total": 4,
+        "approved": 4,
+        "light": 0.9498956158663883,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 12,
+        "total": 4,
+        "approved": 4,
+        "light": 0.9665970772442589,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 13,
+        "total": 4,
+        "approved": 4,
+        "light": 0.9791231732776617,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 14,
+        "total": 4,
+        "approved": 4,
+        "light": 0.9895615866388309,
+        "rejected": 0
+      },
+      {
+        "model": "channel_cap_in",
+        "level": 15,
+        "total": 4,
+        "approved": 4,
+        "light": 1,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 0,
+        "total": 4,
+        "approved": 4,
+        "light": 1,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 1,
+        "total": 4,
+        "approved": 4,
+        "light": 0.8496868475991649,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 2,
+        "total": 4,
+        "approved": 4,
+        "light": 0.7035490605427975,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 3,
+        "total": 4,
+        "approved": 4,
+        "light": 0.5720250521920668,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 4,
+        "total": 4,
+        "approved": 4,
+        "light": 0.4509394572025052,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 5,
+        "total": 4,
+        "approved": 4,
+        "light": 0.348643006263048,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 6,
+        "total": 4,
+        "approved": 4,
+        "light": 0.2609603340292276,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 7,
+        "total": 4,
+        "approved": 4,
+        "light": 0.18997912317327767,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 8,
+        "total": 4,
+        "approved": 4,
+        "light": 0.13569937369519833,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 9,
+        "total": 4,
+        "approved": 4,
+        "light": 0.09394572025052192,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 10,
+        "total": 4,
+        "approved": 4,
+        "light": 0.06889352818371608,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 11,
+        "total": 4,
+        "approved": 4,
+        "light": 0.05010438413361169,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 12,
+        "total": 4,
+        "approved": 4,
+        "light": 0.033402922755741124,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 13,
+        "total": 4,
+        "approved": 4,
+        "light": 0.020876826722338204,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 14,
+        "total": 4,
+        "approved": 4,
+        "light": 0.010438413361169102,
+        "rejected": 0
+      },
+      {
+        "model": "channel_subtract_out",
+        "level": 15,
+        "total": 4,
+        "approved": 4,
+        "light": 0,
+        "rejected": 0
+      }
+    ],
+    "full_saved_state_unchanged": true
+  },
+  "gll3_journey": {
+    "frame": 1400,
+    "observed": [
+      {
+        "frame": 1174,
+        "fil": "Ratmen1.cel",
+        "bilde": 63,
+        "x": 137,
+        "y": -18,
+        "w": 44,
+        "h": 35,
+        "xoff": 0,
+        "speilet": false,
+        "target": 666838,
+        "caller": 556016
+      },
+      {
+        "frame": 1174,
+        "fil": "Ratmen1.cel",
+        "bilde": 63,
+        "x": 155,
+        "y": -15,
+        "w": 44,
+        "h": 35,
+        "xoff": 0,
+        "speilet": false,
+        "target": 666838,
+        "caller": 556016
+      },
+      {
+        "frame": 1174,
+        "fil": "Ratmen1.cel",
+        "bilde": 63,
+        "x": 173,
+        "y": -22,
+        "w": 44,
+        "h": 35,
+        "xoff": 0,
+        "speilet": false,
+        "target": 666838,
+        "caller": 556016
+      },
+      {
+        "frame": 1178,
+        "fil": "Ratmen1.cel",
+        "bilde": 63,
+        "x": 137,
+        "y": -18,
+        "w": 44,
+        "h": 35,
+        "xoff": 0,
+        "speilet": false,
+        "target": 666838,
+        "caller": 556016
+      },
+      {
+        "frame": 1178,
+        "fil": "Ratmen1.cel",
+        "bilde": 63,
+        "x": 155,
+        "y": -15,
+        "w": 44,
+        "h": 35,
+        "xoff": 0,
+        "speilet": false,
+        "target": 666838,
+        "caller": 556016
+      },
+      {
+        "frame": 1179,
+        "fil": "Ratmen1.cel",
+        "bilde": 63,
+        "x": 173,
+        "y": -22,
+        "w": 44,
+        "h": 35,
+        "xoff": 0,
+        "speilet": false,
+        "target": 666838,
+        "caller": 556016
+      }
+    ],
+    "stopped": false
+  },
+  "clipped": {
+    "scope": "Controlled frontend clipping fixture from exact source row0; no emulated-memory changes, not a natural game frame",
+    "rows": [
+      {
+        "terrain": "gll3",
+        "figures": [
+          {
+            "fil": "Ratmen1.cel",
+            "bilde": 63,
+            "x": 313,
+            "y": 199,
+            "w": 44,
+            "h": 35,
+            "speilet": false,
+            "hd": false,
+            "maske": false
+          }
+        ],
+        "rejected": 1
+      },
+      {
+        "terrain": "wa2",
+        "figures": [
+          {
+            "fil": "Ratmen1.cel",
+            "bilde": 63,
+            "x": 313,
+            "y": 199,
+            "w": 44,
+            "h": 35,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          }
+        ],
+        "rejected": 0
+      }
+    ],
+    "full_saved_state_unchanged": true
+  },
+  "status": "passed",
+  "created_at": "2026-10-12T12:28:58.450Z"
+}

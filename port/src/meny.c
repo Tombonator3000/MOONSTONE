@@ -683,6 +683,8 @@ void meny_command(int cmd, int arg, const char *text)
         break;
     }
     case MENY_CMD_SELECT:                   /* klikk paa en rad (arg), eller Enter (-1): pilen dit og fire */
+        if (game_velger_ridder()) { game_velg_ridder(arg); return; }
+        if (!meny_in_menu()) return;
         if (!M2.enabled || arg < -1 || arg >= ROWS) return;
         if (arg >= 0) { M2.pick = (uint8_t)(arg + 1); M2.redraw = 1; }
         M2.pick_fire = 1;
@@ -690,6 +692,9 @@ void meny_command(int cmd, int arg, const char *text)
         return;
     case MENY_CMD_PEKER:                    /* pekeren til (x, y) og fire: arg = x | y << 16 */
         game_peker(arg & 0xffff, (arg >> 16) & 0xffff);
+        return;
+    case MENY_CMD_KART:                     /* originalfart til et kartpunkt; -1 avbryter */
+        game_kart_maal(arg == -1 ? -1 : arg & 0xffff, arg == -1 ? -1 : (arg >> 16) & 0xffff);
         return;
     case MENY_CMD_SESSION_END:
         M2.session = SESSION_NONE;

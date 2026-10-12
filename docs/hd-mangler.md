@@ -8,6 +8,14 @@ Oversikt per 11. oktober 2026. Den bygger på målinger med headless-emulatoren 
 
 Skriptene og dumpene ligger i scratchpad for økten (`hdm/`), ikke i repoet. Linjenumre i `disasm/*.s` gjelder disassemblyen som lages lokalt.
 
+## Gjeldende produksjonsstatus, 12. oktober 2026
+
+Den nye lokale standardpakken har1145 PNG-filer i1151 manifestfiler og81 bakgrunner. Siden PR #34 er432 PNG-filer lagt til:269 konkrete figurruter,160 fargemasker og tre ekstra filer for de innbakte Math-/tavernaspillerfigurene. TAV-bakgrunnen er revidert, og fem eldre helfigurprøver er tatt ut av standardpakken. Dette håndterer206 selvstendige kilderuter:201 med eget nytt fotografisk råmateriale og fem bevarte svarte originalskygger. Tavernaens ekstra spillerplate er utenfor CEL-tellingen.
+
+CSV-listen har1448 gjenstående selvstendige mastere og1555 konkrete ruter:1002 monster-,37 stedsfigur-,106 blod-/sårruter og303 intro-/sluttruter. 8 mastermasker gjenstår i KN5. Alle HE-fargekopier er levert. Math, taverna/DICE, kartdrage, KN1-4/HE1-3, OV1-forgrunner og HA1-rustningsruter er aktive. Bakgrunnene finnes, men deres resterende separate figurer og animasjoner er fortsatt del av restlisten.
+
+Normal standardlasting er kontrollert for KN1, KN2, OV1, kartdrage, Math og taverna i alle fire spillerfarger. HA1 har faktisk naturlig introbruk for000..006 og separate normal-/speilfixturer for alle22. Flere TROLL-ruter er kontrollert samlet i originalkamp. Original/HD-returer er eksakte og emulert tilstand uendret. [Tredje figurleveranse](../art/hd-completion-figures-2026-10-11/delivery-progress-003.json) binder eksakte bildehasher og bevis. Full naturlig gjennomspilling eller fysisk mobiltest er ikke påstått. Offentlig publisering av denne leveransen gjenstår til PR/CI/Pages er kontrollert. De eldre tallene nedenfor er historikk.
+
 ## 0. Gjort etter kartleggingen (11. oktober, ettermiddag)
 
 Dette er rettet eller slått på siden oversikten under ble skrevet. Tabellene under beskriver tilstanden før, så les dette først.

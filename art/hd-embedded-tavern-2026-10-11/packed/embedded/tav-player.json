@@ -1,0 +1,41 @@
+{
+  "status": "candidate_requires_runtime_visual_review",
+  "key": "embedded/tav-player.png",
+  "authoring_method": "individual_redraw_with_source_alpha_constraint",
+  "tool": "builtin image_gen",
+  "raw_file": "art/hd-embedded-tavern-2026-10-11/material/player-v3-registered.png",
+  "raw_sha256": "a8429e896aff0f81a8d9c8591f7310d7d462afe11b5477ab1be2cd14b26276ba",
+  "raw_crop_normalized": null,
+  "source_indices_sha256": "d1e01b2fe5908993ffc15d184c89ebe62f55ee94caa04bfd431963cfa55ad27f",
+  "reference_sha256": "a95d54a13e7e1154f325095fcb062b556e257f3ae8aa1ae074f78276611baa9b",
+  "output_sha256": "735f066ec2b537f867df0d63eb81ae7493f2f9f8409d5acbe96117180e1826f5",
+  "master_size": [
+    1315,
+    1197
+  ],
+  "size": [
+    540,
+    492
+  ],
+  "material_registration": "full_original_rectangle",
+  "raw_silhouette_iou": 0.8398618655787053,
+  "silhouette_iou": 0.9920444172745011,
+  "missing_material_fill": {
+    "source_alpha_sha256": "9f75c0985554d9242895de55ad606f9e74fcd29de41c9ebcbd43c63bb88b8fe6",
+    "method": "Only missing generated alpha is filled from nearest generated blue cloth or generated dark material for original0 shadows. Existing photo pixels stay unchanged."
+  },
+  "mask_sha256": "a81f8eb880af0dd10d78aa66214724c209e2036dc3c07a239426f7f65d3d4488",
+  "mask_indices": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "cloth_pixels": 58912,
+  "mask_method": "exact_original_nn_palette_index_independent_of_alpha_with_generated_photo_luminance",
+  "fixed_original_material_normalization": {
+    "path": "material/fixed-material-v2.json",
+    "sha256": "fa5b0fd627a8bc16334fc602f15bbb803a5d6cfa472110dc42d20862deb18a8b"
+  }
+}

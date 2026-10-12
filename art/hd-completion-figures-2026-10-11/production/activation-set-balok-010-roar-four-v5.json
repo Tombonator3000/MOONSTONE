@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+    "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-513c4118b5765b2e-eaf216d9/test.json",
+      "sha256": "46d612b76b378b02c32f4890a9c454c239b305dc02da601a3044145c00856a6c",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-513c4118b5765b2e-eaf216d9/loaded.html",
+      "html_sha256": "112f620b1f2bc71e787dfb279a9a2d4516338bd6e34f3b148e030464c810864c"
+    }
+  ],
+  "scope": "Separate individuelt genererte ruter, sammenliknet med original og sett samlet i kontrollert originalkamp. Eksakte Original/HD-returer. Original flat skygge beholdes uten nytegningspaastand. Ingen full animasjonsdekning eller naturlig kartreise.",
+  "entries": [
+    {
+      "key": "Balok1.CEL/037.png",
+      "bank": "Balok1.CEL",
+      "frame": 37,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "8ad9312cdc0a17934102fa734aab1b7dba71909acc69a6049685c5b5c4a19b52",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/037/6c9681ff52de91f7/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "c9a93841ce970c62ae8d9f89f7312b83341f3047e5e438bc54924ef2e95a984b",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/037-v2.png",
+      "raw_sha256": "6c9681ff52de91f7ad1f5739073416782b5ee104fec532da8957f9733936c96d",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/037-v2.txt",
+      "prompt_sha256": "c35249759e08b1408b16fbb79462c4b988e8a85daa04897247a4dd7b20f5887c",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-513c4118b5765b2e-eaf216d9/test.json",
+      "runtime_asset_sha256": "c9a93841ce970c62ae8d9f89f7312b83341f3047e5e438bc54924ef2e95a984b",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/037/6c9681ff52de91f7/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "179aa600d293e17c36357e0f9ce58184cabbffb2f75d52cc0006872780aae11e",
+      "qa": {
+        "frame": 1628,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "Balok1.CEL/038.png",
+      "bank": "Balok1.CEL",
+      "frame": 38,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "12974c6a32c2eec7fd400930ab8016a62e80e4df81e81dea77127a5b27801104",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/038/395c09a5ff5ae725/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "b7d0cc0ad69664ecd3ea53260bb748c68c3173b7a8ae274ae3fd0e02acca846c",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/038-v1.png",
+      "raw_sha256": "395c09a5ff5ae72545ef39f041ed7b0a2eb66907bb88cc76bd48b39bac6f230d",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/038-v1.txt",
+      "prompt_sha256": "d852357981c337261e93292e17dda9ec89fe0e653d49e186512d24c13abb73be",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-513c4118b5765b2e-eaf216d9/test.json",
+      "runtime_asset_sha256": "b7d0cc0ad69664ecd3ea53260bb748c68c3173b7a8ae274ae3fd0e02acca846c",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/038/395c09a5ff5ae725/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "a02df51395634556de40def9e194967f67c0ee26557aedf5968244a5fcf8563d",
+      "qa": {
+        "frame": 1624,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "Balok1.CEL/039.png",
+      "bank": "Balok1.CEL",
+      "frame": 39,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "ced0e2c82ad44a5c0b5a84452634a9902a859b90e0a8d06470500941be580638",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/039/e7aae06c6fade421/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "7c48be9c912a287ac67aebb936f529a0eae8fcb04fcbaa901d5fd2a13c3d2487",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/039-v1.png",
+      "raw_sha256": "e7aae06c6fade421326851053e0e0e2d55c383c654278b08b99715716c563c72",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/039-v1.txt",
+      "prompt_sha256": "a505abfcfa6a443e06f1af355f3fb5b35378a338b5efbfadf60b09204c477b44",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-513c4118b5765b2e-eaf216d9/test.json",
+      "runtime_asset_sha256": "7c48be9c912a287ac67aebb936f529a0eae8fcb04fcbaa901d5fd2a13c3d2487",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/039/e7aae06c6fade421/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "8fb8c9ba53944e8f0ece91e465ae8074f1eb8e3f11bc09ea27e44bd6bde39525",
+      "qa": {
+        "frame": 1624,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "Balok1.CEL/040.png",
+      "bank": "Balok1.CEL",
+      "frame": 40,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "dcf56f37041caf817c0f6e5259934dc7e9312380f38b349ffe20d83fb723fef8",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/040/f1bb202b2636c36a/separate-shadow-balok-v1-original-flat/candidate.png",
+      "png_sha256": "32c17d34ebfaa25f5ddb02c6487c2105682deaff4b2bc5d544b5a78b47ec20db",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/040-v1.png",
+      "raw_sha256": "f1bb202b2636c36ae2c6758f795ce92a8b32df4fff35a205c02cf9378321c87c",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/040-v1.txt",
+      "prompt_sha256": "4d44760161255139c066ee30ccd716b2ac1a89dbf428809195c400994db8e8fc",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-513c4118b5765b2e-eaf216d9/test.json",
+      "runtime_asset_sha256": "32c17d34ebfaa25f5ddb02c6487c2105682deaff4b2bc5d544b5a78b47ec20db",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/040/f1bb202b2636c36a/separate-shadow-balok-v1-original-flat/art-record.json",
+      "art_record_sha256": "94d19cb0b057cd5a13d50f1b975f9fc58051f1e4f2728221570db5ff608cfd49",
+      "qa": {
+        "frame": 1624,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": "original_flat_retained_not_redrawn"
+      }
+    }
+  ]
+}

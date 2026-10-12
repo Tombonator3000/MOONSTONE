@@ -21,7 +21,7 @@ T.kjor(async () => {
   await p.goto(T.BASE);
   await p.waitForFunction(() => window.moonDebug && window.moonDebug.modus() === 'alene' && window.moonDebug.Kjerne.iIntro(), null, { timeout: 30000 });
   await p.waitForTimeout(1500);
-  await klikkRad(p, 100); await p.waitForTimeout(500); await klikkRad(p, 100);   // lyd, saa hopp over
+  await klikkRad(p, 100);                                  // lyd og hopp over
   await p.waitForFunction(() => window.moonDebug.Kjerne.menyKlar(), null, { timeout: 30000 });
   await p.waitForTimeout(1000);
   console.log('hint:', await p.evaluate(() => document.getElementById('hint').hidden ? '(skjult)' : document.getElementById('hint').textContent));

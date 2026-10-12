@@ -1,0 +1,96 @@
+{
+  "scope": "Originale PIV+CEL frontend-fixturer; originalplassering utledet ved maksimal identisk pikselmatch, ikke naturlig originalkall. Ingen spillminneskriving.",
+  "status": "passed",
+  "checks": [
+    "standard_active",
+    "healer_eyes_HD",
+    "healer_changes",
+    "healer_Original_return",
+    "healer_HD_return",
+    "mystic_eyes_HD",
+    "mystic_changes",
+    "mystic_Original_return",
+    "mystic_HD_return",
+    "state_unchanged",
+    "no_page_errors",
+    "frozen_web/src/render.js",
+    "frozen_web/src/scenes.js",
+    "frozen_web/build/moonstone-core.js",
+    "frozen_Moonstonecd32-AMIGA.zip"
+  ],
+  "samples": [
+    {
+      "scene": "healer",
+      "position": [
+        138,
+        26
+      ],
+      "png_sha256": {
+        "original": "7b44a67bf8aa6a7507a774882c3d7374c79403cdf849ef9d3eb7df0f85d3f338",
+        "hd": "1af0c9b1e91703c74560e3c79453d0b84f81afd23d8d9cf9a933864c3e7b3875"
+      },
+      "figures": [
+        {
+          "fil": "mys.cel",
+          "bilde": 6,
+          "x": 138,
+          "y": 26,
+          "w": 39,
+          "h": 12,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ]
+    },
+    {
+      "scene": "mystic",
+      "position": [
+        135,
+        29
+      ],
+      "png_sha256": {
+        "original": "5c36ca7d265163fbe07213a4666c17becbba2d925f86ec3bbd6eb367b0aeac71",
+        "hd": "1bc801031c2c55b2a5b6ca4904d040a960c730820432ae51d7f0cb6e7a73b75b"
+      },
+      "figures": [
+        {
+          "fil": "mys.cel",
+          "bilde": 7,
+          "x": 135,
+          "y": 29,
+          "w": 35,
+          "h": 10,
+          "speilet": false,
+          "hd": true,
+          "maske": false
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "source_contract_sha256": "abdd66713cf88317577300000c8cd1bfe7197fba9898ef4d84cf79b5177ce16f",
+  "sources": {
+    "web/src/render.js": "63a93d15ee0d36cf0eec6f0ad6b4be5d251f984e13b2634077bd0a9385f2881b",
+    "web/src/scenes.js": "05e7336cd4f92d17ec4dc2172761e7720f80f1532b343a06453f54c505c13c9f",
+    "web/build/moonstone-core.js": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+    "Moonstonecd32-AMIGA.zip": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02"
+  },
+  "url": "http://127.0.0.1:42415/moonstone.html",
+  "html_sha256": "86e310dfb2e88fdab2027ba822cc85092f3f1446620aa345fb7f5899c5494e49",
+  "candidate_files": {
+    "mys.cel/006.png": "032d4a194959577b4bfab84c2905ddc153fb43e695b1b9fdc0416ff280900b42",
+    "mys.cel/007.png": "583e18fa785b848938175c5c852ed666cea819d119a2c2e173d30ba119ad85be"
+  },
+  "package_mode": "automatic_standard_no_import",
+  "standard": {
+    "aktiv": true,
+    "klar": true,
+    "laster": 0,
+    "feil": null,
+    "bilder": 546,
+    "bakgrunner": [],
+    "tilgjengelige": 718
+  },
+  "created_at": "2026-10-11T20:42:00.768Z"
+}

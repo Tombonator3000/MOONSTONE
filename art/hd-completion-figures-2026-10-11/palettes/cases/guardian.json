@@ -1,0 +1,2363 @@
+{
+  "status": "original_palette_branch_and_controlled_runtime_verified",
+  "case": "guardian",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "mog_sha256": "d8cc4ec9f848ee30032f1e0c0db4e37c2484114910d314760956da9fee96da81",
+  "headless_sha256": "b70edf0eeb05e853e3ce0e3949548275824c7ff98f723f83697f6564e67db695",
+  "scope": "Controlled original combat initializer and terrain immediate in test memory only; not a natural world-map visit. No palette writes.",
+  "initializer": "0x849ea",
+  "palette_function": "0x088a4e",
+  "monster_type": "0x8",
+  "branch": "0x88be8",
+  "terrain": 12,
+  "source_branch_words": [
+    239,
+    205,
+    154,
+    120,
+    2799,
+    2253,
+    3328,
+    802,
+    1074,
+    1603,
+    2149,
+    3206,
+    1963,
+    1690,
+    1127,
+    0,
+    0,
+    2678,
+    1876,
+    2799,
+    2253,
+    1963,
+    1690
+  ],
+  "effective_branch_words": [
+    239,
+    205,
+    154,
+    120,
+    2799,
+    2253,
+    3072,
+    802,
+    1074,
+    1603,
+    2149,
+    3206,
+    1963,
+    1690,
+    1127,
+    0,
+    0,
+    2678,
+    1876,
+    2799,
+    2253,
+    1963,
+    1690
+  ],
+  "common_red_override": "0x088c86..0x088c92",
+  "source_branch_bytes_sha256": "9460dbf79a52fd6fdc955aa86824f07e4607794f8008b0d779842edb10ad183c",
+  "words": [
+    0,
+    4093,
+    2456,
+    1910,
+    1091,
+    0,
+    10,
+    7,
+    4,
+    239,
+    205,
+    154,
+    120,
+    2799,
+    2253,
+    3072,
+    802,
+    1074,
+    1603,
+    2149,
+    3206,
+    1963,
+    1690,
+    1127,
+    0,
+    0,
+    2678,
+    1876,
+    2799,
+    2253,
+    1963,
+    1690
+  ],
+  "colors": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      255,
+      255,
+      221
+    ],
+    [
+      153,
+      153,
+      136
+    ],
+    [
+      119,
+      119,
+      102
+    ],
+    [
+      68,
+      68,
+      51
+    ],
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      170
+    ],
+    [
+      0,
+      0,
+      119
+    ],
+    [
+      0,
+      0,
+      68
+    ],
+    [
+      0,
+      238,
+      255
+    ],
+    [
+      0,
+      204,
+      221
+    ],
+    [
+      0,
+      153,
+      170
+    ],
+    [
+      0,
+      119,
+      136
+    ],
+    [
+      170,
+      238,
+      255
+    ],
+    [
+      136,
+      204,
+      221
+    ],
+    [
+      204,
+      0,
+      0
+    ],
+    [
+      51,
+      34,
+      34
+    ],
+    [
+      68,
+      51,
+      34
+    ],
+    [
+      102,
+      68,
+      51
+    ],
+    [
+      136,
+      102,
+      85
+    ],
+    [
+      204,
+      136,
+      102
+    ],
+    [
+      119,
+      170,
+      187
+    ],
+    [
+      102,
+      153,
+      170
+    ],
+    [
+      68,
+      102,
+      119
+    ],
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      170,
+      119,
+      102
+    ],
+    [
+      119,
+      85,
+      68
+    ],
+    [
+      170,
+      238,
+      255
+    ],
+    [
+      136,
+      204,
+      221
+    ],
+    [
+      119,
+      170,
+      187
+    ],
+    [
+      102,
+      153,
+      170
+    ]
+  ],
+  "palette_memory": "0x0961a0",
+  "stable_frames": [
+    1500,
+    2000,
+    2400
+  ],
+  "test_writes": [
+    {
+      "frame": 900,
+      "address": "0x80172",
+      "value": "0x849ea",
+      "bytes": 4
+    },
+    {
+      "frame": 900,
+      "address": "0x8d9ac",
+      "value": "0x8d5b4",
+      "bytes": 4
+    },
+    {
+      "frame": 900,
+      "address": "0x8015c",
+      "value": "0xc",
+      "bytes": 4
+    }
+  ],
+  "command": [
+    "/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/port/moonstone-headless",
+    "--headless",
+    "--frames",
+    "2400",
+    "--log",
+    "2",
+    "--press",
+    "100:esc:4",
+    "--press",
+    "700:down:4",
+    "--press",
+    "760:down:4",
+    "--press",
+    "820:fire:4",
+    "--press",
+    "1200:left:120",
+    "--shot-every",
+    "100",
+    "--shot-dir",
+    "/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/guardian",
+    "--tegneliste",
+    "1000:1401",
+    "--skriv",
+    "900:80172:0x849ea:4",
+    "--skriv",
+    "900:8d9ac:0x8d5b4:4",
+    "--skriv",
+    "900:8015c:0xc:4",
+    "--dump",
+    "1500:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/guardian/chip1500.bin",
+    "--dump",
+    "2000:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/guardian/chip2000.bin",
+    "--dump",
+    "2400:/home/tombonator3000t/Documents/Codex/moonstone-hd-integration/art/hd-completion-figures-2026-10-11/palettes/runtime/guardian/chip2400.bin"
+  ],
+  "chip_sha256": {
+    "chip1500.bin": "3a5a4e0b774107aa2ec45ac25451403e40aedbcf03ff9c774b5bd0391ff54ac2",
+    "chip2000.bin": "722ecf750387079b28c28d10fb9e76325dcba809b4a0a443d8ef6b57a1ac378f",
+    "chip2400.bin": "425f8d9045ddf98a06da9ae228071929ba6a03568e2477f9ee965c03db345732"
+  },
+  "trace_sha256": "8370cc33ef42a841700ef2571a6e405cc0213a79c13a3c272390d203ea7b1d5b",
+  "drawn_banks": [
+    "bold.f",
+    "demon1.cel",
+    "demon2.cel",
+    "kn1.ob",
+    "kn2.ob",
+    "kn3.ob",
+    "kn4.ob",
+    "sel.cel"
+  ],
+  "source_banks": {
+    "Demon1.CEL": "248da7eff5f029694e53d0013d7a023e18cc4c5bd940fe8133f88ce6228dc704",
+    "Demon2.CEL": "81905a0644c4c3262252fa75fb790d25dc0b528064992926da5263cb845f1222",
+    "Demon3.CEL": "6c647e9bc97a89fa77e6aed8ec049b91122aee6cf7a5df9a9eab83db6b44ab20",
+    "Demon4.CEL": "5af35ac6f59859c539c547af724b0690da78ccfeb6ad0c6fcd7e2f2cf0830beb"
+  },
+  "references": [
+    {
+      "key": "Demon1.CEL/000.png",
+      "source_indices_sha256": "01020b1ec34dfe0db584d3d4d5646055a86b38c9110b9a173b2e1dd212be71e3",
+      "original": "references/guardian/Demon1.CEL/000.png",
+      "sha256": "4d659d82bfa7a45be7454d4a955db7b121b04ae0a59afe6093e67a66a7509856",
+      "nearest4x": "references4x/guardian/Demon1.CEL/000.png",
+      "nearest4x_sha256": "d1ce18e7dfc7abe99f3cd14e691d7634cd331e6186fe8224633cfd9ccfcb92f8",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/001.png",
+      "source_indices_sha256": "e228f8ea6b8d913871be4a12199669c61462afc2427a2715990118c9c8537aa8",
+      "original": "references/guardian/Demon1.CEL/001.png",
+      "sha256": "2bbecc3845a0daf59a438ce9bfff61811542ebab8e3c609451663cf38542fac2",
+      "nearest4x": "references4x/guardian/Demon1.CEL/001.png",
+      "nearest4x_sha256": "23a8ef36d971ab07dd414b3e41f5dc493fe09b7d34a8929f2be82041b3de31ab",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/002.png",
+      "source_indices_sha256": "4aa0b342fe05653e184673a002676aa3753c821777c08029c737c8f4e10be47c",
+      "original": "references/guardian/Demon1.CEL/002.png",
+      "sha256": "473e6e4a24c62f70a99dd24f289d4f357ad046669f10ce7839e519358e8b04e6",
+      "nearest4x": "references4x/guardian/Demon1.CEL/002.png",
+      "nearest4x_sha256": "3002b2984f293f3387bc1fbcdb8ca57edca8e017a245efbe3ddd9383b861cbd6",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/003.png",
+      "source_indices_sha256": "de8dca4ec2c80c088616be8391e857311d0d551a6f5418d752cb75f31e5a277b",
+      "original": "references/guardian/Demon1.CEL/003.png",
+      "sha256": "b020e976b03818c8e44b01d2a5b3bfe05b7eb7f195a24ba59c5a1148e1821d5d",
+      "nearest4x": "references4x/guardian/Demon1.CEL/003.png",
+      "nearest4x_sha256": "d76f2efd790d5ef098271b82de7441c6819f6a099b0443430d4e9916bfea5d9a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/004.png",
+      "source_indices_sha256": "daeb9fbe8b4e136faa298b06e0b76217afdaba0e99a4981ea908dcd98d6d0987",
+      "original": "references/guardian/Demon1.CEL/004.png",
+      "sha256": "a067b1babb139db47245cf436a5d87539cb4729bdeeb929ab37fefade57aafc5",
+      "nearest4x": "references4x/guardian/Demon1.CEL/004.png",
+      "nearest4x_sha256": "ed6dcc93eb30d7cff033034a69e06b8bfe1a2af0e2e6786727bd9ad27255351d",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/005.png",
+      "source_indices_sha256": "c58aeaf21936f0186e36a45dbe59153d983abbc1a957f701b073edd17eb65360",
+      "original": "references/guardian/Demon1.CEL/005.png",
+      "sha256": "53cd1cd3ed20d094cb8c4d2c4f3e896d97f254cc9bd365bd57f3f8d477abbbdb",
+      "nearest4x": "references4x/guardian/Demon1.CEL/005.png",
+      "nearest4x_sha256": "9df8c43164ef9e2101b79eb58fdb827374ac6b12e6f8e95aea778f98c62c4874",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/006.png",
+      "source_indices_sha256": "0903c9065e2ed0e19fd473388852c7fd9f9afb0ca01682387c1cae318a01d257",
+      "original": "references/guardian/Demon1.CEL/006.png",
+      "sha256": "968a470e083faf7c0816cbc0b94fd776ab98b8908cd27b5c7bcc1ca87d422c8f",
+      "nearest4x": "references4x/guardian/Demon1.CEL/006.png",
+      "nearest4x_sha256": "d3f429702fbb497bcb88f2bea9a0cbaf3672cf4422dbbad0062d147f7d64b067",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/007.png",
+      "source_indices_sha256": "78ed29bbebd3f30035c03221cfcb9fd1bbceff6b3bfeb66ed54d16973129afa6",
+      "original": "references/guardian/Demon1.CEL/007.png",
+      "sha256": "744fc21edfca8d956885085a70dd25a243d1d13412a05b630980b8755630ad43",
+      "nearest4x": "references4x/guardian/Demon1.CEL/007.png",
+      "nearest4x_sha256": "4daf5cbbf7454bb0d0bea7879a0aeca681d335a44b3d1399b531e4ad45c89deb",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/008.png",
+      "source_indices_sha256": "f2e4608fe558f1ff6fb25eb7f2f79e4cb11b0886dbfd3b857d10eafc55e83174",
+      "original": "references/guardian/Demon1.CEL/008.png",
+      "sha256": "16f0219463b886d26b09f78cc3865e0ee753463c57cf41a9874a95f031a4eb6b",
+      "nearest4x": "references4x/guardian/Demon1.CEL/008.png",
+      "nearest4x_sha256": "ec8dac9f79f14e690b4b10fffbfed0362470746d7327824ae4ece50a4d7baf97",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/009.png",
+      "source_indices_sha256": "6bf1a8550ea518cfcc88ae2cea752cfaf390614c16a083ef89558772d7e343f8",
+      "original": "references/guardian/Demon1.CEL/009.png",
+      "sha256": "81f31a30145844ff9ef9e99ded6e7ef55435b114e3e530a3a1706152b55e0880",
+      "nearest4x": "references4x/guardian/Demon1.CEL/009.png",
+      "nearest4x_sha256": "9160bbd86da56cb7e3597b49a6008ba6cc095b6b32d8ea0398b6b4fa5eb878e5",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/010.png",
+      "source_indices_sha256": "5c18bdcfe99f8b519e7160fb60be4e95f0980da68a4ce27247300f9c4097c0c1",
+      "original": "references/guardian/Demon1.CEL/010.png",
+      "sha256": "596bf9f0ac3be86d843599a253a80dee337894d2872a5b6f5f42011b0eea8b88",
+      "nearest4x": "references4x/guardian/Demon1.CEL/010.png",
+      "nearest4x_sha256": "3af1b5417aac7e20573abc6d58f1e4fe7c5cb69288dc617daf48d134744e1087",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/011.png",
+      "source_indices_sha256": "10ba52f35b101e97995e32241405ab1f2c62ec10dbb9895aad308e8e4a17fcd8",
+      "original": "references/guardian/Demon1.CEL/011.png",
+      "sha256": "dde62e7074cb82fdeded7c549d8e42526400507a89d325dc8edfba78616c02f0",
+      "nearest4x": "references4x/guardian/Demon1.CEL/011.png",
+      "nearest4x_sha256": "932cb8426118ae19207f56355ba74f1ef24b85fe834ceee5648858e9b5c0000a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/012.png",
+      "source_indices_sha256": "418ec6797a81064f85fdd1acb30d8547ba1e96851814f8f237e99c9a8dab2816",
+      "original": "references/guardian/Demon1.CEL/012.png",
+      "sha256": "67c1de2d86084904a3d3109dd249654bec48085cd5f890ff47f913a6b05d83e2",
+      "nearest4x": "references4x/guardian/Demon1.CEL/012.png",
+      "nearest4x_sha256": "695e2d39020285593679c73174f6b89ccc3303058ed9a6d8d542401675def099",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/013.png",
+      "source_indices_sha256": "669c2985f56bdf7f64054466e6fbd8af841b73ecfd17bfe3ab97cc1f3c4c42fb",
+      "original": "references/guardian/Demon1.CEL/013.png",
+      "sha256": "d4f2c4f74bdc1bf9839bed1cbaca389123c4a9e70dda8378499fc5dfc67735a6",
+      "nearest4x": "references4x/guardian/Demon1.CEL/013.png",
+      "nearest4x_sha256": "82d47f7198a6bdd9e9cf644730469928dbbec31073326f3a2f1f31a24b41f84d",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/014.png",
+      "source_indices_sha256": "dab601e23099c44a97a9b9e65c8b4e8f6e34db2fd3758b08929f9d4cb310815f",
+      "original": "references/guardian/Demon1.CEL/014.png",
+      "sha256": "86e9ea561e647ce7eb2fe10f35126a02071c8327cc74ee5a9a94d11370cabe47",
+      "nearest4x": "references4x/guardian/Demon1.CEL/014.png",
+      "nearest4x_sha256": "94eb4ce0cd2937feb690e4a629931d551f6b6a4b820d8b489bf390274c758637",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/015.png",
+      "source_indices_sha256": "dff61bc83c38e23c542e8834e8e59f7f548fa2a787682c926f7cea6ba22e4efa",
+      "original": "references/guardian/Demon1.CEL/015.png",
+      "sha256": "dcd29c37b43c47752ec56aeb9816951e8db4611b9060f3121d842823edbde0a9",
+      "nearest4x": "references4x/guardian/Demon1.CEL/015.png",
+      "nearest4x_sha256": "d0d9d0b3b0a1b55103ea4ef9ffa96e46adb085d008195fee60af27f633bacb9d",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/016.png",
+      "source_indices_sha256": "7b28e44b0259586b6c2ce3bc61ca4e46ce5b5da093a79c171513d515a0dd9325",
+      "original": "references/guardian/Demon1.CEL/016.png",
+      "sha256": "148ff44f1754fb7fd5cba6fc109f94f07111c3a6131871a13d44e6d09ec1003a",
+      "nearest4x": "references4x/guardian/Demon1.CEL/016.png",
+      "nearest4x_sha256": "4df4ceea25ffd18d502e9d02cbcf5dc81a1ab019fb04e403ca58be58b404684c",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/017.png",
+      "source_indices_sha256": "6972da4d12edb45b18137da0b29638220fe121a1e6da70ee2f8367e2f7731845",
+      "original": "references/guardian/Demon1.CEL/017.png",
+      "sha256": "45339dd7a2848411a76aca6284de609f5962aebc9e5d9cbdfb65bc25f13e17aa",
+      "nearest4x": "references4x/guardian/Demon1.CEL/017.png",
+      "nearest4x_sha256": "fd979e0c9bec7c5e70ba303e46d196ee3adbbd0dcdb4317942e8fc17c3dad25a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/018.png",
+      "source_indices_sha256": "81b9c9263a09c9f7c3f25c5d536f36d8207a99808a496d2f415e57d9f0fb9ca0",
+      "original": "references/guardian/Demon1.CEL/018.png",
+      "sha256": "4a3d1fcc2fa4db9c740d04b0f086011b2209cf1ec6a946df2fc3eb635d2fa6bc",
+      "nearest4x": "references4x/guardian/Demon1.CEL/018.png",
+      "nearest4x_sha256": "8916ea4da27fd065a8831078ffde476bf571c3f9f16279b64b0b5381857948bc",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/019.png",
+      "source_indices_sha256": "0371d7791b484ea8996c5dcb50c685470d17ab5a71d7bcc732ab4d3df392018c",
+      "original": "references/guardian/Demon1.CEL/019.png",
+      "sha256": "a9b0b4e371211ce6fa251291d5828acb1ad01ac6d8bb8109a3cf5f020e709a15",
+      "nearest4x": "references4x/guardian/Demon1.CEL/019.png",
+      "nearest4x_sha256": "40c35d51e38f88f37b6f90718201a642aa1b41cfe17360bc762c3d0946e3b3bb",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/020.png",
+      "source_indices_sha256": "19638163a792384413b7f9e22036f5d523445e17c25af6f7b94a2bf8124fbaa7",
+      "original": "references/guardian/Demon1.CEL/020.png",
+      "sha256": "617751cf293092daad2b4a4c6b053f372cf1c0d04b6f57689643834374b2ff12",
+      "nearest4x": "references4x/guardian/Demon1.CEL/020.png",
+      "nearest4x_sha256": "9ee72bee77d92b7666077ce7367d2a6240894c5edda86e6a5bc5e596a94a2bde",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/021.png",
+      "source_indices_sha256": "214beff09187e7a4901fb3fa1d5571b14976925fc7f7e668c137eb733d420dab",
+      "original": "references/guardian/Demon1.CEL/021.png",
+      "sha256": "546705025760e742dc322dcd1ce587bbeadfcbe4107fb61ee3bf79d4b2995089",
+      "nearest4x": "references4x/guardian/Demon1.CEL/021.png",
+      "nearest4x_sha256": "4645193f3944e270a1eb4b8fc2ca0b06bd6647729eef39efc4066f2e872c20e8",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/022.png",
+      "source_indices_sha256": "cdd4de666d9f6522e2b3c5e3f23a51729e8882e24f3e776ff1759ae3be64ebd9",
+      "original": "references/guardian/Demon1.CEL/022.png",
+      "sha256": "68d9f622ebe32ff639b62790bfecedcf16f8d7cc16366dbc67519268afbb0e15",
+      "nearest4x": "references4x/guardian/Demon1.CEL/022.png",
+      "nearest4x_sha256": "0746a93d8143af5fd5514aae01fe2058a47a9c58a627c083338cf2760e3e0872",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/023.png",
+      "source_indices_sha256": "6580082e570ea72dc841a521bc6976c54af29eafc86dd5812d82be05b29b72ca",
+      "original": "references/guardian/Demon1.CEL/023.png",
+      "sha256": "36a15bdb33bc4a844c18d940e5780986634741e74e956b0b6291e5b21f1c7a8c",
+      "nearest4x": "references4x/guardian/Demon1.CEL/023.png",
+      "nearest4x_sha256": "cdd9f3d061b6d4a86aaa9cf421f5b48fb56ed08f7fdefea5ec8b581fd572468a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/024.png",
+      "source_indices_sha256": "dc8ebf9c3dd17a07766d52c22c7d7d1a438850dcbe90e5f0fd2438c6cba23d5e",
+      "original": "references/guardian/Demon1.CEL/024.png",
+      "sha256": "81f3317d48bec1c1f6e5dc6f91b559422704b37620c9c3d37d6effdc8e590c9f",
+      "nearest4x": "references4x/guardian/Demon1.CEL/024.png",
+      "nearest4x_sha256": "fefed6de260bda29da88cf2b774316378cf71568f1313188f9af0914de979194",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/025.png",
+      "source_indices_sha256": "97fc9eacf78552939ac0ebade7743b63dae65a29012bd8e9760944812e542e3a",
+      "original": "references/guardian/Demon1.CEL/025.png",
+      "sha256": "611f28f4fb643dcef578b88091ca7db2c29842c745bf4e14b703422bbdbbc8f3",
+      "nearest4x": "references4x/guardian/Demon1.CEL/025.png",
+      "nearest4x_sha256": "3b4b9d12ea2830cb206652a27714b87da7a314f8b24986af290e29ec624a5f3d",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/026.png",
+      "source_indices_sha256": "d4a1c7c4fa6a41eb90e861804fe33d170b0de0966f27a84b1a120c812e3114b0",
+      "original": "references/guardian/Demon1.CEL/026.png",
+      "sha256": "e62f2e7b2e6cd0c003a94b11279d621280359d851c50ca7ed955471dc0ea06dd",
+      "nearest4x": "references4x/guardian/Demon1.CEL/026.png",
+      "nearest4x_sha256": "439492f822ead65cfa0fc8c1d38fde76742202ac1082d4bdf5be6d73a3e53acd",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/027.png",
+      "source_indices_sha256": "074a3ab21c3e5f412620e79e634ad4324b0f04b6762b5e3492b043bb75c30b07",
+      "original": "references/guardian/Demon1.CEL/027.png",
+      "sha256": "5c903e0808a098984437abef93acbd41e1e878d144e419e0f5cc5a240e61619e",
+      "nearest4x": "references4x/guardian/Demon1.CEL/027.png",
+      "nearest4x_sha256": "23b27dbd463a76140b51c8918f9b38d93b2f9359bbeead3e89d4c844924018dd",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/028.png",
+      "source_indices_sha256": "ae3ca6bdf42ceb02025d5df5348457be02790e50c2e9cc738d013f6e83466a73",
+      "original": "references/guardian/Demon1.CEL/028.png",
+      "sha256": "7d7e7e4ae238009cce933a697e6ce503bec247a99ba97f97a0a46d02ee0a3e73",
+      "nearest4x": "references4x/guardian/Demon1.CEL/028.png",
+      "nearest4x_sha256": "2baa51ff48f69fe8761ffcdf1207d6b191db44f7c209aebc1ec6b1ce85d9d2ab",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/029.png",
+      "source_indices_sha256": "6362a4f4c637d04bacfb0b54920ca261f98551cdb153d286038299eb69ce946d",
+      "original": "references/guardian/Demon1.CEL/029.png",
+      "sha256": "f4e44752157a28c2de1115ea23803fd1ea0ccd583ed71c41edb9a8e97e11e2d9",
+      "nearest4x": "references4x/guardian/Demon1.CEL/029.png",
+      "nearest4x_sha256": "5eb95d51e9eb1c927eb9c510d954e66cdaafe8e191e65307f7bd271b9f8a5ed8",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/030.png",
+      "source_indices_sha256": "d323c225c37d3b4a2ed2c43dc48812b59b58bd054bf8d7a57809619ba990de1a",
+      "original": "references/guardian/Demon1.CEL/030.png",
+      "sha256": "d15081ef89a2f9a6189bafea19d0aa7644ebd0ac4a74b4eaf438ece659cd359f",
+      "nearest4x": "references4x/guardian/Demon1.CEL/030.png",
+      "nearest4x_sha256": "0f29dfbf3935acba4292c46cf4522f66992cb9be3030fbb6368421041d98f9f7",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/031.png",
+      "source_indices_sha256": "aa96d652eebe9fa96fb919421b4593c51ee11f8df5182c418baba5daefdd4610",
+      "original": "references/guardian/Demon1.CEL/031.png",
+      "sha256": "0af43ed154a08fe6969af9504850aeb0e64e4ba7cfb7184b1c135d174983968d",
+      "nearest4x": "references4x/guardian/Demon1.CEL/031.png",
+      "nearest4x_sha256": "1955e71c754a5708503180fbe9ebe532656bc2f2bcccc8a0068ccb12785d1594",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/032.png",
+      "source_indices_sha256": "82ede1f355bfabd2b46b59d8af837744e3ae136e7c267d1f6a9ce0465f008476",
+      "original": "references/guardian/Demon1.CEL/032.png",
+      "sha256": "a4334d9a9d8f2946974dd0fc42c6eea3a363699aef3d96edc5299509ddf5fd68",
+      "nearest4x": "references4x/guardian/Demon1.CEL/032.png",
+      "nearest4x_sha256": "7ccb00a56729a988264555f52ce4b178f409bc2d271022705fd6fd662ba6a336",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/033.png",
+      "source_indices_sha256": "edef04491782485c709b56458372cbd976a0cb8b13509cd1045e5142cc81ba3e",
+      "original": "references/guardian/Demon1.CEL/033.png",
+      "sha256": "ba00650f35870d4bb56bec29e42912501ddab62e6a78a18b7383bd7b27bb6568",
+      "nearest4x": "references4x/guardian/Demon1.CEL/033.png",
+      "nearest4x_sha256": "575acc53b89a2b9a2325977f60ebfcd6a8c73ad3aa524296dd8d68075a0becb7",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/034.png",
+      "source_indices_sha256": "bac8f0145a71066bb2ff93a698b82095c59d4b51217c5d9ef19ce161d3b5601f",
+      "original": "references/guardian/Demon1.CEL/034.png",
+      "sha256": "f0f3c6bb14989914ebefe9a604bbba8254d7bd720641ba47327a43258117ecc4",
+      "nearest4x": "references4x/guardian/Demon1.CEL/034.png",
+      "nearest4x_sha256": "fe607d2a09238a27235ebccc8b6ad4e98934833647a9c1ea387a2178c5f41df7",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/035.png",
+      "source_indices_sha256": "4ddf9fbbaa823a48bbf5ce101869aefadc183e0f35c6ca8297e3758e2aee3d18",
+      "original": "references/guardian/Demon1.CEL/035.png",
+      "sha256": "c76c489a19e0d16181a2a2138b27e0c5e4594b901d17bffa1db16d08d80adbd5",
+      "nearest4x": "references4x/guardian/Demon1.CEL/035.png",
+      "nearest4x_sha256": "52b700378de02172143cab5260f1c3131d07991949005642e54afbc80d69e41a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/036.png",
+      "source_indices_sha256": "f98004b31b4505525869f323caea19f199159db72ee794e0e0f85bc66d8bca54",
+      "original": "references/guardian/Demon1.CEL/036.png",
+      "sha256": "73d12df16b9a921024c5f506441bc9d37f57ea3139a4fc9b5fe65a35df179e26",
+      "nearest4x": "references4x/guardian/Demon1.CEL/036.png",
+      "nearest4x_sha256": "bc10b31be4466061a8fbfae113e4d61d614c7afafaa3066e306ee3b7c6cc5e71",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/037.png",
+      "source_indices_sha256": "041402bce5d7bc82f8db11853739749d37ef96e2b299c434d6ba2dbe3afad611",
+      "original": "references/guardian/Demon1.CEL/037.png",
+      "sha256": "1c9c7151e00ded0e84bc7b052d642bedb03258920e3f6182837422a07d10548b",
+      "nearest4x": "references4x/guardian/Demon1.CEL/037.png",
+      "nearest4x_sha256": "b6ec8d16eac34d0a7886fa1c9c4a1fe2ed33895722839ab7f14187ef3777d2ea",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/038.png",
+      "source_indices_sha256": "d81470fb840067015acc93e801b0c4d4d0da6a67315da492c5ffc8925e8bb743",
+      "original": "references/guardian/Demon1.CEL/038.png",
+      "sha256": "7f92fa5d775d411dabfcaad6096a0cbf02dd4e5e6cdc41a0dde7bf973c011e08",
+      "nearest4x": "references4x/guardian/Demon1.CEL/038.png",
+      "nearest4x_sha256": "f86b8df3c776dd4fbac86b1258c531c22bfb3aa52379667425d4901cb2a9a2eb",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/039.png",
+      "source_indices_sha256": "a208bae0950da7a35c17f3aaff06cda30df0236b87cbc83a223b7107f5ca9d41",
+      "original": "references/guardian/Demon1.CEL/039.png",
+      "sha256": "c846ce18f86a03012f057b4c7f98d9e1a2adf64631c6b19990fbd7b3e1e93148",
+      "nearest4x": "references4x/guardian/Demon1.CEL/039.png",
+      "nearest4x_sha256": "004f6f00741d77ffe5330c4984453473f4a5c497f2fc170e3763a3bd8444da4f",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/040.png",
+      "source_indices_sha256": "a62eb58a3710eeb76579d9475d436c0fcc3848d7f47e2c11a0eee5554a07800d",
+      "original": "references/guardian/Demon1.CEL/040.png",
+      "sha256": "8fd08a4fd4ca5cd1ef3dd81aba96138e10307550ef14dda2bf3b0c1d26f1a66c",
+      "nearest4x": "references4x/guardian/Demon1.CEL/040.png",
+      "nearest4x_sha256": "451fc3eeae6aacc16a30549cbffc08e9d29cb88323036a93e32a5ef5aae23d9b",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/041.png",
+      "source_indices_sha256": "a75995edee9df4da0073356c32d3d9bf72f094be8aebe91358faf810d7f33014",
+      "original": "references/guardian/Demon1.CEL/041.png",
+      "sha256": "9468a9152a0f1c577f821875a34f6ebeec551688b71fd3413d8744052c37df62",
+      "nearest4x": "references4x/guardian/Demon1.CEL/041.png",
+      "nearest4x_sha256": "fde9dba2728eaec5ce8db6872ea6ee98cadc8287f172267dfdda3ff4393f26f5",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/042.png",
+      "source_indices_sha256": "c898e1bd6cab4152450bdb2b7bd6585ffcc4dd166f384a88ea67f49468121259",
+      "original": "references/guardian/Demon1.CEL/042.png",
+      "sha256": "60ca0f47ebb0dd322210f63e1c0d30e22501d8874d7eef25ff341f8c1c52fa63",
+      "nearest4x": "references4x/guardian/Demon1.CEL/042.png",
+      "nearest4x_sha256": "d5b801fea570055636ebfecb4ba841c2e14fda30c8c0f91981e762f04e463af2",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/043.png",
+      "source_indices_sha256": "6055eec8c6bf4deae62bc8e729738fbd2a561bcd1f66ed3a9ab6fdf81b7877e1",
+      "original": "references/guardian/Demon1.CEL/043.png",
+      "sha256": "ef29829d0d7d4aca4191c160a1b51516cde605ddfe8e2acace994426c03175dc",
+      "nearest4x": "references4x/guardian/Demon1.CEL/043.png",
+      "nearest4x_sha256": "58967b74ef18f795c32f15ffc4efe44fdfab3178f9fa2440ba911cfbdafc0843",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/044.png",
+      "source_indices_sha256": "c0fa079267c271f44926bf36726a73bd55031ba6ca3d7ec61b26a521e2774a87",
+      "original": "references/guardian/Demon1.CEL/044.png",
+      "sha256": "cfc02d9c6ccab54a1c25a8494e01859f4af6ffe8980a95141066bed6a2d5c8bb",
+      "nearest4x": "references4x/guardian/Demon1.CEL/044.png",
+      "nearest4x_sha256": "dd80f85df3395c9dfb5fd06454debae4b4fafbee51625bb8b59a40c2d60e5288",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/045.png",
+      "source_indices_sha256": "ab26987f5ba2795fb9f34555ac3ad68cb5b6a96f938127c0f89b9902d7ab2acf",
+      "original": "references/guardian/Demon1.CEL/045.png",
+      "sha256": "f2f0d4089095f95b5a7a07fee3c479f29aed068a14a9a927099d59c0126c875f",
+      "nearest4x": "references4x/guardian/Demon1.CEL/045.png",
+      "nearest4x_sha256": "889161d6972d094f04938343929740eab4f868fb12559c0f45543611a98b612f",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/046.png",
+      "source_indices_sha256": "cea680014af819fc9e94bb1a073d65c885c27b1359e16a13861603098c38dc26",
+      "original": "references/guardian/Demon1.CEL/046.png",
+      "sha256": "5dd1a9daa3e2d1d7ebb9caf40d2ca2c4876bebefa52e3a69c605f51f8936004a",
+      "nearest4x": "references4x/guardian/Demon1.CEL/046.png",
+      "nearest4x_sha256": "6c2337538d0a2d8e7059e26a13d8509fc2f3ce5b030858305b3167f10bf4cc4e",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon1.CEL/047.png",
+      "source_indices_sha256": "78fe1cd975731f129cdceba7858a890c0027a9fba42c8bebb4f2a4d699651838",
+      "original": "references/guardian/Demon1.CEL/047.png",
+      "sha256": "4d807698b34a8753b01f6c95473caa6a8d2812027ef1809969ea705de6eee60f",
+      "nearest4x": "references4x/guardian/Demon1.CEL/047.png",
+      "nearest4x_sha256": "d4c331ac8865f651dbc4ee8b6f2701e1fba26c02cc196ed8b319e784baddbc8b",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/000.png",
+      "source_indices_sha256": "2bd91f9dfb9b4721ca28d3c2d564e2c391d08564563b31d9aac5d9f9d27680dd",
+      "original": "references/guardian/Demon2.CEL/000.png",
+      "sha256": "be764fae1425bc0918a4794cad225a0f92e2eab0a8853edbfdf6b1f501c2497b",
+      "nearest4x": "references4x/guardian/Demon2.CEL/000.png",
+      "nearest4x_sha256": "1304337ffe36a6b1e0487181ae5181087d6f6cd8f9a577c3dc73a383e401090f",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/001.png",
+      "source_indices_sha256": "3d261a41925820121f6356e284a08c9287cb52b600e5a6fc3a49bf39e3b126ed",
+      "original": "references/guardian/Demon2.CEL/001.png",
+      "sha256": "e0b5d2e385ec049ffaea2ba5668b7eadd059725d157981493377a6f4dd9bc038",
+      "nearest4x": "references4x/guardian/Demon2.CEL/001.png",
+      "nearest4x_sha256": "e97fbf9936032db0bf84f2d9b1cf91421a8f361e442464a18ab1d4bd49b05c51",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/002.png",
+      "source_indices_sha256": "d1b051ad68ca0b71390d5d4db1a6eafc016f67e88db18dada120e440edb369ac",
+      "original": "references/guardian/Demon2.CEL/002.png",
+      "sha256": "56ac9abf4db991d43246e843a64ba8dfb4e6f6fdb61ddeec277c387f6160a53a",
+      "nearest4x": "references4x/guardian/Demon2.CEL/002.png",
+      "nearest4x_sha256": "67d18c2577bd837d36bd3b342551c503df8bb1fdb79c3134d02e29d48a1e7182",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/003.png",
+      "source_indices_sha256": "8e04e4d532880037ca357e8e2b6c5d5cb3dccc2846161baa4d1b2e0cceebd29f",
+      "original": "references/guardian/Demon2.CEL/003.png",
+      "sha256": "1efeb26f1eea20681cd137cd2c6ab1af1429cc3a931a1cc943be2bfdd00ac646",
+      "nearest4x": "references4x/guardian/Demon2.CEL/003.png",
+      "nearest4x_sha256": "09f6a08ebefb3b2c11400fd284d8b67880e0124f057999dd3b8788212aa6003e",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/004.png",
+      "source_indices_sha256": "7253269f70f77db872b0439c19215f84e555336780b4c33a76d386b65ecb2596",
+      "original": "references/guardian/Demon2.CEL/004.png",
+      "sha256": "608b5c3cd5caddd6bf69683acf510e265b207e5cb5411c7357887d94d445a920",
+      "nearest4x": "references4x/guardian/Demon2.CEL/004.png",
+      "nearest4x_sha256": "991ebf6d399d8e1f3004c00ecbacc704959a93b77893be5b502d00e5632bbc11",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/005.png",
+      "source_indices_sha256": "103fc59631f85437d2286df98242e242a536e694d2748054d938d399ae046d2b",
+      "original": "references/guardian/Demon2.CEL/005.png",
+      "sha256": "3d7a419235b43191c3e6efce296c69250af175227905e1a9779ca1bbff9b0629",
+      "nearest4x": "references4x/guardian/Demon2.CEL/005.png",
+      "nearest4x_sha256": "8a2a8b0324ba4050890678a330d05381c3444e7fa82f48afad63a2b460724cac",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/006.png",
+      "source_indices_sha256": "ee4115e1a3cd43f7aeac65998b0f5f54d413bb831dd6e125893d4f34819923b7",
+      "original": "references/guardian/Demon2.CEL/006.png",
+      "sha256": "7a984b374fda4c1c3e4cca257deed01022f2d9686c49f77f82c765dde45df69b",
+      "nearest4x": "references4x/guardian/Demon2.CEL/006.png",
+      "nearest4x_sha256": "d979c665a64b8ebe2f0b445111e695bf27224a2aa4f3b80936ef5c40b99be649",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/007.png",
+      "source_indices_sha256": "9b9b41f3e263a49c5be4decae561d1034bccfa8e1fbed3f4b39883583557a605",
+      "original": "references/guardian/Demon2.CEL/007.png",
+      "sha256": "e617dd3413b4522a319eba90cd93771afdca7cc3bd1876ff2e29d97192873ef1",
+      "nearest4x": "references4x/guardian/Demon2.CEL/007.png",
+      "nearest4x_sha256": "b5cafa33fd9e224810bd5473b730248dc69ba03577be405f1186893d9472d679",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/008.png",
+      "source_indices_sha256": "225a1dbe92c0ecde01497bad11b6300303f8a517cbaa22dd309fca9152e25dcc",
+      "original": "references/guardian/Demon2.CEL/008.png",
+      "sha256": "4013f263627a28b7b823d62cd73dbcb4d6585617786fbeae02503a0b20b51bed",
+      "nearest4x": "references4x/guardian/Demon2.CEL/008.png",
+      "nearest4x_sha256": "fc1cf4aba0bf69d45bb01314a09256b3bb8bd8842b4a3fd8a6434b193e198210",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/009.png",
+      "source_indices_sha256": "81356373ba403949cd05439f38f7b2c24dd597e5cf1bf5b7b7d3a08608204b2d",
+      "original": "references/guardian/Demon2.CEL/009.png",
+      "sha256": "7cf43ae979d456b85e68b4e0b6161fcc291be76424ca4301491aa8e97404fbbb",
+      "nearest4x": "references4x/guardian/Demon2.CEL/009.png",
+      "nearest4x_sha256": "1511c3733b74839db92fbb4d4e75df5b30e503c23a32192f679934d57cab38f4",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/010.png",
+      "source_indices_sha256": "95b67e07581f4964ef4cbd5a9e13bc296a4d56180c02fc70cabe9f91f8504581",
+      "original": "references/guardian/Demon2.CEL/010.png",
+      "sha256": "703f0ce997d6f787006041378c423a17e955c88c0086594c4faef9c5351e6d4a",
+      "nearest4x": "references4x/guardian/Demon2.CEL/010.png",
+      "nearest4x_sha256": "49a4d53e1c666972ee32c46533b32a8c02b4628cf60aa3bc38783151b6dafac7",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/011.png",
+      "source_indices_sha256": "bf14cc57837340e8c450bfdcdd2dd2127ddabaac112ea03cb5f2a601333ebcd1",
+      "original": "references/guardian/Demon2.CEL/011.png",
+      "sha256": "6817f5242882175103f35081c0bb93fc6b24a09b83af68ee0ccdb3a929db8d9c",
+      "nearest4x": "references4x/guardian/Demon2.CEL/011.png",
+      "nearest4x_sha256": "0d60790c726a69b1a6f38e73bb9c8c816753266035545aca80eb3397e4b04a14",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/012.png",
+      "source_indices_sha256": "1bb42aa1d785ee72fb50bf9b2aae50850a04e830b9600d3f856994a62d3762ce",
+      "original": "references/guardian/Demon2.CEL/012.png",
+      "sha256": "b3235782410c8028cb0a78a7decadbe2339154268affeca0f2fa624e3b236f60",
+      "nearest4x": "references4x/guardian/Demon2.CEL/012.png",
+      "nearest4x_sha256": "716a8fa3998fbf364531deec25f29197ba4e0c054df6d3c7a0303aff728b2237",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/013.png",
+      "source_indices_sha256": "f462296a3258272901a843ddb8abbef3b3ed05db93ac018d58781a91525f5735",
+      "original": "references/guardian/Demon2.CEL/013.png",
+      "sha256": "63ee1263eee7e40bc9a324f4b0fb0b94209089d6ac8cac6c05f9350b18c9b5b7",
+      "nearest4x": "references4x/guardian/Demon2.CEL/013.png",
+      "nearest4x_sha256": "e768f0db00e8c2621e7e97ad9155bf0afc66a9697c36a195f1ab97a1e5da57a0",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/014.png",
+      "source_indices_sha256": "5cfbe76673aa1c763ebc3cdb591daf5a9235e3bc975b1450d0ae6b5534b5e5c2",
+      "original": "references/guardian/Demon2.CEL/014.png",
+      "sha256": "a416bac0d4085159a65c070993734286931a58e747d230137d66d5e22d0750fd",
+      "nearest4x": "references4x/guardian/Demon2.CEL/014.png",
+      "nearest4x_sha256": "d46c260cc04b308e243db8b69dcf542ca2da08096c75bb1002b5de3f3134cecd",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/015.png",
+      "source_indices_sha256": "768c370d856a7c2897f1553f920eea747918187c6e1861edd680c6b6e613561a",
+      "original": "references/guardian/Demon2.CEL/015.png",
+      "sha256": "1aaa5c281783cf6918322fb6d169206757a3dd9d1cac547daf2f3a3b3da4cb02",
+      "nearest4x": "references4x/guardian/Demon2.CEL/015.png",
+      "nearest4x_sha256": "2b8b1248604072beb4c303fc65acff903666dd616ed2cc6cd84480e346598d43",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/016.png",
+      "source_indices_sha256": "6cc0fa636b31234f59df23d3c04a06032e16e0123af6aa3ddf913ab69f839599",
+      "original": "references/guardian/Demon2.CEL/016.png",
+      "sha256": "c71cf9ddd1ccb2c99b3addf7565cf9f322aa2a80a85f345fc491fe0641e5790f",
+      "nearest4x": "references4x/guardian/Demon2.CEL/016.png",
+      "nearest4x_sha256": "0b8860084afefcbe87fdccd169b4d8189b2c98a38ce6021e57ab5463778ee071",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/017.png",
+      "source_indices_sha256": "5d53d0b415a728e061bd2e30102160888c9420e20942fccb8f7160a5374af085",
+      "original": "references/guardian/Demon2.CEL/017.png",
+      "sha256": "62e8e0b9be890c3334822d9244deceb79d6a50124efb231403d2669db0d0a746",
+      "nearest4x": "references4x/guardian/Demon2.CEL/017.png",
+      "nearest4x_sha256": "abd48267eef673084eb11475e89d3cb08d453981b33314fde1294fd8c0d42539",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/018.png",
+      "source_indices_sha256": "7fd1455d3de95c0afc68873beee00e9fdd91750a46e39a6d89ab5dc2ba624e51",
+      "original": "references/guardian/Demon2.CEL/018.png",
+      "sha256": "4cf4144a0284d5f76a2eb5d43b6d9432a10d2116dd055fa7b3234600f98388dd",
+      "nearest4x": "references4x/guardian/Demon2.CEL/018.png",
+      "nearest4x_sha256": "23a520395cce86c463f8900387141ca8c7f4e21da5a85d3911c8a987ab9fa380",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/019.png",
+      "source_indices_sha256": "087ab4581963d3c144b2580ed2ee161613889aa8ad3169ce04901f5dac1db673",
+      "original": "references/guardian/Demon2.CEL/019.png",
+      "sha256": "3c64d6463579d040e6ce4e7527845f7266bcfbc60d10e3961662dac5dbf02a59",
+      "nearest4x": "references4x/guardian/Demon2.CEL/019.png",
+      "nearest4x_sha256": "13c2282604e09248c06a3c0937c43d0bfbeef4782537b3cd25a2b3df0a01e722",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/020.png",
+      "source_indices_sha256": "20cd474c85395e0330c99a38d1184df6c0c7dc9bbf03271b2b973eae80674029",
+      "original": "references/guardian/Demon2.CEL/020.png",
+      "sha256": "0c79ee389cecc9e8f7636f1118624cce7fd8452546a002c66d0ad97b8457150c",
+      "nearest4x": "references4x/guardian/Demon2.CEL/020.png",
+      "nearest4x_sha256": "de7b20ef0a857a4678dd1ce925f69c9039a56baae165fadd004c633ae7845c02",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/021.png",
+      "source_indices_sha256": "6ef339a78e9a4bc9c85fd945d45ebcee32ea7c7d390d0e519d4cc8db9d50722e",
+      "original": "references/guardian/Demon2.CEL/021.png",
+      "sha256": "88012b3c569b0941150f0500506c6812b435c8a71bb87221227f570ae399dfa8",
+      "nearest4x": "references4x/guardian/Demon2.CEL/021.png",
+      "nearest4x_sha256": "c80f807652fcdb20ed995c32d8311889755f1b8e11ffef60efa7d74d4f668a81",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/022.png",
+      "source_indices_sha256": "046adcf63b69a9b4ce1174a9cf748c401771fc1a8e8e14fdfdd6ecc898147f9f",
+      "original": "references/guardian/Demon2.CEL/022.png",
+      "sha256": "83065486f3a06e925847cbb216c0a7c6282b01525707584e1251fbb18b7c79d7",
+      "nearest4x": "references4x/guardian/Demon2.CEL/022.png",
+      "nearest4x_sha256": "f2c76960dc896c72945dd3a198f1dd2dd20b67fded269a881409b0449d46fa9c",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/023.png",
+      "source_indices_sha256": "99818eda6071543d06abf12dfe519d39048aa9cab2ba18f56d7b3121bb879a8c",
+      "original": "references/guardian/Demon2.CEL/023.png",
+      "sha256": "7b02df32d0c099bc8af3722a0de35fac749c33d5525a6b394b836c0701e11f17",
+      "nearest4x": "references4x/guardian/Demon2.CEL/023.png",
+      "nearest4x_sha256": "85ce044ab64776d6975a0f34fdefd4f45d8ce47fda53429d34a66ebf380211c3",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/024.png",
+      "source_indices_sha256": "a699764b40aa5e160fa4d4f0a5a540143dc5c2927fbcfc0b5a0b0f5c9495ad29",
+      "original": "references/guardian/Demon2.CEL/024.png",
+      "sha256": "4cfb829369524eca1afdd109554ea476d185134c3a0821f6aaeef5c55529e23e",
+      "nearest4x": "references4x/guardian/Demon2.CEL/024.png",
+      "nearest4x_sha256": "392fafec25f01b4efa38fe2f0fea2649294b3b8f2de038779e077fd2c208b695",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/025.png",
+      "source_indices_sha256": "437ce3553b4cd463941fbe21bc1aef7f6e3f2dbf09621297f46f0ba44727f2a7",
+      "original": "references/guardian/Demon2.CEL/025.png",
+      "sha256": "10a11a843f51b1f6afdfff8c851c4d5669dbaf7e1ba26cab03092a390aa495c5",
+      "nearest4x": "references4x/guardian/Demon2.CEL/025.png",
+      "nearest4x_sha256": "4f8280320bc9a3faa7ffda211aedeeadaed057b2a6e2fedc36c8ef1e30845173",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/026.png",
+      "source_indices_sha256": "fe1147cd678d8ba168dc5dc83f353b73f96265646fd9515efc6f5eedb8ccc3c0",
+      "original": "references/guardian/Demon2.CEL/026.png",
+      "sha256": "30bf0b278d912ddb82baf39ff3303faee02a0a44a4b7b2937b64e1a4e67b9e72",
+      "nearest4x": "references4x/guardian/Demon2.CEL/026.png",
+      "nearest4x_sha256": "f409a855a60eadee3284f5118571ff42b3f2e45b45b4c5af4bdf91fbd823bb1e",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/027.png",
+      "source_indices_sha256": "844cdbe4d6037d47eafc2625b043f0370b0da807fefd54187ceb2db21a922b99",
+      "original": "references/guardian/Demon2.CEL/027.png",
+      "sha256": "a2060ef8237b33f8ba66a99c8871c40c375dcada24c6f8a7b03038337cbdfbe0",
+      "nearest4x": "references4x/guardian/Demon2.CEL/027.png",
+      "nearest4x_sha256": "5c1b487367ba61a8dd353009396f5ffa4c27f208eedd06849e7d8b84ec4ac2a6",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/028.png",
+      "source_indices_sha256": "13aa7f5e5fa26323ac94d26ca5afe986281975182b47a989a8c8877a41cb61e2",
+      "original": "references/guardian/Demon2.CEL/028.png",
+      "sha256": "f7be6a3fe9e6762c30a816c722a607d7b5c19c88f167507c002e8642cfb908e2",
+      "nearest4x": "references4x/guardian/Demon2.CEL/028.png",
+      "nearest4x_sha256": "db26db4a2d4639edb0ad504b63eed8801c361a7965b6c6976efaa93bb087cc85",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/029.png",
+      "source_indices_sha256": "06e2804ea17f9c4b76dbab7ffa8384129bba2ac295ec979a097f9b99a4143e5a",
+      "original": "references/guardian/Demon2.CEL/029.png",
+      "sha256": "312b4edd5b4ea2a4cddc190b0b9f6e141f84cf2ad9097e6baf4de83f82656e09",
+      "nearest4x": "references4x/guardian/Demon2.CEL/029.png",
+      "nearest4x_sha256": "9ba95edfdfb0a01b14e3440f23e573b2c30f0cce070a98c7a70025e4ddcedb56",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/030.png",
+      "source_indices_sha256": "366eadad7bf86982ac575c9e41e569b7e0863d24aefa0e63a49a4c74d5437f1d",
+      "original": "references/guardian/Demon2.CEL/030.png",
+      "sha256": "b42287314dc9955e869c347473cab52994056b29a0f7cc31b145165491cecd1a",
+      "nearest4x": "references4x/guardian/Demon2.CEL/030.png",
+      "nearest4x_sha256": "c7d665b3b70ad3d2ca12d647568d550b04bf6f6da3aa7bd1ad61a4a6d0810837",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/031.png",
+      "source_indices_sha256": "586d8b5cf6fa0b0632261dc9c89862ac02e70a8abcd624fef4673bdbc70d4ceb",
+      "original": "references/guardian/Demon2.CEL/031.png",
+      "sha256": "3c9f3bbc6c1467bd2ad1ef42ecdf8725efaac0347aa4f2f5a3507ab21a347b40",
+      "nearest4x": "references4x/guardian/Demon2.CEL/031.png",
+      "nearest4x_sha256": "41ecc8b0cfbab41704e1fd8af184e0f7569b8d34db16c053d253ea13d4c64e70",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/032.png",
+      "source_indices_sha256": "fcc1e1d18daaf786134d14ed2965fcbaabcbbb7641e890e51dadc7271f8e27a6",
+      "original": "references/guardian/Demon2.CEL/032.png",
+      "sha256": "2fff45b1e689a75276d0f9f808291c2f52452fe2f8d45d1dccebfe79dcdd892a",
+      "nearest4x": "references4x/guardian/Demon2.CEL/032.png",
+      "nearest4x_sha256": "3dde99f65d5dfa87de434bdc0b14babb1aa065fec5de2eb087d2a37097ef5662",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/033.png",
+      "source_indices_sha256": "33f793e6520eda04dee881dc5799e92392a3f16402fc23bf0fe29f267a650ab9",
+      "original": "references/guardian/Demon2.CEL/033.png",
+      "sha256": "d7e290d8a18fc05a383a49e624b630b5daa4372b4142e9346f48925207b4cee9",
+      "nearest4x": "references4x/guardian/Demon2.CEL/033.png",
+      "nearest4x_sha256": "c3bfb017cd349f036c5d5701df17b1731fa27cf706d6720745da6bf30fd47112",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/034.png",
+      "source_indices_sha256": "a6f5c99e8a2c76581abf758d40e7ef94f25336f4bed18929f51c83c55f694743",
+      "original": "references/guardian/Demon2.CEL/034.png",
+      "sha256": "82dd77f86aa157b47fbf2a8f40bfa0385eedd78f479ddc053c4dc1daa4f9a563",
+      "nearest4x": "references4x/guardian/Demon2.CEL/034.png",
+      "nearest4x_sha256": "b7151829ba097f6b5879f9eb2afcd0b8b52261b7342896d3e7e2c9d596066497",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/035.png",
+      "source_indices_sha256": "aaba20102ca0522a7edfac1015a428f1d15dd490acf40340f78dbebe254fac38",
+      "original": "references/guardian/Demon2.CEL/035.png",
+      "sha256": "570a7a6f070c960d48b087140f395b08c26b159920815f4a196e34fea5a87d7d",
+      "nearest4x": "references4x/guardian/Demon2.CEL/035.png",
+      "nearest4x_sha256": "ba9ec04dd0973db3b7b7c8c410de7563bed159031bbcf0a30b9570cdb01d1be8",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/036.png",
+      "source_indices_sha256": "400b2d22fce79d2394d980015e5e34ddc581d3ab52617a4f05192a31f24eca97",
+      "original": "references/guardian/Demon2.CEL/036.png",
+      "sha256": "c905086a715ec05cc53f462536adf270b23418f2ec36cdd3f7d2ff07a98265db",
+      "nearest4x": "references4x/guardian/Demon2.CEL/036.png",
+      "nearest4x_sha256": "f922a3b74589dbe7576e2753e464b60f3a65027a231d2bac2a2d3bcfe6307f16",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/037.png",
+      "source_indices_sha256": "5075d5818077316e296e4225b540c377dd37f8499b8a779cd81e6e46996a9806",
+      "original": "references/guardian/Demon2.CEL/037.png",
+      "sha256": "10d92a20d3767532bbe9b926b039d2ebfa6a8a86762f452058885a051073b553",
+      "nearest4x": "references4x/guardian/Demon2.CEL/037.png",
+      "nearest4x_sha256": "5e368efa452a39c8b490db076b92670212cdff3bc77b4d95e01fafd73ee171a0",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/038.png",
+      "source_indices_sha256": "500b18cc6eea79c67b230b3a12229a960ec1298958b9c4b4749257fd724fd1c6",
+      "original": "references/guardian/Demon2.CEL/038.png",
+      "sha256": "9278f37fb761f10a301495724b601132f29bdb3583157640eafb6eafc3f66638",
+      "nearest4x": "references4x/guardian/Demon2.CEL/038.png",
+      "nearest4x_sha256": "3a72c1a0b08f4c8c760ef1ca83334fc34e234a3fa299f94a3779550acc85a002",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/039.png",
+      "source_indices_sha256": "46ccd2c36f15fdf1a071d41135af824e61b038dda2cafb0aec984afd4935ec41",
+      "original": "references/guardian/Demon2.CEL/039.png",
+      "sha256": "9c718e5d90be7fa7362232c31d12ecedcec34007ab5b4e25ccb4e4e3187f6649",
+      "nearest4x": "references4x/guardian/Demon2.CEL/039.png",
+      "nearest4x_sha256": "886ef3581cc82b068125720304bf241a63de39d343a257ec806982db4b530d6d",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/040.png",
+      "source_indices_sha256": "80f272a4fa7dd476c30925f9d96018d6110808a5575eeb66adcbce5b69c25deb",
+      "original": "references/guardian/Demon2.CEL/040.png",
+      "sha256": "12a1fe481bbc9522b4a4b0465e3fa94a82049d0ff04ed8f312be3ad5a7c357d4",
+      "nearest4x": "references4x/guardian/Demon2.CEL/040.png",
+      "nearest4x_sha256": "a55e37b98f53b8381f1be46280d45d4a5b5297e4c55e2814be9d340286bf1a7a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/041.png",
+      "source_indices_sha256": "c6a6dd73aa268e0839d2f7fa55040acb3d924666565de109432cc8eca57563b4",
+      "original": "references/guardian/Demon2.CEL/041.png",
+      "sha256": "f0c1d5670f636e025d04efb71844c4524db018cf8a2c3b30644333966a0e274d",
+      "nearest4x": "references4x/guardian/Demon2.CEL/041.png",
+      "nearest4x_sha256": "98396394828effc2c3dfab93a61c7eabaa850fdcae741f973a1faaff038ac01a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/042.png",
+      "source_indices_sha256": "6a64be0cd33862f76cae0c5543055e34cce8c2fae325bdcee58cb0c59598a113",
+      "original": "references/guardian/Demon2.CEL/042.png",
+      "sha256": "9d3dfa9d493b06835e50eb722a6d7a848c43b3bd1c03f2d0a0d9a1322ab0f96b",
+      "nearest4x": "references4x/guardian/Demon2.CEL/042.png",
+      "nearest4x_sha256": "2fb290833b162eaa5d5f5ed75124d0731e31c9d8d062174848575ed6674acea6",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/043.png",
+      "source_indices_sha256": "a8c30e1e1a053c7ce79ad23fed43f5259102045feb8a44d0da2d0d3afbcd5583",
+      "original": "references/guardian/Demon2.CEL/043.png",
+      "sha256": "d7bea324f4fb27f76eb5e0c1fba50fe5ff3fb1c09efe4242289f1e0a6661ffd5",
+      "nearest4x": "references4x/guardian/Demon2.CEL/043.png",
+      "nearest4x_sha256": "cff488dd9a3e87ce3a278bb66cffbaf89acc247c571a668b46382743e8caa321",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/044.png",
+      "source_indices_sha256": "58a49bae5c79c293a0dae2b100f5920c8b15a14859859ffd5ba80da45e730f75",
+      "original": "references/guardian/Demon2.CEL/044.png",
+      "sha256": "37f37be7a56520d9f0a036f99db31340c173b93c83c39944fa541b5df4f40673",
+      "nearest4x": "references4x/guardian/Demon2.CEL/044.png",
+      "nearest4x_sha256": "d147fbc75964092bd7dcbe5c1f17db435d695dce38b97f6857a62ecceb950ffe",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/045.png",
+      "source_indices_sha256": "b1f10894cc571869d83accc1c4b2ab0762ee2786e2bb7a8f9c3ce79c1eeebf6e",
+      "original": "references/guardian/Demon2.CEL/045.png",
+      "sha256": "272b4fa5423930672f78724147d2503b471b9b1fc7a91b102042c5873b1741a9",
+      "nearest4x": "references4x/guardian/Demon2.CEL/045.png",
+      "nearest4x_sha256": "f0ad4b67b1b63a28c6f34bef8314b284518563a2c726e38be9bde2e6ecafd7bf",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/046.png",
+      "source_indices_sha256": "0f97472df95580508e18f59d490c1542c82a484c99024b1188aa1b5a4beb0397",
+      "original": "references/guardian/Demon2.CEL/046.png",
+      "sha256": "8561ed47ce5a17427036f8a202a49df7e1c2ee2235af76410e911fe1c6199bd3",
+      "nearest4x": "references4x/guardian/Demon2.CEL/046.png",
+      "nearest4x_sha256": "5e9d2a6807b85dddc6cb685d4a6410ade3e673633f457d2c810581146ed957fc",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/047.png",
+      "source_indices_sha256": "79276ccfb9f2bd14bde6760c0c63bbcc8036ec5482ca91255bd38f104cc7f112",
+      "original": "references/guardian/Demon2.CEL/047.png",
+      "sha256": "3ad637f2a94e8ac205cb28c47416ace0c0a5bad54ecf34515ce4d2f3650cb74e",
+      "nearest4x": "references4x/guardian/Demon2.CEL/047.png",
+      "nearest4x_sha256": "b2f285a97531997fd24c80abb4c0b3ae578605d9fd70eaf7320d34d20a15eb02",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/048.png",
+      "source_indices_sha256": "4e21a2bf8152758602c51d3c9ff1080630b08fca576d817c9a65e9af2985c3fa",
+      "original": "references/guardian/Demon2.CEL/048.png",
+      "sha256": "4d41a70657758434cff6d8e220b9f35d986209e91d02d70f6e34ab6ba961a43a",
+      "nearest4x": "references4x/guardian/Demon2.CEL/048.png",
+      "nearest4x_sha256": "20c2e89bf418e233dfaa5cc3e8fee70386d634cd89aec5e56c66e3564210da51",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/049.png",
+      "source_indices_sha256": "78b5fe8cb93d2518bc4f5e72ac440fa4fd52da7b9be4cf37ed3b7a433b625080",
+      "original": "references/guardian/Demon2.CEL/049.png",
+      "sha256": "933b51995e3142483996214e8d8c41d98a0a5847200669f1e3662042358c0fdc",
+      "nearest4x": "references4x/guardian/Demon2.CEL/049.png",
+      "nearest4x_sha256": "7faef2c678505b35a4b0a1c637825146a0b3f0759a27dd39b34e85cc0322bfe3",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/050.png",
+      "source_indices_sha256": "7c5af868ca5f458a76bfa09465e5022911413618ef7c34f959ce3c435ffa6044",
+      "original": "references/guardian/Demon2.CEL/050.png",
+      "sha256": "2987e5f7314990fec3d6301f6d1e3b2abf57d094bfa0854abaaae7e0466707f7",
+      "nearest4x": "references4x/guardian/Demon2.CEL/050.png",
+      "nearest4x_sha256": "ef7be8130cadff6d3f5004bf06d8cd7f1ea78423bc952e1c2f1b53c9b8daf416",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/051.png",
+      "source_indices_sha256": "a5591d66703a2f0434ed0d11e7f3dd96039d74dfedcd62dab928ebf4a080a75f",
+      "original": "references/guardian/Demon2.CEL/051.png",
+      "sha256": "5b00215c7ec68d85cf967907663315f0106e05607fa4ae672eb65de66efd163e",
+      "nearest4x": "references4x/guardian/Demon2.CEL/051.png",
+      "nearest4x_sha256": "133f3fa93e570085cc3311831f8b8798e86ee46b14c50477ca47fe23fc816753",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/052.png",
+      "source_indices_sha256": "4d353094f84791fb821b7a88ae032f5fa71878c99f7dd98f3e075dd85d71ac96",
+      "original": "references/guardian/Demon2.CEL/052.png",
+      "sha256": "33503bc6b6bd2774172c22d29a1d40f8e473f7c015d55064b7b68f23f1c5b956",
+      "nearest4x": "references4x/guardian/Demon2.CEL/052.png",
+      "nearest4x_sha256": "8ea6587b6672b150a4a203e043741bbb093bec5b60e49f3f1eaae19b555097c3",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/053.png",
+      "source_indices_sha256": "9ca549645f8c790852d71727254afbe32d10d6dfe9ce60f1c7a5438e5e5f6a07",
+      "original": "references/guardian/Demon2.CEL/053.png",
+      "sha256": "a69c8a334f79a0bab6d4842928b6b7ff39396c5ea6a22254ed861664aafcac4a",
+      "nearest4x": "references4x/guardian/Demon2.CEL/053.png",
+      "nearest4x_sha256": "b4ba865f214905097e139c2a8549e6341cfec3ac9504fad1b89a03b6c6126dd0",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/054.png",
+      "source_indices_sha256": "228019ee08cbf9f2ca7253a3b5431b6ffa999a0fb3cf582e59e515f9ba8f892c",
+      "original": "references/guardian/Demon2.CEL/054.png",
+      "sha256": "84e2337031ff085ca54e98663291ae5b83d45f285f1e8157276a5566ecf8a5e6",
+      "nearest4x": "references4x/guardian/Demon2.CEL/054.png",
+      "nearest4x_sha256": "e889ed90e392678136bb3c7a26e12a3345c820e345d566032137a53cc0d463e0",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/055.png",
+      "source_indices_sha256": "4dc8ccf3730333f2ac01dbb5a5e0c2aad084b3533f4341b2729589bab3664573",
+      "original": "references/guardian/Demon2.CEL/055.png",
+      "sha256": "d3480fb1d00df652017fe1f8a1a05c4f6a0e8f3f1ea563c878d19707b4b311fa",
+      "nearest4x": "references4x/guardian/Demon2.CEL/055.png",
+      "nearest4x_sha256": "7e46cc509bbc4a5d3578f11cf76326c4775e939f64a836b98e9347d7ff3a6489",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/056.png",
+      "source_indices_sha256": "c034cd0df1b2508bf0bee2378a1a5e0ae981beed8674a1edc7442b0116154533",
+      "original": "references/guardian/Demon2.CEL/056.png",
+      "sha256": "6412ec0911a6fc8b383e8a68aff3f1ef2187f0e760bfc073f306776feb9d3ec1",
+      "nearest4x": "references4x/guardian/Demon2.CEL/056.png",
+      "nearest4x_sha256": "ca2241d870cbf695ee13bccea4ce28f6d96b17c2a097a9e5b34b78093d44003f",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/057.png",
+      "source_indices_sha256": "e52c24920c5cd3670811ab96a08547d9bb50e290787848f79356d09c1afc73c8",
+      "original": "references/guardian/Demon2.CEL/057.png",
+      "sha256": "234300173bbdaf89d9ddec8ae4e299bff9735f851870704fdcd52d3af7f5b4cd",
+      "nearest4x": "references4x/guardian/Demon2.CEL/057.png",
+      "nearest4x_sha256": "ac67811528c1c4e91d4ea7a9830154c6abf0fe8d5194e41057da9ea1388f8f95",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/058.png",
+      "source_indices_sha256": "dd9832d9569517428fe5a18ce0fdde18e1264374ebecb79ea2cf0420583a7f9f",
+      "original": "references/guardian/Demon2.CEL/058.png",
+      "sha256": "0e463d707fea80d02e39b9cff650d1d07bee9dbab2ea1aeea94fec41464476cc",
+      "nearest4x": "references4x/guardian/Demon2.CEL/058.png",
+      "nearest4x_sha256": "d76bf14ecdf267c00ba0182e9fc11fef8f823f6bb8990cd44d69a0cad44260d5",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/059.png",
+      "source_indices_sha256": "0bf30efd161237e97bec6e4f6f64b20bd0239d511da50b0759bef5e47ce60d27",
+      "original": "references/guardian/Demon2.CEL/059.png",
+      "sha256": "155651be737a970807dfcf66f4686210bac7200c8392de57810b65100815b664",
+      "nearest4x": "references4x/guardian/Demon2.CEL/059.png",
+      "nearest4x_sha256": "2fc07d1452db8094dd37f918c1faf4b228308d77df518cda974faa6bd5e73f19",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/060.png",
+      "source_indices_sha256": "b83e4986087cb016d1c618b07fd8025244e55c2a194a0063564d9614f658d01d",
+      "original": "references/guardian/Demon2.CEL/060.png",
+      "sha256": "75685046fc4c896217bccad4535d01d09112fc9e9bfbd412e6b9a2f0587f5cdd",
+      "nearest4x": "references4x/guardian/Demon2.CEL/060.png",
+      "nearest4x_sha256": "47273edee1c8aa6210a9ea657fa1b93691c2ba4631cfdb0fbfa934a8282bf1a3",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/061.png",
+      "source_indices_sha256": "8c19349c456087375aee7c46c63b877d92cd6a45928f1e64a2facb7a9e82e487",
+      "original": "references/guardian/Demon2.CEL/061.png",
+      "sha256": "8af36d9a336c50be34861fa027ac49eb6bd16270d6a050eccfdba1437ae92772",
+      "nearest4x": "references4x/guardian/Demon2.CEL/061.png",
+      "nearest4x_sha256": "f4bae0beb3a1845d81672bfd7efeae0db1dd3c8564e68d066a36995580c19a3e",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/062.png",
+      "source_indices_sha256": "f61ae7ee153007c2471a0b3b570b77c4ec3e546544f89ce206c583287aa8eb65",
+      "original": "references/guardian/Demon2.CEL/062.png",
+      "sha256": "f21ff49b431320913c381ddde5126bb566f7906ff28c471d097d206f6ece0e83",
+      "nearest4x": "references4x/guardian/Demon2.CEL/062.png",
+      "nearest4x_sha256": "1a9a901b2dabe1202e469ba976500aacb986e7f3ab25a6d55520b4e516435268",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/063.png",
+      "source_indices_sha256": "701768ea49bacfe0817d400bbcb42647f1043ec8d5946d2016fe236cd5b95ae3",
+      "original": "references/guardian/Demon2.CEL/063.png",
+      "sha256": "8ddd53ec1b3e6c916db8050b9217e9dfba7750a464e219f350f1e64e7cec24d5",
+      "nearest4x": "references4x/guardian/Demon2.CEL/063.png",
+      "nearest4x_sha256": "7db56171214207c76fc83aa179a34f818511e218bacbd8c9f5bc0d772e518c22",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/064.png",
+      "source_indices_sha256": "2e28ede86b2271b760611d7abcf3cf1a701781165c77f421dab3005f7d83220e",
+      "original": "references/guardian/Demon2.CEL/064.png",
+      "sha256": "42533f1bacbe58566def6199ff4785f2ab73b0ab558884347c0d65d41c3dce35",
+      "nearest4x": "references4x/guardian/Demon2.CEL/064.png",
+      "nearest4x_sha256": "178fa2e36fb3079207d210a228eada7e75647c77f29ca4bbe49c18fd9605db5d",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/065.png",
+      "source_indices_sha256": "6bf9744efb5fdbbb0d67c152984723eb7adb7b92b9bcaecc7555c0e02c5a6053",
+      "original": "references/guardian/Demon2.CEL/065.png",
+      "sha256": "4d22e34777b3dfe2f7fd238308c0a772e0e83ba0f28f9ec54294d631c149421e",
+      "nearest4x": "references4x/guardian/Demon2.CEL/065.png",
+      "nearest4x_sha256": "ad25c668565cec44c7ac8cc71ee4d47f5b4eee9293196d9119e768a25a848c4d",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/066.png",
+      "source_indices_sha256": "161cd6fc64e97cf1b2959b82cd1951cad0a73b6f1c33a493c875bf5ebba3a28b",
+      "original": "references/guardian/Demon2.CEL/066.png",
+      "sha256": "80a6d646feb76917093063d9b7eebacf2e9aaa2857fa60dbe7b72ab13efe6534",
+      "nearest4x": "references4x/guardian/Demon2.CEL/066.png",
+      "nearest4x_sha256": "a19a42bf6d10045a798858cc7d838d2233390bff873e650b1ac163f9e8c32870",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/067.png",
+      "source_indices_sha256": "b2e3cf99c8a986468e2b4b2574c25c2c298091ce177908b8ef124313b9485f22",
+      "original": "references/guardian/Demon2.CEL/067.png",
+      "sha256": "223133cb714961d37c1bc88c672608ce89fa7ecb2977dbc6c0a2e19996ba610b",
+      "nearest4x": "references4x/guardian/Demon2.CEL/067.png",
+      "nearest4x_sha256": "e6478f7b697b16f2d4c65426da430ed262ee40b8736ea6946b2da65dc8f201a4",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/068.png",
+      "source_indices_sha256": "a6e7ef739684e7361f59df9fde6aa0977179d888e6af8d0026644a4b0bf0cbca",
+      "original": "references/guardian/Demon2.CEL/068.png",
+      "sha256": "233b9fee07164cb588b4bd8659fb04aa1de92087538662cd0624f3f6d077e497",
+      "nearest4x": "references4x/guardian/Demon2.CEL/068.png",
+      "nearest4x_sha256": "8106a05f1cda87d3bf47393489d0a62df6882b522915fdf5cf2b08b12a94db27",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/069.png",
+      "source_indices_sha256": "55f902f64525ce8789b10ff776912e321f6b3333648ab6f5b4e29c994bd68748",
+      "original": "references/guardian/Demon2.CEL/069.png",
+      "sha256": "dd7934b2006160aebd1c59b1813ad2a6546c27e3bd8aa68c53f36a5bad5b5ce1",
+      "nearest4x": "references4x/guardian/Demon2.CEL/069.png",
+      "nearest4x_sha256": "643882050cf130efbc3a3bb7579f44f542516547673309c7ef4560e85db5258f",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/070.png",
+      "source_indices_sha256": "2e5d97e167671121148078cb7ddde9633c682937058c84721caa8c05b923ddd4",
+      "original": "references/guardian/Demon2.CEL/070.png",
+      "sha256": "71cc1c0e2763d9ce8beace4907a5afbd052a703bbd383acef35900488f968ac6",
+      "nearest4x": "references4x/guardian/Demon2.CEL/070.png",
+      "nearest4x_sha256": "e986e51ad623b141de052517f56f2dc1f04ca478d5d7e119841929919ab871c1",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/071.png",
+      "source_indices_sha256": "290c33b0e2e0d746400fc9eb93a1b2cd8471a7329a9418f98bfc2a7c19892853",
+      "original": "references/guardian/Demon2.CEL/071.png",
+      "sha256": "4db37aaf88cdc5b009daabe6ca45edde8464af1d9a4bf581b34bc540ecb31903",
+      "nearest4x": "references4x/guardian/Demon2.CEL/071.png",
+      "nearest4x_sha256": "3f40634c9229ec89a78149c86aea6452bbab3b51ff504b2aec23573af546e552",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/072.png",
+      "source_indices_sha256": "7824183005d47d6cf3b463feab18c878f7d14eef3f2bab7b83df54c42062baf8",
+      "original": "references/guardian/Demon2.CEL/072.png",
+      "sha256": "8a06d28198930e50285a8120bde48288c7dec1c1040bf0dd2bf53e2249044e5a",
+      "nearest4x": "references4x/guardian/Demon2.CEL/072.png",
+      "nearest4x_sha256": "597e19b05efab32e043842d24ccf245c03be8b14fe23ae38067da92b2cbb2722",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/073.png",
+      "source_indices_sha256": "95be20c21eb02262980a7463ea71fe3597754df5b9f54c120321d24fbbe5aec7",
+      "original": "references/guardian/Demon2.CEL/073.png",
+      "sha256": "aee2c529fc3acb430ad63412d408310b83d7b8e530c6bd2db923ad4a351cf834",
+      "nearest4x": "references4x/guardian/Demon2.CEL/073.png",
+      "nearest4x_sha256": "9b0538df2f4b2faaa4ea15d9bdf9a670ce9c41707f6b961bd0ee0169726b813b",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/074.png",
+      "source_indices_sha256": "e392ccdb108be69043a3dc89e97f87522374fb99a79b1538d1e44bd3ca681e19",
+      "original": "references/guardian/Demon2.CEL/074.png",
+      "sha256": "188ddd854cbde28933e2d0907a7b86bc0933a6f07144e534a13bb6246524c651",
+      "nearest4x": "references4x/guardian/Demon2.CEL/074.png",
+      "nearest4x_sha256": "44dc59344b98277be183f578809946501b56fd8168ae7ac66571a66dd56e0a3a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/075.png",
+      "source_indices_sha256": "c38cd89d490fcc05e4a27ec14f2c20d7fcf65ffad24dc1b4f0792a5e26339acc",
+      "original": "references/guardian/Demon2.CEL/075.png",
+      "sha256": "e64e6b0101eb2609580b85e4bbb40de0883a889d94ae0f075fde810f67982780",
+      "nearest4x": "references4x/guardian/Demon2.CEL/075.png",
+      "nearest4x_sha256": "043ed9cea3cdc4afa770ecbfac8b0702136cf878f66f5c1cf31b600cc26bf2d6",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/076.png",
+      "source_indices_sha256": "6d277c9070fd7af9e040a5094aa8726b453f6489e77423f4e164935bd081aba1",
+      "original": "references/guardian/Demon2.CEL/076.png",
+      "sha256": "0fe4e3ac4aba49eeb892b71c07ba158fea672d96113208e47143b03fc4ccceb2",
+      "nearest4x": "references4x/guardian/Demon2.CEL/076.png",
+      "nearest4x_sha256": "640c7d66fed7be2d0e75e7d0f9af73e59900694bc89e1d2be85126175f33a614",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/077.png",
+      "source_indices_sha256": "20c56f74e1b24b8be90cb3c8740d6c9ab1dbefb02a8318f68a53f23e884145cb",
+      "original": "references/guardian/Demon2.CEL/077.png",
+      "sha256": "1fa650ace747e7f5c0e82843a7f5e8c75b77b8bd4daf30611a574577d071eaf7",
+      "nearest4x": "references4x/guardian/Demon2.CEL/077.png",
+      "nearest4x_sha256": "bb6cb870311ed780d9cf8a42f09058865c6b291b5779bfbf653f46661481f140",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/078.png",
+      "source_indices_sha256": "491aa26364dbdefa75b2757efc9ab2909ac18a6540e93fdfff271ac067d1d5ac",
+      "original": "references/guardian/Demon2.CEL/078.png",
+      "sha256": "287fe6441c3b3ce9947bacd0c70ec856ef7e341e1c8f655c266c666c4a3c8239",
+      "nearest4x": "references4x/guardian/Demon2.CEL/078.png",
+      "nearest4x_sha256": "d2f5e1f3849593cbca72694085102234aa4686818b4e990aa799bf10a77876d7",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/079.png",
+      "source_indices_sha256": "55a6bd7248d85114d793881b525b585840392cc1941901471ea1e97c75f1a52c",
+      "original": "references/guardian/Demon2.CEL/079.png",
+      "sha256": "713d6392ca6b88c3d241d752dc5c84ea5fd51164c96642227c5fba7dacbee3f9",
+      "nearest4x": "references4x/guardian/Demon2.CEL/079.png",
+      "nearest4x_sha256": "24c7e25fc4c14a424f25e5bab4432d1a6319badcebb2c8ea29edb6f366d8d83f",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/080.png",
+      "source_indices_sha256": "d999c4778a42eeffcd6d99dee127a39d45fde6390af6972d1a34a7413fdfcde7",
+      "original": "references/guardian/Demon2.CEL/080.png",
+      "sha256": "7d6cb42b9b27d6b72cdcfabe746ba4bf9db8e5fa1057e88e48c53470a07f7a55",
+      "nearest4x": "references4x/guardian/Demon2.CEL/080.png",
+      "nearest4x_sha256": "ffabdbe861e7c0653b115297705d00b6dc663e92d9eb6e3f821fa4bc3ecbe145",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/081.png",
+      "source_indices_sha256": "e41bda23f612bff98ccb5b23dff3217f37cce8af9348a7383384233d94d7b9f3",
+      "original": "references/guardian/Demon2.CEL/081.png",
+      "sha256": "5a6ef7e3b26e42fcd2e6148f95a6e5e277df9eed808ac68b29cd679562df01a0",
+      "nearest4x": "references4x/guardian/Demon2.CEL/081.png",
+      "nearest4x_sha256": "ca0ce2cc0fde783c4c1819422c389304dae9b731bcf17f6cde6fefa8c81feaa2",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/082.png",
+      "source_indices_sha256": "a8dda8975bd67e14b36108b6e96802d7c6999fb3cad247b2a48293c999bb2a82",
+      "original": "references/guardian/Demon2.CEL/082.png",
+      "sha256": "bd7fa9425b329917fa224c0964c840ff70cf9efa1b82889df174a1bb6111917c",
+      "nearest4x": "references4x/guardian/Demon2.CEL/082.png",
+      "nearest4x_sha256": "b4833365df8c8a2c3a4124f0d68949f4ad181a4cbcb90945fa4d59d50b1aee9a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/083.png",
+      "source_indices_sha256": "3d50d90d295b35b1e251a2bd6f5ce507e6f1104b6fa48fe96caaf040db238e45",
+      "original": "references/guardian/Demon2.CEL/083.png",
+      "sha256": "543fc77d34e2dd9b540c76e09bfdbdc26d5b430389d21600b167b6be6340fe3a",
+      "nearest4x": "references4x/guardian/Demon2.CEL/083.png",
+      "nearest4x_sha256": "8e82a4c7039b95a76ce950415a5dc362736a45c5fb20aab27b2f9c7cdefc4cf7",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/084.png",
+      "source_indices_sha256": "2f8c6fa3b75927dcf1356ea857aa308c3684907cd9ac98e1a7c478fd333cc4c6",
+      "original": "references/guardian/Demon2.CEL/084.png",
+      "sha256": "6f397f7aae128c61528af4dbaa50206be258a451dac05abd3bcb5c29458cd574",
+      "nearest4x": "references4x/guardian/Demon2.CEL/084.png",
+      "nearest4x_sha256": "325450741666215d99970ed8f67bcd23de711919abd05636ac81612e3b685cc9",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/085.png",
+      "source_indices_sha256": "68ae8122c95ce5fda0295c7dfb45fcdc339247c492fd0a0b0e597506be45428c",
+      "original": "references/guardian/Demon2.CEL/085.png",
+      "sha256": "7e60a477662a300d96d019219daad834aa41454800364feced9f335f93042ecc",
+      "nearest4x": "references4x/guardian/Demon2.CEL/085.png",
+      "nearest4x_sha256": "3f9243ee5570cca6e2c96399b022645476f5f9472474a3dab258eeab94e3ddad",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/086.png",
+      "source_indices_sha256": "79052f2f0fc064d291c519034617da48fcbd36c82480066baeb57c8b25a1019a",
+      "original": "references/guardian/Demon2.CEL/086.png",
+      "sha256": "b7d1fb826bdfe807f676c87cd7c2ac7c4e85423cead0e8e5f3595065fb1021b2",
+      "nearest4x": "references4x/guardian/Demon2.CEL/086.png",
+      "nearest4x_sha256": "944d34dde2487bcb3fbc951d1b7f9cc3c44f965abb859fc64e63256dfcadfe48",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/087.png",
+      "source_indices_sha256": "d129fb7a3b026322b9b295f2b6902975bd3304cb9c89062338440e74e49e4a24",
+      "original": "references/guardian/Demon2.CEL/087.png",
+      "sha256": "780e521e3a044c652daeb567234eb201afe6bc284572149e79738be97006e793",
+      "nearest4x": "references4x/guardian/Demon2.CEL/087.png",
+      "nearest4x_sha256": "a5cc31f83389c9d2fdaf263976be5c932325c9a45f4096c87469a2dc896933cc",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/088.png",
+      "source_indices_sha256": "a1b7e7bab87e446bfb666e06e27a74667f3f61e74cb8a1eaf881472e554c42f2",
+      "original": "references/guardian/Demon2.CEL/088.png",
+      "sha256": "a10782b90eb53fc4632514fcc84259ee87e003fe4f1e67059f8232de63873c29",
+      "nearest4x": "references4x/guardian/Demon2.CEL/088.png",
+      "nearest4x_sha256": "90edd95f0f6ac8e08aa3066cbf03a1912b07f393064cd10e629b37c2f15e104d",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/089.png",
+      "source_indices_sha256": "dd4e0c632c69b2ac93bbee57886e92bff24f87d6566cf96f2cfd98baf60a4a02",
+      "original": "references/guardian/Demon2.CEL/089.png",
+      "sha256": "8357e05c739b60a94ee00afd4920927ebe64709aa150cee9620d4db755da8bb2",
+      "nearest4x": "references4x/guardian/Demon2.CEL/089.png",
+      "nearest4x_sha256": "1c0806f5c17a6f78b7e9d00d139c94b4671de4143ab3b9479d52c4d86aa9e225",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/090.png",
+      "source_indices_sha256": "a27e7e7024ff7966b148bf62c5a0a270b8d83b5d0426445e7ce0af1651a37a68",
+      "original": "references/guardian/Demon2.CEL/090.png",
+      "sha256": "36c1f17efea41bd43dafdc9e7dd70882b397c7c03b0a6a917741bb83712d0d93",
+      "nearest4x": "references4x/guardian/Demon2.CEL/090.png",
+      "nearest4x_sha256": "36c405cb7b60f7ebd1a5448e05b3acd9cd1146a62365ec5866264b37bed2f620",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/091.png",
+      "source_indices_sha256": "ce3f1bf3ae83ee52f71763ee8ddf1d9f38281098756f592c302065af60490540",
+      "original": "references/guardian/Demon2.CEL/091.png",
+      "sha256": "8284e714bdd18b3f3269919dca1317e88e49e1c70ef8418f836507b60301121e",
+      "nearest4x": "references4x/guardian/Demon2.CEL/091.png",
+      "nearest4x_sha256": "3c34d72c991de5927a7d786e30c31893a573db19ff50753f05da2141a8bce576",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/092.png",
+      "source_indices_sha256": "39f72012f0b670b5422417dd2f4d9e11f9f898a2604b3c4c4d7a3e2b9bd0961a",
+      "original": "references/guardian/Demon2.CEL/092.png",
+      "sha256": "ba90a4d1d6bac1ee5f175744ba612b479411be4ccdd50976e57146e67eb3846d",
+      "nearest4x": "references4x/guardian/Demon2.CEL/092.png",
+      "nearest4x_sha256": "75c9849cafbc5446a579f42f0e26b1a8871403b69f5bf75364b077147ad19eb5",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/093.png",
+      "source_indices_sha256": "1b14c76aa9e0cf71c36aec0b2c182efda259b60d92967a06405172af4d86f57a",
+      "original": "references/guardian/Demon2.CEL/093.png",
+      "sha256": "b0141fb2d87c7345300801e6ffc50ce9f868975129d0e10104d57847e8bf5e9b",
+      "nearest4x": "references4x/guardian/Demon2.CEL/093.png",
+      "nearest4x_sha256": "e9bc689b661756eb79b50ac4fb43802c43a06a52e44cd585f8ae4fd8fc013031",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/094.png",
+      "source_indices_sha256": "85e6031d04c1e8b43516891342af8f607e4a9e697baefb0e994d5295a5882aa8",
+      "original": "references/guardian/Demon2.CEL/094.png",
+      "sha256": "c5e71455fbb5a6bf73b9aafb62d0ed20dd7fc6eb5823b1d8eda095230c987bf3",
+      "nearest4x": "references4x/guardian/Demon2.CEL/094.png",
+      "nearest4x_sha256": "09797f7fe2a77f1ee6f1466d55d7a992a21ab3ca2f06e98af8526adad592a425",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/095.png",
+      "source_indices_sha256": "a768964f9e28705721d5cd40ba1cf5b96fa539b9466c1d9e2de2be03b6c80493",
+      "original": "references/guardian/Demon2.CEL/095.png",
+      "sha256": "cc5a64b2891407f6a7fb4da4ab4e5351421cd3d02e90bda5bdfd7819d64a2b51",
+      "nearest4x": "references4x/guardian/Demon2.CEL/095.png",
+      "nearest4x_sha256": "3b6e7b356e6bd31f2bdb871060bad4a3ed7da9a43986493a3e55e075f8cee0cb",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/096.png",
+      "source_indices_sha256": "031e0f3f6f06a4dff87f479c1a0b9810f59bdf24df772d7e53e617660d3d750e",
+      "original": "references/guardian/Demon2.CEL/096.png",
+      "sha256": "779ec05ae94557cec514fa555550fcabe89c9c9543dacdb748c3bcf95cf102c4",
+      "nearest4x": "references4x/guardian/Demon2.CEL/096.png",
+      "nearest4x_sha256": "6ecdda25547dfe3a54459a3707da27f9c453be94cfc359b548035dae3d42c9fb",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/097.png",
+      "source_indices_sha256": "a15a5ed817e8f95bab5d3c54224f1447cd496931b212f46ff762cb48ffd04011",
+      "original": "references/guardian/Demon2.CEL/097.png",
+      "sha256": "baba62f37bb074b654f9b2ea8ba901e084f037815d782c440a242e4c577d49b6",
+      "nearest4x": "references4x/guardian/Demon2.CEL/097.png",
+      "nearest4x_sha256": "ea4c6dd3b450bb20b9f1468a342e5418e856b887187065d60a0fc337d9dcbe43",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon2.CEL/098.png",
+      "source_indices_sha256": "006b6ad0b5ffff28c913c0d65a349ad63d497e41c049c619e71ea88dfca07def",
+      "original": "references/guardian/Demon2.CEL/098.png",
+      "sha256": "d8682744794a41482e980401b8793373808f178b965a2a798c8674c011cdffee",
+      "nearest4x": "references4x/guardian/Demon2.CEL/098.png",
+      "nearest4x_sha256": "9aafbe621ba19c338622f67e08b5c4a16583cedc83157c4ac2cdf01915b2e0d5",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/000.png",
+      "source_indices_sha256": "d77ece9d3467fcb9e46e10c8caaabda951317658006a1202772d5850b3ae5b33",
+      "original": "references/guardian/Demon3.CEL/000.png",
+      "sha256": "11d124da4838d417b72829c0d6415f0c1d8361d31fcca276e2abde84fc187fd5",
+      "nearest4x": "references4x/guardian/Demon3.CEL/000.png",
+      "nearest4x_sha256": "6e6d1bf8e256c30cfe1c8d4889677caec227f365a18e61b9fedc831b932aa208",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/001.png",
+      "source_indices_sha256": "8642864d8114abcf828b526ea462741ec272514173fdf74bd37ed1ec5d5a9f03",
+      "original": "references/guardian/Demon3.CEL/001.png",
+      "sha256": "c9f8efb86002a12430f7cbe847fb5b1e3740622935b6c53da7349a1b461d357d",
+      "nearest4x": "references4x/guardian/Demon3.CEL/001.png",
+      "nearest4x_sha256": "38eb450cc075263aa1b5d64544ea9c62d24bd67a9780e6f1a353b584d6bacf70",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/002.png",
+      "source_indices_sha256": "007f7920d2e52c9a8903479a488504bb45e44f7eead6d7817cad68ff56e3cb4d",
+      "original": "references/guardian/Demon3.CEL/002.png",
+      "sha256": "800fdddbfd195299ca0238f849063b41c02f8635d706fe86b361e96cf385cd07",
+      "nearest4x": "references4x/guardian/Demon3.CEL/002.png",
+      "nearest4x_sha256": "8bec79737b0ce0c4cc6e44f234d020fa44cd875f4998258da2fd4ca7149858ce",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/003.png",
+      "source_indices_sha256": "ddea1690c703b9ce1c7ce032e82d8ea0e8414fac99062a9f3fb03247020ff8eb",
+      "original": "references/guardian/Demon3.CEL/003.png",
+      "sha256": "3ab822c09f2c07427c6438c6da45b6fc3caa19bdb10ec0d396547acc70dd362a",
+      "nearest4x": "references4x/guardian/Demon3.CEL/003.png",
+      "nearest4x_sha256": "6fb56b07e7fdb1f75fcdadb9a3a2a1b23c05ee75ee25cd86891d0266af9ebeb0",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/004.png",
+      "source_indices_sha256": "90149c010022042b8a0e8095a53201e28303f95bcccec72f934faf873c80b84d",
+      "original": "references/guardian/Demon3.CEL/004.png",
+      "sha256": "21394056d614c993540da54be8173d55fcc995ae896edf38d8dc5a6f795c438a",
+      "nearest4x": "references4x/guardian/Demon3.CEL/004.png",
+      "nearest4x_sha256": "7f2b04c794b228f4e112474774dbfd127be67aa9910a5e4584bc1cb8e68b1e85",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/005.png",
+      "source_indices_sha256": "a127da2af66dde7d4b6d2e3e4be836f16d2dcf729c799ef01d7557d80aef92ee",
+      "original": "references/guardian/Demon3.CEL/005.png",
+      "sha256": "7bbec6ae2209bd40bc75aa27cb1b153780e85710877373a8b16ea5e2abe5c7f6",
+      "nearest4x": "references4x/guardian/Demon3.CEL/005.png",
+      "nearest4x_sha256": "835ad284bdfe87ad58bf3218eb06e4f869afb1e628c71e3a9ec74ad75ed1748e",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/006.png",
+      "source_indices_sha256": "5c166f82bcd7a5ea4a5dc3d80829bd8fcc99cd8efa0d2f499dd229b839daebb9",
+      "original": "references/guardian/Demon3.CEL/006.png",
+      "sha256": "b014ec76a97cac455306674d445c9af9b317beeed58515b82b06125c337b506f",
+      "nearest4x": "references4x/guardian/Demon3.CEL/006.png",
+      "nearest4x_sha256": "8c7cfbde5d53bbdee48c35410da25520e632d909303bda9e6e18bd6690367cf7",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/007.png",
+      "source_indices_sha256": "38de7011c2b41de0f7a9a9568fa309e5724d003388af129be2b6e38ae4c86cce",
+      "original": "references/guardian/Demon3.CEL/007.png",
+      "sha256": "a948eef8c8d667a8b30403ef1cc522885086448121b619944b880c0bfbfe9173",
+      "nearest4x": "references4x/guardian/Demon3.CEL/007.png",
+      "nearest4x_sha256": "556e380275ae1033a7c9766955c316c1700f428de0c0e7ab25f3ab4100be2cce",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/008.png",
+      "source_indices_sha256": "b3a2ad5f0036766a2a473a7c160d3f08df4b28bfdfa89ac44387baa9564be7d8",
+      "original": "references/guardian/Demon3.CEL/008.png",
+      "sha256": "5f1e8070831233b14d850082fd77eaecd11c31ca9dd9e58b0c284673efe3283d",
+      "nearest4x": "references4x/guardian/Demon3.CEL/008.png",
+      "nearest4x_sha256": "a7141fcde0dd7f2f8ceb70f82c91398946249ca9703bf41274072e9d10eb1d92",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/009.png",
+      "source_indices_sha256": "89a7696766d7ddebac141c922507045c70afb50a80dd1e62eae18b6da98a12d9",
+      "original": "references/guardian/Demon3.CEL/009.png",
+      "sha256": "cc784b29bf47629f4c35377cd8a5186f8caabfebede24d464efc7bb0e8067fc5",
+      "nearest4x": "references4x/guardian/Demon3.CEL/009.png",
+      "nearest4x_sha256": "f0c0ede6f2468f91fd16420276f1a157ead12548d26276df77c55322cd632f16",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/010.png",
+      "source_indices_sha256": "591ebb7a8c878601b214cb13614f14572fd741ac5aac815b17a70dd77e54163a",
+      "original": "references/guardian/Demon3.CEL/010.png",
+      "sha256": "73368e4545cb8bd7773cc2aa45c0af3ef72182f790e53113d1cb637c20ade630",
+      "nearest4x": "references4x/guardian/Demon3.CEL/010.png",
+      "nearest4x_sha256": "9aec8445345f08cc079aa9104a35b1ad3315c7ef4052a8680dff2344417c8867",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/011.png",
+      "source_indices_sha256": "565d16bc84d10453356e526bb4cbdb6c49cfd81930fb45d94eede0ace9427324",
+      "original": "references/guardian/Demon3.CEL/011.png",
+      "sha256": "6a393e39d0897c901f006d9dbd59aff326995f574540a05576062232506f48fc",
+      "nearest4x": "references4x/guardian/Demon3.CEL/011.png",
+      "nearest4x_sha256": "ce53256633b4780193014ba4c0de34198e01511b5594e31da72a21b192550633",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/012.png",
+      "source_indices_sha256": "4608a1046f7e5759dd2eb6a90606f36e011971969f6ae512281c989e053d980e",
+      "original": "references/guardian/Demon3.CEL/012.png",
+      "sha256": "a14487cbefc14cf4ce2bd2dc9e627a6e35498b13e1e142fdd254a0b70f4d9823",
+      "nearest4x": "references4x/guardian/Demon3.CEL/012.png",
+      "nearest4x_sha256": "c6a0710bfe459aca77aa89e7863413e1cf33e44d73a3aea6d9a3a3b7d0a36909",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/013.png",
+      "source_indices_sha256": "64b302f5d328fe032ea2bfcf5ea9c8ba135bdba51e2b508edb091724e7b9f577",
+      "original": "references/guardian/Demon3.CEL/013.png",
+      "sha256": "ba404f6a6e52e6ac3c2be4b034c69bb436dfe51ed3036ad123880c2774228b29",
+      "nearest4x": "references4x/guardian/Demon3.CEL/013.png",
+      "nearest4x_sha256": "e55a4de52c74e8b278e70a045f0433a1c8e2317ef0119fd9a74a3845da8a33c4",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/014.png",
+      "source_indices_sha256": "78d98b6d5069b78481fba1dca191e595799d9de86ce4fcfe873cdebbd2450052",
+      "original": "references/guardian/Demon3.CEL/014.png",
+      "sha256": "9ea6beace0f8cd2357c9252f46bedc7b5cc09ff5863345d7f95b68b961386e29",
+      "nearest4x": "references4x/guardian/Demon3.CEL/014.png",
+      "nearest4x_sha256": "9373953c1c24f4a9348992bd6e0b4ee2af31fd702b0b564285690c2856c769db",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/015.png",
+      "source_indices_sha256": "241a7af60e399d9b8160b5dfe799a24762121807cf13259c0a53fd9d4a546af5",
+      "original": "references/guardian/Demon3.CEL/015.png",
+      "sha256": "277fd401ab6e9615e9b3e08b1c7c13cb8ad69cbceac808d0666616a02c92eaaf",
+      "nearest4x": "references4x/guardian/Demon3.CEL/015.png",
+      "nearest4x_sha256": "7614d85ad8931f99357a16c20d06ef55cc68b6be2e39f0a0ed9626f35811f573",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/016.png",
+      "source_indices_sha256": "50afbd73a14ca5192dc44fa0700f4114b06126427abc0ddd323ee2184c600264",
+      "original": "references/guardian/Demon3.CEL/016.png",
+      "sha256": "3cd9088c94b823e6928860b699db549a57624e4da51d7ba1391383088d1cc62c",
+      "nearest4x": "references4x/guardian/Demon3.CEL/016.png",
+      "nearest4x_sha256": "0a0402c3b6c9e7ec14447c216e3b6e693fae25d4a08494b30adafef0a7f8f5f4",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/017.png",
+      "source_indices_sha256": "2b38a15de038b466505b7ed78d8c38f7fb4f301e1529140aeeb589387e397e1b",
+      "original": "references/guardian/Demon3.CEL/017.png",
+      "sha256": "3802b7a4d395a4145b8bc6d949d0366a2f5df0a8fcc9d2b922222d40fbc73bd2",
+      "nearest4x": "references4x/guardian/Demon3.CEL/017.png",
+      "nearest4x_sha256": "c9edf9f2fb92405e9e60f4c37ac3fa6ce875671ed73c4d3fee2f34479b6ec79f",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/018.png",
+      "source_indices_sha256": "35e1045de31cb890d271a0823bfd78e4b35416528b66d4c794b52f70e122a0c7",
+      "original": "references/guardian/Demon3.CEL/018.png",
+      "sha256": "9a67dd0bb0e9a3e2a38c5ec02f381fe6b52faee35fbfc3ddb0fff25794f40813",
+      "nearest4x": "references4x/guardian/Demon3.CEL/018.png",
+      "nearest4x_sha256": "18aacc34bd7aaf296895c1d997eea498a35b23b071872ed33c85df2ed1ea2930",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/019.png",
+      "source_indices_sha256": "788f9efa5a218ef245c6daec88c590166973ce4f8c80dfba3231a27baa8e30bb",
+      "original": "references/guardian/Demon3.CEL/019.png",
+      "sha256": "0be6ef3063695a110249621abfdde17839f8f8af0d0cc22b1e3fc8e16277be1e",
+      "nearest4x": "references4x/guardian/Demon3.CEL/019.png",
+      "nearest4x_sha256": "a7fd4075afe0b2094deb0e54979e7e2258ef52778a5db6fae57d394534a12877",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/020.png",
+      "source_indices_sha256": "e9608f44e1903d45958c2c9a43423e00c75e455ad44dcb57f759ef8a8cc5c6ea",
+      "original": "references/guardian/Demon3.CEL/020.png",
+      "sha256": "01c9ad85851603d98bf9cc2cfeef5d05fa00da8c9493079b4f36af00e32f2bbd",
+      "nearest4x": "references4x/guardian/Demon3.CEL/020.png",
+      "nearest4x_sha256": "3b2c72d35f26d86ca50763c0c0e35b7698ecb0d726974ce6b836479c1cb13f5e",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/021.png",
+      "source_indices_sha256": "e541fb5aa2d4ab461fa7a010a5f6429e8732f80655c5ec20b81d7a944c734907",
+      "original": "references/guardian/Demon3.CEL/021.png",
+      "sha256": "b82ec5a398d014c62322448e5b466378dcd91473987ee5785f141bc41ff71a47",
+      "nearest4x": "references4x/guardian/Demon3.CEL/021.png",
+      "nearest4x_sha256": "d49ffc800a58b918cae73f6772a6c193b1c210b5d69604c75f621fc6e5eac789",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/022.png",
+      "source_indices_sha256": "af313adc83d7dec8095c11fdd873acc7e9c2d523018457d8fa9b5893cc3c5e58",
+      "original": "references/guardian/Demon3.CEL/022.png",
+      "sha256": "f533de216855225a28269a549bb174cb1f44d61169f68a2005f52e2c7cf2962c",
+      "nearest4x": "references4x/guardian/Demon3.CEL/022.png",
+      "nearest4x_sha256": "d5d6041301b09e41b7f60c3448152cc92bb6da46f098fb40e476fc7f3a2e28fc",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/023.png",
+      "source_indices_sha256": "e39e33e27162d448dfe2cf225774c2faadbf6461bdaa66d1e92aff051e82303e",
+      "original": "references/guardian/Demon3.CEL/023.png",
+      "sha256": "6d8a523da78f55db8b7c6a98b8119b83e587b394c7e6fb4aca7f826dc38de8e1",
+      "nearest4x": "references4x/guardian/Demon3.CEL/023.png",
+      "nearest4x_sha256": "5019eeda82e85d74dd880c33c4e6f2b60c83413d8fdd48c8ddb662b1e6abf098",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/024.png",
+      "source_indices_sha256": "09514cd060d78e630b01ffb5f259518b1aa6954ab7d14298581ab368c8694740",
+      "original": "references/guardian/Demon3.CEL/024.png",
+      "sha256": "1c16d11068a5ff11b28b8ce9ad3a07c31fc246a5cac5e770ea8326737d77a302",
+      "nearest4x": "references4x/guardian/Demon3.CEL/024.png",
+      "nearest4x_sha256": "9b8449355e7c86d65378604af09f13d6f8e81932f97adc911651137ab7399da7",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/025.png",
+      "source_indices_sha256": "fd03f7a27039f2e1b296dfa2a6cb86c2ba73cbbbd2b8e4c69b3f3c4f0b155e67",
+      "original": "references/guardian/Demon3.CEL/025.png",
+      "sha256": "3a56c35c225a6113e49ebdf425594383d8e6221542862e298c3a6ea00560e1d3",
+      "nearest4x": "references4x/guardian/Demon3.CEL/025.png",
+      "nearest4x_sha256": "e6385ceab969d73a2d8947089cc0e803b299671384c25e6e227c9fdac5ca7f21",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/026.png",
+      "source_indices_sha256": "2de4841c3d078dd3bdd75042a6e20aff2825b4774b48dcb0f0bcc15245663603",
+      "original": "references/guardian/Demon3.CEL/026.png",
+      "sha256": "276ec58c7ba6d622e4520756b30fc5db8a8986fd97d00b0bcfaebcf22ad38626",
+      "nearest4x": "references4x/guardian/Demon3.CEL/026.png",
+      "nearest4x_sha256": "abb0446bfef6fc220e536a0fa84d10cfe067cbf9040d2e09ac093d955856cad6",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/027.png",
+      "source_indices_sha256": "9c75ec00493e760359d7079de11e76c4d30b30077ca88af545b0ea103212c5b8",
+      "original": "references/guardian/Demon3.CEL/027.png",
+      "sha256": "d563e44a1aead1094342951276bf230d8820957da53283c00cb3d5ed34d8b47a",
+      "nearest4x": "references4x/guardian/Demon3.CEL/027.png",
+      "nearest4x_sha256": "a69d0c5850e142007e45dbc5aea623c6084ec3621cac5062d6475c79bf5faaaf",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/028.png",
+      "source_indices_sha256": "1d937e814906ea97954e3e3a2b715d6e9a44881027d6e032b985ac3a0d0a490c",
+      "original": "references/guardian/Demon3.CEL/028.png",
+      "sha256": "14dd09b423be950dea6c97518cca4865ac4344add7bc0d1b640824cb12265446",
+      "nearest4x": "references4x/guardian/Demon3.CEL/028.png",
+      "nearest4x_sha256": "2497b406aae03622d3d4f3f9daf02dc0152e253ae0a9d79e1282203f507221e3",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/029.png",
+      "source_indices_sha256": "f755cf615bc7c88309a11be8159c15857156a7339ec8cca78f742e0115c3c5ba",
+      "original": "references/guardian/Demon3.CEL/029.png",
+      "sha256": "06daadb876a3af20bbef289554ed0a7f63e4340dee6171d5634cc8e5cca4186e",
+      "nearest4x": "references4x/guardian/Demon3.CEL/029.png",
+      "nearest4x_sha256": "2be64cf0dbebba3c7c90a42ddb87421360647a94f42897cf6571b47aa31d6669",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/030.png",
+      "source_indices_sha256": "e0d3005bd9e85e58eb47483e90f8a38c57cb594a29ffe1c974d0264e788ca634",
+      "original": "references/guardian/Demon3.CEL/030.png",
+      "sha256": "68b48d26a2090dfb463d0cc17acf41ffb0196b54c4eaed23ff81541c1cc9b4bb",
+      "nearest4x": "references4x/guardian/Demon3.CEL/030.png",
+      "nearest4x_sha256": "1a737cbb7d741ca40aff4c40c9ebabc105f3c17f7ca33b42ee5463bb53dd6c16",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/031.png",
+      "source_indices_sha256": "a3ff7d4dceccaf4e45e1eb874bd0c7314bb141fcfed80eb5207f0476cf55111b",
+      "original": "references/guardian/Demon3.CEL/031.png",
+      "sha256": "f6edd376514aa39cd5d76af327fb1017a2725829e7efd712f0946d3f56c334ff",
+      "nearest4x": "references4x/guardian/Demon3.CEL/031.png",
+      "nearest4x_sha256": "6457fc81584533bd3ecf90a7397cb800c272156cd9bab27cb1d9c6b759c57e68",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/032.png",
+      "source_indices_sha256": "0bd16c8e803bf1176bc01a75d0d9f8a17f6da8add96ebf3976b7ea1f6737246a",
+      "original": "references/guardian/Demon3.CEL/032.png",
+      "sha256": "f513b6a7c1245751c96a23c80397e283df6f6973f7cf889086af616c5919509c",
+      "nearest4x": "references4x/guardian/Demon3.CEL/032.png",
+      "nearest4x_sha256": "f1287652c879038dd6912f8be1bc6ae8c64349cb8a5a015649fb7c939e007fac",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/033.png",
+      "source_indices_sha256": "cfc7c5df91a5b00f6e29803f9532ac9fad7956f54ce34b8d2d1c49ebbfa36f9e",
+      "original": "references/guardian/Demon3.CEL/033.png",
+      "sha256": "054ce3f79c4ed0ec46847e5209de10aa38bf61b82d594c3bc9a996abaee607d8",
+      "nearest4x": "references4x/guardian/Demon3.CEL/033.png",
+      "nearest4x_sha256": "6d3552182da92d873d496ef05e252d5076554c7ab3a53cbef995f6484b259743",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/034.png",
+      "source_indices_sha256": "36715d3b1e07c8a3b0ac1fea4d3fa2e518879da45c468b569780597a8710ab12",
+      "original": "references/guardian/Demon3.CEL/034.png",
+      "sha256": "391e85879b5a058d2dc311f7933a4de6c8f08263a5652a2074d0203ebf275e08",
+      "nearest4x": "references4x/guardian/Demon3.CEL/034.png",
+      "nearest4x_sha256": "eef5e8fc4c110f63a8634e12ec097f2dfe584c72faf4694fd25d19eee7432d60",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/035.png",
+      "source_indices_sha256": "f8c7762db7868c191599609b2e938392802cefd4ed13e860b31c0e159c6a5b3f",
+      "original": "references/guardian/Demon3.CEL/035.png",
+      "sha256": "84636de0f4f6fd0c38a1e8f45a6d269e160360071ec39bce3aa55dc2a85893be",
+      "nearest4x": "references4x/guardian/Demon3.CEL/035.png",
+      "nearest4x_sha256": "12c699cca808f92ec80efdc595e85d56aa52896e0b6e17e63350bc94a5c964f9",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/036.png",
+      "source_indices_sha256": "b02b4ec7785f641316565a7a581db65077d2c0af2af4429032c96eccdf2e95cd",
+      "original": "references/guardian/Demon3.CEL/036.png",
+      "sha256": "fbb5334f1070f06c136af5f4ea328b7425bde21baedd8157800bc5f2495d3fdb",
+      "nearest4x": "references4x/guardian/Demon3.CEL/036.png",
+      "nearest4x_sha256": "7b12341c5387bc5abe24ce7f6fc0f2fab08457b62859d73cfdbd02c44335ae10",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/037.png",
+      "source_indices_sha256": "2a617d89c005cf2cb186ef9c61d5b0b09b779b39d719502957c9446f52dee07d",
+      "original": "references/guardian/Demon3.CEL/037.png",
+      "sha256": "f5e6b0da373ac45ba80bfe99191decfb9790362408a1ee462266c76f788d9a34",
+      "nearest4x": "references4x/guardian/Demon3.CEL/037.png",
+      "nearest4x_sha256": "e1a6b30f3fd40d781d87a011ab95ce88dc02e1cc9bb0b4aa5a6709902a6fb5aa",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/038.png",
+      "source_indices_sha256": "3869847e384df72542544bbe6830b44805df3e72581e82da0b46e48f50f9bb3f",
+      "original": "references/guardian/Demon3.CEL/038.png",
+      "sha256": "ff360ba16709f9372006c601273fdf30480764e328f971e1e95968edcc8c0ce5",
+      "nearest4x": "references4x/guardian/Demon3.CEL/038.png",
+      "nearest4x_sha256": "f46e55dc2a31dff651b9c60eedad02b29289dd8ed7c74dcbe938739a34bc0555",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/039.png",
+      "source_indices_sha256": "b79b800ae0a45c11df310616c91b5a7f8ff68401910953fc2a8d9723c5bd4c0c",
+      "original": "references/guardian/Demon3.CEL/039.png",
+      "sha256": "5ef8a70a82c05b126855b94a2046246801234daff15b823e32122f03aa3a8630",
+      "nearest4x": "references4x/guardian/Demon3.CEL/039.png",
+      "nearest4x_sha256": "35d76e72b1bcc5c2401e1ef3391d9706c4b26ae9624812cf5935e46cc5d6798a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/040.png",
+      "source_indices_sha256": "77d0751759be32c6a43ad2e34b6447faf81b26bd6e7db4b971fe4cdebb113e0f",
+      "original": "references/guardian/Demon3.CEL/040.png",
+      "sha256": "7eb3d18dbd8feb6b443ffc858676b0afc10f421ac9bbbe8d69eff66de15b5827",
+      "nearest4x": "references4x/guardian/Demon3.CEL/040.png",
+      "nearest4x_sha256": "d39a51ae040fa147f2de6ae75f7caa4ac83e4f662227e3a2617e06c4a5b9a12a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/041.png",
+      "source_indices_sha256": "b34f39fc5b7a767a1db4ad3ca8e20ca4daf0ec2c9e61c31a3d39df28a73c0cc9",
+      "original": "references/guardian/Demon3.CEL/041.png",
+      "sha256": "06cea6dd17855194d397119612716d08fa1b82a38242634c32fa5a2f21c8912a",
+      "nearest4x": "references4x/guardian/Demon3.CEL/041.png",
+      "nearest4x_sha256": "7f5d0b0dea162cfb7766871b4284bdacd8cb5a1bea840b5e7521ef3318fd2651",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/042.png",
+      "source_indices_sha256": "b1947b0a360d4623dad5efe8f9d52f4539e2eab6c0307b03d2269664ae7de40f",
+      "original": "references/guardian/Demon3.CEL/042.png",
+      "sha256": "955d9387fc29099fe97d720046681b101ccaeb01fdb6f934434f31be1d5d9ed1",
+      "nearest4x": "references4x/guardian/Demon3.CEL/042.png",
+      "nearest4x_sha256": "090454bd28a0ce3e8b7fba0b0ebee1566c1711216255d8b897b8116507dfd216",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/043.png",
+      "source_indices_sha256": "13edfb7bd325fc7ca3b723cbacc7d704b5a21c0922909701ef356af3660466d3",
+      "original": "references/guardian/Demon3.CEL/043.png",
+      "sha256": "073d8a4119ff9d9cf32ca771db07e78853e855b2a3a110258194efe609339834",
+      "nearest4x": "references4x/guardian/Demon3.CEL/043.png",
+      "nearest4x_sha256": "426b320ae75e4851d098d2e11ffdc911ad8827b3858044e532e4a9e7fb944de1",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/044.png",
+      "source_indices_sha256": "140d3f0430c067ead4b1b8a72f415949ad586bf4f43a2417eafaddda422942d7",
+      "original": "references/guardian/Demon3.CEL/044.png",
+      "sha256": "4a6e10d0b9508ffa2109f97ced88b7fc02d3e828ca03e1b0af2088137e9f6141",
+      "nearest4x": "references4x/guardian/Demon3.CEL/044.png",
+      "nearest4x_sha256": "81d130a628822261db9e640dc78190c8717772ce31d9978d0a4418a798b866d9",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/045.png",
+      "source_indices_sha256": "1744168b7bc8736f45fe1ea32525a56250f59f304387257f8561348d49467d68",
+      "original": "references/guardian/Demon3.CEL/045.png",
+      "sha256": "9c5aac3d68b200be15cf32c8c7d16af74966bbbb49ea94a65a6f1eea68a8cb6e",
+      "nearest4x": "references4x/guardian/Demon3.CEL/045.png",
+      "nearest4x_sha256": "dfd8d4aa5d5020aeef38aea48808aca9f701897543129312c6b74e0f9021fa2d",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/046.png",
+      "source_indices_sha256": "0a3035af85a8742fd1bfce84d4d99001ae8b8eb134e077b661ac6fadfaf3b5f0",
+      "original": "references/guardian/Demon3.CEL/046.png",
+      "sha256": "4377b801b07bf96550f82a1534531244f5a4e7a0e14112ca87373dbd46891cf1",
+      "nearest4x": "references4x/guardian/Demon3.CEL/046.png",
+      "nearest4x_sha256": "45e59e6621eaad25e630ec55fd94beb1769fb274df16c4de33b3f04888e98321",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/047.png",
+      "source_indices_sha256": "e5c85bcf406f84130ca313e308b4ac0fc26223e2029cf50d7e5aba74e8f518d8",
+      "original": "references/guardian/Demon3.CEL/047.png",
+      "sha256": "08370f43d326dadea1e3f501b2fb22bc8654f30f92b434352bd9ae64a1a676fa",
+      "nearest4x": "references4x/guardian/Demon3.CEL/047.png",
+      "nearest4x_sha256": "e630cc1ca1230245abc6b3c61ad7dadc432fff27a0c9555952b6bf10da41a0ca",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/048.png",
+      "source_indices_sha256": "094303e8c74cf6c4931ed5691b073543655e2695e1566defed227bdd7e000b30",
+      "original": "references/guardian/Demon3.CEL/048.png",
+      "sha256": "d19d71e6ca736ce1a8d95ae7d9020f630118ed3dcc1f3949f0f736a18c53ba7c",
+      "nearest4x": "references4x/guardian/Demon3.CEL/048.png",
+      "nearest4x_sha256": "d1f88bd90b6c7108c18357e1154b3938d2d0b9c1be55facd66876bbaee3712dd",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon3.CEL/049.png",
+      "source_indices_sha256": "d6b47ded7de5835f69af0aad75cb74b77b09106cae8f159e328a635594868e0b",
+      "original": "references/guardian/Demon3.CEL/049.png",
+      "sha256": "44a161a51cbceed00765361eb5f0d9992c0d59987b89844ad2a16a1c4987ccde",
+      "nearest4x": "references4x/guardian/Demon3.CEL/049.png",
+      "nearest4x_sha256": "041edee3afa4045a2dd81643fac0c461fa25c18fbf6261c20c293f232a9960a8",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/000.png",
+      "source_indices_sha256": "311f3190daee3547ad1b3eb64f5ed6f2c19f6a92ad5988c0c117838cac43c2e1",
+      "original": "references/guardian/Demon4.CEL/000.png",
+      "sha256": "adf6f5afa80e6be25a2275b1188a72ce799082eb74b24309639d5ac90ee53ea8",
+      "nearest4x": "references4x/guardian/Demon4.CEL/000.png",
+      "nearest4x_sha256": "06880603192a1f209b6efda31f32e4aa4c8b29f08c4c3678202e4f016c6d3a69",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/001.png",
+      "source_indices_sha256": "5bf578a60587611e652f866fabff40d3e5b2ac415a841bffeb9607e089f51776",
+      "original": "references/guardian/Demon4.CEL/001.png",
+      "sha256": "37adef81f1004c5d95555e82346ae203af37e6ab1305a14198e1a7cba9635a3c",
+      "nearest4x": "references4x/guardian/Demon4.CEL/001.png",
+      "nearest4x_sha256": "bfa268895935e33eff54b5b6213aed7b115dc794a518d75e8a7101d8672ec220",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/002.png",
+      "source_indices_sha256": "55e343c136506c7d8d65ff1ce2e7e4ce049bdbf44b7d577f956275df879159af",
+      "original": "references/guardian/Demon4.CEL/002.png",
+      "sha256": "091abeaba2055f1e1efe5b8199ff94148fa2e3a41b3290ca1e1ea6a5057d58de",
+      "nearest4x": "references4x/guardian/Demon4.CEL/002.png",
+      "nearest4x_sha256": "2f20621c975f4035e0766d70a14f39c12c477bdf174c01c980bb4bdb47617b41",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/003.png",
+      "source_indices_sha256": "14e6a02a551e65e308f0c7d2d85aa28784fa639e5feaca4062112538e68876f5",
+      "original": "references/guardian/Demon4.CEL/003.png",
+      "sha256": "16d1945738eebd366d9b571e860faeac76c87336e3779a73fa0576a604a0652e",
+      "nearest4x": "references4x/guardian/Demon4.CEL/003.png",
+      "nearest4x_sha256": "07543b412fc02dab28e81c9c369d73948e068a052ef713f4c8d71e0792bad34c",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/004.png",
+      "source_indices_sha256": "008f7e3e2f0769737607995902fe95059c36df8f92cb94900a969f6114f34ecc",
+      "original": "references/guardian/Demon4.CEL/004.png",
+      "sha256": "334490a3bdf3c8d96a5891dfea34823edeeb82d30852cfd4f87f7f62846e84b4",
+      "nearest4x": "references4x/guardian/Demon4.CEL/004.png",
+      "nearest4x_sha256": "d53e51eb72b24c20aaaad975447aabd9bce31e0c8f43e8335effa2e9676535f5",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/005.png",
+      "source_indices_sha256": "8ed38f191df4cafa6220c13a1c74bd8d32a26bb9d4a60bd4294938a390764c5b",
+      "original": "references/guardian/Demon4.CEL/005.png",
+      "sha256": "0322b64520c9a3c61c6667c63fc8121fbb7684cde963565f1aa3a04ddbf69b9b",
+      "nearest4x": "references4x/guardian/Demon4.CEL/005.png",
+      "nearest4x_sha256": "ca583eb8cbf37ff02936a501c89e2b62af4dc96993f8d187a173be6bfbd8cc92",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/006.png",
+      "source_indices_sha256": "bdbbfd40a6b8c8e64544f31dbdbf495cd9df4b514f671f51bbcf57512da1d2f1",
+      "original": "references/guardian/Demon4.CEL/006.png",
+      "sha256": "ba7b9cbcbb767a0c4db11eeb652ae8cbbc156b7add7ea07c7b5f333efc5717d1",
+      "nearest4x": "references4x/guardian/Demon4.CEL/006.png",
+      "nearest4x_sha256": "8f530bc13b36560c05a6130321416659d6419c463a693b3079cabd6f58ac8550",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/007.png",
+      "source_indices_sha256": "c0f3d5444128785026f67bd5baf2311de8d7ed28f52d1b455dbd6ff8b7a722f9",
+      "original": "references/guardian/Demon4.CEL/007.png",
+      "sha256": "fbb02198d3fe7e24c6a3b6f77f5d99c91998589161c93d2c605dcdd8b0e33589",
+      "nearest4x": "references4x/guardian/Demon4.CEL/007.png",
+      "nearest4x_sha256": "209aa12d96fe097db62e2a241ba6ac423c0287bd98181fd351e4f65d8482850f",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/008.png",
+      "source_indices_sha256": "fa01fb8525321e169403d750dc9879b2c117ab2b6c660ef71883ff4b029b5f9a",
+      "original": "references/guardian/Demon4.CEL/008.png",
+      "sha256": "104f8ad10e06aced25fabef331eeb76812c547895e676e39dc5d2bdbda84df27",
+      "nearest4x": "references4x/guardian/Demon4.CEL/008.png",
+      "nearest4x_sha256": "7558c9d0ef546dda68f566847f4f8de6b54b0c113373bfbe70bee991e0d9a17d",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/009.png",
+      "source_indices_sha256": "f43a7eac15113a92bd4866c5cf42cda84260743305f1185ec4266aaadee05b5b",
+      "original": "references/guardian/Demon4.CEL/009.png",
+      "sha256": "1ce875a2680abaef0744bb9ca8f2476b5f0cb6c5c94e29ad044ed3195e46088c",
+      "nearest4x": "references4x/guardian/Demon4.CEL/009.png",
+      "nearest4x_sha256": "11676e9e67a93d9c37f1dcbcfd2c87b4402e429f3cac61f97b009372df9edf23",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/010.png",
+      "source_indices_sha256": "d5bafccd0609fc1662eb1a06b7a1cce6e4c45d5ab590ab1c5eafb7799f71985b",
+      "original": "references/guardian/Demon4.CEL/010.png",
+      "sha256": "8c1ac9a274fc9441baf3212172bc74afe89424007d89e010685faa167a20838c",
+      "nearest4x": "references4x/guardian/Demon4.CEL/010.png",
+      "nearest4x_sha256": "2470a511457f3281f9359e32d309caa5a7718db1e70b55e9c1be62f93156636d",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/011.png",
+      "source_indices_sha256": "723f95f6477f680a27c07817acaeaa3f55d6100b963901591de68fefd4b27d9d",
+      "original": "references/guardian/Demon4.CEL/011.png",
+      "sha256": "3153f49a46da251987fd67d48ee0c5fd1959fb933d4028a396bfe7998159bc54",
+      "nearest4x": "references4x/guardian/Demon4.CEL/011.png",
+      "nearest4x_sha256": "fc7cb87662cf8dfc0a16eb2c40e650f9449c3a6a3fdf82f80b36746386c7640a",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/012.png",
+      "source_indices_sha256": "6fe978715a2848c5db8d0bd24f411e17ef726d658bcd0482204406c287eaf851",
+      "original": "references/guardian/Demon4.CEL/012.png",
+      "sha256": "63543efed2ae9f4a7e804c04c090d6aab36c5225d59b2b05b19c35095838add9",
+      "nearest4x": "references4x/guardian/Demon4.CEL/012.png",
+      "nearest4x_sha256": "43daaed65fe0aae0306dcdaec1bef6040be3d1dab0c28f5beaf3e56b493a4281",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/013.png",
+      "source_indices_sha256": "682cb66282756a96c7cdf2332cf99d92c418309fca456ddd42d3696c769d7435",
+      "original": "references/guardian/Demon4.CEL/013.png",
+      "sha256": "6a7daac7b854002af8abec1987c66dbbcbc956eee10fb6b2b5deae353610ab2d",
+      "nearest4x": "references4x/guardian/Demon4.CEL/013.png",
+      "nearest4x_sha256": "3eb35c91efda0fde09b6b94505c96c61503cdcaf76bf6784b14258851c995c1b",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/014.png",
+      "source_indices_sha256": "a204eea7cd5b8a0a51075c3e01b60b668c321264220c6fff44dc2dcc1d22aaf9",
+      "original": "references/guardian/Demon4.CEL/014.png",
+      "sha256": "80720c0366bb9ddcb7f800095dac603acce497368edeb9a3ea4bf2d5e963b331",
+      "nearest4x": "references4x/guardian/Demon4.CEL/014.png",
+      "nearest4x_sha256": "3008b0737dde2b579f46436414049e706c42bc292bb9e0e63ba600c47f0e6e75",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/015.png",
+      "source_indices_sha256": "b862246f5a8188c96ee5eeca9273bac5afd423d4628060d13ecd2236ceadfb71",
+      "original": "references/guardian/Demon4.CEL/015.png",
+      "sha256": "6ee0f36d83cbc35b18122af5d04dd2e8f31b1a0a0789f139d726739582f62331",
+      "nearest4x": "references4x/guardian/Demon4.CEL/015.png",
+      "nearest4x_sha256": "d31e0966d7e2302bf4d8b0de19df271b512a86f6551c62b9f59a8593401a072b",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/016.png",
+      "source_indices_sha256": "d03b47a42ef62ad3eef0737272f636879c2de392edb2f3f4f140b98c827dd463",
+      "original": "references/guardian/Demon4.CEL/016.png",
+      "sha256": "1de23cb97ec7d55c9c16c682a6307b5646b8539655b8606322edf317aeba889a",
+      "nearest4x": "references4x/guardian/Demon4.CEL/016.png",
+      "nearest4x_sha256": "91cf965c05d5b9031c4feda922e0c8dd16ccf411f836a59e50ff1f07836edca5",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/017.png",
+      "source_indices_sha256": "9489130a5e155ea584e071149080bd1aa4389d3b9c8e6ef3afee9701b28ada0a",
+      "original": "references/guardian/Demon4.CEL/017.png",
+      "sha256": "cf43a1cf6dd4535776e390e5ee25448ff18229cf1763f4e1b3102fbfcfa97c0e",
+      "nearest4x": "references4x/guardian/Demon4.CEL/017.png",
+      "nearest4x_sha256": "d59a99efcd518d9b9f96b4a00096e12ea7f4d3e58373e67395835149c456a779",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/018.png",
+      "source_indices_sha256": "b90e3b459af6222786eecdda6adf9d54d05b996762df824ea564562ae9a9c824",
+      "original": "references/guardian/Demon4.CEL/018.png",
+      "sha256": "015a0529a381c2c1728736e2e8310bf16b213488d78427d452802e5c45181baa",
+      "nearest4x": "references4x/guardian/Demon4.CEL/018.png",
+      "nearest4x_sha256": "ac53fe73882d0a358e991089b8a464735b8b720366af1d015b28205c5a86f250",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/019.png",
+      "source_indices_sha256": "8533a1e305c7e24e5110a0f9292b1aacb5806f558bb411066617988d4990a832",
+      "original": "references/guardian/Demon4.CEL/019.png",
+      "sha256": "479c6876160bc615ab400f042115de33a27bdfebf1fb8bdb9f9e19aa6c560320",
+      "nearest4x": "references4x/guardian/Demon4.CEL/019.png",
+      "nearest4x_sha256": "a31d5d563cbd769d939b97d1cc359f347335b93c72be1e8dabdfcef56aef3fc2",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/020.png",
+      "source_indices_sha256": "055a15a50c307861e784bc3dd0ecc6ef50962f0befdfcbaec75126db933fc002",
+      "original": "references/guardian/Demon4.CEL/020.png",
+      "sha256": "c3fefdabef3e66de890b96b1502e776d33506c6e6e42557e64a9de191478d5eb",
+      "nearest4x": "references4x/guardian/Demon4.CEL/020.png",
+      "nearest4x_sha256": "82d623e502a74b66162985bf1dc1c8b216868509f5c0925939321317c197fa66",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/021.png",
+      "source_indices_sha256": "b8a8f338ac9f6f53e9b84da2d0dc238e67a1d84359c51552485843feae0efd23",
+      "original": "references/guardian/Demon4.CEL/021.png",
+      "sha256": "781d4fdc49a0cf477e5c23d84d25fc95b51a12444a66e15ad80ec28417b5ff9c",
+      "nearest4x": "references4x/guardian/Demon4.CEL/021.png",
+      "nearest4x_sha256": "f0b45c0ed12f8de780c4d0286a005e0caa35649fcbcea33dc1e0fd89d22374c5",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/022.png",
+      "source_indices_sha256": "afd3234056ec77a1d07d2445e758347900b5e5cdb910acb2d767e1a20e1989bf",
+      "original": "references/guardian/Demon4.CEL/022.png",
+      "sha256": "afbc863ed2c3c29a23fadb228f1e7f81e5c8654c9437e9d8addef2d41fe09c78",
+      "nearest4x": "references4x/guardian/Demon4.CEL/022.png",
+      "nearest4x_sha256": "f6d744a6647b6725b4da826c4fb953cbd476e4b981251f6ada85a8479f243846",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/023.png",
+      "source_indices_sha256": "e108e729f070d4ffe44837be13f17df37276b8a02133c1843ed9333f6831fc0b",
+      "original": "references/guardian/Demon4.CEL/023.png",
+      "sha256": "4e16e17e8a7a6e942f613ab07208420ba446393327b0a990ff039caf1c1033cf",
+      "nearest4x": "references4x/guardian/Demon4.CEL/023.png",
+      "nearest4x_sha256": "5cb2335f4674f0dd6f391cab913a55824c8cba89b71d280a83069dad13f0edb5",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/024.png",
+      "source_indices_sha256": "b89a39ed5c0f7d59b8af99b6e45c7d715d73445931db6f582b0f1b8cba264d67",
+      "original": "references/guardian/Demon4.CEL/024.png",
+      "sha256": "cdc91649ad7ddf07377e307b911f8d54dd5b08621d99ea1994a634fd057f16c6",
+      "nearest4x": "references4x/guardian/Demon4.CEL/024.png",
+      "nearest4x_sha256": "38df70d7c3e3b9f8e4b0c9c0d7ca5bf2f1f8836a433cb752fd6fbd02568cbad4",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/025.png",
+      "source_indices_sha256": "26f96c25c9ca33266b67d0293ab35dcf52613d7efa294fee05f961a3b00d3e75",
+      "original": "references/guardian/Demon4.CEL/025.png",
+      "sha256": "c493a4ac3cf3a122a5e332bb7985d554865e8f11189a9d7c817ccc7ed450b412",
+      "nearest4x": "references4x/guardian/Demon4.CEL/025.png",
+      "nearest4x_sha256": "da913ad03e9f69b633dab2caa0535ebdbf77f4f7cadd1deb42023f27d96a1a14",
+      "art_status": "original_reference_only_not_hd_redraw"
+    },
+    {
+      "key": "Demon4.CEL/026.png",
+      "source_indices_sha256": "5243c15c110e3fac711d614c78e8a683ae722f4d51c2c01845b2fbc8a3485383",
+      "original": "references/guardian/Demon4.CEL/026.png",
+      "sha256": "84e060f1fbb0453347c595e8c021cf7ffbeff12d386231e8f7cebb8c18269f7e",
+      "nearest4x": "references4x/guardian/Demon4.CEL/026.png",
+      "nearest4x_sha256": "778580a7fd5f0cab5eb55ed661e76c089b51c9c2ed5e091ebf750e23db8645f2",
+      "art_status": "original_reference_only_not_hd_redraw"
+    }
+  ]
+}

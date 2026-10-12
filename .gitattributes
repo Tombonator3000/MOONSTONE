@@ -3,3 +3,6 @@ art/photoreal/prompts/** whitespace=-blank-at-eof
 # Fontlisensene bevares med leverandorens opprinnelige linjeskift og mellomrom.
 art/hd-text-2026-10-11/fonts/*-OFL.txt -whitespace
 web/hd/fonts/*-OFL.txt -whitespace
+# Frosne bildegenereringsprompter og kildeindekser skal beholde eksakte bytes.
+art/hd-completion-figures-2026-10-11/figures/kn3-production/prompts/*.txt -whitespace
+art/hd-mys-eyes-2026-10-11/source/indices/*.bin binary

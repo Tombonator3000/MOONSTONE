@@ -1,0 +1,21 @@
+{
+  "key": "hen1.c/015.png",
+  "source_indices_sha256": "5b1372c4e1c031a072ab16787a3e0194138e7e90201090e4d37ed14607f35dfd",
+  "original_sha256": "77fdb2d0b2528135fb9f8cfa90569c4cd7126fb4a5afa7da175df58c7398a671",
+  "candidate_sha256": "3fb0a1c9485d4bebff2df4d04d5037d787193851898f4603ec94a5b501c969f8",
+  "authoring_method": "individual_redraw",
+  "prompt": "prompts/hen1-015-v1.txt",
+  "generator": "builtin_image_gen",
+  "raw": "raw/hen1-015-v1.png",
+  "raw_sha256": "1262ee95b2c7a00140666b6770a86afe08188a817735a8ae53819d635daa5d3b",
+  "packing_method": "individual_builtin_redraw_with_exact_source_alpha_soft_HD_edges_generated_edge_fill_and_preserved_dark_base",
+  "geometry_gate_passed": true,
+  "status": "packed_visual_checked_runtime_pending",
+  "visual_checks": {
+    "same_original_shape_and_gaps": "source_centers_and_area_pass",
+    "same_frame_individual_generation": "pass",
+    "natural_fire_material": "visually_checked",
+    "dark_original_base": "preserved_original_palette_contours",
+    "runtime": "pending"
+  }
+}

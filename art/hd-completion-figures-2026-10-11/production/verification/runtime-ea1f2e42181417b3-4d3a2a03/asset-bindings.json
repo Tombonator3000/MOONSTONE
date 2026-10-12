@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "errors": [],
+  "scope": "Hashbinding av allerede frosset runtimeprøve og dens eksakte inndata, ingen ny kampkjøring.",
+  "html_sha256": "c3a51a59c4fcc554142609b9387c182c84a17bd180a62c9b882ee6720a651ad2",
+  "checks": [
+    "TROLL1.CEL/000.png_frozen_runtime_input_and_current_bytes_exact",
+    "TROLL1.CEL/001.png_frozen_runtime_input_and_current_bytes_exact",
+    "TROLL1.CEL/003.png_frozen_runtime_input_and_current_bytes_exact",
+    "TROLL1.CEL/007.png_frozen_runtime_input_and_current_bytes_exact",
+    "TROLL1.CEL/006.png_frozen_runtime_input_and_current_bytes_exact",
+    "TROLL1.CEL/008.png_frozen_runtime_input_and_current_bytes_exact"
+  ],
+  "frozen_runtime": {
+    "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/test.json",
+    "sha256": "8451aef6f7b183630fc44049969d41308155da5228ec233ef489c7513bb82abd"
+  },
+  "frozen_input": {
+    "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-ea1f2e42181417b3-4d3a2a03/input-index.json",
+    "sha256": "ea1f2e42181417b3e582e5546ba6e56ad931d1d72761e2174716c1df9a553e7a"
+  },
+  "assets": [
+    {
+      "key": "TROLL1.CEL/000.png",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/000/0659f945cb262709/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "c37215a311d03237a0f2a80efe19e6d530367bccf883d9c3755d3dd8660ccc3f"
+    },
+    {
+      "key": "TROLL1.CEL/001.png",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/001/6d7b19ece13a7453/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "d9082c3cf85dc0d068ef5be4207a94ad7d9e3ca427f929b409a677bb512c8d15"
+    },
+    {
+      "key": "TROLL1.CEL/003.png",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/003/15fc3928c6f09406/separate-shadow-bottom8-v7/candidate.png",
+      "png_sha256": "170aa7e90cceaacd9e175ca58f28188fa1da9c4afc0800c8184e59f470066eda"
+    },
+    {
+      "key": "TROLL1.CEL/007.png",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/007/c7f366e4a98bbb88/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "68a35a4aa9ea6a4b0635503ff17b6accd25e7df1b816ad2f4d151a479c7c9398"
+    },
+    {
+      "key": "TROLL1.CEL/006.png",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/006/016e0c8d247b24dc/rounded-source-edge-v5/source-eye-v10-photo-skin/candidate.png",
+      "png_sha256": "0e407cb43bb2835488ec2e5e7459c05d9e30cc978a24c5ec0e8a7e3d985770fb"
+    },
+    {
+      "key": "TROLL1.CEL/008.png",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/TROLL1.CEL/008/23d8792257615802/separate-shadow-feet-v9-original-flat/candidate.png",
+      "png_sha256": "507071bce80fc1ef15c141c251bb376eff710362480c77077428e8f3406dfb29"
+    }
+  ]
+}

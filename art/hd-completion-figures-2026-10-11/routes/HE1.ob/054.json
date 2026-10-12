@@ -1,0 +1,116 @@
+{
+  "key": "HE1.ob/054.png",
+  "master_key": "HE1.ob/054.png",
+  "role": "redraw",
+  "package": "02-riddere",
+  "order_group": "Riddere",
+  "order_priority": "3",
+  "identity": "Ridderens separate kropp-, våpen- eller blodfragment fra HE1.ob",
+  "master_usage": "Alle kamper: ridderens kropp (gylden i grafikklisten, indeksene 9-11), tegnes ti ganger i sekundet",
+  "identity_limit": "Kildebank og brukssted. Ingen udokumentert handlingsetikett per rute.",
+  "bank": "HE1.ob",
+  "frame": 54,
+  "width": 52,
+  "height": 26,
+  "target_width": 208,
+  "target_height": 104,
+  "source_bank": {
+    "path": "data/HE1.ob",
+    "sha256": "bce75aed64a4087331589f2f302f6052406cee520c479617513f8b333ae4fb6f",
+    "bytes": 21058,
+    "frames": 60
+  },
+  "bitplane_sha256": "5e67971d4fccde2b27eb58567e1f62cf5b486751b191d04b1b5ca00571260f6d",
+  "packed_indices_sha256": "b59c0b8b84924c0bc6d14264fe42d3dbab6c6b3c8235337c14e247fb817757ff",
+  "indices_sha256": "b59c0b8b84924c0bc6d14264fe42d3dbab6c6b3c8235337c14e247fb817757ff",
+  "plane_mask": 15,
+  "packed_planes": 4,
+  "source_flag": 1,
+  "source_indices": [
+    0,
+    3,
+    4,
+    5,
+    9,
+    10,
+    11
+  ],
+  "index_remap": {
+    "0": 0,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "9": 9,
+    "10": 10,
+    "11": 11
+  },
+  "source_neighbors": [
+    "HE1.ob/052.png",
+    "HE1.ob/053.png",
+    "HE1.ob/055.png",
+    "HE1.ob/056.png"
+  ],
+  "neighbor_limit": "Nærliggende kilde-ID-er, ikke en bekreftet animasjonsrekkefølge",
+  "alpha_bounds": [
+    0,
+    0,
+    52,
+    26
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "placement": "Originalens tegnerektangel; ingen ny sentrering eller justering av fotpunkt",
+  "palette_id": "combat-preview",
+  "palette_status": "preview_only_not_a_monster_or_player_color_approval",
+  "palette_source_sha256": "8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5",
+  "palette_file_sha256": "9e0b9b6c5798bc2706a91487b5fae02b840c95c20235a5886f0bdba34bbcef35",
+  "original": {
+    "path": "references/original/HE1.ob/054.png",
+    "sha256": "d88d7a61a14e50f63df1b9b433108e09350cfc4668a9ea1d546a1fb6f44313a0",
+    "width": 52,
+    "height": 26
+  },
+  "nearest4x_reference": {
+    "path": "references/nearest4x/HE1.ob/054.png",
+    "sha256": "b46c942438c6872af56461a3486d51fbad5fde2a1b56ef07e1d13e18b0f06114",
+    "width": 208,
+    "height": 104
+  },
+  "packed_original": {
+    "path": "source/packed/HE1.ob/054.png",
+    "sha256": "a7fe9d59d84207ed18836cb4d09bebb547040126c68ddb7c79af8df87b9581d6",
+    "width": 52,
+    "height": 26
+  },
+  "silhouette": {
+    "path": "source/alpha/HE1.ob/054.png",
+    "sha256": "296756867e0a34766a608b2b6e589305284ea18bda5d4d4fcf91d34dd893c7f7",
+    "width": 52,
+    "height": 26
+  },
+  "needs_mask": true,
+  "neutral_mask_template": {
+    "path": "mask-templates/HE1.ob/054.mask.png",
+    "sha256": "42d900b3e3f17283febd54a1ace58e02546132b5d872b5b96b017b824038e259",
+    "width": 208,
+    "height": 104
+  },
+  "live_palette_indices": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "source_order_mask_override": null,
+  "mask_warning": null,
+  "intro_only": false,
+  "runtime_gate": "new_art_requires_route_runtime_check",
+  "art_status": "pending_individual_redraw",
+  "target_png": "hd/HE1.ob/054.png",
+  "target_mask": "hd/HE1.ob/054.mask.png",
+  "source_order_note": "Koden støtter figurer i flere deler og farge fra paletten. Hver ny rute og overlapping må prøves."
+}

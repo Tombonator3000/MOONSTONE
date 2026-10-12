@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "a84202f81e2c548dc9d09b531afb4bb973fb8afee872abf9053c90a1afee8889",
+    "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/balok-roar-three-a842-root38a3-v1/test.json",
+      "sha256": "4046693c56bc9a48605d4632d08d51a716be007ee404873a51fab41f655f8a6e",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/balok-roar-three-a842-root38a3-v1/loaded.html",
+      "html_sha256": "38a3a4bd839c060b7a1320520c828458850ec71fe536eea72f0fd470b930c93b"
+    }
+  ],
+  "scope": "Separate individuelt genererte ruter, sammenliknet med original og sett samlet i kontrollert originalkamp. Eksakte Original/HD-returer. Original flat skygge beholdes uten nytegningspaastand. Ingen full animasjonsdekning eller naturlig kartreise.",
+  "entries": [
+    {
+      "key": "Balok1.CEL/041.png",
+      "bank": "Balok1.CEL",
+      "frame": 41,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "2d702145e83c53f24a3be8769207944815c3bee519f0ede889cefdc87f7e6ee0",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/041/0b85be3daf7fcc19/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "cfbdf451717d31b16da0e2deb1fcd1d6e58a1123c7a40102e3b9bc82e9f5c6c6",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/041-v1.png",
+      "raw_sha256": "0b85be3daf7fcc19327d94f1e904066f64ad682e43af62890163c02c6368d5f2",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/041-v1.txt",
+      "prompt_sha256": "421da59be5c583589447490c54dc4cbfa030f4e091b5ac2df83c803d8f020d25",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/balok-roar-three-a842-root38a3-v1/test.json",
+      "runtime_asset_sha256": "cfbdf451717d31b16da0e2deb1fcd1d6e58a1123c7a40102e3b9bc82e9f5c6c6",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/041/0b85be3daf7fcc19/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "e6c26cf7783d045a10794a6a8f46f646ad2f2bd529a0cd016793cfa6b5fcd09d",
+      "qa": {
+        "frame": 1632,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "Balok1.CEL/042.png",
+      "bank": "Balok1.CEL",
+      "frame": 42,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "e180d3286fc2355638467ea057de6640d2990a1b368a6d0cb8868af5a4cd58d9",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/042/4519d61695b940d3/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "506eae42109bc82d6862003e3c8c5d0c5b85967a84fa70c788515a17e8cc7900",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/042-v1.png",
+      "raw_sha256": "4519d61695b940d3bef82d4e1fb92b6824486bcaade6648e90d0df60a7dbca77",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/042-v1.txt",
+      "prompt_sha256": "ab156935ac56dfa623cedbe884f6b3cb6dde8179eb698d1ab5b8b7550f5418f0",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/balok-roar-three-a842-root38a3-v1/test.json",
+      "runtime_asset_sha256": "506eae42109bc82d6862003e3c8c5d0c5b85967a84fa70c788515a17e8cc7900",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/042/4519d61695b940d3/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "4d0a7d1946aabed18238f417456022431cde49869b1884b9da8bc3ec26aa749e",
+      "qa": {
+        "frame": 1632,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      }
+    },
+    {
+      "key": "Balok1.CEL/043.png",
+      "bank": "Balok1.CEL",
+      "frame": 43,
+      "source_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+      "indices_sha256": "ff57464687c358f6ed29dd7fa9f3ae3636d9be043d87cfdd38918ae8a573742e",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/043/7d006c3544578b80/separate-shadow-balok-v1-original-flat/candidate.png",
+      "png_sha256": "8184391736958be21fa71abd8bd71da1ddc8cabe89969154a672b469fd4e14b6",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/043-v2.png",
+      "raw_sha256": "7d006c3544578b80053ebe435b3dbc8a82f30bba08cfee71dff98fe45c8ba7b1",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/043-v2.txt",
+      "prompt_sha256": "477a4c40568d53baf235e051d68d73081a0ee276ee8a61932c4c7a83541e17ee",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/balok-roar-three-a842-root38a3-v1/test.json",
+      "runtime_asset_sha256": "8184391736958be21fa71abd8bd71da1ddc8cabe89969154a672b469fd4e14b6",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok1.CEL/043/7d006c3544578b80/separate-shadow-balok-v1-original-flat/art-record.json",
+      "art_record_sha256": "f6b31530959d164f13a4f37160fd4b7ae218625ce423086cc8e8242222fa7c66",
+      "qa": {
+        "frame": 1632,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": "original_flat_retained_not_redrawn"
+      }
+    }
+  ]
+}

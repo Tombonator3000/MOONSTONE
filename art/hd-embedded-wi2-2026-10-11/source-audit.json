@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "status": "source_correction_no_additional_embedded_figure",
+  "source_file": "data/WI2.P",
+  "source_file_sha256": "5ff02cd3b6b7e07e736684f3b238b5b7b167b4370eab467e1a815911aab3513f",
+  "source_indices_sha256": "a11bf32f0b86fd08ab31dd820b2dbbaa1b5ea28c2755eaa1177178657053cb0a",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "reference": {
+    "path": "art/hd-embedded-wi2-2026-10-11/references/wi2-original-piv.png",
+    "sha256": "da9db5662790f5779a3db38a87177171e863c491f9e6ddc1ae4af3f80437ceda",
+    "method": "Original 320x200 PIV nearest-scaled3x, no generated material."
+  },
+  "correction": "Tidligere skjermtolkning av en innebygd trollmann i WI2.P var feil. Kilden viser bare tårn, måne, himmel og fjell. Trollmannens hele kropp kommer fraWi1.C015/017/019, medfølgende robe-fragmenter016/018/020. Disse er allerede separat nytegnet og aktivert. Ingen ekstra fastfigurplate skal genereres.",
+  "runtime_proof": {
+    "path": "art/hd-math-figures-2026-10-11/verification/standard-new-render/math-figure-palette-test.json",
+    "sha256": "b144871ad7d887b864225a7f53af55e82a47a5f46b5c2927a357a486bb7eee8a",
+    "html_sha256": "8cb9c45be6ae724b054bcdceee7438b7d08f11da934273630f62134661d69466",
+    "source_files": {
+      "web/build/moonstone-core.js": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+      "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+      "web/src/scenes.js": "f96ca11802910e3291ec7ee4128299f68b73957b3f5f1d0b1435141e1a08ebcd",
+      "web/src/render.js": "9d0e6a66a7597e745d23b0a0516f0c6f8b06f97cb92189613938c14f40aef8bd",
+      "Moonstonecd32-AMIGA.zip": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02"
+    }
+  },
+  "observed_routes": [
+    {
+      "fil": "wi1.c",
+      "bilde": 15,
+      "x": 253,
+      "y": 141,
+      "w": 55,
+      "h": 59,
+      "speilet": false,
+      "caller": 556016
+    },
+    {
+      "fil": "wi1.c",
+      "bilde": 16,
+      "x": 214,
+      "y": 192,
+      "w": 39,
+      "h": 8,
+      "speilet": false,
+      "caller": 556016
+    },
+    {
+      "fil": "wi1.c",
+      "bilde": 17,
+      "x": 252,
+      "y": 141,
+      "w": 60,
+      "h": 59,
+      "speilet": false,
+      "caller": 556016
+    },
+    {
+      "fil": "wi1.c",
+      "bilde": 18,
+      "x": 203,
+      "y": 191,
+      "w": 49,
+      "h": 9,
+      "speilet": false,
+      "caller": 556016
+    },
+    {
+      "fil": "wi1.c",
+      "bilde": 19,
+      "x": 249,
+      "y": 141,
+      "w": 60,
+      "h": 59,
+      "speilet": false,
+      "caller": 556016
+    },
+    {
+      "fil": "wi1.c",
+      "bilde": 20,
+      "x": 202,
+      "y": 190,
+      "w": 47,
+      "h": 10,
+      "speilet": false,
+      "caller": 556016
+    }
+  ]
+}

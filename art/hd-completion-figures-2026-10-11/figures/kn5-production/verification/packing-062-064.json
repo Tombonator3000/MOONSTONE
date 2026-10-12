@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "checks": 7205,
+  "assets": [
+    {
+      "key": "KN5.ob/062.png",
+      "png_sha256": "d219b93f8ddf73ea1116526b275a69c1d18ce422b33d4d6f5388b1792de582b5",
+      "covered_source_centers": 1137,
+      "transparent_source_centers": 1151,
+      "material_colors": 8130,
+      "final_alpha_iou": 1.0,
+      "preserved_dark_centers": 463,
+      "mask": null
+    },
+    {
+      "key": "KN5.ob/063.png",
+      "png_sha256": "832d5954a8618d515e5db508fb65ce27114b6722da5529ad0bdca4dd30ea8910",
+      "covered_source_centers": 995,
+      "transparent_source_centers": 835,
+      "material_colors": 6622,
+      "final_alpha_iou": 1.0,
+      "preserved_dark_centers": 355,
+      "mask": null
+    },
+    {
+      "key": "KN5.ob/064.png",
+      "png_sha256": "8e1fbbfa7485dbbb7678a20d955e4228c8daa05a2ae428885c82d9145c85f9e7",
+      "covered_source_centers": 963,
+      "transparent_source_centers": 928,
+      "material_colors": 7129,
+      "final_alpha_iou": 1.0,
+      "preserved_dark_centers": 363,
+      "mask": null
+    }
+  ],
+  "aliases": [],
+  "source_contracts_sha256": "530869e0e8dc6a5f151aac8392d5a86387c5d88f38d2d52f55110f2217f152fd",
+  "scope": "Original-PNG-SHA, rawkvittering, 4xmaal, alle kildepikselmidtpunkter, sluttalfa-IoU >= 0.90, moerke4/5-felt, palettmaske og eksakte kopier. Visuell kontroll og faktisk runtime kreves separat."
+}

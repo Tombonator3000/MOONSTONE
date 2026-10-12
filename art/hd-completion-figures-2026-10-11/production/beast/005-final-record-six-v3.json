@@ -1,0 +1,43 @@
+{
+  "key": "be1.c/005.png",
+  "generation_tool": "builtin_image_gen",
+  "tool_id": "exec-aefbe208-28d9-45ae-9601-4bb994628d58",
+  "original_generated_file": "/home/tombonator3000t/.codex/generated_images/01a10201-d4e6-7b43-9cf5-c75c123ccd87/exec-aefbe208-28d9-45ae-9601-4bb994628d58.png",
+  "raw": "raw/005-v1.png",
+  "prompt": "prompts/005-v1.txt",
+  "reference": "references/005-white20x.png",
+  "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+  "raw_sha256": "9c571284e9bb7a8ac9f9ea6f1c1e74b0f23ca9a8a5a133ad8e28be504a8ea99b",
+  "prompt_sha256": "bf64ecadc0e54173aa55c01b1b343569006a7bef408a75e6a6908b6f87c6a7cf",
+  "reference_sha256": "556231606f81c6988521f8c9e61dc5c03f5bacbd785c6f6b4db1c13f462d0928",
+  "candidate_sha256": "5eb0c65f6255d583198f04e151940b97479990bf7c00b2d0a62be064b7d6ddbd",
+  "source_indices_sha256": "37d959328f5d43592d8bd7ebd9041fbe60cdd71e683255c71040cb8b87c721d6",
+  "raw_size": [
+    1530,
+    1028
+  ],
+  "raw_alpha_bounds": [
+    18,
+    7,
+    1513,
+    1008
+  ],
+  "target_size": [
+    256,
+    172
+  ],
+  "source_centers_opaque": 1552,
+  "source_centers_empty": 1200,
+  "original_flat_shadow_cells": 193,
+  "source_material_pixels": {
+    "fur": 9003,
+    "hide": 11955,
+    "bone": 494,
+    "eye": 15
+  },
+  "visual_status": "reviewed_original_and_runtime",
+  "geometry_sha256": "acd7c5230db7ec17274742b77054698023541bb9e9ed17232c8dc41bd8f069b9",
+  "packing_script_sha256": "82138775fc52589bdd799b4669b4325fc3e7c72f82fc748da9411633cabc8dab",
+  "runtime_scope": "Controlled original Trogg War Beast combat initializer and terrain only, three source-documented test writes at900. No palette writes or modified combat/animation code; no natural map visit claim. Actual source calls and source scanout palette are checked. Separate normal/mirrored frontend fixtures and negative source/ownership checks never write to emulated memory. Candidate import only, no activation.",
+  "method": "Each route uses its own generated photographic master. Original source contours, transparent holes, silhouette and anchors are retained; source-bound material registration and original source material regions, photographic black mane detail and smoothed original skin/bone/eye light, with separately preserved flat black source shadows. This is not a claim of freehand redrawn geometry."
+}

@@ -22,13 +22,13 @@ Regler:
     samme tegning, og bare masken er forskjellig. Slike HE-bilder får ingen egen rad.
   - Ikoner og UI tas først, deretter alle bakgrunner og logoen. Figurer og
     animasjoner tas til slutt, hver rute for seg.
-  - Filer som bare lastes av programmet `program` (intro og slutt) får prioritet
-    «senere». De kan ikke vises i HD ennå (docs/hd-mangler.md punkt 4).
+  - Intro og slutt har teknisk HD-støtte og får prioritet4, etter ikonene og
+    bakgrunnene. Hver rute trenger fortsatt separat nytegning og runtimekontroll.
   - Skala 4 ganger originalen i begge retninger (se docs/hd-bestilling-chatgpt.md).
 
 --maske lager masken til en figur som får fargen fra paletten, i formatet visningen
 leser (docs/hd-grafikk.md, «Farge fra paletten»): R = palettindeks + 1 for
-ridderfargene (indeks 6-11), ellers 0 (behold tegningens farge); G = lysstyrke
+ridderfargene (indeks 6-11; Math015..020 bare6..10), ellers 0 (behold tegningens farge); G = lysstyrke
 (128 = palettfargen); B = 255 der R er satt; alfa 255. Kilden er det indekserte
 bildet fra tools/gfx.py extract, forstørret med nærmeste nabo til 4x, eller til
 målene på HD-tegningen når den er gitt. Med tegningen regnes G ut av lysstyrken i
@@ -62,6 +62,72 @@ HE_BYTTE = {6: 9, 7: 10, 8: 11}
 RIDDERFARGER = set(range(6, 12))
 # Har HD i dag, men skal tegnes paa nytt.
 PAA_NYTT = {('bold.f', 73)}
+LOGO_SHA256 = '11c779b393a15a3d445b4fabf84f7c5e23bc381ec8f3f4c2dfa4b5c9db7df712'
+
+# Innbygde ridderfragmenter bruker kampens felles farger6..8. Originalens
+# $088c4a..$088c74 sender palett+12 til $088ca0, ogsaa i monsteranimasjonene.
+# Dette er de eksakte rutene som faktisk inneholder disse kildeindeksene.
+KAMP_RIDDER_RUTER = {
+    'balok1.cel': {10},
+    'balok2.cel': {7, 9, 10, 11, 13, 17, 18, 19, 22, 24},
+    'balok3.cel': {2, 3, 4, 5, 6, 19, 25, 26, 30, 31, 32, 39, 44, 45, 46, 51, 53, 55, 56, 57, 58, 59},
+    'dragon2.cel': {17, 18, 19},
+    'dragon5.cel': {32, 35},
+    'demon2.cel': {60},
+    'demon3.cel': {15, 20, 21},
+    'mudmen1.cel': {46, 47, 53, 54, 56, 58, 61, 62},
+    'mudmen2.cel': {1, 3, 8, 12, 30, 37, 40, 46},
+    'ratmen1.cel': {23, 25},
+    'ratmen2.cel': {42, 43, 44, 46, 47, 51, 52, 53, 54, 55, 58, 59, 60, 61, 62},
+    'troggaxe2.cel': {11},
+    'troggspear1.cel': {14, 15, 19, 20, 25, 26, 27, 29, 30, 33, 34, 35, 36, 37},
+    'troggspear2.cel': {11},
+    'be1.c': {34, 35, 36, 37, 38, 39, 40, 41, 42, 46, 47, 48, 49, 58, 60, 61},
+}
+
+
+def maskefarger(bank, frame):
+    """Eksakte levende indeksfelt, uavhengig av den valgte forhåndspaletten."""
+    # KN5 brukes ogsaa i dragekampen: $088c16 setter faste roedfarger9..15
+    # og ild29..31. Riddervelgeren $088ca0 endrer bare6..8, ikke9..11.
+    if bank.lower() == 'kn5.ob':
+        return {6, 7, 8}
+    # Monsterfarger9..15 og drageild29..31 er faste. Bare6..8 foelger ridderen.
+    if frame in KAMP_RIDDER_RUTER.get(bank.lower(), set()):
+        return {6, 7, 8}
+    if bank.lower() in {b.lower() for b in PALETT}:
+        return RIDDERFARGER
+    # Math-tårnet: $089478-$089484 sender WI2.P+12 til $08a9b6.
+    # Aktiv ridder+0x36 velger fem farger. Balkonens000..014 er faste.
+    if bank.lower() == 'wi1.c' and 15 <= frame <= 20:
+        return set(range(6, 11))
+    # Tavernaen: $08a3b2 sender tav-palett+12 til samme originale setter.
+    # Bare006/007 har levende draktindekser;008/009 er hanske,010..022 er terninger.
+    if bank.lower() == 'dice.cel' and frame in (6, 7):
+        return set(range(6, 11))
+    # LI1: originalintro4464/4473/4528 bruker svart, normal og hvitblink.
+    # Hvert ikke-null kildefelt trenger sin eksakte NN-indeks, ikke bare draktfarger.
+    if bank.lower() == 'li1.cel' and 0 <= frame < 30:
+        return set(range(1, 32))
+    # Oppstigningen deler den faktiske bla skanout-paletten med LI1.
+    # Bare040..054 bruker modus3; tidligere ritual- og flammeruter er uendret.
+    if bank.lower() in {'hen1.c', 'klift1.cel'} and 40 <= frame <= 54:
+        return set(range(1, 32))
+    return set()
+
+
+def logo_gjennomfort(rot, filer):
+    """Bare den kontrollerte nygenererte2440x581-logoen fjerner revisjonen."""
+    from PIL import Image
+    path = os.path.join(rot, 'web/hd/bold.f/073.png')
+    entry = next((r for r in filer if r['path'] == 'bold.f/073.png'), None)
+    if not entry or entry.get('sha256') != LOGO_SHA256 or not os.path.isfile(path):
+        return False
+    with open(path, 'rb') as f:
+        if hashlib.sha256(f.read()).hexdigest() != LOGO_SHA256:
+            return False
+    with Image.open(path) as im:
+        return im.size == (2440, 581) and im.mode == 'RGBA'
 
 MONSTRE = {
     'Balok': 'Balok', 'be1.c': 'beistet', 'be2.c': 'beistet (blod og hugg)', 'Demon': 'demonen',
@@ -97,7 +163,7 @@ def figur_info(fil, nr):
             'Ikke sett i tegnelisten ennå (antatt i bruk). Overlapper ridderen.'
     if f == 'blo.cel':
         return 4, 'Blod og sår', 'Kamp: blodsprut over ridder og monster', \
-            'Faste farger. Ikke sett i tegnelisten ennå (antatt i bruk). Overlapper figuren under.'
+            'Indeks15, kampblod c00 med original fading. 27 ruter observert i kontrollert original Troll-kamp; alle41 har kildebundet HD. Overlapper figuren under.'
     for start, navn in MONSTRE.items():
         if fil.lower().startswith(start.lower()):
             return 3, 'Monstre', 'Kamp i hi og ute: %s' % navn, \
@@ -106,9 +172,9 @@ def figur_info(fil, nr):
     if f == 'bold.f':
         if nr == 73:
             return 2, 'Logo', 'Tittelmenyen: MOONSTONE-logoen', \
-                ('Tegnes på nytt. Dagens web/hd/bold.f/073.png er 2172 x 724 (3,0:1) mot kildens 305 x 54 '
-                 '(5,65:1). Visningen bevarer nå sideforholdet, men en trofast nytegning gjenstår. '
-                 'Originalens 305 x 54 er fasit. Logoens tekstmetadata må tilpasses 1220 x 216-leveransen. '
+                ('Den kildebundne1220x216-leveransen mangler eller har avvikende SHA. '
+                 'Originalens305x54-form, ansikt, skygge, treO-hull og undertekst er fasit. '
+                 'Logoens tekstmetadata må passe1220x216-leveransen. '
                  'Eldre avviste utkast er bare dokumentasjon av feil, ikke tegnereferanser.')
         return 1, 'Tittelmeny', 'Tittelmenyen: copyrightlinjene', 'Klar, ikke prøvd. Tegn teksten nøyaktig som i originalen.'
     if f == 'sel.cel':
@@ -117,8 +183,15 @@ def figur_info(fil, nr):
         if nr <= 5:
             return 1, 'Kro- og byikoner', 'Tavernaen: seks faste terningsutfall', \
                 'Statiske utfallsbilder. Originalkoden velger 0-5 i vis_gull_vunnet ($08a600-$08a690). Bevar hvert symbol.'
-        return 4, 'Kroanimasjoner', 'Tavernaen: hender og terningkast', \
-            'Animasjonsruter, tas til slutt. Bilde 6 og 7 er sett i tegnelisten. Nytegn og kontroller hver rute separat.'
+        if nr >= 10:
+            return 4, 'Kroanimasjoner', 'Tavernaen: tre kastede Dragon Dice over bordet', \
+                ('Animasjonsruter, tas til slutt.010..022 bruker tav.piv-paletten. '
+                 'Originalsekvens0ad76e tegner hanske009 på fast posisjon mellom terningrutene. '
+                 'Nytegn de tre grå terningene med nøyaktig original plassering, rotasjon og størrelse.')
+        return 4, 'Kroanimasjoner', 'Tavernaen: ridderens stålhanske og arm over bordet', \
+            ('Animasjonsruter, tas til slutt.006..022 bruker tav.piv-paletten, ikke dice.piv. '
+             '006/007 bruker levende draktindekser6..10 fra aktiv ridder ($08a3b2→$08a9b6). '
+             'Nytegn og kontroller hver rute separat i tavernascenen.')
     if f == 'mys.cel':
         if nr >= 6:
             hvor = 'Healeren: begge øyne lukket' if nr == 6 else 'Mystikeren: ett øye lukket'
@@ -127,7 +200,9 @@ def figur_info(fil, nr):
         return 1, 'Kro- og byikoner', 'Mystikeren og healeren: donasjonsknapper, tekst og piler', \
             'Statisk UI. donasjon ($08a002-$08a07e) tegner knappene 0-5. Bevar originalens tekst og symboler.'
     if f == 'wi1.c':
-        return 3, 'Stedsfigurer', 'Tårnet i fjellene: trollmannen Math', 'Klar, ikke prøvd.'
+        return 3, 'Stedsfigurer', 'Tårnet i fjellene: trollmannen Math', \
+            ('Teknisk støttet.015..020 bruker WI2.P og levende maskefarger6..10 fra aktiv ridder; '
+             '000..014 bruker WI1.P med fast kappe/flamme. Hver ny rute må kontrolleres i originalscenen.')
     if f == 'hen1.c':
         return 3, 'Stedsfigurer', 'Stonehenge og tempelet i slutten: ting og flammer', 'Klar, ikke prøvd.'
     raise SystemExit('Ingen prioritet for %s' % fil)
@@ -144,8 +219,9 @@ INTRO_HVOR = {
     'li1.cel': 'Introen eller slutten: lyn og magi',
     'ov1.cel': 'Introen eller slutten: forgrunn (busker og røde blader)',
 }
-INTRO_MERKNAD = ('Kan ikke vises ennå: intro og slutt kjøres av programmet program, der laget og '
-                 'tegnelisten mangler (docs/hd-mangler.md punkt 4.4). Ikke tegn dette før det er løst.')
+INTRO_MERKNAD = ('Teknisk HD-støtte for originalprogrammet er på plass, inkludert tegneliste og rullefliser. '
+                 'Nytegn hver rute separat og kontroller dens faktiske programbruk, palett, buffer og overlapping. '
+                 'Observerte tegnekall er ikke alene bevis på synlige skjermpiksler eller full animasjonsdekning.')
 
 # Bakgrunner. Hashene er målt i emulatoren (docs/hd-mangler.md punkt 2). For PIV-filene
 # regnes hashen også ut her og sjekkes. (prioritet, gruppe, kildefil, bilde, hash, hvor, merknad)
@@ -287,6 +363,9 @@ def lag_maske(kilde, ut, tegning=None, spill_sti=None, graa_referanse=None):
     hd = Image.open(tegning).convert('RGB') if tegning else None
     maal = hd.size if hd else (w * SKALA, h * SKALA)
     maske = kilde_planmaske(kilde, im, spill_sti)
+    bank = os.path.basename(os.path.dirname(os.path.abspath(kilde)))
+    frame = int(os.path.splitext(os.path.basename(kilde))[0])
+    levende = maskefarger(bank, frame)
     try:
         indekser = utvid_indekser(im.tobytes(), maske)
     except ValueError as e:
@@ -307,7 +386,7 @@ def lag_maske(kilde, ut, tegning=None, spill_sti=None, graa_referanse=None):
     for y in range(maal[1]):
         for x in range(maal[0]):
             i = ip[x, y]
-            if i not in RIDDERFARGER:
+            if i not in levende:
                 continue
             g = 128
             if hp and ref[i] > 8:
@@ -320,6 +399,7 @@ def lag_maske(kilde, ut, tegning=None, spill_sti=None, graa_referanse=None):
 
 
 def main():
+    global PAA_NYTT
     if len(sys.argv) > 1 and sys.argv[1] == '--maske':
         parser = argparse.ArgumentParser(description='Lag palettmaske fra uendret, pakket original-PNG.')
         parser.add_argument('kilde')
@@ -337,6 +417,7 @@ def main():
     ut_sti = sys.argv[2]
     with open(os.path.join(ROT, 'web/hd/manifest.json')) as f:
         filer = json.load(f)['files']
+    PAA_NYTT = set() if logo_gjennomfort(ROT, filer) else {('bold.f', 73)}
     har_hd = {x['path'][:-4].lower() for x in filer if x['path'].endswith('.png')}
     with open(os.path.join(ROT, 'art/photoreal/catalog.json')) as f:
         katalog = json.load(f)
@@ -371,7 +452,7 @@ def main():
     def rang(b):
         fil, nr = b[0], b[1]
         if bare_intro(fil):
-            return (99, 2, fil.lower(), nr)
+            return (4, 2, fil.lower(), nr)
         p = figur_info(fil, nr)[0]
         return (p, 0 if fil.startswith('KN') else 1, fil.lower(), nr)
 
@@ -429,9 +510,9 @@ def main():
             continue
         hd_fil = '%s/%03d.png' % (fil, nr)
         # bare bilder med ridderfargene trenger maske (noen vaapen i KN4.ob har ingen)
-        palett = 'ja' if fil in PALETT and RIDDERFARGER & set(b[4]) else 'nei'
+        palett = 'ja' if maskefarger(fil, nr) & set(b[4]) else 'nei'
         if bare_intro(fil):
-            pri, gruppe, hvor, merk = 'senere', 'Intro og slutt', INTRO_HVOR[fil], INTRO_MERKNAD
+            pri, gruppe, hvor, merk = 4, 'Intro og slutt', INTRO_HVOR[fil], INTRO_MERKNAD
         else:
             pri, gruppe, hvor, merk = figur_info(fil, nr)
         ekstra = []
@@ -440,8 +521,8 @@ def main():
             ekstra.append('Samme bilde brukes også som %s. Legg samme tegning der.'
                           % ', '.join('%s/%03d.png' % (a[0], a[1]) for a in andre))
             if any(bare_intro(a[0]) for a in andre) and not bare_intro(fil):
-                ekstra.append('Kopien i introfilen vises ikke ennå, men skader ikke.')
-            if palett == 'ja' and any(a[0] not in PALETT for a in andre):
+                ekstra.append('Introkopien har teknisk HD-støtte, men må kontrolleres i sin egen programsekvens.')
+            if palett == 'ja' and any(not maskefarger(a[0], a[1]) for a in andre):
                 ekstra.append('Kopien hos monsteret vises med tegningens egne farger, uten maske.')
         for a in he_kopi.get((fil, nr), []):
             ekstra.append('Samme tegning skal også ligge som %s/%03d.png. Der er indeksene 6, 7, 8 byttet til '

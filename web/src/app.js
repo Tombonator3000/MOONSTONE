@@ -23,10 +23,9 @@
     const $ = (id) => document.getElementById(id);
     const inn = Lager.innstillinger();
     const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false, knapper: false,
-        effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false }, spill: 'hver', hd: 'original', sprak: 'en' }, inn);
-    /* HD er av til man selv slaar den paa (hdValgt). Foer var HD standard og ble lagret
-     * med de andre innstillingene, saa en lagret 'hd' uten hdValgt telles ikke som et valg. */
-    if (!innst.hdValgt) innst.hd = 'original';
+        effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false }, spill: 'hver', hd: 'hd', sprak: 'en' }, inn);
+    /* HD er standard. Et uttrykkelig valg av originalgrafikk huskes fortsatt. */
+    if (!innst.hdValgt) innst.hd = 'hd';
     Sprak.start(innst.sprak);               /* tekstene i index.html paa valgt spraak (sprak.js) */
     /* lagringene: automatisk lagring, og hjelpeteksten fra index.html (oppdaterMeny legger til) */
     let sistAuto = 0, baApersist = false, forsteStart = true;
@@ -191,7 +190,8 @@
         visMeny(false);
         Lyd.clear();
         hopper = false;
-        escOpp = 0;
+        introFire = false;
+        skjermTrykk = false;
         if (tekst) status(tekst);
         startSpillet();
     }
@@ -222,43 +222,43 @@
 
     /* ---------------------------------------------------------------- lyd og introen
      * Nettleseren slipper ikke lyden ut foer noen har trykket paa noe. Det forste
-     * trykket starter lyden (og hopper ikke over introen), saa introen kan hores.
+     * trykket starter lyden og kan samtidig hoppe over introen.
      * Esc teller ikke som et trykk for nettleseren, saa vi prover igjen ved neste. */
-    let lydForsokt = false, forsteTrykk = 0, skjermTrykk = false;
+    let skjermTrykk = false;
 
     function lydPaa() {
         if (Lyd.running()) return;
-        if (!lydForsokt) { lydForsokt = true; forsteTrykk = performance.now(); }
         Lyd.start().catch(() => {});
     }
     for (const t of ['pointerdown', 'keydown', 'touchend']) window.addEventListener(t, lydPaa, { capture: true });
 
-    $('skjerm').addEventListener('pointerdown', () => { skjermTrykk = true; });
+    $('skjerm').addEventListener('pointerdown', (e) => {
+        if (e.button === 0 && spillAktivt()) skjermTrykk = true;
+    });
 
     /* Introen hoppes over med Esc. Mens den gaar, gjor fire, Enter, mellomrom og
      * et trykk paa skjermen det samme, saa det gaar ogsaa paa mobil og med
-     * spillkontroller. Trykket som starter lyden, regnes ikke med, unntatt naar
-     * siden er aapnet med en invitasjon: da vil man rett til rommet. */
-    let introFire = false, escOpp = 0, hopper = false;
+     * spillkontroller. Esc gjentas til introen er over, fordi originalen kan
+     * slette tastetrykket mens en scene lastes eller tones inn. */
+    let introFire = false, hopper = false;
     function introTaster(j0, j1, taster) {
-        if (escOpp && --escOpp === 0) taster.push([0x45, false]);
-        if (!Kjerne.iIntro()) { introFire = false; skjermTrykk = false; hopper = false; return taster; }
+        if (!Kjerne.iIntro()) {
+            if (hopper) taster.push([0x45, false]);
+            introFire = false; skjermTrykk = false; hopper = false;
+            return taster;
+        }
         const fire = ((j0 | j1) & Inndata.FIRE) !== 0;
         const nyFire = fire && !introFire;
         introFire = fire;
         const tast = taster.some(([k, d]) => d && MENYTASTER.includes(k));     /* Return, Enter, mellomrom */
         /* Introen ser bare paa den siste tasten (uten slipp-biten), saa Return eller
          * mellomrom etter Esc ville skjult den. De gjor ingenting i introen uansett. */
-        taster = taster.filter(([k]) => !MENYTASTER.includes(k));
         if (taster.some(([k, d]) => d && k === 0x45)) hopper = true;
+        taster = taster.filter(([k]) => k !== 0x45 && !MENYTASTER.includes(k));
         const trykk = skjermTrykk;
         skjermTrykk = false;
-        const lov = invitasjon || !lydForsokt || performance.now() - forsteTrykk > 300;
-        if ((nyFire || tast || trykk) && lov && !escOpp) {
-            taster.push([0x45, true]);
-            escOpp = 4;
-            hopper = true;
-        }
+        if (nyFire || tast || trykk) hopper = true;
+        if (hopper) taster.push([0x45, true]);
         return taster;
     }
 
@@ -266,17 +266,20 @@
     function visHint() {
         let t = '', topp = false;
         if ((modus === 'alene' || modus === 'vert' || modus === 'hver') && !menyBrukt && !Kjerne.iIntro() && Kjerne.iMeny()) {
-            /* spillets meny kan ikke klikkes i originalen; si at det gaar her */
-            t = beroering() ? 'Trykk på et valg i menyen' : 'Klikk på et valg, eller bruk piltastene og Enter';
-            topp = true;
+            /* Hjelpeteksten maa ikke dekke den nye HD-logoens oevre svinger. */
+            const logo = Visning.hdPaa() && Visning.hdFigurer().some(d =>
+                d.fil.toLowerCase() === 'bold.f' && d.bilde === 73);
+            if (!logo) {
+                t = beroering() ? 'Trykk på et valg i menyen' : 'Klikk på et valg, eller bruk piltastene og Enter';
+                topp = true;
+            }
         } else if (Kjerne.iSlutt()) {
             t = 'Gratulerer! Esc hopper over sluttscenen.';
         } else if (modus === 'alene' && Kjerne.iIntro()) {
             /* introen gjor ferdig det den holder paa med, det kan ta et par sekunder */
             if (hopper) t = 'Hopper over introen ...';
             else if (invitasjon) t = T('Du er invitert til rom {0}. Trykk på skjermen, fire eller Esc for å hoppe over introen.', invitasjon);
-            else if (lydForsokt) t = 'Esc, fire eller et trykk på skjermen hopper over introen';
-            else t = 'Trykk på skjermen eller en tast for lyd';
+            else t = 'Esc, fire eller et trykk på skjermen hopper over introen';
         }
         if (!topp && $('status').classList.contains('vis')) t = '';     /* meldingen staar paa samme sted */
         if (t + topp === sisteHint) return;
@@ -292,6 +295,8 @@
      *  - klikk eller trykk paa en rad i tittelmenyen (eller en nettspillside): pilen
      *    dit og fire (kommando VELG; port/src/meny.c gir spillet fire naar menyen er
      *    tegnet, likt paa alle maskiner i nettspill). Enter og mellomrom er fire der.
+     *  - paa verdenskartet starter venstreklikk en reise med originalfart.
+     *    Hoyreklikk, joystick eller fire stopper reisen.
      *  - ellers er venstre knapp fire saa lenge den holdes, og drar du mens den
      *    holdes, blir det ogsaa en retning: fire og retning er angrepene i kamp.
      *    Hoyre knapp og dra er bare retning (gaa). Et klikk er et kort fire.
@@ -334,6 +339,31 @@
         menyKmd(KMD.PEKER, (x & 0xffff) | (y & 0xffff) << 16);
     }
 
+    /* Et kartmaal sendes som en kommando, aldri som nye posisjoner. Kjernen
+     * lar originalens terreng, fart og turbudsjett bestemme reisen. */
+    function velgKart(x, y) {
+        if (!minTur()) return;
+        if (modus === 'gjest') { Nett.sendKart(x, y); return; }
+        if (modus === 'vert' && Nett.harGjester()) {
+            const meg = sisteSpillere.find(s => s.id === Nett.minId());
+            kartFraGjest(x, y, Nett.vertensSpiller(), meg && meg.port);
+            return;
+        }
+        menyKmd(KMD.KART, x === -1 && y === -1 ? -1 : x | y << 16);
+    }
+    function kartFraGjest(x, y, spiller, port) {
+        if (!Kjerne.kartAktiv() || !Number.isInteger(x) || !Number.isInteger(y)) return;
+        if (!(x === -1 && y === -1) && (x < 0 || x >= 320 || y < 0 || y >= 200)) return;
+        if (sisteModus === 'fast') {
+            if (port !== 'p2' && port !== 'begge') return;
+        } else {
+            if (spiller < 0) return;
+            const eier = Kjerne.portSpillere()[1];
+            if (spiller !== eier && (Nett.harSpiller(eier) || spiller !== Nett.vertensSpiller())) return;
+        }
+        menyKmd(KMD.KART, x === -1 && y === -1 ? -1 : x | y << 16);
+    }
+
     /* rad (eller -1 = raden pilen staar paa) er valgt her eller av en gjest */
     function velgRad(rad) {
         if (modus === 'gjest') { Nett.sendVelg(rad); return; }
@@ -343,14 +373,35 @@
 
     const spillAktivt = () => (modus === 'alene' || modus === 'vert' || modus === 'gjest' || modus === 'hver') && !menyApen && !dialogApen;
 
+    const portrettValg = () => Kjerne.velgerRidder() && !Kjerne.navnAktiv();
+    function portrettVed(x, y) {
+        if (!portrettValg() || y < 80 || y >= 156) return -1;
+        for (let k = 0; k < 4; k++) {
+            const a = 0x8f516 + k * 2, venstre = Kjerne.les8(a) << 8 | Kjerne.les8(a + 1);
+            if ((Kjerne.les8(0x8f4a2) & (1 << k)) && x >= venstre && x < venstre + 64) return k;
+        }
+        return -1;
+    }
+
     function klikk(e) {
         if ((e.button !== 0 && e.button !== 2) || !spillAktivt() || Kjerne.iIntro()) return;
+        if (portrettValg()) {
+            const k = portrettVed(spillX(e), spillY(e));
+            if (e.button === 0 && k >= 0 && minTur()) velgRad(k);
+            return;
+        }
         const rad = Kjerne.menyRad(spillY(e));
         if (e.button === 0 && rad >= 0) { velgRad(rad); return; }
         if (rad !== -1) return;                      /* i menyen, men ikke paa en rad */
         if (e.button === 0 && !D && Kjerne.pekerAktiv()) {
             const x = spillX(e), y = spillY(e);
             if (x >= 0 && x < 320 && y >= 0 && y < 200) { velgPeker(x, y); return; }
+        }
+        if (!D && Kjerne.kartAktiv()) {
+            const x = spillX(e), y = spillY(e);
+            if (e.button === 2) velgKart(-1, -1);
+            else if (x >= 0 && x < 320 && y >= 0 && y < 200) velgKart(x, y);
+            return;
         }
         museStart = { x: e.clientX, y: e.clientY };
         museRetning = 0;
@@ -382,7 +433,8 @@
     /* dra for retning, og haanden over rader som kan velges, saa man ser at de kan klikkes */
     $('skjerm').addEventListener('pointermove', (e) => {
         if (museStart) { museRetning = dragRetning(e); return; }
-        const over = spillAktivt() && !Kjerne.iIntro() && Kjerne.menyRad(spillY(e)) >= 0;
+        const over = spillAktivt() && !Kjerne.iIntro() && (Kjerne.menyRad(spillY(e)) >= 0
+            || (minTur() && (portrettVed(spillX(e), spillY(e)) >= 0 || Kjerne.kartAktiv())));
         $('skjerm').style.cursor = over ? 'pointer' : '';
     });
 
@@ -396,6 +448,10 @@
 
     /* i menyen er Enter og mellomrom fire (paa raden pilen staar paa) og gaar ikke til spillet */
     function menyTaster(taster) {
+        if (portrettValg()) {
+            if (minTur() && taster.some(([k, d]) => d && MENYTASTER.includes(k))) velgRad(-1);
+            return taster.filter(([k]) => !MENYTASTER.includes(k));
+        }
         if (!Kjerne.iMeny()) return taster;
         if (taster.some(([k, d]) => d && MENYTASTER.includes(k))) velgRad(-1);
         return taster.filter(([k]) => !MENYTASTER.includes(k));
@@ -407,7 +463,7 @@
      * av neste bilde, og verten sender dem med bildet til gjestene, saa alle
      * maskinene viser det samme. */
     const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8, NAVN: 9, SPILL: 10, BIND: 11 };
-    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11, KONTROLL: 12, RIDDERE: 13, PEKER: 14 };
+    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11, KONTROLL: 12, RIDDERE: 13, PEKER: 14, KART: 15 };
     const SIDE_JOIN = 3;
     const SIDE_VERT = 2;                    /* romsiden til verten: Copy Link og Public er vertens */
     let romHint = 0;                        /* sist gjesten fikk beskjed om at romsiden er vertens */
@@ -453,8 +509,18 @@
             duell: (conn) => duellInn(conn),
             chat: chatLinje,
             status,
-            velg: (rad) => { if (Kjerne.iMeny() && Kjerne.menySide() !== SIDE_VERT) velgRad(rad); },
+            velg: (rad, spiller, port) => {
+                if (portrettValg()) {
+                    if (sisteModus === 'fast') {
+                        if (port === 'p2' || port === 'begge') velgRad(rad);
+                        return;
+                    }
+                    const eier = Kjerne.portSpillere()[1];
+                    if (spiller === eier || !Nett.harSpiller(eier)) velgRad(rad);
+                } else if (Kjerne.iMeny() && Kjerne.menySide() !== SIDE_VERT) velgRad(rad);
+            },
             peker: (x, y, spiller) => pekerFraGjest(x, y, spiller),   /* en gjest klikket i menyen (ikke paa romsiden) */
+            kart: (x, y, spiller, port) => kartFraGjest(x, y, spiller, port),
             iMeny: () => Kjerne.iMeny(),            /* der kan spillernumrene gjores om uten hull */
             trengerTilstand: (id) => {
                 const s = Kjerne.lagreTilstand();
@@ -705,11 +771,15 @@
     }
 
     /* Er det denne spilleren som velger? Alene og hver for seg alltid; i et rom tur
-     * for tur den som har joysticken i port 2 (ridderen som har turen). Ellers vises
+     * for tur den som har joysticken i port 2 (fast port eller ridderen som har turen). Ellers vises
      * valgene bare, og tastene ville verten uansett ikke sluppet gjennom. */
     function minTur() {
         if (modus !== 'vert' && modus !== 'gjest') return true;
         if (modus === 'vert' && !Nett.harGjester()) return true;
+        if (sisteModus === 'fast') {
+            const meg = sisteSpillere.find((x) => x.id === Nett.minId());
+            return !!meg && (meg.port === 'p2' || meg.port === 'begge');
+        }
         const eier = Kjerne.portSpillere()[1];
         if (eier < 0) return modus === 'vert';
         if (modus === 'vert') return eier === Nett.vertensSpiller() || !Nett.harSpiller(eier);    /* ingen har ridderen: verten styrer den */

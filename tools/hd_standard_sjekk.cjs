@@ -4,7 +4,7 @@ const fs=require('fs'),path=require('path'),http=require('http'),crypto=require(
 const root=path.resolve(__dirname,'..'),build=path.join(root,'web/build'),out=process.env.MOONSTONE_HD_TEST_OUTPUT||path.join(root,'art/photoreal/verification/2026-10-11-background-text');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'web/hd/manifest.json')));
-const baseImages=manifest.files.filter(f=>f.kind==='base'&&f.path.endsWith('.png')).length;
+const baseImages=manifest.files.filter(f=>f.kind==='base'&&f.path.endsWith('.png')&&!f.path.endsWith('.mask.png')).length;
 let browser,server;const report={checks:[],errors:[],scope:'Standardpakken i faktisk HTML med siste main-CI-kjerne. Ingen full gjennomspilling eller sluttgodkjenning av arkivruter.'};
 const check=(name,result=true)=>{assert(result,name);report.checks.push({name,passed:true});};
 async function ready(p){await p.waitForFunction(()=>{try{return window.moonDebug&&moonDebug.Kjerne.bildeNr()>1&&moonDebug.modus()==='alene'}catch(_){return false}});await p.keyboard.press('Pause');}

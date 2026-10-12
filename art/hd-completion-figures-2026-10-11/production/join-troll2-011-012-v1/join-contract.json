@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "status": "source_positioned_material_patch_not_new_pose",
+  "input_index": "art/hd-completion-figures-2026-10-11/production/candidates-troll2-003-first-three-v1.json",
+  "input_index_sha256": "f459c3bcf0709ce9a85090824f036ede3161e757da082ccbcc0429c415d51ade",
+  "runtime": "art/hd-completion-figures-2026-10-11/production/verification/runtime-f459c3bcf0709ce9-8da129d7/test.json",
+  "runtime_sha256": "a73d81ceaf799e416a70a24e838e7dd138d32fdbe91e2cd29377b4f5ec5b3cee",
+  "frame": 1386,
+  "mirrored": true,
+  "original_draws": {
+    "TROLL2.CEL/011.png": {
+      "fil": "Troll2.cel",
+      "bilde": 11,
+      "x": 264,
+      "y": 166,
+      "w": 41,
+      "h": 14,
+      "speilet": true,
+      "hd": true,
+      "maske": false
+    },
+    "TROLL2.CEL/012.png": {
+      "fil": "Troll2.cel",
+      "bilde": 12,
+      "x": 201,
+      "y": 129,
+      "w": 63,
+      "h": 51,
+      "speilet": true,
+      "hd": true,
+      "maske": false
+    }
+  },
+  "placements4x": {
+    "TROLL2.CEL/011.png": [
+      0,
+      148
+    ],
+    "TROLL2.CEL/012.png": [
+      164,
+      0
+    ]
+  },
+  "size4x": [
+    416,
+    204
+  ],
+  "band4x": [
+    144,
+    136,
+    184,
+    200
+  ],
+  "source_composite_sha256": "62e39be845918e585d4e706ff9a6e20f0ba7ab656b64e6c733f4378fe39dfa20",
+  "entries": [
+    {
+      "key": "TROLL2.CEL/011.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/011/2433525484fc6426/separate-shadow-troll2-v1-original-flat/candidate.png",
+      "candidate_sha256": "62e1acc58bcaf7fa31458f3365f3c97481d159e04b129c3c4def4f8975a196db",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/011/2433525484fc6426/separate-shadow-troll2-v1-original-flat/art-record.json",
+      "art_record_sha256": "01b041860cd283f49c6f28f01a21aa69d3179d6bb06bf7623430b959fd868731"
+    },
+    {
+      "key": "TROLL2.CEL/012.png",
+      "candidate": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/012/2726dbeb024849fc/separate-shadow-troll2-v1-original-flat/source-eye-troll2-v1-photo-skin/candidate.png",
+      "candidate_sha256": "edac604f17800551304d9f333ad7f310c90913b1ddf85c3fd5d8f79d28f230b0",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/TROLL2.CEL/012/2726dbeb024849fc/separate-shadow-troll2-v1-original-flat/source-eye-troll2-v1-photo-skin/art-record.json",
+      "art_record_sha256": "6c8831f25a7a21dff77b36bfe82af282bcab952ca6afcefef2e7a393f2eeced3"
+    }
+  ]
+}

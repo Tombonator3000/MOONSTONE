@@ -1,0 +1,923 @@
+{
+  "package_ledger_sha256": "0ce3e54b00f6825068a38a525bedd4cadb46771c87857f3e10295217c86606b7",
+  "package_manifest_sha256": "06243a8e1e6ba43f3c56b2dcf85899c1780d08e51e549625f04c5ca8696aa1a9",
+  "package_images": 1340,
+  "package_files": 1346,
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+    "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "html_sha256": "112f620b1f2bc71e787dfb279a9a2d4516338bd6e34f3b148e030464c810864c",
+  "runtime_script_sha256": "03b4399fa3b61ff7b59cb965d0c8696c5345a4b1df309858a5cfdb19f467ace3",
+  "schema": 1,
+  "status": "passed",
+  "checks": [
+    "served_frozen_HTML",
+    "served_source_web/src/core.js",
+    "served_source_web/src/render.js",
+    "served_source_web/src/scenes.js",
+    "served_source_web/src/hd.js",
+    "all_images_and_live_masks_imported",
+    "DRAGON1.CEL/006.png_source_bank_exact",
+    "DRAGON1.CEL/007.png_source_bank_exact",
+    "DRAGON1.CEL/008.png_source_bank_exact",
+    "DRAGON1.CEL/009.png_source_bank_exact",
+    "DRAGON1.CEL/010.png_source_bank_exact",
+    "DRAGON1.CEL/011.png_source_bank_exact",
+    "DRAGON1.CEL/012.png_source_bank_exact",
+    "DRAGON1.CEL/013.png_source_bank_exact",
+    "DRAGON1.CEL/014.png_source_bank_exact",
+    "DRAGON1.CEL/015.png_source_bank_exact",
+    "DRAGON1.CEL/016.png_source_bank_exact",
+    "DRAGON1.CEL/017.png_source_bank_exact",
+    "DRAGON1.CEL/018.png_source_bank_exact",
+    "DRAGON1.CEL/019.png_source_bank_exact",
+    "DRAGON1.CEL/020.png_source_bank_exact",
+    "DRAGON1.CEL/021.png_source_bank_exact",
+    "DRAGON1.CEL/006.png_HD_approved_false",
+    "DRAGON1.CEL/006.png_anchor_and_size_false",
+    "DRAGON1.CEL/006.png_mask_mode_false",
+    "DRAGON1.CEL/006.png_changes_pixels_false",
+    "DRAGON1.CEL/006.png_Original_exact_false",
+    "DRAGON1.CEL/006.png_HD_exact_false",
+    "DRAGON1.CEL/006.png_HD_approved_true",
+    "DRAGON1.CEL/006.png_anchor_and_size_true",
+    "DRAGON1.CEL/006.png_mask_mode_true",
+    "DRAGON1.CEL/006.png_changes_pixels_true",
+    "DRAGON1.CEL/006.png_Original_exact_true",
+    "DRAGON1.CEL/006.png_HD_exact_true",
+    "DRAGON1.CEL/007.png_HD_approved_false",
+    "DRAGON1.CEL/007.png_anchor_and_size_false",
+    "DRAGON1.CEL/007.png_mask_mode_false",
+    "DRAGON1.CEL/007.png_changes_pixels_false",
+    "DRAGON1.CEL/007.png_Original_exact_false",
+    "DRAGON1.CEL/007.png_HD_exact_false",
+    "DRAGON1.CEL/007.png_HD_approved_true",
+    "DRAGON1.CEL/007.png_anchor_and_size_true",
+    "DRAGON1.CEL/007.png_mask_mode_true",
+    "DRAGON1.CEL/007.png_changes_pixels_true",
+    "DRAGON1.CEL/007.png_Original_exact_true",
+    "DRAGON1.CEL/007.png_HD_exact_true",
+    "DRAGON1.CEL/008.png_HD_approved_false",
+    "DRAGON1.CEL/008.png_anchor_and_size_false",
+    "DRAGON1.CEL/008.png_mask_mode_false",
+    "DRAGON1.CEL/008.png_changes_pixels_false",
+    "DRAGON1.CEL/008.png_Original_exact_false",
+    "DRAGON1.CEL/008.png_HD_exact_false",
+    "DRAGON1.CEL/008.png_HD_approved_true",
+    "DRAGON1.CEL/008.png_anchor_and_size_true",
+    "DRAGON1.CEL/008.png_mask_mode_true",
+    "DRAGON1.CEL/008.png_changes_pixels_true",
+    "DRAGON1.CEL/008.png_Original_exact_true",
+    "DRAGON1.CEL/008.png_HD_exact_true",
+    "DRAGON1.CEL/009.png_HD_approved_false",
+    "DRAGON1.CEL/009.png_anchor_and_size_false",
+    "DRAGON1.CEL/009.png_mask_mode_false",
+    "DRAGON1.CEL/009.png_changes_pixels_false",
+    "DRAGON1.CEL/009.png_Original_exact_false",
+    "DRAGON1.CEL/009.png_HD_exact_false",
+    "DRAGON1.CEL/009.png_HD_approved_true",
+    "DRAGON1.CEL/009.png_anchor_and_size_true",
+    "DRAGON1.CEL/009.png_mask_mode_true",
+    "DRAGON1.CEL/009.png_changes_pixels_true",
+    "DRAGON1.CEL/009.png_Original_exact_true",
+    "DRAGON1.CEL/009.png_HD_exact_true",
+    "DRAGON1.CEL/010.png_HD_approved_false",
+    "DRAGON1.CEL/010.png_anchor_and_size_false",
+    "DRAGON1.CEL/010.png_mask_mode_false",
+    "DRAGON1.CEL/010.png_changes_pixels_false",
+    "DRAGON1.CEL/010.png_Original_exact_false",
+    "DRAGON1.CEL/010.png_HD_exact_false",
+    "DRAGON1.CEL/010.png_HD_approved_true",
+    "DRAGON1.CEL/010.png_anchor_and_size_true",
+    "DRAGON1.CEL/010.png_mask_mode_true",
+    "DRAGON1.CEL/010.png_changes_pixels_true",
+    "DRAGON1.CEL/010.png_Original_exact_true",
+    "DRAGON1.CEL/010.png_HD_exact_true",
+    "DRAGON1.CEL/011.png_HD_approved_false",
+    "DRAGON1.CEL/011.png_anchor_and_size_false",
+    "DRAGON1.CEL/011.png_mask_mode_false",
+    "DRAGON1.CEL/011.png_changes_pixels_false",
+    "DRAGON1.CEL/011.png_Original_exact_false",
+    "DRAGON1.CEL/011.png_HD_exact_false",
+    "DRAGON1.CEL/011.png_HD_approved_true",
+    "DRAGON1.CEL/011.png_anchor_and_size_true",
+    "DRAGON1.CEL/011.png_mask_mode_true",
+    "DRAGON1.CEL/011.png_changes_pixels_true",
+    "DRAGON1.CEL/011.png_Original_exact_true",
+    "DRAGON1.CEL/011.png_HD_exact_true",
+    "DRAGON1.CEL/012.png_HD_approved_false",
+    "DRAGON1.CEL/012.png_anchor_and_size_false",
+    "DRAGON1.CEL/012.png_mask_mode_false",
+    "DRAGON1.CEL/012.png_changes_pixels_false",
+    "DRAGON1.CEL/012.png_Original_exact_false",
+    "DRAGON1.CEL/012.png_HD_exact_false",
+    "DRAGON1.CEL/012.png_HD_approved_true",
+    "DRAGON1.CEL/012.png_anchor_and_size_true",
+    "DRAGON1.CEL/012.png_mask_mode_true",
+    "DRAGON1.CEL/012.png_changes_pixels_true",
+    "DRAGON1.CEL/012.png_Original_exact_true",
+    "DRAGON1.CEL/012.png_HD_exact_true",
+    "DRAGON1.CEL/013.png_HD_approved_false",
+    "DRAGON1.CEL/013.png_anchor_and_size_false",
+    "DRAGON1.CEL/013.png_mask_mode_false",
+    "DRAGON1.CEL/013.png_changes_pixels_false",
+    "DRAGON1.CEL/013.png_Original_exact_false",
+    "DRAGON1.CEL/013.png_HD_exact_false",
+    "DRAGON1.CEL/013.png_HD_approved_true",
+    "DRAGON1.CEL/013.png_anchor_and_size_true",
+    "DRAGON1.CEL/013.png_mask_mode_true",
+    "DRAGON1.CEL/013.png_changes_pixels_true",
+    "DRAGON1.CEL/013.png_Original_exact_true",
+    "DRAGON1.CEL/013.png_HD_exact_true",
+    "DRAGON1.CEL/014.png_HD_approved_false",
+    "DRAGON1.CEL/014.png_anchor_and_size_false",
+    "DRAGON1.CEL/014.png_mask_mode_false",
+    "DRAGON1.CEL/014.png_changes_pixels_false",
+    "DRAGON1.CEL/014.png_Original_exact_false",
+    "DRAGON1.CEL/014.png_HD_exact_false",
+    "DRAGON1.CEL/014.png_HD_approved_true",
+    "DRAGON1.CEL/014.png_anchor_and_size_true",
+    "DRAGON1.CEL/014.png_mask_mode_true",
+    "DRAGON1.CEL/014.png_changes_pixels_true",
+    "DRAGON1.CEL/014.png_Original_exact_true",
+    "DRAGON1.CEL/014.png_HD_exact_true",
+    "DRAGON1.CEL/015.png_HD_approved_false",
+    "DRAGON1.CEL/015.png_anchor_and_size_false",
+    "DRAGON1.CEL/015.png_mask_mode_false",
+    "DRAGON1.CEL/015.png_changes_pixels_false",
+    "DRAGON1.CEL/015.png_Original_exact_false",
+    "DRAGON1.CEL/015.png_HD_exact_false",
+    "DRAGON1.CEL/015.png_HD_approved_true",
+    "DRAGON1.CEL/015.png_anchor_and_size_true",
+    "DRAGON1.CEL/015.png_mask_mode_true",
+    "DRAGON1.CEL/015.png_changes_pixels_true",
+    "DRAGON1.CEL/015.png_Original_exact_true",
+    "DRAGON1.CEL/015.png_HD_exact_true",
+    "DRAGON1.CEL/016.png_HD_approved_false",
+    "DRAGON1.CEL/016.png_anchor_and_size_false",
+    "DRAGON1.CEL/016.png_mask_mode_false",
+    "DRAGON1.CEL/016.png_changes_pixels_false",
+    "DRAGON1.CEL/016.png_Original_exact_false",
+    "DRAGON1.CEL/016.png_HD_exact_false",
+    "DRAGON1.CEL/016.png_HD_approved_true",
+    "DRAGON1.CEL/016.png_anchor_and_size_true",
+    "DRAGON1.CEL/016.png_mask_mode_true",
+    "DRAGON1.CEL/016.png_changes_pixels_true",
+    "DRAGON1.CEL/016.png_Original_exact_true",
+    "DRAGON1.CEL/016.png_HD_exact_true",
+    "DRAGON1.CEL/017.png_HD_approved_false",
+    "DRAGON1.CEL/017.png_anchor_and_size_false",
+    "DRAGON1.CEL/017.png_mask_mode_false",
+    "DRAGON1.CEL/017.png_changes_pixels_false",
+    "DRAGON1.CEL/017.png_Original_exact_false",
+    "DRAGON1.CEL/017.png_HD_exact_false",
+    "DRAGON1.CEL/017.png_HD_approved_true",
+    "DRAGON1.CEL/017.png_anchor_and_size_true",
+    "DRAGON1.CEL/017.png_mask_mode_true",
+    "DRAGON1.CEL/017.png_changes_pixels_true",
+    "DRAGON1.CEL/017.png_Original_exact_true",
+    "DRAGON1.CEL/017.png_HD_exact_true",
+    "DRAGON1.CEL/018.png_HD_approved_false",
+    "DRAGON1.CEL/018.png_anchor_and_size_false",
+    "DRAGON1.CEL/018.png_mask_mode_false",
+    "DRAGON1.CEL/018.png_changes_pixels_false",
+    "DRAGON1.CEL/018.png_Original_exact_false",
+    "DRAGON1.CEL/018.png_HD_exact_false",
+    "DRAGON1.CEL/018.png_HD_approved_true",
+    "DRAGON1.CEL/018.png_anchor_and_size_true",
+    "DRAGON1.CEL/018.png_mask_mode_true",
+    "DRAGON1.CEL/018.png_changes_pixels_true",
+    "DRAGON1.CEL/018.png_Original_exact_true",
+    "DRAGON1.CEL/018.png_HD_exact_true",
+    "DRAGON1.CEL/019.png_HD_approved_false",
+    "DRAGON1.CEL/019.png_anchor_and_size_false",
+    "DRAGON1.CEL/019.png_mask_mode_false",
+    "DRAGON1.CEL/019.png_changes_pixels_false",
+    "DRAGON1.CEL/019.png_Original_exact_false",
+    "DRAGON1.CEL/019.png_HD_exact_false",
+    "DRAGON1.CEL/019.png_HD_approved_true",
+    "DRAGON1.CEL/019.png_anchor_and_size_true",
+    "DRAGON1.CEL/019.png_mask_mode_true",
+    "DRAGON1.CEL/019.png_changes_pixels_true",
+    "DRAGON1.CEL/019.png_Original_exact_true",
+    "DRAGON1.CEL/019.png_HD_exact_true",
+    "DRAGON1.CEL/020.png_HD_approved_false",
+    "DRAGON1.CEL/020.png_anchor_and_size_false",
+    "DRAGON1.CEL/020.png_mask_mode_false",
+    "DRAGON1.CEL/020.png_changes_pixels_false",
+    "DRAGON1.CEL/020.png_Original_exact_false",
+    "DRAGON1.CEL/020.png_HD_exact_false",
+    "DRAGON1.CEL/020.png_HD_approved_true",
+    "DRAGON1.CEL/020.png_anchor_and_size_true",
+    "DRAGON1.CEL/020.png_mask_mode_true",
+    "DRAGON1.CEL/020.png_changes_pixels_true",
+    "DRAGON1.CEL/020.png_Original_exact_true",
+    "DRAGON1.CEL/020.png_HD_exact_true",
+    "DRAGON1.CEL/021.png_HD_approved_false",
+    "DRAGON1.CEL/021.png_anchor_and_size_false",
+    "DRAGON1.CEL/021.png_mask_mode_false",
+    "DRAGON1.CEL/021.png_changes_pixels_false",
+    "DRAGON1.CEL/021.png_Original_exact_false",
+    "DRAGON1.CEL/021.png_HD_exact_false",
+    "DRAGON1.CEL/021.png_HD_approved_true",
+    "DRAGON1.CEL/021.png_anchor_and_size_true",
+    "DRAGON1.CEL/021.png_mask_mode_true",
+    "DRAGON1.CEL/021.png_changes_pixels_true",
+    "DRAGON1.CEL/021.png_Original_exact_true",
+    "DRAGON1.CEL/021.png_HD_exact_true",
+    "emulated_state_unchanged",
+    "no_browser_errors",
+    "production_source_unchanged_web/src/core.js",
+    "production_source_unchanged_web/src/render.js",
+    "production_source_unchanged_web/src/scenes.js",
+    "production_source_unchanged_web/src/hd.js",
+    "source_contracts_unchanged",
+    "packed_PNG_unchanged_DRAGON1.CEL/006.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/007.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/008.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/009.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/010.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/011.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/012.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/013.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/014.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/015.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/016.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/017.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/018.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/019.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/020.png",
+    "packed_PNG_unchanged_DRAGON1.CEL/021.png"
+  ],
+  "errors": [],
+  "assets": [
+    {
+      "key": "DRAGON1.CEL/006.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 6,
+            "x": 148,
+            "y": 90,
+            "w": 122,
+            "h": 39,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "585ba92d7df2c277ef9e69e6bef30fb14414b21a40bba39a9c07c9db131156f2",
+          "hd_sha256": "2ba48537833f66029535f0d7e7ffaef52281c70140c66c754c214af22df90524"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 6,
+            "x": 148,
+            "y": 90,
+            "w": 122,
+            "h": 39,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "ce17e3cf5722de3d264530c8e598446bbb8ed0b5cbba67f3544de41350aa10d9",
+          "hd_sha256": "b09c37afa79011577ccbe957e9c880e305f7cdf15f9b6f7c8d354c1ed29a3ae0"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/007.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 7,
+            "x": 148,
+            "y": 90,
+            "w": 74,
+            "h": 34,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "e585cb0a0b21a990639af8da7d86bd6883975500a675759cb56de9c7164c7def",
+          "hd_sha256": "256f74f4c8ecb22d86761ae28a66ff036e8af24e7d857599045e54729f9bc515"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 7,
+            "x": 148,
+            "y": 90,
+            "w": 74,
+            "h": 34,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "eba900ce620f19dcf5ba51f91918a000f9fccb8aab4744fc6144c19870167a39",
+          "hd_sha256": "0e57e011d76626f72be07fd498d67820b587603b578e92e5847d2cd6020c6e21"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/008.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 8,
+            "x": 148,
+            "y": 90,
+            "w": 46,
+            "h": 23,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "aa88cddab37707c3c4b5391bfc03858c016ac94fef51ef837048fbcc834b951d",
+          "hd_sha256": "3f73cf7377b4cc8b48d25b52b785fa9db56f55bab21eff2708825c03dca62ef6"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 8,
+            "x": 148,
+            "y": 90,
+            "w": 46,
+            "h": 23,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "510df9cb4d2b8237dd3d07d1fbdf586bd20fd8ff8810afef5004cdc9e7ec7339",
+          "hd_sha256": "44559480bc3f70e37cb92538aaabc7925ec33c8d704141670bc95b1d31e50f65"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/009.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 9,
+            "x": 148,
+            "y": 90,
+            "w": 73,
+            "h": 56,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "2c28a1bce89d279b499a51f03971acdc30138ff93b1238a896fbb3a8d0b175b9",
+          "hd_sha256": "121245c3620cca9e56df98cc8b0e74158d242dd7aaa3b836cf2087a5d93bbe2b"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 9,
+            "x": 148,
+            "y": 90,
+            "w": 73,
+            "h": 56,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "fb2810c63965175e6a21035c97775d78b3f8da7df9528e1f65bb3df93420b9b5",
+          "hd_sha256": "46d5ba84717acbfcbb15c04aaafb66e269353aaebcacb142df581c80a827bae6"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/010.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 10,
+            "x": 148,
+            "y": 90,
+            "w": 59,
+            "h": 41,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "f7ce020713a524684437ceda23442de6bf53e857f99d9ece96937c8bee0b5852",
+          "hd_sha256": "e77a1b7cf9a15f253c85726b44997118e6329dc81eb67ec4ec49803a4595b525"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 10,
+            "x": 148,
+            "y": 90,
+            "w": 59,
+            "h": 41,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "a57cc93589770cfe86d2d29fe0263167ae26519daa66596ab3a02836de1c2b0f",
+          "hd_sha256": "975634bef53ce66a68bd5f85f7792f9dbe05a1d282f275191342462b931e06c5"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/011.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 11,
+            "x": 148,
+            "y": 90,
+            "w": 26,
+            "h": 25,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "8f8db7f9bb69be0a4b12c600094c1a47aae618aeaa934cff67b3c902a925b7af",
+          "hd_sha256": "ccfa7c3007c0e35dee89a9f240bba2c47781e9031a2d0e2d8b14430481edf68e"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 11,
+            "x": 148,
+            "y": 90,
+            "w": 26,
+            "h": 25,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "d4873242365162cccb51547ea03b3d1ec69f4984510081a8a20c04a1e482ccdd",
+          "hd_sha256": "f269c703607144fc458f0d31951ac7ad30506573bf330080756aad91bfe1452b"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/012.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 12,
+            "x": 148,
+            "y": 90,
+            "w": 64,
+            "h": 53,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "0f39cb925b668f8010bfbb6d6e0f5815b3f0cd8a3c058462dd8f31c8a1224733",
+          "hd_sha256": "d35b784d84b5b51b1d616fdcca657fecca3015d2d611ac6fdc44551d5054e8b9"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 12,
+            "x": 148,
+            "y": 90,
+            "w": 64,
+            "h": 53,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "b2fa35e9c09cabbba8d4b88ac4c07d53de1849de82929592f490929e0fd3d4a3",
+          "hd_sha256": "4dfca8dbea4dc4e1a693cf49dedcd087333f013695029dcd8f4c3d42be2e5140"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/013.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 13,
+            "x": 148,
+            "y": 90,
+            "w": 48,
+            "h": 62,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "7737d8ea31f83d7ac8330536f00574fe49de424823cdf9591b9c6d92489c1f2d",
+          "hd_sha256": "823474962771aa2af9139e275d6973b41c3263fd11fe353e4489a57fae5cb1db"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 13,
+            "x": 148,
+            "y": 90,
+            "w": 48,
+            "h": 62,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "85528bc220ab16e454ae7cbf10c15afcc4042a8ff5b6a71d93910ee4368e0f14",
+          "hd_sha256": "798e7a33fbf78d66f30cb48e39a61227f15a34803036f99cb93786f50ef3d7b5"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/014.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 14,
+            "x": 148,
+            "y": 90,
+            "w": 43,
+            "h": 86,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "d08b557b9b0a83f940b7d760d15e47e1f1f96fd8c4ee4e0b27d95c7d26a0e41b",
+          "hd_sha256": "56f586b7f5213f6bb433ace7c6e5b283d0347b7bd3acdde43c3e50ca58524c43"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 14,
+            "x": 148,
+            "y": 90,
+            "w": 43,
+            "h": 86,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "4cf01d7f2a5a7d6a5670e468bb5763556b86fd4db8942a5ae272f62bff6cc42b",
+          "hd_sha256": "9e87bb4ef0eff2ff7b4c39132c8d77a2357d2e42059c8084e899e471769847d9"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/015.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 24,
+            "h": 53,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "e72ed244b1880694f4ad6513896b1ab81651e2ea5e6200b599e6a56db578f541",
+          "hd_sha256": "368e5a18e4442d19582f61d8e9cf29a27130a93d3aeb9381f63d6b00d3ef86e7"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 15,
+            "x": 148,
+            "y": 90,
+            "w": 24,
+            "h": 53,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "232aa41651d4be8a10a22af61487d0d49eb6cbcb1a8e668d34664deaa840e137",
+          "hd_sha256": "bd61ad338ce56c5dcbf6fcc74dad72b400ee963a193880e10c522d852581cf3b"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/016.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 16,
+            "x": 148,
+            "y": 90,
+            "w": 44,
+            "h": 40,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "c80f31073395b7b19379ca750426efa5e6a064b6024c6c432ad4e21c025c4e58",
+          "hd_sha256": "02dddb009c62ea1e490e23507ecf6990aeb68fb694b185df2f9a572cf24bee60"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 16,
+            "x": 148,
+            "y": 90,
+            "w": 44,
+            "h": 40,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "456e5199ca1911e7f41dad373d0c2b3270effa23f45d051985064f379ae9cbb1",
+          "hd_sha256": "e54e30c1d18b80ee4ef6e965fe9bf31a9675fc973c4df18e696b2043d087833b"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/017.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 17,
+            "x": 148,
+            "y": 90,
+            "w": 65,
+            "h": 50,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "3c64abb28f862a8afcc6a39f13f5d2ab8810ba4307ee07ede70c9e0a968bdf34",
+          "hd_sha256": "9a4d4834a599d97977a8724383b7b344d81743a5d86a47b10bb527d44197ee20"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 17,
+            "x": 148,
+            "y": 90,
+            "w": 65,
+            "h": 50,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "9c0a1c095e7a68a53e389c9498ba0bd50f50b2db0d5b2e72283d0f388fea7f6e",
+          "hd_sha256": "cc5ef4f866e1a3081cc0d2dd5dd591c4a964db7d55d8f0bce8cf9dd517154c0f"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/018.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 18,
+            "x": 148,
+            "y": 90,
+            "w": 59,
+            "h": 43,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "e6913805fae8db32e4ed58e498739863a1b981474491b3185c73170d878858f1",
+          "hd_sha256": "44c99c22aae7b98dea752c12f9a03dc2e649dccab97b15512f44bfb51708ed15"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 18,
+            "x": 148,
+            "y": 90,
+            "w": 59,
+            "h": 43,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "ecc1310a9e123308524946ee5cb020a21446b364e4701dd5217a5dae9633d87f",
+          "hd_sha256": "a8abdea19ac9fef1af4f5d6681343a740843e085efbb04ca0134af7f8070dc16"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/019.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 19,
+            "x": 148,
+            "y": 90,
+            "w": 30,
+            "h": 19,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "c254d481e6f57b8bad06f046d3ee80235b579826c87bcd0915ba51a0fa5048b2",
+          "hd_sha256": "febf31da2045834b1a1bea7d87fa663f6d676d34759482df06ffc76e6c4fb9ff"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 19,
+            "x": 148,
+            "y": 90,
+            "w": 30,
+            "h": 19,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "82907b277b7eaad4ed265410e804f5749d059acad2520a5a985b19144436b491",
+          "hd_sha256": "07df1ffbc7b86dc44bb6e9c20849b00232c539f06b94a7e99a8bce413f8b9803"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/020.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 20,
+            "x": 148,
+            "y": 90,
+            "w": 22,
+            "h": 16,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "cf5e40d28152e719b5c23d3dc178f566f36c3ae3ed88d6800428ae5ca81cdc1f",
+          "hd_sha256": "d28d0d33033d2f7705075c9eb80191ce3a9c38c48b3281e69e46792468b2cdde"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 20,
+            "x": 148,
+            "y": 90,
+            "w": 22,
+            "h": 16,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "a3b313e1ab822c82529d05990bfc8eda3705a62187797678df6939278f406de5",
+          "hd_sha256": "bf02f4c0c8579e32d5c01fbb98539935ac54e3af668666fcca856d5d2afb46f6"
+        }
+      ]
+    },
+    {
+      "key": "DRAGON1.CEL/021.png",
+      "opaque_black_shadow": false,
+      "samples": [
+        {
+          "mirror": false,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 21,
+            "x": 148,
+            "y": 90,
+            "w": 41,
+            "h": 36,
+            "speilet": false,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "4d6573456431f0586025f101873fb6e29c235d3914b1ba64fbd69259d5ca6130",
+          "hd_sha256": "68bef45ea4d3a5aa2ef7e578429390111775c0366902675e7d34ac04cc16b676"
+        },
+        {
+          "mirror": true,
+          "visible": {
+            "fil": "dragon1.cel",
+            "bilde": 21,
+            "x": 148,
+            "y": 90,
+            "w": 41,
+            "h": 36,
+            "speilet": true,
+            "hd": true,
+            "maske": false
+          },
+          "same_pixels_as_original": false,
+          "original_sha256": "4f5e9c13e40539bc6043f5c23ea9a604530b4eca3cc5fa028b37c5efc2a86cdd",
+          "hd_sha256": "4ead1d885ac15bd79b8a0058b879df8291f345fa5cd8e5e3922bea2d91d74f15"
+        }
+      ]
+    }
+  ],
+  "source_contracts_sha256": "aefbbd24a93d27db95939ae2b00b0febc727e2987e62562385c610c483802699",
+  "palette_case_sha256": "03488973872da0aed9557cf1b3ae0585db7015a68ee4fe754a3acad28faa6cb4",
+  "packed_png_sha256": {
+    "DRAGON1.CEL/006.png": "0600ace6d890c9038a9c9b40aa370b846163d8bff926e5d6ba233675b669563c",
+    "DRAGON1.CEL/007.png": "45f43ddec6ec80348e4221f3cfc4d73b9ab129ff052063fecba852688be7a7ab",
+    "DRAGON1.CEL/008.png": "40f2f2780d27c719c7b6d8980de85a459445ff3d6ed13718454e290ca75a316a",
+    "DRAGON1.CEL/009.png": "3e4572a8c764acce448ab661fa2d1801381a460bde758334ef1615bcc072f9dc",
+    "DRAGON1.CEL/010.png": "2160b22eb109c2e553894e4730e4b20418b7a83c06dcf47010decc27d1110ab8",
+    "DRAGON1.CEL/011.png": "faac793cbf1778386de0a16b266f48f9e7af50dd07437d1e1e819f4966571ae2",
+    "DRAGON1.CEL/012.png": "366c3ffaebb305a251121e2954dc5a7c68c179298a84a4ca76b3f3ab6e6eba88",
+    "DRAGON1.CEL/013.png": "5763ef43b7212ee2cfc79a85618e5a57e4b94c4cfcb27afe78230810a8494780",
+    "DRAGON1.CEL/014.png": "598dc9e0271ca3d7d05361b1b405f333d74c2423b4723d2c9623bd6db130a30e",
+    "DRAGON1.CEL/015.png": "4af868b163fac8ced7f1579eb0ec8ab67ee9667142f54432d4acd3a9e400427d",
+    "DRAGON1.CEL/016.png": "94d92482a2793769e804fe34043d78c01d302403e48bd7ab79528d6950b47105",
+    "DRAGON1.CEL/017.png": "0c648e5c01ac4db7cfb8b439afd037bf128a2e18224aa33e9f635c1cd0669863",
+    "DRAGON1.CEL/018.png": "3307190c4eeb1fc5a0022ab9c73d934bf3bcb119c26ddf10081c51f6ed4c3f6b",
+    "DRAGON1.CEL/019.png": "af9485a744f6ee7c182764336c08efbacb6000a0eeccbe6ebbe8eae73a066687",
+    "DRAGON1.CEL/020.png": "57c104d414135865735d8ce88c822edb4d1b55c29395eb108c88a2cb77929633",
+    "DRAGON1.CEL/021.png": "2c94fbd9df5aca540902ddb39bea472ac1f5d9333082f5ffd61457d1ed3ffbf5"
+  },
+  "scope": "Kildebaserte tegneliste-/scanout-fixturer i faktisk WASM-frontend. Tilgjengelige separate drageruter normal/speilet; alle levende masker i5originalpaletter. Ikke naturlig gameplay. Egen runtime-dragon viser faktiske komponerte originalkall.",
+  "imported_files": 16,
+  "palette_variants": [],
+  "created_at": "2026-10-11T23:36:09.572Z"
+}
