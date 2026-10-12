@@ -24,7 +24,14 @@ den holder på med.
 HD-grafikk lastes automatisk som standard. Et uttrykkelig valg av Original i
 sidemenyen huskes. Velg ridder ved å klikke eller trykke på portrettet, eller bruk
 venstre/høyre og Enter, mellomrom eller fire. Enter eller fire godtar deretter navnet.
-Førstegangslastingen av HD kan ta noen minutter; portrettene får HD når bildene er klare.
+Bakgrunner og menytekst lastes først, deretter ridderportrettene og resten av
+figurpakken. Førstegangslastingen av hele HD-pakken kan ta noen minutter.
+Spillets tekst vises med skarpe, innebygde fonter i HD. Navn, tall og plasseringer
+kommer fortsatt fra originalspillet.
+
+Klikk på kartet for å gå til punktet. Ridderen bruker original gangfart, terreng og
+turens bevegelsesbudsjett. Høyreklikk avbryter, og piltaster eller spillkontroller
+tar over med en gang. Trykk fire når du vil gå inn i et sted.
 
 Spillfilen (`Moonstonecd32-AMIGA.zip` fra repoet) er bygget inn i siden. En annen
 spillfil, f.eks. «Moonstone CD32.iso», kan velges i menyen (Home eller knappen oppe til

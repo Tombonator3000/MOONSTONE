@@ -287,6 +287,7 @@ const Nett = (() => {
         case 'tast': if (g && g.klar && romSpill !== 'hver' && (d.k & 0x7f) !== 0x59) gjesteTaster.push([d.k & 0x7f, !!d.ned, g.spiller]); break;
         case 'velg': if (g && g.klar && romSpill !== 'hver') h.velg && h.velg(d.rad | 0, g.spiller, g.port); break;     /* meny eller ridderportrett */
         case 'peker': if (g && g.klar && romSpill !== 'hver') h.peker && h.peker(d.x | 0, d.y | 0, g.spiller); break;   /* klikk i inventar, by, butikk */
+        case 'kart': if (g && g.klar && romSpill !== 'hver') h.kart && h.kart(d.x, d.y, g.spiller, g.port); break;  /* betrodd eier, koordinatene valideres foer pakking */
         case 'ridder':                          /* hver for seg: ridderen til en gjest, videre til de andre */
             if (g && romSpill === 'hver') {
                 const m = d.borte ? { t: 'ridder', fra: g.id, borte: true }
@@ -568,6 +569,7 @@ const Nett = (() => {
     }
     function sendVelg(rad) { if (vert && vert.open) vert.send({ t: 'velg', rad }); }
     function sendPeker(x, y) { if (vert && vert.open) vert.send({ t: 'peker', x, y }); }
+    function sendKart(x, y) { if (vert && vert.open) vert.send({ t: 'kart', x, y }); }
     function beOmSynk() { if (vert && vert.open) vert.send({ t: 'synk' }); }
 
     /* ---------------------------------------------------------------- duell (hver for seg)
@@ -639,7 +641,7 @@ const Nett = (() => {
 
     return {
         lagRom, bliMed, avslutt, chat, invitasjon, settPort, settSpiller, settModus, sendTilstand, porter, sendBilde,
-        hentGjesteTaster, tastTillatt, vertensSpiller, harSpiller, harGjester, sendInn, sendTast, sendVelg, sendPeker, sendRidder, beOmSynk, spillere,
+        hentGjesteTaster, tastTillatt, vertensSpiller, harSpiller, harGjester, sendInn, sendTast, sendVelg, sendPeker, sendKart, sendRidder, beOmSynk, spillere,
         romSpill: () => romSpill, minId: () => (rolle === 'vert' ? 'vert' : peer ? peer.id : null),
         duellKoble, sendTilstandTil, tilstandsMottaker, peerId, nyInn, brukInn,
         rammer, rolle: () => rolle, kode: () => kode, ping: () => ping,

@@ -84,8 +84,41 @@ ta dem med; ellers hopper testen over dem med en melding.
 | `fullt2` | Fullt rom: verten og tre gjester, en femte får beskjed om at rommet er fullt uten at spillet hans startes på nytt. | 3 min |
 | `start1` | HD som standard, ett trykk over introen, alle fire portrettklikk, Enter/mellomrom, lagret Original-valg og mobiltrykk. | 2 min |
 | `hdstart1` | Blokkerer HD-nedlastingen til riddervalget er åpnet. Alle fire engangstegnede portretter skal få HD etter sen lasting, og Enter skal fortsatt velge riktig ridder. | 2 min |
+| `kartmus1` | Faktiske kartklikk, nytt mål, høyreklikk og manuell avbrytelse. Turns med gjest kontrollerer automatisk eier, faste porter, tilskuere, ugyldige koordinater og sjekksummer. | 2 min |
 | `m1` | Mobil (berøring, stående telefon): trykk hopper over introen, styrekorset flytter pilen, Fire går til kartet. | 1 min |
 | `m2` | Mobil: spillets grafikk på siden, sidemenyen med trykk, navnet til ridderen med tekstfelt (æøå blir ae, o, a), valgene på kartet som knapper med styrekorset og Fire. | 1 min |
 
 Testene heter som de het da de ble laget (test12 til test36, lag1, ver1 og så videre), så de
 stemmer med `log.md`.
+
+## Avgrensede grafikk- og kjernetester
+
+`python3 tools/check_map_click.py --ut /tmp/moonstone-kart` kjører originalkoden
+med kartmål. Den sammenligner fart og terrengbudsjett med joystick, C-kroker mot
+originalrutiner, lagring midt i reisen, eldre PEKR-deler og avbrytelse ved ny tur,
+inventar, manuell kontroll og uventet posisjonsbytte.
+
+`node tools/hd_lasting_sjekk.cjs` tester lastekøen med kontrollerte nettfeil,
+korrupt SHA, prioriterte menyer og bakgrunner. Dette er en enhetstest uten faktisk
+grafikk. `node tools/hd_kontinuitet_sjekk.cjs` bruker Playwright og virkelig WASM:
+naturlig intro før figurpakken er klar, alle fem Next Day-faser, Original/HD-retur
+og en avgrenset Ratmen-kamp med originale bakgrunnsdeltaer. Kampen bruker en
+kontrollert Practice-fixture, ikke en full gjennomspilling.
+
+Grafikkverktøyene bruker `CHROME` og `MOONSTONE_VERIFY_OUT`. Kontinuitetsprøven
+starter en lokal server for `web/build`, eller bruker `MOONSTONE_URL` hvis den er
+satt. Skjermbildene skal også kontrolleres visuelt; antall lastede filer alene
+beviser ikke HD i bildet.
+
+`MOONSTONE_URL=http://127.0.0.1:8773/moonstone.html node tools/hd_lesbar_tekst_sjekk.cjs`
+bruker en allerede startet HTTP-server. Den kontrollerer klare glyfer, seks
+statsetiketter, varenavn, korrekt HIT-skraastrek, peker foran soeyler og ved
+skjermkanten. Endrede kildebanker skal avvises, og Original-rundturen skal
+beholde baade bilde og emulert tilstand. Resultater og bilder lagres i
+`MOONSTONE_VERIFY_OUT`.
+
+Loot-prøven lager sin egen avgrensede native fixture med
+`python3 tools/lag_loot_fixture.py --out MAPPE`. Den gjenskaper originalens
+encounter- og plyndringstegning, og dokumenterer alle minneinngrep i JSON.
+`MOONSTONE_LOOT_STATE` kan peke paa en slik `loot-redraw-ready.sav` i stedet.
+Dette er en sceneprøve, ikke en naturlig gjennomspilling.

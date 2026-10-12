@@ -163,7 +163,7 @@ const SceneHd = (() => {
     }
     function korrigerRull(fb, diw, lag, scan, standard) {
         const mode = Kjerne.iSlutt() ? 'ending' : Kjerne.iIntro() ? 'intro' : null, hash = RULL_HASH[mode];
-        if (!mode || (!(standard.aktiv && standard.klar) && !Visning.harHdBilde('bg/' + hash))) return null;
+        if (!mode || (!standard.aktiv && !Visning.harHdBilde('bg/' + hash))) return null;
         klargjorRull().catch(() => {});
         const hint = Kjerne.programRull();
         if (!rull || !hint) return null;
@@ -244,7 +244,9 @@ const SceneHd = (() => {
         // Egne PNG-er kan bruke samme scener etter at standardlastingen er stoppet.
         // Original bruker samme identitet ved bytte saa engangstegnet tekst bevares.
         const standard = StandardHd.info();
-        if ((!(standard.aktiv && standard.klar) && !Visning.hdAntall()) ||
+        // Kildeidentiteten trengs ogsaa mens figurpakken lastes: den lar
+        // StandardHd hente riktig bakgrunn med en gang, uten aa vente paa alle CEL.
+        if ((!standard.aktiv && !Visning.hdAntall()) ||
             diw[2] - diw[0] !== 640 || diw[3] - diw[1] !== 200 || diw[0] < 0 || diw[1] < 0) return lag;
         const scan = Kjerne.skanout();
         if (!scan.gyldig) return lag;

@@ -291,6 +291,8 @@
      *  - klikk eller trykk paa en rad i tittelmenyen (eller en nettspillside): pilen
      *    dit og fire (kommando VELG; port/src/meny.c gir spillet fire naar menyen er
      *    tegnet, likt paa alle maskiner i nettspill). Enter og mellomrom er fire der.
+     *  - paa verdenskartet starter venstreklikk en reise med originalfart.
+     *    Hoyreklikk, joystick eller fire stopper reisen.
      *  - ellers er venstre knapp fire saa lenge den holdes, og drar du mens den
      *    holdes, blir det ogsaa en retning: fire og retning er angrepene i kamp.
      *    Hoyre knapp og dra er bare retning (gaa). Et klikk er et kort fire.
@@ -333,6 +335,31 @@
         menyKmd(KMD.PEKER, (x & 0xffff) | (y & 0xffff) << 16);
     }
 
+    /* Et kartmaal sendes som en kommando, aldri som nye posisjoner. Kjernen
+     * lar originalens terreng, fart og turbudsjett bestemme reisen. */
+    function velgKart(x, y) {
+        if (!minTur()) return;
+        if (modus === 'gjest') { Nett.sendKart(x, y); return; }
+        if (modus === 'vert' && Nett.harGjester()) {
+            const meg = sisteSpillere.find(s => s.id === Nett.minId());
+            kartFraGjest(x, y, Nett.vertensSpiller(), meg && meg.port);
+            return;
+        }
+        menyKmd(KMD.KART, x === -1 && y === -1 ? -1 : x | y << 16);
+    }
+    function kartFraGjest(x, y, spiller, port) {
+        if (!Kjerne.kartAktiv() || !Number.isInteger(x) || !Number.isInteger(y)) return;
+        if (!(x === -1 && y === -1) && (x < 0 || x >= 320 || y < 0 || y >= 200)) return;
+        if (sisteModus === 'fast') {
+            if (port !== 'p2' && port !== 'begge') return;
+        } else {
+            if (spiller < 0) return;
+            const eier = Kjerne.portSpillere()[1];
+            if (spiller !== eier && (Nett.harSpiller(eier) || spiller !== Nett.vertensSpiller())) return;
+        }
+        menyKmd(KMD.KART, x === -1 && y === -1 ? -1 : x | y << 16);
+    }
+
     /* rad (eller -1 = raden pilen staar paa) er valgt her eller av en gjest */
     function velgRad(rad) {
         if (modus === 'gjest') { Nett.sendVelg(rad); return; }
@@ -366,6 +393,12 @@
             const x = spillX(e), y = spillY(e);
             if (x >= 0 && x < 320 && y >= 0 && y < 200) { velgPeker(x, y); return; }
         }
+        if (!D && Kjerne.kartAktiv()) {
+            const x = spillX(e), y = spillY(e);
+            if (e.button === 2) velgKart(-1, -1);
+            else if (x >= 0 && x < 320 && y >= 0 && y < 200) velgKart(x, y);
+            return;
+        }
         museStart = { x: e.clientX, y: e.clientY };
         museRetning = 0;
         try { $('skjerm').setPointerCapture(e.pointerId); } catch (err) { /* ikke viktig */ }
@@ -397,7 +430,7 @@
     $('skjerm').addEventListener('pointermove', (e) => {
         if (museStart) { museRetning = dragRetning(e); return; }
         const over = spillAktivt() && !Kjerne.iIntro() && (Kjerne.menyRad(spillY(e)) >= 0
-            || (minTur() && portrettVed(spillX(e), spillY(e)) >= 0));
+            || (minTur() && (portrettVed(spillX(e), spillY(e)) >= 0 || Kjerne.kartAktiv())));
         $('skjerm').style.cursor = over ? 'pointer' : '';
     });
 
@@ -426,7 +459,7 @@
      * av neste bilde, og verten sender dem med bildet til gjestene, saa alle
      * maskinene viser det samme. */
     const MENY = { VERT: 1, JOIN_SIDE: 2, JOIN_ROM: 3, KODE: 4, KOPIER: 5, OFFENTLIG: 6, FORLAT_JOIN: 7, TILBAKE: 8, NAVN: 9, SPILL: 10, BIND: 11 };
-    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11, KONTROLL: 12, RIDDERE: 13, PEKER: 14 };
+    const KMD = { VERT: 1, SPILLERE: 2, OFFENTLIG: 3, ROM: 4, MELDING: 5, SLUTT: 6, NAVN: 7, MITTNAVN: 8, SIDE: 9, VELG: 10, SPILL: 11, KONTROLL: 12, RIDDERE: 13, PEKER: 14, KART: 15 };
     const SIDE_JOIN = 3;
     const SIDE_VERT = 2;                    /* romsiden til verten: Copy Link og Public er vertens */
     let romHint = 0;                        /* sist gjesten fikk beskjed om at romsiden er vertens */
@@ -483,6 +516,7 @@
                 } else if (Kjerne.iMeny() && Kjerne.menySide() !== SIDE_VERT) velgRad(rad);
             },
             peker: (x, y, spiller) => pekerFraGjest(x, y, spiller),   /* en gjest klikket i menyen (ikke paa romsiden) */
+            kart: (x, y, spiller, port) => kartFraGjest(x, y, spiller, port),
             iMeny: () => Kjerne.iMeny(),            /* der kan spillernumrene gjores om uten hull */
             trengerTilstand: (id) => {
                 const s = Kjerne.lagreTilstand();

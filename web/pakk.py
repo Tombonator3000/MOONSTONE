@@ -50,6 +50,9 @@ def main():
                         + base64.b64encode(json.dumps(manifest).encode()).decode())
     stil = les(os.path.join(HER, 'src', 'style.css'))
     stil = stil.replace('%%HD_FONT%%', base64.b64encode((Path(HER) / 'hd/fonts/UncialAntiqua-Regular.ttf').read_bytes()).decode('ascii'))
+    stil = stil.replace('%%READABLE_FONT%%', base64.b64encode((Path(HER) / 'fonts/DejaVuSansMono-Bold.ttf').read_bytes()).decode('ascii'))
+    # Lisensen foelger ogsaa den selvstendige HTML-filen med innebygd font.
+    stil += '\n/*\n' + les(Path(HER) / 'fonts/DejaVu-LICENSE.txt').replace('*/', '* /') + '\n*/\n'
     vendor = '\n;\n'.join(trygg(les(os.path.join(HER, 'vendor', f))) for f in VENDOR)
     hd = Path(HER) / 'hd'
     manifest = json.loads((hd / 'manifest.json').read_text())
