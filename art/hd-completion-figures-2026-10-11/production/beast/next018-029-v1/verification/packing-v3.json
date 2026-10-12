@@ -1,0 +1,367 @@
+{
+  "schema": 1,
+  "status": "packed_candidates_not_activated",
+  "scope": "Each route uses its own generated photographic master. Original source contours, transparent holes, silhouette and anchors are retained; source-bound material registration and original source material regions, photographic black mane detail and smoothed original skin/bone/eye light, with separately preserved flat black source shadows. This is not a claim of freehand redrawn geometry.",
+  "packing_script_sha256": "f6e2108b31e9fc07fb3a26ae1af72a956382b476495a0dfb7c339c50583a948d",
+  "geometry_sha256": "67fe07fe76665efa964f9837085ddd1a7d69db1e29e78736cb9869eaebad3d3d",
+  "generation_records_sha256": "be97f081cb053c1948157a4e63dd1ce76ee991ebd1f15cb1ae3663fb58a5ef34",
+  "assets": [
+    {
+      "key": "be1.c/018.png",
+      "raw": "raw/018-v1.png",
+      "raw_sha256": "b658c851adf7278a9f7945abe1146bf03280b8f41bcc257843f3ecc7c117d9da",
+      "prompt": "prompts/018-v1.txt",
+      "prompt_sha256": "6c82d22d9fd09497927a59303f99c901ade2d750ca762005d6aab30cf0884514",
+      "candidate_sha256": "4540ba6e6e7febd58a137f3ffda2b9768b15a1f9ac033192e3279928d9581da6",
+      "source_indices_sha256": "a35355a58aa925118244ae9a2986de161666f294c1fba7a4385f6b0d9c585047",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        2170,
+        725
+      ],
+      "raw_alpha_bounds": [
+        0,
+        72,
+        2164,
+        646
+      ],
+      "target_size": [
+        128,
+        32
+      ],
+      "source_centers_opaque": 69,
+      "source_centers_empty": 187,
+      "original_flat_shadow_cells": 0,
+      "source_material_pixels": {
+        "fur": 1074
+      }
+    },
+    {
+      "key": "be1.c/020.png",
+      "raw": "raw/020-v1.png",
+      "raw_sha256": "a9129f6e7b26cfcc5d02507e97e9fa381f1cee2f057a1ed86ef2b3306bfe7154",
+      "prompt": "prompts/020-v1.txt",
+      "prompt_sha256": "f155ea7682acc4fce6d8773993e050df051137ae62756fb17e8dc5610d1b34ab",
+      "candidate_sha256": "583211ca0a89c936d6f6587332e5b23c8785ddedd2feb288f7dba1771bf9f961",
+      "source_indices_sha256": "a8d3d33cb23b2042d830b8f1c02c9b6badcb08342c495bf5f42193294c88bb61",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1584,
+        993
+      ],
+      "raw_alpha_bounds": [
+        26,
+        11,
+        1531,
+        980
+      ],
+      "target_size": [
+        268,
+        168
+      ],
+      "source_centers_opaque": 1570,
+      "source_centers_empty": 1244,
+      "original_flat_shadow_cells": 149,
+      "source_material_pixels": {
+        "fur": 7619,
+        "hide": 11932,
+        "bone": 299,
+        "eye": 18,
+        "muzzle": 3755
+      }
+    },
+    {
+      "key": "be1.c/021.png",
+      "raw": "raw/021-v1.png",
+      "raw_sha256": "b6b9648f8b570e0af08bfa1ee629d97789ee5c270d379cc8f24fa0930da8c55e",
+      "prompt": "prompts/021-v1.txt",
+      "prompt_sha256": "e2e8cd1b026589c77b08cadb8c77f6662e7e3562eadd348e960a5d2ecfcbc7cf",
+      "candidate_sha256": "b1b29fd447c72c72df3378f015fe7f042acd60bf0cde3904a2f5309b8d9ef60a",
+      "source_indices_sha256": "7eb4aa12da980749e260f2e942945dd546d0f301d9bdd60ce7999aeb919c8559",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1397,
+        1126
+      ],
+      "raw_alpha_bounds": [
+        18,
+        0,
+        1397,
+        1126
+      ],
+      "target_size": [
+        124,
+        100
+      ],
+      "source_centers_opaque": 388,
+      "source_centers_empty": 387,
+      "original_flat_shadow_cells": 0,
+      "source_material_pixels": {
+        "fur": 3822,
+        "bone": 619,
+        "eye": 13,
+        "mouth": 74,
+        "muzzle": 1780
+      }
+    },
+    {
+      "key": "be1.c/022.png",
+      "raw": "raw/022-v1.png",
+      "raw_sha256": "e0ad3ed323f060e404d728bdfa2168cd091a1b5cfc4d0c99acfebc1c66d3817f",
+      "prompt": "prompts/022-v1.txt",
+      "prompt_sha256": "b2070efc47818300650eee3748b9f245589fc2f58742c9d7fe8ca5f9c65d2333",
+      "candidate_sha256": "37f9bebe22cb5bafcad486c88836c24f2487a4e2714b2a12abb0fe3676563add",
+      "source_indices_sha256": "2e4128d31345f713e70c7bc7085b177e54036376364467654176c705c4d07bd8",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1931,
+        814
+      ],
+      "raw_alpha_bounds": [
+        0,
+        0,
+        1931,
+        814
+      ],
+      "target_size": [
+        256,
+        108
+      ],
+      "source_centers_opaque": 912,
+      "source_centers_empty": 816,
+      "original_flat_shadow_cells": 0,
+      "source_material_pixels": {
+        "fur": 7063,
+        "hide": 6259
+      }
+    },
+    {
+      "key": "be1.c/023.png",
+      "raw": "raw/023-v1.png",
+      "raw_sha256": "8f73f61c84186e196f6cb1dc48c1762f1991fa214f5faf46c1529674b1c71b16",
+      "prompt": "prompts/023-v1.txt",
+      "prompt_sha256": "432f737a900b26f930cb59713c74b8068575c33738bd184555a9c15ec673789e",
+      "candidate_sha256": "59861a13be582ace5c4b5298432e168ffb035ebf52572f6a7101b3a3820e546f",
+      "source_indices_sha256": "db577fcf24b5f4a4cc0c6145544dcf05748b8a5ad8cbc28de46b5f3bdd6ff242",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1877,
+        838
+      ],
+      "raw_alpha_bounds": [
+        183,
+        0,
+        1634,
+        821
+      ],
+      "target_size": [
+        188,
+        84
+      ],
+      "source_centers_opaque": 502,
+      "source_centers_empty": 485,
+      "original_flat_shadow_cells": 174,
+      "source_material_pixels": {
+        "hide": 5848
+      }
+    },
+    {
+      "key": "be1.c/024.png",
+      "raw": "raw/024-v1.png",
+      "raw_sha256": "5b5f4746be5e626f599ca29f44cb8a936a29ca5b628480774f9397da1cbc1988",
+      "prompt": "prompts/024-v1.txt",
+      "prompt_sha256": "d437dd37a49377b0ff96336f87d86d4fa95c8019e2b4c6f5547b0ecd1c823ce0",
+      "candidate_sha256": "bcafe757d2f628e63356463229789a6bd349367450035cbbcaf5464f8c92925b",
+      "source_indices_sha256": "906f7011648968b4d9b7bce79bac053d6954275096d29d1d8a8a062ae609e80a",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1774,
+        887
+      ],
+      "raw_alpha_bounds": [
+        10,
+        0,
+        1774,
+        861
+      ],
+      "target_size": [
+        160,
+        80
+      ],
+      "source_centers_opaque": 457,
+      "source_centers_empty": 343,
+      "original_flat_shadow_cells": 0,
+      "source_material_pixels": {
+        "fur": 798,
+        "hide": 5892
+      }
+    },
+    {
+      "key": "be1.c/025.png",
+      "raw": "raw/025-v1.png",
+      "raw_sha256": "4d63dfd83b9af4903ec1c672c560ace0206dc53ec6b85aae4ee90e3725d1eb2f",
+      "prompt": "prompts/025-v1.txt",
+      "prompt_sha256": "7250291c6d3fd22183e82ad8991375660f1600cacfb0e5ea0d4e4c36f167ca38",
+      "candidate_sha256": "ac3715a98deead4fdf24b8b1a0465d4e73fb195686a31bb6b03434f9fbf39b78",
+      "source_indices_sha256": "3095bf0842b5ae482b5d8c02d28079fdacaa0f24f2498affd16bbff7307ec34f",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1806,
+        871
+      ],
+      "raw_alpha_bounds": [
+        0,
+        121,
+        1806,
+        871
+      ],
+      "target_size": [
+        216,
+        104
+      ],
+      "source_centers_opaque": 785,
+      "source_centers_empty": 619,
+      "original_flat_shadow_cells": 0,
+      "source_material_pixels": {
+        "fur": 6092,
+        "hide": 2969,
+        "bone": 157,
+        "eye": 29,
+        "muzzle": 3220
+      }
+    },
+    {
+      "key": "be1.c/026.png",
+      "raw": "raw/026-v1.png",
+      "raw_sha256": "85a65bfb115ae8571f58f4d46e75a54dc0f14075c47631d84d714f90275adcbb",
+      "prompt": "prompts/026-v1.txt",
+      "prompt_sha256": "e0db405bbf19e11a70efb1d262063b6d1a36505147c64bc25d61350604a43b54",
+      "candidate_sha256": "61444ac8bf8fb1790eb208560239289a3117319d0c7504f285c52eb63c3bc9e3",
+      "source_indices_sha256": "aad965388badf9782921e06e4cae2ba2659b6d4da39a4ca3a84edf3e36b56e6c",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1591,
+        988
+      ],
+      "raw_alpha_bounds": [
+        44,
+        40,
+        1591,
+        955
+      ],
+      "target_size": [
+        148,
+        92
+      ],
+      "source_centers_opaque": 444,
+      "source_centers_empty": 407,
+      "original_flat_shadow_cells": 47,
+      "source_material_pixels": {
+        "fur": 579,
+        "hide": 5178
+      }
+    },
+    {
+      "key": "be1.c/027.png",
+      "raw": "raw/027-v1.png",
+      "raw_sha256": "a8cba4c47f94e0b7d931e5e69077068cf06819343a5dd5cb938910c1bc9066b9",
+      "prompt": "prompts/027-v1.txt",
+      "prompt_sha256": "b27adda1803e5b10af751c953f64fed158abd1ea116e55c3ee21db78ced83ac3",
+      "candidate_sha256": "837f219aad484ec8150b02b8888c7ab3206b151a0923b73c6ef7cc4c12a0d13d",
+      "source_indices_sha256": "eeaf7b984394a6a80608cd89777dfaa6976b12cdbedd1f71967ac78899ba929c",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1300,
+        1209
+      ],
+      "raw_alpha_bounds": [
+        0,
+        0,
+        1300,
+        1204
+      ],
+      "target_size": [
+        172,
+        160
+      ],
+      "source_centers_opaque": 1132,
+      "source_centers_empty": 588,
+      "original_flat_shadow_cells": 126,
+      "source_material_pixels": {
+        "fur": 8332,
+        "hide": 5002,
+        "bone": 277,
+        "eye": 36,
+        "muzzle": 2889
+      }
+    },
+    {
+      "key": "be1.c/028.png",
+      "raw": "raw/028-v1.png",
+      "raw_sha256": "63dc0cb7be533dfacf4be716720b133f3b723816869d10386d78577a6f3aff03",
+      "prompt": "prompts/028-v1.txt",
+      "prompt_sha256": "cc706ba36186c5e114a2d43949483d3dd01268bd27883f88f090189892a3f610",
+      "candidate_sha256": "d151eedebb9080a703189fa4c8704f79fcde37e6bb5723852e255237912d1838",
+      "source_indices_sha256": "05e9f535dcc6b986b62a3e0ef704d07ec39167fec0168b5a173afabb7c5b46a0",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1989,
+        791
+      ],
+      "raw_alpha_bounds": [
+        14,
+        15,
+        1986,
+        791
+      ],
+      "target_size": [
+        332,
+        132
+      ],
+      "source_centers_opaque": 1619,
+      "source_centers_empty": 1120,
+      "original_flat_shadow_cells": 77,
+      "source_material_pixels": {
+        "fur": 10795,
+        "hide": 10133,
+        "bone": 193,
+        "eye": 20,
+        "muzzle": 3072
+      }
+    },
+    {
+      "key": "be1.c/029.png",
+      "raw": "raw/029-v1.png",
+      "raw_sha256": "4b027f5bae7e6f8100389414de95c16a8b24b5fcf24fb2d39551fc7cd8081a1a",
+      "prompt": "prompts/029-v1.txt",
+      "prompt_sha256": "b821470a4db53e351c4cfb8828d1e67b559404ead22f96cbe3c89a5ea03cd847",
+      "candidate_sha256": "666b7bce6869f599208141d27a976a1e6dd193b8bde95eb4b83b0878240e0137",
+      "source_indices_sha256": "e295ef2726fa2b46b329cec5abdf367efff4b1521821d8a067f83249e53f1ca0",
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "raw_size": [
+        1717,
+        916
+      ],
+      "raw_alpha_bounds": [
+        13,
+        4,
+        1711,
+        886
+      ],
+      "target_size": [
+        300,
+        160
+      ],
+      "source_centers_opaque": 1691,
+      "source_centers_empty": 1309,
+      "original_flat_shadow_cells": 185,
+      "source_material_pixels": {
+        "fur": 9973,
+        "hide": 9600,
+        "bone": 302,
+        "eye": 5,
+        "muzzle": 4171
+      }
+    }
+  ]
+}

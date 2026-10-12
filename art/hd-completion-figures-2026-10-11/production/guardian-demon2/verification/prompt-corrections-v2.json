@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "script_sha256": "2434c23b1d30dd414e4f1fdf6237cb0174a1f7856e4c73a2cdc488067cd13900",
+  "changes": [
+    {
+      "frame": 41,
+      "prompt": "prompts/041-v1.txt",
+      "prompt_sha256": "c9fa8fd1e08f097e16484d5a68d15233d2618fa87e578a04c2f7e788f77072f9",
+      "source_reference": "references/041-nearest20x.png",
+      "source_reference_sha256": "02fd4b30011412f1a9d2df63048c06eb0c2c72d8264d9a57734a0d8170d4a364",
+      "reason": "Separate visual inspection: no visible face in this crop; reference and source geometry unchanged"
+    },
+    {
+      "frame": 42,
+      "prompt": "prompts/042-v1.txt",
+      "prompt_sha256": "c6b508e0aa6df83a2a1690a1f0ef655ec53dbe1e6fbb1b35866e435405e82094",
+      "source_reference": "references/042-nearest20x.png",
+      "source_reference_sha256": "e1ba5780752250073bc1c1a284ce1b7454bee96015185e0ee436a6a8d50c7170",
+      "reason": "Separate visual inspection: no visible face in this crop; reference and source geometry unchanged"
+    },
+    {
+      "frame": 45,
+      "prompt": "prompts/045-v1.txt",
+      "prompt_sha256": "86285459c58a3befe28d13e26472cd7ff380ac6880d800ccf83d3e36e5db6249",
+      "source_reference": "references/045-nearest20x.png",
+      "source_reference_sha256": "456081333e3f2970db73c7cc251bcc177a36a6d39b1179e00dc9dc90329fd823",
+      "reason": "Separate visual inspection: no visible face in this crop; reference and source geometry unchanged"
+    }
+  ]
+}

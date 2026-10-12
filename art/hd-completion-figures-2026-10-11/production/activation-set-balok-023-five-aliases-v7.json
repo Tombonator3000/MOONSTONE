@@ -1,0 +1,294 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "e8ef991b4086c576093991a38d05c8d165426e684adebe9a287b38679b77b916",
+    "web/src/scenes.js": "45ccdcfd02b4f31f2b512a3c8e1b64aceb1f952a3e8ecf91a5149b0d5c8036e0"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-95da8e609edf85ee-8c392c5a/test.json",
+      "sha256": "89c10e2ddfeaa565d5cbdc84f7e69c2b90101e1f679238a7e730d88a90e2d7cf",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-95da8e609edf85ee-8c392c5a/loaded.html",
+      "html_sha256": "8fd1d2517aca80f0f71abafc178cccd9c48dd4157f3e3d76de2f98e63b90abf5"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/balok-live-fixtures-95da8e609edf85ee-68eea35d/test.json",
+      "sha256": "497da12896778f57ba4b61056fd197e5ce5409fc9641829dbb6459283baf0611",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/balok-live-fixtures-95da8e609edf85ee-68eea35d/loaded.html",
+      "html_sha256": "8fd1d2517aca80f0f71abafc178cccd9c48dd4157f3e3d76de2f98e63b90abf5"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-a23c476d56192a8d-366c0f91/test.json",
+      "sha256": "2c0439969f3dbf73660b32d67347a888da9624e27e09e1955ac0f9fce6fadecd",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-a23c476d56192a8d-366c0f91/loaded.html",
+      "html_sha256": "8fd1d2517aca80f0f71abafc178cccd9c48dd4157f3e3d76de2f98e63b90abf5"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/balok-live-fixtures-e2674b1281bfa2c9-1ce920d2/test.json",
+      "sha256": "f8ef09b16bc1b16977d0d603bdc76f02f512751b4e5f3734d2ace94889aa167e",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/verification/balok-live-fixtures-e2674b1281bfa2c9-1ce920d2/loaded.html",
+      "html_sha256": "8fd1d2517aca80f0f71abafc178cccd9c48dd4157f3e3d76de2f98e63b90abf5"
+    }
+  ],
+  "scope": "Fem eksakte aliaser av fem uendrede aktive Balok2-mastere. FireB3-ruter er kontrollert i originalkamp; be1/057 har eksakt kilde og frontendfixture uten observert kampforekomst. To masker kopieres byteidentisk. Ingen nye fotomastere eller aktivering.",
+  "entries": [
+    {
+      "key": "Balok2.CEL/016.png",
+      "bank": "Balok2.CEL",
+      "frame": 16,
+      "source_bank_sha256": "15e33248d5664523f15bea8cff7c80f0270c41ce655f954015de8670f80cf6c8",
+      "indices_sha256": "56ab5fd74eaebb12205a7857692844f733f253505e5345bcf551d449d49a028d",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/016/4532d613f9e673b0/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "d2ae63cce50c6138324f84b5588c03caacfb7eec23d0dee32209f5c09cad6a3e",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/b2-016-v1.png",
+      "raw_sha256": "4532d613f9e673b0dd69cf16804161c78407777e782fa3f23d14fb76ba93e7bd",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/b2-016-v1.txt",
+      "prompt_sha256": "f67977b41ea5e848d5a0f23a42b00c418de48bec18731596fffd45e2c63eeb0d",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-95da8e609edf85ee-8c392c5a/test.json",
+      "runtime_asset_sha256": "d2ae63cce50c6138324f84b5588c03caacfb7eec23d0dee32209f5c09cad6a3e",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/016/4532d613f9e673b0/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "c0d3cba37990b2887ed2b8e3cda35f73c0b9a4847741e53ddf5574dec727e963",
+      "qa": {
+        "frame": 1451,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      },
+      "existing_master": true
+    },
+    {
+      "key": "be1.c/057.png",
+      "bank": "be1.c",
+      "frame": 57,
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "indices_sha256": "56ab5fd74eaebb12205a7857692844f733f253505e5345bcf551d449d49a028d",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/016/4532d613f9e673b0/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "d2ae63cce50c6138324f84b5588c03caacfb7eec23d0dee32209f5c09cad6a3e",
+      "master_key": "Balok2.CEL/016.png",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/balok-live-fixtures-e2674b1281bfa2c9-1ce920d2/test.json",
+      "runtime_asset_sha256": "d2ae63cce50c6138324f84b5588c03caacfb7eec23d0dee32209f5c09cad6a3e",
+      "qa": {
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "method": "Eksakt originalindeksalias med byteidentisk masterfoto. Ingen egen nytegning paastaas.",
+        "actual_combat": false,
+        "limitation": "be1/057 er ikke observert i aktuelle kampforloep; eksakt kilde og kildebasert frontendfixture er kontrollert."
+      }
+    },
+    {
+      "key": "Balok2.CEL/021.png",
+      "bank": "Balok2.CEL",
+      "frame": 21,
+      "source_bank_sha256": "15e33248d5664523f15bea8cff7c80f0270c41ce655f954015de8670f80cf6c8",
+      "indices_sha256": "565e53791bf1df8ca291bb9b63ff678e0bee72f149a4694acb5d93d282e67a6d",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/021/3a562ca6a8b9e7fb/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "80808c7cef888f1bf83ca1d71c82cd1e35191fb7c09193e4a5c1c54f41315c18",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/b2-021-v1.png",
+      "raw_sha256": "3a562ca6a8b9e7fbc39163fc9428371d2887baf2aa0866099ec07aef7a9bf0f0",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/b2-021-v1.txt",
+      "prompt_sha256": "227131fcea536e438f953db43e370fd1980c9e81715c5322861318404f0deb01",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-95da8e609edf85ee-8c392c5a/test.json",
+      "runtime_asset_sha256": "80808c7cef888f1bf83ca1d71c82cd1e35191fb7c09193e4a5c1c54f41315c18",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/021/3a562ca6a8b9e7fb/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "fbcccf0da2767ced73d93873284fac81dfed9eafe88da67278a22da1d3d6da7a",
+      "qa": {
+        "frame": 1421,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      },
+      "existing_master": true
+    },
+    {
+      "key": "Balok3.CEL/024.png",
+      "bank": "Balok3.CEL",
+      "frame": 24,
+      "source_bank_sha256": "6c15f0933b0db58dff34a6d92924946950970b5a60d338819ebe15b49b708454",
+      "indices_sha256": "565e53791bf1df8ca291bb9b63ff678e0bee72f149a4694acb5d93d282e67a6d",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/021/3a562ca6a8b9e7fb/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "80808c7cef888f1bf83ca1d71c82cd1e35191fb7c09193e4a5c1c54f41315c18",
+      "master_key": "Balok2.CEL/021.png",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-a23c476d56192a8d-366c0f91/test.json",
+      "runtime_asset_sha256": "80808c7cef888f1bf83ca1d71c82cd1e35191fb7c09193e4a5c1c54f41315c18",
+      "qa": {
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "method": "Eksakt originalindeksalias med byteidentisk masterfoto. Ingen egen nytegning paastaas.",
+        "actual_combat": true,
+        "limitation": null
+      }
+    },
+    {
+      "key": "Balok2.CEL/022.png",
+      "bank": "Balok2.CEL",
+      "frame": 22,
+      "source_bank_sha256": "15e33248d5664523f15bea8cff7c80f0270c41ce655f954015de8670f80cf6c8",
+      "indices_sha256": "1c8d3567170cc641381e2aa7e4dbc2f3a4053ecfbad8ab2a8f664852d68dd068",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/022/e5efcbc41223170e/rounded-source-edge-v5/live-knight-6-8-v1/candidate.png",
+      "png_sha256": "ffdfe503bb613af717d6dbffa6fbee5970d8b08800929f281ffac7a8cda4c6fb",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/b2-022-v1.png",
+      "raw_sha256": "e5efcbc41223170efcaf2f1f1251c3546be49936724870308e206d7f1fb49cb3",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/b2-022-v1.txt",
+      "prompt_sha256": "1becdc1a920f62e6408f25b4ddd46b85c95b7e9b077802e1524cfe3766d62cb2",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-95da8e609edf85ee-8c392c5a/test.json",
+      "runtime_asset_sha256": "ffdfe503bb613af717d6dbffa6fbee5970d8b08800929f281ffac7a8cda4c6fb",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/022/e5efcbc41223170e/rounded-source-edge-v5/live-knight-6-8-v1/art-record.json",
+      "art_record_sha256": "7fddb0a6184f7e61bedb5f452cbcbba1ad62a50921837c482260ee166c9127e8",
+      "mask": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/022/e5efcbc41223170e/rounded-source-edge-v5/live-knight-6-8-v1/candidate.mask.png",
+      "mask_sha256": "6ecb473f6860f0edf91a7413eb61a01835e01a3e53a183858b9273969dbbd348",
+      "qa": {
+        "frame": 1421,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      },
+      "existing_master": true
+    },
+    {
+      "key": "Balok3.CEL/025.png",
+      "bank": "Balok3.CEL",
+      "frame": 25,
+      "source_bank_sha256": "6c15f0933b0db58dff34a6d92924946950970b5a60d338819ebe15b49b708454",
+      "indices_sha256": "1c8d3567170cc641381e2aa7e4dbc2f3a4053ecfbad8ab2a8f664852d68dd068",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/022/e5efcbc41223170e/rounded-source-edge-v5/live-knight-6-8-v1/candidate.png",
+      "png_sha256": "ffdfe503bb613af717d6dbffa6fbee5970d8b08800929f281ffac7a8cda4c6fb",
+      "master_key": "Balok2.CEL/022.png",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-a23c476d56192a8d-366c0f91/test.json",
+      "runtime_asset_sha256": "ffdfe503bb613af717d6dbffa6fbee5970d8b08800929f281ffac7a8cda4c6fb",
+      "qa": {
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "method": "Eksakt originalindeksalias med byteidentisk masterfoto. Ingen egen nytegning paastaas.",
+        "actual_combat": true,
+        "limitation": null
+      },
+      "mask": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/022/e5efcbc41223170e/rounded-source-edge-v5/live-knight-6-8-v1/candidate.mask.png",
+      "mask_sha256": "6ecb473f6860f0edf91a7413eb61a01835e01a3e53a183858b9273969dbbd348"
+    },
+    {
+      "key": "Balok2.CEL/019.png",
+      "bank": "Balok2.CEL",
+      "frame": 19,
+      "source_bank_sha256": "15e33248d5664523f15bea8cff7c80f0270c41ce655f954015de8670f80cf6c8",
+      "indices_sha256": "09f2ab0dc5de92e76104e4b5e139c24b4b921331d7e339dbc0b29f22bddd7792",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/019/b6d2c550b3c4ce74/rounded-source-edge-v5/live-knight-6-8-v1/candidate.png",
+      "png_sha256": "ac0c7bee7492d2c2689172d5091d37e1b6fc2d58cac5ea8c9f6f47ad6f84147c",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/b2-019-v4.png",
+      "raw_sha256": "b6d2c550b3c4ce745de363ff33af39d509759517b216c9ef20760062efb613d9",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/b2-019-v4.txt",
+      "prompt_sha256": "fa42c7694fc978e1196c1ab03e4a29e6489e545945c9a599f4fe2fd7e3b6b84f",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-95da8e609edf85ee-8c392c5a/test.json",
+      "runtime_asset_sha256": "ac0c7bee7492d2c2689172d5091d37e1b6fc2d58cac5ea8c9f6f47ad6f84147c",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/019/b6d2c550b3c4ce74/rounded-source-edge-v5/live-knight-6-8-v1/art-record.json",
+      "art_record_sha256": "42c05e11d85cd893c37ec85911fc04ec06d38bbc0ad011a9cafa6aac561dc9a5",
+      "mask": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/019/b6d2c550b3c4ce74/rounded-source-edge-v5/live-knight-6-8-v1/candidate.mask.png",
+      "mask_sha256": "8440f368437899da3dac78e54e7195cdcfe7c287b13d8cb900c8c23eb8146818",
+      "qa": {
+        "frame": 1421,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      },
+      "existing_master": true
+    },
+    {
+      "key": "Balok3.CEL/026.png",
+      "bank": "Balok3.CEL",
+      "frame": 26,
+      "source_bank_sha256": "6c15f0933b0db58dff34a6d92924946950970b5a60d338819ebe15b49b708454",
+      "indices_sha256": "09f2ab0dc5de92e76104e4b5e139c24b4b921331d7e339dbc0b29f22bddd7792",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/019/b6d2c550b3c4ce74/rounded-source-edge-v5/live-knight-6-8-v1/candidate.png",
+      "png_sha256": "ac0c7bee7492d2c2689172d5091d37e1b6fc2d58cac5ea8c9f6f47ad6f84147c",
+      "master_key": "Balok2.CEL/019.png",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-a23c476d56192a8d-366c0f91/test.json",
+      "runtime_asset_sha256": "ac0c7bee7492d2c2689172d5091d37e1b6fc2d58cac5ea8c9f6f47ad6f84147c",
+      "qa": {
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "method": "Eksakt originalindeksalias med byteidentisk masterfoto. Ingen egen nytegning paastaas.",
+        "actual_combat": true,
+        "limitation": null
+      },
+      "mask": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/019/b6d2c550b3c4ce74/rounded-source-edge-v5/live-knight-6-8-v1/candidate.mask.png",
+      "mask_sha256": "8440f368437899da3dac78e54e7195cdcfe7c287b13d8cb900c8c23eb8146818"
+    },
+    {
+      "key": "Balok2.CEL/020.png",
+      "bank": "Balok2.CEL",
+      "frame": 20,
+      "source_bank_sha256": "15e33248d5664523f15bea8cff7c80f0270c41ce655f954015de8670f80cf6c8",
+      "indices_sha256": "6f634a930fbcbf415957168e2d627475f21af286a78b2f87207aa8ef93b7cdaf",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/020/054e8f5473d5a44d/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "5cbd1e4447d987c5cd785625bba295de9a25fd709bdadd478e2da1c839cec006",
+      "raw": "art/hd-completion-figures-2026-10-11/production/balok/raw/b2-020-v1.png",
+      "raw_sha256": "054e8f5473d5a44d7043ceaf94487307610bbed0b44a40df6f25949fc7aec0d1",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/b2-020-v1.txt",
+      "prompt_sha256": "32c66673f9fd773c084990f4eeded8ff495f020ae6296a2e23538bcdf151dfcb",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-95da8e609edf85ee-8c392c5a/test.json",
+      "runtime_asset_sha256": "5cbd1e4447d987c5cd785625bba295de9a25fd709bdadd478e2da1c839cec006",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/020/054e8f5473d5a44d/rounded-source-edge-v5/art-record.json",
+      "art_record_sha256": "e52fc02ecceade6be0a9e7a0a30cc8b237ba5c527d29ed7489de6f991a0ff225",
+      "qa": {
+        "frame": 1421,
+        "mirrored": true,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "actual_original_hd_return": "exact",
+        "emulated_state": "unchanged",
+        "visual_original_and_runtime": "reviewed_same_source_rectangle",
+        "footshadow": null
+      },
+      "existing_master": true
+    },
+    {
+      "key": "Balok3.CEL/027.png",
+      "bank": "Balok3.CEL",
+      "frame": 27,
+      "source_bank_sha256": "6c15f0933b0db58dff34a6d92924946950970b5a60d338819ebe15b49b708454",
+      "indices_sha256": "6f634a930fbcbf415957168e2d627475f21af286a78b2f87207aa8ef93b7cdaf",
+      "png": "art/hd-completion-figures-2026-10-11/production/bound/Balok2.CEL/020/054e8f5473d5a44d/rounded-source-edge-v5/candidate.png",
+      "png_sha256": "5cbd1e4447d987c5cd785625bba295de9a25fd709bdadd478e2da1c839cec006",
+      "master_key": "Balok2.CEL/020.png",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/verification/runtime-a23c476d56192a8d-366c0f91/test.json",
+      "runtime_asset_sha256": "5cbd1e4447d987c5cd785625bba295de9a25fd709bdadd478e2da1c839cec006",
+      "qa": {
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "method": "Eksakt originalindeksalias med byteidentisk masterfoto. Ingen egen nytegning paastaas.",
+        "actual_combat": true,
+        "limitation": null
+      }
+    }
+  ],
+  "companion_derivations": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/balok/five-aliases-source-proof-v7.json",
+      "sha256": "a32e4ad40e235128cec92134de59fd9bce64957db57d80921a1e64fdaa130bff"
+    }
+  ]
+}

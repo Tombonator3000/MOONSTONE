@@ -18,7 +18,55 @@ const SceneHd = (() => {
         ['bg7.piv', '6f01ac4c36c9b33f9f11b812a717c0786c1f4afa663962f854ee73d26853fa52'],
         ['co.stile', '2401d7f897be714e5ffeac1d3a5ff5a60838e0ce690755e9f940a0888a2151f1']
     ];
-    function nullstill() { kilder.clear(); sist = null; rull = null; rullVenter = false; rullSist = 0; epoch++; }
+    // Bare komplette, kildeverifiserte kampbakgrunner kan forankre denne broen.
+    // FNV velger en kontrakt; SHA256 kontrollerer samtlige64000 kildeindekser.
+    const KAMP_KILDER = new Map([["bae52e65","5b798d4228e048276d6b52782eff393a471c41bac99e94ea0f7cc43728e7acc0","GL1.t","ecc0442bf591a4ce609d8c34c0319db4bdb464f2bcf5f4fbc8154bf9cc10ce29"],["a154a2e3","1967d2f6e205ec80b7f4eb27f5ab415aadbfb95ba7af777ee97a4ed19e38444e","GL2.t","a52903fa8a495050afe4adf11b1880eca6cc2470c4b7a08363e8ff6b305be1aa"],["92934a24","f7ec2618254ef8efb04094b9fa5126dad079b45aa6fb46904ceb840945af08bf","GL3.t","2b4abc84cc3f16beecc0e3d6ea2c4ed61449f08ad4b695fa25a08727b3f02da7"],["c6493055","2e7d3ff59c3d78fb9e8c55691e3bc94fd5c95a9b0e8c2299892e52d12a059fd3","GL4.t","51d0bdd4591955f6a9953af8be0a4c9189574cda8cda6a4d13b23d43235d55b1"],["3bf300f2","d0d9a1f79aea4889a96fb7617f26684fd3d71da69a91034658b4e6d5a7388ba1","GL5.t","f26fc92144daa6fc25565e5cae3027ca78ce31bbf24d364de1537ddc523f48db"],["1d517809","c315a9c47fc50e0e49170a8d3eb0853b85f277dde8a977e68abd9899b0a461ed","GL6.t","20fccc795a8e74644e7e8bd5605e49ef8cc8e8e58173d2065b4a71566036ac22"],["78b34d44","221b03b74e76f7caf69db30373d74e5b399c8d32b539d682422e6e25d5ba9e43","GL7.t","43481e8262f4366ce8fbbf981e9e766aab78072254ed625c515650283ed8e07c"],["57a0be97","ebaf53555d7af8197a68c49b914c8c2a9b7d27a6933c18490d1f2099c40207ed","GL8.t","43270061c28921fad3cd59535a382eb8ec3706aea3b77390fb41e921ea1c78dc"],["5847ed29","40c2c342e090ab02f20ba56a42f20cf3eaf34c35a7a06663f195628f01afcd6c","FO1.t","48c8a553ea6fb205429d50b1d7c4cff7db4e977e727c22cf74d963cc305dbd5a"],["4035f361","07fdd4b0073d3ad465fb8ce8ea752c798808c21ec0a7bd6640c026d84188f49f","FO2.t","5b3fa0bed0217ab186380fc470b689237097620171490860cec64655f7c14aac"],["e3876748","432499291d221d72a1743e3ab546e3a28161560b838dafa7ecbfb42b648429f4","FO3.t","f460bec019f637279e817d039403d92f727d2fd51a8e6f2a108d17e486d440f3"],["3e773c83","1233ed7dd285262430ecda3ec186cb6e82e5a9e4ddb5edd50ec8ce5e3a470ba3","FO4.t","4fa445ebc7ae8c8fada16871b8900ccd5c2a8265335103500ebbe68671e52de0"],["fc7a454e","bbd04be31886137b9b58fab8558a93cf42f583dbed935590b73954003788b75a","FO5.t","649db769f4123bb991dfa8413c5e0122e0b033e427114cb9624fddf2cbec1789"],["df2273a5","8fbf68edccbd93639892d0381a34dea01456cf2ecd732e07967b264d79539200","FO6.t","16af9293fe383f9cb4e9022f4f9d71f92732dc07722a9c48bcee0b0658e79f30"],["a1b0c591","280b6e0d1e686696befb71d206cd4cf12fd11dfdfa601db72af7239304af2748","FO7.t","536f40e5e2588b9902a890299cdd41152d243f72a4ff34a6ada348cd8d573e77"],["be1046fc","ae38bcc762daecd097f294a18c77de9526a9550997b3dea5abbd4e1754e2be7b","FO8.t","7faffb06392e98d1189db8a077cb9bfa6203b0031163faf85b5f0b810c45842a"],["c12077ae","d621d148b2fdf4de7c0f318e2a42ac616f20cce7a2f49f444c528d4f383f104b","Sw1.t","21f33c843dba9523768d449f3af9ecd4824f6a02555d1cae1fe29781ad504ece"],["013ee13a","03f1d66bbd12815a15ca914661b5bfb163435ea6086ec0f054745d5711be10a4","Sw2.t","09518117c9ea142ef5c92a197dbd782b0b6dee050deee26a0d48e4b5b1b57270"],["e7920704","5dcde7fd25b1bbfef68869824100cc4d65bc3a7cf622e7983949f6f60caea03a","Sw3.t","1f4addb6c4ec8c067e24b4d04104a9df2a4172457a9829ff2ff5c0affcb2447b"],["c83d312d","a255538e865777ce60f4760285b6e313fe1a94d9c93dfe3e40d68cfbcb7e0a1f","Sw4.t","8fbdb7e8a27289f5302386ef187d361524b58a05d614323787a16a570cc21667"],["1be5b7a8","9303f395c8590830a0576732b964914be694ce8952faef8080ddb8797897e4b5","Sw5.t","39fac4f64eb9147f57cbb6b9b0d836fd66f55770923b7a512b56d6f56384e210"],["aac884f0","384ee234ec62a6b88727e02c0d7d2f7ae4290b10b9909cd951c8e0ce2f7e8195","Sw6.t","41be43b2cd73b05cfa48db312faaf193a5d408547851d597dd32780795e76bab"],["a529be52","86ccc48d7caec982c5cc1c4c86dff3de312e19a4941ff5d413e41a101fc682d1","Sw7.t","c9c00a8a327aaa0625732ae38d6c2a7ebc32d96a21683dea1de9768cc5945650"],["354c4fc5","4a507fd2e5e938d8c8f075e189ca8ac6fe1efaa77ccb8939074a910609c1c6db","Sw8.t","dcf35f2207e5d455edb297ffd751cd92a95c2274eac03beb89fdb37e8c9c3350"],["62d8d655","912ceef979a52b07230f055f2e6e3b9e0a87a32a6bd815d854f4386a73d788cf","Wa1.t","388ea4621929bceb99b1d23bbd95530a72e31822b3592f971ef2d2ff60a8ad19"],["e8ac7fc2","57848e6ae3393eaadd4255b9964e795edd749f30c2060138e6a6625de8e23d11","Wa2.t","7efdfdf2e8d53264ba56e1a089b193c208adf559495376e0108f4118e3ec127c"],["ab7792c8","57868a9a756d5c818bde7ede2476eb76f07704db28a2e120e2c5f59863b4ad69","Wa3.t","ace6c13aa8ae464c25439e1b15fc6f2f25e5951b02d681354427e8ab0e088b2e"],["4596c7a5","5fae16fe047e36cf63fcb62680135f1db796154bad8285ea738d8e87638d58c9","Wa4.t","f2d432ed854bc9da3d6e06f70b7c72f52b19cf24f9d4d180d67c95e8cc5973cc"],["86052b52","766647439316fbf27321cccee9f477b16235bb0910aa997aeeb916303b955561","Wa5.t","ad4698ae3a1aa0e533230b7ce76876e92f2468c6c88686e872ce7b596104ced8"],["50bee2c7","d25db91ac17da5918ce56fab2330f9a643d5a74e4e219bd5030307cbeb45c2a8","Wa6.t","c56dc853bb8a0572faf904c58ed66577e6cfb0f17bbc1ad0b450cd50f089fdce"],["5e409196","0e6d837af947e27beeeda1b3a0f2e8f230c878516d960912bccf8cdbe1c8c270","Wa7.t","289e0e01c6297e94e1fc2792cdbd7caa3f771b6d6f1038d182167c9280996fcc"],["2bbbb748","99ee9da46a83192a7477c4c3370713375dd672afc162f674a3b6a54ad3601019","Wa8.t","ea77beaff196d7098331a050df6bd8a7a88631eb644baa9fd09b924e5fd0ec07"],["cbc31cbf","6ce8ac139e20774e0dd1a5b59c73fad088dd35d978e90b595866e5cf1dab41fe","test","8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5"]].map(([hash,sha,fil,filSha])=>[parseInt(hash,16),{sha,fil,filSha}]));
+    let kampRen = null, kampVenter = null, kampSekvens = 0;
+    const kampFor = new Uint8Array(64000*4);
+    const kampIndeks = new Uint8Array(64000), kampVern = new Uint8Array(64000);
+    async function huskRenKamp(lag, row) {
+        const hash=lag.hash>>>0;
+        if (kampRen?.hash===hash || kampVenter===hash) return;
+        kampRen=null; kampVenter=hash;
+        const egenEpoch=epoch, sekvens=++kampSekvens, px=lag.bakIdx.slice();
+        const filer=[['program','b0a84503c0664515ef8b31072098acd62dbf50de3a36fe4ffe9492b094f593a6'],
+            ['test','8e8d950fb3dfb1b24b3a866c42254e8fc76d9f5d4567cef7843a08f61fd072a5'],
+            ['mog','d8cc4ec9f848ee30032f1e0c0db4e37c2484114910d314760956da9fee96da81'],[row.fil,row.filSha]];
+        const data=filer.map(([f])=>Kjerne.hentFil('data/'+f));
+        if (data.some(d=>!d)) { kampVenter=null; return; }
+        const sha=async d=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',d))].map(v=>v.toString(16).padStart(2,'0')).join('');
+        const hashes=await Promise.all([...data,px].map(sha));
+        if (egenEpoch!==epoch || sekvens!==kampSekvens) return;
+        kampVenter=null;
+        if (hashes[filer.length]===row.sha && hashes.slice(0,filer.length).every((h,i)=>h===filer[i][1])) kampRen={hash,px};
+    }
+    function korrigerKamp(lag,scan,diw) {
+        if (!lag?.bakIdx || lag.bakIdx.length!==64000 || lag.bak?.length!==256000 ||
+            lag.forIdx?.length!==64000 || lag.for?.length!==256000 || lag.scene) return null;
+        const hash=lag.hash>>>0, row=KAMP_KILDER.get(hash);
+        if (row) { huskRenKamp(lag,row).catch(()=>{}); return null; }
+        if (!kampRen) return null;
+        kampVern.fill(0);
+        let n=0;
+        for (let p=0;p<64000;p++) if (lag.bakIdx[p]!==kampRen.px[p]) {
+            const k=p*4, pal=((diw[1]+Math.floor(p/320))*32+15)*4;
+            // Andre effekter, toning og andre paletter faar originalbakgrunnen.
+            if (lag.bakIdx[p]!==15 || scan.pal[pal]!==204 || scan.pal[pal+1]!==0 ||
+                scan.pal[pal+2]!==0 || scan.pal[pal+3]!==255 || lag.bak[k]!==204 ||
+                lag.bak[k+1]!==0 || lag.bak[k+2]!==0 || lag.bak[k+3]!==255) return null;
+            kampVern[p]=1; n++;
+        }
+        if (!n) return null;
+        kampFor.set(lag.for); kampIndeks.set(lag.forIdx);
+        for (let p=0;p<64000;p++) if (kampVern[p] && kampIndeks[p]===255) {
+            kampFor.set(lag.bak.subarray(p*4,p*4+4),p*4); kampIndeks[p]=15;
+        }
+        // Bakgrunnsindeksene beholdes urort til CEL-eierskapsporten. Originale
+        // deltaceller vernes i sin helhet foran HD, ogsaa i transparente figurhull.
+        sist={id:'combat-delta',hash:kampRen.hash.toString(16).padStart(8,'0'),actual_hash:hash.toString(16).padStart(8,'0'),preserved_pixels:n};
+        return {...lag,for:kampFor,forIdx:kampIndeks,hash:kampRen.hash,sceneVern:kampVern,kampDeltaVern:kampVern};
+    }
+    function nullstill() { kampRen=null; kampVenter=null; kampSekvens++; kilder.clear(); sist = null; rull = null; rullVenter = false; rullSist = 0; epoch++; }
     async function klargjorRull() {
         if (rull || rullVenter) return;
         const data = RULL_KILDER.map(([fil]) => Kjerne.hentFil('data/' + fil));
@@ -175,7 +223,7 @@ const SceneHd = (() => {
                 best = ratio; valgt = s; bestSkjerm = skjerm;
             }
         }
-        if (!valgt) return lag;
+        if (!valgt) return korrigerKamp(lag,scan,diw) || lag;
         // LI1-ritualets originale palett blinker hvit/sort. En vanlig RGB-
         // bakgrunn kan bare tones fra normalpaletten, ikke gjengi dette blinket.
         // Bare disse SHA-bekreftede PIV-scenene bruker originalbakgrunn ved

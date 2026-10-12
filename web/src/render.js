@@ -590,6 +590,21 @@ const Visning = (() => {
         return !!bank && bankHash(bank).hash === 'f665a3febc1cfec9036e1d9c1c8c34cfebd57f3ca286b663dd20464fdc337b9e' &&
             indeksHash(g) === kilde[2];
     }
+    /* To kildebeviste Balok-sproeyt baker originalen i bakgrunnsbufferen.
+     * Bare disse eksakte rutene har samme bevaring som TROLL-likdelene. */
+    const bakteBalokKilder = new Map([
+        [67, [30, 3, '833664288514e5549c238a8107903ba599f3fcd2cd94685c2f4a5bdf8e8d0be9']],
+        [68, [54, 4, '081ac0dd193d015665a3f1783d6f79300c93339a0f73244c52db8ff4b362c98c']]
+    ]);
+    function erBaktKamp(d, g) {
+        if (erBaktTroll(d, g)) return true;
+        const c = bakteBalokKilder.get(d.bilde);
+        return d.fil.toLowerCase() === 'balok1.cel' && c && g &&
+            d.target === 0x0a2cd6 && [0x087b34, 0x087bf0].includes(d.caller) &&
+            d.w === c[0] && d.h === c[1] && g.w === d.w && g.h === d.h && g.planmaske === 15 &&
+            bankHash(originalCeler.get('balok1.cel')).hash === 'c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb' &&
+            indeksHash(g) === c[2];
+    }
     // Bare de observerte originalkallene faar vente paa kampens andre buffer.
     // Pakkeimport kan ikke gi en annen bank eller et annet kall denne retten.
     function erDragon5Spor(d, g) {
@@ -599,8 +614,13 @@ const Visning = (() => {
             '3f99e992ac1543b44b450fb2374943d0917c5bfe9000f6c91151fa808d3257a2';
         // Flammen passerer ogsaa over originalens svarte drageskygge. Uten
         // dens kildebevis ville ekte5-piksler i flammens hull bli ukjente.
-        return navn === 'dragon2.cel' && d.bilde === 27 && d.w === 156 && d.h === 15 && g.planmaske === 5 &&
-            bankHash(originalCeler.get(navn)).hash === '662891094e0a79b5831fb0c09471852cdb1af340c2bfa6293b6b9d0e5e401599';
+        if (navn !== 'dragon2.cel' || bankHash(originalCeler.get(navn)).hash !==
+            '662891094e0a79b5831fb0c09471852cdb1af340c2bfa6293b6b9d0e5e401599') return false;
+        if (d.bilde === 27) return d.w === 156 && d.h === 15 && g.planmaske === 5;
+        // Den maalte005-halsdelen blir liggende gjennom de samme bufferbyttene.
+        // Dens aatte originale10-piksler maa fortsatt eie hodets transparente hull.
+        return d.bilde === 5 && d.w === 36 && d.h === 48 && g.planmaske === 15 &&
+            indeksHash(g) === 'c6d27218bd4195f57d8f6a91f4fac5d19655204387d06479d0b01c505571a69e';
     }
     const balokKilder = new Map([
         [26, [65, 13, 5, 'af98aa16ec180b8b2016841903bc5a42a57547a7a5dedde272235453388e6d01']],
@@ -627,7 +647,7 @@ const Visning = (() => {
     function staarFortsatt(lag, p, lest) {
         const d = p.d, g = originalCel(d.fil, lest)?.[d.bilde];
         if (!g || g.w !== d.w || g.h !== d.h || !lag.forIdx || !Number.isInteger(p.x) || !Number.isInteger(p.y)) return false;
-        const bakt = erBaktTroll(d, g);
+        const bakt = erBaktKamp(d, g);
         let synlig = 0, bakgrunn = 0;
         for (let j = 0; j < d.h; j++) {
             const y = p.y + j;
@@ -648,7 +668,7 @@ const Visning = (() => {
                 for (const o of plasserte.values()) {
                     if (o !== p && x >= o.x && y >= o.y && x < o.x + o.w && y < o.y + o.h &&
                         (kildePiksel(o, x, y, lest) === faktisk ||
-                         (bakt && erBaktTroll(o.d, originalCel(o.d.fil, lest)?.[o.d.bilde]) &&
+                         (bakt && erBaktKamp(o.d, originalCel(o.d.fil, lest)?.[o.d.bilde]) &&
                           kildePiksel(o, x, y, lest) === lag.bakIdx?.[q]))) { dekket = true; break; }
                 }
                 if (!dekket) return false;
@@ -734,7 +754,7 @@ const Visning = (() => {
             if (tekst) {
                 if (staarFortsatt(lag, p, lestTekst)) p.sett = true;
                 else if (p.sett || bildeNr - p.fra > 50) borteTekst.push(k);
-            } else if (erBaktTroll(p.d, originalCel(p.d.fil, lestTekst)?.[p.d.bilde])) {
+            } else if (erBaktKamp(p.d, originalCel(p.d.fil, lestTekst)?.[p.d.bilde])) {
                 if (!staarFortsatt(lag, p, lestTekst)) borteTekst.push(k);
             } else if (erDragon5Spor(p.d, originalCel(p.d.fil, lestTekst)?.[p.d.bilde])) {
                 // Flammen tegnes foer frontbufferen byttes. Vent paa dens eksakte
@@ -811,7 +831,8 @@ const Visning = (() => {
                             forvarmPoseIndekser(navn, bilder);
                             // SHA er asynkron. Start de faste kampbevisene ved
                             // banklesing, foer engangstegnet broelepose kommer.
-                            if (navn === 'balok1.cel') for (const nr of balokKilder.keys()) if (bilder[nr]) indeksHash(bilder[nr]);
+                            if (navn === 'balok1.cel') for (const nr of [...balokKilder.keys(), ...bakteBalokKilder.keys()]) if (bilder[nr]) indeksHash(bilder[nr]);
+                            if (navn === 'dragon2.cel' && bilder[5]) indeksHash(bilder[5]);
                             for (const m of hdIkoner.values()) if (m.source.file === navn && bilder[m.source.frame]) indeksHash(bilder[m.source.frame]);
                         }
                     }
@@ -1309,7 +1330,7 @@ const Visning = (() => {
                 forberedMaane(d, g, lag, foran);
                 continue;
             }
-            const bakt = erBaktTroll(d, g);
+            const bakt = erBaktKamp(d, g);
             let gyldig = true, tvetydig = false, egne = 0;
             for (let j = 0; gyldig && j < d.h; j++) {
                 if (y + j < 0 || y + j >= 200) continue;
@@ -1365,7 +1386,7 @@ const Visning = (() => {
                 String(d.bilde).padStart(3, '0'))?.preserve_indices);
             visteListe.forEach((d, k) => {
                 if (!hdTegnbare.has(d)) return;
-                const bakt = erBaktTroll(d, originalCel(d.fil, lest)?.[d.bilde]);
+                const bakt = erBaktKamp(d, originalCel(d.fil, lest)?.[d.bilde]);
                 const x0 = d.x - d.xoff;
                 if (!Number.isInteger(x0) || !Number.isInteger(d.y)) return;
                 for (let j = Math.max(0, -d.y); j < d.h && d.y + j < 200; j++)
@@ -1402,6 +1423,11 @@ const Visning = (() => {
             }
         }
         if (hdMarkor) for (const p of hdMarkor.visible) vernData[p*4+3]=0;
+        // BG-broen gir aldri HD-eierskap til originale deltaceller. Gjenopprett
+        // dem etter figurens alfaopprydding og vern hele cellen mot AA-overloep.
+        if (lag?.kampDeltaVern) for (let p=0;p<64000;p++) if (lag.kampDeltaVern[p]) {
+            vernData[p*4+3]=255; forData.set(lag.for.subarray(p*4,p*4+4),p*4);
+        }
         return (erTittel(lag) && visteListe.some(d => d.fil.toLowerCase() === 'bold.f' &&
             d.bilde === 73 && hdTegnbare.has(d))) || bevarTitteltekst(lag, lest);
     }
@@ -2076,7 +2102,7 @@ const Visning = (() => {
             const lest = new Map();
             return visteListe.filter(d => d.fil.toLowerCase() === 'troll2.cel' && bakteTrollKilder.has(d.bilde)).map(d => {
                 const g = originalCel(d.fil, lest)?.[d.bilde], bank = originalCeler.get('troll2.cel');
-                return {...d, kilde:erBaktTroll(d,g), bank_sha256:bank ? bankHash(bank).hash : null,
+                return {...d, kilde:erBaktKamp(d,g), bank_sha256:bank ? bankHash(bank).hash : null,
                     indices_sha256:g ? indeksHash(g) : null, hd:hdTegnbare.has(d)};
             });
         },
