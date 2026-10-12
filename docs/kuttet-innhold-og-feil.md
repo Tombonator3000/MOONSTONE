@@ -140,6 +140,10 @@ er ikke etablert av denne innsamlingen.
 
 Dette er foreslått rekkefølge, ikke en implementert eller godkjent utvidelse.
 
+[Gjennomføringsplanen for trollkrasj og månelogikk](trollkrasj-og-manelogikk.md)
+beskriver eksisterende teststøtte, nødvendige målinger og krav til bevis.
+Reproduksjon og spillmålinger gjenstår.
+
 1. **Gjenskap B01 først:** lagre før trollkampen, registrer utgave, CRC/SHA,
    inndata, CPU/stack og siste bilde. Sammenlign identisk scenario med/uten
    C-hooks. Skill symptomet fra årsaken og fra WHDLoad-versjonsforskjeller.

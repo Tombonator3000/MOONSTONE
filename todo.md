@@ -1,6 +1,9 @@
 # todo.md
 
 ## Neste
+- [x] Lagre konkret gjennomføringsplan for B01 og månelogikk i docs/trollkrasj-og-manelogikk.md, med bekreftet teststøtte og tydelig status for ugjorte målinger.
+- [ ] Implementere B01-avspilling og begrenset CPU-/stacklogg etter docs/trollkrasj-og-manelogikk.md. Kontrollere stoppstatus, bildetelling, hooktreff og bevisfiler.
+- [ ] Implementere separate målinger av faseomløp, Ratmen, Moonstone og sykdom etter samme plan. Identifisere felt/adresser før måleverdier tolkes.
 - [x] Samle tidligere funn om kuttet innhold, originalfeil og planlagt innhold med kilder og status i docs/kuttet-innhold-og-feil.md. Gjenopptak fra avbrutt grafikksamtale dokumentert separat.
 - [ ] Gjenskape rapportert trollkrasj ved samtidige slag over hodet, med identifisert spill-/slaveversjon og eksakte inndata. Stack overflow og samtidig spising er ikke bekreftet årsak.
 - [ ] Undersøke originalens månelogikk, Ratmen-styrke, Moonstone-effekt og Black Knight-målvalg før eventuelle feilrettinger. Nye regler og historiske kutt skilles fra faktisk originaloppførsel.
