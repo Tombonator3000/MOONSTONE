@@ -1,6 +1,10 @@
 # todo.md
 
 ## Neste
+- [x] Samle tidligere funn om kuttet innhold, originalfeil og planlagt innhold med kilder og status i docs/kuttet-innhold-og-feil.md. Gjenopptak fra avbrutt grafikksamtale dokumentert separat.
+- [ ] Gjenskape rapportert trollkrasj ved samtidige slag over hodet, med identifisert spill-/slaveversjon og eksakte inndata. Stack overflow og samtidig spising er ikke bekreftet årsak.
+- [ ] Undersøke originalens månelogikk, Ratmen-styrke, Moonstone-effekt og Black Knight-målvalg før eventuelle feilrettinger. Nye regler og historiske kutt skilles fra faktisk originaloppførsel.
+- [ ] Sammenligne innebygd WHDLoad-slave v1.4 med dokumentert v1.6 og relevante retail-utgaver. Ikke regn nyere rettinger som inkludert uten patchkontroll.
 - [x] HD-retting av Math og stedene: loddrett rundt murtaarn og 23 gjentatte Stonehenge-porter. Siste brukerfoto presiserer to stoetter og en overligger; enkeltstaaende soeyle er erstattet. Portene er skalert proporsjonalt ned til originalens fem kartpiksler i hoeyden. Originale posisjoner, statusmoenstre og spillregler beholdes.
 - [x] HD-troskap: KI-rankene034-036, mys.cel000-001 og seks DragonDice-symboler000-005 er separat generert, kildebundet og aktivert.141 runtimekontroller består.
 - [ ] HD-troskap: fullføre1779 separate figur-/animasjonsmastere med2040 konkrete PNG-ruter og264 masker. Math, KN4, hen1-flammer og TROLL er under produksjon; kandidater regnes ikke som ferdige. Hele ridderposer erstatter ikke separate ruter.
