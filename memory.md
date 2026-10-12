@@ -8,6 +8,13 @@ Stedsportene er redusert til originalens 9x5 kartpiksler, uten eget draw_rect. P
 
 Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 
+## Historiske funn samlet 12. oktober 2026
+
+- docs/trollkrasj-og-manelogikk.md beskriver gjennomføringen av B01- og måneprøvene. Kodekontroll mot main f3103ebb bekrefter at --nohooks beholder lappene, at de to C-erstatningene gjelder joystick, og at headless returnerer 0 også etter M.aborted. --press/--dump bruker absolutte maskinbilder, mens --save-state og skjermbildeintervallet teller relativt til kjøringen. Reproduksjon, CPU-/stacklogger og spillmålinger gjenstår.
+- docs/kuttet-innhold-og-feil.md samler utviklerbekreftet riddervariasjon, større sluttkamper, uutviklede fiender og Moonstone 2-planer. Ingen gjenfunnet full kode-/assetpakke er dokumentert.
+- Samme register skiller rapportert trollkrasj og DOS-månefeil fra uavklarte årsaker, Black Knight-sporing og påstått manglende månematematikk. WHDLoad-loggen dokumenterer ikke save/restore eller den navngitte AI-rettingen; innebygd slave v1.4 er eldre enn nettsidens v1.6.
+- docs/samtale-gjenopptak-2026-10-12.md bevarer siste avbrutte grafikksamtales status og peker til lokale009-kandidater. Kandidatmanifestet er eldre enn main etter PR44 og skal ikke erstatte dagens manifest.
+
 ## Korrigert HD-status, 11. oktober 2026
 
 Brukeren presiserte at HD skal være en trofast nytegning med naturtro detaljer. De 75 ikonrutene fra 11. oktober er kun kildebasert konturbehandling, ikke ferdige HD-nytegninger. Tidligere leveringsomtale av ferdige ikoner var misvisende. 26 kartmarkørruter bruker fire ulike kildemønstre. Fontene bruker andre skrifttyper enn originalen. Fem blå helposer erstatter begrensede kildekombinasjoner, ikke separat tegning av alle figurruter.
