@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "status": "locally_activated",
+  "scope": "Existing PNGs byte unchanged. Balok1/010 visible through original combat after three controlled initializer/terrain writes; no palette writes. RATMEN2/058 only original-source frontend fixtures, not claimed visible in natural combat. Both masks checked against all five original knight palettes, normal/mirrored, exact Original/HD returns, unchanged emulated state.",
+  "visual_status": "reviewed_original_and_runtime",
+  "before_manifest_sha256": "3b9ea01eecd3d660ea5d7896e393bb1ea33305091ba8e38dd9b828dbc2bb88fa",
+  "after_manifest_sha256": "d145d1bf5b84f94a1dd0800e95b5f0a6eb4f386079514c6c0f31f0749374de6c",
+  "new_masks": [
+    {
+      "path": "Balok1.CEL/010.mask.png",
+      "bytes": 350,
+      "sha256": "ee65a860b2cab0fee3545d3c6b43e64dd402e5aac702f83e6429341227cd4b03",
+      "kind": "base"
+    },
+    {
+      "path": "RATMEN2.CEL/058.mask.png",
+      "bytes": 13308,
+      "sha256": "620570714e9f5f6699f24a71ed98f8927b157cfe6d575d003dc43fe8434a9f0e",
+      "kind": "base"
+    }
+  ],
+  "existing_photographs_unchanged": {
+    "Balok1.CEL/010.png": "8c5cf69ae78a9920ba1a8e2c2878c7f93a04e566a944b48349ce584d488f6dc8",
+    "RATMEN2.CEL/058.png": "a47203265ce0ba85e4ad34ff154f0bb37dc2c3282451c6f0848e18c6eedb1c85"
+  },
+  "source_contracts_path": "art/hd-completion-figures-2026-10-11/production/embedded-knights/source-contracts-v1.json",
+  "source_contracts_sha256": "1dbd16255ece739fcf12a5ebc1e579d4149e19362aca70d0287a87c54e9030d9",
+  "runtime_proof_path": "art/hd-completion-figures-2026-10-11/production/embedded-knights/verification/runtime-v1/test.json",
+  "runtime_proof_sha256": "1060d4f7329d5f2ed10815c5ee7a4cd70116c16ab9ca3d37bca4136c53ff8404",
+  "script_sha256": "06b2a765382f874ff736a2159380a6acd96fd1a17ff08b59da28524ac94f452d",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+    "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "original_source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02"
+}

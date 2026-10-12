@@ -1,0 +1,267 @@
+{
+  "schema": 1,
+  "visual_status": "reviewed_original_and_runtime",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+    "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/verification/runtime-six-v3/test.json",
+      "sha256": "c089e6bcb9f887e33ea180ab0e5ec8b73765c6db9715443ef4a8ea1346b7549b",
+      "html_path": "art/hd-completion-figures-2026-10-11/production/beast/verification/runtime-six-v3/loaded.html",
+      "html_sha256": "f269a10f99144afc373796e3243e0934f50d9e495fc45c89771e7b106268b5ee"
+    }
+  ],
+  "companion_derivations": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/geometries-six-v3.json",
+      "sha256": "acd7c5230db7ec17274742b77054698023541bb9e9ed17232c8dc41bd8f069b9"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/generation-records-six-v1.json",
+      "sha256": "fc942360ca1b75f8937db649e4b9fce7b99cb061bf87cbcab07472508f6d48dd"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/verification/packing-six-v3.json",
+      "sha256": "1cc3651bfa7acab6b8e5830b3e55f8ed3b5afb7e95b4d111d551233132fa8bdc"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/verification/packing-independent-six-v3.json",
+      "sha256": "7cd19aecf155105d04997b3a819e48b10e8173ab6856ca8adffbae72011c6591"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/pack-six-v3.cjs",
+      "sha256": "82138775fc52589bdd799b4669b4325fc3e7c72f82fc748da9411633cabc8dab"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/check-six-v3.py",
+      "sha256": "8241383e2f20baf232f4114087d9607f575c93c6545d15ba41e4793afeda4533"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/runtime-six-v3.cjs",
+      "sha256": "432451e79d8bd9e13082c0e22554e0de4554652faa26bf92aac60c4308adc974"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/freeze-six-v3.py",
+      "sha256": "08a786a5b118d85daf0ff119b66afe433efc209f3ee53d246b3912fdb15e6932"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/generation-calls-six-v1.json",
+      "sha256": "fc942360ca1b75f8937db649e4b9fce7b99cb061bf87cbcab07472508f6d48dd"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/prepare-six-v3.py",
+      "sha256": "3558fab16dae0c13cfed83e1c06353d839decc0ea7d2023b9dd75626bb3849ce"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/geometries-first3-v1.json",
+      "sha256": "4254c6d4081b9201ea53ff4ef82406e4aebc83f03f3545182dcb6fdf19e5a356"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/geometries-003-005-v1.json",
+      "sha256": "a9aa9998cf5792f637ead558301652252bd0e96e4c187d590254c1b25e2103d4"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/palettes/cases/beast.json",
+      "sha256": "e0678f8adcbd4fd3c15b61156c8c013d690941662b10ee761d70e9e1b724f017"
+    },
+    {
+      "path": "tools/hd_resterende_ikoner_fixture.cjs",
+      "sha256": "35d36d2eae833ab8d417746f4ae801ee38ba7926cb1fb597a773c8eb31e2e72a"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/references/000-white20x.png",
+      "sha256": "fa97423abf26114d87ad37e9d7c8cc07a34c3e698babdf06e2dc07a3b4b11ac1"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/references/001-white20x.png",
+      "sha256": "abe95c848008bf8b2c4bc28cf6cc6bdb30f88441e2c9b6ab6fd30af90ea7e3aa"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/references/002-white20x.png",
+      "sha256": "29cbe4a7852af456833895f1566381b0ec60291ce365d70cfa672c5e57a4350a"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/references/003-white20x.png",
+      "sha256": "ba3f6e7310fe54e15043737ab9c709be1270980d04df83579539109ffc2f74da"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/references/004-white20x.png",
+      "sha256": "5371c742497862cbd14b0275b503246178e8abdf93dce8b87bd96f3616e6588a"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/references/005-white20x.png",
+      "sha256": "556231606f81c6988521f8c9e61dc5c03f5bacbd785c6f6b4db1c13f462d0928"
+    }
+  ],
+  "scope": "Controlled original Trogg War Beast combat initializer and terrain only, three source-documented test writes at900. No palette writes or modified combat/animation code; no natural map visit claim. Actual source calls and source scanout palette are checked. Separate normal/mirrored frontend fixtures and negative source/ownership checks never write to emulated memory. Candidate import only, no activation.",
+  "entries": [
+    {
+      "key": "be1.c/000.png",
+      "bank": "be1.c",
+      "frame": 0,
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "indices_sha256": "28272db9f81eadf6b1f25babdb98c538e3b1d7527c74617df385dda619a08ca5",
+      "png": "art/hd-completion-figures-2026-10-11/production/beast/packed-six-v3/be1.c/000.png",
+      "png_sha256": "d3951622b5da4e137edabe7267ed61529d66e795dc9ffdf0ac29602b2fd0274b",
+      "raw": "art/hd-completion-figures-2026-10-11/production/beast/raw/000-v1.png",
+      "raw_sha256": "7d0125067a451197b271c26d21b15ffc62f757b11b6a23ba4276f1e44c8a6a5c",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/beast/prompts/000-v1.txt",
+      "prompt_sha256": "c2cb8e62d63b35d420e17ee1e73ddbe2500bb8f8f091e9ebd8f85e43fb51e2b7",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/beast/verification/runtime-six-v3/test.json",
+      "runtime_asset_sha256": "d3951622b5da4e137edabe7267ed61529d66e795dc9ffdf0ac29602b2fd0274b",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/beast/000-final-record-six-v3.json",
+      "art_record_sha256": "2fbe452df24e92cbe855a5a8cc03beda45ccbaa8fa230608cd2ae06c17ed427a",
+      "qa": {
+        "source_alpha_midpoints": 2340,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "be1.c/001.png",
+      "bank": "be1.c",
+      "frame": 1,
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "indices_sha256": "6de299bde5755e1d769cb8f2c8a8327d7f2904271050241ed6950bdefd4922c3",
+      "png": "art/hd-completion-figures-2026-10-11/production/beast/packed-six-v3/be1.c/001.png",
+      "png_sha256": "3aed0c2a97e31fc0dbe91941a7df05e7a2a2f46bc35def666804b82f7703b289",
+      "raw": "art/hd-completion-figures-2026-10-11/production/beast/raw/001-v1.png",
+      "raw_sha256": "cd49956d55991eb8917603d85793dafe159540e068ff97028ccff9bab0f66050",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/beast/prompts/001-v1.txt",
+      "prompt_sha256": "0eb1a08d216f93bcaadb22695b5c1e32c0b5d7f5a19c26870eb601bb6397e512",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/beast/verification/runtime-six-v3/test.json",
+      "runtime_asset_sha256": "3aed0c2a97e31fc0dbe91941a7df05e7a2a2f46bc35def666804b82f7703b289",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/beast/001-final-record-six-v3.json",
+      "art_record_sha256": "2ac1940f2e309f9230c8dba30368dfd71376c3ce2e32c0c0594e80cd2b925451",
+      "qa": {
+        "source_alpha_midpoints": 2709,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "be1.c/002.png",
+      "bank": "be1.c",
+      "frame": 2,
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "indices_sha256": "398c2c6eb783ca534eea809e2d30a1dfed14061aa1a7479cce45c47d78fadc5c",
+      "png": "art/hd-completion-figures-2026-10-11/production/beast/packed-six-v3/be1.c/002.png",
+      "png_sha256": "6f933614f20716067fe294560c74a40c0d72a31ef56c53760965474d0ea00793",
+      "raw": "art/hd-completion-figures-2026-10-11/production/beast/raw/002-v1.png",
+      "raw_sha256": "c4667f7969d92c8fb377a7e86f952c32ef1fdb5eaeef81170a8aa0cf3a505dab",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/beast/prompts/002-v1.txt",
+      "prompt_sha256": "b7b1e75a6258020b460dea4391d1c5fd1e8c9c5a6a3ae624f830576e746e954a",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/beast/verification/runtime-six-v3/test.json",
+      "runtime_asset_sha256": "6f933614f20716067fe294560c74a40c0d72a31ef56c53760965474d0ea00793",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/beast/002-final-record-six-v3.json",
+      "art_record_sha256": "e9a6680a841647bafdd4aaf63ebca0f3319ee311ac4608e2713ddc2d61666e31",
+      "qa": {
+        "source_alpha_midpoints": 774,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "be1.c/003.png",
+      "bank": "be1.c",
+      "frame": 3,
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "indices_sha256": "5e2b5cc73e7c5a16926bd976ead1c707bf0c07993cc8db00e8a696d04e83e00b",
+      "png": "art/hd-completion-figures-2026-10-11/production/beast/packed-six-v3/be1.c/003.png",
+      "png_sha256": "37f64efa1d62a10f04ecb3c8e1b7bdf633d24588e75eb01e794adee29077c456",
+      "raw": "art/hd-completion-figures-2026-10-11/production/beast/raw/003-v1.png",
+      "raw_sha256": "1f38e31334c90b4836d5e9b4b3b3da3489639848a6a7f873451eeb6bc2237165",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/beast/prompts/003-v1.txt",
+      "prompt_sha256": "562dd6af81fb5355506e32fbe1ed358f630c152f30829b49e0733d1cf9631a3b",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/beast/verification/runtime-six-v3/test.json",
+      "runtime_asset_sha256": "37f64efa1d62a10f04ecb3c8e1b7bdf633d24588e75eb01e794adee29077c456",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/beast/003-final-record-six-v3.json",
+      "art_record_sha256": "f7bb2fb268ce2db55fb3d8f19d8d07b0a2e70b6d3b108fdeff0756041d8dc904",
+      "qa": {
+        "source_alpha_midpoints": 900,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "be1.c/004.png",
+      "bank": "be1.c",
+      "frame": 4,
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "indices_sha256": "45e4f7213aa8db8f1732c61fa89881376cd736a50b633c25247a726a84276d2f",
+      "png": "art/hd-completion-figures-2026-10-11/production/beast/packed-six-v3/be1.c/004.png",
+      "png_sha256": "e5d75150ebeb54e88547d79d7439d5c8b03a3ebaae11473d28cc2516a4381d22",
+      "raw": "art/hd-completion-figures-2026-10-11/production/beast/raw/004-v1.png",
+      "raw_sha256": "38df17d42b500899cd73575a8103e2e79efda56009175c46d0b88078781f30ce",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/beast/prompts/004-v1.txt",
+      "prompt_sha256": "a6d67262615a3846a970feab649866bf5257043a56b578b056a353d40ccd787d",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/beast/verification/runtime-six-v3/test.json",
+      "runtime_asset_sha256": "e5d75150ebeb54e88547d79d7439d5c8b03a3ebaae11473d28cc2516a4381d22",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/beast/004-final-record-six-v3.json",
+      "art_record_sha256": "22dad9553768af9a44b631997451e7bc6748dbe4eb2f33e8df817c0478b0bb9a",
+      "qa": {
+        "source_alpha_midpoints": 2400,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    },
+    {
+      "key": "be1.c/005.png",
+      "bank": "be1.c",
+      "frame": 5,
+      "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+      "indices_sha256": "37d959328f5d43592d8bd7ebd9041fbe60cdd71e683255c71040cb8b87c721d6",
+      "png": "art/hd-completion-figures-2026-10-11/production/beast/packed-six-v3/be1.c/005.png",
+      "png_sha256": "5eb0c65f6255d583198f04e151940b97479990bf7c00b2d0a62be064b7d6ddbd",
+      "raw": "art/hd-completion-figures-2026-10-11/production/beast/raw/005-v1.png",
+      "raw_sha256": "9c571284e9bb7a8ac9f9ea6f1c1e74b0f23ca9a8a5a133ad8e28be504a8ea99b",
+      "prompt": "art/hd-completion-figures-2026-10-11/production/beast/prompts/005-v1.txt",
+      "prompt_sha256": "bf64ecadc0e54173aa55c01b1b343569006a7bef408a75e6a6908b6f87c6a7cf",
+      "generation_tool": "builtin_image_gen",
+      "runtime_proof": "art/hd-completion-figures-2026-10-11/production/beast/verification/runtime-six-v3/test.json",
+      "runtime_asset_sha256": "5eb0c65f6255d583198f04e151940b97479990bf7c00b2d0a62be064b7d6ddbd",
+      "art_record": "art/hd-completion-figures-2026-10-11/production/beast/005-final-record-six-v3.json",
+      "art_record_sha256": "956ae3bdee22e85fc877f99ee97ff23c27bec18b14267914c483b5530698083d",
+      "qa": {
+        "source_alpha_midpoints": 2752,
+        "source_midpoints_missing": 0,
+        "source_transparent_midpoints_filled": 0,
+        "normal_and_mirror": true,
+        "unknown_foreground_rejected": true,
+        "original_hd_return": "exact",
+        "emulated_state": "unchanged"
+      }
+    }
+  ]
+}

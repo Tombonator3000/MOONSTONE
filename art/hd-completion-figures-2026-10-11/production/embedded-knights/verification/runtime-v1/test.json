@@ -1,0 +1,3002 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "errors": [],
+  "checks": [
+    "frozen_public004_HTML",
+    "all_four_files_imported",
+    "actualBalok010visible",
+    "actualOriginalPalette",
+    "actual_HD_changes",
+    "actual_Original_exact_return",
+    "actual_HD_exact_return",
+    "actual_CPU_unchanged",
+    "Balok1.CEL-010-blue_masked_HD_used",
+    "Balok1.CEL-010-blue_HD_changes",
+    "Balok1.CEL-010-blue_Original_exact_return",
+    "Balok1.CEL-010-blue_HD_exact_return",
+    "Balok1.CEL-010-yellow_masked_HD_used",
+    "Balok1.CEL-010-yellow_HD_changes",
+    "Balok1.CEL-010-yellow_Original_exact_return",
+    "Balok1.CEL-010-yellow_HD_exact_return",
+    "Balok1.CEL-010-red_masked_HD_used",
+    "Balok1.CEL-010-red_HD_changes",
+    "Balok1.CEL-010-red_Original_exact_return",
+    "Balok1.CEL-010-red_HD_exact_return",
+    "Balok1.CEL-010-green_masked_HD_used",
+    "Balok1.CEL-010-green_HD_changes",
+    "Balok1.CEL-010-green_Original_exact_return",
+    "Balok1.CEL-010-green_HD_exact_return",
+    "Balok1.CEL-010-violet_masked_HD_used",
+    "Balok1.CEL-010-violet_HD_changes",
+    "Balok1.CEL-010-violet_Original_exact_return",
+    "Balok1.CEL-010-violet_HD_exact_return",
+    "Balok1.CEL/010.png_five_HD_palettes_distinct",
+    "Balok1.CEL-010-blue-mirror_masked_HD_used",
+    "Balok1.CEL-010-blue-mirror_HD_changes",
+    "Balok1.CEL-010-blue-mirror_Original_exact_return",
+    "Balok1.CEL-010-blue-mirror_HD_exact_return",
+    "Balok1.CEL-010-yellow-mirror_masked_HD_used",
+    "Balok1.CEL-010-yellow-mirror_HD_changes",
+    "Balok1.CEL-010-yellow-mirror_Original_exact_return",
+    "Balok1.CEL-010-yellow-mirror_HD_exact_return",
+    "Balok1.CEL-010-red-mirror_masked_HD_used",
+    "Balok1.CEL-010-red-mirror_HD_changes",
+    "Balok1.CEL-010-red-mirror_Original_exact_return",
+    "Balok1.CEL-010-red-mirror_HD_exact_return",
+    "Balok1.CEL-010-green-mirror_masked_HD_used",
+    "Balok1.CEL-010-green-mirror_HD_changes",
+    "Balok1.CEL-010-green-mirror_Original_exact_return",
+    "Balok1.CEL-010-green-mirror_HD_exact_return",
+    "Balok1.CEL-010-violet-mirror_masked_HD_used",
+    "Balok1.CEL-010-violet-mirror_HD_changes",
+    "Balok1.CEL-010-violet-mirror_Original_exact_return",
+    "Balok1.CEL-010-violet-mirror_HD_exact_return",
+    "Balok1.CEL/010.png_mirror_five_HD_palettes_distinct",
+    "RATMEN2.CEL-058-blue_masked_HD_used",
+    "RATMEN2.CEL-058-blue_HD_changes",
+    "RATMEN2.CEL-058-blue_Original_exact_return",
+    "RATMEN2.CEL-058-blue_HD_exact_return",
+    "RATMEN2.CEL-058-yellow_masked_HD_used",
+    "RATMEN2.CEL-058-yellow_HD_changes",
+    "RATMEN2.CEL-058-yellow_Original_exact_return",
+    "RATMEN2.CEL-058-yellow_HD_exact_return",
+    "RATMEN2.CEL-058-red_masked_HD_used",
+    "RATMEN2.CEL-058-red_HD_changes",
+    "RATMEN2.CEL-058-red_Original_exact_return",
+    "RATMEN2.CEL-058-red_HD_exact_return",
+    "RATMEN2.CEL-058-green_masked_HD_used",
+    "RATMEN2.CEL-058-green_HD_changes",
+    "RATMEN2.CEL-058-green_Original_exact_return",
+    "RATMEN2.CEL-058-green_HD_exact_return",
+    "RATMEN2.CEL-058-violet_masked_HD_used",
+    "RATMEN2.CEL-058-violet_HD_changes",
+    "RATMEN2.CEL-058-violet_Original_exact_return",
+    "RATMEN2.CEL-058-violet_HD_exact_return",
+    "RATMEN2.CEL/058.png_five_HD_palettes_distinct",
+    "RATMEN2.CEL-058-blue-mirror_masked_HD_used",
+    "RATMEN2.CEL-058-blue-mirror_HD_changes",
+    "RATMEN2.CEL-058-blue-mirror_Original_exact_return",
+    "RATMEN2.CEL-058-blue-mirror_HD_exact_return",
+    "RATMEN2.CEL-058-yellow-mirror_masked_HD_used",
+    "RATMEN2.CEL-058-yellow-mirror_HD_changes",
+    "RATMEN2.CEL-058-yellow-mirror_Original_exact_return",
+    "RATMEN2.CEL-058-yellow-mirror_HD_exact_return",
+    "RATMEN2.CEL-058-red-mirror_masked_HD_used",
+    "RATMEN2.CEL-058-red-mirror_HD_changes",
+    "RATMEN2.CEL-058-red-mirror_Original_exact_return",
+    "RATMEN2.CEL-058-red-mirror_HD_exact_return",
+    "RATMEN2.CEL-058-green-mirror_masked_HD_used",
+    "RATMEN2.CEL-058-green-mirror_HD_changes",
+    "RATMEN2.CEL-058-green-mirror_Original_exact_return",
+    "RATMEN2.CEL-058-green-mirror_HD_exact_return",
+    "RATMEN2.CEL-058-violet-mirror_masked_HD_used",
+    "RATMEN2.CEL-058-violet-mirror_HD_changes",
+    "RATMEN2.CEL-058-violet-mirror_Original_exact_return",
+    "RATMEN2.CEL-058-violet-mirror_HD_exact_return",
+    "RATMEN2.CEL/058.png_mirror_five_HD_palettes_distinct",
+    "fixtures_CPU_unchanged",
+    "no_browser_errors",
+    "frozen_web/src/core.js",
+    "frozen_web/src/render.js",
+    "frozen_web/src/scenes.js",
+    "frozen_web/src/hd.js",
+    "Balok1.CEL/010.png_PNG_unchanged",
+    "Balok1.CEL/010.png_mask_frozen",
+    "RATMEN2.CEL/058.png_PNG_unchanged",
+    "RATMEN2.CEL/058.png_mask_frozen",
+    "original_ZIP_unchanged",
+    "original_WASM_unchanged",
+    "test_frozen"
+  ],
+  "assets": {
+    "Balok1.CEL/010.png": "8c5cf69ae78a9920ba1a8e2c2878c7f93a04e566a944b48349ce584d488f6dc8",
+    "Balok1.CEL/010.mask.png": "ee65a860b2cab0fee3545d3c6b43e64dd402e5aac702f83e6429341227cd4b03",
+    "RATMEN2.CEL/058.png": "a47203265ce0ba85e4ad34ff154f0bb37dc2c3282451c6f0848e18c6eedb1c85",
+    "RATMEN2.CEL/058.mask.png": "620570714e9f5f6699f24a71ed98f8927b157cfe6d575d003dc43fe8434a9f0e"
+  },
+  "source_contracts_sha256": "1dbd16255ece739fcf12a5ebc1e579d4149e19362aca70d0287a87c54e9030d9",
+  "test_sha256": "b38b4d7267dd62636d6bf119c6ca8bc88f1a09e28e23ef91b2fb720c527b419b",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+    "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "scope": "Existing PNGs byte unchanged. Balok1/010 visible through original combat after three controlled initializer/terrain writes; no palette writes. RATMEN2/058 only original-source frontend fixtures, not claimed visible in natural combat. Both masks checked against all five original knight palettes, normal/mirrored, exact Original/HD returns, unchanged emulated state.",
+  "html_sha256": "f269a10f99144afc373796e3243e0934f50d9e495fc45c89771e7b106268b5ee",
+  "runtime": {
+    "imported": 4,
+    "sample": {
+      "frame": 1386,
+      "source": {
+        "fil": "Balok1.cel",
+        "bilde": 10,
+        "x": 141,
+        "y": 155,
+        "w": 58,
+        "h": 21,
+        "speilet": true,
+        "hd": true,
+        "maske": true
+      },
+      "draws": [
+        {
+          "fil": "Balok1.cel",
+          "bilde": 26,
+          "x": 140,
+          "y": 176,
+          "w": 65,
+          "h": 13,
+          "xoff": 0,
+          "speilet": true,
+          "target": 666838,
+          "caller": 556016
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 11,
+          "x": 117,
+          "y": 176,
+          "w": 88,
+          "h": 11,
+          "xoff": 0,
+          "speilet": true,
+          "target": 666838,
+          "caller": 556016
+        }
+      ],
+      "visible": [
+        {
+          "fil": "bold.f",
+          "bilde": 34,
+          "x": 162,
+          "y": 150,
+          "w": 9,
+          "h": 19,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "bold.f",
+          "bilde": 39,
+          "x": 168,
+          "y": 150,
+          "w": 14,
+          "h": 19,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Sel.cel",
+          "bilde": 0,
+          "x": 50,
+          "y": 85,
+          "w": 38,
+          "h": 19,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Sel.cel",
+          "bilde": 0,
+          "x": 50,
+          "y": 110,
+          "w": 38,
+          "h": 19,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "bold.f",
+          "bilde": 45,
+          "x": 165,
+          "y": 150,
+          "w": 11,
+          "h": 19,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "bold.f",
+          "bilde": 34,
+          "x": 173,
+          "y": 150,
+          "w": 9,
+          "h": 19,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "bold.f",
+          "bilde": 40,
+          "x": 137,
+          "y": 115,
+          "w": 12,
+          "h": 19,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 3,
+          "x": 366,
+          "y": 180,
+          "w": 31,
+          "h": 7,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 2,
+          "x": 372,
+          "y": 125,
+          "w": 21,
+          "h": 55,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 363,
+          "y": 127,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 5,
+          "x": 358,
+          "y": 168,
+          "w": 36,
+          "h": 19,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 4,
+          "x": 362,
+          "y": 124,
+          "w": 22,
+          "h": 44,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 355,
+          "y": 127,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 7,
+          "x": 345,
+          "y": 158,
+          "w": 27,
+          "h": 27,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 6,
+          "x": 353,
+          "y": 126,
+          "w": 15,
+          "h": 32,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 340,
+          "y": 128,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 9,
+          "x": 335,
+          "y": 161,
+          "w": 36,
+          "h": 24,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 8,
+          "x": 341,
+          "y": 125,
+          "w": 21,
+          "h": 36,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 327,
+          "y": 125,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 3,
+          "x": 319,
+          "y": 180,
+          "w": 31,
+          "h": 7,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 2,
+          "x": 324,
+          "y": 125,
+          "w": 21,
+          "h": 55,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 314,
+          "y": 126,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 5,
+          "x": 311,
+          "y": 168,
+          "w": 36,
+          "h": 19,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 4,
+          "x": 315,
+          "y": 124,
+          "w": 22,
+          "h": 44,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 308,
+          "y": 127,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 7,
+          "x": 298,
+          "y": 158,
+          "w": 27,
+          "h": 27,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 6,
+          "x": 306,
+          "y": 126,
+          "w": 15,
+          "h": 32,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 294,
+          "y": 127,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 9,
+          "x": 288,
+          "y": 161,
+          "w": 36,
+          "h": 24,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 8,
+          "x": 294,
+          "y": 125,
+          "w": 21,
+          "h": 36,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 280,
+          "y": 125,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 3,
+          "x": 272,
+          "y": 179,
+          "w": 31,
+          "h": 7,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 2,
+          "x": 277,
+          "y": 124,
+          "w": 21,
+          "h": 55,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 267,
+          "y": 125,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 5,
+          "x": 266,
+          "y": 168,
+          "w": 36,
+          "h": 19,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 4,
+          "x": 270,
+          "y": 124,
+          "w": 22,
+          "h": 44,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 263,
+          "y": 127,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 7,
+          "x": 253,
+          "y": 158,
+          "w": 27,
+          "h": 27,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 6,
+          "x": 261,
+          "y": 126,
+          "w": 15,
+          "h": 32,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 248,
+          "y": 127,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 9,
+          "x": 243,
+          "y": 161,
+          "w": 36,
+          "h": 24,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 8,
+          "x": 249,
+          "y": 125,
+          "w": 21,
+          "h": 36,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 235,
+          "y": 125,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 3,
+          "x": -100,
+          "y": 142,
+          "w": 74,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 2,
+          "x": -100,
+          "y": 112,
+          "w": 54,
+          "h": 30,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 1,
+          "x": -95,
+          "y": 78,
+          "w": 41,
+          "h": 34,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 0,
+          "x": -55,
+          "y": 84,
+          "w": 37,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 14,
+          "x": -62,
+          "y": 111,
+          "w": 34,
+          "h": 15,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn2.ob",
+          "bilde": 13,
+          "x": 227,
+          "y": 125,
+          "w": 36,
+          "h": 61,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 20,
+          "x": -98,
+          "y": 144,
+          "w": 72,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 19,
+          "x": -103,
+          "y": 94,
+          "w": 63,
+          "h": 50,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 18,
+          "x": -40,
+          "y": 106,
+          "w": 24,
+          "h": 23,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 5,
+          "x": 224,
+          "y": 169,
+          "w": 36,
+          "h": 19,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 4,
+          "x": 228,
+          "y": 125,
+          "w": 22,
+          "h": 44,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 222,
+          "y": 128,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 26,
+          "x": -84,
+          "y": 142,
+          "w": 65,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 25,
+          "x": -64,
+          "y": 96,
+          "w": 14,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 24,
+          "x": -67,
+          "y": 83,
+          "w": 29,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 23,
+          "x": -73,
+          "y": 66,
+          "w": 62,
+          "h": 17,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 22,
+          "x": -72,
+          "y": 29,
+          "w": 80,
+          "h": 37,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": -65,
+          "y": 19,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 7,
+          "x": 210,
+          "y": 158,
+          "w": 27,
+          "h": 27,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 6,
+          "x": 218,
+          "y": 126,
+          "w": 15,
+          "h": 32,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 26,
+          "x": -72,
+          "y": 144,
+          "w": 65,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 25,
+          "x": -52,
+          "y": 77,
+          "w": 14,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 24,
+          "x": -55,
+          "y": 64,
+          "w": 29,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 23,
+          "x": -61,
+          "y": 47,
+          "w": 62,
+          "h": 17,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 22,
+          "x": -60,
+          "y": 10,
+          "w": 80,
+          "h": 37,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": -53,
+          "y": 0,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 26,
+          "x": -61,
+          "y": 146,
+          "w": 65,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 25,
+          "x": -41,
+          "y": 61,
+          "w": 14,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 24,
+          "x": -44,
+          "y": 48,
+          "w": 29,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 23,
+          "x": -50,
+          "y": 31,
+          "w": 62,
+          "h": 17,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 22,
+          "x": -49,
+          "y": -6,
+          "w": 80,
+          "h": 37,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": -42,
+          "y": -16,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 26,
+          "x": -49,
+          "y": 148,
+          "w": 65,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 25,
+          "x": -29,
+          "y": 48,
+          "w": 14,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 24,
+          "x": -32,
+          "y": 35,
+          "w": 29,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 23,
+          "x": -38,
+          "y": 18,
+          "w": 62,
+          "h": 17,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 22,
+          "x": -37,
+          "y": -19,
+          "w": 80,
+          "h": 37,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": -30,
+          "y": -29,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 26,
+          "x": -38,
+          "y": 149,
+          "w": 65,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 25,
+          "x": -18,
+          "y": 36,
+          "w": 14,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 24,
+          "x": -21,
+          "y": 23,
+          "w": 29,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 23,
+          "x": -27,
+          "y": 6,
+          "w": 62,
+          "h": 17,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 22,
+          "x": -26,
+          "y": -31,
+          "w": 80,
+          "h": 37,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": -19,
+          "y": -41,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 26,
+          "x": -26,
+          "y": 151,
+          "w": 65,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 25,
+          "x": -6,
+          "y": 28,
+          "w": 14,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 24,
+          "x": -9,
+          "y": 15,
+          "w": 29,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 23,
+          "x": -15,
+          "y": -2,
+          "w": 62,
+          "h": 17,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 22,
+          "x": -14,
+          "y": -39,
+          "w": 80,
+          "h": 37,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": -7,
+          "y": -49,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 26,
+          "x": -15,
+          "y": 153,
+          "w": 65,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 25,
+          "x": 5,
+          "y": 22,
+          "w": 14,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 24,
+          "x": 2,
+          "y": 9,
+          "w": 29,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 23,
+          "x": -4,
+          "y": -8,
+          "w": 62,
+          "h": 17,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 22,
+          "x": -3,
+          "y": -45,
+          "w": 80,
+          "h": 37,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": 4,
+          "y": -55,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 26,
+          "x": -3,
+          "y": 155,
+          "w": 65,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 25,
+          "x": 17,
+          "y": 19,
+          "w": 14,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 24,
+          "x": 14,
+          "y": 6,
+          "w": 29,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 23,
+          "x": 8,
+          "y": -11,
+          "w": 62,
+          "h": 17,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 22,
+          "x": 9,
+          "y": -48,
+          "w": 80,
+          "h": 37,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": 16,
+          "y": -58,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 26,
+          "x": 8,
+          "y": 156,
+          "w": 65,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 25,
+          "x": 28,
+          "y": 17,
+          "w": 14,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 24,
+          "x": 25,
+          "y": 4,
+          "w": 29,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 23,
+          "x": 19,
+          "y": -13,
+          "w": 62,
+          "h": 17,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 22,
+          "x": 20,
+          "y": -50,
+          "w": 80,
+          "h": 37,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": 27,
+          "y": -60,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 25,
+          "x": 40,
+          "y": 19,
+          "w": 14,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 24,
+          "x": 37,
+          "y": 6,
+          "w": 29,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 22,
+          "x": 32,
+          "y": -48,
+          "w": 80,
+          "h": 37,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": 39,
+          "y": -58,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 25,
+          "x": 51,
+          "y": 24,
+          "w": 14,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 24,
+          "x": 48,
+          "y": 11,
+          "w": 29,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 22,
+          "x": 43,
+          "y": -43,
+          "w": 80,
+          "h": 37,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": 50,
+          "y": -53,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 3,
+          "x": 67,
+          "y": 180,
+          "w": 31,
+          "h": 7,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 25,
+          "x": 63,
+          "y": 31,
+          "w": 14,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 24,
+          "x": 60,
+          "y": 18,
+          "w": 29,
+          "h": 13,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": 62,
+          "y": -46,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 25,
+          "x": 74,
+          "y": 40,
+          "w": 14,
+          "h": 29,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": 73,
+          "y": -37,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 7,
+          "x": 45,
+          "y": 158,
+          "w": 27,
+          "h": 27,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 6,
+          "x": 53,
+          "y": 126,
+          "w": 15,
+          "h": 32,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 39,
+          "y": 128,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": 85,
+          "y": -25,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 21,
+          "x": 96,
+          "y": -10,
+          "w": 21,
+          "h": 10,
+          "speilet": false,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 0,
+          "x": 45,
+          "y": 125,
+          "w": 23,
+          "h": 54,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn4.ob",
+          "bilde": 1,
+          "x": 36,
+          "y": 128,
+          "w": 19,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 26,
+          "x": 140,
+          "y": 176,
+          "w": 65,
+          "h": 13,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 11,
+          "x": 117,
+          "y": 176,
+          "w": 88,
+          "h": 11,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 10,
+          "x": 141,
+          "y": 155,
+          "w": 58,
+          "h": 21,
+          "speilet": true,
+          "hd": true,
+          "maske": true
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 8,
+          "x": 125,
+          "y": 112,
+          "w": 50,
+          "h": 43,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 7,
+          "x": 175,
+          "y": 125,
+          "w": 37,
+          "h": 30,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 9,
+          "x": 103,
+          "y": 123,
+          "w": 22,
+          "h": 29,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "Balok1.cel",
+          "bilde": 16,
+          "x": 61,
+          "y": 142,
+          "w": 69,
+          "h": 12,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        },
+        {
+          "fil": "kn1.ob",
+          "bilde": 1,
+          "x": 39,
+          "y": 179,
+          "w": 33,
+          "h": 7,
+          "speilet": true,
+          "hd": false,
+          "maske": false
+        }
+      ],
+      "control": {
+        "godkjent": 1,
+        "utenLag": 0,
+        "kilde": 0,
+        "overlapp": 0,
+        "piksler": 0,
+        "maske": 0,
+        "masket": 1,
+        "poseGodkjent": 0,
+        "poseGruppe": 0,
+        "poseKilde": 0,
+        "posePalett": 0,
+        "poseOverlapp": 0,
+        "posePiksler": 0,
+        "tekstGodkjent": 0,
+        "tekstAvvist": 0,
+        "tekstFeil": [],
+        "lys": 0,
+        "lysUkjent": false,
+        "hdLys": 1,
+        "ikonGodkjent": 0,
+        "ikonAvvist": 0,
+        "palettFigurGodkjent": 0,
+        "palettFigurFeil": [],
+        "bakgrunn": "original"
+      },
+      "palette": [
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          255,
+          221,
+          255
+        ],
+        [
+          153,
+          153,
+          136,
+          255
+        ],
+        [
+          119,
+          119,
+          102,
+          255
+        ],
+        [
+          68,
+          68,
+          51,
+          255
+        ],
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          0,
+          170,
+          255
+        ],
+        [
+          0,
+          0,
+          119,
+          255
+        ],
+        [
+          0,
+          0,
+          68,
+          255
+        ],
+        [
+          255,
+          153,
+          102,
+          255
+        ],
+        [
+          204,
+          102,
+          51,
+          255
+        ],
+        [
+          153,
+          51,
+          0,
+          255
+        ],
+        [
+          136,
+          68,
+          34,
+          255
+        ],
+        [
+          85,
+          34,
+          17,
+          255
+        ],
+        [
+          255,
+          102,
+          51,
+          255
+        ],
+        [
+          204,
+          0,
+          0,
+          255
+        ],
+        [
+          51,
+          34,
+          34,
+          255
+        ],
+        [
+          68,
+          51,
+          34,
+          255
+        ],
+        [
+          102,
+          68,
+          51,
+          255
+        ],
+        [
+          136,
+          102,
+          85,
+          255
+        ],
+        [
+          204,
+          136,
+          102,
+          255
+        ],
+        [
+          136,
+          153,
+          0,
+          255
+        ],
+        [
+          34,
+          153,
+          85,
+          255
+        ],
+        [
+          17,
+          119,
+          34,
+          255
+        ],
+        [
+          0,
+          102,
+          17,
+          255
+        ],
+        [
+          0,
+          68,
+          0,
+          255
+        ],
+        [
+          170,
+          119,
+          102,
+          255
+        ],
+        [
+          119,
+          85,
+          68,
+          255
+        ],
+        [
+          68,
+          85,
+          0,
+          255
+        ],
+        [
+          0,
+          255,
+          255,
+          255
+        ],
+        [
+          0,
+          153,
+          153,
+          255
+        ],
+        [
+          255,
+          136,
+          187,
+          255
+        ]
+      ],
+      "state": 2890431962,
+      "state_after": 2890431962,
+      "original_sha256": "51f7dfbd6a998eb2e3e1a6038bafd11b84020c0513e5653b89d395a353deb217",
+      "hd_sha256": "d2fd7f82df88dac053458d435c5c208d471ed2efd3efadb40393b866b093faf0"
+    },
+    "frame": 1450
+  },
+  "fixtures": [
+    {
+      "key": "Balok1.CEL/010.png",
+      "mirror": false,
+      "palette": "blue",
+      "source_knight_words": [
+        10,
+        7,
+        4
+      ],
+      "original_sha256": "b8625df5c2b64c7c06f5f2bd0813bd323609737aa4f176ceaea5357aa9251ef4",
+      "hd_sha256": "a133c4a7f69779d41a5676d954dd5f39584b8d68b2b507e346a86df82365feaa",
+      "info": {
+        "figures": [
+          {
+            "fil": "Balok1.CEL",
+            "bilde": 10,
+            "x": 148,
+            "y": 90,
+            "w": 58,
+            "h": 21,
+            "speilet": false,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "Balok1.CEL/010.png",
+      "mirror": false,
+      "palette": "yellow",
+      "source_knight_words": [
+        3968,
+        3152,
+        2608
+      ],
+      "original_sha256": "4603e8bcc577c5a7eb8e12f9d8bf706177970aae576b20a96fb5363a8b818a4b",
+      "hd_sha256": "a629b32f8da30d07d30d8a94137ebfc840ca83b182633df5ce86ab67288e7340",
+      "info": {
+        "figures": [
+          {
+            "fil": "Balok1.CEL",
+            "bilde": 10,
+            "x": 148,
+            "y": 90,
+            "w": 58,
+            "h": 21,
+            "speilet": false,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "Balok1.CEL/010.png",
+      "mirror": false,
+      "palette": "red",
+      "source_knight_words": [
+        3874,
+        2850,
+        1792
+      ],
+      "original_sha256": "ba9a70170fbfc2fb37c1a76a54bc415af06a537b89d07c6183515b179e90133c",
+      "hd_sha256": "c0a7af110b2e983caa0f8f041d64690b22ca3373944037c2529206517335db79",
+      "info": {
+        "figures": [
+          {
+            "fil": "Balok1.CEL",
+            "bilde": 10,
+            "x": 148,
+            "y": 90,
+            "w": 58,
+            "h": 21,
+            "speilet": false,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "Balok1.CEL/010.png",
+      "mirror": false,
+      "palette": "green",
+      "source_knight_words": [
+        2246,
+        1427,
+        593
+      ],
+      "original_sha256": "c11aff52950a4e3cc266f24502ab9870a15ea3015af7233be627398106ddcada",
+      "hd_sha256": "d6399c8ff7ec19a3d617edec9ed46f81007accb232c183143fd3a442d715b7cb",
+      "info": {
+        "figures": [
+          {
+            "fil": "Balok1.CEL",
+            "bilde": 10,
+            "x": 148,
+            "y": 90,
+            "w": 58,
+            "h": 21,
+            "speilet": false,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "Balok1.CEL/010.png",
+      "mirror": false,
+      "palette": "violet",
+      "source_knight_words": [
+        518,
+        259,
+        1
+      ],
+      "original_sha256": "a631370fd4994b1f423404affdd2d31d2e6574b61df4616c3d2b4383ccc7f614",
+      "hd_sha256": "15878476d50c57602b7e15820f65f5e790aec428626e58c74b28735a046cf471",
+      "info": {
+        "figures": [
+          {
+            "fil": "Balok1.CEL",
+            "bilde": 10,
+            "x": 148,
+            "y": 90,
+            "w": 58,
+            "h": 21,
+            "speilet": false,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "Balok1.CEL/010.png",
+      "mirror": true,
+      "palette": "blue",
+      "source_knight_words": [
+        10,
+        7,
+        4
+      ],
+      "original_sha256": "c1c8a0e758ba821eb5b4a6039be457fbdd3a7babdb759cb2380c923d26006d49",
+      "hd_sha256": "3394fad44530dff0849fd0d1a75639721732a800bb13a59b2d617cc68b0ea661",
+      "info": {
+        "figures": [
+          {
+            "fil": "Balok1.CEL",
+            "bilde": 10,
+            "x": 148,
+            "y": 90,
+            "w": 58,
+            "h": 21,
+            "speilet": true,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "Balok1.CEL/010.png",
+      "mirror": true,
+      "palette": "yellow",
+      "source_knight_words": [
+        3968,
+        3152,
+        2608
+      ],
+      "original_sha256": "67c52ea47746383eae85b59b7ca6f40495a599230e440ca116da6edb7cba9b93",
+      "hd_sha256": "be82c34ca732670a686037504c19e1fe16d500fc1eaa686c23eadb68073a7f8e",
+      "info": {
+        "figures": [
+          {
+            "fil": "Balok1.CEL",
+            "bilde": 10,
+            "x": 148,
+            "y": 90,
+            "w": 58,
+            "h": 21,
+            "speilet": true,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "Balok1.CEL/010.png",
+      "mirror": true,
+      "palette": "red",
+      "source_knight_words": [
+        3874,
+        2850,
+        1792
+      ],
+      "original_sha256": "51df75d799b357068a3b40016e36df68c65f7aca2ad006cf0264bc870b30a93d",
+      "hd_sha256": "f416085599738ffb048dd9f1d01fe4fdaaf69c1dedbaa0f28257dfbe6b3f8e66",
+      "info": {
+        "figures": [
+          {
+            "fil": "Balok1.CEL",
+            "bilde": 10,
+            "x": 148,
+            "y": 90,
+            "w": 58,
+            "h": 21,
+            "speilet": true,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "Balok1.CEL/010.png",
+      "mirror": true,
+      "palette": "green",
+      "source_knight_words": [
+        2246,
+        1427,
+        593
+      ],
+      "original_sha256": "df95d174a6de83af5240612261ccd0ef4433f609f1d26ef34ec1b453242c6b7b",
+      "hd_sha256": "8143de133772b1d0bb7e2348dbc740e0fe414df45353f3ef50347a891339caaf",
+      "info": {
+        "figures": [
+          {
+            "fil": "Balok1.CEL",
+            "bilde": 10,
+            "x": 148,
+            "y": 90,
+            "w": 58,
+            "h": 21,
+            "speilet": true,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "Balok1.CEL/010.png",
+      "mirror": true,
+      "palette": "violet",
+      "source_knight_words": [
+        518,
+        259,
+        1
+      ],
+      "original_sha256": "ccb95365828118de0898a3b3a3a687811de27e3838a19dfee391afa373da8e0c",
+      "hd_sha256": "eca8db2b7c1c45cdffc8c7e32dc7566c7f37fa33c46b3e21b1eab0e219099b2b",
+      "info": {
+        "figures": [
+          {
+            "fil": "Balok1.CEL",
+            "bilde": 10,
+            "x": 148,
+            "y": 90,
+            "w": 58,
+            "h": 21,
+            "speilet": true,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN2.CEL/058.png",
+      "mirror": false,
+      "palette": "blue",
+      "source_knight_words": [
+        10,
+        7,
+        4
+      ],
+      "original_sha256": "4f6f07ea2f9b1e32ce611c2e85299f74bc05bec50de5eb985eafd3f7f7f805e5",
+      "hd_sha256": "009abb103a5194eb31aacb870fbc005d1d8d832883b609841f9b92559f580a61",
+      "info": {
+        "figures": [
+          {
+            "fil": "RATMEN2.CEL",
+            "bilde": 58,
+            "x": 148,
+            "y": 90,
+            "w": 48,
+            "h": 53,
+            "speilet": false,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN2.CEL/058.png",
+      "mirror": false,
+      "palette": "yellow",
+      "source_knight_words": [
+        3968,
+        3152,
+        2608
+      ],
+      "original_sha256": "945bac6095dcf85a5577558057982080d6790d0805410434b833aaa8887b35e6",
+      "hd_sha256": "b60d7c07bb237a23fe949a59277d91469ffbd6602d3b6add8452a55d00c71301",
+      "info": {
+        "figures": [
+          {
+            "fil": "RATMEN2.CEL",
+            "bilde": 58,
+            "x": 148,
+            "y": 90,
+            "w": 48,
+            "h": 53,
+            "speilet": false,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN2.CEL/058.png",
+      "mirror": false,
+      "palette": "red",
+      "source_knight_words": [
+        3874,
+        2850,
+        1792
+      ],
+      "original_sha256": "805d3975fb7b33bdad4c792d4d686fe9a0871ba3d45873f7337fa42caa842d08",
+      "hd_sha256": "9006f86354d0a49cc14cd3aa1c9c3b4cdd2328c07b5fddb202abe42721fc94c8",
+      "info": {
+        "figures": [
+          {
+            "fil": "RATMEN2.CEL",
+            "bilde": 58,
+            "x": 148,
+            "y": 90,
+            "w": 48,
+            "h": 53,
+            "speilet": false,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN2.CEL/058.png",
+      "mirror": false,
+      "palette": "green",
+      "source_knight_words": [
+        2246,
+        1427,
+        593
+      ],
+      "original_sha256": "3cda6a661b9c9824fe2985b90042227b78d058a17032c53d95413806ddf62d83",
+      "hd_sha256": "a26a54d4316bd433a70c5efdfa9e10e822aa9263eda3d0299af84d32ba37eb20",
+      "info": {
+        "figures": [
+          {
+            "fil": "RATMEN2.CEL",
+            "bilde": 58,
+            "x": 148,
+            "y": 90,
+            "w": 48,
+            "h": 53,
+            "speilet": false,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN2.CEL/058.png",
+      "mirror": false,
+      "palette": "violet",
+      "source_knight_words": [
+        518,
+        259,
+        1
+      ],
+      "original_sha256": "74fd4b24ae6dc0e727e3f5bcd7fe5df53369885993a734b8b46f89a99e988fd9",
+      "hd_sha256": "dbba75e96028447ef792f0d3e934f10902e60a2149b34a60c28667c0404d973e",
+      "info": {
+        "figures": [
+          {
+            "fil": "RATMEN2.CEL",
+            "bilde": 58,
+            "x": 148,
+            "y": 90,
+            "w": 48,
+            "h": 53,
+            "speilet": false,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN2.CEL/058.png",
+      "mirror": true,
+      "palette": "blue",
+      "source_knight_words": [
+        10,
+        7,
+        4
+      ],
+      "original_sha256": "e7a19f03c8cd2ab4f62dcacfb57108c839da020ffa8488c2146608a76189ba7f",
+      "hd_sha256": "0af660dd2ff2f313364bfb4a3fb8ac06da248212c32c1719e9a6760d869c2467",
+      "info": {
+        "figures": [
+          {
+            "fil": "RATMEN2.CEL",
+            "bilde": 58,
+            "x": 148,
+            "y": 90,
+            "w": 48,
+            "h": 53,
+            "speilet": true,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN2.CEL/058.png",
+      "mirror": true,
+      "palette": "yellow",
+      "source_knight_words": [
+        3968,
+        3152,
+        2608
+      ],
+      "original_sha256": "aa4e3ad45d56158f4a88c2217eb46b36dde2efb55b71401e5246d83cd81809f0",
+      "hd_sha256": "7caa15e314cf30d47778621c5253b2859ddaa403fdb50d4f48577cf2a1928f73",
+      "info": {
+        "figures": [
+          {
+            "fil": "RATMEN2.CEL",
+            "bilde": 58,
+            "x": 148,
+            "y": 90,
+            "w": 48,
+            "h": 53,
+            "speilet": true,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN2.CEL/058.png",
+      "mirror": true,
+      "palette": "red",
+      "source_knight_words": [
+        3874,
+        2850,
+        1792
+      ],
+      "original_sha256": "9b2c05683a5c832e434c267575c11233f8a4051ba647538b1b3d591cb5f8faf7",
+      "hd_sha256": "5f494edb61d579fb0f7b99a71bfa8de1f48723532150eaef6b76ec9a0174ffa1",
+      "info": {
+        "figures": [
+          {
+            "fil": "RATMEN2.CEL",
+            "bilde": 58,
+            "x": 148,
+            "y": 90,
+            "w": 48,
+            "h": 53,
+            "speilet": true,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN2.CEL/058.png",
+      "mirror": true,
+      "palette": "green",
+      "source_knight_words": [
+        2246,
+        1427,
+        593
+      ],
+      "original_sha256": "98e3a6ee6c3a6687de83ba05806be874850caa81f624cc93c63ca4669f9e53f9",
+      "hd_sha256": "2512dfdb47418e485564d5b0cea4e28338deada72caad8f1bef6da903a4232cd",
+      "info": {
+        "figures": [
+          {
+            "fil": "RATMEN2.CEL",
+            "bilde": 58,
+            "x": 148,
+            "y": 90,
+            "w": 48,
+            "h": 53,
+            "speilet": true,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    },
+    {
+      "key": "RATMEN2.CEL/058.png",
+      "mirror": true,
+      "palette": "violet",
+      "source_knight_words": [
+        518,
+        259,
+        1
+      ],
+      "original_sha256": "16e49038b498bfae27544fc72c36ccb4ce311d179975253248f4db086e353432",
+      "hd_sha256": "a864e3d9eb37184fbd3e50d2214cd489b72edbf6df2ccf4ebf95f87e21759c0d",
+      "info": {
+        "figures": [
+          {
+            "fil": "RATMEN2.CEL",
+            "bilde": 58,
+            "x": 148,
+            "y": 90,
+            "w": 48,
+            "h": 53,
+            "speilet": true,
+            "hd": true,
+            "maske": true
+          }
+        ],
+        "control": {
+          "godkjent": 1,
+          "utenLag": 0,
+          "kilde": 0,
+          "overlapp": 0,
+          "piksler": 0,
+          "maske": 0,
+          "masket": 1,
+          "poseGodkjent": 0,
+          "poseGruppe": 0,
+          "poseKilde": 0,
+          "posePalett": 0,
+          "poseOverlapp": 0,
+          "posePiksler": 0,
+          "tekstGodkjent": 0,
+          "tekstAvvist": 0,
+          "tekstFeil": [],
+          "lys": 0,
+          "lysUkjent": false,
+          "hdLys": 1,
+          "ikonGodkjent": 0,
+          "ikonAvvist": 0,
+          "palettFigurGodkjent": 0,
+          "palettFigurFeil": [],
+          "bakgrunn": "original"
+        }
+      }
+    }
+  ]
+}

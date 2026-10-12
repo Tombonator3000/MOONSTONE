@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "status": "failed",
+  "checks": [
+    "actual_frozen_HTML",
+    "frozen_web/src/core.js",
+    "actual_HTML_web/src/core.js",
+    "frozen_web/src/render.js",
+    "actual_HTML_web/src/render.js",
+    "frozen_web/src/scenes.js",
+    "actual_HTML_web/src/scenes.js",
+    "frozen_web/src/hd.js",
+    "actual_HTML_manifest_code",
+    "standard_manifest_be1.c/000.png",
+    "actual_standard_asset_be1.c/000.png",
+    "standard_manifest_be1.c/001.png",
+    "actual_standard_asset_be1.c/001.png",
+    "standard_manifest_be1.c/002.png",
+    "actual_standard_asset_be1.c/002.png",
+    "standard_manifest_be1.c/003.png",
+    "actual_standard_asset_be1.c/003.png",
+    "standard_manifest_be1.c/004.png",
+    "actual_standard_asset_be1.c/004.png",
+    "standard_manifest_be1.c/005.png",
+    "actual_standard_asset_be1.c/005.png"
+  ],
+  "errors": [],
+  "assets": {
+    "be1.c/000.png": "d3951622b5da4e137edabe7267ed61529d66e795dc9ffdf0ac29602b2fd0274b",
+    "be1.c/001.png": "3aed0c2a97e31fc0dbe91941a7df05e7a2a2f46bc35def666804b82f7703b289",
+    "be1.c/002.png": "6f933614f20716067fe294560c74a40c0d72a31ef56c53760965474d0ea00793",
+    "be1.c/003.png": "37f64efa1d62a10f04ecb3c8e1b7bdf633d24588e75eb01e794adee29077c456",
+    "be1.c/004.png": "e5d75150ebeb54e88547d79d7439d5c8b03a3ebaae11473d28cc2516a4381d22",
+    "be1.c/005.png": "5eb0c65f6255d583198f04e151940b97479990bf7c00b2d0a62be064b7d6ddbd"
+  },
+  "geometry_sha256": "acd7c5230db7ec17274742b77054698023541bb9e9ed17232c8dc41bd8f069b9",
+  "palette_case_sha256": "e0678f8adcbd4fd3c15b61156c8c013d690941662b10ee761d70e9e1b724f017",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "da074ea33e956e9a664240779675b488b8519cb9994293b5c5bf94811fdb2054",
+    "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "test_sha256": "7f4ad08829573a71977545ac5529b99a7c23f1a68f9dbf7f14b53b2203c47251",
+  "manifest_sha256": "1dc3c650acc95948a4efbd95d137bbeb2a28cb5b0ae030a86ebc9f8b5156294c",
+  "manifest_pngs": 1498,
+  "scope": "Standard package alone with no import. Controlled original Krigsbeist combat initializer and terrain only, three source-documented test writes at900. No palette writes or modified combat/animation code; no natural map visit claim. Actual source calls and source scanout palette are checked. Actual combat only. Normal/mirrored and180 negative source fixtures remain bound in the separate frozen first18 candidate proof. No candidate import, activation or palette writes. Public URL and actual HTML SHA are bound when supplied.",
+  "url": "http://127.0.0.1:39685/moonstone.html",
+  "html_sha256": "bfeebb4274c260e1bf484b098bf08caad016c5eda360de088758e77649dbb272",
+  "failure": "Error: page.evaluate: TypeError: Cannot read properties of null (reading 'hash')\n    at eval (eval at evaluate (:311:30), <anonymous>:6:115)\n    at async <anonymous>:337:30"
+}

@@ -64,6 +64,27 @@ RIDDERFARGER = set(range(6, 12))
 PAA_NYTT = {('bold.f', 73)}
 LOGO_SHA256 = 'd7d656cab28178c074feac994a463d1d558ee4bdcfb955675c09881c41071846'
 
+# Innbygde ridderfragmenter bruker kampens felles farger6..8. Originalens
+# $088c4a..$088c74 sender palett+12 til $088ca0, ogsaa i monsteranimasjonene.
+# Dette er de eksakte rutene som faktisk inneholder disse kildeindeksene.
+KAMP_RIDDER_RUTER = {
+    'balok1.cel': {10},
+    'balok2.cel': {7, 9, 10, 11, 13, 17, 18, 19, 22, 24},
+    'balok3.cel': {2, 3, 4, 5, 6, 19, 25, 26, 30, 31, 32, 39, 44, 45, 46, 51, 53, 55, 56, 57, 58, 59},
+    'dragon2.cel': {17, 18, 19},
+    'dragon5.cel': {32, 35},
+    'demon2.cel': {60},
+    'demon3.cel': {15, 20, 21},
+    'mudmen1.cel': {46, 47, 53, 54, 56, 58, 61, 62},
+    'mudmen2.cel': {1, 3, 8, 12, 30, 37, 40, 46},
+    'ratmen1.cel': {23, 25},
+    'ratmen2.cel': {42, 43, 44, 46, 47, 51, 52, 53, 54, 55, 58, 59, 60, 61, 62},
+    'troggaxe2.cel': {11},
+    'troggspear1.cel': {14, 15, 19, 20, 25, 26, 27, 29, 30, 33, 34, 35, 36, 37},
+    'troggspear2.cel': {11},
+    'be1.c': {34, 35, 36, 37, 38, 39, 40, 41, 42, 46, 47, 48, 49, 58, 60, 61},
+}
+
 
 def maskefarger(bank, frame):
     """Eksakte levende indeksfelt, uavhengig av den valgte forhåndspaletten."""
@@ -71,11 +92,8 @@ def maskefarger(bank, frame):
     # og ild29..31. Riddervelgeren $088ca0 endrer bare6..8, ikke9..11.
     if bank.lower() == 'kn5.ob':
         return {6, 7, 8}
-    # Bare disse dragefragmentene inneholder den aktive ridderens drakt.
-    # Dragens roede9..15 og ild29..31 er faste i $088c16.
-    if bank.lower() == 'dragon2.cel' and frame in (17, 18, 19):
-        return {6, 7, 8}
-    if bank.lower() == 'dragon5.cel' and frame in (32, 35):
+    # Monsterfarger9..15 og drageild29..31 er faste. Bare6..8 foelger ridderen.
+    if frame in KAMP_RIDDER_RUTER.get(bank.lower(), set()):
         return {6, 7, 8}
     if bank.lower() in {b.lower() for b in PALETT}:
         return RIDDERFARGER

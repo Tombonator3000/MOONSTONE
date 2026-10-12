@@ -171,6 +171,37 @@ def main():
         assert maskerte == [0, 1, 4, 5, 6, 20, 22, 23]
         kontroller += 75
 
+        # Monsterbankenes innbakte ridderbiter maa ha samme farge som spilleren.
+        # Kontroller alle faktiske kilderuter, ikke bare de fem dragefragmentene.
+        mog = mf.legg_ut(spill.les('mog'))[0]
+        assert mog[0x8c5a:0x8c60] == bytes.fromhex('d1fc0000000c')
+        assert mog[0x8c74:0x8c78] == bytes.fromhex('6100002a')
+        assert mog[0x8caa:0x8cb6] == bytes.fromhex('30fc000a30fc000730bc0004')
+        monster_masker = 0
+        for bank, frames in bestilling.KAMP_RIDDER_RUTER.items():
+            found = set()
+            for nr, original in enumerate(mf.cel_les(spill.les(bank))[0]):
+                packed = mf.plan_til_indeks(original['data'], original['plan'], original['bredde'], original['hoyde'])
+                indices = bestilling.utvid_indekser(packed, original['maske'])
+                if not set(indices) & {6, 7, 8}:
+                    assert bestilling.maskefarger(bank, nr) == set()
+                    continue
+                found.add(nr)
+                source = temp / bank / ('%03d.png' % nr)
+                source.parent.mkdir(exist_ok=True)
+                gfx.lagre_png(str(source), packed, original['bredde'], original['hoyde'], pal)
+                with contextlib.redirect_stdout(io.StringIO()):
+                    bestilling.lag_maske(str(source), str(ut), spill_sti=str(spill_sti))
+                expected = Image.new('RGBA', (original['bredde'], original['hoyde']))
+                expected.putdata([(v + 1, 128, 255, 255) if v in {6, 7, 8} else (0, 0, 0, 255) for v in indices])
+                expected = expected.resize((original['bredde'] * 4, original['hoyde'] * 4), Image.Resampling.NEAREST)
+                assert Image.open(ut).tobytes() == expected.tobytes(), (bank, nr)
+                monster_masker += 1
+            assert found == frames, bank
+            assert bestilling.maskefarger(bank, 10000) == set()
+        assert monster_masker == 107
+        kontroller += 3 + monster_masker + len(bestilling.KAMP_RIDDER_RUTER) * 2
+
         csv_sti = temp / 'bestilling.csv'
         resultat = subprocess.run([sys.executable, str(rot / 'tools/hd_bestilling.py'),
                                    str(spill_sti), str(csv_sti)], check=True,
