@@ -163,7 +163,7 @@ def figur_info(fil, nr):
             'Ikke sett i tegnelisten ennå (antatt i bruk). Overlapper ridderen.'
     if f == 'blo.cel':
         return 4, 'Blod og sår', 'Kamp: blodsprut over ridder og monster', \
-            'Faste farger. Ikke sett i tegnelisten ennå (antatt i bruk). Overlapper figuren under.'
+            'Indeks15, kampblod c00 med original fading. 27 ruter observert i kontrollert original Troll-kamp; alle41 har kildebundet HD. Overlapper figuren under.'
     for start, navn in MONSTRE.items():
         if fil.lower().startswith(start.lower()):
             return 3, 'Monstre', 'Kamp i hi og ute: %s' % navn, \

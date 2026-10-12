@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-10-12T16:36:40.204629+00:00",
+  "reports": {
+    "candidate": {
+      "sha256": "720c886c974d5ee4931f75f2a875c174b4462e19dc98da54a32b598018af4d50",
+      "checks": 619
+    },
+    "standard": {
+      "sha256": "5b51535ca82e574d8b4eb1c0e2cd66995eff64edc090aa971a8e0fecf9c8e597",
+      "checks": 619
+    },
+    "ui": {
+      "sha256": "42afd66ef8b56ab115b514d35e95559b3afbdf1ac59eefd18f9f36be20e98e37",
+      "checks": 53
+    },
+    "foliage": {
+      "sha256": "652fd144ac687fb6b13e16c66bc800f18ac2d3ddaf4e2f6cd891164397dbb2cb",
+      "checks": 26
+    }
+  },
+  "manifest_sha256": "d092bf554587014e11e5753e4f3c80aba9338fe13de0cf8d6e317f1aec7be708",
+  "html_sha256": "3bf893e9b7fe2fc6f3828a5731ebf8684f8a080246860fe99777e2ed738a92b2",
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "wasm_core_sha256": "3f0c9ae8c4e2bb5582f895f2668ab2ec0976a3acf052241aee4f8a16c5b24129",
+  "unchanged_previous_manifest_files": 1970,
+  "visually_inspected_standard_files": {
+    "verification/standard/combat-contact.png": "277556af62c2ddf9564b073eb567ed26ecf1b8c964c3e1ba157d1711771374b2",
+    "verification/standard/all-mirrored-hd.png": "75382bf05681a95e60fec081761cba1670d96d9f6e3123455e778f16fdd2f636",
+    "verification/ui/ui-contact.png": "ae9391534cb085d5b6e8c90dc8d18146c4791c3cc67481a2bb25bceb5d4b7142"
+  },
+  "source_scope": "Original CPU27 observerte ruter,18 synlig HD i browser; alle41 kontrollerte frontendfragmenter. Ikke full naturlig kampanje. Ingen fysisk mobiltest."
+}
