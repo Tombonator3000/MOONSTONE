@@ -8,6 +8,22 @@ const velger = (p) => p.evaluate(() => window.moonDebug.Kjerne.velgerRidder());
 const markoer = (p) => T.les16(p, 0x8f51e);                     // Select a Knight: figuren pilen staar paa
 const pos = (p, k) => p.evaluate((k) => { const K = window.moonDebug.Kjerne, s = 0x8d5b4 + k * 0x84; return [K.les8(s + 0x7e) << 8 | K.les8(s + 0x7f), K.les8(s + 0x80) << 8 | K.les8(s + 0x81)]; }, k);
 async function hold(p, key, ms, etter) { await p.keyboard.down(key); await p.waitForTimeout(ms); await p.keyboard.up(key); await p.waitForTimeout(etter); }
+async function klikkPortrett(p, k) {
+  const punkt = await p.evaluate((k) => {
+    const K=moonDebug.Kjerne, a=0x8f516+2*k;
+    const x=(K.les8(a)<<8|K.les8(a+1))+32, y=118;
+    const r=document.querySelector('#lerret').getBoundingClientRect(), c=moonDebug.Visning.utsnitt(), v=K.vindu();
+    return {x:r.left+(v[0]+x*2-c[0])/(c[2]-c[0])*r.width,y:r.top+(v[1]+y-c[1])/(c[3]-c[1])*r.height};
+  }, k);
+  await p.mouse.click(punkt.x, punkt.y);
+}
+async function fastePorter(vert, port) {
+  await vert.evaluate((port) => {
+    const N=moonDebug.Nett, g=N.spillere().find(s=>!s.vert);
+    N.settPort('vert','p1'); N.settPort(g.id,port); N.settModus('fast');
+  }, port);
+  await vert.waitForTimeout(700);
+}
 
 T.kjor(async () => {
   const b = await T.nettleser();
@@ -35,7 +51,17 @@ T.kjor(async () => {
   sjekk(await markoer(vert) === m0, 'gjesten flytter ikke pilen naar verten velger (' + m0 + ' -> ' + await markoer(vert) + ')');
   await trykk(vert, 'ArrowRight', 150, 1200);
   sjekk(await markoer(vert) === 1, 'verten flytter pilen til SIR RICHARD (' + await markoer(vert) + ')');
-  await trykk(vert, 'ControlLeft', 150, 2500);                 // velg SIR RICHARD, saa navnet
+  await fastePorter(vert, 'p2');
+  await trykk(vert, 'Enter', 120, 500);
+  await klikkPortrett(vert, 3);
+  await vert.waitForTimeout(500);
+  sjekk(!(await vert.evaluate(() => moonDebug.Kjerne.navnAktiv())) && await markoer(vert) === 1,
+    'faste porter: vert paa port1 kan ikke velge selv om spillernummeret stemmer');
+  await klikkPortrett(kari, 1);
+  sjekk(await venter(() => vert.evaluate(() => moonDebug.Kjerne.navnAktiv())),
+    'faste porter: gjest paa port2 velger SIR RICHARD uavhengig av spillernummer');
+  await vert.evaluate(() => moonDebug.Nett.settModus('auto'));
+  await vert.waitForTimeout(2500);
   await trykk(kari, 'Enter', 120, 1500);                       // gjesten kan ikke godta vertens navn
   sjekk(await eier(vert) === 0, 'gjestens Return godtok ikke vertens navn');
   await trykk(vert, 'Enter', 120, 3000);                       // verten godtar navnet
@@ -48,13 +74,18 @@ T.kjor(async () => {
   sjekk(await markoer(vert) === m1, 'verten flytter ikke pilen naar Kari velger');
   await trykk(kari, 'ArrowRight', 150, 1500);
   sjekk(await markoer(vert) !== m1, 'Kari flytter pilen (' + m1 + ' -> ' + await markoer(vert) + ')');
-  const klikk = await kari.evaluate(() => {
-    const K=moonDebug.Kjerne, k=K.les8(0x8f51f), a=0x8f516+2*k;
-    const x=(K.les8(a)<<8|K.les8(a+1))+32, y=118;
-    const r=document.querySelector('#lerret').getBoundingClientRect(), c=moonDebug.Visning.utsnitt(), v=K.vindu();
-    return {x:r.left+(v[0]+x*2-c[0])/(c[2]-c[0])*r.width,y:r.top+(v[1]+y-c[1])/(c[3]-c[1])*r.height};
-  });
-  await kari.mouse.click(klikk.x,klikk.y);
+  const m2 = await markoer(vert);
+  for (const port of ['p1', 'ingen']) {
+    await fastePorter(vert, port);
+    await kari.evaluate(() => moonDebug.Nett.sendVelg(3));
+    await klikkPortrett(kari, 3);
+    await kari.waitForTimeout(500);
+    sjekk(!(await vert.evaluate(() => moonDebug.Kjerne.navnAktiv())) && await markoer(vert) === m2,
+      'faste porter: gjest paa ' + port + ' avvises selv om spillernummeret stemmer');
+  }
+  await vert.evaluate(() => moonDebug.Nett.settModus('auto'));
+  await vert.waitForTimeout(700);
+  await klikkPortrett(kari, m2);
   sjekk(await venter(() => vert.evaluate(() => moonDebug.Kjerne.navnAktiv())), 'gjesten velger sitt portrett med klikk');
   await kari.waitForTimeout(900);
   await trykk(kari, 'Enter', 120, 3000);

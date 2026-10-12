@@ -472,8 +472,12 @@
             duell: (conn) => duellInn(conn),
             chat: chatLinje,
             status,
-            velg: (rad, spiller) => {
+            velg: (rad, spiller, port) => {
                 if (portrettValg()) {
+                    if (sisteModus === 'fast') {
+                        if (port === 'p2' || port === 'begge') velgRad(rad);
+                        return;
+                    }
                     const eier = Kjerne.portSpillere()[1];
                     if (spiller === eier || !Nett.harSpiller(eier)) velgRad(rad);
                 } else if (Kjerne.iMeny() && Kjerne.menySide() !== SIDE_VERT) velgRad(rad);
@@ -729,11 +733,15 @@
     }
 
     /* Er det denne spilleren som velger? Alene og hver for seg alltid; i et rom tur
-     * for tur den som har joysticken i port 2 (ridderen som har turen). Ellers vises
+     * for tur den som har joysticken i port 2 (fast port eller ridderen som har turen). Ellers vises
      * valgene bare, og tastene ville verten uansett ikke sluppet gjennom. */
     function minTur() {
         if (modus !== 'vert' && modus !== 'gjest') return true;
         if (modus === 'vert' && !Nett.harGjester()) return true;
+        if (sisteModus === 'fast') {
+            const meg = sisteSpillere.find((x) => x.id === Nett.minId());
+            return !!meg && (meg.port === 'p2' || meg.port === 'begge');
+        }
         const eier = Kjerne.portSpillere()[1];
         if (eier < 0) return modus === 'vert';
         if (modus === 'vert') return eier === Nett.vertensSpiller() || !Nett.harSpiller(eier);    /* ingen har ridderen: verten styrer den */

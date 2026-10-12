@@ -77,7 +77,7 @@ ta dem med; ellers hopper testen over dem med en melding.
 | `test32` | Laste et spill fra kartet mens tittelmenyen vises: menyen og menyhintet henger ikke igjen. | 1 min |
 | `test33` | Options i tittelmenyen: Keyboard og Gamepad (en falsk spillkontroller), binding av taster og knapper, Esc avbryter, oppsettet huskes, Default Controls, Online Game fra Options. | 2 min |
 | `test34` | Turns med gjest: gjesten styrer menyen til Keyboard > Fire, men ingen begynner å vente på en tast, begge får forklaringen, og Default Controls fra gjesten endrer ikke verten. | 2 min |
-| `test35` | Turns: hvem styrer i Select a Knight og på kartet når verten velger SIR RICHARD (rekkefølgen, ikke figuren), statuslinjen, E avslutter turen bare for den som har den. | 2 min |
+| `test35` | Turns: hvem styrer i Select a Knight og på kartet når verten velger SIR RICHARD (rekkefølgen, ikke figuren), portrettklikk med automatisk fordeling og faste porter, statuslinjen, E avslutter turen bare for den som har den. | 2 min |
 | `test36` | Turns med tre: Copy Link og F10 fra en gjest, gjest som laster på nytt, kopi av fanen, fane som forsvinner og kommer tilbake på samme plass, nummer uten hull, og en side som stopper mens en retning holdes. | 4 min |
 | `lag1` | Lagringene: ingen autolagring i tittelmenyen, autolagring når fanen skjules, nedlasting som PC-versjonen laster, Fortsett etter omlasting, en PC-lagring inn på nettet, meldinger for feil fil og gamle lagringer. | 1 min |
 | `ver1` | Versjonssjekk i nettspill: romlisten viser bare rom med samme lagringsformat, og en gjest med et annet format får beskjed og blir ikke stående og vente. | 2 min |
