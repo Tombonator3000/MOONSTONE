@@ -146,7 +146,7 @@
 - [x] Nytegne og kontrollere alle26 KN4-sverd-/bevegelsesruter,7 identiske kopier og025-masken.
 - [x] Nytegne18 flammer separat og kontrollere dem i original Stonehenge-scene og sluttsekvens;18 identiske Klift-kopier.
 - [x] Publisere og kontrollere den første figurruteleveransen etter grønn CI (PR #33, offentlig70PNG, faktisk kamp og Stonehenge).
-- [ ] Fullføre1270 resterende figurmastere/1340 konkrete ruter; fem mastermasker for innbakte drageriddere og ingen HE-kopier står på restlisten.
+- [ ] Fullføre1205 resterende figurmastere/1275 konkrete ruter; 99 mastermasker for kildebekreftede innbakte ridderdeler og ingen HE-kopier står på restlisten.
 - [x] Gjøre Math-ansikt, kropp, hår og kappe visuelt sammenhengende i statisk WI1.P-plate og separate Wi1.C-ruter (PR #35).
 - [x] Fjerne hudskjøter fra de to separate MYS-øyefragmentene før aktivering; aktivert lokalt etter14 scene- og30 rutekontroller.
 - [x] Publisere og kontrollere MYS006/007 i standardpakken (PR #34).
@@ -159,5 +159,10 @@
 - [x] Tredje lokale figurleveranse: KN1/HE1, KN2/HE2, Math, TAV/DICE, kartdrage, OV1, HA1 og ytterligere TROLL,1145PNG/1151filer. Standard- og originalkontroller bundet.
 - [x] Publisere og kontrollere tredje figurleveranse (PR #35, alle433PNG samt281 KN1-/158 KN2-kontroller paa offentlig side).
 - [x] Fullføre LI1/30, HEN/Klift/74, KN5/65, DRAGON1/16, Balok1/28 og TROLL2/2 nye ruter lokalt:178 mastere,215 kilderuter og68 masker,283 nyePNG. Palettblink, LI1-haandens retensjon og eksakt TROLL-likbuffer er kontrollert.
-- [ ] Publisere fjerde figurleveranse via groenn CI og kontrollere den offentlige standardpakken.
-- [ ] Fortsette DRAGON2/5, Balok, Guardian og resten av1270-masterlisten. Uavklarte TROLL-bruksruter beholdes som originalgrafikk til de kan kontrolleres.
+- [x] Publisere fjerde figurleveranse via PR #36 og groenn CI. Alle283 nyePNG samsvarer offentlig; slutt1507 og LI1/98 kontroller bestaar.
+- [ ] Fortsette DRAGON2/5, Balok, Guardian og resten av1205-masterlisten. Uavklarte TROLL-bruksruter beholdes som originalgrafikk til de kan kontrolleres.
+
+- [x] Femte lokale figurleveranse: DRAGON2/26, Balok1/15, Guardian/18 og krigsbeist/6, med to manglende riddermasker rettet.1498PNG/1504filer; alle tidligere publiserte PNG-er uendret.
+- [ ] Publisere femte figurleveranse etter standardkontroll, groenn CI og offentlig verifisering.
+
+- [ ] Kartlegge og nytegne Guardian-kampens manglende HD-bakgrunn cbc31cbf.81 aktive bakgrunnsfiler er ikke bevis paa full dekning; standardkampen bruker trygg Original-fallback.
