@@ -8,6 +8,9 @@ og grafikk og på sikt bytte til grafikk i høy oppløsning.
 Samlede kildefunn om historiske utelatelser, rapporterte originalfeil og forslag
 til utvidelser ligger i [Kuttet innhold og feil](docs/kuttet-innhold-og-feil.md).
 Dokumentet skiller bekreftet historikk fra hypoteser og moderne ideer.
+[Undersøkelse av trollkrasj og månelogikk](docs/trollkrasj-og-manelogikk.md)
+konkretiserer reproduksjon, versjonskontroll og separate målinger av faseomløp,
+Ratmen, Moonstone og sykdom. Testene er planlagt og ennå ikke kjørt.
 [Gjenopptaksnotatet](docs/samtale-gjenopptak-2026-10-12.md) bevarer status fra
 den avbrutte grafikksamtalen og peker til de lokale kandidatene.
 
