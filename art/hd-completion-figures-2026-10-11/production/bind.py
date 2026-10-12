@@ -44,11 +44,13 @@ def main():
  if args.separate_shadow:
   assert args.palette_case in {'troll','balok'} and pal['colors'][5]==[0,0,0]
   troll2_shadow={'TROLL2.CEL/000.png':0,'TROLL2.CEL/001.png':38,'TROLL2.CEL/002.png':0,'TROLL2.CEL/006.png':0,'TROLL2.CEL/010.png':0,'TROLL2.CEL/011.png':0,'TROLL2.CEL/012.png':39,'TROLL2.CEL/014.png':0}
-  assert args.key in {'Balok1.CEL/003.png','Balok1.CEL/006.png','Balok1.CEL/011.png','Balok1.CEL/020.png','Balok1.CEL/027.png','Balok1.CEL/028.png','Balok1.CEL/033.png','Balok1.CEL/036.png','Balok1.CEL/040.png','Balok1.CEL/043.png'} or args.key in {f'TROLL1.CEL/{n:03}.png' for n in [2,3,4,5,8,11,13,19,29,34,40]} or args.key in troll2_shadow,'Indeks5 er ikke generelt en fotskygge'
+  assert args.key in {'Balok1.CEL/003.png','Balok1.CEL/006.png','Balok1.CEL/011.png','Balok1.CEL/020.png','Balok1.CEL/027.png','Balok1.CEL/028.png','Balok1.CEL/033.png','Balok1.CEL/036.png','Balok1.CEL/040.png','Balok1.CEL/043.png','Balok1.CEL/044.png','Balok1.CEL/045.png','Balok1.CEL/046.png','Balok1.CEL/050.png'} or args.key in {f'TROLL1.CEL/{n:03}.png' for n in [2,3,4,5,8,11,13,19,29,34,40]} or args.key in troll2_shadow,'Indeks5 er ikke generelt en fotskygge'
   packed=Image.open(FIGURES/r['packed_original']['path'])
   bits=[1<<n for n in range(5) if r['plane_mask']&(1<<n)]
   source_indices=[sum(bit for n,bit in enumerate(bits) if v&(1<<n)) for v in packed.getdata()]
-  shadow_top=29 if args.key=='Balok1.CEL/028.png' else 63 if args.key=='Balok1.CEL/027.png' else 29 if args.key=='Balok1.CEL/006.png' else 0 if args.key in {'Balok1.CEL/003.png','Balok1.CEL/011.png','Balok1.CEL/020.png','Balok1.CEL/033.png','Balok1.CEL/036.png','Balok1.CEL/040.png','Balok1.CEL/043.png'} else troll2_shadow[args.key] if args.key in troll2_shadow else 0 if args.key.startswith('TROLL2.CEL/') or args.key in {'TROLL1.CEL/008.png','TROLL1.CEL/019.png','TROLL1.CEL/029.png','TROLL1.CEL/034.png','TROLL1.CEL/040.png'} else original.height-(10 if args.key=='TROLL1.CEL/013.png' else 9 if args.key=='TROLL1.CEL/002.png' else 8)
+  shadow_top=29 if args.key=='Balok1.CEL/028.png' else 63 if args.key=='Balok1.CEL/027.png' else 29 if args.key=='Balok1.CEL/006.png' else 0 if args.key in {'Balok1.CEL/003.png','Balok1.CEL/011.png','Balok1.CEL/020.png','Balok1.CEL/033.png','Balok1.CEL/036.png','Balok1.CEL/040.png','Balok1.CEL/043.png','Balok1.CEL/044.png','Balok1.CEL/045.png','Balok1.CEL/046.png','Balok1.CEL/050.png'} else troll2_shadow[args.key] if args.key in troll2_shadow else 0 if args.key.startswith('TROLL2.CEL/') or args.key in {'TROLL1.CEL/008.png','TROLL1.CEL/019.png','TROLL1.CEL/029.png','TROLL1.CEL/034.png','TROLL1.CEL/040.png'} else original.height-(10 if args.key=='TROLL1.CEL/013.png' else 9 if args.key=='TROLL1.CEL/002.png' else 8)
+  # Samme gulvnivaa i den kildebekreftede044..046-sammensetningen.
+  shadow_top={'Balok1.CEL/044.png':42,'Balok1.CEL/045.png':50,'Balok1.CEL/046.png':0}.get(args.key,shadow_top)
   for y in range(original.height):
    for x in range(original.width):
     if source_indices[y*original.width+x]==5 and y>=shadow_top:
@@ -152,7 +154,7 @@ def main():
   shadow_shape=source_contours(shadow_bits,original.width,original.height,lambda a:a>0)
   shadow_svg=path/'shadow.svg';shadow_svg.write_text(f'<svg xmlns="http://www.w3.org/2000/svg" width="{r["target_width"]}" height="{r["target_height"]}" viewBox="0 0 {r["width"]} {r["height"]}"><path d="{shadow_shape}" fill="black" fill-rule="evenodd"/></svg>\n')
   subprocess.run([node,str(ART/'mask.cjs'),str(shadow_svg),str(path/'shadow.png'),str(r['target_width']),str(r['target_height'])],env=env,check=True)
-  if args.exact_flat_shadow or args.key in {'Balok1.CEL/003.png','Balok1.CEL/006.png','Balok1.CEL/011.png','Balok1.CEL/020.png','Balok1.CEL/027.png','Balok1.CEL/028.png','Balok1.CEL/033.png','Balok1.CEL/036.png','Balok1.CEL/040.png','Balok1.CEL/043.png'} or args.key.startswith('TROLL2.CEL/') or args.key in {'TROLL1.CEL/008.png','TROLL1.CEL/019.png','TROLL1.CEL/011.png','TROLL1.CEL/013.png','TROLL1.CEL/029.png','TROLL1.CEL/034.png','TROLL1.CEL/040.png'}:
+  if args.exact_flat_shadow or args.key in {'Balok1.CEL/003.png','Balok1.CEL/006.png','Balok1.CEL/011.png','Balok1.CEL/020.png','Balok1.CEL/027.png','Balok1.CEL/028.png','Balok1.CEL/033.png','Balok1.CEL/036.png','Balok1.CEL/040.png','Balok1.CEL/043.png','Balok1.CEL/044.png','Balok1.CEL/045.png','Balok1.CEL/046.png','Balok1.CEL/050.png'} or args.key.startswith('TROLL2.CEL/') or args.key in {'TROLL1.CEL/008.png','TROLL1.CEL/019.png','TROLL1.CEL/011.png','TROLL1.CEL/013.png','TROLL1.CEL/029.png','TROLL1.CEL/034.png','TROLL1.CEL/040.png'}:
    # Spredte opprinnelige skyggeprikker beholdes eksakt, ikke nytegnet.
    original_shadow=Image.new('RGBA',original.size);original_shadow.putdata([(0,0,0,v) for v in shadow_bits]);original_shadow.resize(result.size,Image.Resampling.NEAREST).save(path/'shadow.png')
   result=Image.alpha_composite(Image.open(path/'shadow.png').convert('RGBA'),result)

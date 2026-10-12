@@ -1,0 +1,41 @@
+{
+  "key": "be1.c/008.png",
+  "generation_tool": "builtin_image_gen",
+  "call_id": "exec-3071aaff-7f14-49b1-9de6-2c0689296df7",
+  "raw": "raw/008-v1.png",
+  "raw_sha256": "88852442950d5897cfcf7c39501918dafa789767897de9f61ce27fed5a34d4f2",
+  "prompt": "prompts/008-v1.txt",
+  "prompt_sha256": "454b817a68bfd4921e817c6c2574193c013c37e534f0c91840add801b9814af1",
+  "reference": "references/008-original20x.png",
+  "reference_sha256": "d9c5990fd21a57a093c8d798da8406792188e21cc6b114f815298875e9a2d6db",
+  "visual_review": "Smal brun kropps-/benkant og en boeyd svart pelsstripe. Samme store tomrom som originalen; ingen ny kroppsdel.",
+  "candidate_sha256": "4174fa05cae9954eebe160e61db790c275b8c571779662fa9fd69f00de2a0162",
+  "source_indices_sha256": "9d888afdb9a8e1586866b164b800eff855ad0ddcb1fba3d9ad322f2685359e91",
+  "source_bank_sha256": "4213beb60023c82a7d75144b6b72519006cd15d88ce7870e5058fa8a54276e1e",
+  "raw_size": [
+    853,
+    1843
+  ],
+  "raw_alpha_bounds": [
+    138,
+    120,
+    853,
+    1661
+  ],
+  "target_size": [
+    76,
+    164
+  ],
+  "source_centers_opaque": 367,
+  "source_centers_empty": 412,
+  "original_flat_shadow_cells": 27,
+  "source_material_pixels": {
+    "fur": 1077,
+    "hide": 3645
+  },
+  "visual_status": "reviewed_original_and_runtime",
+  "geometry_sha256": "64953184943b733d069d9a1c81ae770ee95ec3d30e069cf0ba3d9b4bbc1891f9",
+  "packing_script_sha256": "2565a2b3f1be9069d041d7921212f9bc5afcd8b8de91796a3b6d317c6969865b",
+  "runtime_scope": "Controlled original Trogg War Beast combat initializer and terrain only, three source-documented test writes at900. No palette writes or modified combat/animation code; no natural map visit claim. Actual source calls and source scanout palette are checked. Separate normal/mirrored frontend fixtures and negative source/ownership checks never write to emulated memory. Candidate import only, no activation. Only indices actually used by each beast source frame must match its original palette; unrelated live knight6..8 can change naturally. This proof covers ONLY007/008/009;006/010/011 remain unobserved candidates after a failed broader probe.",
+  "method": "Each route uses its own generated photographic master. Original source contours, transparent holes, silhouette and anchors are retained; source-bound material registration and original source material regions, photographic black mane detail and smoothed original skin/bone/eye light, with separately preserved flat black source shadows. This is not a claim of freehand redrawn geometry."
+}

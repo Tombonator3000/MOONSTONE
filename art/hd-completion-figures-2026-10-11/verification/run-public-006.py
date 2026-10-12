@@ -1,0 +1,8 @@
+"""Kjoer fem faktiske offentlige scener mot sjette pakkes frosne kildekode."""
+from pathlib import Path
+import os,json,subprocess
+R=Path(__file__).resolve().parents[3];F=R/'art/hd-completion-figures-2026-10-11';base=F/'verification/integration-006-final-v2/package';out=F/'verification/public-006';assert json.loads((out/'assets.json').read_text())['status']=='passed';env=os.environ.copy();env.update(NODE_PATH='/home/tombonator3000t/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules',MOONSTONE_HD_PUBLIC_URL='https://tombonator3000.github.io/MOONSTONE/',MOONSTONE_HD_PUBLIC_HTML_SHA256='e79f2dc464d47f4716929e17762a240dda1b1a4cced69b19f479f4334225cfd0',MOONSTONE_HD_SOURCE_FREEZE=str(F/'verification/source-freezes-006'))
+node='/home/tombonator3000t/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node'
+for name,script,var in [('guardian','production/guardian/runtime-standard-public-v6.cjs','MOONSTONE_GUARDIAN_PACKAGE'),('guardian-demon2','production/guardian-demon2/runtime-standard-public-v1.cjs','MOONSTONE_GUARDIAN_PACKAGE'),('dragon','figures/dragon-production/runtime-standard-public-v1.cjs','MOONSTONE_DRAGON_PACKAGE'),('beast','production/beast/next006-011-v1/runtime-standard-public-v1.cjs','MOONSTONE_BEAST_PACKAGE'),('ending','production/runtime-integration-ending-frozen-v1.cjs','MOONSTONE_HD_PACKAGE')]:
+ dest=out/name;assert not(dest/'test.json').exists(),name;env[var]=str(base);env['MOONSTONE_HD_TEST_OUTPUT']=str(dest);subprocess.run([node,str(F/script)],cwd=R,env=env,check=True);d=json.loads((dest/'test.json').read_text());assert d['status']=='passed'and not d['errors']
+print('Fem offentlige scenekontroller bestaar.')

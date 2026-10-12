@@ -1,0 +1,87 @@
+{
+  "key": "Balok1.CEL/065.png",
+  "candidate_sha256": "3fa24fdce236561aaaed073fe8b25bc04301338357e80daf89cfffff597d25b7",
+  "source_indices_sha256": "ee0f98563983946684d48ddb23d1fa24f1000daa236f596c9a7f0e8e5a2fd757",
+  "authoring_method": "individual_redraw",
+  "generator": "built-in ChatGPT image generator; exact model version not exposed",
+  "raw_file": "art/hd-completion-figures-2026-10-11/production/balok/raw/065-v1.png",
+  "raw_sha256": "2782ba0e122a81137f5b513b54748fdd863e4b4d79f43ecb3ef2e68d11ce0c19",
+  "prompt": "art/hd-completion-figures-2026-10-11/production/balok/prompts/065-v1.txt",
+  "prompt_sha256": "163756dc6c9539ba3e9cf046933fc2eb96af01c3f0bea84e8f35304857df1b44",
+  "palette_case": "balok",
+  "palette_contract_sha256": "faf30600b1098c4fbf24fded5ca6cea5690f27b77e31b0b6daba4eb7da1807f2",
+  "palette_reference_sha256": "fc70addba8066c4927ad5979b4205a3b9a4d6490aa3f3c89758b71e6688a639d",
+  "queue_sha256": "a8ae68c394b7fe25dd7dfbf52bae83c4bf9a4b2f065a5818f7952072a88fa503",
+  "geometry_gate_passed": true,
+  "silhouette_iou": 1.0,
+  "alpha_method": "Kildecellers ytterkontur med0.2kildepiksel hjoerneavrunding, ikke diagonal marching-squares som tynner smaa effekter.",
+  "missing_opaque_source_midpoints": [],
+  "false_filled_transparent_source_midpoints": [],
+  "source_pixel_midpoints_checked": 54,
+  "status": "source_guided_candidate_not_activated",
+  "retained_generated_rgb_pixels": 768,
+  "extended_edge_pixels": 2,
+  "edge_extension_map": [
+    {
+      "x": 3,
+      "y": 4,
+      "from_x": 3,
+      "from_y": 3,
+      "distance": 1
+    },
+    {
+      "x": 88,
+      "y": 4,
+      "from_x": 88,
+      "from_y": 3,
+      "distance": 1
+    }
+  ],
+  "max_edge_extension_px": 1,
+  "material_canvas_mapping": {
+    "raw_opaque_bbox": [
+      0,
+      280,
+      2170,
+      442
+    ],
+    "source_opaque_bbox": [
+      0,
+      0,
+      27,
+      2
+    ],
+    "target_bbox": [
+      0,
+      0,
+      108,
+      8
+    ],
+    "mapping": "Eget raabildes opake utsnitt skaleres til originalens opake utsnitt uten rotasjon; full kildeform og tomme marger beholdes."
+  },
+  "packing": "Egen separat generering av blodoverflate for denne effekten. Bare generert RGB brukes innen originalens eksakte 0/15-kontur med avrundet rand. Nærmeste opake genererte blodmateriale fyller små manglende kantfelt. Kilden gir plassering og form, ingen original RGB kopieres. Ingen anatomisk nytegning påstås for ensfarget effekt; dette er fotografisk overflate i kildeform. Råsilhuettens anatomiske IoU-port brukes ikke for ensfargede væskeeffekter. Alle originale pikselmidtpunkter kontrolleres.",
+  "effect_source_contract": {
+    "source_indices": [
+      0,
+      15
+    ],
+    "fixed_palette_index": 15,
+    "fixed_palette_word": "c00",
+    "original_bank_sha256": "c6c5130e02cdbd388fd6ca9f1674d8321b7e67c46ee58027c9fd4f0db19931bb",
+    "independent_generated_surface": true,
+    "original_contour_only": true,
+    "anatomical_redraw_claimed": false,
+    "reused_texture": false,
+    "raw_shape_is_qa_gate": false
+  },
+  "visual_checks": {
+    "pose": "pending",
+    "crop": "pending",
+    "equipment": "pending",
+    "source_colors": "pending",
+    "anatomy": "pending",
+    "material": "pending",
+    "runtime_overlap": "pending",
+    "original_hd_return": "pending"
+  }
+}

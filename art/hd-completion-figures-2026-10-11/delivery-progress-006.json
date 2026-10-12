@@ -1,0 +1,148 @@
+{
+  "status": "locally_activated_standard_verified_public_pending",
+  "checks": 5092,
+  "images": 1623,
+  "files": 1629,
+  "backgrounds": 82,
+  "previous_files_unchanged": 1504,
+  "new_png_files": 125,
+  "concrete_routes": 122,
+  "generated_figure_masters": 120,
+  "generated_background_masters": 1,
+  "aliases": 1,
+  "preserved_original_black_shadows": [
+    "RATMEN1.CEL/008.png"
+  ],
+  "new_palette_masks": 2,
+  "remaining_masters": 1084,
+  "remaining_routes": 1153,
+  "remaining_master_masks": 97,
+  "manifest_sha256": "899a380bd16e9a6c67962220409a20128b1148ff28e93c5257018d986df90cd5",
+  "html_sha256": "e79f2dc464d47f4716929e17762a240dda1b1a4cced69b19f479f4334225cfd0",
+  "production_code_sha256": {
+    "web/src/core.js": "487969759645af593a2b7cb88b697e30852ae39a8a3fa359483a2f2413410e97",
+    "web/src/render.js": "a84202f81e2c548dc9d09b531afb4bb973fb8afee872abf9053c90a1afee8889",
+    "web/src/scenes.js": "fed67e7e026c88578370bf691fa1c757ce824c453da88c7cae41dda4f23bd301",
+    "web/src/hd.js": "bb9f22560e9dd669ba075dedf9d644abce72fbdc3fbf43d8a8a961052e1b34ac"
+  },
+  "source_zip_sha256": "35b7d4c67b9fae6019e257780050d0f421d6ec4c250cdde48a8f296086d67a02",
+  "wasm_core_sha256": "c56094d8b992cbd7ed7e4a8ef65709c435156072124874b26bce7cf02cb8e633",
+  "scope": "Kildebundne separate ruter, kontrollerte originale kamper og standardpakke. Ingen full naturlig gjennomspilling eller fysisk telefonproeve. Restlisten er fortsatt uferdig.",
+  "deliveries": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/activation-set-dragon5-001.json",
+      "sha256": "d55d45ecbf23f38d90c04c3584bbc552ca493fb03a941055832cf7668f5a150d"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian/next30-v1/activation-set-001.json",
+      "sha256": "2e06a402594aaa9d714e6ee478b79b478ed486fedddbd6f6d45d15ec0dc055f6"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-014-roar-three-a842.json",
+      "sha256": "b0681935bfb294da023a5bc05fc5e6913d0fbabb746aacbd7ee6943836c4563a"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-015-blood-fourteen-a842.json",
+      "sha256": "3d2fcfaacb6af9385e3e952239b00d6dbf7bbf1d659a6b86c914ad368e8bfb2d"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-016-hand017-a842.json",
+      "sha256": "8425cfd84d56fec72272ec9cac412da0289f0fe1ee8fb9f3f80c0d205701298e"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/activation-set-balok-017-blink012-a842.json",
+      "sha256": "7120c3c5a9fa770afc27b0c15f8980fad5ad26ef53f4e8cb9ea52abca486ad80"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/next006-011-v1/activation-set-three-v1.json",
+      "sha256": "6d882a5b48fa376335e8545b0e31a9b8398b7e650f1b87e2d19e9c53ae8cbd63"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/activation-set-ratmen-first11-001.json",
+      "sha256": "0d25c581f35bb0c23ee897cdeba48124675cd14e0123145286b722e0caa06ffb"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/first15-v1/activation-set-001.json",
+      "sha256": "a543a413c0ee88b66a3a489c36bb34ad85d89c2661242f8c44102668f652a19d"
+    }
+  ],
+  "proofs": [
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon5-all-routes-final-v3/test.json",
+      "sha256": "49f75c05e78556c52cefbf45c6b84738d5dd8b74488e8256734a6a52a2623717"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/dragon5-actual-retention-v2/test.json",
+      "sha256": "7097ae395ce69e670e4ef90db6acf5be379dc70a4e8005180e146d67a4066a66"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/retention-fixtures-final-v3/test.json",
+      "sha256": "189dbab50f0731118954c5f2f119ab8eeaa2802d6e9de936a59ce30380d35d00"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/balok-actual-retention-v2/test.json",
+      "sha256": "0f3ccb39a4eb656010d9ad2e20f48fb55afc29e97d12d9525f82932e82575f5c"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian/verification/runtime-all48-final-v1/test.json",
+      "sha256": "10abc8ef98e982096f8f51640f7ff3a31154f0a2b21588f6834f5c7845b48073"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/balok-roar-three-a842-root38a3-v1/test.json",
+      "sha256": "4046693c56bc9a48605d4632d08d51a716be007ee404873a51fab41f655f8a6e"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-6f991cc56d29b4f6-24fa3280/test.json",
+      "sha256": "2215f68399214b85c1bcb2f81a8091080e54e3e3190548b4e3b6eaa37e368bcf"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-8670f21afc10661a-cc1c5e81/test.json",
+      "sha256": "8f86319c90c6292cba453a98af12fcf8b304d8605a01add0471fbc87907553b4"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/verification/runtime-480bb2dbbfc01525-f2c7807e/test.json",
+      "sha256": "68862fa91f6401482f96d1bacb8e313f4e9b6de96935bb32ce0677298f399bc4"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/next006-011-v1/verification/runtime-v5/test.json",
+      "sha256": "4e3706ef3032e194c9684d5d54f26336d018e943bde4ee90cfa0cd04f2a332b7"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/first13-fixtures-v1/test.json",
+      "sha256": "066154d956f60153464c8becb5899b99a946cac16cff3d7dfd7c8286960e5b8e"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/ratmen-production/verification/first11-actual-v2/test.json",
+      "sha256": "8bded8f12aeb7defe79ad28b0667639271d40de26884411670385ac9b0d10b24"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/runtime-first15-v1/test.json",
+      "sha256": "a435e5361d8af2fd2541f07d94543d1c9456e0ee11c0e34d588e21205c3abb31"
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian/verification/standard-006-v1/test.json",
+      "sha256": "14bed822989f123b2dc2d395bee95ca6f0c85340e349f3a02ebdf9d761c967fc",
+      "checks": 550
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/guardian-demon2/verification/standard-006-first15-v1/test.json",
+      "sha256": "e5df3df8ee8b23c7c1e42ab2d57b7c75171334081561d9ce09bfa1c8084d3239",
+      "checks": 187
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/production/beast/next006-011-v1/verification/standard-006-v1/test.json",
+      "sha256": "47a4f997ea7bb477133cac55ff1ffb5122c9a4e306db7800dc20060d166dfe6f",
+      "checks": 49
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/verification/integration-006-final-v2/ending/test.json",
+      "sha256": "98469d89227ecbff2417814ee98947ad1955c6f5cec14f16f34644a1c071d47e",
+      "checks": 1702
+    },
+    {
+      "path": "art/hd-completion-figures-2026-10-11/figures/dragon-production/verification/standard-006-v1/test.json",
+      "sha256": "2a7e86f9630f29a8f8e9310b6ce9d1d1656568544bbd727b627c8668ff527656",
+      "checks": 97
+    }
+  ]
+}
