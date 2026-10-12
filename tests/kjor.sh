@@ -89,6 +89,9 @@ trap 'exit 130' INT TERM
 
 mkdir -p "$UT/side"
 cp "$SIDE" "$UT/side/index.html"
+if [ -d "$(dirname "$SIDE")/hd" ]; then
+    cp -R "$(dirname "$SIDE")/hd" "$UT/side/hd"
+fi
 python3 -m http.server "$MOONSTONE_PORT" --bind 127.0.0.1 --directory "$UT/side" > "$UT/http.log" 2>&1 &
 PIDS+=($!)
 node "$T/servere/peerserver.js" > "$UT/peer.log" 2>&1 &

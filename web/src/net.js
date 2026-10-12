@@ -285,7 +285,7 @@ const Nett = (() => {
         case 'inn': if (g && romSpill !== 'hver') g.inn = nyInn(g, d.j); break;
         /* F10 avslutter spillet (WHDLoad QuitKey) for alle; det er bare vertens tast */
         case 'tast': if (g && g.klar && romSpill !== 'hver' && (d.k & 0x7f) !== 0x59) gjesteTaster.push([d.k & 0x7f, !!d.ned, g.spiller]); break;
-        case 'velg': if (g && g.klar && romSpill !== 'hver') h.velg && h.velg(d.rad | 0); break;     /* gjesten klikket paa en rad i menyen */
+        case 'velg': if (g && g.klar && romSpill !== 'hver') h.velg && h.velg(d.rad | 0, g.spiller); break;     /* meny eller ridderportrett */
         case 'peker': if (g && g.klar && romSpill !== 'hver') h.peker && h.peker(d.x | 0, d.y | 0, g.spiller); break;   /* klikk i inventar, by, butikk */
         case 'ridder':                          /* hver for seg: ridderen til en gjest, videre til de andre */
             if (g && romSpill === 'hver') {

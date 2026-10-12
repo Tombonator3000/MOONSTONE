@@ -26,11 +26,12 @@
 - [ ] Teste nettspill (også «Online Game» i tittelmenyen) mot PeerJS Cloud og HiveMQ fra en vanlig nettleser (proxyen i skymiljøet stopper WebSocket; lokalt testet med egne servere).
 - [ ] Teste den nye oppstarten på en ekte mobil (lyd ved første trykk, også med lydløs-bryteren på iPhone, trykk på skjermen hopper over introen, navnefeltet med skjermtastatur).
 - [ ] Klikk i menyene også i PC-versjonen (meny_row_at finnes; PC slår ikke på menylappen i dag).
-- [ ] Mus på andre skjermer enn tittelmenyen: velge ridder, butikker og inventar med klikk (krever å finne valgvariablene for hver skjerm).
+- [x] Riddervalg med portrettklikk, Enter og mellomrom. Butikker og inventar har egen pekerkommando.
 - [ ] Teste moonstone.exe på ekte Windows.
 - [ ] Nettspill over et ekte nett med to maskiner: hvor mye forsinkelse gjesten og forsvareren i en duell merker i kamp, og om bufferen på tre bilder bør justeres.
 
-- [ ] Klikk der man peker også i Select a Knight (ingen peker der; feltene for figurene er ikke kartlagt) og for forsvareren i en duell.
+- [x] Klikk der man peker i Select a Knight, med spillereierskap i Turns.
+- [ ] Klikk der man peker for forsvareren i en duell.
 - [ ] Et trykk på kartet blir fire og kan åpne et sted; la det bare gi retning når man drar (observatør på \$0AACFA).
 
 ## HD: kodeendringer så bildene i docs/hd-bestilling-chatgpt.md blir brukt

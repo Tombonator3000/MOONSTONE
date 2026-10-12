@@ -65,6 +65,7 @@ enum { MOETE_INGEN, MOETE_FOER, MOETE_RULLE, MOETE_KAMP, MOETE_PLYNDRING };
 static uint32_t velg_bilde = 0xffffffffu;   /* sist lokka i Select a Knight leste joysticken */
 static uint32_t navn_bilde = 0xffffffffu;   /* sist lokka for navnet leste tastene */
 static uint8_t moete;                       /* MOETE_*, i lagringen */
+static uint8_t ridder_klikk = 0xff;         /* 0-3 venter, 0xfe brukt, 0xff ingen */
 
 static uint16_t rd16(uint32_t a) { return (uint16_t)(chip[a] << 8 | chip[a + 1]); }
 
@@ -107,7 +108,12 @@ int game_port_player(int port)
     return menneske(k) && styres_med(k) == 2 ? k : -1;
 }
 
-static bool observe_velg(void) { velg_bilde = M.frame; return false; }
+static bool observe_velg(void)
+{
+    velg_bilde = M.frame;
+    if (ridder_klikk == 0xfe) ridder_klikk = 0xff;
+    return false;
+}
 static bool observe_moete(void) { moete = MOETE_FOER; return false; }
 static bool observe_rulle(void) { if (moete) moete = MOETE_RULLE; return false; }
 static bool observe_rulle_slutt(void) { if (moete) moete = MOETE_FOER; return false; }
@@ -298,6 +304,32 @@ int game_valg(char tekst[9][GAME_VALG_LEN], char *tittel)
  * paa mobil og sender en tast om gangen, naar lokka leser igjen (game_navn_klar). */
 static bool observe_navn(void) { navn_bilde = M.frame; return false; }
 
+/* Klikk bruker samme originale valg-/navneflyt som fire. Vent til joysticken
+ * er lest, saa valget ikke forsvinner under tegning eller godtar navnet ogsaa. */
+bool game_velg_ridder(int k)
+{
+    if (!game_velger_ridder() || game_navn() != NULL || ridder_klikk == 0xfe) return false;
+    if (k == -1) k = rd16(0x8f51e);
+    if (k < 0 || k > 3 || !(chip[0x8f4a2] & (1 << k))) return false;
+    ridder_klikk = (uint8_t)k;
+    return true;
+}
+
+static bool klikk_ridder(void)
+{
+    int k = ridder_klikk;
+    if (k > 3) return false;
+    ridder_klikk = 0xff;
+    if (!(chip[0x8f4a2] & (1 << k)) || game_navn() != NULL) return false;
+    ridder_klikk = 0xfe;                    /* dobbeltklikk skal ikke velge for neste spiller */
+    chip[0x8f51e] = 0;
+    chip[0x8f51f] = (uint8_t)k;
+    m68k_set_reg(M68K_REG_D1, m68k_get_reg(NULL, M68K_REG_D1) | JOY_FIRE);
+    /* btst er allerede kjoert. Z=0 velger fire-grenen, ogsaa med C-joysticken. */
+    m68k_set_reg(M68K_REG_SR, m68k_get_reg(NULL, M68K_REG_SR) & ~4u);
+    return false;
+}
+
 bool game_navn_klar(void) { return game_navn() != NULL && M.frame - navn_bilde <= 1; }
 
 /* navnet saa langt, eller NULL naar spillet ikke venter paa navnet */
@@ -324,6 +356,7 @@ void game_register_hooks(void)
     hooks_register_patch(0x0abbba, observe_valg, "valgene paa kartet (observer)");
     hooks_register_patch(0x081b7c, observe_navn, "navnet til ridderen (observer)");
     hooks_register_patch(0x081cfa, observe_velg, "Select a Knight (observer)");
+    hooks_register_patch(0x081d04, klikk_ridder, "Select a Knight (klikk)");
     hooks_register_patch(0x080ab8, observe_moete, "moete mellom riddere (observer)");
     hooks_register_patch(0x080c52, observe_rulle, "beskyttelsesrullen (observer)");
     hooks_register_patch(0x080c98, observe_rulle_slutt, "beskyttelsesrullen slutt (observer)");
@@ -337,6 +370,7 @@ void game_reset(void)
 {
     valg_bilde = navn_bilde = velg_bilde = 0xffffffffu;
     moete = MOETE_INGEN;
+    game_peker_standard();
 }
 
 /* lagring uten (passende) tegneliste: tom liste, saa HD-laget viser originalgrafikken
@@ -403,5 +437,5 @@ void game_frame(void)
     IN.joy[1] |= JOY_FIRE;
     peker_fire--;
 }
-void game_state_peker(StateIO *s) { STATE_VAR(s, peker_fire); }
-void game_peker_standard(void) { peker_fire = 0; }
+void game_state_peker(StateIO *s) { STATE_VAR(s, peker_fire); STATE_VAR(s, ridder_klikk); }
+void game_peker_standard(void) { peker_fire = 0; ridder_klikk = 0xff; }

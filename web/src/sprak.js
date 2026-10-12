@@ -164,6 +164,7 @@ const Sprak = (() => {
         'Kunne ikke starte spillet: {0}': "Couldn't start the game: {0}",
         'Trykk på et valg i menyen': 'Tap a menu item',
         'Klikk på et valg, eller bruk piltastene og Enter': 'Click a menu item, or use the arrow keys and Enter',
+        'Velg ridder med klikk eller venstre/høyre og Enter': 'Choose a knight with a click or Left/Right and Enter',
         'Hopper over introen ...': 'Skipping the intro ...',
         'Du er invitert til rom {0}. Trykk på skjermen, fire eller Esc for å hoppe over introen.':
             "You're invited to room {0}. Tap the screen, press fire or Esc to skip the intro.",

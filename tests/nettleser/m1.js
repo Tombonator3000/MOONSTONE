@@ -30,11 +30,11 @@ T.kjor(async () => {
   console.log('touch', JSON.stringify(await boks('#touch')), 'kors', JSON.stringify(await boks('#touch .kors')), 'lerret', JSON.stringify(await boks('#lerret')));
   console.log('hint:', await p.evaluate(() => document.getElementById('hint').textContent));
   const l = await boks('#lerret');
-  await touch(l.x + l.w / 2, l.y + l.h / 2); await p.waitForTimeout(800); await touch(l.x + l.w / 2, l.y + l.h / 2);
+  await touch(l.x + l.w / 2, l.y + l.h / 2);
   await p.waitForFunction(() => window.moonDebug.Kjerne.menyKlar(), null, { timeout: 30000 });
   await p.waitForTimeout(1500);
   await T.skjerm(p, 'm1-02-tittel.png');
-  sjekk(!(await boks('#touch')).skjult, 'to trykk paa skjermen hoppet over introen, knappene vises i tittelmenyen');
+  sjekk(!(await boks('#touch')).skjult, 'ett trykk paa skjermen hoppet over introen, knappene vises i tittelmenyen');
   const v0 = await T.valg(p);
   await kors('ned'); await p.waitForTimeout(600);
   const v1 = await T.valg(p);

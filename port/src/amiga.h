@@ -286,6 +286,7 @@ size_t   ms_unpack(const uint8_t *src, size_t srclen, uint8_t *dst, size_t dstma
 bool     game_mog_running(void);
 int      game_port_player(int port);      /* plassen (0-3) til mennesket som styrer port 0/1 naa, -1 = alle/ingen */
 bool     game_velger_ridder(void);        /* Select a Knight eller navnet etterpaa */
+bool     game_velg_ridder(int k);         /* portrett 0-3, -1 bekrefter gjeldende valg */
 void     game_reset(void);
 void     game_peker(int x, int y);         /* pekeren til (x, y) og fire (MENY_CMD_PEKER) */
 void     game_frame(void);                 /* holder fire etter et klikk; etter inndataene, foer amiga_run_frame */

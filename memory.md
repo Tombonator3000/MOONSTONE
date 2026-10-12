@@ -180,17 +180,17 @@ docs/hd-status-2026-10-11.md og den tilhørende CSV-listen gir kontrollert statu
   Feilmeldingene fra kjernen (state.c, files.c, whdload.c) er norske og står også i
   ordboken; navnene på delene i en lagring (`deler[]`) står i `DELER` i sprak.js.
   Tester som leser norsk tekst, setter `sprak: 'no'` i `moonstone.innstillinger`.
-- HD-grafikken er av som standard (bryteren står på Original). Den slås på i sidemenyen,
-  og valget lagres som `hd` sammen med `hdValgt: true`; en gammel lagret `hd` uten
-  `hdValgt` gir Original. HD-testene i tools/ setter `{hd:'hd',hdValgt:true}` før lasting.
+- HD-grafikken er på som standard fra 12. oktober. Valget lagres som `hd` sammen med
+  `hdValgt: true`; en gammel lagret `hd` uten `hdValgt` gir HD. Et uttrykkelig valg av
+  Original beholdes. Standardpakken lastes automatisk fra HTTP(S).
 - Introen ser på den siste tastaturkoden uten slipp-biten, og bare mellom trinnene.
   Esc huskes, men det kan gå opp mot 200 bilder før mog lastes. En annen tast etter Esc
   (Return som slippes) gjør at introen ikke slutter. Målt med moonstone-headless
   `--press F:esc:4`: alltid mog innen +200 bilder, aldri med Return i tillegg.
-- app.js `introTaster`: fire, Enter, mellomrom og trykk på skjermen blir Esc i 4 bilder;
-  Enter og mellomrom sendes ikke til spillet i introen. Det første trykket slår bare på
-  lyden (nettleseren krever det), unntatt med invitasjon. Esc er ikke en brukerhandling
-  for nettleseren, så lyden prøves på nytt ved neste trykk.
+- app.js `introTaster`: fire, Enter, mellomrom og første skjermtrykk ber om introhopp.
+  Esc gjentas hvert bilde frem til mog er lastet og slippes deretter. Originalens
+  lasting/toning kan slette et enkelt tastetrykk. Enter/mellomrom sendes ikke videre
+  i introen; lydstart og introhopp kan skje ved samme brukerhandling.
 - `ms_in_intro()` = mog er ikke lastet (whd_mog_loaded, nullstilles i whd_boot).
   `ms_menu_ready()` = tittelmenyens løkke har kjørt (meny_title_seen). amiga_reset kaller
   patch_reset, som nullstiller tekstlappen og menyen, så en omstart starter rent.
@@ -502,3 +502,7 @@ Sjette figurleveranse er offentlig verifisert: PR38 flettet som798b926, hovedbyg
 Sjuende lokale rutegruppe:1741 PNG/1747 filer/82 BG,98 nye ruter,118 PNG,93 egne fotomastere,fem eksakte aliaser og20 masker.991 mastere/1055 ruter/79 mastermasker gjenstaar. Teknisk standard4436 og fil/kilde5449 bestaar, men publisering er holdt for synlige bakgrunnsblokker over Balok1/004 og002 ved faktisk pose2200. Dette er ikke ny kildegeometri eller aliasfeil. Ratmen-bakgrunnens eksakte sene deltaer er19 svart5+77 roedt15, fra R2/056 og R1/051 med caller087b34/target0a2cd6;007 har forventet Originalfallback der. Ikke kall hele HD-arbeidet ferdig.
 
 Aattende lokale kohort har1963 PNG/1969 filer/82 bakgrunner og202 nye ruter:195 egne fotomaterialmastere,sju kildeeksakte originalruter,20 masker. Alle1747 filer fra007 er uendret. Frontend008 er fryst med render6b93be5b og scenes189eed86, samme originalZIP/WASM/core/hd.js. Balok-glyfvernet fjernes bare ved eksakt akseptert figur-HD og dokumentert eierskap; Ratmen Wa2-bro krever eksakt64000-indekskomposisjon og riktige originale bakecaller/target/ankre. Full opak originalforgrunn bevares. EndeligHTMLb1e3496e og manifest6e8d7646 brukes i standardjobber. Rootvisual008 beviser at007s Balok-blokker er borte. Status er foreloepig lokal, publisering er ikke bekreftet.790 mastere/853 konkrete ruter/59 masker gjenstaar;009-kandidater telles ikke foer aktivering.
+
+## Riddervalg og oppstart, 12. oktober 2026
+
+Portrettenes x-posisjoner leses fra originaltabellen $8F516, y80..155 og bredde64. Bare ledige figurer i $8F4A2 kan klikkes. MENY_CMD_SELECT (10) gir et ventende portrettvalg utenfor tittelmenyen. Hooken på $081D04, etter btst og før fire-grenen, velger figuren og fortsetter originalens navneflyt. $081D00 ville blitt hoppet over etter C-erstatningen av les_joysticker. Gjesten sender spilleridentitet til vertens valgbehandler; bare den som har port2 kan velge. PEKR-delen har nå to byte, peker_fire og ridder_klikk. Fe markerer et brukt klikk frem til neste originale valgløkke, så et dobbeltklikk ikke velger for neste spiller. Eldre PEKR-deler får standardverdier, og state_format_id skiller nettutgavene. Originale spillfiler og HD-bilder er uendret.

@@ -23,6 +23,7 @@ Valg (miljøvariabler):
 
 | Variabel | Standard | Hva |
 |---|---|---|
+| `CHROME` | Playwrights Chromium | Valgfri sti til installert Chrome/Chromium |
 | `SIDE` | `web/build/moonstone.html` | nettsiden som testes (f.eks. en nedlastet utgave fra Pages) |
 | `MOONSTONE_PORT` | 8765 | HTTP-serveren |
 | `PEER_PORT` | 9000 | PeerJS |
@@ -65,7 +66,7 @@ ta dem med; ellers hopper testen over dem med en melding.
 
 | Test | Hva den sjekker | Tid |
 |---|---|---|
-| `test12` | Flyten uten startside: introen, første trykk slår på lyden og andre hopper over, navnet fra menyen, Host Game, Public og Copy Link. Kari blir med via lenken, Ola via den offentlige listen med musen. Tre i Turns, sjekksummer, og gjestene havner i introen når verten lukker. | 2 min |
+| `test12` | Flyten uten startside: introen, ett trykk slår på lyden og hopper over, navnet fra menyen, Host Game, Public og Copy Link. Kari blir med via lenken, Ola via den offentlige listen med musen. Tre i Turns, sjekksummer, og gjestene havner i introen når verten lukker. | 2 min |
 | `test17` | Mus i menyene: klikk på radene, hånd over et valg, Enter og mellomrom, Mode Turns og Separate, Back, klikk utenfor radene, Practice med klikk. | 1 min |
 | `test26` | Separate: verten og Kari spiller hvert sitt spill og ser hverandre på kartet (plass, navn, farge), Kari går og verten ser det, verten lukker og Kari spiller videre alene med SIR DWAIN tilbake. | 2 min |
 | `test27` | Duell i Separate: verten angriper Kari, kan ikke laste under duellen, Kari styrer sin ridder over nettet, verten slår til kampen er over, Kari tar ridderen med tilbake, sjekksummene i kampen. | 4 min |
@@ -81,7 +82,8 @@ ta dem med; ellers hopper testen over dem med en melding.
 | `lag1` | Lagringene: ingen autolagring i tittelmenyen, autolagring når fanen skjules, nedlasting som PC-versjonen laster, Fortsett etter omlasting, en PC-lagring inn på nettet, meldinger for feil fil og gamle lagringer. | 1 min |
 | `ver1` | Versjonssjekk i nettspill: romlisten viser bare rom med samme lagringsformat, og en gjest med et annet format får beskjed og blir ikke stående og vente. | 2 min |
 | `fullt2` | Fullt rom: verten og tre gjester, en femte får beskjed om at rommet er fullt uten at spillet hans startes på nytt. | 3 min |
-| `m1` | Mobil (berøring, stående telefon): to trykk hopper over introen, styrekorset flytter pilen, Fire går til kartet. | 1 min |
+| `start1` | HD som standard, ett trykk over introen, alle fire portrettklikk, Enter/mellomrom, lagret Original-valg og mobiltrykk. | 2 min |
+| `m1` | Mobil (berøring, stående telefon): trykk hopper over introen, styrekorset flytter pilen, Fire går til kartet. | 1 min |
 | `m2` | Mobil: spillets grafikk på siden, sidemenyen med trykk, navnet til ridderen med tekstfelt (æøå blir ae, o, a), valgene på kartet som knapper med styrekorset og Fire. | 1 min |
 
 Testene heter som de het da de ble laget (test12 til test36, lag1, ver1 og så videre), så de

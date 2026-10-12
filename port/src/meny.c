@@ -683,6 +683,8 @@ void meny_command(int cmd, int arg, const char *text)
         break;
     }
     case MENY_CMD_SELECT:                   /* klikk paa en rad (arg), eller Enter (-1): pilen dit og fire */
+        if (game_velger_ridder()) { game_velg_ridder(arg); return; }
+        if (!meny_in_menu()) return;
         if (!M2.enabled || arg < -1 || arg >= ROWS) return;
         if (arg >= 0) { M2.pick = (uint8_t)(arg + 1); M2.redraw = 1; }
         M2.pick_fire = 1;

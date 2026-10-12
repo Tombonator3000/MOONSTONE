@@ -27,6 +27,10 @@ T.kjor(async () => {
   console.log('vert status:', await statusTekst(vert), '| kari status:', await statusTekst(kari));
   sjekk((await statusTekst(vert)).includes('Tom velger ridder'), 'statuslinjen: Tom velger ridder');
   const m0 = await markoer(vert);
+  await kari.evaluate(() => moonDebug.Nett.sendVelg(3));
+  await kari.waitForTimeout(500);
+  sjekk(!(await vert.evaluate(() => moonDebug.Kjerne.navnAktiv())) && await markoer(vert) === m0,
+    'gjestens portrettkommando avvises naar verten velger');
   await trykk(kari, 'ArrowRight', 150, 1200);
   sjekk(await markoer(vert) === m0, 'gjesten flytter ikke pilen naar verten velger (' + m0 + ' -> ' + await markoer(vert) + ')');
   await trykk(vert, 'ArrowRight', 150, 1200);
@@ -44,7 +48,15 @@ T.kjor(async () => {
   sjekk(await markoer(vert) === m1, 'verten flytter ikke pilen naar Kari velger');
   await trykk(kari, 'ArrowRight', 150, 1500);
   sjekk(await markoer(vert) !== m1, 'Kari flytter pilen (' + m1 + ' -> ' + await markoer(vert) + ')');
-  await trykk(kari, 'ControlLeft', 150, 2500);
+  const klikk = await kari.evaluate(() => {
+    const K=moonDebug.Kjerne, k=K.les8(0x8f51f), a=0x8f516+2*k;
+    const x=(K.les8(a)<<8|K.les8(a+1))+32, y=118;
+    const r=document.querySelector('#lerret').getBoundingClientRect(), c=moonDebug.Visning.utsnitt(), v=K.vindu();
+    return {x:r.left+(v[0]+x*2-c[0])/(c[2]-c[0])*r.width,y:r.top+(v[1]+y-c[1])/(c[3]-c[1])*r.height};
+  });
+  await kari.mouse.click(klikk.x,klikk.y);
+  sjekk(await venter(() => vert.evaluate(() => moonDebug.Kjerne.navnAktiv())), 'gjesten velger sitt portrett med klikk');
+  await kari.waitForTimeout(900);
   await trykk(kari, 'Enter', 120, 3000);
   // kartet: forste tur er plass 0 (verten, SIR RICHARD med figur 1)
   sjekk(await venter(async () => !(await velger(vert)) && await eier(vert) === 0, 30000), 'kartet: verten har turen (plass 0)');
