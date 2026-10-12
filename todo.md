@@ -26,11 +26,12 @@
 - [ ] Teste nettspill (også «Online Game» i tittelmenyen) mot PeerJS Cloud og HiveMQ fra en vanlig nettleser (proxyen i skymiljøet stopper WebSocket; lokalt testet med egne servere).
 - [ ] Teste den nye oppstarten på en ekte mobil (lyd ved første trykk, også med lydløs-bryteren på iPhone, trykk på skjermen hopper over introen, navnefeltet med skjermtastatur).
 - [ ] Klikk i menyene også i PC-versjonen (meny_row_at finnes; PC slår ikke på menylappen i dag).
-- [ ] Mus på andre skjermer enn tittelmenyen: velge ridder, butikker og inventar med klikk (krever å finne valgvariablene for hver skjerm).
+- [x] Riddervalg med portrettklikk, Enter og mellomrom. Butikker og inventar har egen pekerkommando.
 - [ ] Teste moonstone.exe på ekte Windows.
 - [ ] Nettspill over et ekte nett med to maskiner: hvor mye forsinkelse gjesten og forsvareren i en duell merker i kamp, og om bufferen på tre bilder bør justeres.
 
-- [ ] Klikk der man peker også i Select a Knight (ingen peker der; feltene for figurene er ikke kartlagt) og for forsvareren i en duell.
+- [x] Klikk der man peker i Select a Knight, med spillereierskap i Turns.
+- [ ] Klikk der man peker for forsvareren i en duell.
 - [ ] Et trykk på kartet blir fire og kan åpne et sted; la det bare gi retning når man drar (observatør på \$0AACFA).
 
 ## HD: kodeendringer så bildene i docs/hd-bestilling-chatgpt.md blir brukt
@@ -181,3 +182,10 @@
 - [x] Aattende lokale kohort:202 ruter/222 PNG,195 egne fotomaterialmastere,sju bevarte originalruter,20 masker.1963 PNG/1969 filer/82 bakgrunner. Alle1747 tidligere filer uendret.
 - [ ] Publisere008 etter komplett standard-/fil-/kildekontroll og kontrollere samme offentlige HTML, manifest og bilder.
 - [ ] Fullfoere790 resterende mastere,853 konkrete ruter og59 masker; paagaaende009-kandidater telles foerst ved kildeverifisert aktivering.
+
+## Oppstart og riddervalg, 12. oktober 2026
+- [x] HD som standard, med bevart uttrykkelig Original-valg.
+- [x] Ett trykk over introen, ogsaa under lasting og toning.
+- [x] Fire direkte portrettvalg, Enter/mellomrom, mobil og eierkontroll i Turns.
+- [x] Dobbeltklikkvern og faktisk lasting av eldre PEKR-lagring.
+- [x] Nettleser81/81, inklusive faste porter, og check_hooks25/25. Fysisk mobil og full gjennomspilling er fortsatt egne oppgaver.

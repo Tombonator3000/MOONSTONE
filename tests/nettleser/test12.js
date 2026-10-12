@@ -26,11 +26,7 @@ T.kjor(async () => {
   console.log('vert hint foer trykk:', await hint(vert));
   await vert.waitForTimeout(3000);
   await T.skjerm(vert, 't12-intro.png');
-  await trykk(vert, 'Enter');                              // forste trykk: lyd, ikke hopp
-  await vert.waitForTimeout(1000);
-  sjekk(await vert.evaluate(() => window.moonDebug.Kjerne.iIntro()), 'vert: forste trykk hoppet ikke over introen');
-  console.log('vert hint etter trykk:', await hint(vert));
-  await trykk(vert, 'Enter');                              // andre trykk: hopp over
+  await trykk(vert, 'Enter');                              // lyd og hopp over paa samme trykk
   await tilTittel(vert, 'vert');
   sjekk((await hint(vert)).startsWith('Klikk'), 'vert: menyhintet om klikk vises');
   await T.skjerm(vert, 't12-tittel.png');
@@ -76,13 +72,10 @@ T.kjor(async () => {
   await kari.press('#navn-felt', 'Enter');
   await kari.waitForFunction(() => window.moonDebug.modus() === 'gjest', null, { timeout: 30000 }).then(() => sjekk(true, 'kari: med som gjest')).catch(e => sjekk(false, 'kari ble ikke med ' + e.message));
 
-  // Ola: trykk paa skjermen (forste = lyd, andre = hopp), Join Game fra den offentlige listen
+  // Ola: ett trykk paa skjermen, Join Game fra den offentlige listen
   await ola.goto(U);
   await venterIntro(ola, 'ola');
   await ola.waitForTimeout(1500);
-  await ola.mouse.click(400, 280);
-  await ola.waitForTimeout(1000);
-  sjekk(await ola.evaluate(() => window.moonDebug.Kjerne.iIntro()), 'ola: forste trykk paa skjermen hoppet ikke over');
   await ola.mouse.click(400, 280);
   await tilTittel(ola, 'ola');
   // Ola bruker musen: klikk paa radene, og vent til siden har byttet

@@ -16,10 +16,14 @@ med three.js og lyden med WebAudio. Den lages med `make -C port web` og legges u
 GitHub Pages av Actions. Det finnes ingen egen startside: spillet starter med introen
 med en gang siden er lastet, og alt annet velges i spillets egen tittelmeny.
 
-Nettleseren slipper ikke ut lyd før du har trykket på noe, så det første trykket slår på
-lyden. Deretter hopper Esc, fire, Enter, mellomrom eller et trykk på skjermen over
-introen. Det kan ta et par sekunder før den slutter, for introen gjør ferdig overgangen
+Esc, fire, Enter, mellomrom eller ett trykk på skjermen hopper over introen.
+Det samme trykket starter lyden når nettleseren tillater det.
+Det kan ta et par sekunder før introen slutter, for den gjør ferdig overgangen
 den holder på med.
+
+HD-grafikk lastes automatisk som standard. Et uttrykkelig valg av Original i
+sidemenyen huskes. Velg ridder ved å klikke eller trykke på portrettet, eller bruk
+venstre/høyre og Enter, mellomrom eller fire. Enter eller fire godtar deretter navnet.
 
 Spillfilen (`Moonstonecd32-AMIGA.zip` fra repoet) er bygget inn i siden. En annen
 spillfil, f.eks. «Moonstone CD32.iso», kan velges i menyen (Home eller knappen oppe til
