@@ -269,9 +269,6 @@
             /* spillets meny kan ikke klikkes i originalen; si at det gaar her */
             t = beroering() ? 'Trykk på et valg i menyen' : 'Klikk på et valg, eller bruk piltastene og Enter';
             topp = true;
-        } else if (portrettValg()) {
-            t = 'Velg ridder med klikk eller venstre/høyre og Enter';
-            topp = true;
         } else if (Kjerne.iSlutt()) {
             t = 'Gratulerer! Esc hopper over sluttscenen.';
         } else if (modus === 'alene' && Kjerne.iIntro()) {

@@ -182,3 +182,10 @@
 - [x] Aattende lokale kohort:202 ruter/222 PNG,195 egne fotomaterialmastere,sju bevarte originalruter,20 masker.1963 PNG/1969 filer/82 bakgrunner. Alle1747 tidligere filer uendret.
 - [ ] Publisere008 etter komplett standard-/fil-/kildekontroll og kontrollere samme offentlige HTML, manifest og bilder.
 - [ ] Fullfoere790 resterende mastere,853 konkrete ruter og59 masker; paagaaende009-kandidater telles foerst ved kildeverifisert aktivering.
+
+## Oppstart og riddervalg, 12. oktober 2026
+- [x] HD som standard, med bevart uttrykkelig Original-valg.
+- [x] Ett trykk over introen, ogsaa under lasting og toning.
+- [x] Fire direkte portrettvalg, Enter/mellomrom, mobil og eierkontroll i Turns.
+- [x] Dobbeltklikkvern og faktisk lasting av eldre PEKR-lagring.
+- [x] Nettleser77/77 og check_hooks25/25. Fysisk mobil og full gjennomspilling er fortsatt egne oppgaver.
