@@ -1023,6 +1023,36 @@ const Visning = (() => {
         return synlig;
     }
 
+    // BLO bruker bare gjennomsiktig0 og kampblod15. Den originale faden
+    // klipper/trekker firebitskanaler; for c00 gir begge modeller nivaa0..12.
+    // Eget lys fra blodindeksen hindrer baade roedt blod i fremmede paletter
+    // og feil fading naar resten av terrengpaletten har et annet maksimum.
+    function blodNivaa(d, g, t) {
+        const bank = originalCeler.get('blo.cel'), scan = Kjerne.skanout();
+        if (!bank || bankHash(bank).hash !== 'd83857454db7f5113598c6a41a46e45f62ecb4936637372b4807e22125bf699e' ||
+            !g || g.planmaske !== 15 || d.bilde < 0 || d.bilde >= 41 ||
+            t.width !== g.w*4 || t.height !== g.h*4 ||
+            !scan.gyldig || scan.pal?.length !== H*32*4) return null;
+        let nivaa = null;
+        const x = d.x-d.xoff;
+        for (let j=0;j<g.h;j++) {
+            if (d.y+j<0 || d.y+j>=200) continue;
+            let opak=false;
+            for (let i=0;i<g.w;i++) {
+                if (x+i<0 || x+i>=320) continue;
+                const c=g.px[j*g.w+(d.speilet ? g.w-1-i : i)];
+                if (c!==0 && c!==15) return null;
+                if (c===15) opak=true;
+            }
+            if (!opak) continue;
+            const p=((diwNaa[1]+d.y+j)*32+15)*4, r=scan.pal[p];
+            if (scan.pal[p+1]!==0 || scan.pal[p+2]!==0 || scan.pal[p+3]!==255 ||
+                r>204 || r%17 || (nivaa!==null && nivaa!==r)) return null;
+            nivaa=r;
+        }
+        return nivaa===null ? null : nivaa/204;
+    }
+
     const fontTegn = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?.,#$% ' + "'_";
     const klareEtiketter = new Map([
         ['ki.cel/038', ['STR', 13, 16, '4a0dfb2ccc76589d4ed92800975cd8362f859223db0059154723e28c3eb6de05']],
@@ -1451,6 +1481,7 @@ const Visning = (() => {
             tekstGodkjent: 0, tekstAvvist: 0, tekstFeil: [], lys: 0, lysUkjent, hdLys };
         hdKontroll.ikonGodkjent = 0; hdKontroll.ikonAvvist = 0;
         hdKontroll.foliageAvvist = 0;
+        hdKontroll.blodGodkjent = 0; hdKontroll.blodAvvist = 0;
         hdKontroll.palettFigurGodkjent=0; hdKontroll.palettFigurFeil=[];
         hdMarkor=null;
         vernData.fill(0);
@@ -1478,6 +1509,9 @@ const Visning = (() => {
             if (!g || g.w !== d.w || g.h !== d.h || !Number.isInteger(x) || !Number.isInteger(y)) { hdKontroll.kilde++; continue; }
             if (erValgspor(d) && bankHash(originalCeler.get('sel.cel')).hash !== valgbankSha) { hdKontroll.kilde++; continue; }
             if (ikey === 'ratmen1.cel/063' && !ratmenLauvKlar(d,g)) { hdKontroll.foliageAvvist++; continue; }
+            const erBlod = d.fil.toLowerCase()==='blo.cel';
+            const blodLys = erBlod ? blodNivaa(d,g,hdPakke.get(ikey)) : null;
+            if (erBlod && blodLys===null) { hdKontroll.blodAvvist++; continue; }
             // En fremtidig HD026 maa heller ikke tegne den gamle skyggen foran
             // den kildebekreftede kroppen. Originalens svarte piksler blir igjen.
             if (eie.gamleSkygger.has(nr)) { hdKontroll.piksler++; continue; }
@@ -1489,7 +1523,7 @@ const Visning = (() => {
                 !fargeleggIkon(ikon, hdPakke.get(ikey), y))) { hdKontroll.ikonAvvist++; continue; }
             if (hdPakke.get(ikey).maske && !palettKlar) { hdKontroll.maske++; continue; }
             // Ukjent fullt lys (skjermen toner inn): bare bilder som farges fra paletten.
-            if (lysUkjent && !ikon && !hdPakke.get(ikey).maske) { hdKontroll.lys++; continue; }
+            if (lysUkjent && !ikon && !erBlod && !hdPakke.get(ikey).maske) { hdKontroll.lys++; continue; }
             if (d.fil.toLowerCase() === 'ki.cel' && d.bilde >= 45 && d.bilde <= 49) {
                 const foran = visteListe.filter((o) => o !== d && overlapper(x, y, d.w, d.h, o));
                 forberedMaane(d, g, lag, foran);
@@ -1539,6 +1573,7 @@ const Visning = (() => {
             figurHd.add(nr);
             if (hdPakke.get(ikey).maske) { hdFigurMaske.add(d); hdKontroll.masket++; }
             if (ikon) { hdFigurLys.set(d, hdPakke.get(ikey).ikonLys ?? 1); hdKontroll.ikonGodkjent++; }
+            if (erBlod) { hdFigurLys.set(d,blodLys); hdKontroll.blodGodkjent++; }
             hdKontroll.godkjent++;
             if (palettFeil === false) hdKontroll.palettFigurGodkjent++;
         }
@@ -2040,6 +2075,8 @@ const Visning = (() => {
                     indeksHasher.set(bilder[n], await sha256(bilder[n].px));
             }
         }
+        if (alle.some(f => /(^|\/)blo\.cel\/[0-9]{3}\.png$/i.test(stiFor(f))) &&
+            originalCel('blo.cel',new Map())) await bankHash(originalCeler.get('blo.cel')).venter;
 
         // En delvis pakke erstatter bare metadata for sine egne bilder.
         // Andre standardikoner beholder palett, kildekontroll og spritepeker.

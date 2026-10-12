@@ -147,7 +147,7 @@
 - [x] Nytegne og kontrollere alle26 KN4-sverd-/bevegelsesruter,7 identiske kopier og025-masken.
 - [x] Nytegne18 flammer separat og kontrollere dem i original Stonehenge-scene og sluttsekvens;18 identiske Klift-kopier.
 - [x] Publisere og kontrollere den første figurruteleveransen etter grønn CI (PR #33, offentlig70PNG, faktisk kamp og Stonehenge).
-- [ ] Fullføre790 resterende figurmastere/853 konkrete ruter; 59 mastermasker for kildebekreftede innbakte ridderdeler og ingen HE-kopier står på restlisten.
+- [ ] Fullføre749 resterende figurmastere/812 konkrete ruter; 59 mastermasker for kildebekreftede innbakte ridderdeler og ingen HE-kopier står på restlisten.
 - [x] Gjøre Math-ansikt, kropp, hår og kappe visuelt sammenhengende i statisk WI1.P-plate og separate Wi1.C-ruter (PR #35).
 - [x] Fjerne hudskjøter fra de to separate MYS-øyefragmentene før aktivering; aktivert lokalt etter14 scene- og30 rutekontroller.
 - [x] Publisere og kontrollere MYS006/007 i standardpakken (PR #34).
@@ -161,7 +161,7 @@
 - [x] Publisere og kontrollere tredje figurleveranse (PR #35, alle433PNG samt281 KN1-/158 KN2-kontroller paa offentlig side).
 - [x] Fullføre LI1/30, HEN/Klift/74, KN5/65, DRAGON1/16, Balok1/28 og TROLL2/2 nye ruter lokalt:178 mastere,215 kilderuter og68 masker,283 nyePNG. Palettblink, LI1-haandens retensjon og eksakt TROLL-likbuffer er kontrollert.
 - [x] Publisere fjerde figurleveranse via PR #36 og groenn CI. Alle283 nyePNG samsvarer offentlig; slutt1507 og LI1/98 kontroller bestaar.
-- [ ] Fortsette resterende drager, Balok, Guardian og resten av790-masterlisten. Uavklarte TROLL-bruksruter beholdes som originalgrafikk til de kan kontrolleres.
+- [ ] Fortsette resterende drager, Balok, Guardian og resten av749-masterlisten. Uavklarte TROLL-bruksruter beholdes som originalgrafikk til de kan kontrolleres.
 
 - [x] Femte lokale figurleveranse: DRAGON2/26, Balok1/15, Guardian/18 og krigsbeist/6, med to manglende riddermasker rettet.1498PNG/1504filer; alle tidligere publiserte PNG-er uendret.
 - [x] Publisere femte figurleveranse: PR #37, groenn CI, alle70PNG offentlig og Guardian220/krigsbeist76/slutt1577 bestaar.
@@ -181,7 +181,7 @@
 
 - [x] Aattende lokale kohort:202 ruter/222 PNG,195 egne fotomaterialmastere,sju bevarte originalruter,20 masker.1963 PNG/1969 filer/82 bakgrunner. Alle1747 tidligere filer uendret.
 - [ ] Publisere008 etter komplett standard-/fil-/kildekontroll og kontrollere samme offentlige HTML, manifest og bilder.
-- [ ] Fullfoere790 resterende mastere,853 konkrete ruter og59 masker; paagaaende009-kandidater telles foerst ved kildeverifisert aktivering.
+- [ ] Fullfoere749 resterende mastere,812 konkrete ruter og59 masker; paagaaende009-kandidater telles foerst ved kildeverifisert aktivering.
 
 ## Oppstart og riddervalg, 12. oktober 2026
 - [x] HD som standard, med bevart uttrykkelig Original-valg.
@@ -209,4 +209,10 @@
 - [x] Skjule kildebekreftet vunnet lair i HD uten å slette loot eller endre originalregler.
 - [x] Lage, pakke og kontrollere ny glatt Moonstone-logo i faktisk tittelbilde.
 - [x] Rette Ratmen063-lauvets grove interne fargelegging og kontrollere faktisk kampvisning.
-- [ ] Fullføre relevant regresjon, PR, grønn CI, Pages og offentlig dynamisk kontroll.
+- [x] Fullføre relevant regresjon, PR43, grønn CI, Pages og111 offentlige nettleserkontroller.
+
+## Blod og sår 2026-10-12
+- [x]41 separate BLO-materialer generert og kildebundet pakket i4x; KN5/65 eksisterende skadefragmenter beholdt.
+- [x] Hele serien visuelt kontrollert,619 kandidatkontroller inklusive normal/speilet, fire klippkanter,13 rødnivåer, fremmed kilde/palett, full lagring og originalkodekamp.
+- [x] Aktivert41 nye PNG-er,2005 PNG/2011 manifestfiler. Restliste749 mastere/812 ruter/59 mastermasker.
+- [ ] Endelig standardpakke, regresjon, PR, grønn CI, Pages og faktisk offentlig BLO-kontroll.
