@@ -200,7 +200,11 @@
         0
       ],
       "source_indices_sha256": "6488fb686b3ab86c8855d7c3fb1e3d0c17609e5f66eb4d6547f0963d397709bb",
-      "runtime_file": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/062.png"
+      "runtime_file": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/062.png",
+      "palette_mask_file": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/062.mask.png",
+      "palette_indices": [
+        13
+      ]
     },
     {
       "key": "TROGGAxe2.CEL/063.png",
@@ -215,7 +219,11 @@
         0
       ],
       "source_indices_sha256": "00926baa2d895a608cdb806cf419e55e6c56311923f4a272cb8b49d513a095f3",
-      "runtime_file": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/063.png"
+      "runtime_file": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/063.png",
+      "palette_mask_file": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/063.mask.png",
+      "palette_indices": [
+        13
+      ]
     },
     {
       "key": "TROGGAxe2.CEL/064.png",
@@ -245,7 +253,13 @@
         0
       ],
       "source_indices_sha256": "2f4985076952f43d7a6d3f10e76391f08b7b42f00cd51702029c0c1209127f30",
-      "runtime_file": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/065.png"
+      "runtime_file": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/065.png",
+      "palette_mask_file": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/065.mask.png",
+      "palette_indices": [
+        11,
+        12,
+        13
+      ]
     },
     {
       "key": "TROGGAxe2.CEL/066.png",
@@ -260,7 +274,13 @@
         0
       ],
       "source_indices_sha256": "1d1d930164e1af9d5d2ce2439aef5de5a4a329d2d3e373e69cb65741c1cbd991",
-      "runtime_file": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/066.png"
+      "runtime_file": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/066.png",
+      "palette_mask_file": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/066.mask.png",
+      "palette_indices": [
+        11,
+        12,
+        13
+      ]
     },
     {
       "key": "TROGGAxe2.CEL/067.png",
@@ -457,5 +477,7 @@
       "source_indices_sha256": "ba5ee9ceb77fd8fbfbff84c0039dd0a5c6f7f873d9e842aeae9a22d69adea320",
       "runtime_file": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/079.png"
     }
-  ]
+  ],
+  "palette_mask_atlas": "spritesheet.mask.png",
+  "palette_mask_format": "R=index+1; G=shade/128; B=palette_mix/255; R0=keep_photo_RGB"
 }
