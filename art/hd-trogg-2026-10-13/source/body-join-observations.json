@@ -1,0 +1,125 @@
+{
+  "status": "original_reference_only_not_HD_approval",
+  "source": "native-trace.txt",
+  "scope": "Search for four source poses; three have rectangle-visible co-occurring parts in this controlled trace. Native draw positions/order only, not skeletal anatomy or per-pixel visibility proof.",
+  "poses": [
+    {
+      "frame": 1263,
+      "body_sprites": [
+        25
+      ],
+      "draws": [
+        {
+          "bank": "TroggAxe1.cel",
+          "sprite": 25,
+          "x": -7,
+          "y": 129,
+          "width": 29,
+          "height": 56,
+          "xoff": 0,
+          "mirror": false,
+          "buffer": "0a2cd6",
+          "caller": "087bf0",
+          "relative_to_first_body": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 1268,
+      "body_sprites": [
+        26
+      ],
+      "draws": [
+        {
+          "bank": "TroggAxe1.cel",
+          "sprite": 26,
+          "x": -8,
+          "y": 129,
+          "width": 36,
+          "height": 55,
+          "xoff": 0,
+          "mirror": false,
+          "buffer": "0a2cd6",
+          "caller": "087bf0",
+          "relative_to_first_body": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 1273,
+      "body_sprites": [
+        27,
+        28
+      ],
+      "draws": [
+        {
+          "bank": "TroggAxe1.cel",
+          "sprite": 27,
+          "x": 0,
+          "y": 129,
+          "width": 26,
+          "height": 33,
+          "xoff": 0,
+          "mirror": false,
+          "buffer": "0a2cd6",
+          "caller": "087bf0",
+          "relative_to_first_body": [
+            0,
+            0
+          ]
+        },
+        {
+          "bank": "TroggAxe1.cel",
+          "sprite": 28,
+          "x": -13,
+          "y": 162,
+          "width": 51,
+          "height": 22,
+          "xoff": 0,
+          "mirror": false,
+          "buffer": "0a2cd6",
+          "caller": "087bf0",
+          "relative_to_first_body": [
+            -13,
+            33
+          ]
+        }
+      ]
+    }
+  ],
+  "missing_visible_pose": [
+    0,
+    1
+  ],
+  "offscreen_0_1_observation": {
+    "frame": 1233,
+    "body0": [
+      -76,
+      103,
+      37,
+      51
+    ],
+    "part1": [
+      -39,
+      129,
+      26,
+      26
+    ],
+    "part1_offset_from_body0": [
+      37,
+      26
+    ],
+    "weapon55": [
+      -64,
+      87,
+      11,
+      16
+    ]
+  }
+}

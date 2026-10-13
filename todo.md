@@ -250,5 +250,5 @@
 - [x] Kontrollere original bevegelse, separate vaapen og terrengpalett; tre kroppsutkast avvist.
 - [x] Lage30 vaapen-/bevegelsesruter med tre materialmastere, fire masker og eksakt spriteatlas.
 - [x] Kandidat483 og standard483, kilde-/maskekontroll264 og atlas30/30. Alle tidligere filer uendret.
-- [ ] UI-regresjon, PR/CI/Pages og faktisk offentlig kontroll av30-rutepakken.
+- [x] UI53/53, PR48 med6/6 byggekontroller, main/Pages/utgivelse5/5 og offentlig517/517. Alle34 nye filer, HTML og manifest byteidentiske.
 - [ ] Full Trogg-kropp: loese originaltro pose/anatomi foer aktivering, deretter full sammenhengende animasjonskontroll.
