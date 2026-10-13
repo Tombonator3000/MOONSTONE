@@ -123,9 +123,10 @@ def validate(delivery):
         else:
             raw = checked(entry['raw'], entry['raw_sha256'])
             checked(entry['prompt'], entry['prompt_sha256'])
-            if entry['generation_tool'] == 'preserved_original_black_shadow':
+            if entry['generation_tool'] in {'preserved_original_black_shadow',
+                                            'preserved_original_black_shape'}:
                 assert set(indices) <= {0, 5} and 5 in indices, 'Annen kilde enn ren svart skygge'
-                # Rene originalskygger har ingen ny fotografisk master. Bare
+                # Rene originalskygger/skaft har ingen fotografisk master. Bare
                 # kildeindeks5 er svart og opak; null er gjennomsiktig.
                 for target, scale in [(source, 4), (raw, None)]:
                     with Image.open(target) as shadow:

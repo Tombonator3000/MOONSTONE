@@ -128,6 +128,37 @@ const SceneHd = (() => {
     }
     const kampFor = new Uint8Array(64000*4);
     const kampIndeks = new Uint8Array(64000), kampVern = new Uint8Array(64000);
+    const kampOriginalVern=new Uint8Array(64000);
+    let troggKopi=null, troggEier=null, troggBilde=-1;
+    const troggBankData=new Map();
+    function observerTrogg() {
+        if (!kampRen || typeof Visning.troggBaktKilde!=='function') return;
+        const bilde=Kjerne.bildeNr();
+        if (bilde<troggBilde) { troggKopi=null; troggEier=null; troggBankData.clear(); }
+        if (bilde===troggBilde) return;
+        troggBilde=bilde;
+        for (const d of Kjerne.tegneliste()) {
+            if (d.caller!==0x087b34) continue;
+            const kilde=Visning.troggBaktKilde(d);
+            if (!kilde) continue;
+            if (!troggKopi) { troggKopi=kampRen.px.slice(); troggEier=new Uint8Array(64000); }
+            troggBankData.set(d.fil.toLowerCase(),kilde.data);
+            const x0=d.x-d.xoff, g=kilde.g;
+            for (let y=0;y<g.h;y++) for (let x=0;x<g.w;x++) {
+                const c=g.px[y*g.w+(d.speilet?g.w-1-x:x)], xx=x0+x, yy=d.y+y;
+                if (!c || xx<0 || xx>=320 || yy<0 || yy>=200) continue;
+                const p=yy*320+xx; troggKopi[p]=c; troggEier[p]=1;
+            }
+        }
+    }
+    function troggKilderStaar() {
+        if (!troggKopi) return false;
+        for (const [fil,data] of troggBankData) {
+            const aktuell=Kjerne.hentFil('data/'+fil);
+            if (!aktuell || aktuell.length!==data.length || !aktuell.every((v,i)=>v===data[i])) return false;
+        }
+        return true;
+    }
     async function huskRenKamp(lag, row) {
         const hash=lag.hash>>>0;
         if (kampRen?.hash===hash || kampVenter===hash) return;
@@ -144,6 +175,7 @@ const SceneHd = (() => {
         kampVenter=null;
         if (hashes[filer.length]===row.sha && hashes.slice(0,filer.length).every((h,i)=>h===filer[i][1])) {
             kampRen={hash,px}; ratmenObservert.clear(); ratmenBilde=-1;
+            troggKopi=null; troggEier=null; troggBilde=-1; troggBankData.clear();
             if (hash===0xe8ac7fc2) klargjorRatmen().catch(()=>{});
         }
     }
@@ -151,19 +183,33 @@ const SceneHd = (() => {
         if (!lag?.bakIdx || lag.bakIdx.length!==64000 || lag.bak?.length!==256000 ||
             lag.forIdx?.length!==64000 || lag.for?.length!==256000 || lag.scene) return null;
         const hash=lag.hash>>>0, row=KAMP_KILDER.get(hash);
-        if (row) { huskRenKamp(lag,row).catch(()=>{}); return null; }
+        if (row) {
+            huskRenKamp(lag,row).catch(()=>{});
+            if (kampRen?.hash===hash) observerTrogg();
+            return null;
+        }
         if (!kampRen) return null;
+        observerTrogg();
+        const trogg=troggKilderStaar();
         if (kampRen.hash===0xe8ac7fc2) observerRatmen();
         const ratmen=ratmenKomposisjon(lag);
         kampVern.fill(0);
+        kampOriginalVern.fill(0);
         let n=0;
         for (let p=0;p<64000;p++) if (lag.bakIdx[p]!==kampRen.px[p]) {
             const c=lag.bakIdx[p], k=p*4, pal=((diw[1]+Math.floor(p/320))*32+c)*4;
+            // Bare observerte087b34-kall fra SHA-bundne Trogg-banker kan
+            // forklare andre bakgrunnsfarger enn blod. Vanlig CEL-eierskap
+            // avgjoer deretter om hver kroppspiksel kan erstattes med HD.
+            if (trogg && troggEier[p] && troggKopi[p]===c) {
+                if (c>=32 || !lag.bak.subarray(k,k+4).every((v,i)=>v===scan.pal[pal+i])) return null;
+                kampVern[p]=1; n++; continue;
+            }
             // Andre effekter, toning og andre paletter faar originalbakgrunnen.
             if ((c!==15 && !(ratmen && c===5)) || scan.pal[pal]!== (c===15?204:0) || scan.pal[pal+1]!==0 ||
                 scan.pal[pal+2]!==0 || scan.pal[pal+3]!==255 || lag.bak[k]!== (c===15?204:0) ||
                 lag.bak[k+1]!==0 || lag.bak[k+2]!==0 || lag.bak[k+3]!==255) return null;
-            kampVern[p]=1; n++;
+            kampVern[p]=1; kampOriginalVern[p]=1; n++;
         }
         if (!n) return null;
         kampFor.set(lag.for); kampIndeks.set(lag.forIdx);
@@ -172,10 +218,10 @@ const SceneHd = (() => {
         }
         // Bakgrunnsindeksene beholdes urort til CEL-eierskapsporten. Originale
         // deltaceller vernes i sin helhet foran HD, ogsaa i transparente figurhull.
-        sist={id:'combat-delta',hash:kampRen.hash.toString(16).padStart(8,'0'),actual_hash:hash.toString(16).padStart(8,'0'),preserved_pixels:n};
-        return {...lag,for:kampFor,forIdx:kampIndeks,hash:kampRen.hash,sceneVern:kampVern,kampDeltaVern:kampVern};
+        sist={id:'combat-delta',hash:kampRen.hash.toString(16).padStart(8,'0'),actual_hash:hash.toString(16).padStart(8,'0'),preserved_pixels:n,trogg_baking:trogg};
+        return {...lag,for:kampFor,forIdx:kampIndeks,hash:kampRen.hash,sceneVern:kampVern,kampDeltaVern:kampOriginalVern};
     }
-    function nullstill() { kampRen=null; kampVenter=null; kampSekvens++; ratmenKilder=null; ratmenVenter=false; ratmenBilde=-1; ratmenObservert.clear(); kilder.clear(); sist = null; rull = null; rullVenter = false; rullSist = 0; kartPort=null; kartPortVenter=false; kartPortKontrollert=false; epoch++; }
+    function nullstill() { kampRen=null; kampVenter=null; kampSekvens++; troggKopi=null; troggEier=null; troggBilde=-1; troggBankData.clear(); ratmenKilder=null; ratmenVenter=false; ratmenBilde=-1; ratmenObservert.clear(); kilder.clear(); sist = null; rull = null; rullVenter = false; rullSist = 0; kartPort=null; kartPortVenter=false; kartPortKontrollert=false; epoch++; }
     async function klargjorRull() {
         if (rull || rullVenter) return;
         const data = RULL_KILDER.map(([fil]) => Kjerne.hentFil('data/' + fil));

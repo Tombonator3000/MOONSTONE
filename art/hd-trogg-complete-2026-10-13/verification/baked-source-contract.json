@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "source_banks": {
+    "TROGGAxe1.CEL": "280c39dff7a81c0c67c6565204920768ef732b7475912357a0a629c9ca061968",
+    "TROGGAxe2.CEL": "ae47bc0e4c616e832eb7e9f2a0887b72376db54ed3a56ff4e36704a7b022e28a",
+    "TROGGSpear1.CEL": "1f6ef71a8b7241104f11a3157a8cf991c5a9b30bf73399e3f1ca1698b2f5bf5d",
+    "TROGGSpear2.CEL": "82bce36f10ef98b7ca1027ec98acfcd444139fcea326a73404290ddba07cb5ff"
+  },
+  "source_caller": "087b34",
+  "target": "0a2cd6",
+  "later_foreground_caller": "087bf0 only after same source/geometry/position bake observed",
+  "body26_retained_at_frame2062": true,
+  "background_HD_at_frame2062": true,
+  "negative_checks": {
+    "baseline_HD": true,
+    "baked_source": true,
+    "wrong_caller": true,
+    "wrong_target": true,
+    "wrong_geometry": true,
+    "fractional_position": true,
+    "unobserved_foreground": true,
+    "foreign_background_pixel": true,
+    "foreign_bank": true,
+    "source_restored": true,
+    "reset_removes_foreground_permission": true,
+    "observed_bake_restores_permission": true,
+    "full_save_unchanged": true
+  },
+  "proof": "verification/baking/report.json",
+  "proof_sha256": "0ebff701be32c4bd27c39eca7b71b61353039fb6839eb04c218e3cc38aa5dad3"
+}

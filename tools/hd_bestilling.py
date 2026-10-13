@@ -28,7 +28,8 @@ Regler:
 
 --maske lager masken til en figur som får fargen fra paletten, i formatet visningen
 leser (docs/hd-grafikk.md, «Farge fra paletten»): R = palettindeks + 1 for
-ridderfargene (indeks 6-11; Math015..020 bare6..10), ellers 0 (behold tegningens farge); G = lysstyrke
+bankens levende felt (riddere6-11, Math015..020 bare6..10, Trogg9..14 og
+innbakte ridderofre6..8), ellers 0 (behold tegningens farge); G = lysstyrke
 (128 = palettfargen); B = 255 der R er satt; alfa 255. Kilden er det indekserte
 bildet fra tools/gfx.py extract, forstørret med nærmeste nabo til 4x, eller til
 målene på HD-tegningen når den er gitt. Med tegningen regnes G ut av lysstyrken i
@@ -88,15 +89,20 @@ KAMP_RIDDER_RUTER = {
 
 def maskefarger(bank, frame):
     """Eksakte levende indeksfelt, uavhengig av den valgte forhåndspaletten."""
-    # Troggens synlige grep/erm paa oekserutene foelger terrengpaletten.
-    # Original088b34..088ba8 bytter9..14; indeks11 er en moerk erm i065/066.
-    if bank.lower() == 'troggaxe2.cel' and frame in {62, 63, 65, 66}:
-        return set(range(9, 15))
+    # Alle Trogg-kropper/grep foelger tre terrengpaletter9..14.
+    # Innbakte ridderofre6..8 maa samtidig beholde spillerens palett.
+    trogg_antall = {'troggaxe1.cel': 37, 'troggaxe2.cel': 80,
+                    'troggspear1.cel': 41, 'troggspear2.cel': 67}
+    if 0 <= frame < trogg_antall.get(bank.lower(), 0):
+        live = set(range(9, 15))
+        if frame in KAMP_RIDDER_RUTER.get(bank.lower(), set()):
+            live.update({6, 7, 8})
+        return live
     # KN5 brukes ogsaa i dragekampen: $088c16 setter faste roedfarger9..15
     # og ild29..31. Riddervelgeren $088ca0 endrer bare6..8, ikke9..11.
     if bank.lower() == 'kn5.ob':
         return {6, 7, 8}
-    # Monsterfarger9..15 og drageild29..31 er faste. Bare6..8 foelger ridderen.
+    # Andre monsterfarger9..15 og drageild29..31 er faste. Bare6..8 foelger ridderen.
     if frame in KAMP_RIDDER_RUTER.get(bank.lower(), set()):
         return {6, 7, 8}
     if bank.lower() in {b.lower() for b in PALETT}:

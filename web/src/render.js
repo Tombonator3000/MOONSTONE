@@ -541,6 +541,10 @@ const Visning = (() => {
     /* kalles etter hvert bilde emulatoren kjorer, med tegnelisten for bildet */
     function nyttBilde(liste) {
         bildeNr++;
+        for (const d of liste) if (d.caller===0x087b34 && d.target===0x0a2cd6 && troggBakteBanker.has(d.fil.toLowerCase())) {
+            if (troggBakteSpor.size>=4096) troggBakteSpor.clear();
+            troggBakteSpor.add(troggBaktNokkel(d));
+        }
         if (liste.length) {
             // Egen kopi: en nyere pil maa ogsaa kunne avlyse en eldre pil i koeen.
             liste = liste.map((d) => erTittelmenypil(d) ? { ...d, menypilNr: ++nyesteMenypil, menypilBilde: bildeNr } : d);
@@ -601,7 +605,28 @@ const Visning = (() => {
         [67, [30, 3, '833664288514e5549c238a8107903ba599f3fcd2cd94685c2f4a5bdf8e8d0be9']],
         [68, [54, 4, '081ac0dd193d015665a3f1783d6f79300c93339a0f73244c52db8ff4b362c98c']]
     ]);
+    // Original087b34 baker Troggens blod, vaapen og likdeler i kampkopien.
+    // Bare disse komplette originalbankene og det faktiske bakekallet gjelder.
+    const troggBakteBanker = new Map([
+        ['troggaxe1.cel','280c39dff7a81c0c67c6565204920768ef732b7475912357a0a629c9ca061968'],
+        ['troggaxe2.cel','ae47bc0e4c616e832eb7e9f2a0887b72376db54ed3a56ff4e36704a7b022e28a'],
+        ['troggspear1.cel','1f6ef71a8b7241104f11a3157a8cf991c5a9b30bf73399e3f1ca1698b2f5bf5d'],
+        ['troggspear2.cel','82bce36f10ef98b7ca1027ec98acfcd444139fcea326a73404290ddba07cb5ff']
+    ]);
+    const troggBakteSpor=new Set();
+    const troggBaktNokkel=d=>[d.fil.toLowerCase(),d.bilde,d.x-d.xoff,d.y,d.w,d.h,!!d.speilet].join('/');
+    function troggBaktKilde(d, g) {
+        const navn=d.fil.toLowerCase(), forventet=troggBakteBanker.get(navn);
+        const kall=d.caller===0x087b34 || (d.caller===0x087bf0 && troggBakteSpor.has(troggBaktNokkel(d)));
+        if (!forventet || !kall || d.target!==0x0a2cd6 ||
+            !Number.isInteger(d.x-d.xoff) || !Number.isInteger(d.y)) return null;
+        const gjeldende=g || originalCel(d.fil,new Map())?.[d.bilde];
+        if (!gjeldende || gjeldende.w!==d.w || gjeldende.h!==d.h) return null;
+        const bank=originalCeler.get(navn);
+        return bank?.bilder[d.bilde]===gjeldende && bankHash(bank).hash===forventet ? {g:gjeldende,data:bank.data} : null;
+    }
     function erBaktKamp(d, g) {
+        if (troggBaktKilde(d, g)) return true;
         if (erBaktTroll(d, g)) return true;
         const c = bakteBalokKilder.get(d.bilde);
         return d.fil.toLowerCase() === 'balok1.cel' && c && g &&
@@ -880,6 +905,7 @@ const Visning = (() => {
                                 return g;
                             });
                             originalCeler.set(navn, { data, bilder });
+                            if (troggBakteBanker.has(navn)) bankHash(originalCeler.get(navn));
                             forvarmPoseIndekser(navn, bilder);
                             // SHA er asynkron. Start de faste kampbevisene ved
                             // banklesing, foer engangstegnet broelepose kommer.
@@ -2319,7 +2345,7 @@ const Visning = (() => {
 
     return {
         init, tegn, nyttBilde, tilpass, settFilter, settFormat, settHelt, settEffekter, bildeTilPng, lastHdPakke, tomHdPakke, fjernHdBilde,
-        nullstillScene: () => { plasserte.clear(); visteListe = []; klynger = []; bildeNr = 0; sistTegnet = -99; sisteBakHash = -1; },
+        nullstillScene: () => { plasserte.clear(); troggBakteSpor.clear(); visteListe = []; klynger = []; bildeNr = 0; sistTegnet = -99; sisteBakHash = -1; },
         tekstPlasseringer: () => visteListe.filter(d => /^(bold\.f|small\.font)$/i.test(d.fil)),
         lesbarTekst: () => visteListe.filter(d => hdTegnbare.has(d)).flatMap(d => {
             const t=hdPakke.get(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'));
@@ -2351,6 +2377,7 @@ const Visning = (() => {
         hdFigurer: (alle) => visteListe.filter((d) => alle || hdTegnbare.has(d)).map((d) => ({ fil: d.fil, bilde: d.bilde,
             x: d.x - d.xoff, y: d.y, w: d.w, h: d.h, speilet: !!d.speilet, hd: hdTegnbare.has(d), maske: hdFigurMaske.has(d) })),
         hdMasker: () => hdMasker.size,
+        troggBaktKilde,
         li1NormalPalett: (scan,diw) => !!scan?.gyldig && scan.pal?.length===32*H*4 &&
             Number.isInteger(diw?.[1]) && diw[1]>=0 && diw[1]+200<=H &&
             Array.from({length:200},(_,y)=>y+diw[1]).every(y=>palettFigurToning('li1.cel',scan.pal,y)!==null),

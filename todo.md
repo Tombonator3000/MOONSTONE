@@ -251,4 +251,7 @@
 - [x] Lage30 vaapen-/bevegelsesruter med tre materialmastere, fire masker og eksakt spriteatlas.
 - [x] Kandidat483 og standard483, kilde-/maskekontroll264 og atlas30/30. Alle tidligere filer uendret.
 - [x] UI53/53, PR48 med6/6 byggekontroller, main/Pages/utgivelse5/5 og offentlig517/517. Alle34 nye filer, HTML og manifest byteidentiske.
-- [ ] Full Trogg-kropp: loese originaltro pose/anatomi foer aktivering, deretter full sammenhengende animasjonskontroll.
+- [x] Full Trogg-materialserie:225 ruter/163 kildeformer,195 nye ruter,151 masker og fire kildebundne atlas. Hele kroppen, spyd, treff/død og ofre er med;9 unike svarte originalformer bevares. Ingen uavhengig anatomisk nytegning påstås.
+- [x] Kandidat3273/3273, paletter638/638 for alle151masker, kildekontroll489 og galleri225/450.
+- [x] Full Trogg: endelig standard1128, bakte lik80, UI53, BLO619 og Ratmen26. Alle72 kampfangster beholder HD-bakgrunn, alle225ruter/151masker består aktiv sluttport.
+- [ ] Full Trogg: PR, grønn CI, Pages og offentlig verifikasjon.
