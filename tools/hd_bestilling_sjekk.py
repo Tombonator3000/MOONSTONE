@@ -184,7 +184,8 @@ def main():
                 packed = mf.plan_til_indeks(original['data'], original['plan'], original['bredde'], original['hoyde'])
                 indices = bestilling.utvid_indekser(packed, original['maske'])
                 if not set(indices) & {6, 7, 8}:
-                    assert bestilling.maskefarger(bank, nr) == set()
+                    terrain_grip = bank.lower() == 'troggaxe2.cel' and nr in {62, 63, 65, 66}
+                    assert bestilling.maskefarger(bank, nr) == (set(range(9, 15)) if terrain_grip else set())
                     continue
                 found.add(nr)
                 source = temp / bank / ('%03d.png' % nr)
@@ -201,6 +202,30 @@ def main():
             assert bestilling.maskefarger(bank, 10000) == set()
         assert monster_masker == 107
         kontroller += 3 + monster_masker + len(bestilling.KAMP_RIDDER_RUTER) * 2
+
+        # Troggens haand/erm skifter med terrenget, ikke riddervalget.
+        # Bind dette til originalens tre palettgrener og alle fire grepkilder.
+        assert mog[0x8b40:0x8b5c] == bytes.fromhex('30fc002530fc000430fc000130fc083030fc040030fc0f8030bc0c00')
+        assert mog[0x8b6c:0x8b88] == bytes.fromhex('30fc010430fc010230fc000030fc060030fc030030fc069330bc0c00')
+        assert mog[0x8b8c:0x8ba8] == bytes.fromhex('30fc050030fc020030fc000030fc0b4030fc061030fc089530bc0c00')
+        trogg = mf.cel_les(spill.les('TROGGAxe2.CEL'))[0]
+        for nr in [62, 63, 65, 66]:
+            b = trogg[nr]
+            packed = mf.plan_til_indeks(b['data'], b['plan'], b['bredde'], b['hoyde'])
+            ix = bestilling.utvid_indekser(packed, b['maske'])
+            assert set(ix) & {11, 12, 13}
+            source = temp / 'TROGGAxe2.CEL' / ('%03d.png' % nr)
+            source.parent.mkdir(exist_ok=True)
+            gfx.lagre_png(str(source), packed, b['bredde'], b['hoyde'], pal)
+            with contextlib.redirect_stdout(io.StringIO()):
+                bestilling.lag_maske(str(source), str(ut), spill_sti=str(spill_sti))
+            expected = Image.new('RGBA', (b['bredde'], b['hoyde']))
+            expected.putdata([(v+1,128,255,255) if 9 <= v <= 14 else (0,0,0,255) for v in ix])
+            expected = expected.resize((b['bredde']*4,b['hoyde']*4),Image.Resampling.NEAREST)
+            assert Image.open(ut).tobytes() == expected.tobytes()
+        assert bestilling.maskefarger('TROGGAxe2.CEL', 55) == set()
+        assert bestilling.maskefarger('TROGGAxe2.CEL', 79) == set()
+        kontroller += 9
 
         csv_sti = temp / 'bestilling.csv'
         resultat = subprocess.run([sys.executable, str(rot / 'tools/hd_bestilling.py'),

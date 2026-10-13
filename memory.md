@@ -562,6 +562,10 @@ RATMEN1.CEL063 er et44x35-lauvfragment som gjenbrukes med terrengets globale pal
 - tools/hd_blod_sjekk.cjs skiller kontrollert original Troll-kamp fra frontendfragmentfixturer. Native CPU ser27 BLO-ruter; nettleserkampen18 synlig HD-godkjente. Hele41 normal/speilet, fire klippkanter,13 fader, fremmed bank/palett og full save/retur prøves. Ingen full naturlig kampanje påstås.
 - Produksjon/brief/proveniens: art/hd-blood-wounds-2026-10-12. Aktivering krever full runtime- og visuell SHA-kvittering. Etter denne leveransen:2005PNG/2011filer,749 manglende mastere/812ruter/59mastermasker. Separate009-kandidater er fortsatt uaktivert her.
 
+## Monsterforarbeid 2026-10-12
+
+Original dg1.cel er ritualdanserne i sluttseremonien, ikke et groent beist/kampmonster. Faktisk original sluttgren er kontrollert med bare originalt seiersflagg ved oppstart; bilde1750, kommando og filspor i art/monster-concepts-2026-10-12/source. Den gamle klassifiseringen er rettet i tools/grafikkliste.py, docs/grafikkliste.md og tools/hd_bestilling.py. Trogg-hammer er et eget vaapen i TROGGAxe2.CEL069 og073..079, med samme kroppsbank som oeksen. Elleve konsepter/individuell analyse i art/monster-concepts-2026-10-12 er kun forarbeid, ikke aktive spritesheets. Dragens komplette anatomi og Guardians faseinndeling maa kildeverifiseres samlet foer full konvertering.
+
 ## Månen, Ratmen og sykdom (12. oktober 2026)
 - Alt står i docs/undersokelser/maane.md. Verktøy: tools/maane.py (fasene) og tools/maane_kamp.py (stein, Ratmen, smitte, sykdom i ekte kamp i lair 0).
 - Fast mem: Ratmen og de andre kampfigurene ligger over $200000. Bruk mem_read8/16, ikke chip[], når en peker kan gå dit.
@@ -569,3 +573,8 @@ RATMEN1.CEL063 er et44x35-lauvfragment som gjenbrukes med terrengets globale pal
 - Sykdom trekkes i sub_080704, som bare kalles ved faseskifte.
 - Valget game_maaneregler lagres i delen MAAN. En lagring vinner over --maaneregler, så fixturer for valget må lages med flagget.
 - --vakt tar bare én adresse (siste vinner).
+
+
+## Trogg-vaapen 2026-10-13
+
+TROGGAxe2.CEL050..079 har30 aktive kildebundne HD-ruter fra tre genererte materialmastere (oeks/grep/hammer). Det er ikke30 separate AI-nytegninger eller full Trogg-kropp. weapons.py bevarer original alfa/origo/materialindekser og bruker bare nytt foto for RGB. Original088b34..088ba8 skifter Trogg-palett9..14 etter terrenget; grep062/063/065/066 har egne masker, inklusive indeks11-erm. Disse grepene er ikke ridderofre. Tre kroppsforsoek025 ble avvist for form/identitet og aktiveres ikke. Produksjonsmappe art/hd-trogg-2026-10-13; spriteatlaset er eksport/inspeksjon, mens runtime bruker separate PNG-er. Etter lokal aktivering2039PNG/2045filer,719mastere/782ruter/59mastermasker gjenstår. Kjerne og alle2011 tidligere manifestfiler er uendret fra innflettet mainfa076e78.

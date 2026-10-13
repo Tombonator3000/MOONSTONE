@@ -1,0 +1,71 @@
+{
+  "key": "TROGGAxe2.CEL/075.png",
+  "bank": "TROGGAxe2.CEL",
+  "frame": 75,
+  "width": 41,
+  "height": 16,
+  "plane_mask": 7,
+  "source_bank_sha256": "ae47bc0e4c616e832eb7e9f2a0887b72376db54ed3a56ff4e36704a7b022e28a",
+  "indices_sha256": "3934761744c1803237b4f63975f217323f233e243241f5cc73e5d97dedb86922",
+  "reference": "source/TROGGAxe2.CEL-075.png",
+  "pose": "source/TROGGAxe2.CEL-075-pose.png",
+  "live_indices": [],
+  "png": "art/hd-trogg-2026-10-13/weapons/TROGGAxe2.CEL/075.png",
+  "png_sha256": "7c4edbc5ec16235817bd0905f6880b88fd9fad472209993fc71d4873279a110d",
+  "candidate_sha256": "7c4edbc5ec16235817bd0905f6880b88fd9fad472209993fc71d4873279a110d",
+  "material_master_count": 3,
+  "materials": {
+    "iron": {
+      "raw": "raw/TROGGAxe2.CEL-055.png",
+      "raw_sha256": "52f6e6f29425ce44fa6c3ec7289ea3346f2b3deef03b0929a17d9bd039c675b1",
+      "pixel_box": [
+        603,
+        408,
+        863,
+        650
+      ],
+      "prompt": "prompts/TROGGAxe2.CEL-055.txt",
+      "prompt_sha256": "a3af4c0feed28beb602cc5bfe7ed7609060f36b412d0257e1badd275ac7caa8d"
+    },
+    "wood": {
+      "raw": "raw/TROGGAxe2.CEL-066.png",
+      "raw_sha256": "731f813576deea5052107ddada4491cb82a25567c9f57d26021f3c4e511e2329",
+      "pixel_box": [
+        415,
+        353,
+        458,
+        753
+      ],
+      "prompt": "prompts/TROGGAxe2.CEL-066.txt",
+      "prompt_sha256": "7ca15599e092741e3645663f446623b8e4eac446a5bbf5d6544ec0921d9db649"
+    },
+    "skin": {
+      "raw": "raw/TROGGAxe2.CEL-066.png",
+      "raw_sha256": "731f813576deea5052107ddada4491cb82a25567c9f57d26021f3c4e511e2329",
+      "pixel_box": [
+        365,
+        897,
+        481,
+        980
+      ],
+      "prompt": "prompts/TROGGAxe2.CEL-066.txt",
+      "prompt_sha256": "7ca15599e092741e3645663f446623b8e4eac446a5bbf5d6544ec0921d9db649"
+    },
+    "hammer": {
+      "raw": "raw/TROGGAxe2.CEL-069.png",
+      "raw_sha256": "46808e6f05c1e74afa5b0c80c90c83f30800b33cd55360b79b18632a50825bb8",
+      "pixel_box": [
+        243,
+        233,
+        874,
+        440
+      ],
+      "prompt": "prompts/TROGGAxe2.CEL-069.txt",
+      "prompt_sha256": "b75c878a1e14d5862560807fe7e22f8e4db6d201aea7d4edb9fa3efc65abff92"
+    }
+  },
+  "source_midpoints_checked": 656,
+  "source_midpoint_errors": [],
+  "method": "Felles genererte metall/tre/hudmaterialer, originale del-/materialindekser og avrundet kildekontur. 30 kildebundne ruter, ikke 30 uavhengige AI-tegninger. Ingen original RGB er oppskalert.",
+  "runtime_status": "pending"
+}

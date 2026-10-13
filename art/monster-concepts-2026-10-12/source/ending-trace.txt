@@ -1,0 +1,45 @@
+slave: versjon 11, flagg 0002, BaseMem 0b1000, ExpMem 079000, mappe 'data'
+whdload: LoadFileDecrunch data/program -> 080000 (60472 byte)
+whdload: Relocate 080000: 109484 byte
+whdload: Patch 3000ee -> 080000
+whdload: LoadFileDecrunch data/bold.f -> 270000 (12133 byte)
+whdload: LoadFileDecrunch data/message.piv -> 21adb0 (3694 byte)
+whdload: LoadFileDecrunch data/bg5.piv -> 270000 (16586 byte)
+whdload: LoadFileDecrunch data/bg5a.piv -> 270000 (25442 byte)
+whdload: LoadFileDecrunch data/bg3.piv -> 270000 (20984 byte)
+whdload: LoadFileDecrunch data/bg2a.piv -> 270000 (21170 byte)
+whdload: LoadFileDecrunch data/bg7.piv -> 270000 (13969 byte)
+whdload: LoadFileDecrunch data/bg8.piv -> 270000 (13194 byte)
+whdload: LoadFileDecrunch data/dg1.cel -> 270000 (22377 byte)
+whdload: LoadFileDecrunch data/li1.cel -> 270000 (14724 byte)
+whdload: LoadFileDecrunch data/ha1.cel -> 270000 (11898 byte)
+whdload: LoadFileDecrunch data/co1.cel -> 270000 (8652 byte)
+whdload: LoadFileDecrunch data/da1.cel -> 270000 (4440 byte)
+whdload: LoadFileDecrunch data/klift1.cel -> 270000 (12927 byte)
+whdload: LoadFileDecrunch data/ov1.cel -> 270000 (11357 byte)
+whdload: LoadFileDecrunch data/co.stile -> 099c48 (960 byte)
+whdload: LoadFileDecrunch data/vmusic.cmp -> 027500 (60994 byte)
+whdload: LoadFileDecrunch data/mog -> 080000 (170932 byte)
+whdload: Relocate 080000: 198580 byte
+whdload: Patch 300234 -> 080000
+whdload: LoadFileDecrunch data/message.piv -> 2496ca (3694 byte)
+whdload: LoadFileDecrunch data/bold.f -> 270000 (12133 byte)
+whdload: LoadFileDecrunch data/Re.a -> 04e9c8 (55588 byte)
+whdload: LoadFileDecrunch data/Small.font -> 270000 (1035 byte)
+whdload: LoadFileDecrunch data/ch.piv -> 24a538 (9718 byte)
+whdload: LoadFileDecrunch data/collide.hit -> 24cf7e (8360 byte)
+whdload: LoadFileDecrunch data/ki.cel -> 270000 (11991 byte)
+whdload: LoadFileDecrunch data/mi.c -> 270000 (4810 byte)
+whdload: LoadFileDecrunch data/po.cel -> 270000 (97 byte)
+whdload: LoadFileDecrunch data/kn1.ob -> 270000 (20760 byte)
+whdload: LoadFileDecrunch data/kn2.ob -> 270000 (8582 byte)
+whdload: LoadFileDecrunch data/kn3.ob -> 270000 (11113 byte)
+whdload: LoadFileDecrunch data/kn4.ob -> 270000 (1600 byte)
+whdload: LoadFileDecrunch data/blo.cel -> 270000 (2099 byte)
+whdload: LoadFileDecrunch data/kn.a -> 00a020 (22520 byte)
+whdload: LoadFileDecrunch data/Test -> 20c350 (198745 byte)
+whdload: LoadFileDecrunch data/Sel.cel -> 270000 (8229 byte)
+Ferdig etter 6000 bilder, PC=08190e SR=2004
+INTENA=606a INTREQ=0000 DMACON=07e0 COP1LC=07f6ae BPLCON0=5200 DIW=2c81/f4c1 DDF=0038/00d0
+vektorer: 64=09b0e8 68=09b130 6c=09b25e 70=0add30 74=09b378 78=09b3b0 7c=000000
+CIA-A: icr=00 mask=08 cra=00 crb=00 ta=ffff/ffff  CIA-B: icr=00 mask=00 cra=00 crb=00 ta=ffff/ffff
