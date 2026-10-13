@@ -573,3 +573,8 @@ Original dg1.cel er ritualdanserne i sluttseremonien, ikke et groent beist/kampm
 - Sykdom trekkes i sub_080704, som bare kalles ved faseskifte.
 - Valget game_maaneregler lagres i delen MAAN. En lagring vinner over --maaneregler, så fixturer for valget må lages med flagget.
 - --vakt tar bare én adresse (siste vinner).
+
+
+## Trogg-vaapen 2026-10-13
+
+TROGGAxe2.CEL050..079 har30 aktive kildebundne HD-ruter fra tre genererte materialmastere (oeks/grep/hammer). Det er ikke30 separate AI-nytegninger eller full Trogg-kropp. weapons.py bevarer original alfa/origo/materialindekser og bruker bare nytt foto for RGB. Original088b34..088ba8 skifter Trogg-palett9..14 etter terrenget; grep062/063/065/066 har egne masker, inklusive indeks11-erm. Disse grepene er ikke ridderofre. Tre kroppsforsoek025 ble avvist for form/identitet og aktiveres ikke. Produksjonsmappe art/hd-trogg-2026-10-13; spriteatlaset er eksport/inspeksjon, mens runtime bruker separate PNG-er. Etter lokal aktivering2039PNG/2045filer,719mastere/782ruter/59mastermasker gjenstår. Kjerne og alle2011 tidligere manifestfiler er uendret fra innflettet mainfa076e78.

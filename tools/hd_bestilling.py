@@ -88,6 +88,10 @@ KAMP_RIDDER_RUTER = {
 
 def maskefarger(bank, frame):
     """Eksakte levende indeksfelt, uavhengig av den valgte forhåndspaletten."""
+    # Troggens synlige grep/erm paa oekserutene foelger terrengpaletten.
+    # Original088b34..088ba8 bytter9..14; indeks11 er en moerk erm i065/066.
+    if bank.lower() == 'troggaxe2.cel' and frame in {62, 63, 65, 66}:
+        return set(range(9, 15))
     # KN5 brukes ogsaa i dragekampen: $088c16 setter faste roedfarger9..15
     # og ild29..31. Riddervelgeren $088ca0 endrer bare6..8, ikke9..11.
     if bank.lower() == 'kn5.ob':

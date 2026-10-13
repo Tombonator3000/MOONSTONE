@@ -243,3 +243,12 @@
 - [ ] Vis manual-, joystick- og månefasebildene fra arkivet i hjelpen på nettsiden.
 - [ ] Duell i Hver for seg: forsvarerens ridder overskrives med kopien fra angriperens maskin, som kan være noen sekunder gammel.
 - [ ] Standard-HD holder et 2D-lerret per figur i minnet (rundt 180 MB). Sjekk på iPhone.
+
+
+## Trogg-produksjon 2026-10-13
+- [x] Bevare konsept-/kildearbeidet og ta inn mainfa076e78 sine spillrettinger.
+- [x] Kontrollere original bevegelse, separate vaapen og terrengpalett; tre kroppsutkast avvist.
+- [x] Lage30 vaapen-/bevegelsesruter med tre materialmastere, fire masker og eksakt spriteatlas.
+- [x] Kandidat483 og standard483, kilde-/maskekontroll264 og atlas30/30. Alle tidligere filer uendret.
+- [ ] UI-regresjon, PR/CI/Pages og faktisk offentlig kontroll av30-rutepakken.
+- [ ] Full Trogg-kropp: loese originaltro pose/anatomi foer aktivering, deretter full sammenhengende animasjonskontroll.

@@ -1,0 +1,76 @@
+{
+  "tool": "Built-in ChatGPT image generator",
+  "exact_model_version": "not_exposed",
+  "calls": [
+    {
+      "raw": "rejected/TROGGAxe1.CEL-025-v1.png",
+      "prompt": "rejected/TROGGAxe1.CEL-025-v1-prompt.txt",
+      "raw_sha256": "74ed0cd1584611385ac98a22ee87e046912a60b2d0d28495c60a93e722f042b8",
+      "prompt_sha256": "cb38102d97a78f11eac691963057047e1931e01c5a85621f94f657d8415942e7",
+      "status": "rejected",
+      "reason": "Kroppsform/foetter avviker",
+      "references": [
+        "source/TROGGAxe1.CEL-025-pose.png",
+        "../monster-concepts-2026-10-12/concepts/trogg-axe.png"
+      ]
+    },
+    {
+      "raw": "rejected/TROGGAxe1.CEL-025-v2.png",
+      "prompt": "prompts/TROGGAxe1.CEL-025-v2.txt",
+      "raw_sha256": "0832159f6db4eef57f37e5445abbd776f2425a43ebf0b134d771fc80575f8937",
+      "prompt_sha256": "f1644ba936a0ae897c2f6c4f2e562ab9b0a86079c90c1ca5b943130a9dd42d9e",
+      "status": "rejected",
+      "reason": "Kontur og bein avviker fortsatt",
+      "references": [
+        "source/TROGGAxe1.CEL-025-pose.png",
+        "rejected/TROGGAxe1.CEL-025-v1.png"
+      ]
+    },
+    {
+      "raw": "rejected/TROGGAxe1.CEL-025-v3.png",
+      "prompt": "rejected/TROGGAxe1.CEL-025-v3-prompt.txt",
+      "raw_sha256": "ddcc9edd3f189aeab82ce4be7200f34ea8d6f53da6cc96ccb99396ea94c3a970",
+      "prompt_sha256": "6d3e88d392aa0f40d1ff6db6947f7a5db5d91da229440ce48a8666a69f46cbb3",
+      "status": "rejected",
+      "reason": "Feil hjelm-/ansiktsidentitet",
+      "references": [
+        "source/TROGGAxe1.CEL-025-pose.png"
+      ]
+    },
+    {
+      "raw": "raw/TROGGAxe2.CEL-055.png",
+      "prompt": "prompts/TROGGAxe2.CEL-055.txt",
+      "raw_sha256": "52f6e6f29425ce44fa6c3ec7289ea3346f2b3deef03b0929a17d9bd039c675b1",
+      "prompt_sha256": "a3af4c0feed28beb602cc5bfe7ed7609060f36b412d0257e1badd275ac7caa8d",
+      "status": "selected_material_master",
+      "reason": "Iron used as bounded surface, not its free silhouette",
+      "references": [
+        "source/TROGGAxe2.CEL-055-pose.png"
+      ]
+    },
+    {
+      "raw": "raw/TROGGAxe2.CEL-066.png",
+      "prompt": "prompts/TROGGAxe2.CEL-066.txt",
+      "raw_sha256": "731f813576deea5052107ddada4491cb82a25567c9f57d26021f3c4e511e2329",
+      "prompt_sha256": "7ca15599e092741e3645663f446623b8e4eac446a5bbf5d6544ec0921d9db649",
+      "status": "selected_material_master",
+      "reason": "Dark wood and orange-brown skin material",
+      "references": [
+        "source/TROGGAxe2.CEL-066-pose.png"
+      ]
+    },
+    {
+      "raw": "raw/TROGGAxe2.CEL-069.png",
+      "prompt": "prompts/TROGGAxe2.CEL-069.txt",
+      "raw_sha256": "46808e6f05c1e74afa5b0c80c90c83f30800b33cd55360b79b18632a50825bb8",
+      "prompt_sha256": "b75c878a1e14d5862560807fe7e22f8e4db6d201aea7d4edb9fa3efc65abff92",
+      "status": "selected_material_master",
+      "reason": "Hammer iron material",
+      "references": [
+        "source/TROGGAxe2.CEL-069-pose.png"
+      ]
+    }
+  ],
+  "selected_masters": 3,
+  "rejected_figure_attempts": 3
+}
