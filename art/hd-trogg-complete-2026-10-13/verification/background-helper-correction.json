@@ -1,0 +1,8 @@
+{
+  "status": "test_helper_corrected_product_unchanged",
+  "cause": "Combat helper called StandardHd.oppdater with raw Kjerne.lag hash before SceneHd.korriger. Actual app.js1551..1553 renders corrected scene and then loads Visning.lagNaa hash.",
+  "correction": "Use same corrected render and Visning.lagNaa hash order as app. All225 sprite route checks remain valid in frozen candidate; standard encounter rerun after helper correction.",
+  "previous_report": "verification/standard-raw-background-hash-helper/report.json",
+  "original_background_capture_count": 18,
+  "scope": "The old helper captures cannot establish a product background regression."
+}
