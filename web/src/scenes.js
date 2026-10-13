@@ -131,20 +131,22 @@ const SceneHd = (() => {
     const kampOriginalVern=new Uint8Array(64000);
     let troggKopi=null, troggEier=null, troggBilde=-1, kampSistHash=null, kampTilstand=-1;
     const troggBankData=new Map();
-    function nullstillTroggKamp() {
+    let troggVenterKall=[];
+    function nullstillTroggKamp(beholdNye=false) {
         troggKopi=null; troggEier=null; troggBilde=-1; troggBankData.clear();
-        Visning.nullstillBaktTrogg?.();
+        troggVenterKall=[]; Visning.nullstillBaktTrogg?.(beholdNye);
     }
     function observerTrogg() {
         if (!kampRen || typeof Visning.troggBaktKilde!=='function') return;
         const bilde=Kjerne.bildeNr();
         if (bilde<troggBilde) { troggKopi=null; troggEier=null; troggBankData.clear(); }
-        if (bilde===troggBilde) return;
         troggBilde=bilde;
-        for (const d of Kjerne.tegneliste()) {
-            if (d.caller!==0x087b34) continue;
+        const nye=Visning.hentTroggBakteKall?.() || [];
+        const vent=troggVenterKall.concat(nye.map(d=>({d,fra:bilde}))).slice(-2048);
+        troggVenterKall=[];
+        for (const {d,fra} of vent) {
             const kilde=Visning.troggBaktKilde(d);
-            if (!kilde) continue;
+            if (!kilde) { if(bilde-fra<=50)troggVenterKall.push({d,fra}); continue; }
             if (!troggKopi) { troggKopi=kampRen.px.slice(); troggEier=new Uint8Array(64000); }
             troggBankData.set(d.fil.toLowerCase(),kilde.data);
             const x0=d.x-d.xoff, g=kilde.g;
@@ -192,7 +194,7 @@ const SceneHd = (() => {
         if (row) {
             // En ny ren kopi avslutter forrige komposisjon, ogsaa ved samme
             // arenahash. Sammenhengende rene bilder skal ikke slette nye kall.
-            if (nyRen) nullstillTroggKamp();
+            if (nyRen) nullstillTroggKamp(true);
             huskRenKamp(lag,row).catch(()=>{});
             if (kampRen?.hash===hash) observerTrogg();
             return null;
@@ -230,7 +232,7 @@ const SceneHd = (() => {
         sist={id:'combat-delta',hash:kampRen.hash.toString(16).padStart(8,'0'),actual_hash:hash.toString(16).padStart(8,'0'),preserved_pixels:n,trogg_baking:trogg};
         return {...lag,for:kampFor,forIdx:kampIndeks,hash:kampRen.hash,sceneVern:kampVern,kampDeltaVern:kampOriginalVern};
     }
-    function nullstill() { kampRen=null; kampVenter=null; kampSekvens++; troggKopi=null; troggEier=null; troggBilde=-1; troggBankData.clear(); kampSistHash=null; kampTilstand=-1; Visning.nullstillBaktTrogg?.(); ratmenKilder=null; ratmenVenter=false; ratmenBilde=-1; ratmenObservert.clear(); kilder.clear(); sist = null; rull = null; rullVenter = false; rullSist = 0; kartPort=null; kartPortVenter=false; kartPortKontrollert=false; epoch++; }
+    function nullstill() { kampRen=null; kampVenter=null; kampSekvens++; troggKopi=null; troggEier=null; troggBilde=-1; troggBankData.clear(); troggVenterKall=[]; kampSistHash=null; kampTilstand=Kjerne.tilstandRevisjon?.()??0; ratmenKilder=null; ratmenVenter=false; ratmenBilde=-1; ratmenObservert.clear(); kilder.clear(); sist = null; rull = null; rullVenter = false; rullSist = 0; kartPort=null; kartPortVenter=false; kartPortKontrollert=false; epoch++; }
     async function klargjorRull() {
         if (rull || rullVenter) return;
         const data = RULL_KILDER.map(([fil]) => Kjerne.hentFil('data/' + fil));
@@ -489,5 +491,8 @@ const SceneHd = (() => {
             hdRect: valgt.uv_rect || rect, scene: valgt.id, hdBackgroundOriginal,
             overlays: [...faste,...ikoner.map(m=>({key:m.key,rect:m.draw_rect||m.rect,uv_rect:[0,0,1,1],foreground:true}))], sceneVern: avvik };
     }
+    Kjerne.vedTilstandLastet?.(revisjon=>{
+        nullstillTroggKamp(); kampSistHash=null; kampTilstand=revisjon;
+    });
     return { korriger, nullstill, info: () => sist, matcher: () => sisteMatcher.slice() };
 })();

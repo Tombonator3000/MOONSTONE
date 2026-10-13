@@ -1,0 +1,34 @@
+{
+  "status": "passed_local_timing_and_batched_combat",
+  "created_at": "2026-10-13T08:54:23.950956+00:00",
+  "targeted_checks": 102,
+  "batched_encounter_checks": 221,
+  "batched_captures": 71,
+  "all_batched_backgrounds_HD": true,
+  "encounters": [
+    {
+      "mode": "axe",
+      "observed_routes": 57,
+      "captures": 21
+    },
+    {
+      "mode": "hammer",
+      "observed_routes": 58,
+      "captures": 23
+    },
+    {
+      "mode": "spear",
+      "observed_routes": 64,
+      "captures": 27
+    }
+  ],
+  "html_sha256": "944efde5af67fb2f1daf3756d0c8541b796f30422abc94329397572550b1e99f",
+  "source_code_sha256": {
+    "web/src/core.js": "94472a2785af5dcbbcdcc4251fea4ad717ff99ed81cead03ca725a16b8f9d0a1",
+    "web/src/render.js": "209b912a731d8dbad78f1fa232962596c84c547e43687d23546ce4dd653ec7d6",
+    "web/src/scenes.js": "ab477c92017189c3ae0900fff7bc85740702a580cf84dc80ee64c4aaff9f6c22"
+  },
+  "manifest_sha256": "ccaca7a47aa8ef606f8d659b150a99bc025f0e8d155a18825e605696e44bbd94",
+  "graphics_and_native_core_unchanged_from_PR50": true,
+  "scope": "Real original CPU encounters with four native frames per display render; reset fixtures separate. No complete natural campaign or physical mobile test."
+}

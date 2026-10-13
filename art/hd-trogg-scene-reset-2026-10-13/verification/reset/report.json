@@ -83,7 +83,9 @@
     "baking_negative_source_blood_fixture_found",
     "baking_negative_new_bake_can_own_blood",
     "baking_negative_frontend_probes_full_save_unchanged",
+    "baking_negative_native_draw_list_exists_before_load",
     "baking_negative_successful_load",
+    "baking_negative_load_invalidates_previous_native_draw_list",
     "baking_negative_load_revision_increased",
     "baking_negative_load_keeps_core_checksum",
     "baking_negative_later_frame_load_restores_original_blood_protection",
@@ -92,11 +94,12 @@
     "baking_negative_reset_removes_foreground_permission",
     "baking_negative_observed_bake_restores_permission",
     "baking_negative_failed_load_and_cache_probes_full_save_unchanged",
+    "baking_negative_next_native_frame_restores_draw_list",
     "no_browser_errors"
   ],
   "errors": [],
   "standard": true,
-  "html_sha256": "c4e1cfe00ce90b3e795ab4b2a372f7f5af6f7ba17b0b6a8db3ef7a3904bf9f42",
+  "html_sha256": "c001d74989c93120de27dd32812a0b6fc0f5b418157e2c2a0952d60d86d0cbb4",
   "wasm_core_sha256": "0ef7eb37dd79a6f8581835ef42d0757ca40c7854ff4dc69ad3bdeb8731530826",
   "assets": {
     "TROGGAxe1.CEL/000.png": "f534c2af2a2b61c5b4d412f1a69270679f22200645a443d110ff34ce269ea272",
@@ -477,8 +480,8 @@
     "TROGGSpear2.CEL/066.mask.png": "be06ef089fb9a836c9684a18d2dfabef21d964d66de8f5abc3ae2f91a4a49ab3"
   },
   "scope": "Standardlasting av alle225 ruter normal/speilet i faktisk WASM/WebGL. Full klipp-/returmatrise og151masker er allerede kontrollert i kandidat med eksakte samme PNG-byte. Separate originale oeks-/hammer-/spydkampinitialiseringer paa terreng0c med vanlig spillerinput. Alle ruter proeves som frontendfixturer; faktisk CPU-dekning rapporteres separat. Ingen naturlig kampanje eller fysisk mobil.",
-  "runtime_script_sha256": "3cd5d1bcfcb0d6e12ebdf28edc85987f63e16b49f12bbc2730c08f702cf3924e",
-  "url": "http://127.0.0.1:46759/moonstone.html",
+  "runtime_script_sha256": "7619cdcb86342f0754c53599a2b155856c38d071bc37906560ef69222c8a48ad",
+  "url": "http://127.0.0.1:35841/moonstone.html",
   "combat": [
     {
       "mode": "axe",
@@ -156378,7 +156381,9 @@
         "source_blood_fixture_found": true,
         "new_bake_can_own_blood": true,
         "frontend_probes_full_save_unchanged": true,
+        "native_draw_list_exists_before_load": true,
         "successful_load": true,
+        "load_invalidates_previous_native_draw_list": true,
         "load_revision_increased": true,
         "load_keeps_core_checksum": true,
         "later_frame_load_restores_original_blood_protection": true,
@@ -156386,7 +156391,8 @@
         "failed_load_unchanged_revision": true,
         "reset_removes_foreground_permission": true,
         "observed_bake_restores_permission": true,
-        "failed_load_and_cache_probes_full_save_unchanged": true
+        "failed_load_and_cache_probes_full_save_unchanged": true,
+        "next_native_frame_restores_draw_list": true
       },
       "saveChanges": [
         {
@@ -156400,7 +156406,9 @@
             }
           ]
         }
-      ]
+      ],
+      "pre_load_steps": 1,
+      "post_load_steps": 1
     }
   ],
   "negative": {
@@ -156420,7 +156428,9 @@
     "source_blood_fixture_found": true,
     "new_bake_can_own_blood": true,
     "frontend_probes_full_save_unchanged": true,
+    "native_draw_list_exists_before_load": true,
     "successful_load": true,
+    "load_invalidates_previous_native_draw_list": true,
     "load_revision_increased": true,
     "load_keeps_core_checksum": true,
     "later_frame_load_restores_original_blood_protection": true,
@@ -156428,7 +156438,8 @@
     "failed_load_unchanged_revision": true,
     "reset_removes_foreground_permission": true,
     "observed_bake_restores_permission": true,
-    "failed_load_and_cache_probes_full_save_unchanged": true
+    "failed_load_and_cache_probes_full_save_unchanged": true,
+    "next_native_frame_restores_draw_list": true
   },
   "saveChanges": [
     {
@@ -156443,5 +156454,5 @@
       ]
     }
   ],
-  "created_at": "2026-10-13T08:14:16.453Z"
+  "created_at": "2026-10-13T08:37:55.280Z"
 }

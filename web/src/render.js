@@ -541,9 +541,12 @@ const Visning = (() => {
     /* kalles etter hvert bilde emulatoren kjorer, med tegnelisten for bildet */
     function nyttBilde(liste) {
         bildeNr++;
+        liste=liste.map(d=>troggBakteBanker.has(d.fil.toLowerCase()) ? {...d,troggTegnetNr:bildeNr} : d);
         for (const d of liste) if (d.caller===0x087b34 && d.target===0x0a2cd6 && troggBakteBanker.has(d.fil.toLowerCase())) {
             if (troggBakteSpor.size>=4096) troggBakteSpor.clear();
             troggBakteSpor.add(troggBaktNokkel(d));
+            if (troggBakteKall.length>=2048) troggBakteKall.shift();
+            troggBakteKall.push(d);
         }
         if (liste.length) {
             // Egen kopi: en nyere pil maa ogsaa kunne avlyse en eldre pil i koeen.
@@ -614,13 +617,22 @@ const Visning = (() => {
         ['troggspear2.cel','82bce36f10ef98b7ca1027ec98acfcd444139fcea326a73404290ddba07cb5ff']
     ]);
     const troggBakteSpor=new Set();
+    let troggBakteKall=[], troggSistHentet=0;
     const troggBaktNokkel=d=>[d.fil.toLowerCase(),d.bilde,d.x-d.xoff,d.y,d.w,d.h,!!d.speilet].join('/');
-    function nullstillBaktTrogg() {
+    function nullstillBaktTrogg(beholdNye=false) {
         troggBakteSpor.clear();
-        const trogg=d=>troggBakteBanker.has(d.fil.toLowerCase());
+        if (beholdNye) {
+            for (const d of troggBakteKall) troggBakteSpor.add(troggBaktNokkel(d));
+        } else { troggBakteKall=[]; troggSistHentet=bildeNr; }
+        const trogg=d=>troggBakteBanker.has(d.fil.toLowerCase()) &&
+            !(beholdNye && d.troggTegnetNr>troggSistHentet);
         for (const [k,p] of plasserte) if (trogg(p.d)) plasserte.delete(k);
         visteListe=visteListe.filter(d=>!trogg(d));
         for (const k of klynger) k.liste=k.liste.filter(d=>!trogg(d));
+    }
+    function hentTroggBakteKall() {
+        const kall=troggBakteKall; troggBakteKall=[]; troggSistHentet=bildeNr;
+        return kall;
     }
     function troggBaktKilde(d, g) {
         const navn=d.fil.toLowerCase(), forventet=troggBakteBanker.get(navn);
@@ -2352,7 +2364,7 @@ const Visning = (() => {
 
     return {
         init, tegn, nyttBilde, tilpass, settFilter, settFormat, settHelt, settEffekter, bildeTilPng, lastHdPakke, tomHdPakke, fjernHdBilde,
-        nullstillScene: () => { plasserte.clear(); troggBakteSpor.clear(); visteListe = []; klynger = []; bildeNr = 0; sistTegnet = -99; sisteBakHash = -1; },
+        nullstillScene: () => { plasserte.clear(); troggBakteSpor.clear(); troggBakteKall=[]; troggSistHentet=0; visteListe = []; klynger = []; bildeNr = 0; sistTegnet = -99; sisteBakHash = -1; },
         tekstPlasseringer: () => visteListe.filter(d => /^(bold\.f|small\.font)$/i.test(d.fil)),
         lesbarTekst: () => visteListe.filter(d => hdTegnbare.has(d)).flatMap(d => {
             const t=hdPakke.get(d.fil.toLowerCase()+'/'+String(d.bilde).padStart(3,'0'));
@@ -2386,6 +2398,7 @@ const Visning = (() => {
         hdMasker: () => hdMasker.size,
         troggBaktKilde,
         nullstillBaktTrogg,
+        hentTroggBakteKall,
         li1NormalPalett: (scan,diw) => !!scan?.gyldig && scan.pal?.length===32*H*4 &&
             Number.isInteger(diw?.[1]) && diw[1]>=0 && diw[1]+200<=H &&
             Array.from({length:200},(_,y)=>y+diw[1]).every(y=>palettFigurToning('li1.cel',scan.pal,y)!==null),
