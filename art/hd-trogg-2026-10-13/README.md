@@ -22,3 +22,5 @@ Status og faktisk antall bestaaette kontroller foeres i verification/ og log.md 
 Lokal standardkontroll:483/483 bestaar uten JS-feil. De samme30 PNG-ene og fire masker er brukt i kandidat og ordinær standardlasting. Alle2011 eldre manifestfiler er SHA-uendret.264 kilde-/maskekontroller og30/30 pikseleksakte atlasutsnitt bestaar. Standardpakken har2039PNG/2045filer. Gjenstående719mastere/782ruter/59mastermasker er dokumentert i docs/hd-status-2026-10-13. UI og publisering registreres separat etter faktisk kontroll.
 
 UI-regresjonen bestaar53/53 med faktiske valg og inventarklikk. Galleri med30kort/60bilder er kontrollert paa desktop/mobil. Standardens faktiske oeks-/hammerbilder er visuelt kontrollert etter ordinær innlasting. Publisering og offentlig kontroll dokumenteres separat.
+
+Publisert gjennom PR48/main23802fee. Main-/Pages-/utgivelsesjobb38352311428 består5/5. Offentlig standard517/517 uten JS-feil, og alle34 nye filer samt HTML/manifest er byteidentiske. Faktiske offentlige oeks-/hammerbilder er visuelt kontrollert. verification/publication.json samler bevis og begrensninger.

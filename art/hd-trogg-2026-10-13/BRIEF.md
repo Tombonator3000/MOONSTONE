@@ -1,6 +1,6 @@
 # Trogg: første sammenhengende HD-kampserie
 
-Kilde: original TroggAxe1/000,001,025..028 og TroggAxe2/055,066. Original CPU viser bevegelsen025→026→027+028 med separat øks066, deretter kamphvile000+001 med øks055. Disse åtte rutene velges som én sammenhengende første serie, ikke hele Trogg-banken.
+Kilde: original TroggAxe1/000,001,025..028 og TroggAxe2/055,066. Den innledende planen valgte bevegelsesrutene025/026/027+028 med separat øks066 og kildedelene000/001 med øks055. Endelig leveranse er i stedet30 separate våpenruter050..079. Kroppsutkastene bestod ikke formkontrollen og er ikke aktivert. Den kontrollerte tegnelisten viser000+001 sammen ved bilde1233 utenfor venstre skjermkant, med001 forskjøvet37 piksler til høyre og26 ned fra000. Den dokumenterer ikke en hel synlig hvilesyklus. Tre rektangelsynlige bevegelsesposer er bevart i source/body-join-observations.json.
 
 Samme identitet som monsterkonseptet: oransjebrunt ansikt og underarmer, lang nese, matt stålhjelm, mørkt langt hår, marineblå drakt, mørke enkle støvler. Originalposen, beskjæringen, lemfestene og separate våpen bestemmer formen; konseptets våpen skal aldri tegnes inn i kroppsfragmentene. Ingen ekstra tenner, pigger, rustning eller nye kroppsdeler. Kvadratisk pikselkontur brukes kun som kilde, nye overflater skal ha realistiske materialdetaljer.
 
