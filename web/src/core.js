@@ -10,6 +10,7 @@ const Kjerne = (() => {
     let M = null;
     let fbW = 720, fbH = 288;
     let filRevisjon = 0; // frontend-cache, aldri del av emulert eller lagret tilstand
+    let tilstandRevisjon = 0; // bare vellykket lasting av maskintilstand
 
     /* lastes bare en gang, ogsaa om flere spor ber om den samtidig */
     let laster = null;
@@ -90,6 +91,7 @@ const Kjerne = (() => {
         const p = kopierInn(bytes);
         const ok = M._ms_state_load(p, bytes.length);
         M._free(p);
+        if (ok) tilstandRevisjon++;
         return !!ok;
     }
 
@@ -215,7 +217,8 @@ const Kjerne = (() => {
         skanout: () => ({ gyldig: !!M._ms_video_hd_valid(),
             idx: new Uint8Array(M.HEAPU8.buffer, M._ms_video_idx(), fbW * fbH),
             pal: new Uint8Array(M.HEAPU8.buffer, M._ms_video_pal(), fbH * 32 * 4) }),
-        lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil, fjernFil,
+        lagreTilstand, lastTilstand, tilstandRevisjon: () => tilstandRevisjon,
+        brukteFiler, hentFil, leggInnFil, fjernFil,
         tilstandFeil: () => M.UTF8ToString(M._ms_state_error()),
         formatId: () => (M ? M._ms_state_format() >>> 0 : 0),     /* lagringsformatet (nettspill: samme versjon?) */
         bredde: () => fbW, hoyde: () => fbH,

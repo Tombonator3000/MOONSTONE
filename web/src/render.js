@@ -615,6 +615,13 @@ const Visning = (() => {
     ]);
     const troggBakteSpor=new Set();
     const troggBaktNokkel=d=>[d.fil.toLowerCase(),d.bilde,d.x-d.xoff,d.y,d.w,d.h,!!d.speilet].join('/');
+    function nullstillBaktTrogg() {
+        troggBakteSpor.clear();
+        const trogg=d=>troggBakteBanker.has(d.fil.toLowerCase());
+        for (const [k,p] of plasserte) if (trogg(p.d)) plasserte.delete(k);
+        visteListe=visteListe.filter(d=>!trogg(d));
+        for (const k of klynger) k.liste=k.liste.filter(d=>!trogg(d));
+    }
     function troggBaktKilde(d, g) {
         const navn=d.fil.toLowerCase(), forventet=troggBakteBanker.get(navn);
         const kall=d.caller===0x087b34 || (d.caller===0x087bf0 && troggBakteSpor.has(troggBaktNokkel(d)));
@@ -2378,6 +2385,7 @@ const Visning = (() => {
             x: d.x - d.xoff, y: d.y, w: d.w, h: d.h, speilet: !!d.speilet, hd: hdTegnbare.has(d), maske: hdFigurMaske.has(d) })),
         hdMasker: () => hdMasker.size,
         troggBaktKilde,
+        nullstillBaktTrogg,
         li1NormalPalett: (scan,diw) => !!scan?.gyldig && scan.pal?.length===32*H*4 &&
             Number.isInteger(diw?.[1]) && diw[1]>=0 && diw[1]+200<=H &&
             Array.from({length:200},(_,y)=>y+diw[1]).every(y=>palettFigurToning('li1.cel',scan.pal,y)!==null),

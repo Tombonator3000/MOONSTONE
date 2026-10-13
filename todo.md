@@ -254,4 +254,5 @@
 - [x] Full Trogg-materialserie:225 ruter/163 kildeformer,195 nye ruter,151 masker og fire kildebundne atlas. Hele kroppen, spyd, treff/død og ofre er med;9 unike svarte originalformer bevares. Ingen uavhengig anatomisk nytegning påstås.
 - [x] Kandidat3273/3273, paletter638/638 for alle151masker, kildekontroll489 og galleri225/450.
 - [x] Full Trogg: endelig standard1128, bakte lik80, UI53, BLO619 og Ratmen26. Alle72 kampfangster beholder HD-bakgrunn, alle225ruter/151masker består aktiv sluttport.
-- [ ] Full Trogg: PR, grønn CI, Pages og offentlig verifikasjon.
+- [x] Full Trogg: PR50 flettet,6/6 bygg og5/5 main/Pages/utgivelse grønne; offentlig1054,225ruter og376PNG-/maskefiler byteidentiske.72kampbilder har HD-bakgrunn.
+- [ ] Trogg-review: avgrense bakehistorikk til aktuell kamp/lasting,92målrettede kontroller bestått; fullføre regresjon, PR, CI og offentlig kontroll.
