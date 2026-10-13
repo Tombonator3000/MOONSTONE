@@ -218,5 +218,20 @@
       "public_background": "original",
       "explanation": "First combat capture occurs before asynchronous HD background is ready publicly. Later matching combat captures are byte-identical. Weapon PNG bytes and states are identical."
     }
-  ]
+  ],
+  "documentation_followup": {
+    "pull_request": 49,
+    "merge": "504612f08145497511d77d98d683ff54c1d5b00e",
+    "main_run": 38354157131,
+    "jobs": {
+      "linux": "success",
+      "windows": "success",
+      "web": "success",
+      "pages": "success",
+      "utgivelse": "success"
+    },
+    "pages_deployment": 7031293883,
+    "public_files_rechecked": 36,
+    "product_bytes_unchanged": true
+  }
 }
