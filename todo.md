@@ -223,3 +223,16 @@
 - [x] Hele serien visuelt kontrollert,619 kandidatkontroller inklusive normal/speilet, fire klippkanter,13 rødnivåer, fremmed kilde/palett, full lagring og originalkodekamp.
 - [x] Aktivert41 nye PNG-er,2005 PNG/2011 manifestfiler. Restliste749 mastere/812 ruter/59 mastermasker.
 - [ ] Endelig standardpakke, regresjon, PR, grønn CI, Pages og faktisk offentlig BLO-kontroll.
+
+## Undersøkelser av originalen (docs/undersokelser)
+- [x] Månefasene målt og lest i kode (maane.md, tools/maane.py).
+- [x] Skaden med og uten passende Moonstone målt i en ekte Ratmen-kamp (tools/maane_kamp.py): 3 mot 6.
+- [x] Sykdom: Ratmens bitt (type 4) smitter, og sykdommen tar ett livsnivå per faseskifte, ikke per dag.
+- [x] Månereglene fra manualen som valg (av som standard): fase hvert tredje døgn, Ratmen sterkere med månen, M1 rettet.
+- [ ] Hva som skjer med en syk ridder på livsnivå 0 ved neste faseskifte.
+- [x] B01: gjenskapt som fastlåst kamp med to troll (tools/b01_troll.py, b01-troll.md). Denne utgaven slipper bare ut ett troll om gangen ($084208).
+- [ ] B01: følg trollets spiseangrep ($20) fra $086c20 og finn hvorfor det ikke slipper ridderen med to troll.
+- [ ] Monstertest-menyen ($82CE8) som valg på PC når vi har sett at den virker (cut-content.md).
+- [ ] Vis manual-, joystick- og månefasebildene fra arkivet i hjelpen på nettsiden.
+- [ ] Duell i Hver for seg: forsvarerens ridder overskrives med kopien fra angriperens maskin, som kan være noen sekunder gammel.
+- [ ] Standard-HD holder et 2D-lerret per figur i minnet (rundt 180 MB). Sjekk på iPhone.

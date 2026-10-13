@@ -6,6 +6,14 @@ main `f3103ebb` 12. oktober 2026. Testene nedenfor er ennå ikke implementert
 eller kjørt. Trollkrasjet er rapportert, og spillvirkningene av månen må måles
 før eventuelle rettinger eller nye regler innføres.
 
+**Status 12. oktober, kveld:** begge delene er kjørt. Resultatene står i
+[undersokelser/b01-troll.md](undersokelser/b01-troll.md) og
+[undersokelser/maane.md](undersokelser/maane.md). Verktøyene fikk navnene
+`tools/b01_troll.py`, `tools/maane.py` og `tools/maane_kamp.py` i stedet for
+navnene foreslått under. Kort: denne utgaven slipper bare ut ett troll om gangen,
+og med to tvunget fram låser kampen seg (ikke et CPU-krasj). Månen skifter hvert
+fjerde døgn, ingen monsterkode leser den, og manualens regler finnes nå som valg.
+
 ## Bekreftet støtte i porten
 
 | Funksjon | Kilde og betydning |

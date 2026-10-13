@@ -561,3 +561,11 @@ RATMEN1.CEL063 er et44x35-lauvfragment som gjenbrukes med terrengets globale pal
 - render.js blodNivaa binder bank, mål og synlig radpalett, gir absolutt blodlys og beholder Original i fremmed kilde/palett. Kjerne/save/input er uendret. lastHdPakke venter på originalbankhash før BLO installeres.
 - tools/hd_blod_sjekk.cjs skiller kontrollert original Troll-kamp fra frontendfragmentfixturer. Native CPU ser27 BLO-ruter; nettleserkampen18 synlig HD-godkjente. Hele41 normal/speilet, fire klippkanter,13 fader, fremmed bank/palett og full save/retur prøves. Ingen full naturlig kampanje påstås.
 - Produksjon/brief/proveniens: art/hd-blood-wounds-2026-10-12. Aktivering krever full runtime- og visuell SHA-kvittering. Etter denne leveransen:2005PNG/2011filer,749 manglende mastere/812ruter/59mastermasker. Separate009-kandidater er fortsatt uaktivert her.
+
+## Månen, Ratmen og sykdom (12. oktober 2026)
+- Alt står i docs/undersokelser/maane.md. Verktøy: tools/maane.py (fasene) og tools/maane_kamp.py (stein, Ratmen, smitte, sykdom i ekte kamp i lair 0).
+- Fast mem: Ratmen og de andre kampfigurene ligger over $200000. Bruk mem_read8/16, ikke chip[], når en peker kan gå dit.
+- Ratmen: +$4D = $24, slaghandler dat_0855ce. Type 4 bitt smitter ($82), type 8 bare skade. Andre angrep via dat_0858a8 og sub_085ae0.
+- Sykdom trekkes i sub_080704, som bare kalles ved faseskifte.
+- Valget game_maaneregler lagres i delen MAAN. En lagring vinner over --maaneregler, så fixturer for valget må lages med flagget.
+- --vakt tar bare én adresse (siste vinner).

@@ -196,13 +196,21 @@ void hver_state(StateIO *s)
     STATE_VAR(s, H.duell);
     STATE_VAR(s, H.i_kamp);
     STATE_VAR(s, H.rulle);
-    if (!s->saving) { kopi_ok = false; n_hev = 0; }
+    if (!s->saving) {
+        kopi_ok = false; n_hev = 0;
+        for (int k = 0; k < 4; k++) H.navn[k][sizeof H.navn[k] - 1] = 0;
+        if (H.duell > 4) H.duell = 0;
+    }
 }
 /* det gamle formatet (MOONSTAT 13): hele H paa en gang */
 void hver_state_gammel(StateIO *s)
 {
     STATE_VAR(s, H);
-    if (!s->saving) { kopi_ok = false; n_hev = 0; }
+    if (!s->saving) {
+        kopi_ok = false; n_hev = 0;
+        for (int k = 0; k < 4; k++) H.navn[k][sizeof H.navn[k] - 1] = 0;
+        if (H.duell > 4) H.duell = 0;
+    }
 }
 /* standard for resten: som en ny maskin, men originalene beholdes */
 void hver_standard(void)
@@ -517,7 +525,14 @@ static bool hook_plyndring(void)
     if (k < 1 || !(H.tatt & (1 << k))) return false;
     uint32_t a0 = m68k_get_reg(NULL, M68K_REG_A0);
     /* mennesket: hopp over plyndringen ($08AAC4), men ikke byttet tilbake etter den */
-    m68k_set_reg(M68K_REG_PC, mem_read32(a0 + 0x36) == 4 ? 0x080bd8 : 0x080bbc);
+    if (mem_read32(a0 + 0x36) == 4) {
+        /* rett til slutten: krokene paa $080BD8 kjoeres ikke av seg selv naar PC settes dit */
+        game_moete_slutt();
+        hook_kamp_slutt();
+        m68k_set_reg(M68K_REG_PC, 0x080bd8);
+    } else {
+        m68k_set_reg(M68K_REG_PC, 0x080bbc);
+    }
     return true;
 }
 

@@ -7,7 +7,7 @@
  *
  *   ms_open_embedded()      spillfila som er bygget inn (ms_has_embedded() sier om den finnes)
  *   ms_open_mem(ptr, n)     andre spillfiler fra en zip eller ISO i minnet (kjernen tar over bufferet)
- *   ms_start(buttonwait)    start maskinen
+ *   ms_start(buttonwait, maaneregler)  start maskinen
  *   ms_input(j0, j1)        joystickene for neste bilde (port 1 og port 2)
  *   ms_key(kode, ned)       en tast paa Amiga-tastaturet
  *   ms_frame()              kjor et bilde; bildet ligger i ms_fb(), lyden i ms_audio()
@@ -46,9 +46,10 @@ EMSCRIPTEN_KEEPALIVE void ms_guest(void)
     state_any_game = true;
 }
 
-EMSCRIPTEN_KEEPALIVE int ms_start(int buttonwait)
+EMSCRIPTEN_KEEPALIVE int ms_start(int buttonwait, int maaneregler)
 {
     whd_buttonwait = buttonwait;
+    game_maaneregler = maaneregler;
     hooks_clear();
     decomp_register_all();
     return amiga_init() ? 1 : 0;

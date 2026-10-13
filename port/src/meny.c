@@ -761,6 +761,18 @@ int meny_row_at(int y)
 void meny_state(StateIO *s)
 {
     STATE_VAR(s, M2);
+    if (!s->saving) {
+        /* strengene maa slutte paa 0 selv om lagringen er skadet */
+        M2.room[sizeof M2.room - 1] = 0;
+        M2.myname[TEXT_SIZE - 1] = 0;
+        for (int i = 0; i < 4; i++) M2.names[i][TEXT_SIZE - 1] = 0;
+        for (int i = 0; i < 3; i++) { M2.rooms[i][TEXT_SIZE - 1] = 0; M2.room_counts[i][sizeof M2.room_counts[i] - 1] = 0; }
+        for (int i = 0; i < 2; i++) M2.message[i][TEXT_SIZE - 1] = 0;
+        M2.rooms_error[TEXT_SIZE - 1] = 0;
+        for (int i = 0; i < CTRL_N; i++) M2.ctrl[i][CTRL_SIZE - 1] = 0;
+        if (M2.n_names > 4) M2.n_names = 4;
+        if (M2.n_rooms > 3) M2.n_rooms = 3;
+    }
     /* in_menu er bare for frontenden og ikke med i tilstanden: lastes et spill fra
      * kartet mens tittelmenyen vises, ville den staatt paa (hook_loop setter den igjen
      * i neste bilde hvis menyen er framme) */

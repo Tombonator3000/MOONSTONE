@@ -256,7 +256,7 @@ bool zip_open_mem(Zip *z, uint8_t *data, size_t size)
     size_t pos = rd32(eocd + 16);
     z->entries = calloc(count ? count : 1, sizeof *z->entries);
     for (unsigned n = 0; n < count; n++) {
-        if (pos + 46 > z->size || rd32(z->data + pos) != 0x02014b50) break;
+        if (pos > z->size || z->size - pos < 46 || rd32(z->data + pos) != 0x02014b50) break;
         const uint8_t *c = z->data + pos;
         ZipEntry *e = &z->entries[z->count];
         unsigned namelen = rd16(c + 28), extralen = rd16(c + 30), commentlen = rd16(c + 32);
@@ -266,6 +266,7 @@ bool zip_open_mem(Zip *z, uint8_t *data, size_t size)
         e->usize = rd32(c + 24);
         e->offset = rd32(c + 42);
         size_t nl = namelen < sizeof e->name - 1 ? namelen : sizeof e->name - 1;
+        if (nl > z->size - pos - 46) break;            /* navnet gaar forbi slutten av filen */
         memcpy(e->name, c + 46, nl);
         e->name[nl] = 0;
         pos += 46 + namelen + extralen + commentlen;
@@ -311,9 +312,10 @@ const ZipEntry *zip_find(const Zip *z, const char *name, uint32_t crc)
 
 uint8_t *zip_read(const Zip *z, const ZipEntry *e)
 {
-    if (e->offset + 30 > z->size || rd32(z->data + e->offset) != 0x04034b50) return NULL;
+    /* regnet i 64 bit, saa store tall fra en skadet fil ikke gaar rundt i wasm32 */
+    if ((uint64_t)e->offset + 30 > z->size || rd32(z->data + e->offset) != 0x04034b50) return NULL;
     const uint8_t *lh = z->data + e->offset;
-    size_t start = e->offset + 30 + rd16(lh + 26) + rd16(lh + 28);
+    uint64_t start = (uint64_t)e->offset + 30 + rd16(lh + 26) + rd16(lh + 28);
     if (start + e->csize > z->size) return NULL;
     uint8_t *out = malloc(e->usize ? e->usize : 1);
     if (!out) return NULL;
