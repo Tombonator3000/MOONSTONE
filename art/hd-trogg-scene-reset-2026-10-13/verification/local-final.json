@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "targeted_reset_checks": 92,
+  "original_encounter_checks": 224,
+  "ui_checks": 53,
+  "all72_combat_backgrounds_HD": true,
+  "encounters": [
+    {
+      "mode": "axe",
+      "observed_routes": 57,
+      "captures": 21
+    },
+    {
+      "mode": "hammer",
+      "observed_routes": 59,
+      "captures": 23
+    },
+    {
+      "mode": "spear",
+      "observed_routes": 68,
+      "captures": 28
+    }
+  ],
+  "core_checksum_matches_PR50": true,
+  "graphics_and_manifest_unchanged": true,
+  "html_sha256": "c4e1cfe00ce90b3e795ab4b2a372f7f5af6f7ba17b0b6a8db3ef7a3904bf9f42",
+  "source_code_sha256": {
+    "core": "f0481991c08de1935879c63b6c940265d274e42f8ed2aa8e0589d69e08487e91",
+    "render": "a47175acbea15b549f5ce8877b34ae58a1fccf0205a961b0cc081e2b3d77119d",
+    "scenes": "d85775da736d04c7bec492a3b2541f1eef9f691e10455d4ea45bd5f41e4aec85"
+  }
+}

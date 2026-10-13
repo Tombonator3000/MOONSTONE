@@ -10,6 +10,9 @@ const Kjerne = (() => {
     let M = null;
     let fbW = 720, fbH = 288;
     let filRevisjon = 0; // frontend-cache, aldri del av emulert eller lagret tilstand
+    let tilstandRevisjon = 0; // bare vellykket lasting av maskintilstand
+    let tegnelisteGyldig = true; // den native listen lagres ikke med maskinen
+    const tilstandLyttere = new Set();
 
     /* lastes bare en gang, ogsaa om flere spor ber om den samtidig */
     let laster = null;
@@ -64,7 +67,7 @@ const Kjerne = (() => {
 
     function inndata(j0, j1) { M._ms_input(j0 | 0, j1 | 0); }
     function tast(kode, ned) { M._ms_key(kode | 0, ned ? 1 : 0); }
-    function bilde() { M._ms_frame(); }
+    function bilde() { M._ms_frame(); tegnelisteGyldig = true; }
 
     function rammebuffer() {
         return new Uint8Array(M.HEAPU8.buffer, M._ms_fb(), fbW * fbH * 4);
@@ -90,6 +93,10 @@ const Kjerne = (() => {
         const p = kopierInn(bytes);
         const ok = M._ms_state_load(p, bytes.length);
         M._free(p);
+        if (ok) {
+            tilstandRevisjon++; tegnelisteGyldig = false;
+            for (const f of tilstandLyttere) f(tilstandRevisjon);
+        }
         return !!ok;
     }
 
@@ -128,6 +135,7 @@ const Kjerne = (() => {
 
     /* figurene spillet tegnet i siste bilde: fil, bildenummer, x, y, bredde, hoyde, speilet */
     function tegneliste() {
+        if (!tegnelisteGyldig) return [];
         const n = M._ms_draw_count();
         if (!n) return [];
         const p = M._ms_draws(), st = M._ms_draw_size();
@@ -215,7 +223,9 @@ const Kjerne = (() => {
         skanout: () => ({ gyldig: !!M._ms_video_hd_valid(),
             idx: new Uint8Array(M.HEAPU8.buffer, M._ms_video_idx(), fbW * fbH),
             pal: new Uint8Array(M.HEAPU8.buffer, M._ms_video_pal(), fbH * 32 * 4) }),
-        lagreTilstand, lastTilstand, brukteFiler, hentFil, leggInnFil, fjernFil,
+        lagreTilstand, lastTilstand, tilstandRevisjon: () => tilstandRevisjon,
+        vedTilstandLastet: f => { tilstandLyttere.add(f); return () => tilstandLyttere.delete(f); },
+        brukteFiler, hentFil, leggInnFil, fjernFil,
         tilstandFeil: () => M.UTF8ToString(M._ms_state_error()),
         formatId: () => (M ? M._ms_state_format() >>> 0 : 0),     /* lagringsformatet (nettspill: samme versjon?) */
         bredde: () => fbW, hoyde: () => fbH,

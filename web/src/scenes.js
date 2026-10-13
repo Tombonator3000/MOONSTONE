@@ -129,18 +129,24 @@ const SceneHd = (() => {
     const kampFor = new Uint8Array(64000*4);
     const kampIndeks = new Uint8Array(64000), kampVern = new Uint8Array(64000);
     const kampOriginalVern=new Uint8Array(64000);
-    let troggKopi=null, troggEier=null, troggBilde=-1;
+    let troggKopi=null, troggEier=null, troggBilde=-1, kampSistHash=null, kampTilstand=-1;
     const troggBankData=new Map();
+    let troggVenterKall=[];
+    function nullstillTroggKamp(beholdNye=false) {
+        troggKopi=null; troggEier=null; troggBilde=-1; troggBankData.clear();
+        troggVenterKall=[]; Visning.nullstillBaktTrogg?.(beholdNye);
+    }
     function observerTrogg() {
         if (!kampRen || typeof Visning.troggBaktKilde!=='function') return;
         const bilde=Kjerne.bildeNr();
         if (bilde<troggBilde) { troggKopi=null; troggEier=null; troggBankData.clear(); }
-        if (bilde===troggBilde) return;
         troggBilde=bilde;
-        for (const d of Kjerne.tegneliste()) {
-            if (d.caller!==0x087b34) continue;
+        const nye=Visning.hentTroggBakteKall?.() || [];
+        const vent=troggVenterKall.concat(nye.map(d=>({d,fra:bilde}))).slice(-2048);
+        troggVenterKall=[];
+        for (const {d,fra} of vent) {
             const kilde=Visning.troggBaktKilde(d);
-            if (!kilde) continue;
+            if (!kilde) { if(bilde-fra<=50)troggVenterKall.push({d,fra}); continue; }
             if (!troggKopi) { troggKopi=kampRen.px.slice(); troggEier=new Uint8Array(64000); }
             troggBankData.set(d.fil.toLowerCase(),kilde.data);
             const x0=d.x-d.xoff, g=kilde.g;
@@ -183,7 +189,12 @@ const SceneHd = (() => {
         if (!lag?.bakIdx || lag.bakIdx.length!==64000 || lag.bak?.length!==256000 ||
             lag.forIdx?.length!==64000 || lag.for?.length!==256000 || lag.scene) return null;
         const hash=lag.hash>>>0, row=KAMP_KILDER.get(hash);
+        const nyRen=!!row && kampSistHash!==hash;
+        kampSistHash=hash;
         if (row) {
+            // En ny ren kopi avslutter forrige komposisjon, ogsaa ved samme
+            // arenahash. Sammenhengende rene bilder skal ikke slette nye kall.
+            if (nyRen) nullstillTroggKamp(true);
             huskRenKamp(lag,row).catch(()=>{});
             if (kampRen?.hash===hash) observerTrogg();
             return null;
@@ -221,7 +232,7 @@ const SceneHd = (() => {
         sist={id:'combat-delta',hash:kampRen.hash.toString(16).padStart(8,'0'),actual_hash:hash.toString(16).padStart(8,'0'),preserved_pixels:n,trogg_baking:trogg};
         return {...lag,for:kampFor,forIdx:kampIndeks,hash:kampRen.hash,sceneVern:kampVern,kampDeltaVern:kampOriginalVern};
     }
-    function nullstill() { kampRen=null; kampVenter=null; kampSekvens++; troggKopi=null; troggEier=null; troggBilde=-1; troggBankData.clear(); ratmenKilder=null; ratmenVenter=false; ratmenBilde=-1; ratmenObservert.clear(); kilder.clear(); sist = null; rull = null; rullVenter = false; rullSist = 0; kartPort=null; kartPortVenter=false; kartPortKontrollert=false; epoch++; }
+    function nullstill() { kampRen=null; kampVenter=null; kampSekvens++; troggKopi=null; troggEier=null; troggBilde=-1; troggBankData.clear(); troggVenterKall=[]; kampSistHash=null; kampTilstand=Kjerne.tilstandRevisjon?.()??0; ratmenKilder=null; ratmenVenter=false; ratmenBilde=-1; ratmenObservert.clear(); kilder.clear(); sist = null; rull = null; rullVenter = false; rullSist = 0; kartPort=null; kartPortVenter=false; kartPortKontrollert=false; epoch++; }
     async function klargjorRull() {
         if (rull || rullVenter) return;
         const data = RULL_KILDER.map(([fil]) => Kjerne.hentFil('data/' + fil));
@@ -331,6 +342,10 @@ const SceneHd = (() => {
         kilder.set(row.id, { ...row, ...source, vanligst, lysMaks });
     }
     function korriger(fb, diw, lag) {
+        const tilstand=Kjerne.tilstandRevisjon?.() ?? 0;
+        if (tilstand!==kampTilstand) {
+            nullstillTroggKamp(); kampSistHash=null; kampTilstand=tilstand;
+        }
         // Egne/nettverts-filer kan skiftes uten omstart. Ingen kildecache skal
         // overleve en ny filrevisjon, heller ikke en ferdigdekodet flisrulle.
         const revisjon = Kjerne.filRevisjon();
@@ -381,6 +396,7 @@ const SceneHd = (() => {
             }
         }
         if (!valgt) return korrigerKamp(lag,scan,diw) || lag;
+        if (kampSistHash!==null) { nullstillTroggKamp(); kampSistHash=null; }
         // LI1-ritualets originale palett blinker hvit/sort. En vanlig RGB-
         // bakgrunn kan bare tones fra normalpaletten, ikke gjengi dette blinket.
         // Bare disse SHA-bekreftede PIV-scenene bruker originalbakgrunn ved
@@ -475,5 +491,8 @@ const SceneHd = (() => {
             hdRect: valgt.uv_rect || rect, scene: valgt.id, hdBackgroundOriginal,
             overlays: [...faste,...ikoner.map(m=>({key:m.key,rect:m.draw_rect||m.rect,uv_rect:[0,0,1,1],foreground:true}))], sceneVern: avvik };
     }
+    Kjerne.vedTilstandLastet?.(revisjon=>{
+        nullstillTroggKamp(); kampSistHash=null; kampTilstand=revisjon;
+    });
     return { korriger, nullstill, info: () => sist, matcher: () => sisteMatcher.slice() };
 })();
