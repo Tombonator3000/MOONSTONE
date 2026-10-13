@@ -1,5 +1,8 @@
 # Tekniske referanser vurdert 12. oktober 2026
 
+Se også [samlet funnregister](kuttet-innhold-og-feil.md) for historiske kutt,
+rapporterte originalfeil, påstandskorrigeringer og videre undersøkelser.
+
 Brukerens innlimte kildevurdering er nyttig som grunnlag for undersøkelser. Den
 endres ikke til nye spillregler eller en utskifting av motoren. Dagens feil gjelder
 HD-visning og musekontroll. Den delte ChatGPT-adressen viste «Shared chat not found»;

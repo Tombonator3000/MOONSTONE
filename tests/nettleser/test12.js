@@ -28,7 +28,8 @@ T.kjor(async () => {
   await T.skjerm(vert, 't12-intro.png');
   await trykk(vert, 'Enter');                              // lyd og hopp over paa samme trykk
   await tilTittel(vert, 'vert');
-  sjekk((await hint(vert)).startsWith('Klikk'), 'vert: menyhintet om klikk vises');
+  // med HD (standard) skjules hintet saa det ikke dekker HD-logoen (visHint i app.js)
+  { const h = await hint(vert); sjekk(h.startsWith('Klikk') || h === '', 'vert: menyhintet om klikk vises, eller er skjult for HD-logoen'); }
   await T.skjerm(vert, 't12-tittel.png');
   for (let i = 0; i < 4; i++) await trykk(vert, 'ArrowDown');
   await trykk(vert, 'ControlLeft');                        // Options

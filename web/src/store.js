@@ -15,9 +15,12 @@ const Lager = (() => {
         return new Promise((ok, feil) => {
             let r;
             try { r = indexedDB.open('moonstone', 1); } catch (e) { feil(e); return; }
+            /* noen Safari-utgaver svarer aldri paa open; da starter spillet uten lagring */
+            const frist = setTimeout(() => feil(new Error('IndexedDB svarer ikke')), 5000);
             r.onupgradeneeded = () => r.result.createObjectStore('filer');
-            r.onsuccess = () => { db = r.result; ok(db); };
-            r.onerror = () => feil(r.error);
+            r.onsuccess = () => { clearTimeout(frist); db = r.result; ok(db); };
+            r.onerror = () => { clearTimeout(frist); feil(r.error); };
+            r.onblocked = () => { clearTimeout(frist); feil(new Error('IndexedDB er sperret')); };
         });
     }
 

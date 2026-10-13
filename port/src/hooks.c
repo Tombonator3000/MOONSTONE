@@ -106,6 +106,13 @@ void ami_instr_hook(unsigned pc)
     }
     if (hook_coverage && pc < CHIP_SIZE && whd_mog_loaded) hook_coverage[pc >> 4] |= (uint8_t)(1 << ((pc >> 1) & 7));
     if (hook_trace) hook_trace(pc);
+    if (pc < 0x400 && amiga_unntak && whd_mog_loaded) {
+        amiga_regdump("unntak: PC i vektorene (vektoren er 0)");
+        snprintf(M.abort_msg, sizeof M.abort_msg, "Unntak: PC %06x etter %06x", pc, m68k_get_reg(NULL, M68K_REG_PPC));
+        M.aborted = true;
+        amiga_end_slice();
+        return;
+    }
     if (pc < HOOK_SPACE && (hook_bits[pc >> 4] & (1 << ((pc >> 1) & 7))) && whd_mog_loaded) {
         for (int i = 0; i < n_hooks; i++)
             if (table[i].addr == pc && table[i].patch) {

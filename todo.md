@@ -1,6 +1,13 @@
 # todo.md
 
 ## Neste
+- [x] Lagre konkret gjennomføringsplan for B01 og månelogikk i docs/trollkrasj-og-manelogikk.md, med bekreftet teststøtte og tydelig status for ugjorte målinger.
+- [ ] Implementere B01-avspilling og begrenset CPU-/stacklogg etter docs/trollkrasj-og-manelogikk.md. Kontrollere stoppstatus, bildetelling, hooktreff og bevisfiler.
+- [ ] Implementere separate målinger av faseomløp, Ratmen, Moonstone og sykdom etter samme plan. Identifisere felt/adresser før måleverdier tolkes.
+- [x] Samle tidligere funn om kuttet innhold, originalfeil og planlagt innhold med kilder og status i docs/kuttet-innhold-og-feil.md. Gjenopptak fra avbrutt grafikksamtale dokumentert separat.
+- [ ] Gjenskape rapportert trollkrasj ved samtidige slag over hodet, med identifisert spill-/slaveversjon og eksakte inndata. Stack overflow og samtidig spising er ikke bekreftet årsak.
+- [ ] Undersøke originalens månelogikk, Ratmen-styrke, Moonstone-effekt og Black Knight-målvalg før eventuelle feilrettinger. Nye regler og historiske kutt skilles fra faktisk originaloppførsel.
+- [ ] Sammenligne innebygd WHDLoad-slave v1.4 med dokumentert v1.6 og relevante retail-utgaver. Ikke regn nyere rettinger som inkludert uten patchkontroll.
 - [x] HD-retting av Math og stedene: loddrett rundt murtaarn og 23 gjentatte Stonehenge-porter. Siste brukerfoto presiserer to stoetter og en overligger; enkeltstaaende soeyle er erstattet. Portene er skalert proporsjonalt ned til originalens fem kartpiksler i hoeyden. Originale posisjoner, statusmoenstre og spillregler beholdes.
 - [x] HD-troskap: KI-rankene034-036, mys.cel000-001 og seks DragonDice-symboler000-005 er separat generert, kildebundet og aktivert.141 runtimekontroller består.
 - [ ] HD-troskap: fullføre1779 separate figur-/animasjonsmastere med2040 konkrete PNG-ruter og264 masker. Math, KN4, hen1-flammer og TROLL er under produksjon; kandidater regnes ikke som ferdige. Hele ridderposer erstatter ikke separate ruter.
@@ -222,3 +229,17 @@
 - [x] Lage og individuelt analysere elleve kildebundne konsepter; Balok/Mudman korrigert i v2, Trogg-varianter beholder identitet.
 - [x] Levere lokalt galleri, originalark, analyse, prompter og kildekontroll. Ingen konseptgrafikk aktivert.
 - [ ] Foer full HD-konvertering: samle original drageanatomi/Guardian-faser, kartlegg sekvens-/ankerkontrakter og kontroller sammenhengende proevesekvenser i spillet.
+
+
+## Undersøkelser av originalen (docs/undersokelser)
+- [x] Månefasene målt og lest i kode (maane.md, tools/maane.py).
+- [x] Skaden med og uten passende Moonstone målt i en ekte Ratmen-kamp (tools/maane_kamp.py): 3 mot 6.
+- [x] Sykdom: Ratmens bitt (type 4) smitter, og sykdommen tar ett livsnivå per faseskifte, ikke per dag.
+- [x] Månereglene fra manualen som valg (av som standard): fase hvert tredje døgn, Ratmen sterkere med månen, M1 rettet.
+- [ ] Hva som skjer med en syk ridder på livsnivå 0 ved neste faseskifte.
+- [x] B01: gjenskapt som fastlåst kamp med to troll (tools/b01_troll.py, b01-troll.md). Denne utgaven slipper bare ut ett troll om gangen ($084208).
+- [ ] B01: følg trollets spiseangrep ($20) fra $086c20 og finn hvorfor det ikke slipper ridderen med to troll.
+- [ ] Monstertest-menyen ($82CE8) som valg på PC når vi har sett at den virker (cut-content.md).
+- [ ] Vis manual-, joystick- og månefasebildene fra arkivet i hjelpen på nettsiden.
+- [ ] Duell i Hver for seg: forsvarerens ridder overskrives med kopien fra angriperens maskin, som kan være noen sekunder gammel.
+- [ ] Standard-HD holder et 2D-lerret per figur i minnet (rundt 180 MB). Sjekk på iPhone.

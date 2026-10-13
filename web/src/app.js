@@ -22,7 +22,7 @@
 (() => {
     const $ = (id) => document.getElementById(id);
     const inn = Lager.innstillinger();
-    const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, navn: '', offentlig: false, knapper: false,
+    const innst = Object.assign({ filter: 'skarp', format: 'pal', helt: false, volum: 1, knappevent: false, maaneregler: false, navn: '', offentlig: false, knapper: false,
         effekter: { skygge: false, dybde: false, glod: false, farger: false, vignett: false }, spill: 'hver', hd: 'hd', sprak: 'en' }, inn);
     /* HD er standard. Et uttrykkelig valg av originalgrafikk huskes fortsatt. */
     if (!innst.hdValgt) innst.hd = 'hd';
@@ -99,8 +99,10 @@
         e.target.value = '';                    /* samme fil kan velges igjen */
         const innebygd = spillfil === INNEBYGD;
         spillfil = b;
-        if (!innebygd) await Lager.sett('spillfil', b);
-        startPaaNytt(innebygd ? 'Bruker den valgte spillfilen til siden lastes på nytt' : 'Spillfilen er lagret i nettleseren');
+        const lagret = innebygd || await Lager.sett('spillfil', b);
+        startPaaNytt(innebygd ? 'Bruker den valgte spillfilen til siden lastes på nytt'
+            : lagret ? 'Spillfilen er lagret i nettleseren'
+            : 'Nettleseren tok ikke imot spillfilen. Den brukes til siden lastes på nytt.');
     });
 
     function visMod() {
@@ -131,7 +133,7 @@
             else Kjerne.aapne(spillfil.slice());
             for (const [n, d] of Object.entries(modFiler)) Kjerne.leggInnFil('data/' + n, d);
             if (!Spillgrafikk.klar() && Spillgrafikk.last(Kjerne.hentFil)) brukSpillgrafikk();
-            Kjerne.start(innst.knappevent);
+            Kjerne.start(innst.knappevent, innst.maaneregler);
         }
         periode = 1 / Kjerne.hz();
         settVolum(innst.volum);
@@ -1835,11 +1837,16 @@
         const lagret = await autolagre(true);
         status(lagret ? 'Grafikken ble borte (vanlig på mobil). Spillet er lagret.' : 'Grafikken ble borte (vanlig på mobil).');
         graftimer = setTimeout(() => {
-            if (!Visning.grafikkBorte() || modus !== 'alene' || !lagret) return;
+            if (!Visning.grafikkBorte()) return;
+            if (modus !== 'alene' || !lagret) {
+                /* uten lagring kan vi ikke laste paa nytt for spilleren; si det i stedet for en svart skjerm */
+                lasting('Grafikken kom ikke tilbake. Last siden på nytt for å spille videre.');
+                return;
+            }
             try { sessionStorage.setItem('moonstone.fortsett', '1'); } catch (e) { /* privat vindu */ }
             location.reload();
         }, 6000);
-    }, () => { clearTimeout(graftimer); status('Grafikken er tilbake'); });
+    }, () => { clearTimeout(graftimer); lasting(null); status('Grafikken er tilbake'); });
 
     let skjermlaas = null;
     async function holdSkjermen() {
@@ -1884,6 +1891,7 @@
     $('volum').addEventListener('input', (e) => { innst.volum = +e.target.value; if (modus) settVolum(innst.volum); lagreInnst(); });
     /* introsangen i menyen og resten av spillet (originalen har den bare i introen) */
     $('knappevent').addEventListener('change', (e) => { innst.knappevent = e.target.checked; lagreInnst(); status('Gjelder fra neste start'); });
+    $('maaneregler').addEventListener('change', (e) => { innst.maaneregler = e.target.checked; lagreInnst(); status('Gjelder fra neste start'); });
     $('skjermknapper').addEventListener('change', (e) => { innst.knapper = e.target.checked; lagreInnst(); visKnapper(); });
 
     const kodeOk = () => {
@@ -2043,6 +2051,7 @@
     $('helt').checked = innst.helt;
     $('volum').value = innst.volum;
     $('knappevent').checked = innst.knappevent;
+    $('maaneregler').checked = innst.maaneregler;
     $('skjermknapper').checked = innst.knapper;
     $('hd-bryter').value = innst.hd === 'original' ? 'original' : 'hd';
     $('sprak').value = innst.sprak === 'no' ? 'no' : 'en';

@@ -8,6 +8,13 @@ Stedsportene er redusert til originalens 9x5 kartpiksler, uten eget draw_rect. P
 
 Varige fakta om prosjektet. Oppdateres når vi lærer noe nytt.
 
+## Historiske funn samlet 12. oktober 2026
+
+- docs/trollkrasj-og-manelogikk.md beskriver gjennomføringen av B01- og måneprøvene. Kodekontroll mot main f3103ebb bekrefter at --nohooks beholder lappene, at de to C-erstatningene gjelder joystick, og at headless returnerer 0 også etter M.aborted. --press/--dump bruker absolutte maskinbilder, mens --save-state og skjermbildeintervallet teller relativt til kjøringen. Reproduksjon, CPU-/stacklogger og spillmålinger gjenstår.
+- docs/kuttet-innhold-og-feil.md samler utviklerbekreftet riddervariasjon, større sluttkamper, uutviklede fiender og Moonstone 2-planer. Ingen gjenfunnet full kode-/assetpakke er dokumentert.
+- Samme register skiller rapportert trollkrasj og DOS-månefeil fra uavklarte årsaker, Black Knight-sporing og påstått manglende månematematikk. WHDLoad-loggen dokumenterer ikke save/restore eller den navngitte AI-rettingen; innebygd slave v1.4 er eldre enn nettsidens v1.6.
+- docs/samtale-gjenopptak-2026-10-12.md bevarer siste avbrutte grafikksamtales status og peker til lokale009-kandidater. Kandidatmanifestet er eldre enn main etter PR44 og skal ikke erstatte dagens manifest.
+
 ## Korrigert HD-status, 11. oktober 2026
 
 Brukeren presiserte at HD skal være en trofast nytegning med naturtro detaljer. De 75 ikonrutene fra 11. oktober er kun kildebasert konturbehandling, ikke ferdige HD-nytegninger. Tidligere leveringsomtale av ferdige ikoner var misvisende. 26 kartmarkørruter bruker fire ulike kildemønstre. Fontene bruker andre skrifttyper enn originalen. Fem blå helposer erstatter begrensede kildekombinasjoner, ikke separat tegning av alle figurruter.
@@ -558,3 +565,11 @@ RATMEN1.CEL063 er et44x35-lauvfragment som gjenbrukes med terrengets globale pal
 ## Monsterforarbeid 2026-10-12
 
 Original dg1.cel er ritualdanserne i sluttseremonien, ikke et groent beist/kampmonster. Faktisk original sluttgren er kontrollert med bare originalt seiersflagg ved oppstart; bilde1750, kommando og filspor i art/monster-concepts-2026-10-12/source. Den gamle klassifiseringen er rettet i tools/grafikkliste.py, docs/grafikkliste.md og tools/hd_bestilling.py. Trogg-hammer er et eget vaapen i TROGGAxe2.CEL069 og073..079, med samme kroppsbank som oeksen. Elleve konsepter/individuell analyse i art/monster-concepts-2026-10-12 er kun forarbeid, ikke aktive spritesheets. Dragens komplette anatomi og Guardians faseinndeling maa kildeverifiseres samlet foer full konvertering.
+
+## Månen, Ratmen og sykdom (12. oktober 2026)
+- Alt står i docs/undersokelser/maane.md. Verktøy: tools/maane.py (fasene) og tools/maane_kamp.py (stein, Ratmen, smitte, sykdom i ekte kamp i lair 0).
+- Fast mem: Ratmen og de andre kampfigurene ligger over $200000. Bruk mem_read8/16, ikke chip[], når en peker kan gå dit.
+- Ratmen: +$4D = $24, slaghandler dat_0855ce. Type 4 bitt smitter ($82), type 8 bare skade. Andre angrep via dat_0858a8 og sub_085ae0.
+- Sykdom trekkes i sub_080704, som bare kalles ved faseskifte.
+- Valget game_maaneregler lagres i delen MAAN. En lagring vinner over --maaneregler, så fixturer for valget må lages med flagget.
+- --vakt tar bare én adresse (siste vinner).

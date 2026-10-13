@@ -53,8 +53,8 @@ const Kjerne = (() => {
         filRevisjon++;
     }
 
-    function start(knappevent) {
-        if (!M._ms_start(knappevent ? 1 : 0)) throw new Error(M.UTF8ToString(M._ms_error()) || 'Oppstart feilet');
+    function start(knappevent, maaneregler) {
+        if (!M._ms_start(knappevent ? 1 : 0, maaneregler ? 1 : 0)) throw new Error(M.UTF8ToString(M._ms_error()) || 'Oppstart feilet');
     }
 
     function startSomGjest() {
